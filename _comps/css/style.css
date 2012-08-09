@@ -1,0 +1,78 @@
+.row-fluid {
+    margin-bottom: 2em;
+}
+.row-fluid > .row-fluid:last-child {
+    margin-bottom: 0;
+}
+
+
+#header {
+    padding: 0.5em 0;
+    z-index: 100;
+    position: relative;
+}
+
+#app {
+    padding-top: 2em;
+    overflow-y: auto;
+}
+
+#summary {
+}
+
+#summary .row-fuild {
+    margin: 1em 0;
+    height: 11.5em;
+
+}
+
+#summary .row-fuild div {
+    background: #efefef;
+    border-radius: 0.769em;
+    height: 100%;
+}
+
+.raised {
+    padding: 1em;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 1px white, 
+                0 10px 20px -10px #efefef;
+}
+
+#top-container {
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 5px 5px #ccc;
+    }
+#bottom-container {
+    background: #efefef;
+    padding-top: 2em;
+    }
+
+
+@media (max-width: 767px) {
+    body {
+        padding: 0;
+        }
+    .container-fluid {
+        padding: 0 20px;
+        }
+}
+
+#top-stats img {
+    width: 100%;
+    max-height: 300px;
+}
+
+.project {
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 1px white;
+}
+.project:last-child {
+    border-bottom: none;
+    box-shadow: none;
+}
+
+#timeline-comp {
+    margin-top: 2em;
+}
