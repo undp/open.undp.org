@@ -1,66 +1,133 @@
-.row-fluid {
-    margin-bottom: 2em;
+body {
+    background: fixed #efefef url(../images/bg.png);
 }
-.row-fluid > .row-fluid:last-child {
-    margin-bottom: 0;
+
+h1 {
+    color: #0740b2;
+    text-shadow: 0 1px 0 white;
+    text-indent: 113px;
+    background: url(../images/logo.png) no-repeat left center;
+    background-size: 100px;
+    font-weight: normal;
+    line-height: 87px;
+    height: 87px;
 }
-.project .row-fluid {
+
+#summary > .row-fluid {
+    width: auto;
+    padding: 20px;
+}
+
+#summary > .row-fluid .row-fluid {
     margin-bottom: 1em;
 }
-.project {
-    padding-bottom: 1em;
+
+#summary > .row-fluid:first-child {
+    margin: 0;
+}
+#summary .lead {
+    margin: 0;
 }
 
 
-
-#header {
-    padding: 0.5em 0;
-    z-index: 100;
-    position: relative;
-}
-
-#app {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    padding: 0;
-}
-#app > div, #summary {
-    height: 100%;
-    position: relative;
-    top: 0;
-    bottom: 0;
-}
-#summary {
-    padding: 1em;
-}
-#projects {
-    max-height: 100%;
-    overflow-y: auto;
-    padding: 1em 0;
-    padding-right: 2em;
-}
 #projects a {
     color: #333;
 }
+
 .raised {
-    background: white;
-    box-shadow: 0 0 20px #ccc;
-    border-right: 1px solid #ccc;
-}
-body {
-    background: #efefef;
+    background: rgba(255,255,255,0.75);
+    box-shadow: 0 10px 20px #999;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #999;
 }
 
-tr td:last-child {
+
+.fixed {
+    position: fixed;
+    top: 87px;
+    right: 20px;
+}
+
+.separator:first-child {
+    border-radius: 10px 10px 0 0;
+}
+.separator {
+    color: #66c2ff;
+    padding: 10px 20px;
+    
+    border-top: 1px solid #5A90DA;
+    border-bottom: 1px solid #036;
+    box-shadow: 0 -1px 0 #036, 0 1px 0 white;
+
+    background: url(../images/bg-header.png) bottom left repeat-x;
+}
+.separator a { color: #66c2ff; }
+
+.chart .data, .chart .caption {
+    float: left;
+    width: 50%;
+    text-indent: 0.5em;
+}
+
+.chart .data > div {
+    float: right;
+    clear: both;
     text-align: right;
+    height: 20px;
+    line-height: 20px;
+    /* IE10 Consumer Preview */ 
+    background-image: -ms-linear-gradient(right, #0055AA 0%, #5A90DA 100%);
+    /* Mozilla Firefox */ 
+    background-image: -moz-linear-gradient(right, #0055AA 0%, #5A90DA 100%);
+    /* Opera */ 
+    background-image: -o-linear-gradient(right, #0055AA 0%, #5A90DA 100%);
+    /* Webkit (Safari/Chrome 10) */ 
+    background-image: -webkit-gradient(linear, right top, left top, color-stop(0, #0055AA), color-stop(1, #5A90DA));
+    /* Webkit (Chrome 11+) */ 
+    background-image: -webkit-linear-gradient(right, #0055AA 0%, #5A90DA 100%);
+    /* W3C Markup, IE10 Release Preview */ 
+    background-image: linear-gradient(to left, #0055AA 0%, #5A90DA 100%);    color: #fff;
+    margin: 0.25em 0;
+    padding-right: 0.5em;
+    box-sizing: border-box;
+    font-size: 0.9em;
+}
+.chart .caption > div {
+    float: left;
+    clear: both;
+    text-align: left;
+    height: 20px;
+    line-height: 20px;
+    margin: 0.25em 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 100%;
 }
 
+.toggle {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    width: 93px;
+}
+
+.stats .lead {
+    margin: 0;
+}
+
+form {
+    margin: 0;
+}
+
+#filter-filter {
+    margin-bottom: 20px;
+}
+
+#filters li {
+    line-height: 24px;
+    text-indent: 10px;
+}
 
 /* project.html */
 
@@ -112,46 +179,9 @@ tr td:last-child {
     border-radius: 0;
     color: #003366;
     position: relative;
+    text-transform: capitalize;
 }
 
-.chart .data, .chart .caption {
-    float: left;
-    width: 50%;
-    text-indent: 0.5em;
-}
-
-.chart .data > div {
-    float: right;
-    clear: both;
-    text-align: right;
-    height: 1.25em;
-    line-height: 1.25em;
-    background: #A8BCCC;
-    color: #fff;
-    margin: 0.25em 0;
-    padding-right: 0.5em;
-    box-sizing: border-box;
-}
-.chart .caption > div {
-    float: left;
-    clear: both;
-    text-align: left;
-    height: 1.25em;
-    line-height: 1.25em;
-    margin: 0.25em 0;
-    box-sizing: border-box;
-    text-overflow: ellipsis;
-    overflow: hidden;
+img {
     width: 100%;
-}
-
-.toggle {
-    position: absolute;
-    top: 0px;
-    right: 0;
-    width: 92px;
-}
-
-#stats .lead {
-    margin: 0;
 }

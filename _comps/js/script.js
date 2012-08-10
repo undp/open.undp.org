@@ -4,6 +4,7 @@ $(function(){
         '<tr>' +
             '<td><a href="project.html"><% print(project.toLowerCase()) %></a></td>' +
             '<td><% print(accounting.formatMoney(budget)) %></td>' +
+            '<td><%= status %></td>' +
         '</tr>'
     );
 
@@ -15,11 +16,12 @@ $(function(){
     });
 
     $('#items').append(
-        '<table class="table table-condensed">' +
+        '<table class="table">' +
             '<thead>' +
                 '<tr>' +
                     '<th>Project</th>' +
                     '<th>Budget</th>' +
+                    '<th>Status</th>' +
                 '</tr>' +
             '</thead>' +
             '<tbody>' +
