@@ -4,6 +4,13 @@
 .row-fluid > .row-fluid:last-child {
     margin-bottom: 0;
 }
+.project .row-fluid {
+    margin-bottom: 1em;
+}
+.project {
+    padding-bottom: 1em;
+}
+
 
 
 #header {
@@ -13,36 +20,56 @@
 }
 
 #app {
-    padding-top: 2em;
-    overflow-y: auto;
-}
-
-#summary {
-}
-
-#summary .row-fuild {
-    margin: 1em 0;
-    height: 11.5em;
-
-}
-
-#summary .row-fuild div {
-    background: #efefef;
-    border-radius: 0.769em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
+    box-sizing: border-box;
+    padding: 0;
+}
+#app > div, #summary {
+    height: 100%;
+    position: relative;
+    top: 0;
+    bottom: 0;
+}
+#summary {
+    padding: 1em;
+}
+#projects {
+    max-height: 100%;
+    overflow-y: auto;
+    padding: 1em 0;
+    padding-right: 2em;
+}
+#projects a {
+    color: #333;
+}
+.raised {
+    background: white;
+    box-shadow: 0 0 20px #ccc;
+    border-right: 1px solid #ccc;
+}
+body {
+    background: #efefef;
 }
 
-.raised {
-    padding: 1em;
-    border-bottom: 1px solid #ccc;
-    box-shadow: 0 1px white, 
-                0 10px 20px -10px #efefef;
+tr td:last-child {
+    text-align: right;
 }
+
+
+/* project.html */
 
 #top-container {
     position: relative;
     z-index: 1;
-    box-shadow: 0 5px 5px #ccc;
+    box-shadow: 0 0 20px #ccc;
+    border-bottom: 1px solid #ccc;
+    background: white;
     }
 #bottom-container {
     background: #efefef;
@@ -75,4 +102,56 @@
 
 #timeline-comp {
     margin-top: 2em;
+}
+.label {
+    padding: 0.5em 0;
+    margin-bottom: 0.5em;
+    background: none;
+    text-shadow: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    color: #003366;
+    position: relative;
+}
+
+.chart .data, .chart .caption {
+    float: left;
+    width: 50%;
+    text-indent: 0.5em;
+}
+
+.chart .data > div {
+    float: right;
+    clear: both;
+    text-align: right;
+    height: 1.25em;
+    line-height: 1.25em;
+    background: #A8BCCC;
+    color: #fff;
+    margin: 0.25em 0;
+    padding-right: 0.5em;
+    box-sizing: border-box;
+}
+.chart .caption > div {
+    float: left;
+    clear: both;
+    text-align: left;
+    height: 1.25em;
+    line-height: 1.25em;
+    margin: 0.25em 0;
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+}
+
+.toggle {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    width: 92px;
+}
+
+#stats .lead {
+    margin: 0;
 }

@@ -8,49 +8,106 @@
     <link href="css/style.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="container-fluid">
+    <div id="app" class="container-fluid">
         <div class="row-fluid">
-            <div id="header" class="span12 raised">
-                <h1>UNDP Projects: <span id="subhead">Afhganistan</span></h1>
-            </div>
-        </div>
-        <div id="app" class="row-fluid">
-            <div id="list" class="span6">
+            <div id="summary" class="span8 raised">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <h1>UNDP Project Portal</h1>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div id="filters" class="span3">
+                        <form class="form-search">
+                            <input type="search" class="input-medium" placeholder="Find a filter...">
+                        </form>
+                    </div> <!--/ #filters -->
+                    <div class="span9">
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <p class="lead">Browse the full database of UNDP projects. Filter by countries, donors, outcomes, and more. Or <a href="#">download the data</a>.</p>
+                            </div>
+                        </div>
+                        <div id="stats" class="row-fluid">
+                            <div class="span4">
+                                <p class="lead">10,500</p>
+                                <p><strong>Projects</strong></p>
+                            </div>
+                            <div class="span4">
+                                <p class="lead">$34,00,000</p>
+                                <p><strong>Budget</strong></p>
+                            </div>
+                            <div class="span4">
+                                <p class="lead">$10,000,000</p>
+                                <p><strong>Expenditure</strong></p>
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="span6">
+                                <div class="label">Top countries
+                                    <div class="btn-group toggle">
+                                        <button class="btn btn-mini">Count</button>
+                                        <button class="btn btn-mini">Budget</button>
+                                    </div>
+                                </div>
+                                <div id="countries" class="chart">
+                                    <div class="data"></div>
+                                    <div class="caption"></div>
+                                </div>
+                            </div>
+                            <div class="span6">
+                                <div class="label visible-phone">Location</div>
+                                <p><img src="images/profile_map.png" alt="profile_map"></p>
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="span6">
+                                <div class="label">Top donors
+                                    <div class="btn-group toggle">
+                                        <button class="btn btn-mini">Count</button>
+                                        <button class="btn btn-mini">Budget</button>
+                                    </div>
+                                </div>
+                                <div id="donors" class="chart">
+                                    <div class="data"></div>
+                                    <div class="caption"></div>
+                                </div>
+                            </div>
+                            <div class="span6">
+                                <div class="label">Top outcomes
+                                    <div class="btn-group toggle">
+                                        <button class="btn btn-mini">Count</button>
+                                        <button class="btn btn-mini">Budget</button>
+                                    </div>
+                                </div>
+                                <div id="outcomes" class="chart">
+                                    <div class="data"></div>
+                                    <div class="caption"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!--/ #summary -->
+            <div id="projects" class="span4">
                 <div class="row-fluid">
                     <div class="span12">
                         <form class="form-search">
-                            <input type="search" class="" placeholder="Filter...">
+                            <input type="search" class="" placeholder="Search for a project...">
                         </form>
                         <div id="items"></div>
                     </div>
                 </div>
-            </div>
-            <div id="summary" class="span6">
-                <div class="row-fuild">
-                    <div class="span12 raised">
-                        <h3>Projects by category</h3>
-                    </div>
-                </div>
-                <div class="row-fuild">
-                    <div class="span12 raised">
-                        <h3>Top donors</h3>
-                    </div>
-                </div>
-                <div class="row-fuild">
-                    <div class="span12 raised">
-                        <h3>Top partners</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
+            </div> <!--/ #projects -->
+        </div> <!--/ #app -->
     </div>
     <script src="js/jquery.js"></script>
     <script src="js/underscore.js"></script>
+    <script src="js/accounting.js"></script>
     <script src="http://js.mapbox.com/mapbox.js/v0.6.0-dev/mapbox.js"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
     <script src="data/projects.json"></script>
     <script src="js/script.js"></script>
-
     <script></script>
 </body>
 </html>
