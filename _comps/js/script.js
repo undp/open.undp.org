@@ -33,6 +33,17 @@ $(function(){
     makeFilter('countries');
     makeFilter('donors');
     makeFilter('outcomes');
+
+    $(window).on('scroll', function() {
+        console.log($(window).scrollTop());
+        if($(window).scrollTop() >= 67) {
+            $('#filters').addClass('fixed');
+        } else {
+            $('#filters').removeClass('fixed');
+        }
+    });
+filters
+
 });
 
 function makeFilter(name) {
@@ -58,7 +69,7 @@ function makeFilter(name) {
             );
         });
 
-        $('#filters').append(filter);
+        $('#filter-links').append(filter);
 
         var max = items[0].count;
 
