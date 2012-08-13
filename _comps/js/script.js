@@ -4,7 +4,7 @@ $(function(){
         '<tr>' +
             '<td><a href="project.html"><% print(project.toLowerCase()) %></a></td>' +
             '<td><% print(accounting.formatMoney(budget)) %></td>' +
-            '<td><%= status %></td>' +
+            '<td><% print(accounting.formatMoney(budget * 0.8)) %></td>' +
         '</tr>'
     );
 
@@ -21,7 +21,7 @@ $(function(){
                 '<tr>' +
                     '<th>Project</th>' +
                     '<th>Budget</th>' +
-                    '<th>Status</th>' +
+                    '<th>Expenditure</th>' +
                 '</tr>' +
             '</thead>' +
             '<tbody>' +
@@ -78,7 +78,8 @@ function makeFilter(name) {
         var max = items[0].count;
 
         _(items).each(function(o) {
-            $('.data', '#' + name).append('<div style="width: ' + (o.count / max * 100) + '%">' + o.count + '</div>');
+            var label = (o.count / max * 100) > 15 ? o.count : '';
+            $('.data', '#' + name).append('<div style="width: ' + (o.count / max * 100) + '%">' + label + '</div>');
             $('.caption', '#' + name).append('<div>' + o.value.toLowerCase() + '</div>');
         });
 
