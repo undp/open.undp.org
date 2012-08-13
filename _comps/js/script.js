@@ -35,14 +35,18 @@ $(function(){
     makeFilter('outcomes');
 
     $(window).on('scroll', function() {
-        console.log($(window).scrollTop());
         if($(window).scrollTop() >= 67) {
             $('#filters').addClass('fixed');
         } else {
             $('#filters').removeClass('fixed');
         }
     });
-filters
+
+    $(window).on('click', '#filters a', function(e) {
+        var parent = $(this).parent().parent();
+        $('a', parent).removeClass('active');
+        $(this).addClass('active');
+    });
 
 });
 
@@ -65,7 +69,7 @@ function makeFilter(name) {
 
         _(items).each(function(o) {
             $('.filter-items', filter).append(
-                '<li>' + o.value.toLowerCase() + ' (' + o.count + ')</li>'
+                '<li><a href="#">' + o.value.toLowerCase() + ' (' + o.count + ')</a></li>'
             );
         });
 

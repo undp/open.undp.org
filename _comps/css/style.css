@@ -5,12 +5,20 @@ body {
 h1 {
     color: #0740b2;
     text-shadow: 0 1px 0 white;
-    text-indent: 113px;
-    background: url(../images/logo.png) no-repeat left center;
-    background-size: 100px;
     font-weight: normal;
-    line-height: 87px;
-    height: 87px;
+    line-height: 80px;
+    font-size: 2em;
+}
+h1 #logo {
+    width: 100px;
+    margin-right: 10px;
+    background: url(../images/logo.png) no-repeat;
+    display: block;
+    float: left;
+    background-size: 100px;
+    text-indent: -9000px;
+    margin-top: 20px;
+    height: 47.3px;
 }
 
 #summary > .row-fluid {
@@ -71,7 +79,28 @@ h1 {
     /* W3C Markup, IE10 Release Preview */ 
     background-image: linear-gradient(to bottom, #01396F 0%, #062A4A 100%);
 }
+#app.project .separator {
+    border-top: 1px solid #55BBFF;
+    border-bottom: 1px solid #0B387C;
+    box-shadow: 0 -1px 0 #0055AA, 0 1px 0 white;
+    background: #0055AA;
+
+    /* IE10 Consumer Preview */ 
+    background-image: -ms-linear-gradient(bottom, #0055AA 0%, #5A90DA 100%);
+    /* Mozilla Firefox */ 
+    background-image: -moz-linear-gradient(bottom, #0055AA 0%, #5A90DA 100%);
+    /* Opera */ 
+    background-image: -o-linear-gradient(bottom, #0055AA 0%, #5A90DA 100%);
+    /* Webkit (Safari/Chrome 10) */ 
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #0055AA), color-stop(1, #5A90DA));
+    /* Webkit (Chrome 11+) */ 
+    background-image: -webkit-linear-gradient(bottom, #0055AA 0%, #5A90DA 100%);
+    /* W3C Markup, IE10 Release Preview */ 
+    background-image: linear-gradient(to top, #0055AA 0%, #5A90DA 100%);
+}
 .separator a { color: #EDF4FE; }
+
+
 
 .chart .data, .chart .caption {
     float: left;
@@ -85,23 +114,23 @@ h1 {
     text-align: right;
     height: 20px;
     line-height: 20px;
-    background: #5A90DA;
+    background: #265F91;
     /* IE10 Consumer Preview */ 
-    background-image: -ms-linear-gradient(right, #0055AA 0%, #5A90DA 100%);
+    background-image: -ms-linear-gradient(right, #265F91 0%, #557799 100%);
     /* Mozilla Firefox */ 
-    background-image: -moz-linear-gradient(right, #0055AA 0%, #5A90DA 100%);
+    background-image: -moz-linear-gradient(right, #265F91 0%, #557799 100%);
     /* Opera */ 
-    background-image: -o-linear-gradient(right, #0055AA 0%, #5A90DA 100%);
+    background-image: -o-linear-gradient(right, #265F91 0%, #557799 100%);
     /* Webkit (Safari/Chrome 10) */ 
-    background-image: -webkit-gradient(linear, right top, left top, color-stop(0, #0055AA), color-stop(1, #5A90DA));
+    background-image: -webkit-gradient(linear, right top, left top, color-stop(0, #265F91), color-stop(1, #557799));
     /* Webkit (Chrome 11+) */ 
-    background-image: -webkit-linear-gradient(right, #0055AA 0%, #5A90DA 100%);
+    background-image: -webkit-linear-gradient(right, #265F91 0%, #557799 100%);
     /* W3C Markup, IE10 Release Preview */ 
-    background-image: linear-gradient(to left, #0055AA 0%, #5A90DA 100%);    color: #fff;
-    margin: 0.25em 0;
+    background-image: linear-gradient(to left, #265F91 0%, #557799 100%);    margin: 0.25em 0;
     padding-right: 0.5em;
     box-sizing: border-box;
     font-size: 0.9em;
+    color: #EDF4FE;
 }
 .chart .caption > div {
     float: left;
@@ -125,7 +154,7 @@ h1 {
 
 .stats .lead {
     margin: 0;
-    color: #0740b2;
+    color: #265F91;
 }
 .stats strong {
     color: #036;
@@ -148,14 +177,36 @@ form {
     color: #036;
 }
 
-#filter-filter {
+#filter-field {
     margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.6);
 }
 
 #filters li {
     line-height: 24px;
     text-indent: 10px;
     text-shadow: 0 1px 0 #fdfdfd;
+}
+
+#filters li a {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 5px;
+    color: #333;
+}
+
+#filters li a:hover, #filters li a:focus {
+    background: rgba(171, 196, 191, 0.25);
+    text-decoration: none;
+}
+#filters li a.active {
+    background: rgba(171, 196, 191, 0.5);
+    text-decoration: none;
+}
+#filters li a:active {
+    background: rgba(171, 196, 191, 0.75);
+    text-decoration: none;
 }
 
 .nav {
@@ -170,8 +221,12 @@ form {
     color: #999;
     text-shadow: 0 1px 0 white;
 }
-.nav a:hover {
+.nav a:hover, .nav a:focus {
     text-decoration: none;
+    color: #aaa;
+}
+.nav a:active {
+    color: #ccc;
 }
 
 /* project.html */
