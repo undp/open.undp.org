@@ -4,12 +4,12 @@ $(function(){
         '<tr>' +
             '<td><a href="project.html"><% print(project.toLowerCase()) %></a></td>' +
             '<td><% print(accounting.formatMoney(budget)) %></td>' +
-            '<td><%= status %></td>' +
+            '<td><% print(accounting.formatMoney(budget * 0.8)) %></td>' +
         '</tr>'
     );
 
     var rows = [];
-    
+
     PROJECTS = _(PROJECTS).sortBy(function(o) { return -1 * o.budget; });
     _(PROJECTS).each(function(project) {
         rows.push(template(project));
@@ -21,7 +21,7 @@ $(function(){
                 '<tr>' +
                     '<th>Project</th>' +
                     '<th>Budget</th>' +
-                    '<th>Status</th>' +
+                    '<th>Expenditure</th>' +
                 '</tr>' +
             '</thead>' +
             '<tbody>' +
@@ -35,15 +35,18 @@ $(function(){
     makeFilter('outcomes');
 
     $(window).on('scroll', function() {
-        console.log($(window).scrollTop());
         if($(window).scrollTop() >= 67) {
             $('#filters').addClass('fixed');
         } else {
             $('#filters').removeClass('fixed');
         }
     });
-filters
 
+    $(window).on('click', '#filters a', function(e) {
+        var parent = $(this).parent().parent();
+        $('a', parent).removeClass('active');
+        $(this).addClass('active');
+    });
 });
 
 function makeFilter(name) {
@@ -65,7 +68,7 @@ function makeFilter(name) {
 
         _(items).each(function(o) {
             $('.filter-items', filter).append(
-                '<li>' + o.value.toLowerCase() + ' (' + o.count + ')</li>'
+                '<li><a href="#">' + o.value.toLowerCase() + ' (' + o.count + ')</a></li>'
             );
         });
 
@@ -74,9 +77,9 @@ function makeFilter(name) {
         var max = items[0].count;
 
         _(items).each(function(o) {
-            $('.data', '#' + name).append('<div style="width: ' + (o.count / max * 100) + '%">' + o.count + '</div>');
+            var label = (o.count / max * 100) > 15 ? o.count : '';
+            $('.data', '#' + name).append('<div style="width: ' + (o.count / max * 100) + '%">' + label + '</div>');
             $('.caption', '#' + name).append('<div>' + o.value.toLowerCase() + '</div>');
         });
-
     });
 }
