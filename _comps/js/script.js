@@ -9,7 +9,7 @@ $(function(){
     );
 
     var rows = [];
-    
+
     PROJECTS = _(PROJECTS).sortBy(function(o) { return -1 * o.budget; });
     _(PROJECTS).each(function(project) {
         rows.push(template(project));
@@ -47,7 +47,6 @@ $(function(){
         $('a', parent).removeClass('active');
         $(this).addClass('active');
     });
-
 });
 
 function makeFilter(name) {
@@ -82,6 +81,5 @@ function makeFilter(name) {
             $('.data', '#' + name).append('<div style="width: ' + (o.count / max * 100) + '%">' + label + '</div>');
             $('.caption', '#' + name).append('<div>' + o.value.toLowerCase() + '</div>');
         });
-
     });
 }
