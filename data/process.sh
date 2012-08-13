@@ -1,14 +1,15 @@
 #!/bin/bash
 
-mkdir csv/ 
-mkdir index/ 
+mkdir temp-csv/ 
+mkdir api/ 
+mkdir api/projects/
 
 # Generate project (level1) summary csv from sqlite db output
 echo "Processing sqlite..."
 sqlite3 undp-project-db.sqlite <<!
 .headers on 
 .mode csv 
-.output csv/undp-project-summary.csv 
+.output temp-csv/undp-project-summary.csv 
 select 
     h.awardid as project_id, h.bureau as region, h.rollup_ou as operating_unit, 
     sum(h.project_budget) as budget, sum(h.project_expenditure) as expenditure, 
@@ -40,13 +41,15 @@ echo "Processing sqlite..."
 sqlite3 undp-project-db.sqlite <<!
 .headers on 
 .mode csv 
-.output csv/undp-project-full.csv
+.output temp-csv/undp-project-full.csv
 select
      c.awardid as project_id, c.bureau as region, c.rollup_ou as operating_unit,
      c.fiscal_year as fiscal_year, 
-     d.award_title as project_title, d.award_description as project_description, d.begin_dt as project_start, d.end_dt as project_end,
+     d.award_title as project_title, d.award_description as project_description, 
+     d.begin_dt as project_start, d.end_dt as project_end,
      sum(c.project_budget) as budget, sum(c.project_expenditure) as expenditure, g.donors as donors
-     from (select b.bureau, b.rollup_ou, b.awardid, b.project_id, b.project_budget, b.project_expenditure, b.fiscal_year, b.start_dt, b.end_dt
+     from (select b.bureau, b.rollup_ou, b.awardid, b.project_id, b.project_budget, b.project_expenditure, 
+                b.fiscal_year, b.start_dt, b.end_dt 
                from report_outputs b) as c
      left join (
           select
@@ -66,7 +69,7 @@ echo "Processing sqlite..."
 sqlite3 undp-project-db.sqlite <<!
 .headers on 
 .mode csv 
-.output csv/undp-subproject-full.csv
+.output temp-csv/undp-subproject-full.csv
 select
      c.project_id as project_id, c.project_title as project_title, 
      c.project_description as project_description, c.project_start as project_start, 
@@ -75,7 +78,8 @@ select
      b.project_description as subproject_title, b.project_long_description as subproject_description, 
      b.fiscal_year as fiscal_year, b.project_budget as budget, b.project_expenditure as expenditure, 
      g.donors as donors, d.GenderMarkerDescription as gender_mark, b.sp1_fa as focus_area, 
-     b.sp1_co as corporate_outcome, b.start_dt as subproject_start, b.end_dt as subproject_end
+     b.sp1_co as corporate_outcome, b.start_dt as subproject_start, b.end_dt as subproject_end,
+     b.crs as crs
      from report_outputs b
      left join (
      select a.awardid as project_id, a.fiscal_year as project_year, 
@@ -93,13 +97,13 @@ select
 .quit
 !
 
-echo "Full Subproject List CSV generated."
+echo "Created: undp-subproject-full.csv"
 
 echo "Processing sqlite..."
 sqlite3 undp-project-db.sqlite <<!
 .headers on 
 .mode csv 
-.output csv/undp-regions-index.csv
+.output temp-csv/undp-regions-index.csv
 SELECT bureau as id, bureau_description as name FROM regions;
 .quit
 !
@@ -109,7 +113,7 @@ echo "Processing sqlite..."
 sqlite3 undp-project-db.sqlite <<!
 .headers on 
 .mode csv 
-.output csv/undp-projectid-index.csv
+.output temp-csv/undp-projectid-index.csv
 select awardid as id, award_title as name from project_level1 group by id;
 .quit
 !
@@ -119,17 +123,7 @@ echo "Processing sqlite..."
 sqlite3 undp-project-db.sqlite <<!
 .headers on 
 .mode csv 
-.output csv/undp-subprojectid-index.csv
-select project_id as id, project_description as name from report_outputs group by id;
-.quit
-!
-echo "undp-subprojectid-index.csv generated"
-
-echo "Processing sqlite..."
-sqlite3 undp-project-db.sqlite <<!
-.headers on 
-.mode csv 
-.output csv/undp-donor-index.csv
+.output temp-csv/undp-donor-index.csv
 select donor as id, donor_long_description as name from project_level1_donor where id != '' group by id;
 !
 echo "undp-donor-index.csv generated"
@@ -138,7 +132,7 @@ echo "Processing sqlite..."
 sqlite3 undp-project-db.sqlite <<!
 .headers on 
 .mode csv 
-.output csv/undp-focus-area-index.csv
+.output temp-csv/undp-focus-area-index.csv
 select focus_area_1 as id, sp1_fa_description as name from outcomes where id != '' group by id;
 !
 echo "undp-focus-area-index.csv generated"
@@ -147,7 +141,7 @@ echo "Processing sqlite..."
 sqlite3 undp-project-db.sqlite <<!
 .headers on 
 .mode csv 
-.output csv/undp-operating-unit-index.csv
+.output temp-csv/undp-operating-unit-index.csv
 select rollup_ou as id, rollup_ou_description as name from operating_units group by id;
 !
 echo "undp-operating-unit-index.csv generated"
@@ -156,13 +150,25 @@ echo "Processing sqlite..."
 sqlite3 undp-project-db.sqlite <<!
 .headers on 
 .mode csv 
-.output csv/undp-outcome-index.csv
+.output temp-csv/undp-outcome-index.csv
 select corporate_outcome_1 as id, sp1_co_description as name from outcomes group by id;
 !
 echo "undp-outcome-index.csv generated"
 
-# Run Python project summary to JSON scrip
-python projects_summary.py
+echo "Processing sqlite..."
+sqlite3 undp-project-db.sqlite <<!
+.headers on 
+.mode csv 
+.output temp-csv/undp-crs-index.csv
+select crs as id, "" as name from report_outputs where id != '' group by id;
+!
+
 
 # Run Python script to generate index JSON files
 python index.py
+
+echo "Index files generated."
+
+# Run Python scrip to generate all project JSON files
+python all-projects.py
+
