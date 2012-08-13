@@ -12,12 +12,12 @@ sqlite3 undp-project-db.sqlite <<!
 select 
     h.awardid as project_id, h.bureau as region, h.rollup_ou as operating_unit, 
     sum(h.project_budget) as budget, sum(h.project_expenditure) as expenditure, 
-    g.donors as donors, h.crs as crs 
+    g.donors as donors, h.crs as crs, h.sp1_fa as focus_area, h.sp1_co as outcome 
     from (
         (select 
             b.bureau, b.rollup_ou, b.awardid, 
             b.project_id, b.project_budget, b.project_expenditure, 
-            b.fiscal_year, b.start_dt, b.end_dt, b.crs 
+            b.fiscal_year, b.start_dt, b.end_dt, b.crs, b.sp1_fa, b.sp1_co 
         from report_outputs b) as c 
         left join (
         select 
@@ -31,7 +31,7 @@ left join (
     from output_donor f group by f.awardid
     ) as g 
     on g.awardid = h.awardid 
-group by h.awardid; 
+group by h.awardid;
 .quit
 !
 echo "Project Summary CSV generated."
