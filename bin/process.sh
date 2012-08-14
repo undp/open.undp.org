@@ -113,16 +113,6 @@ echo "Processing sqlite..."
 sqlite3 undp-project-db.sqlite <<!
 .headers on 
 .mode csv 
-.output temp-csv/undp-projectid-index.csv
-select awardid as id, award_title as name from project_level1 group by id;
-.quit
-!
-echo "undp-projectid-index.csv generated"
-
-echo "Processing sqlite..."
-sqlite3 undp-project-db.sqlite <<!
-.headers on 
-.mode csv 
 .output temp-csv/undp-donor-index.csv
 select donor as id, donor_long_description as name from project_level1_donor where id != '' group by id;
 !
