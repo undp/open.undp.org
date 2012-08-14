@@ -1,8 +1,8 @@
 #!/bin/bash
 
 mkdir temp-csv/ 
-mkdir api/ 
-mkdir api/projects/
+mkdir ../api/ 
+mkdir ../api/projects/
 
 # Generate project (level1) summary csv from sqlite db output
 echo "Processing sqlite..."
@@ -11,7 +11,7 @@ sqlite3 undp-project-db.sqlite <<!
 .mode csv 
 .output temp-csv/undp-project-summary.csv 
 select 
-    h.awardid as project_id, h.bureau as region, h.rollup_ou as operating_unit, 
+    h.awardid as id, h.award_title as name, h.bureau as region, h.rollup_ou as operating_unit, 
     sum(h.project_budget) as budget, sum(h.project_expenditure) as expenditure, 
     g.donors as donors, h.crs as crs, h.sp1_fa as focus_area, h.sp1_co as outcome 
     from (
@@ -59,7 +59,7 @@ select
     join (
           select f.awardid, f.fiscal_year, group_concat(f.descrshort, ",") as donors from output_donor f group by f.project_id, f.fiscal_year
           ) as g on g.awardid = c.awardid and g.fiscal_year = c.fiscal_year
-group by d.awardid, d.fiscal_year;
+group by d.awardid;
 .quit
 !
 

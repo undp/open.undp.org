@@ -8,11 +8,10 @@ import csv, sys, json
 undp_subprojects = csv.DictReader(open('temp-csv/undp-subproject-full.csv', 'rb'), delimiter = ',', quotechar = '"')
 undp_projects = csv.DictReader(open('temp-csv/undp-project-full.csv', 'rb'), delimiter = ',', quotechar = '"')
 
-
-undp_proj_filter = filter(lambda x: x['fiscal_year'] != '2010', undp_projects)
+#undp_proj_filter = filter(lambda x: x['fiscal_year'] != '2010', undp_projects)
 
 undp_sub_sort = sorted(undp_subprojects, key = lambda x: x['subproject_id'])
-undp_proj_sort = sorted(undp_proj_filter, key = lambda x: x['project_id'])
+undp_proj_sort = sorted(undp_projects, key = lambda x: x['project_id'])
 
 subproj_count = 0
 proj_count = 0
@@ -77,7 +76,7 @@ file_count = 0
 for row in project_json:
     file_count = file_count + 1
     writeout = json.dumps(row, sort_keys=True, indent=4)
-    f_out = open('api/projects/%s.json' % row['id'], 'wb')
+    f_out = open('../api/projects/%s.json' % row['id'], 'wb')
     f_out.writelines(writeout)
     f_out.close()
 

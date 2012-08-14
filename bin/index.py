@@ -19,7 +19,7 @@ print "Processing..."
 print "Processed %d rows" % row_count
 summary_writeout = json.dumps(project_sort, sort_keys=True, indent=4)
 
-summary_out = open('api/project_summary.json', 'wb')
+summary_out = open('../api/project_summary.json', 'wb')
 summary_out.writelines(summary_writeout)
 summary_out.close()
 
@@ -38,28 +38,9 @@ print "Processing..."
 print "Processed %d rows" % row_count
 region_writeout = json.dumps(regions_sort, sort_keys=True, indent=4)
 
-region_out = open('api/region-index.json', 'wb')
+region_out = open('../api/region-index.json', 'wb')
 region_out.writelines(region_writeout)
 region_out.close()
-
-##########################
-# Process Project ID index
-# Open index csv
-project_id = csv.DictReader(open('temp-csv/undp-projectid-index.csv', 'rb'), delimiter = ',', quotechar = '"')
-# Sort file
-project_id_sort = sorted(project_id, key = lambda x: x['id'])
-
-row_count = 0
-for row in project_id_sort:
-    row_count = row_count + 1
-
-print "Processing..."
-print "Processed %d rows" % row_count
-proj_writeout = json.dumps(project_id_sort, sort_keys=True, indent=4)
-
-project_out = open('api/project-id-index.json', 'wb')
-project_out.writelines(proj_writeout)
-project_out.close()
 
 
 ##########################
@@ -77,7 +58,7 @@ print "Processing..."
 print "Processed %d rows" % row_count
 donor_writeout = json.dumps(donor_sort, sort_keys=True, indent=4)
 
-donor_out = open('api/donor-index.json', 'wb')
+donor_out = open('../api/donor-index.json', 'wb')
 donor_out.writelines(donor_writeout)
 donor_out.close()
 
@@ -97,7 +78,7 @@ print "Processing..."
 print "Processed %d rows" % row_count
 focus_writeout = json.dumps(focus_sort, sort_keys=True, indent=4)
 
-focus_out = open('api/focus-area-index.json', 'wb')
+focus_out = open('../api/focus-area-index.json', 'wb')
 focus_out.writelines(focus_writeout)
 focus_out.close()
 
@@ -117,7 +98,7 @@ print "Processing..."
 print "Processed %d rows" % row_count
 ou_writeout = json.dumps(ou_sort, sort_keys=True, indent=4)
 
-ou_out = open('api/operating-unit-index.json', 'wb')
+ou_out = open('../api/operating-unit-index.json', 'wb')
 ou_out.writelines(ou_writeout)
 ou_out.close()
 
@@ -137,7 +118,7 @@ print "Processing..."
 print "Processed %d rows" % row_count
 outcome_writeout = json.dumps(outcome_sort, sort_keys=True, indent=4)
 
-outcome_out = open('api/outcome-index.json', 'wb')
+outcome_out = open('../api/outcome-index.json', 'wb')
 outcome_out.writelines(outcome_writeout)
 outcome_out.close()
 
@@ -157,6 +138,6 @@ print "Processing..."
 print "Processed %d rows" % row_count
 crs_writeout = json.dumps(crs_sort, sort_keys=True, indent=4)
 
-crs_out = open('api/crs-index.json', 'wb')
+crs_out = open('../api/crs-index.json', 'wb')
 crs_out.writelines(crs_writeout)
 crs_out.close()
