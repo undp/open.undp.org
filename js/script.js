@@ -1,29 +1,66 @@
 ---
 ---
-// Application data
-window.app = {
-    models: {},
-    views: {},
-    routers: {},
-    templates: _($('script[name]')).reduce(function(memo, el) {
-        memo[el.getAttribute('name')] = _(el.innerHTML).template();
-        return memo;
-    }, {})
-};
-window.args = _(window.app).toArray();
+(function() {
+    var models = {},
+        views = {},
+        routers = {},
+        templates = _($('script[name]')).reduce(function(memo, el) {
+            memo[el.getAttribute('name')] = _(el.innerHTML).template();
+            return memo;
+        }, {}),
+        app = {},
+        filters = [
+/*
+            {
+                id: 'crs',
+                url: 'api/crs-index.json',
+                name: 'CRS Aid Classification'
+            },
+*/
+            {
+                id: 'donors',
+                url: 'api/donor-index.json',
+                name: 'Donors'
+            },
+            {
+                id: 'focus_area',
+                url: 'api/focus-area-index.json',
+                name: 'UNDP Focus Areas'
+            },
+            {
+                id: 'operating_unit',
+                url: 'api/operating-unit-index.json',
+                name: 'Country Offices / Operating Units'
+            },
+/*
+            {
+                id: 'outcome',
+                url: 'api/outcome-index.json',
+                name: 'Corporate Outcomes'
+            },
+*/
+            {
+                id: 'region',
+                url: 'api/region-index.json',
+                name: 'Regional Bureau'
+            }
+        ];
 
-// Router
-{% include routers/App.js %}
+    // Models
+    {% include models/Filter.js %}
+    {% include models/Project.js %}
 
-// Models
+    // Views
+    {% include views/App.js %}
+    {% include views/Filters.js %}
+    {% include views/Projects.js %}
 
-// Views
-{% include views/App.js %}
+    // Router
+    {% include routers/Router.js %}
 
-// Start the application
-(function(models, views, routers, templates) {
+    // Start the application
     $(function() {
-        var app = new routers.App();
-        //Backbone.history.start();
+        app = new routers.App();
+        Backbone.history.start();
     });
-}).apply(this, window.args);
+})();
