@@ -9,7 +9,7 @@ import csv, sys, json
 project_summary = csv.DictReader(open('temp-csv/undp-project-summary.csv', 'rb'), delimiter = ',', quotechar = '"')
 
 # Sort on project id
-project_sort = sorted(project_summary, key = lambda x: x['project_id'])
+project_sort = sorted(project_summary, key = lambda x: x['id'])
 
 row_count = 0
 for row in project_sort:
