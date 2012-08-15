@@ -2,8 +2,5 @@
     id="<%= model.collection.id %>-<%= model.get('id') %>" 
     class="filter" 
     href="#">
-        <%= model.get('name').toLowerCase() %> 
-        <% if (model.count()) { %>
-        (<%= model.count() %>)
-        <% } %>
+        <%= model.get('name').toLowerCase() %>  (<%= model.get('count') %>)
 </a></li>

@@ -47,10 +47,13 @@
     // Models
     // Model
 models.Filter = Backbone.Model.extend({
-    count: function() {
+    initialize: function() {
+        this.update();
+    },
+    update: function() {
         var obj = {};
         obj[this.collection.id] = this.get('id');
-        return app.projects.where(obj).length;
+        this.set('count', app.projects.where(obj).length);
     }
 });
 
@@ -58,7 +61,7 @@ models.Filter = Backbone.Model.extend({
 models.Filters = Backbone.Collection.extend({
     model: models.Filter,
     comparator: function(model) {
-        return -1 * model.count();
+        return -1 * model.get('count');
     }
 });
 
@@ -138,11 +141,18 @@ models.Projects = Backbone.Collection.extend({
     },
     render: function() {
         var that = this,
-            models = _(this.collection.filter(function(model) {
-                return model.count();
-            })).first(5);
+            models = [];
+
+        this.collection.each(function(model) {
+            model.update();
+        });
 
         this.collection.sort();
+
+        models = _(this.collection.filter(function(model) {
+            return model.get('count');
+        })).first(5);
+
         this.$el.html(templates.filters(this));
 
         _(models).each(function(model) {
@@ -160,7 +170,7 @@ models.Projects = Backbone.Collection.extend({
     },
     render: function() {
         this.$el.html(templates.projects(this));
-        _(this.collection.first(100)).each(function(model) {
+        _(this.collection.first(50)).each(function(model) {
             this.$('tbody').append(templates.project({ model: model }));
         });
         return this;
