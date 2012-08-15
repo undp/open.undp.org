@@ -4,6 +4,13 @@ views.App = Backbone.View.extend({
     },
     initialize: function(options) {
         this.render();
+        $(window).on('scroll', function() {
+            if($(window).scrollTop() >= 77) {
+                $('#filters').addClass('fixed');
+            } else {
+                $('#filters').removeClass('fixed');
+            }
+        });
     },
     render: function() {
         this.$el.empty().append(templates.app(this));
@@ -15,15 +22,18 @@ views.App = Backbone.View.extend({
             filters = [{
                 collection: $target.attr('id').split('-')[0],
                 id: $target.attr('id').split('-')[1]
-            }];
+            }],
+            shift = false;
 
         _(this.filters).each(function(filter) {
-            if (_isEqual(filter, filters[0])) {
-                filters[0] = null;
+            if (_.isEqual(filter, filters[0])) {
+                shift = true;
             } else if (filter.collection !== filters[0].collection) {
                 filters.push(filter);
             }
         });
+        if (shift) filters.shift();
+
         filters = _(filters).chain()
             .compact()
             .map(function(filter) {

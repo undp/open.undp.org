@@ -9,7 +9,7 @@ models.Project = Backbone.Model.extend({
 models.Projects = Backbone.Collection.extend({
     url: 'api/project_summary.json',
     model: models.Project,
-    comparator: function(project) {
-        return -1 * project.get('budget');
+    comparator: function(model) {
+        return -1 * model.get('budget');
     } 
 });

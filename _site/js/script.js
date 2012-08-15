@@ -46,13 +46,19 @@
 
     // Models
     // Model
-models.Filter = Backbone.Model.extend({});
+models.Filter = Backbone.Model.extend({
+    count: function() {
+        var obj = {};
+        obj[this.collection.id] = this.get('id');
+        return app.projects.where(obj).length;
+    }
+});
 
 // Collections
 models.Filters = Backbone.Collection.extend({
     model: models.Filter,
-    topFive: function() {
-        return this.first(5);
+    comparator: function(model) {
+        return -1 * model.count();
     }
 });
 
@@ -67,8 +73,8 @@ models.Project = Backbone.Model.extend({
 models.Projects = Backbone.Collection.extend({
     url: 'api/project_summary.json',
     model: models.Project,
-    comparator: function(project) {
-        return -1 * project.get('budget');
+    comparator: function(model) {
+        return -1 * model.get('budget');
     } 
 });
 
@@ -80,6 +86,13 @@ models.Projects = Backbone.Collection.extend({
     },
     initialize: function(options) {
         this.render();
+        $(window).on('scroll', function() {
+            if($(window).scrollTop() >= 77) {
+                $('#filters').addClass('fixed');
+            } else {
+                $('#filters').removeClass('fixed');
+            }
+        });
     },
     render: function() {
         this.$el.empty().append(templates.app(this));
@@ -91,15 +104,18 @@ models.Projects = Backbone.Collection.extend({
             filters = [{
                 collection: $target.attr('id').split('-')[0],
                 id: $target.attr('id').split('-')[1]
-            }];
+            }],
+            shift = false;
 
         _(this.filters).each(function(filter) {
-            if (_isEqual(filter, filters[0])) {
-                filters[0] = null;
+            if (_.isEqual(filter, filters[0])) {
+                shift = true;
             } else if (filter.collection !== filters[0].collection) {
                 filters.push(filter);
             }
         });
+        if (shift) filters.shift();
+
         filters = _(filters).chain()
             .compact()
             .map(function(filter) {
@@ -117,11 +133,19 @@ models.Projects = Backbone.Collection.extend({
     views.Filters = Backbone.View.extend({
     initialize: function () {
         this.render();
+        app.projects.on('reset', this.render, this);        
+
     },
     render: function() {
-        var that = this;
+        var that = this,
+            models = _(this.collection.filter(function(model) {
+                return model.count();
+            })).first(5);
+
+        this.collection.sort();
         this.$el.html(templates.filters(this));
-        _(this.collection.first(5)).each(function(model) {
+
+        _(models).each(function(model) {
             that.$('.filter-items').append(templates.filter({ model: model }));
         });
         return this;
@@ -172,7 +196,7 @@ models.Projects = Backbone.Collection.extend({
                     return memo && (model.get(filter.collection) === filter.id);
                 }, true);
             };
-        app.filters = filters;
+        this.app.filters = filters;
 
         // Load projects
         if(!this.allProjects) {
@@ -184,16 +208,17 @@ models.Projects = Backbone.Collection.extend({
                     var view = new views.Projects({
                         collection: that.projects
                     });
+                    loadFilters();
                 }
             });
         } else {
             // if projects are already present
             that.projects.reset(that.allProjects.filter(filter));
+            setActiveState();
         }
 
-        // Load filters
-        if(!this.facets) {
-            this.facets = true;
+        function loadFilters() {
+            // Load filters
             _(facets).each(function(facet) {
                 $('#filter-items').append('<div id="' + facet.id + '"></div>');
 
@@ -206,13 +231,13 @@ models.Projects = Backbone.Collection.extend({
                             el: '#' + facet.id,
                             collection: collection
                         });
-                        _(parts).each(function(filter) {
-                            $('#' + filter).addClass('active');
-                        });
+                        setActiveState();
                     }
                 });
             });
-        } else {
+        }
+
+        function setActiveState() {
             $('a.filter').removeClass('active');
             _(parts).each(function(filter) {
                 $('#' + filter).addClass('active');

@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html>
+<html id="html">
 <head>
     <meta charset=utf-8 />
     <title>UNDP Projects</title>
@@ -12,7 +12,7 @@
     <link href="/ext/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <link href="/css/style.css" rel="stylesheet" />
 </head>
-<body>
+<body id="body">
 
 <div id="app"></div>
 <div id="templates">
@@ -173,7 +173,15 @@
     </div>
 </div>
 </script>
-<script name="filter" type="text/html"><li><a id="<%= model.collection.id %>-<%= model.get('id') %>" class="filter" href="#"><%= model.get('name').toLowerCase() %></a></li>
+<script name="filter" type="text/html"><li><a 
+    id="<%= model.collection.id %>-<%= model.get('id') %>" 
+    class="filter" 
+    href="#">
+        <%= model.get('name').toLowerCase() %> 
+        <% if (model.count()) { %>
+        (<%= model.count() %>)
+        <% } %>
+</a></li>
 </script>
 <script name="filters" type="text/html"><div class="row-fluid">
    <div class="span12">

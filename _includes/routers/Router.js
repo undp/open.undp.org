@@ -25,7 +25,7 @@ routers.App = Backbone.Router.extend({
                     return memo && (model.get(filter.collection) === filter.id);
                 }, true);
             };
-        app.filters = filters;
+        this.app.filters = filters;
 
         // Load projects
         if(!this.allProjects) {
@@ -37,16 +37,17 @@ routers.App = Backbone.Router.extend({
                     var view = new views.Projects({
                         collection: that.projects
                     });
+                    loadFilters();
                 }
             });
         } else {
             // if projects are already present
             that.projects.reset(that.allProjects.filter(filter));
+            setActiveState();
         }
 
-        // Load filters
-        if(!this.facets) {
-            this.facets = true;
+        function loadFilters() {
+            // Load filters
             _(facets).each(function(facet) {
                 $('#filter-items').append('<div id="' + facet.id + '"></div>');
 
@@ -59,13 +60,13 @@ routers.App = Backbone.Router.extend({
                             el: '#' + facet.id,
                             collection: collection
                         });
-                        _(parts).each(function(filter) {
-                            $('#' + filter).addClass('active');
-                        });
+                        setActiveState();
                     }
                 });
             });
-        } else {
+        }
+
+        function setActiveState() {
             $('a.filter').removeClass('active');
             _(parts).each(function(filter) {
                 $('#' + filter).addClass('active');
