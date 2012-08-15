@@ -4,9 +4,18 @@ models.Filter = Backbone.Model.extend({
         this.update();
     },
     update: function() {
-        var obj = {};
-        obj[this.collection.id] = this.get('id');
-        this.set('count', app.projects.where(obj).length);
+        var that = this,
+            count = app.projects.filter(function(model) {
+                var collection = model.get(that.collection.id);
+    
+                if (_(collection).isString()) {
+                    return (collection === that.get('id'));
+                } else if (_(collection).isArray()) {
+                    return (collection.indexOf(that.get('id')) == true);
+                }
+            });
+
+        this.set('count', count.length);
     }
 });
 

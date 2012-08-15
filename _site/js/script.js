@@ -51,9 +51,18 @@ models.Filter = Backbone.Model.extend({
         this.update();
     },
     update: function() {
-        var obj = {};
-        obj[this.collection.id] = this.get('id');
-        this.set('count', app.projects.where(obj).length);
+        var that = this,
+            count = app.projects.filter(function(model) {
+                var collection = model.get(that.collection.id);
+    
+                if (_(collection).isString()) {
+                    return (collection === that.get('id'));
+                } else if (_(collection).isArray()) {
+                    return (collection.indexOf(that.get('id')) == true);
+                }
+            });
+
+        this.set('count', count.length);
     }
 });
 
@@ -74,6 +83,17 @@ models.Project = Backbone.Model.extend({
 
 // Collection
 models.Projects = Backbone.Collection.extend({
+    update: function() {
+        this.donors = _(this.pluck('donors')).uniq().length;
+
+        this.budget = this.reduce(function(memo, project) {
+            return memo + parseFloat(project.get('budget'));
+        }, 0);
+
+        this.expenditure = this.reduce(function(memo, project) {
+            return memo + parseFloat(project.get('expenditure'));
+        }, 0);
+    },
     url: 'api/project_summary.json',
     model: models.Project,
     comparator: function(model) {
@@ -158,6 +178,23 @@ models.Projects = Backbone.Collection.extend({
         _(models).each(function(model) {
             that.$('.filter-items').append(templates.filter({ model: model }));
         });
+
+        var max = models[0].get('count');
+
+        // Build charts
+        $('.data', '#chart-' + this.collection.id).empty();
+        $('.caption', '#chart-' + this.collection.id).empty();
+
+        _(models).each(function(model) {
+            var label = (model.get('count') / max * 100) > 15 ? model.get('count') : '';
+            $('.data', '#chart-' + model.collection.id).append(
+                '<div style="width: ' + (model.get('count')/ max * 100) + '%">' + label + '</div>'
+            );
+            $('.caption', '#chart-' + model.collection.id).append(
+                '<div>' + model.get('name').toLowerCase() + '</div>'
+            );
+        });
+
         return this;
     }
 });
@@ -166,9 +203,16 @@ models.Projects = Backbone.Collection.extend({
     el: '#project-items',
     initialize: function() {
         this.render();
-        this.collection.on('reset', this.render, this);        
+        this.collection.on('reset', this.render, this);
     },
     render: function() {
+        this.collection.update();
+
+        $('#total-count').html(accounting.formatNumber(this.collection.length));
+        $('#total-donors').html(accounting.formatNumber(this.collection.donors));
+        $('#total-budget').html(accounting.formatMoney(this.collection.budget));
+        $('#total-expenditure').html(accounting.formatMoney(this.collection.expenditure));
+
         this.$el.html(templates.projects(this));
         _(this.collection.first(50)).each(function(model) {
             this.$('tbody').append(templates.project({ model: model }));
