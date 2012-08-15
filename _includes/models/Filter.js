@@ -1,9 +1,12 @@
 // Model
 models.Filter = Backbone.Model.extend({
-    count: function() {
+    initialize: function() {
+        this.update();
+    },
+    update: function() {
         var obj = {};
         obj[this.collection.id] = this.get('id');
-        return app.projects.where(obj).length;
+        this.set('count', app.projects.where(obj).length);
     }
 });
 
@@ -11,6 +14,6 @@ models.Filter = Backbone.Model.extend({
 models.Filters = Backbone.Collection.extend({
     model: models.Filter,
     comparator: function(model) {
-        return -1 * model.count();
+        return -1 * model.get('count');
     }
 });

@@ -6,11 +6,18 @@ views.Filters = Backbone.View.extend({
     },
     render: function() {
         var that = this,
-            models = _(this.collection.filter(function(model) {
-                return model.count();
-            })).first(5);
+            models = [];
+
+        this.collection.each(function(model) {
+            model.update();
+        });
 
         this.collection.sort();
+
+        models = _(this.collection.filter(function(model) {
+            return model.get('count');
+        })).first(5);
+
         this.$el.html(templates.filters(this));
 
         _(models).each(function(model) {
