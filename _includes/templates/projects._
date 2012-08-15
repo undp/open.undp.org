@@ -7,14 +7,5 @@
         </tr>
     </thead>
     <tbody>
-        <% collection.each(function(project) { %>
-        <% if (project.get('visible')) { %>
-        <tr>
-            <td><a href="#project/<%= project.get('id') %>"><%= project.get('name').toLowerCase() %></a></td>
-            <td><%= accounting.formatMoney(project.get('budget')) %></td>
-            <td><%= accounting.formatMoney(project.get('expenditure')) %></td>
-        </tr>
-        <% } %>
-        <% }); %>
     </tbody>
 </table>

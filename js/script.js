@@ -9,14 +9,14 @@
             return memo;
         }, {}),
         app = {},
-        filters = [
-/*
+        facets = [
+            /*
             {
                 id: 'crs',
                 url: 'api/crs-index.json',
                 name: 'CRS Aid Classification'
             },
-*/
+            */
             {
                 id: 'donors',
                 url: 'api/donor-index.json',
@@ -32,13 +32,13 @@
                 url: 'api/operating-unit-index.json',
                 name: 'Country Offices / Operating Units'
             },
-/*
+            /*
             {
                 id: 'outcome',
                 url: 'api/outcome-index.json',
                 name: 'Corporate Outcomes'
             },
-*/
+            */
             {
                 id: 'region',
                 url: 'api/region-index.json',

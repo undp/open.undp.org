@@ -7,46 +7,69 @@ routers.App = Backbone.Router.extend({
     },
     routes: {
         'project/:id': 'project',
-        'filter/:collection-:id': 'browser',
+        'filter/*filters': 'browser',
         '': 'browser'
     },
-    browser: function(collection, id) {
+    browser: function(route) {
         var that = this;
 
-        if(!this.filters) {
-            _(filters).each(function(filter) {
-                var collection = new models.Filters();
-    
-                _(filter).each(function(v, k) { collection[k] = v });
-    
-                collection.fetch({
-                    success: function() {
-                        new views.Filters({ collection: collection });
-                        that.filters = true;
-                    }
-                });
-            });
-        }
-
-        // Load the main project list
-        this.Projects = this.Projects || new models.Projects();
-
-        if (collection && id) {
-            this.Projects.filter = {
-                collection: collection,
-                id: id
+        // Parse hash
+        var parts = (route) ? route.split('/') : [],
+            filters = _(parts).map(function(part) {
+                var filter = part.split('-');
+                return { collection: filter[0], id: filter[1] };
+            }),
+            filter = function(model) {
+                if (!filters.length) return true;
+                return _(filters).reduce(function(memo, filter) {
+                    return memo && (model.get(filter.collection) === filter.id);
+                }, true);
             };
-        }
+        app.filters = filters;
 
-        if(!this.data) {
-            this.Projects.fetch({
+        // Load projects
+        if(!this.allProjects) {
+            this.allProjects = new models.Projects();
+
+            this.allProjects.fetch({
                 success: function() {
-                    that.Projects.View = new views.Projects({ collection: that.Projects });
-                    that.data = that.Projects.toJSON();
+                    that.projects = new models.Projects(that.allProjects.filter(filter));
+                    var view = new views.Projects({
+                        collection: that.projects
+                    });
                 }
             });
         } else {
-            this.Projects.reset(this.data);
+            // if projects are already present
+            that.projects.reset(that.allProjects.filter(filter));
+        }
+
+        // Load filters
+        if(!this.facets) {
+            this.facets = true;
+            _(facets).each(function(facet) {
+                $('#filter-items').append('<div id="' + facet.id + '"></div>');
+
+                var collection = new models.Filters();
+                _(facet).each(function(v, k) { collection[k] = v; });
+
+                collection.fetch({
+                    success: function() {
+                        var view = new views.Filters({
+                            el: '#' + facet.id,
+                            collection: collection
+                        });
+                        _(parts).each(function(filter) {
+                            $('#' + filter).addClass('active');
+                        });
+                    }
+                });
+            });
+        } else {
+            $('a.filter').removeClass('active');
+            _(parts).each(function(filter) {
+                $('#' + filter).addClass('active');
+            });
         }
     }
 });

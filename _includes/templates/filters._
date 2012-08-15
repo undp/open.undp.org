@@ -1,10 +1,6 @@
 <div class="row-fluid">
    <div class="span12">
        <div class="label"><%= collection.name %></div>
-       <ul class="filter-items unstyled">
-           <% _(collection.topFive()).each(function(filter) { %>
-           <li><a class="filter" href="#filter/<%= collection.id %>-<%= filter.get('id') %>"><%= filter.get('name').toLowerCase() %></a></li>
-           <% });%>
-       </ul>
+       <ul class="filter-items unstyled"></ul>
    </div>
 </div>

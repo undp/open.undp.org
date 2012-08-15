@@ -10,7 +10,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <link href="/ext/bootstrap/css/bootstrap.css" rel="stylesheet" />
-    <link href="http://js.mapbox.com/mapbox.js/v0.6.0-dev/mapbox.css" rel="stylesheet" />
     <link href="/css/style.css" rel="stylesheet" />
 </head>
 <body>
@@ -85,7 +84,7 @@
                                     <button class="btn btn-mini">Budget</button>
                                 </div>
                             </div>
-                            <div id="donors" class="chart">
+                            <div id="chart-donors" class="chart">
                                 <div class="data"></div>
                                 <div class="caption"></div>
                             </div>
@@ -97,7 +96,7 @@
                                     <button class="btn btn-mini">Budget</button>
                                 </div>
                             </div>
-                            <div id="outcomes" class="chart">
+                            <div id="chart-outcomes" class="chart">
                                 <div class="data"></div>
                                 <div class="caption"></div>
                             </div>
@@ -174,16 +173,20 @@
     </div>
 </div>
 </script>
+<script name="filter" type="text/html"><li><a id="<%= model.collection.id %>-<%= model.get('id') %>" class="filter" href="#"><%= model.get('name').toLowerCase() %></a></li>
+</script>
 <script name="filters" type="text/html"><div class="row-fluid">
    <div class="span12">
        <div class="label"><%= collection.name %></div>
-       <ul class="filter-items unstyled">
-           <% _(collection.topFive()).each(function(filter) { %>
-           <li><a class="filter" href="#filter/<%= collection.id %>-<%= filter.get('id') %>"><%= filter.get('name').toLowerCase() %></a></li>
-           <% });%>
-       </ul>
+       <ul class="filter-items unstyled"></ul>
    </div>
 </div>
+</script>
+<script name="project" type="text/html"><tr>
+    <td><a href="#project/<%= model.get('id') %>"><%= model.get('name').toLowerCase() %></a></td>
+    <td><%= accounting.formatMoney(model.get('budget')) %></td>
+    <td><%= accounting.formatMoney(model.get('expenditure')) %></td>
+</tr>
 </script>
 <script name="projects" type="text/html"><table class="table">
     <thead>
@@ -194,17 +197,9 @@
         </tr>
     </thead>
     <tbody>
-        <% collection.each(function(project) { %>
-        <% if (project.get('visible')) { %>
-        <tr>
-            <td><a href="#project/<%= project.get('id') %>"><%= project.get('name').toLowerCase() %></a></td>
-            <td><%= accounting.formatMoney(project.get('budget')) %></td>
-            <td><%= accounting.formatMoney(project.get('expenditure')) %></td>
-        </tr>
-        <% } %>
-        <% }); %>
     </tbody>
-</table></script>
+</table>
+</script>
 
 </div>
 
@@ -214,7 +209,6 @@
     <script src="/ext/underscore.js"></script>
     <script src="/ext/backbone.js"></script>
     <script src="/ext/accounting.js"></script>
-    <script src="http://js.mapbox.com/mapbox.js/v0.6.0-dev/mapbox.js"></script>
     <script src="/js/script.js"></script>
 </div>
 
