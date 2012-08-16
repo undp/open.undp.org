@@ -11,17 +11,32 @@ project_summary = csv.DictReader(open('temp-csv/undp-project-summary.csv', 'rb')
 # Sort on project id
 project_sort = sorted(project_summary, key = lambda x: x['id'])
 
-row_count = 0
-for row in project_sort:
-    row_count = row_count + 1
-
 print "Processing..."
-print "Processed %d rows" % row_count
-summary_writeout = json.dumps(project_sort, sort_keys=True, indent=4)
+project_list = []
+row_count = 0
+for pval in iter(project_sort):
+    row_count = row_count + 1
+    project = {
+        "budget": float(pval['budget']),
+        "crs": pval['crs'],
+        "donors": pval['donors'].split(','),
+        "expenditure": float(pval['expenditure']),
+        "focus_area": pval['focus_area'],
+        "id": pval['id'],
+        "name": pval['name'],
+        "operating_unit": pval['operating_unit'],
+        "outcome": pval['outcome'],
+        "region": pval['region']
+    }
+    project_list.append(project)
 
+print "Processed %d rows" % row_count
+
+summary_writeout = json.dumps(project_list, sort_keys=True, indent=4)
 summary_out = open('../api/project_summary.json', 'wb')
 summary_out.writelines(summary_writeout)
 summary_out.close()
+
 
 ##########################
 # Process Region index
