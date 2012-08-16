@@ -9,7 +9,7 @@ models.Filter = Backbone.Model.extend({
 models.Filters = Backbone.Collection.extend({
     watch: function() {
         this.update();
-        app.projects.on('change', this.update, this);
+        app.projects.on('update', this.update, this);
     },
     update: function() {
         var collection = this,
@@ -17,7 +17,8 @@ models.Filters = Backbone.Collection.extend({
                 return (collection.id === filter.collection); 
             });
 
-        _(collection.where({active: true })).each(function(model) { model.set('active', false) });
+        _(collection.where({active: true }))
+            .each(function(model) { model.set('active', false) });
 
         if (active) {
             var model = this.get(active.id);
@@ -31,12 +32,12 @@ models.Filters = Backbone.Collection.extend({
                 var count = app.projects[collection.id][model.id];
                 model.set('count', count);
             });
-            collection.sort();
         }
-        this.trigger('change');
+        this.trigger('update');
+
     },
     model: models.Filter,
     comparator: function(model) {
-        return -1 * model.get('count');
+        return -1 * model.get('count') || 0;
     }
 });

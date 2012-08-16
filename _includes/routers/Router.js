@@ -45,7 +45,6 @@ routers.App = Backbone.Router.extend({
         } else {
             // if projects are already present
             that.projects.reset(that.allProjects.filter(filter));
-            setActiveState();
         }
 
         function loadFilters() {
@@ -63,16 +62,8 @@ routers.App = Backbone.Router.extend({
                             collection: collection
                         });
                         collection.watch();
-                        setActiveState();
                     }
                 });
-            });
-        }
-
-        function setActiveState() {
-            $('a.filter').removeClass('active');
-            _(parts).each(function(filter) {
-                $('#' + filter).addClass('active');
             });
         }
     }

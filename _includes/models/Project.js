@@ -38,7 +38,7 @@ models.Projects = Backbone.Collection.extend({
             return memo + parseFloat(project.get('expenditure'));
         }, 0);
 
-        this.trigger('change');
+        this.trigger('update');
     },
     url: 'api/project_summary.json',
     model: models.Project,
