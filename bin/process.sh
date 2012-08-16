@@ -13,7 +13,7 @@ sqlite3 undp-project-db.sqlite <<!
 select 
     h.awardid as id, h.award_title as name, h.bureau as region, h.rollup_ou as operating_unit, 
     sum(h.project_budget) as budget, sum(h.project_expenditure) as expenditure, 
-    g.donors as donors, h.crs as crs, h.sp1_fa as focus_area, h.sp1_co as outcome 
+    j.donors as donors, h.crs as crs, h.sp1_fa as focus_area, h.sp1_co as outcome 
     from (
         (select 
             b.bureau, b.rollup_ou, b.awardid, 
@@ -28,10 +28,16 @@ select
         on c.awardid = d.awardid and c.fiscal_year = d.fiscal_year
         ) as h 
 left join ( 
-    select f.awardid, group_concat(f.donor) as donors 
-    from output_donor f group by f.awardid
-    ) as g 
-    on g.awardid = h.awardid 
+        select i.awardid, h.donors 
+        from 
+            (select f.awardid from project_level1_donor f group by f.awardid) as i 
+        join 
+            ( select g.awardid, g.fiscal_year, group_concat(g.donor) as donors 
+            from project_level1_donor g group by g.awardid, g.fiscal_year
+            order by g.awardid, g.fiscal_year) as h on h.awardid = i.awardid
+            group by i.awardid
+    ) as j 
+    on j.awardid = h.awardid 
 group by h.awardid;
 
 .output temp-csv/undp-project-full.csv
