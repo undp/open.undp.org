@@ -1,27 +1,27 @@
 views.Filters = Backbone.View.extend({
     initialize: function () {
-        this.render();
-        app.projects.on('reset', this.render, this);        
-
+        this.collection.on('change', this.render, this);
     },
     render: function() {
-        var that = this,
-            models = [];
+        var view = this,
+            models = [],
+            active = this.collection.where({ active: true });
 
-        this.collection.each(function(model) {
-            model.update();
-        });
-
-        this.collection.sort();
-
-        models = _(this.collection.filter(function(model) {
-            return model.get('count');
-        })).first(5);
+        if(active.length) {
+            models = active;
+        } else {
+            console.log(this.collection.pluck('count'));
+            models = _(this.collection.filter(function(model) {
+                return (model.get('count') > 0);
+            })).first(5);
+        }
+    
+        if (!models.length) return this;
 
         this.$el.html(templates.filters(this));
 
         _(models).each(function(model) {
-            that.$('.filter-items').append(templates.filter({ model: model }));
+            view.$('.filter-items').append(templates.filter({ model: model }));
         });
 
         var max = models[0].get('count');

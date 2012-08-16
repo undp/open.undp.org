@@ -22,7 +22,10 @@ routers.App = Backbone.Router.extend({
             filter = function(model) {
                 if (!filters.length) return true;
                 return _(filters).reduce(function(memo, filter) {
-                    return memo && (model.get(filter.collection) === filter.id);
+                    return memo && (
+                        model.get(filter.collection) &&
+                        model.get(filter.collection).indexOf(filter.id) >= 0
+                    );
                 }, true);
             };
         this.app.filters = filters;
@@ -34,9 +37,8 @@ routers.App = Backbone.Router.extend({
             this.allProjects.fetch({
                 success: function() {
                     that.projects = new models.Projects(that.allProjects.filter(filter));
-                    var view = new views.Projects({
-                        collection: that.projects
-                    });
+                    var view = new views.Projects({ collection: that.projects });
+                    that.projects.watch();
                     loadFilters();
                 }
             });
@@ -60,6 +62,7 @@ routers.App = Backbone.Router.extend({
                             el: '#' + facet.id,
                             collection: collection
                         });
+                        collection.watch();
                         setActiveState();
                     }
                 });
