@@ -1,14 +1,18 @@
 views.Projects = Backbone.View.extend({
     el: '#project-items',
     initialize: function() {
-        this.render();
-        this.collection.on('reset', this.render, this);
+        this.collection.on('update', this.render, this);
     },
     render: function() {
-        this.collection.update();
+        var donor = _(app.app.filters).find(function(filter) {
+            return filter.collection === 'donors';
+        });
+
+        // Probably should replace this with donor name
+        donor = (donor) ? 1 : _(this.collection.donors).size();
 
         $('#total-count').html(accounting.formatNumber(this.collection.length));
-        $('#total-donors').html(accounting.formatNumber(this.collection.donors));
+        $('#total-donors').html(accounting.formatNumber(donor));
         $('#total-budget').html(accounting.formatMoney(this.collection.budget));
         $('#total-expenditure').html(accounting.formatMoney(this.collection.expenditure));
 
@@ -17,5 +21,6 @@ views.Projects = Backbone.View.extend({
             this.$('tbody').append(templates.project({ model: model }));
         });
         return this;
+
     }
 });

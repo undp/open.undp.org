@@ -7,16 +7,38 @@ models.Project = Backbone.Model.extend({
 
 // Collection
 models.Projects = Backbone.Collection.extend({
+    watch: function() {
+        this.update();
+        this.on('reset', this.update, this);
+    },
     update: function() {
-        this.donors = _(this.pluck('donors')).uniq().length;
 
+        if (!this.length) return false;
+
+        // Count projects for each facet
+        _(facets).each(function(facet) {
+            this[facet.id] = _(this.pluck(facet.id))
+                .chain()
+                .flatten()
+                .groupBy(function(n) { return n; })
+                .reduce(function (obj, v, k) {
+                    obj[k] = v.length;
+                    return obj;
+                }, {})
+                .value();
+        }, this);
+
+        // Total budget
         this.budget = this.reduce(function(memo, project) {
             return memo + parseFloat(project.get('budget'));
         }, 0);
 
+        // Total expenditure
         this.expenditure = this.reduce(function(memo, project) {
             return memo + parseFloat(project.get('expenditure'));
         }, 0);
+
+        this.trigger('update');
     },
     url: 'api/project_summary.json',
     model: models.Project,
