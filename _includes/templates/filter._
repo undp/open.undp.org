@@ -2,5 +2,5 @@
     id="<%= model.collection.id %>-<%= model.get('id') %>" 
     class="filter" 
     href="#">
-        <%= model.get('name').toLowerCase() %>  (<%= model.get('count') %>)
+        <%= model.get('name').toLowerCase() %>  (<%= accounting.formatNumber(model.get('count')) %>)
 </a></li>
