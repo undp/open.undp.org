@@ -7,12 +7,8 @@ models.Filter = Backbone.Model.extend({
         var that = this,
             count = app.projects.filter(function(model) {
                 var collection = model.get(that.collection.id);
-    
-                if (_(collection).isString()) {
-                    return (collection === that.get('id'));
-                } else if (_(collection).isArray()) {
-                    return (collection.indexOf(that.get('id')) == true);
-                }
+                if (!collection.isArray) return (collection === that.get('id'));
+                return collection.indexOf(that.get('id'));
             });
 
         this.set('count', count.length);
