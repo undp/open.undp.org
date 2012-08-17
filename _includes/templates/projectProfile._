@@ -1,7 +1,7 @@
 <div id="summary" class="span9 project raised">
     <div class="row-fluid separator">
         <div class="span12">
-            <p class="lead">Cuba: Control and management of invasive alien species</p>
+            <p class="lead"><%= model.get('title') %></p>
         </div>
     </div>
 
@@ -11,16 +11,35 @@
                 <div class="span6">
 
                     <div class="label">Donor</div>
-                    <p>Global Environment Fund Truste</p>
+                    <%
+                    var donors = _.chain(model.get('subproject'))
+                        .map(function (o) { return o.donor })
+                        .flatten()
+                        .union()
+                        .value();
+                    %>
+                    <p><%= donors.join(', ') %></p>
                 </div>
 
                 <div class="span3">
                     <div class="label">Budget</div>
-                    <p>$321,300.00</p>
+                    <%
+                    var budget = _.chain(model.get('subproject'))
+                        .map(function (o) { return o.budget })
+                        .reduce(function(memo, num){ return memo + num; }, 0)
+                        .value();
+                    %>
+                    <p><%= accounting.formatMoney(budget) %></p>
                 </div>
                 <div class="span3">
                     <div class="label">Expenditure</div>
-                    <p>$38,567.60</p>
+                    <%
+                    var expenditure = _.chain(model.get('subproject'))
+                        .map(function (o) { return o.expenditure })
+                        .reduce(function(memo, num){ return memo + num; }, 0)
+                        .value();
+                    %>
+                    <p><%= accounting.formatMoney(expenditure) %></p>
                 </div>
 
             </div>
@@ -31,21 +50,28 @@
                 </div>
                 <div class="span3">
                     <div class="label">Start</div>
-                    <p>2009</p>
+                    <p><%= model.get('start').split(' ')[0] %></p>
                 </div>
                 <div class="span3">
                     <div class="label">End</div>
-                    <p>2014</p>
+                    <p><%= model.get('end').split(' ')[0] %></p>
                 </div>
             </div>
             <div class="row-fluid">
                 <div class="span6">
                     <div class="label">Gender</div>
-                    <span>Gender equality is a principle objective</span>
+                    <%
+                    var gender = _.chain(model.get('subproject'))
+                        .map(function (o) { return o["gender code"] })
+                        .flatten()
+                        .union()
+                        .value();
+                    %>
+                    <span><%= gender.join(', ') %></span>
                 </div>
                 <div class="span6">
                     <div class="label">Operating Unit</div>
-                    <p>Cuba, Latin American and Caribbean Group</p>
+                    <p><%= model.get('operating_unit') %></p>
                 </div>
 
             </div>
@@ -64,13 +90,14 @@
         <p class="lead">Subprojects</p>
     </div>
 
-    <div id="subproject1" class="project row-fluid">
+    <% _.each(model.get('subproject'), function(obj, i) { %>
+    <div id="subproject<%= i+1 %>" class="project row-fluid">
         <div class="span1">
-            <p class="lead"><strong>2011</strong></p>
+            <p class="lead"><strong><%= obj["fiscal year"] %></strong></p>
         </div>
         <div class="span5">
-            <h3>Land management in Cuba</h3>
-            <p>Country Programme Partnership (CPP) Cuba / Project 1: Capacity Building for Planning, Decision Making and Regulatory Systems & Awareness Building / Sustainable Land Management in Severely Degraded Ecosystems</p>
+            <h3><%= obj.title %></h3>
+            <p><%= obj.description %></p>
         </div>
         <div class="span3">
             <div class="label">Outcome</div>
@@ -81,13 +108,13 @@
             <div class="row-fluid">
                 <div class="span12">
                     <div class="label">Budget</div>
-                    <span>$321,300.00</span>
+                    <span><%= accounting.formatMoney(obj.budget) %></span>
                 </div>
             </div>
             <div class="row-fluid">
                 <div class="span12">
                     <div class="label">Expenditure</div>
-                    <span>$38,567.60</span>
+                    <span><%= accounting.formatMoney(obj.expenditure) %></span>
                 </div>
             </div>
         </div>
@@ -95,58 +122,17 @@
             <div class="row-fluid">
                 <div class="span12">
                     <div class="label">Start</div>
-                    <span>2010</span>
+                    <span><%= obj["start date"].split(' ')[0] %></span>
                 </div>
             </div>
             <div class="row-fluid">
                 <div class="span12">
                     <div class="label">End</div>
-                    <span>2011</span>
+                    <span><%= obj["end date"].split(' ')[0] %></span>
                 </div>
             </div>
         </div>
-    </div><!--/ #subproject1 -->
-    <div id="subproject2" class="project row-fluid">
-        <div class="span1">
-            <p class="lead"><strong>2010</strong></p>
-        </div>
-        <div class="span5">
-            <h3>Land management in Cuba</h3>
-            <p>Country Programme Partnership (CPP) Cuba / Project 1: Capacity Building for Planning, Decision Making and Regulatory Systems & Awareness Building / Sustainable Land Management in Severely Degraded Ecosystems</p>
-        </div>
-        <div class="span3">
-            <div class="label">Outcome</div>
-            <span><strong>Democratic governance</strong></span> &raquo;
-            <span>National, regional and local levels of governance expand their capacities to manage the equitable delivery of public services</span>
-        </div>
-        <div class="span2">
-            <div class="row-fluid">
-                <div class="span12">
-                    <div class="label">Budget</div>
-                    <span>$321,300.00</span>
-                </div>
-            </div>
-            <div class="row-fluid">
-                <div class="span12">
-                    <div class="label">Expenditure</div>
-                    <span>$38,567.60</span>
-                </div>
-            </div>
-        </div>
-        <div class="span1">
-            <div class="row-fluid">
-                <div class="span12">
-                    <div class="label">Start</div>
-                    <span>2010</span>
-                </div>
-            </div>
-            <div class="row-fluid">
-                <div class="span12">
-                    <div class="label">End</div>
-                    <span>2011</span>
-                </div>
-            </div>
-        </div>
-    </div><!--/ #subproject2 -->
+    </div><!--/ .subproject<%= i+1 %> -->
+    <% }); %>
 
 </div> <!--/ #summary -->
