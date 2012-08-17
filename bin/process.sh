@@ -68,8 +68,8 @@ select
      b.awardid as project_id2, b.project_id as subproject_id, 
      b.project_description as subproject_title, b.project_long_description as subproject_description, 
      b.fiscal_year as fiscal_year, b.project_budget as budget, b.project_expenditure as expenditure, 
-     g.donors as donors, d.GenderMarkerDescription as gender_mark, b.sp1_fa as focus_area, 
-     b.sp1_co as corporate_outcome, b.start_dt as subproject_start, b.end_dt as subproject_end,
+     g.donor_short as donor_short, g.donor_long as donor_long, d.GenderMarkerDescription as gender_mark, b.sp1_fa_description as focus_area, 
+     b.sp1_co_description as corporate_outcome, b.start_dt as subproject_start, b.end_dt as subproject_end,
      b.crs as crs
      from report_outputs b
      left join (
@@ -82,7 +82,8 @@ select
      left join gender_marker d on d.GenderMarkerCode = b.gender_marker
      left join operating_units e on e.rollup_ou = c.operating_unit
      left join (
-            select f.project_id, f.fiscal_year, group_concat(f.descrshort, ",") as donors 
+            select f.project_id, f.fiscal_year, group_concat(f.descrshort, ",") as donor_short,
+            group_concat(f.donor_long_description, ",") as donor_long 
             from output_donor f group by f.project_id, f.fiscal_year) as g 
             on g.project_id = b.project_id and g.fiscal_year = b.fiscal_year;
 
