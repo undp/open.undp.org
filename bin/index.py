@@ -102,16 +102,39 @@ focus_out.close()
 # Process Operating Unit index
 # Open index csv
 ou = csv.DictReader(open('temp-csv/undp-operating-unit-index.csv', 'rb'), delimiter = ',', quotechar = '"')
+geo = csv.DictReader(open('country-centroids.csv', 'rb'), delimiter = ',', quotechar = '"')
+
 # Sort file
 ou_sort = sorted(ou, key = lambda x: x['id'])
+country_sort = sorted(geo, key = lambda x: x['iso3'])
 
 row_count = 0
 for row in ou_sort:
     row_count = row_count + 1
 
 print "Processing..."
+ou_list = []
+row_count = 0
+for oval in iter(ou_sort):
+    row_count = row_count + 1
+    for ctry in country_sort:
+        if ctry['lat'] != "": 
+            ou_row = {
+                "id": oval['id'],
+                "name": oval['name'],
+                "lat": float(ctry['lat']),
+                "lon": float(ctry['lon']),
+            }
+        else:
+            ou_row = {
+                "id": oval['id'],
+                "name": oval['name']
+            }
+        if ctry['iso3'] == oval['id']:
+            ou_list.append(ou_row)
+
 print "Processed %d rows" % row_count
-ou_writeout = json.dumps(ou_sort, sort_keys=True, indent=4)
+ou_writeout = json.dumps(ou_list, sort_keys=True, indent=4)
 
 ou_out = open('../api/operating-unit-index.json', 'wb')
 ou_out.writelines(ou_writeout)
