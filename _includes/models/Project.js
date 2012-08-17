@@ -1,7 +1,7 @@
 // Model
 models.Project = Backbone.Model.extend({
     url: function() {
-        return 'api/project/' + this.get('id') + '.json';
+        return 'api/projects/' + this.get('id') + '.json';
 	}
 });
 

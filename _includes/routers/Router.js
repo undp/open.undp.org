@@ -1,17 +1,29 @@
 routers.App = Backbone.Router.extend({
     initialize: function() {
-
-        // Load the main app view
-        this.app = new views.App({ el: '#app' });
-
     },
     routes: {
         'project/:id': 'project',
         'filter/*filters': 'browser',
         '': 'browser'
     },
+    project: function(id) {
+        var that = this;
+
+        this.project.model = new models.Project({ id: id });
+        this.project.model.fetch({
+            success: function() {
+                that.project.view = new views.ProjectProfile({
+                    el: '#app',
+                    model: that.project.model
+                });
+            }
+        });
+    },
     browser: function(route) {
         var that = this;
+
+        // Load the main app view
+        this.app = this.app || new views.App({ el: '#app' });
 
         // Parse hash
         var parts = (route) ? route.split('/') : [],
