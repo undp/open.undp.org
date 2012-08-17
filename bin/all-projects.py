@@ -31,13 +31,14 @@ for sval in iter(undp_sub_sort):
         "fiscal year": sval['fiscal_year'],
         "budget": float(sval['budget']),
         "expenditure": float(sval['expenditure']),
-        "donor": sval['donors'].split(','),
+        "donor_short": sval['donor_short'].split(','),
+        "donor_long": sval['donor_long'].split(','),
         "gender code": sval['gender_mark'],
         "focus area": sval['focus_area'],
         "corporate outcome": sval['corporate_outcome'],
         "crs": sval['crs'],
-        "start date": sval['subproject_start'],
-        "end date": sval['subproject_end']
+        "start date": sval['subproject_start'].rstrip(' 00:00:00.0'),
+        "end date": sval['subproject_end'].rstrip(' 00:00:00.0')
     } 
     subproject_list.append(subproject) # subproject is now a list of dictionarys that correspond to each row
 
@@ -51,8 +52,8 @@ for pval in iter(undp_proj_sort):
         "fiscal_year": pval['fiscal_year'],
         "title": pval['project_title'],
         "description": pval['project_description'],
-        "start": pval['project_start'],
-        "end": pval['project_end'],
+        "start": pval['project_start'].rstrip(' 00:00:00'),
+        "end": pval['project_end'].rstrip(' 00:00:00'),
         "region": pval['region'],
         "operating_unit": pval['operating_unit'],
         "subproject": []
