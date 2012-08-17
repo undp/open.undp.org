@@ -118,12 +118,18 @@ row_count = 0
 for oval in iter(ou_sort):
     row_count = row_count + 1
     for ctry in country_sort:
-        ou_row = {
-            "id": oval['id'],
-            "name": oval['name'],
-            "lat": ctry['lat'],
-            "long": ctry['lon'],
-        }
+        if ctry['lat'] != "": 
+            ou_row = {
+                "id": oval['id'],
+                "name": oval['name'],
+                "lat": float(ctry['lat']),
+                "lon": float(ctry['lon']),
+            }
+        else:
+            ou_row = {
+                "id": oval['id'],
+                "name": oval['name']
+            }
         if ctry['iso3'] == oval['id']:
             ou_list.append(ou_row)
 
