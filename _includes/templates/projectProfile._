@@ -1,0 +1,138 @@
+<div id="summary" class="span9 project raised">
+    <div class="row-fluid separator">
+        <div class="span12">
+            <p class="lead"><%= model.get('title') %></p>
+        </div>
+    </div>
+
+    <div id="top-stats" class="row-fluid">
+        <div class="span8">
+            <div class="row-fluid">
+                <div class="span6">
+
+                    <div class="label">Donor</div>
+                    <%
+                    var donors = _.chain(model.get('subproject'))
+                        .map(function (o) { return o.donor })
+                        .flatten()
+                        .union()
+                        .value();
+                    %>
+                    <p><%= donors.join(', ') %></p>
+                </div>
+
+                <div class="span3">
+                    <div class="label">Budget</div>
+                    <%
+                    var budget = _.chain(model.get('subproject'))
+                        .map(function (o) { return o.budget })
+                        .reduce(function(memo, num){ return memo + num; }, 0)
+                        .value();
+                    %>
+                    <p><%= accounting.formatMoney(budget) %></p>
+                </div>
+                <div class="span3">
+                    <div class="label">Expenditure</div>
+                    <%
+                    var expenditure = _.chain(model.get('subproject'))
+                        .map(function (o) { return o.expenditure })
+                        .reduce(function(memo, num){ return memo + num; }, 0)
+                        .value();
+                    %>
+                    <p><%= accounting.formatMoney(expenditure) %></p>
+                </div>
+
+            </div>
+            <div class="row-fluid">
+                <div class="span6">
+                    <div class="label">Outcomes</div>
+                    <p>Democratic governance</p>
+                </div>
+                <div class="span3">
+                    <div class="label">Start</div>
+                    <p><%= model.get('start').split(' ')[0] %></p>
+                </div>
+                <div class="span3">
+                    <div class="label">End</div>
+                    <p><%= model.get('end').split(' ')[0] %></p>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span6">
+                    <div class="label">Gender</div>
+                    <%
+                    var gender = _.chain(model.get('subproject'))
+                        .map(function (o) { return o["gender code"] })
+                        .flatten()
+                        .union()
+                        .value();
+                    %>
+                    <span><%= gender.join(', ') %></span>
+                </div>
+                <div class="span6">
+                    <div class="label">Operating Unit</div>
+                    <p><%= model.get('operating_unit') %></p>
+                </div>
+
+            </div>
+        </div>
+        <div class="span4">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="label visible-phone">Location</div>
+                    <p><img src="images/profile_map.png" alt="profile_map"></p>
+                </div>
+            </div>
+        </div>
+    </div> <!--/ #top-stats -->
+
+    <div class="separator">
+        <p class="lead">Subprojects</p>
+    </div>
+
+    <% _.each(model.get('subproject'), function(obj, i) { %>
+    <div id="subproject<%= i+1 %>" class="project row-fluid">
+        <div class="span1">
+            <p class="lead"><strong><%= obj["fiscal year"] %></strong></p>
+        </div>
+        <div class="span5">
+            <h3><%= obj.title %></h3>
+            <p><%= obj.description %></p>
+        </div>
+        <div class="span3">
+            <div class="label">Outcome</div>
+            <span><strong>Democratic governance</strong></span> &raquo;
+            <span>National, regional and local levels of governance expand their capacities to manage the equitable delivery of public services</span>
+        </div>
+        <div class="span2">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="label">Budget</div>
+                    <span><%= accounting.formatMoney(obj.budget) %></span>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="label">Expenditure</div>
+                    <span><%= accounting.formatMoney(obj.expenditure) %></span>
+                </div>
+            </div>
+        </div>
+        <div class="span1">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="label">Start</div>
+                    <span><%= obj["start date"].split(' ')[0] %></span>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="label">End</div>
+                    <span><%= obj["end date"].split(' ')[0] %></span>
+                </div>
+            </div>
+        </div>
+    </div><!--/ .subproject<%= i+1 %> -->
+    <% }); %>
+
+</div> <!--/ #summary -->
