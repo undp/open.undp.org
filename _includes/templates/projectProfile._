@@ -61,13 +61,18 @@
                 <div class="span6">
                     <div class="label">Gender</div>
                     <%
-                    var gender = _.chain(model.get('subproject'))
+                    var genderCount = _.chain(model.get('subproject'))
                         .map(function (o) { return o["gender code"] })
                         .flatten()
-                        .union()
+                        .compact()
+                        .reduce(function(counts, items) {
+                            counts[items] = (counts[items] || 0) + 1;
+                            return counts; }, {})
                         .value();
                     %>
-                    <span><%= gender.join(', ') %></span>
+                    <% for (var key in genderCount) { %>
+                    <p><%= key %> (<%= genderCount[key] %>)</p>
+                    <% } %>
                 </div>
                 <div class="span6">
                     <div class="label">Operating Unit</div>
@@ -87,7 +92,7 @@
     </div> <!--/ #top-stats -->
 
     <div class="separator">
-        <p class="lead">Subprojects</p>
+        <p class="lead">Subprojects <span>(<%= model.get('subproject').length %>)</p>
     </div>
 
     <% _.each(model.get('subproject'), function(obj, i) { %>
