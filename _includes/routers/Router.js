@@ -9,11 +9,16 @@ routers.App = Backbone.Router.extend({
     project: function(id) {
         var that = this;
 
+        // Set up menu
+        $('#app .view, .nav').hide();
+        $('.nav.profile').show();
+
+        // Set up this route
         this.project.model = new models.Project({ id: id });
         this.project.model.fetch({
             success: function() {
                 that.project.view = new views.ProjectProfile({
-                    el: '#app',
+                    el: '#profile',
                     model: that.project.model
                 });
             }
@@ -22,8 +27,12 @@ routers.App = Backbone.Router.extend({
     browser: function(route) {
         var that = this;
 
+        // Set up menu
+        $('#app .view, .nav').hide();
+        $('#browser, .nav.browser').show();
+
         // Load the main app view
-        this.app = this.app || new views.App({ el: '#app' });
+        this.app = this.app || new views.App({ el: '#browser' });
 
         // Parse hash
         var parts = (route) ? route.split('/') : [],
@@ -56,7 +65,7 @@ routers.App = Backbone.Router.extend({
             });
         } else {
             // if projects are already present
-            that.projects.reset(that.allProjects.filter(filter));
+            this.projects.reset(this.allProjects.filter(filter));
         }
 
         function loadFilters() {

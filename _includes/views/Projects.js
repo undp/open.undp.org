@@ -4,6 +4,7 @@ views.Projects = Backbone.View.extend({
         this.collection.on('update', this.render, this);
     },
     render: function() {
+
         var donor = _(app.app.filters).find(function(filter) {
             return filter.collection === 'donors';
         });
