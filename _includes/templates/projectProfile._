@@ -13,7 +13,13 @@
                     <div class="label">Donor</div>
                     <%
                     var donors = _.chain(model.get('subproject'))
-                        .map(function (o) { return o.donor })
+                        .map(function (o) {
+                            if (o.donor_long.length > 4) {
+                                return o.donor_short;
+                            } else {
+                                return o.donor_long;
+                            }
+                        })
                         .flatten()
                         .union()
                         .value();
@@ -46,7 +52,19 @@
             <div class="row-fluid">
                 <div class="span6">
                     <div class="label">Outcomes</div>
-                    <p>Democratic governance</p>
+                    <%
+                    var outcomeCount = _.chain(model.get('subproject'))
+                        .map(function (o) { return o["focus area"] })
+                        .flatten()
+                        .compact()
+                        .reduce(function(counts, items) {
+                            counts[items] = (counts[items] || 0) + 1;
+                            return counts; }, {})
+                        .value();
+                    %>
+                    <% for (var key in outcomeCount) { %>
+                    <p><%= key %> (<%= outcomeCount[key] %>)</p>
+                    <% } %>
                 </div>
                 <div class="span3">
                     <div class="label">Start</div>
@@ -106,8 +124,8 @@
         </div>
         <div class="span3">
             <div class="label">Outcome</div>
-            <span><strong>Democratic governance</strong></span> &raquo;
-            <span>National, regional and local levels of governance expand their capacities to manage the equitable delivery of public services</span>
+            <span><strong><%= obj["focus area"] %></strong></span> &raquo;
+            <span><%= obj["corporate outcome"] %></span>
         </div>
         <div class="span2">
             <div class="row-fluid">
