@@ -12,19 +12,24 @@
 
                     <div class="label">Donor</div>
                     <%
-                    var donors = _.chain(model.get('subproject'))
-                        .map(function (o) {
-                            if (o.donor_long.length > 4) {
-                                return o.donor_short;
-                            } else {
-                                return o.donor_long;
-                            }
-                        })
+                    var donors_short = _.chain(model.get('subproject'))
+                        .map(function (o) { return o.donor_short })
+                        .flatten()
+                        .union()
+                        .value();
+                    var donors_long = _.chain(model.get('subproject'))
+                        .map(function (o) { return o.donor_long })
                         .flatten()
                         .union()
                         .value();
                     %>
-                    <p><%= donors.join(', ') %></p>
+                    <p>
+                        <% if (donors_long.length < 5) { %>
+                            <%= donors_long.join(', ') %>
+                        <% } else { %>
+                            <%= donors_short.join(', ') %>
+                        <% } %>
+                    </p>
                 </div>
 
                 <div class="span3">
@@ -62,9 +67,11 @@
                             return counts; }, {})
                         .value();
                     %>
+                    <ul class="unstyled">
                     <% for (var key in outcomeCount) { %>
-                    <p><%= key %> (<%= outcomeCount[key] %>)</p>
+                    <li><%= key %> (<%= outcomeCount[key] %>)</li>
                     <% } %>
+                    </ul>
                 </div>
                 <div class="span3">
                     <div class="label">Start</div>
@@ -88,9 +95,11 @@
                             return counts; }, {})
                         .value();
                     %>
+                    <ul class="unstyled">
                     <% for (var key in genderCount) { %>
-                    <p><%= key %> (<%= genderCount[key] %>)</p>
+                    <li><%= key %> (<%= genderCount[key] %>)</li>
                     <% } %>
+                    </ul>
                 </div>
                 <div class="span6">
                     <div class="label">Operating Unit</div>
@@ -124,8 +133,10 @@
         </div>
         <div class="span3">
             <div class="label">Outcome</div>
+            <% if (obj["focus area"]) { %>
             <span><strong><%= obj["focus area"] %></strong></span> &raquo;
             <span><%= obj["corporate outcome"] %></span>
+            <% } %>
         </div>
         <div class="span2">
             <div class="row-fluid">
