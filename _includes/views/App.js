@@ -1,6 +1,7 @@
 views.App = Backbone.View.extend({
     events: {
-        'click a.filter': 'setFilter'
+        'click a.filter': 'setFilter',
+        'click button.btn-mini': 'toggleChart'
     },
     initialize: function(options) {
         this.render();
@@ -45,5 +46,12 @@ views.App = Backbone.View.extend({
 
         e.preventDefault();
         app.navigate(path, { trigger: true });
+    },
+    toggleChart: function (e) {
+        var $target = $(e.target);
+        var facet = $target.attr('data-facet');
+        $('.btn-' + facet + ' button').removeClass('active');
+        $(e.target).addClass('active');
+        this.filters.views[facet].render();
     }
 });
