@@ -52,6 +52,6 @@ views.App = Backbone.View.extend({
         var facet = $target.attr('data-facet');
         $('.btn-' + facet + ' button').removeClass('active');
         $(e.target).addClass('active');
-        this.filters.views[facet].render();
+        this.views[facet].render();
     }
 });

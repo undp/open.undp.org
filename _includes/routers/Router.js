@@ -69,7 +69,7 @@ routers.App = Backbone.Router.extend({
         }
 
         function loadFilters() {
-            that.app.filters.views = {};
+            that.app.views = {};
             // Load filters
             _(facets).each(function(facet) {
                 $('#filter-items').append('<div id="' + facet.id + '"></div>');
@@ -79,7 +79,7 @@ routers.App = Backbone.Router.extend({
 
                 collection.fetch({
                     success: function() {
-                        that.app.filters.views[facet.id] = new views.Filters({
+                        that.app.views[facet.id] = new views.Filters({
                             el: '#' + facet.id,
                             collection: collection
                         });

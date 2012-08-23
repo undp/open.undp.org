@@ -4,7 +4,8 @@ views.Filters = Backbone.View.extend({
     },
     render: function() {
         var view = this,
-            models = [],
+            filterModels = [],
+            chartModels = [],
             active = this.collection.where({ active: true });
         
         if ($('.btn-' + this.collection.id).html()) {
@@ -12,10 +13,16 @@ views.Filters = Backbone.View.extend({
         }
 
         if(active.length) {
-            models = active;
+            filterModels = active;
+            chartModels = active;
         } else {
             this.collection.sort();
-            models = _(this.collection.sortBy(function(model) {
+            
+            filterModels = _(this.collection.filter(function(model) {
+                    return (model.get('count') > 0);
+                })).first(5);
+            
+            chartModels = _(this.collection.sortBy(function(model) {
                     return -1 * model.get(chartType);
                 })
                 .filter(function(model) {
@@ -24,22 +31,23 @@ views.Filters = Backbone.View.extend({
                 .first(5);
         }
     
-        if (!models.length) return this;
+        if (!filterModels.length) return this;
+        if (!chartModels.length) return this;
 
         this.$el.html(templates.filters(this));
 
-        _(models).each(function(model) {
+        _(filterModels).each(function(model) {
             view.$('.filter-items').append(templates.filter({ model: model }));
             $('#' + view.collection.id + '-' + model.id).toggleClass('active', model.get('active'));
         });
 
-        var max = models[0].get(chartType);
+        var max = chartModels[0].get(chartType);
 
         // Build charts
         $('.data', '#chart-' + this.collection.id).empty();
         $('.caption', '#chart-' + this.collection.id).empty();
 
-        _(models).each(function(model) {
+        _(chartModels).each(function(model) {
             if (chartType == 'budget') {
                 var label = (model.get(chartType) / max * 100) > 28 ? accounting.formatMoney(model.get(chartType)) : '';
             } else {
