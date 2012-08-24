@@ -27,8 +27,8 @@ models.Projects = Backbone.Collection.extend({
                 }, {})
                 .value();
                 
-            this[facet.id + "Budget"] = _.reduce(this.models, function(res,obj) {
-                if ($.isArray(obj.attributes[facet.id])) {
+            this[facet.id + 'Budget'] = _.reduce(this.models, function(res,obj) {
+                if (_.isArray(obj.attributes[facet.id])) {
                     _.each(obj.attributes[facet.id], function(o) {
                         if (!(o in res)) {
                             res[o] = obj.attributes.budget;
@@ -43,7 +43,8 @@ models.Projects = Backbone.Collection.extend({
                         res[obj.attributes[facet.id]] += obj.attributes.budget;
                     }
                 }
-                return res; }, {});
+                return res;
+            }, {});
         }, this);
 
         // Total budget
