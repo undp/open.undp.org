@@ -21,6 +21,10 @@ routers.App = Backbone.Router.extend({
                     el: '#profile',
                     model: that.project.model
                 });
+                that.project.map = new views.Map({
+                    el: '#map',
+                    model: that.project.model
+                });
             }
         });
     },

@@ -15,7 +15,7 @@ views.App = Backbone.View.extend({
     },
     render: function() {
         this.$el.empty().append(templates.app(this));
-        this.buildMap();
+        //this.buildMap();
         return this;
     },
     setFilter: function(e) {
@@ -70,7 +70,7 @@ views.App = Backbone.View.extend({
             }
         });
     
-        mapbox.auto('map', 'mapbox.mapbox-light', function(map) {
+        mapbox.auto('homemap', 'mapbox.mapbox-light', function(map) {
             var markersLayer = mapbox.markers.layer();
             mapbox.markers.interaction(markersLayer);
             markersLayer.features(locations);
