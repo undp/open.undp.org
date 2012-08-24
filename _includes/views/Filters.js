@@ -23,10 +23,10 @@ views.Filters = Backbone.View.extend({
                 })).first(5);
             
             chartModels = _(this.collection.sortBy(function(model) {
-                    return -1 * model.get(chartType);
+                    return -1 * model.get(chartType) || 0;
                 })
                 .filter(function(model) {
-                    return (model.get(chartType) > 0)
+                    return (model.get(chartType) > 0);
                 }))
                 .first(5);
         }
