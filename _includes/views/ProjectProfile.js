@@ -10,7 +10,13 @@ views.ProjectProfile = Backbone.View.extend({
     },
     render: function() {
         $(window).scrollTop(0);
-        this.$el.empty().append(templates.projectProfile(this)).show();
+        
+        this.model.attributes.budget = _.chain(this.model.attributes.subproject)
+                        .map(function (o) { return o.budget })
+                        .reduce(function(memo, num){ return memo + num; }, 0)
+                        .value();
+                        
+        this.$el.empty().append(templates.projectProfile(this)).show();          
         return this;
     }
 });

@@ -34,13 +34,7 @@
 
                 <div class="span3">
                     <div class="label">Budget</div>
-                    <%
-                    var budget = _.chain(model.get('subproject'))
-                        .map(function (o) { return o.budget })
-                        .reduce(function(memo, num){ return memo + num; }, 0)
-                        .value();
-                    %>
-                    <p><%= accounting.formatMoney(budget) %></p>
+                    <p><%= accounting.formatMoney(model.get('budget')) %></p>
                 </div>
                 <div class="span3">
                     <div class="label">Expenditure</div>

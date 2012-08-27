@@ -1,7 +1,9 @@
 views.Map = Backbone.View.extend({
     initialize: function() {
         this.render();
-        this.collection.on('update', this.render, this);
+        if (this.collection) {
+            this.collection.on('update', this.render, this);
+        }
     },
     render: function() {
         this.$el.empty();
@@ -9,68 +11,51 @@ views.Map = Backbone.View.extend({
         return this;
     },
     buildMap: function() {
-        var locations = [];
+        var that = this,
+            locations = [],
+            unit = (this.collection) ? this.collection 
+                : this.model.get('operating_unit'),
+            objCheck = _.isObject(unit);
         
-        if (this.collection) {
-            var c = this.collection;
-            
-            // turn into function
-            $.getJSON('api/operating-unit-index.json', function(data) {
-                for (var i = 0; i < data.length; i++) {
-                    var o = data[i];
-                    if (c.operating_unit[o.id]) {
-                        locations.push({
-                            geometry: {
-                                coordinates: [
-                                    o.lon,
-                                    o.lat]
-                            },
-                            properties: {
-                                id: o.id,
-                                name: o.name,
-                                'marker-color': '#316593',
-                                count: c.operating_unit[o.id],
-                                budget: c.operating_unitBudget[o.id]
-                            }
-                        });
-                    }
+        $.getJSON('api/operating-unit-index.json', function(data) {
+            for (var i = 0; i < data.length; i++) {
+                var o = data[i];
+                if ((objCheck) ? unit.operating_unit[o.id] && o.lon : o.id === unit && o.lon) {
+                    locations.push({
+                        geometry: {
+                            coordinates: [
+                                o.lon,
+                                o.lat]
+                        },
+                        properties: {
+                            id: o.id,
+                            title: o.name,
+                            'marker-color': '#316593',
+                            count: (objCheck) ? unit.operating_unit[o.id] : false,
+                            budget: (objCheck) ? unit.operating_unitBudget[o.id] : that.model.get('budget')
+                        }
+                    });
                 }
-            });
-        } else {
-            var unit = this.model.get('operating_unit');
-            
-            $.getJSON('api/operating-unit-index.json', function(data) {
-                for (var i = 0; i < data.length; i++) {
-                    var o = data[i];
-                    if (o.id === unit && o.lon) {
-                        locations.push({
-                            geometry: {
-                                coordinates: [
-                                    o.lon,
-                                    o.lat]
-                            },
-                            properties: {
-                                id: o.id,
-                                name: o.name,
-                                'marker-color': '#316593'
-                            }
-                        });
-                    }
-                }
-            });
-        }
+            }
+        });
         
         mapbox.auto(this.el, 'mapbox.mapbox-light', function(map) {
-            console.log(locations);
-            
             map.ui.zoomer.remove();
             map.ui.attribution.remove();
-            var markersLayer = mapbox.markers.layer();
-            mapbox.markers.interaction(markersLayer);
-            markersLayer.features(locations);
-            map.addLayer(markersLayer);
-            map.extent(markersLayer.extent());
+            
+            var radii = function(f) {
+                return clustr.area_to_radius(
+                    Math.round(f.properties.budget / 100000)
+                );
+            }
+
+            var markers = mapbox.markers.layer()
+                .factory(clustr.scale_factory(radii, "rgba(2,56,109,0.6)", "#01386C"));
+            mapbox.markers.interaction(markers);
+            markers.features(locations);
+            map.extent(markers.extent());
             if (locations.length === 1){map.zoom(4);}
+            map.addLayer(markers);
         });
     }
 });
