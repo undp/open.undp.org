@@ -1,7 +1,8 @@
 // Model
 models.Filter = Backbone.Model.extend({
     defaults: {
-        active: false
+        active: false,
+        visible: true
     }
 });
 

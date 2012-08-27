@@ -2,7 +2,7 @@ views.Projects = Backbone.View.extend({
     el: '#project-items',
     initialize: function() {
         this.collection.on('update', this.render, this);
-        $('input[type="search"]').on('keyup', _.bind(this.search, this));
+        $('#projects input[type="search"]').on('keyup', _.bind(this.search, this));
     },
     render: function() {
 
@@ -10,7 +10,7 @@ views.Projects = Backbone.View.extend({
                 return filter.collection === 'donors';
             }),
             models = _(this.collection.filter(function(model) {
-                return model.get('active');
+                return model.get('visible');
             })).first(50);
 
         // Probably should replace this with donor name
@@ -42,9 +42,9 @@ views.Projects = Backbone.View.extend({
             var name = model.get('name').toLowerCase();
 
             if (val === '' || name.indexOf(val) >= 0) {
-                model.set('active', true);
+                model.set('visible', true);
             } else {
-                model.set('active', false);
+                model.set('visible', false);
             }
         });
 

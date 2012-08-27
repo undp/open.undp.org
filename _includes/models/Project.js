@@ -1,6 +1,6 @@
 // Model
 models.Project = Backbone.Model.extend({
-    defaults: { active: true },
+    defaults: { visible: true },
     url: function() {
         return 'api/projects/' + this.get('id') + '.json';
 	}
