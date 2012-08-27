@@ -31,6 +31,33 @@ h1 #logo {
   height: 300px;
 }
 
+/* Clustered markers */
+.map > div:last-child img {
+  pointer-events: all;
+  cursor: pointer;
+  }
+.map .marker-popup {
+  min-width: 100px;
+  top: 10px;
+  float: left;
+  }
+.marker-popup:after {
+  border-width: 5px;
+  margin-left: -5px;
+  }
+.marker-popup:before {
+  border-width: 8px;
+  margin-left: -8px;
+  }
+.map .marker-title {
+  font-size: 12px;
+  font-weight: bold;
+  }
+.map .marker-description {
+  float: left;
+  width: 100%;
+  }
+
 #summary > .row-fluid {
   width: auto;
   margin: 20px;
