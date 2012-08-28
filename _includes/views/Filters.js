@@ -19,7 +19,7 @@ views.Filters = Backbone.View.extend({
             this.collection.sort();
 
             filterModels = _(this.collection.filter(function(model) {
-                    return (model.get('count') > 0);
+                    return (model.get('visible') && model.get('count') > 0);
                 })).first(5);
 
             chartModels = _(this.collection.sortBy(function(model) {
@@ -38,6 +38,8 @@ views.Filters = Backbone.View.extend({
                 view.$('.filter-items').append(templates.filter({ model: model }));
                 $('#' + view.collection.id + '-' + model.id).toggleClass('active', model.get('active'));
             });
+        } else {
+            this.$el.empty();
         }
 
         if (chartModels.length) {
