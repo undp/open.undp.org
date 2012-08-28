@@ -1,5 +1,6 @@
 // Model
 models.Project = Backbone.Model.extend({
+    defaults: { visible: true },
     url: function() {
         return 'api/projects/' + this.get('id') + '.json';
 	}
@@ -26,6 +27,25 @@ models.Projects = Backbone.Collection.extend({
                     return obj;
                 }, {})
                 .value();
+                
+            this[facet.id + 'Budget'] = _.reduce(this.models, function(res,obj) {
+                if (_.isArray(obj.attributes[facet.id])) {
+                    _.each(obj.attributes[facet.id], function(o) {
+                        if (!(o in res)) {
+                            res[o] = obj.attributes.budget;
+                        } else {
+                            res[o] += obj.attributes.budget;
+                        }
+                    });
+                } else {
+                    if (!(obj.attributes[facet.id] in res)) {
+                        res[obj.attributes[facet.id]] = obj.attributes.budget;
+                    } else {
+                        res[obj.attributes[facet.id]] += obj.attributes.budget;
+                    }
+                }
+                return res;
+            }, {});
         }, this);
 
         // Total budget

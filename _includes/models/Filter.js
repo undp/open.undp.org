@@ -1,7 +1,8 @@
 // Model
 models.Filter = Backbone.Model.extend({
     defaults: {
-        active: false
+        active: false,
+        visible: true
     }
 });
 
@@ -14,7 +15,7 @@ models.Filters = Backbone.Collection.extend({
     update: function() {
         var collection = this,
             active = _(app.app.filters).find(function(filter) {
-                return (collection.id === filter.collection); 
+                return (collection.id === filter.collection);
             });
 
         _(collection.where({active: true }))
@@ -23,14 +24,20 @@ models.Filters = Backbone.Collection.extend({
         if (active) {
             var model = this.get(active.id);
             var count = app.projects[collection.id][model.id];
+            var budget = app.projects[collection.id + 'Budget'][model.id];
             model.set({
                 active: true,
-                count: count
+                count: count,
+                budget: budget
             });
         } else {
             collection.each(function(model) {
                 var count = app.projects[collection.id][model.id];
-                model.set('count', count);
+                var budget = app.projects[collection.id + 'Budget'][model.id];
+                model.set({
+                    count: count,
+                    budget: budget
+                });
             });
         }
         this.trigger('update');

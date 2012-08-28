@@ -34,15 +34,9 @@
 
                 <div class="span3">
                     <div class="label">Budget</div>
-                    <%
-                    var budget = _.chain(model.get('subproject'))
-                        .map(function (o) { return o.budget })
-                        .reduce(function(memo, num){ return memo + num; }, 0)
-                        .value();
-                    %>
-                    <p><%= accounting.formatMoney(budget) %></p>
+                    <p><%= accounting.formatMoney(model.get('budget')) %></p>
                 </div>
-                <div class="span3">
+                <div class="span3" style="min-width: 90px;">
                     <div class="label">Expenditure</div>
                     <%
                     var expenditure = _.chain(model.get('subproject'))
@@ -112,14 +106,14 @@
             <div class="row-fluid">
                 <div class="span12">
                     <div class="label visible-phone">Location</div>
-                    <p><img src="images/profile_map.png" alt="profile_map"></p>
+                    <div id="profilemap" class="map"></div>
                 </div>
             </div>
         </div>
     </div> <!--/ #top-stats -->
 
     <div class="separator">
-        <p class="lead">Subprojects <span>(<%= model.get('subproject').length %>)</p>
+        <p class="lead">Outputs <span>(<%= model.get('subproject').length %>)</p>
     </div>
 
     <% _.each(model.get('subproject'), function(obj, i) { %>
