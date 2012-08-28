@@ -38,6 +38,8 @@ views.Filters = Backbone.View.extend({
                 view.$('.filter-items').append(templates.filter({ model: model }));
                 $('#' + view.collection.id + '-' + model.id).toggleClass('active', model.get('active'));
             });
+        } else {
+            this.$el.empty();
         }
 
         if (chartModels.length) {
