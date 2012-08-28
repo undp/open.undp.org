@@ -20,6 +20,84 @@ h1 #logo {
   margin-top: 20px;
   height: 47.3px;
   }
+  
+.map {
+  background: #E8E8E8;
+}
+#homemap {
+  height: 440px;
+}
+#profilemap {
+  height: 300px;
+}
+.map .inner-shadow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  -moz-box-shadow:    inset -15px 0 20px 10px #222;
+  -webkit-box-shadow: inset 0 0 20px #222;
+  box-shadow:         inset 0 0 30px -18px #222;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Clustered markers */
+.map > div:last-child img {
+  pointer-events: all;
+  cursor: pointer;
+  }
+.map .marker-popup {
+  min-width: 100px;
+  top: 10px;
+  float: left;
+  color: #333;
+  padding: 10px 15px;
+  margin: 0 10px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  box-shadow: 2px 2px 5px -2px #424242;
+  -moz-box-shadow: 2px 2px 5px -2px #424242;
+  -webkit-box-shadow: 2px 2px 5px -2px #424242;
+  background: #fff;
+  /* IE10 Consumer Preview */
+  background-image: -ms-linear-gradient(top, #ffffff 0%, #eeeeee 100%);
+  /* Mozilla Firefox */
+  background-image: -moz-linear-gradient(top, #ffffff 0%, #eeeeee 100%);
+  /* Opera */
+  background-image: -o-linear-gradient(top, #ffffff 0%, #eeeeee 100%);
+  /* Webkit (Safari/Chrome 10) */
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(1, #eeeeee));
+  /* Webkit (Chrome 11+) */
+  background-image: -webkit-linear-gradient(top, #ffffff 0%, #eeeeee 100%);
+  /* W3C Markup, IE10 Release Preview */
+  background-image: linear-gradient(to bottom, #ffffff 0%, #eeeeee 100%);
+  }
+.marker-popup:after {
+  border-width: 5px;
+  margin-left: -5px;
+  border-top-color: #eee;
+  }
+.marker-popup:before {
+  border-width: 6px;
+  margin-left: -6px;
+  border-top-color: #bbb;
+  }
+.map .marker-title {
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  }
+.map .marker-description {
+  float: left;
+  width: 100%;
+  font-size: 11px;
+  }
+.map .marker-title .subtitle {
+  color: #999;
+  font-size: 11px;
+  font-weight: normal;
+  margin-top: -2px;
+  }
 
 #summary > .row-fluid {
   width: auto;
@@ -238,9 +316,6 @@ form {
   font-size: inherit;
   text-shadow: 0 1px 0 white;
   }
-img {
-  width: 100%;
-  }
 
 /* project.html */
 
@@ -261,11 +336,6 @@ img {
   background-image: -webkit-linear-gradient(bottom, #0055AA 0%, #5A90DA 100%);
   /* W3C Markup, IE10 Release Preview */
   background-image: linear-gradient(to top, #0055AA 0%, #5A90DA 100%);
-  }
-
-#top-stats img {
-  width: 100%;
-  max-height: 300px;
   }
 
 .project {

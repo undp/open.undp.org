@@ -21,6 +21,10 @@ routers.App = Backbone.Router.extend({
                     el: '#profile',
                     model: that.project.model
                 });
+                that.project.map = new views.Map({
+                    el: '#profilemap',
+                    model: that.project.model
+                });
             }
         });
     },
@@ -61,6 +65,10 @@ routers.App = Backbone.Router.extend({
                     var view = new views.Projects({ collection: that.projects });
                     that.projects.watch();
                     loadFilters();
+                    that.projects.map = new views.Map({
+                        el: '#homemap',
+                        collection: that.projects
+                    });
                 }
             });
         } else {

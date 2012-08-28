@@ -24,6 +24,16 @@ views.App = Backbone.View.extend({
         $(window).resize(_.debounce(function() {
             view.$el.css('min-height', $(window).height() * 2);
         }, 300));
+
+        function mapsize() {
+            if($(window).width() <= 1068) {
+                $('#homemap').parent().attr('class', 'span11');
+            } else {
+                $('#homemap').parent().attr('class', 'span6');
+            }
+        }
+        mapsize();
+        $(window).resize(function(){mapsize();});
     },
 
     render: function() {
