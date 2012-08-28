@@ -77,6 +77,24 @@ donor_out = open('../api/donor-index.json', 'wb')
 donor_out.writelines(donor_writeout)
 donor_out.close()
 
+##########################
+# Process Donor Type index
+# Open index csv
+type = csv.DictReader(open('temp-csv/undp-donor-type-index.csv', 'rb'), delimiter = ',', quotechar = '"')
+# Sort file
+type_sort = sorted(type, key = lambda x: x['id'])
+
+row_count = 0
+for row in type_sort:
+    row_count = row_count + 1
+
+print "Processing..."
+print "Processed %d rows" % row_count
+type_writeout = json.dumps(type_sort, sort_keys=True, indent=4)
+
+type_out = open('../api/donor-type-index.json', 'wb')
+type_out.writelines(type_writeout)
+type_out.close()
 
 ##########################
 # Process Focus Area index
