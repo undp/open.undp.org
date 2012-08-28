@@ -93,6 +93,9 @@ select bureau as id, bureau_description as name FROM regions;
 .output temp-csv/undp-donor-index.csv
 select donor as id, donor_long_description as name from project_level1_donor where id != '' group by id;
 
+.output temp-csv/undp-donor-type-index.csv
+select donor as id, UN_LEVEL1_DESCR as name from donors where id != '' group by name;
+
 .output temp-csv/undp-focus-area-index.csv
 select focus_area_1 as id, sp1_fa_description as name from outcomes where id != '' group by id;
 
