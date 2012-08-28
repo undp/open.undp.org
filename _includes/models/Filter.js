@@ -15,7 +15,7 @@ models.Filters = Backbone.Collection.extend({
     update: function() {
         var collection = this,
             active = _(app.app.filters).find(function(filter) {
-                return (collection.id === filter.collection); 
+                return (collection.id === filter.collection);
             });
 
         _(collection.where({active: true }))

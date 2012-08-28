@@ -9,7 +9,7 @@ views.ProjectProfile = Backbone.View.extend({
         });
     },
     render: function() {
-        $(window).scrollTop(0);
+        $('html, body').scrollTop(0);
         this.$el.empty().append(templates.projectProfile(this)).show();
         return this;
     }

@@ -50,7 +50,7 @@ views.Projects = Backbone.View.extend({
 
         this.render();
         $('html, body').animate({
-            scrollTop: $('#projects-heading').offset().top
+            scrollTop: $('#projects-heading').offset().top + 1
         }, 500);
     }
 });
