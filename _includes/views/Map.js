@@ -55,7 +55,7 @@ views.Map = Backbone.View.extend({
                             },
                             properties: {
                                 id: o.id,
-                                title: o.name,
+                                title: (objCheck) ? o.name : that.model.get('title') + '<div class="subtitle">' + o.name + '</div>',
                                 count: count,
                                 budget: budget,
                                 description: description
