@@ -6,13 +6,14 @@ views.Map = Backbone.View.extend({
         }
     },
     render: function() {
-        this.$el.empty();
+        this.$el.empty().append('<div class="inner-shadow"></div>');
         this.buildMap();
         return this;
     },
     buildMap: function() {
         var that = this,
             locations = [],
+            count, budget, description,
             unit = (this.collection) ? this.collection 
                 : this.model.get('operating_unit'),
             objCheck = _.isObject(unit);
@@ -21,13 +22,13 @@ views.Map = Backbone.View.extend({
             map.ui.zoomer.remove();
             map.ui.attribution.remove();
             map.setZoomRange(2, 17);
-
+            
             var radii = function(f) {
                 return clustr.area_to_radius(
                     Math.round(f.properties.budget / 100000)
                 );
             }
-
+            
             var markers = mapbox.markers.layer()
                 .factory(clustr.scale_factory(radii, "rgba(2,56,109,0.6)", "#01386C"));
 
@@ -35,6 +36,16 @@ views.Map = Backbone.View.extend({
                 for (var i = 0; i < data.length; i++) {
                     var o = data[i];
                     if ((objCheck) ? unit.operating_unit[o.id] && o.lon : o.id === unit && o.lon) {
+                    
+                        (objCheck) ? count = unit.operating_unit[o.id] : count = false;
+                        (objCheck) ? budget = unit.operating_unitBudget[o.id] : budget = that.model.get('budget');
+                        description = '<div class="stat">Budget: <span class="value">'
+                                      + accounting.formatMoney(budget) + '</span></div>';
+                        if (objCheck) {
+                            description += '<div class="stat">Projects: <span class="value">'
+                                        + count + '</span></div>';
+                        }
+                        
                         locations.push({
                             geometry: {
                                 coordinates: [
@@ -45,19 +56,24 @@ views.Map = Backbone.View.extend({
                             properties: {
                                 id: o.id,
                                 title: o.name,
-                                'marker-color': '#316593',
-                                count: (objCheck) ? unit.operating_unit[o.id] : false,
-                                budget: (objCheck) ? unit.operating_unitBudget[o.id] : that.model.get('budget')
+                                count: count,
+                                budget: budget,
+                                description: description
                             }
                         });
                     }
                 }
-                markers.features(locations);
-                mapbox.markers.interaction(markers);
-                map.extent(markers.extent());
-                if (locations.length === 1){map.zoom(4);}
-                map.addLayer(markers);
-    
+                
+                if (locations.length != 0) {
+                    markers.features(locations);
+                    markers.sort(function(a,b){ return b.properties.budget - a.properties.budget; }); //not working?
+                    mapbox.markers.interaction(markers);
+                    map.extent(markers.extent());
+                    map.addLayer(markers);
+                    if (locations.length === 1){map.zoom(4);}
+                } else {
+                    map.centerzoom({lat:20,lon:0},2);
+                }
             });
 
         });
