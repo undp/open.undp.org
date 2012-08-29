@@ -16,11 +16,15 @@ project_list = []
 row_count = 0
 for pval in iter(project_sort):
     row_count = row_count + 1
+    donorType = []
+    for type in pval['donor_type_id'].split(','):
+        if type.replace(" ","") not in donorType:
+            donorType.append(type.replace(" ",""))
     project = {
         "budget": float(pval['budget']),
         "crs": pval['crs'],
         "donors": pval['donors'].split(','),
-        "donor_types": pval['donor_types'].split(','),
+        "donor_types": donorType,
         "expenditure": float(pval['expenditure']),
         "focus_area": pval['focus_area'],
         "id": pval['id'],
