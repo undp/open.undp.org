@@ -30,7 +30,8 @@ views.Map = Backbone.View.extend({
             }
             
             var markers = mapbox.markers.layer()
-                .factory(clustr.scale_factory(radii, "rgba(2,56,109,0.6)", "#01386C"));
+                .factory(clustr.scale_factory(radii, "rgba(2,56,109,0.6)", "#01386C"))
+                .sort(function(a,b){ return b.properties.budget - a.properties.budget; });
 
             $.getJSON('api/operating-unit-index.json', function(data) {
                 for (var i = 0; i < data.length; i++) {
@@ -66,7 +67,6 @@ views.Map = Backbone.View.extend({
                 
                 if (locations.length != 0) {
                     markers.features(locations);
-                    markers.sort(function(a,b){ return b.properties.budget - a.properties.budget; }); //not working?
                     mapbox.markers.interaction(markers);
                     map.extent(markers.extent());
                     map.addLayer(markers);
