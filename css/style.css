@@ -117,8 +117,14 @@ h1 #logo {
 #summary .lead span {
   font-size: 16px;
   }
-#summary .lead .projid {
-  float: right;
+#summary .lead.projid {
+  font-size: 16px;
+  text-align: right;
+  }
+@media (max-width: 767px) {
+  #summary .lead.projid {
+    text-align: left;
+    }
   }
 
 #projects a {
@@ -298,13 +304,14 @@ form {
 
 .nav {
   margin: 0;
-  text-align: center;
   line-height: 87px;
   font-size: 18px;
   color: #999;
   text-shadow: 0 1px 0 white;
   text-align: right;
   display: none;
+  float: right;
+  margin-left: 8%;
   }
 .nav a {
   color: #999;
