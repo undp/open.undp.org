@@ -17,13 +17,11 @@
                 name: 'CRS Aid Classification'
             },
             */
-            /*
             {
-                id: 'donor_type',
+                id: 'donor_types',
                 url: 'api/donor-type-index.json',
                 name: 'Donor Type'
             },
-            */
             {
                 id: 'donors',
                 url: 'api/donor-index.json',
