@@ -1,7 +1,10 @@
 <div id="summary" class="span9 project raised">
     <div class="row-fluid separator">
         <div class="span12">
-            <p class="lead"><%= model.get('title') %></p>
+            <p class="lead">
+                <%= model.get('title') %>
+                <span class="projid"><%= model.get('id') %></span>
+            </p>
         </div>
     </div>
 
