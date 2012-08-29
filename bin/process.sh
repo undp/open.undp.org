@@ -13,7 +13,7 @@ sqlite3 undp-project-db.sqlite <<!
 select 
     h.awardid as id, h.award_title as name, h.bureau as region, h.rollup_ou as operating_unit, 
     sum(h.project_budget) as budget, sum(h.project_expenditure) as expenditure, 
-    j.donors as donors, r.donor_type as donor_types, h.crs as crs, h.sp1_fa as focus_area, h.sp1_co as outcome 
+    j.donors as donors, r.donor_type as donor_types, r.donor_type_id as donor_type_id, h.crs as crs, h.sp1_fa as focus_area, h.sp1_co as outcome 
     from (
         (select 
             b.bureau, b.rollup_ou, b.awardid, 
@@ -39,9 +39,9 @@ left join (
     ) as j 
     on j.awardid = h.awardid 
 
-join (select m.awardid, n.donor_type as donor_type from project_level1_donor m 
-    join (select o.awardid, o.donor, group_concat(p.donor_type) as donor_type from project_level1_donor o
-            left join (select q.DONOR, q.UN_LEVEL1_DESCR as donor_type from donors q) as p on p.DONOR = o.donor
+join (select m.awardid, n.donor_type as donor_type, n.donor_type_id from project_level1_donor m 
+    join (select o.awardid, o.donor, group_concat(p.UN_ROLLUP_LEVEL1) as donor_type_id, group_concat(p.donor_type) as donor_type from project_level1_donor o
+            left join (select q.DONOR, q.UN_ROLLUP_LEVEL1, q.UN_LEVEL1_DESCR as donor_type from donors q) as p on p.DONOR = o.donor
             group by o.awardid
             ) as n on n.awardid = m.awardid group by m.awardid order by m.awardid) as r on r.awardid = h.awardid 
 group by h.awardid;
@@ -100,7 +100,7 @@ select bureau as id, bureau_description as name FROM regions;
 select donor as id, donor_long_description as name from project_level1_donor where id != '' group by id;
 
 .output temp-csv/undp-donor-type-index.csv
-select donor as id, UN_LEVEL1_DESCR as name from donors where id != '' group by name;
+select UN_ROLLUP_LEVEL1 as id, UN_LEVEL1_DESCR as name from donors where id != '' group by name;
 
 .output temp-csv/undp-focus-area-index.csv
 select focus_area_1 as id, sp1_fa_description as name from outcomes where id != '' group by id;
