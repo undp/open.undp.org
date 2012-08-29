@@ -20,6 +20,7 @@ for pval in iter(project_sort):
         "budget": float(pval['budget']),
         "crs": pval['crs'],
         "donors": pval['donors'].split(','),
+        "donor_types": pval['donor_types'].split(','),
         "expenditure": float(pval['expenditure']),
         "focus_area": pval['focus_area'],
         "id": pval['id'],
