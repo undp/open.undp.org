@@ -18,6 +18,7 @@ views.ProjectProfile = Backbone.View.extend({
         $(window).resize(function(){mapsize();});
     },
     render: function() {
+    
         this.model.attributes.budget = _.chain(this.model.attributes.subproject)
             .map(function (o) { return o.budget })
             .reduce(function(memo, num){ return memo + num; }, 0)
@@ -38,8 +39,15 @@ views.ProjectProfile = Backbone.View.extend({
             .uniq()
             .value();
             
+        
         $('html, body').scrollTop(0);
         this.$el.empty().append(templates.projectProfile(this)).show();
+        
+        this.map = new views.Map({
+            el: '#profilemap',
+            model: this.model
+        });
+        
         return this;
     }
 });

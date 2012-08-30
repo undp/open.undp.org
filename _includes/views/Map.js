@@ -56,6 +56,7 @@ views.Map = Backbone.View.extend({
                             },
                             properties: {
                                 id: o.id,
+                                name: o.name,
                                 title: (objCheck) ? o.name : that.model.get('title') + '<div class="subtitle">' + o.name + '</div>',
                                 count: count,
                                 budget: budget,
@@ -70,7 +71,10 @@ views.Map = Backbone.View.extend({
                     mapbox.markers.interaction(markers);
                     map.extent(markers.extent());
                     map.addLayer(markers);
-                    if (locations.length === 1){map.zoom(4);}
+                    if (locations.length === 1) {
+                        map.zoom(4);
+                        $('p[data-category="op_unit"]').html(locations[0].properties.name);
+                    }
                 } else {
                     map.centerzoom({lat:20,lon:0},2);
                 }
