@@ -120,8 +120,8 @@
     <% _.each(model.get('subproject'), function(obj, i) { %>
     <% if (_.indexOf(model.get('sub_ids'),obj.id) > -1) { %>
     <div id="subproject<%= obj.id %>" class="project row-fluid">
-        <div class="span1">
-            <p class="lead"><strong><%= obj.id %></strong></p>
+        <div class="span1 projid">
+            <p><strong><%= obj.id %></strong></p>
         </div>
         <div class="span5">
             <h3><%= obj.title %></h3>
