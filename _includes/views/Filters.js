@@ -59,7 +59,7 @@ views.Filters = Backbone.View.extend({
                     '<div style="width: ' + (model.get(chartType)/ max * 100) + '%">' + label + '</div>'
                 );
                 $('.caption', '#chart-' + model.collection.id).append(
-                    '<div><a href="#filter/operating_unit-' + model.get('id')
+                    '<div><a href="#filter/' + model.collection.id + '-' + model.get('id')
                     + '">' + model.get('name').toLowerCase() + '</a></div>'
                 );
             });
