@@ -51,7 +51,7 @@
             </div>
             <div class="row-fluid">
                 <div class="span6">
-                    <div class="label">Outcomes</div>
+                    <div class="label">Focus Area</div>
                     <%
                     var outcomeCount = _.chain(model.get('subproject'))
                         .map(function (o) { return o["focus area"] })
@@ -128,13 +128,12 @@
             <p><%= obj.description %></p>
         </div>
         <div class="span4">
+            <% if (obj["focus area"]) { %>
             <div class="row-fluid">
-                <div class="label">Outcome</div>
-                <% if (obj["focus area"]) { %>
-                <span><strong><%= obj["focus area"] %></strong></span> &raquo;
-                <span><%= obj["corporate outcome"] %></span>
-                <% } %>
+                <div class="label">Focus Area</div>
+                <span><%= obj["focus area"] %></span>
             </div>
+            <% } %>
             <% if (obj["gender code"]) { %>
             <div class="row-fluid">
                 <div class="label">Gender Equality</div>
