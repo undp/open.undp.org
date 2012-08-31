@@ -1,4 +1,7 @@
 views.Map = Backbone.View.extend({
+    events: {
+        'click img.mapmarker': 'mapClick'
+    },
     initialize: function() {
         this.render();
         if (this.collection) {
@@ -9,6 +12,10 @@ views.Map = Backbone.View.extend({
         this.$el.empty().append('<div class="inner-shadow"></div>');
         this.buildMap();
         return this;
+    },
+    mapClick: function(e) {
+        var $target = $(e.target);
+        window.location = '#filter/operating_unit-' + $target.attr('id');
     },
     buildMap: function() {
         var that = this,
