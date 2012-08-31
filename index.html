@@ -1,54 +1,117 @@
 ---
 ---
-
 {% assign base = site.baseurl %}
-
 <!DOCTYPE html>
-<html id="html">
+<html>
 <head>
     <meta charset=utf-8 />
     <title>UNDP Projects</title>
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{base}}/img/global/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="stylesheet" href="{{base}}/css/reset.css">
+    <link rel="stylesheet" href="{{base}}/css/global.css">
     <link href="{{base}}/ext/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <link href="http://api.tiles.mapbox.com/mapbox.js/v0.6.4/mapbox.css" rel="stylesheet" />
     <link href="{{base}}/css/style.css" rel="stylesheet" />
 </head>
-<body id="body">
+<!--[if lt IE 7 ]> <body class="ie ie6"> <![endif]-->
+<!--[if IE 7 ]>    <body class="ie ie7"> <![endif]-->
+<!--[if IE 8 ]>    <body class="ie ie8"> <![endif]-->
+<!--[if IE 9 ]>    <body class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]> <!-->
+<body>
+<!--<![endif]-->
 
-<div class="container-fluid">
-    <div class="row-fluid">
-        <div class="span4">
-            <h1><span id="logo">UNDP </span>Projects</h1>
-        </div>
-        <div class="span5">
-            <div class="nav browser"><a href="#about" data-toggle="modal">About</a></div>
-            <div class="nav browser"><a href="#download" data-toggle="modal">Download</a></div>
-            <div class="nav browser"><a href="#feedback" data-toggle="modal">Feedback</a></div>
-            <div class="nav profile"><a id="all-projects" href="#">&larr; All projects</a></div>
-        </div>
+<div id="container">
+    <div id="skiplink">
+        <ul>
+            <li><a href="#main-navigation">Skip to main navigation</a></li>
+            <li><a href="#content-main">Skip to content</a></li>
+            <li><a href="#footer">Skip to footer</a></li>
+        </ul>
     </div>
-    <div id="app" class="row-fluid">
-        <div id="browser" class="view"></div>
-        <div id="profile" class="view"></div>
-    </div>
-</div> <!--/ .container-fluid -->
+    <!-- end of #top-navigation -->
+    <div id="header">
+        <div class="content">
+            <a href="#">
+            <img class="logo png" src="img/global/logo.png" alt="UNDP" width="104" height="150" />
+            </a>
+            <ul id="top-navigation">
+                <li><a id="country-selector" href="#">UNDP in 166 countries</a>
+                </li>
+                <li><a href="#">Global Operations</a></li>
+                <li><a href="#">Library</a></li>
+                <li><a href="#">Press Center</a></li>
+            </ul>
+            <h2>United Nations Development Programme</h2>
+            <!-- end of #top-navigation -->
+            <!-- end of #languages -->
+            <!-- end of #main-navigation -->
+        </div>
+        <!-- end of .content -->
+    </div><!-- /#header -->
+
+    <!-- content -->
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span4">
+                <h1>Project Portal</h1>
+            </div>
+            <div class="span5">
+                <div class="nav browser"><a href="#about" data-toggle="modal">About</a></div>
+                <div class="nav browser"><a href="#download" data-toggle="modal">Download</a></div>
+                <div class="nav browser"><a href="#feedback" data-toggle="modal">Feedback</a></div>
+                <div class="nav profile"><a id="all-projects" href="#">&larr; All projects</a></div>
+            </div>
+        </div>
+        <div id="app" class="row-fluid">
+            <div id="browser" class="view"> </div>
+            <div id="profile" class="view"> </div>
+        </div>
+    </div> <!--/ .container-fluid -->
+
+    <div id="footer">
+        <div id="contact">
+            <div class="content">
+                <div class="clearfix">
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Jobs</a></li>
+                        <li><a href="#">Investigation Hotline</a></li>
+                        <li><a href="#">Copyright &amp; Terms of Use</a></li>
+                        <li><a href="#">Information Disclosure Policy</a></li>
+                    </ul>
+                    <ul class="find-us-on">
+                        <li>Find us on</li>
+                        <li><a class="facebook" href="#">Facebook</a></li>
+                        <li><a class="twitter" href="#">Twitter</a></li>
+                        <li><a class="flickr" href="#">Flickr</a></li>
+                        <li><a class="youtube" href="#">YouTube</a></li>
+                    </ul>
+                </div>
+                <p>&copy; Copyright 2010 United Nations Development Programme</p>
+            </div>
+            <!-- end of .content -->
+        </div>
+        <!-- end of #contact -->
+    </div><!-- #footer -->
+</div>
 
 <div id="templates">
 {% include templates.html %}
 </div>
 
 <div id="scripts">
-    <script src="{{base}}/ext/jquery.js"></script>
-    <script src="{{base}}/ext/bootstrap/js/bootstrap.js"></script>
-    <script src="{{base}}/ext/underscore.js"></script>
-    <script src="{{base}}/ext/backbone.js"></script>
-    <script src="{{base}}/ext/accounting.js"></script>
-    <script src="http://api.tiles.mapbox.com/mapbox.js/v0.6.4/mapbox.js"></script>
-    <script src="{{base}}/ext/clustr.min.js"></script>
-    <script src="{{base}}/js/script.js"></script>
+    <script src="{{base}}/ext/jquery.js"> </script>
+    <script src="{{base}}/ext/bootstrap/js/bootstrap.js"> </script>
+    <script src="{{base}}/ext/underscore.js"> </script>
+    <script src="{{base}}/ext/backbone.js"> </script>
+    <script src="{{base}}/ext/accounting.js"> </script>
+    <script src="http://api.tiles.mapbox.com/mapbox.js/v0.6.4/mapbox.js"> </script>
+    <script src="{{base}}/ext/clustr.min.js"> </script>
+    <script src="{{base}}/js/script.js"> </script>
 </div>
 
 </body>

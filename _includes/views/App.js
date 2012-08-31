@@ -12,7 +12,7 @@ views.App = Backbone.View.extend({
 
         // Filters follow scrolling
         $(window).on('scroll', function() {
-            if($(window).scrollTop() >= 77) {
+            if($(window).scrollTop() >= 140) {
                 $('#filters').addClass('fixed');
             } else {
                 $('#filters').removeClass('fixed');
@@ -38,6 +38,8 @@ views.App = Backbone.View.extend({
 
     render: function() {
         this.$el.empty().append(templates.app(this));
+        $('html, body').scrollTop(0);
+
         return this;
     },
 

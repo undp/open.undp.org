@@ -1,31 +1,71 @@
 body {
-  background: fixed #efefef url(../images/bg.png);
+  background: #f2faff;
   }
+
+.container-fluid {
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
 
 h1 {
   color: #0740b2;
-  text-shadow: 0 1px 0 white;
   font-weight: normal;
   line-height: 80px;
   font-size: 2em;
+  position: relative;
+  left: 100px;
   }
-h1 #logo {
-  width: 100px;
-  margin-right: 10px;
-  background: url(../images/logo.png) no-repeat;
-  display: block;
-  float: left;
-  background-size: 100px;
-  text-indent: -9000px;
-  margin-top: 20px;
-  height: 47.3px;
+
+#header {
+  height: 64px;
+  }
+
+#header h2 {
+  font-size: 14px;
+  color: white;
+  font-weight: normal;
+  left: 100px;
+  top: 30px;
+  }
+
+#header li, #footer li {
+  line-height: 3em;
+  list-style: none;
+}
+
+#footer li {
+  line-height: normal;
+}
+
+#footer ul {
+  padding: 0;
+  margin: 0;
+}
+
+#top-navigation {
+  padding: 0;
+  margin: 0;
+}
+
+.content {
+  margin: 0 20px;
+  position: relative;
+  width: auto;
+}
+#header h3 {
+  font-size: 24px;
+  font-weight: normal;
+  position: absolute;
+  top: 75px;
+  left: 110px;
+  color: #fff;
   }
   
 .map {
   background: #E8E8E8;
 }
 #homemap {
-  height: 440px;
+  height: 310px;
 }
 #profilemap {
   height: 300px;
@@ -99,35 +139,35 @@ h1 #logo {
   margin-top: -2px;
   }
 
-#summary > .row-fluid {
+.summary > .row-fluid {
   width: auto;
   margin: 20px;
   }
 
-#summary > .row-fluid .row-fluid {
+.summary > .row-fluid .row-fluid {
   margin-bottom: 1em;
   }
 
-#summary > .row-fluid:first-child {
+.summary > .row-fluid:first-child {
   margin: 0;
   }
-#summary .lead {
+.summary .lead {
   margin: 0;
   }
-#summary .lead span {
+.summary .lead span {
   font-size: 16px;
   }
-#summary .lead.projid {
+.summary .lead.projid {
   font-size: 16px;
   text-align: right;
   }
 @media (max-width: 767px) {
-  #summary .lead.projid {
+  .summary .lead.projid {
     text-align: left;
     }
   }
 
-#summary a, #projects a {
+.summary a, #projects a {
   color: #333;
   }
 
@@ -238,7 +278,6 @@ h1 #logo {
   }
 .stats strong {
   color: #036;
-  text-shadow: 0 1px 0 white;
   }
 .date {
   font-size: 11px;
@@ -262,34 +301,35 @@ form {
 
 #filters {
   position: absolute;
-  top: 87px;
+  top: 150px;
   right: 20px;
   }
 
 #filters h3 {
   font-weight: normal;
-  text-shadow: 0 1px 0 white;
   margin-bottom: 10px;
   color: #036;
   }
 
-#filter-field {
+#filters-search {
   margin-bottom: 20px;
   background: rgba(255, 255, 255, 0.6);
   }
 
 #filters li {
-  line-height: 24px;
-  text-indent: 10px;
-  text-shadow: 0 1px 0 #fdfdfd;
+  line-height: 18px;
+  font-size: 10px;
   }
 
 #filters li a {
-  width: 100%;
   height: 100%;
   display: block;
   border-radius: 5px;
   color: #333;
+  padding-left: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.9em;
   }
 
 #filters li a:hover, #filters li a:focus {
@@ -315,9 +355,9 @@ form {
 .nav {
   margin: 0;
   line-height: 87px;
+  height: 60px;
   font-size: 18px;
   color: #999;
-  text-shadow: 0 1px 0 white;
   text-align: right;
   display: none;
   float: right;
@@ -325,7 +365,6 @@ form {
   }
 .nav a {
   color: #999;
-  text-shadow: 0 1px 0 white;
   }
 .nav a:hover, .nav a:focus {
   text-decoration: none;
@@ -347,12 +386,11 @@ form {
   position: relative;
   text-transform: capitalize;
   font-size: inherit;
-  text-shadow: 0 1px 0 white;
   }
 
 /* project.html */
 
-.project .separator {
+.projects .separator {
   border-top: 1px solid #55BBFF;
   border-bottom: 1px solid #0B387C;
   box-shadow: 0 -1px 0 #5A90DA, 0 1px 0 white;
