@@ -3,36 +3,6 @@ from itertools import groupby
 
 t0 = time.time()
 
-# Open up projects_subprojects.csv
-documents = csv.DictReader(open('download/undp_export/report_documents.csv', 'rb'), delimiter = ',', quotechar = '"')
-donor_projects = csv.DictReader(open('download/undp_export/report_donors.csv', 'rb'), delimiter = ',', quotechar = '"')
-donor_outputs = csv.DictReader(open('download/undp_export/report_donors.csv', 'rb'), delimiter = ',', quotechar = '"')
-#donor_index = csv.DictReader(open('download/undp_export/report_donors.csv', 'rb'), delimiter = ',', quotechar = '"')
-#donor_types = csv.DictReader(open('download/undp_export/report_donors.csv', 'rb'), delimiter = ',', quotechar = '"')
-outputs = csv.DictReader(open('download/undp_export/report_outputs.csv', 'rb'), delimiter = ',', quotechar = '"')
-#outputsGroup = csv.DictReader(open('download/undp_export/report_outputs.csv', 'rb'), delimiter = ',', quotechar = '"')
-#outputsCRS = csv.DictReader(open('download/undp_export/report_outputs.csv', 'rb'), delimiter = ',', quotechar = '"')
-outputsFA = csv.DictReader(open('download/undp_export/report_outputs.csv', 'rb'), delimiter = ',', quotechar = '"')
-projects = csv.DictReader(open('download/undp_export/report_projects.csv', 'rb'), delimiter = ',', quotechar = '"')
-units = csv.DictReader(open('download/undp_export/report_units_copy.csv', 'rb'), delimiter = ',', quotechar = '"')
-bureau = csv.DictReader(open('download/undp_export/regions.csv', 'rb'), delimiter = ',', quotechar = '"')
-
-# Sort for iteration 
-documents_sort = sorted(documents, key = lambda x: x['awardid'])
-donor_projects_sort = sorted(donor_projects, key = lambda x: x['awardID'])
-donor_outputs_sort = sorted(donor_outputs, key = lambda x: x['projectID'])
-donor_index_sort = sorted(donor_outputs, key = lambda x: x['donorID'])
-donor_types_sort = sorted(donor_outputs, key = lambda x: x['donor_type_lvl1'])
-outputs_sort = sorted(outputs, key = lambda x: x['projectID'])
-outputsGroup_sort = sorted(outputs, key = lambda x: x['awardid'])
-outputsCRS_sort = sorted(outputs, key = lambda x: x['crs'])
-outputsFA_sort = sorted(outputs, key = lambda x: x['focus_area'])
-projects_sort = sorted(projects, key = lambda x: x['awardID'])
-units_sort = sorted(units, key = lambda x: x['rollup_ou'])
-
-bureau_sort = sorted(bureau, key = lambda x: x['bureau'])
-
-
 # Process document file by Projects
 documents = csv.DictReader(open('download/undp_export/report_documents.csv', 'rb'), delimiter = ',', quotechar = '"')
 documents_sort = sorted(documents, key = lambda x: x['awardid'])
