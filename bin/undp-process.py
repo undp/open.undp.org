@@ -17,7 +17,7 @@ for id,documents in groupby(documents_sort, lambda x: x['awardid']):
     docURL = []
     for doc in documents:
         docName.append(doc['document_name'])
-        docURL.append(doc['document_url'])
+        docURL.append('http://www.undp.org/content/dam/undp/documents/projects/' + doc['document_url'])
     docList.append(docName)
     docList.append(docURL)
     docProject.append(docList)
@@ -218,7 +218,7 @@ projectSum_sort = sorted(projectSum, key = lambda x: x['awardID'])
 
 row_count = 0
 projectSummary = []
-projectSumHeader = ['id','title','inst_id','inst_type_id','operating_unit_id','region_id','budget','expenditure','crs','focus_area','donors','donor_types']
+projectSumHeader = ['id','name','operating_unit','region','budget','expenditure','crs','focus_area','donors','donor_types']
 for award,summary in groupby(projectSum_sort, lambda x: x['awardID']): 
     row_count = row_count + 1
     summaryList = [award]
@@ -226,8 +226,6 @@ for award,summary in groupby(projectSum_sort, lambda x: x['awardID']):
     docTemp = []
     for s in summary:
         summaryList.append(s['award_title'])
-        summaryList.append(s['institutionid'])
-        summaryList.append(s['inst_type'])
         summaryList.append(s['operatingunit'])
         summaryList.append(s['bureau'])
         summaryList.append(float(s['budget']))
