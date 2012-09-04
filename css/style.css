@@ -62,10 +62,10 @@ h1 {
   }
   
 .map {
-  background: #E8E8E8;
+  background: white;
 }
 #homemap {
-  height: 310px;
+  height: 350px;
 }
 #profilemap {
   height: 300px;
@@ -74,9 +74,9 @@ h1 {
   position: relative;
   width: 100%;
   height: 100%;
-  -moz-box-shadow:    inset -15px 0 20px 10px #222;
-  -webkit-box-shadow: inset 0 0 20px #222;
-  box-shadow:         inset 0 0 30px -18px #222;
+  -moz-box-shadow:    inset 0 0 10px #999;
+  -webkit-box-shadow: inset 0 0 10px #999;
+  box-shadow:         inset 0 0 10px #999;
   z-index: 5;
   pointer-events: none;
 }
@@ -246,7 +246,7 @@ h1 {
   background-image: linear-gradient(to left, #265F91 0%, #557799 100%);  margin: 0.25em 0;
   padding-right: 0.5em;
   box-sizing: border-box;
-  font-size: 0.9em;
+  font-size: 0.7em;
   color: #EDF4FE;
   }
 .chart .caption > div {
@@ -427,6 +427,11 @@ form {
   text-transform: capitalize;
   font-size: inherit;
   }
+
+.chart-container {
+  min-height: 138px !important;
+}
+
 
 /* project.html */
 

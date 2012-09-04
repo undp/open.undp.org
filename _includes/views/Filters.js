@@ -48,12 +48,27 @@ views.Filters = Backbone.View.extend({
             this.$el.empty();
         }
 
-        if (chartModels.length) {
+        if (chartModels.length === 1) {
+            $('.data', '#chart-' + this.collection.id).empty().addClass('hidden');
+            $('.caption', '#chart-' + this.collection.id).empty().addClass('hidden');
+            $('.btn-' + this.collection.id).addClass('hidden');
+            $('.placeholder', '#chart-' + this.collection.id)
+                .empty()
+                .removeClass('hidden')
+                .text(chartModels[0].get('name'));
+
+            $('.applied-filters').append('<div class="' + this.collection.id + '">'+ chartModels[0].get('name') + '</div>');
+
+
+        } else if (chartModels.length > 1) { 
             var max = chartModels[0].get(chartType);
 
             // Build charts
-            $('.data', '#chart-' + this.collection.id).empty();
-            $('.caption', '#chart-' + this.collection.id).empty();
+            $('.placeholder', '#chart-' + this.collection.id).empty().addClass('hidden');
+            $('.btn-' + this.collection.id).removeClass('hidden');
+            $('.data', '#chart-' + this.collection.id).empty().removeClass('hidden');
+            $('.caption', '#chart-' + this.collection.id).empty().removeClass('hidden');
+            $('.' + this.collection.id, '.applied-filters').remove();
 
             _(chartModels).each(function(model) {
                 if (chartType == 'budget') {

@@ -25,7 +25,7 @@ views.Map = Backbone.View.extend({
                 : this.model.get('operating_unit'),
             objCheck = _.isObject(unit);
 
-        mapbox.auto(this.el, 'mapbox.mapbox-light', function(map) {
+        mapbox.auto(this.el, 'dhcole.map-75gxxhee', function(map) {
             map.ui.zoomer.remove();
             map.ui.attribution.remove();
             map.setZoomRange(2, 17);

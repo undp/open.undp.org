@@ -5,72 +5,80 @@
         </div>
     </div>
     <div class="row-fluid">
-        <div class="span12">
-            <div class="row-fluid">
+        <div class="span6">
+            <div class="row-fluid stats">
                 <div class="span6">
-                    <div class="row-fluid stats">
-                        <div class="span6">
-                            <p id="total-count" class="lead"></p>
-                            <p><strong>Projects</strong></p>
-                        </div>
-                        <div class="span6">
-                            <p id="total-budget" class="lead"></p>
-                            <p><strong>Budget</strong> <span class="date">2010-2011</span></p>
-                        </div>
-                    </div>
-                    <div class="row-fluid stats">
-                        <div class="span6">
-                            <p id="total-donors" class="lead"></p>
-                            <p><strong>Donors</strong></p>
-                        </div>
-                        <div class="span6">
-                            <p id="total-expenditure" class="lead"></p>
-                            <p><strong>Expenditure</strong> <span class="date">2010-2011</span></p>
-                        </div>
-                    </div>
-                    <div class="row-fluid">
-                        <div class="span12">
-                            <div class="label">Top countries
-                                <div class="btn-operating_unit btn-group toggle" data-toggle="buttons-radio">
-                                    <button class="btn btn-mini active" data-facet="operating_unit">Budget</button>
-                                    <button class="btn btn-mini" data-facet="operating_unit">Count</button>
-                                </div>
-                            </div>
-                            <div id="chart-operating_unit" class="chart">
-                                <div class="data"></div>
-                                <div class="caption"></div>
-                            </div>
-                        </div>
-                    </div>
-
+                    <p id="total-count" class="lead"></p>
+                    <p><strong>Projects</strong></p>
                 </div>
                 <div class="span6">
+                    <p id="total-budget" class="lead"></p>
+                    <p><strong>Budget</strong> <span class="date">2010-2011</span></p>
+                </div>
+            </div>
+            <div class="row-fluid stats">
+                <div class="span6">
+                    <p id="total-donors" class="lead"></p>
+                    <p><strong>Donors</strong></p>
+                </div>
+                <div class="span6">
+                    <p id="total-expenditure" class="lead"></p>
+                    <p><strong>Expenditure</strong> <span class="date">2010-2011</span></p>
+                </div>
+            </div>
+            <div class="row-fuild">
+                <div class="span12">
                     <div class="label visible-phone">Location</div>
                     <div id="homemap" class="map"></div>
                 </div>
             </div>
+        </div>
+        <div class="span6">
+            <div id="applied-filters">
+            </div>
             <div class="row-fluid">
-                <div class="span6">
-                    <div class="label">Top donors
+                <div class="span12 chart-container" id="chart-donors">
+                    <div class="label">Donors
                         <div class="btn-donors btn-group toggle" data-toggle="buttons-radio">
-                            <button class="btn btn-mini active" data-facet="donors">Count</button>
+                            <button class="btn btn-mini active hidden" data-facet="donors">Count</button>
                         </div>
                     </div>
-                    <div id="chart-donors" class="chart">
+                    <div class="chart">
                         <div class="data"></div>
                         <div class="caption"></div>
+                        <div class="placeholder lead"></div>
                     </div>
                 </div>
-                <div class="span6">
+            </div>
+
+            <div class="row-fluid">
+                <div class="span12 chart-container" id="chart-operating_unit">
+                    <div class="label">Country Offices
+                        <div class="btn-operating_unit btn-group toggle" data-toggle="buttons-radio">
+                            <button class="btn btn-mini active" data-facet="operating_unit">Budget</button>
+                            <button class="btn btn-mini" data-facet="operating_unit">Count</button>
+                        </div>
+                    </div>
+                    <div class="chart">
+                        <div class="data"></div>
+                        <div class="caption"></div>
+                        <div class="placeholder lead"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span12 chart-container" id="chart-focus_area">
                     <div class="label">Focus areas
                         <div class="btn-focus_area btn-group toggle" data-toggle="buttons-radio">
                             <button class="btn btn-mini active" data-facet="focus_area">Budget</button>
                             <button class="btn btn-mini" data-facet="focus_area">Count</button>
                         </div>
                     </div>
-                    <div id="chart-focus_area" class="chart">
+                    <div class="chart">
                         <div class="data"></div>
                         <div class="caption"></div>
+                        <div class="placeholder lead"></div>
                     </div>
                 </div>
             </div>
