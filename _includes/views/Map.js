@@ -1,4 +1,7 @@
 views.Map = Backbone.View.extend({
+    events: {
+        'click img.mapmarker': 'mapClick'
+    },
     initialize: function() {
         this.render();
         if (this.collection) {
@@ -10,12 +13,16 @@ views.Map = Backbone.View.extend({
         this.buildMap();
         return this;
     },
+    mapClick: function(e) {
+        var $target = $(e.target);
+        window.location = '#filter/operating_unit-' + $target.attr('id');
+    },
     buildMap: function() {
         var that = this,
             locations = [],
             count, budget, description,
             unit = (this.collection) ? this.collection 
-                : this.model.get('operating_unit'),
+                : this.model.get('operating_unit_id'),
             objCheck = _.isObject(unit);
 
         mapbox.auto(this.el, 'mapbox.mapbox-light', function(map) {
@@ -30,7 +37,8 @@ views.Map = Backbone.View.extend({
             }
             
             var markers = mapbox.markers.layer()
-                .factory(clustr.scale_factory(radii, "rgba(2,56,109,0.6)", "#01386C"));
+                .factory(clustr.scale_factory(radii, "rgba(2,56,109,0.6)", "#01386C"))
+                .sort(function(a,b){ return b.properties.budget - a.properties.budget; });
 
             $.getJSON('api/operating-unit-index.json', function(data) {
                 for (var i = 0; i < data.length; i++) {
@@ -55,7 +63,7 @@ views.Map = Backbone.View.extend({
                             },
                             properties: {
                                 id: o.id,
-                                title: (objCheck) ? o.name : that.model.get('title') + '<div class="subtitle">' + o.name + '</div>',
+                                title: (objCheck) ? o.name : that.model.get('project_title') + '<div class="subtitle">' + o.name + '</div>',
                                 count: count,
                                 budget: budget,
                                 description: description
@@ -66,11 +74,12 @@ views.Map = Backbone.View.extend({
                 
                 if (locations.length != 0) {
                     markers.features(locations);
-                    markers.sort(function(a,b){ return b.properties.budget - a.properties.budget; }); //not working?
                     mapbox.markers.interaction(markers);
                     map.extent(markers.extent());
                     map.addLayer(markers);
-                    if (locations.length === 1){map.zoom(4);}
+                    if (locations.length === 1) {
+                        map.zoom(4);
+                    }
                 } else {
                     map.centerzoom({lat:20,lon:0},2);
                 }

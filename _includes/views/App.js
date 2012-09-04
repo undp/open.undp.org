@@ -2,6 +2,7 @@ views.App = Backbone.View.extend({
     events: {
         'click a.filter': 'setFilter',
         'keyup #filters-search': 'searchFilter',
+        'click #filters .label': 'collapseFilter',
         'click button.btn-mini': 'toggleChart'
     },
 
@@ -12,7 +13,7 @@ views.App = Backbone.View.extend({
 
         // Filters follow scrolling
         $(window).on('scroll', function() {
-            if($(window).scrollTop() >= 77) {
+            if($(window).scrollTop() >= 140) {
                 $('#filters').addClass('fixed');
             } else {
                 $('#filters').removeClass('fixed');
@@ -38,6 +39,8 @@ views.App = Backbone.View.extend({
 
     render: function() {
         this.$el.empty().append(templates.app(this));
+        $('html, body').scrollTop(0);
+
         return this;
     },
 
@@ -73,10 +76,10 @@ views.App = Backbone.View.extend({
     },
 
     searchFilter: function(e) {
-        _(this.views).each(function(view) {
-            var $target = $(e.target),
+        var $target = $(e.target),
                 val = $target.val().toLowerCase();
-
+                
+        _(this.views).each(function(view) {
             view.collection.each(function(model) {
                 var name = model.get('name').toLowerCase();
     
@@ -86,14 +89,31 @@ views.App = Backbone.View.extend({
                     model.set('visible', false);
                 }
             });
-
+            
             view.render();
         });
-
+        
+        //(val === '') ? $('ul.filter-items').removeClass('active') : $('ul.filter-items').addClass('active');
+    },
+    
+    collapseFilter: function (e) {
+        var $target = $(e.target),
+            list = $target.next();
+            cat = $target.parent().parent().parent().attr('id');
+        if (list.hasClass('active')) {
+            list.removeClass('active');
+            $target.removeClass('active');
+            this.views[cat].active = false;
+        } else {
+            list.addClass('active');
+            $target.addClass('active');
+            this.views[cat].active = true;
+        }
     },
 
     toggleChart: function (e) {
         var $target = $(e.target);
+        var cat = $target.parent().parent().parent().attr('id');
         var facet = $target.attr('data-facet');
         $('.btn-' + facet + ' button').removeClass('active');
         $(e.target).addClass('active');
