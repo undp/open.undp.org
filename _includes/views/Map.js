@@ -22,6 +22,7 @@ views.Map = Backbone.View.extend({
             objCheck = _.isObject(unit);
 
         mapbox.auto(this.el, 'dhcole.map-75gxxhee', function(map) {
+            that.map = map;
             map.setZoomRange(2, 17);
             
             $(that.el).append('<a href="#" class="map-fullscreen"></a>');
@@ -87,6 +88,8 @@ views.Map = Backbone.View.extend({
     },
     fullscreen: function(e) {
         e.preventDefault();
+
         this.$el.toggleClass('full');
+        this.map.setSize({ x: this.$el.width(), y: this.$el.height() });
     }
 });
