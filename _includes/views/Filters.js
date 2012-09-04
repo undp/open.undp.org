@@ -38,6 +38,12 @@ views.Filters = Backbone.View.extend({
                 view.$('.filter-items').append(templates.filter({ model: model }));
                 $('#' + view.collection.id + '-' + model.id).toggleClass('active', model.get('active'));
             });
+            
+            if (view.active) {
+                $('#' + view.collection.id + ' .label').addClass('active');
+                $('#' + view.collection.id + ' .filter-items').addClass('active');
+            }
+            
         } else {
             this.$el.empty();
         }
@@ -64,6 +70,15 @@ views.Filters = Backbone.View.extend({
                 );
             });
         }
+        
+        $('#filters .label').hover(
+            function () {
+                $(this).children('.arrow').addClass('active');
+            },
+            function () {
+                $(this).children('.arrow').removeClass('active');
+            }
+        );
 
         return this;
     }

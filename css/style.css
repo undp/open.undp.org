@@ -345,11 +345,51 @@ form {
   text-decoration: none;
   }
 #filters ul.filter-items {
-  max-height: 300px;
-  overflow-y: auto;
+  max-height: 0;
+  overflow-y: hidden;
+  -moz-transition: max-height 0.5s ease;
+  -o-transition: max-height 0.5s ease;
+  -webkit-transition: max-height 0.5s ease;
+  transition: max-height 0.5s ease;
 }
-#filters ul.filter-items.off {
-  height: 0;
+#filters ul.filter-items.active {
+  max-height: 125px;
+}
+#filters .label {
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#filters .label .arrow {
+  display: block;
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+  width: 0;
+	height: 0; 
+	border-top: 6px solid transparent;
+	border-bottom: 6px solid transparent; 
+	border-right: 6px solid #bbb;
+	border-left: none;
+	pointer-events: none;
+}
+#filters .label.active .arrow {
+  border-top: 6px solid #bbb;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: none;
+}
+#filters .label .arrow.active {
+  border-right-color: #036;
+  border-top-color: transparent;
+}
+#filters .label.active .arrow.active {
+  border-top-color: #036;
+  border-right-color: transparent;
 }
 
 .nav {
