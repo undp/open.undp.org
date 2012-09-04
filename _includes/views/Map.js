@@ -1,4 +1,7 @@
 views.Map = Backbone.View.extend({
+    events: {
+        'click .map-fullscreen': 'fullscreen'
+    },
     initialize: function() {
         this.render();
         if (this.collection) {
@@ -19,10 +22,10 @@ views.Map = Backbone.View.extend({
             objCheck = _.isObject(unit);
 
         mapbox.auto(this.el, 'dhcole.map-75gxxhee', function(map) {
-            map.ui.zoomer.remove();
-            map.ui.attribution.remove();
             map.setZoomRange(2, 17);
             
+            $(that.el).append('<a href="#" class="map-fullscreen"></a>');
+
             var radii = function(f) {
                 return clustr.area_to_radius(
                     Math.round(f.properties.budget / 100000)
@@ -81,5 +84,9 @@ views.Map = Backbone.View.extend({
             });
 
         });
+    },
+    fullscreen: function(e) {
+        e.preventDefault();
+        this.$el.toggleClass('full');
     }
 });

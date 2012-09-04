@@ -60,16 +60,18 @@ h1 {
   left: 110px;
   color: #fff;
   }
-  
+
+#main-container { position: relative; }
+
 .map {
   background: white;
-}
+  }
 #homemap {
   height: 350px;
-}
+  }
 #profilemap {
   height: 300px;
-}
+  }
 .map .inner-shadow {
   position: relative;
   width: 100%;
@@ -79,7 +81,22 @@ h1 {
   box-shadow:         inset 0 0 10px #999;
   z-index: 5;
   pointer-events: none;
-}
+  }
+
+.map.full {
+  position: absolute !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100% !important;
+  z-index: 100;
+  }
+
+.map.full .map-fullscreen {
+  background-position:-120px 0;
+  }
 
 /* Clustered markers */
 .map > div:last-child img {
