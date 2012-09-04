@@ -12,36 +12,8 @@
         <div class="span8">
             <div class="row-fluid">
                 <div class="span6">
-
-                    <div class="label">Donors</div>
-                    <%
-                    var donors_id = _.chain(model.get('outputs'))
-                        .map(function (o) { return o.donor_id })
-                        .flatten()
-                        .union()
-                        .value();
-                    var donors_short = _.chain(model.get('outputs'))
-                        .map(function (o) { return o.donor_short })
-                        .flatten()
-                        .union()
-                        .value();
-                    var donors_long = _.chain(model.get('outputs'))
-                        .map(function (o) { return o.donor_name })
-                        .flatten()
-                        .union()
-                        .value();
-                    %>
-                    <p>
-                        <% if (donors_long.length < 5) {
-                            _.each(donors_id, function(o,i) { %>
-                                <a href="#filter/donors-<%= o %>"><%= donors_long[i] %></a><% if (i != donors_id.length -1) { %>, <% } %>
-                            <% });
-                        } else {
-                            _.each(donors_id, function(o,i) { %>
-                                <a href="#filter/donors-<%= o %>"><%= donors_short[i] %></a><% if (i != donors_id.length -1) { %>, <% } %>
-                            <% });
-                        } %>
-                    </p>
+                    <div class="label">Description</div>
+                    <p><%= model.get('project_descr') %></p>
                 </div>
 
                 <div class="span3">
@@ -90,6 +62,37 @@
             </div>
             <div class="row-fluid">
                 <div class="span6">
+                    <div class="label">Aid Classification</div>
+                    <%
+                    var crsCount = _.chain(model.get('outputs'))
+                        .map(function (o) { return o.crs_descr })
+                        .flatten()
+                        .compact()
+                        .reduce(function(counts, items) {
+                            counts[items] = (counts[items] || 0) + 1;
+                            return counts; }, {})
+                        .value();
+                    %>
+                    <ul class="unstyled">
+                    <% for (var key in crsCount) { %>
+                    <li><%= key %> (<%= crsCount[key] %>)</li>
+                    <% } %>
+                    </ul>
+                </div>
+                <% if (model.get('inst_descr')) { %>
+                <div class="span3">
+                    <div class="label">Implementing Partner</div>
+                    <p><%= model.get('inst_descr') %></p>
+                </div>
+                <% } %>
+                <div class="span3">
+                    <div class="label">Operating Unit</div>
+                    <p><a href="#filter/operating_unit-<%= model.get('operating_unit_id') %>"><%= model.get('operating_unit') %></a></p>
+                </div>
+
+            </div>
+            <div class="row-fluid">
+                <div class="span6">
                     <div class="label">Gender</div>
                     <%
                     var genderCount = _.chain(model.get('outputs'))
@@ -108,8 +111,36 @@
                     </ul>
                 </div>
                 <div class="span6">
-                    <div class="label">Operating Unit</div>
-                    <p><a href="#filter/operating_unit-<%= model.get('operating_unit_id') %>"><%= model.get('operating_unit') %></a></p>
+
+                    <div class="label">Donors</div>
+                    <%
+                    var donors_id = _.chain(model.get('outputs'))
+                        .map(function (o) { return o.donor_id })
+                        .flatten()
+                        .union()
+                        .value();
+                    var donors_short = _.chain(model.get('outputs'))
+                        .map(function (o) { return o.donor_short })
+                        .flatten()
+                        .union()
+                        .value();
+                    var donors_long = _.chain(model.get('outputs'))
+                        .map(function (o) { return o.donor_name })
+                        .flatten()
+                        .union()
+                        .value();
+                    %>
+                    <p>
+                        <% if (donors_long.length < 5) {
+                            _.each(donors_id, function(o,i) { %>
+                                <a href="#filter/donors-<%= o %>"><%= donors_long[i] %></a><% if (i != donors_id.length -1) { %>, <% } %>
+                            <% });
+                        } else {
+                            _.each(donors_id, function(o,i) { %>
+                                <a href="#filter/donors-<%= o %>"><%= donors_short[i] %></a><% if (i != donors_id.length -1) { %>, <% } %>
+                            <% });
+                        } %>
+                    </p>
                 </div>
 
             </div>
