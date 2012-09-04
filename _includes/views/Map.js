@@ -22,7 +22,7 @@ views.Map = Backbone.View.extend({
             locations = [],
             count, budget, description,
             unit = (this.collection) ? this.collection 
-                : this.model.get('operating_unit'),
+                : this.model.get('operating_unit_id'),
             objCheck = _.isObject(unit);
 
         mapbox.auto(this.el, 'mapbox.mapbox-light', function(map) {
@@ -63,8 +63,7 @@ views.Map = Backbone.View.extend({
                             },
                             properties: {
                                 id: o.id,
-                                name: o.name,
-                                title: (objCheck) ? o.name : that.model.get('title') + '<div class="subtitle">' + o.name + '</div>',
+                                title: (objCheck) ? o.name : that.model.get('project_title') + '<div class="subtitle">' + o.name + '</div>',
                                 count: count,
                                 budget: budget,
                                 description: description
@@ -80,7 +79,6 @@ views.Map = Backbone.View.extend({
                     map.addLayer(markers);
                     if (locations.length === 1) {
                         map.zoom(4);
-                        $('p[data-category="op_unit"]').html(locations[0].properties.name);
                     }
                 } else {
                     map.centerzoom({lat:20,lon:0},2);
