@@ -43,32 +43,36 @@ views.Map = Backbone.View.extend({
             $.getJSON('api/operating-unit-index.json', function(data) {
                 for (var i = 0; i < data.length; i++) {
                     var o = data[i];
-                    if ((objCheck) ? unit.operating_unit[o.id] && o.lon : o.id === unit && o.lon) {
+                    if ((objCheck) ? unit.operating_unit[o.id] : o.id === unit) {
                     
-                        (objCheck) ? count = unit.operating_unit[o.id] : count = false;
-                        (objCheck) ? budget = unit.operating_unitBudget[o.id] : budget = that.model.get('budget');
-                        description = '<div class="stat">Budget: <span class="value">'
-                                      + accounting.formatMoney(budget) + '</span></div>';
-                        if (objCheck) {
-                            description += '<div class="stat">Projects: <span class="value">'
-                                        + count + '</span></div>';
-                        }
+                        if (!objCheck) { that.getregionData(o); }
                         
-                        locations.push({
-                            geometry: {
-                                coordinates: [
-                                    o.lon,
-                                    o.lat
-                                ]
-                            },
-                            properties: {
-                                id: o.id,
-                                title: (objCheck) ? o.name : that.model.get('project_title') + '<div class="subtitle">' + o.name + '</div>',
-                                count: count,
-                                budget: budget,
-                                description: description
+                        if (o.lon) {
+                            (objCheck) ? count = unit.operating_unit[o.id] : count = false;
+                            (objCheck) ? budget = unit.operating_unitBudget[o.id] : budget = that.model.get('budget');
+                            description = '<div class="stat">Budget: <span class="value">'
+                                          + accounting.formatMoney(budget) + '</span></div>';
+                            if (objCheck) {
+                                description += '<div class="stat">Projects: <span class="value">'
+                                            + count + '</span></div>';
                             }
-                        });
+                            
+                            locations.push({
+                                geometry: {
+                                    coordinates: [
+                                        o.lon,
+                                        o.lat
+                                    ]
+                                },
+                                properties: {
+                                    id: o.id,
+                                    title: (objCheck) ? o.name : that.model.get('project_title') + '<div class="subtitle">' + o.name + '</div>',
+                                    count: count,
+                                    budget: budget,
+                                    description: description
+                                }
+                            });
+                        }
                     }
                 }
                 
@@ -86,5 +90,30 @@ views.Map = Backbone.View.extend({
             });
 
         });
+    },
+    
+    getregionData: function(data) {
+        var that = this;
+        _.each(['email','facebook','flickr','twitter','web'], function(v) {
+            if (v) {
+                //$('#webinfo').append('<p><a class="' + v + '" href="' + data[v] + '">' + data[v] + '</a></p>');
+                if (v === 'twitter' && data[v]) {
+                    that.twitter(data[v]);
+                }
+            }
+        });
+    },
+    
+    twitter: function(username) {
+        var user = username.replace('@','');
+        $(".tweet").tweet({
+          username: user,
+          avatar_size: 32,
+          count: 3,
+          template: "{avatar}<div>{text}</div><div class='actions'>{time} &#183; {reply_action} &#183; {retweet_action} &#183; {favorite_action}</div>",
+          loading_text: "loading tweets..."
+        });
+        
+        $('#twitter .label').append('<a href="http://twitter.com/' + user + '">' + username + '</a>');
     }
 });

@@ -7,6 +7,16 @@ views.ProjectProfile = Backbone.View.extend({
                 window.history.back();
             }
         });
+        
+        // Filters follow scrolling
+        $(window).on('scroll', function() {
+            if($(window).scrollTop() >= 140) {
+                $('#content-right').addClass('fixed');
+            } else {
+                $('#content-right').removeClass('fixed');
+            }
+        });
+        
         function mapsize() {
             if($(window).width() <= 1168) {
                 $('#profilemap').parent().parent().parent().attr('class', 'span11');

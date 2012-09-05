@@ -170,6 +170,9 @@
             </ul>
         </div>
         <% } %>
+        <div class="span6" id="webinfo">
+            <div class="label">On the Web</div>
+        </div>
     </div> <!--/ #resources -->
 
     <div class="separator">
@@ -232,3 +235,31 @@
     </div><!--/ .outputs<%= obj.output_id %> -->
     <% }); %>
 </div> <!--/ #summary -->
+
+<div id="content-right" class="span3">
+    <div class="row-fluid">
+        <div class="span12">
+            <p class="label">Outputs</p>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div id="output-nav" class="span12">
+            <ul class="output-nav unstyled">
+                <% _.all(model.get('outputs'), function(obj, i) { %>
+                    <li><a href="#output<%= obj.output_id %>"><%= obj.output_id %></a></li>
+                    <% return i < 10; %>
+                <% }); %>
+            </ul>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div id="twitter" class="span12">
+            <p class="label"><span class="twitter"></span></p>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span12">
+            <div class='tweet'></div>
+        </div>
+    </div>
+</div>
