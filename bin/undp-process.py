@@ -4,6 +4,7 @@ from itertools import groupby
 t0 = time.time()
 
 # Process document file by Projects
+# ********************************* 
 documents = csv.DictReader(open('download/undp_export/report_documents.csv', 'rb'), delimiter = ',', quotechar = '"')
 documents_sort = sorted(documents, key = lambda x: x['awardid'])
 
@@ -24,9 +25,11 @@ for id,documents in groupby(documents_sort, lambda x: x['awardid']):
 print "Document Process Count: %d" % row_count
 docProjects = []
 for d in docProject:
-    docProjects.append(dict(zip(docHeader,d)))
+    docProjects.append(dict(zip(docHeader,d))) # this returns a list of dicts of documents for each project
+
 
 # Process donors by Projects
+# **************************
 donor_projects = csv.DictReader(open('download/undp_export/report_donors.csv', 'rb'), delimiter = ',', quotechar = '"')
 donor_projects_sort = sorted(donor_projects, key = lambda x: x['awardID'])
 
@@ -57,9 +60,10 @@ for don,donors in groupby(donor_projects_sort, lambda x: x['awardID']):
 print "Donors by Project Process Count: %d" % row_count
 donorProjects = []
 for l in donorProject:
-    donorProjects.append(dict(zip(donorProjHeader,l)))
+    donorProjects.append(dict(zip(donorProjHeader,l))) # this returns a list of dicts of donors for each project
 
 # Process donors by Outputs
+# *************************
 donor_outputs = csv.DictReader(open('download/undp_export/report_donors.csv', 'rb'), delimiter = ',', quotechar = '"')
 donor_outputs_sort = sorted(donor_outputs, key = lambda x: x['projectID'])
 
@@ -90,9 +94,10 @@ for don,donors in groupby(donor_outputs_sort, lambda x: x['projectID']):
 print "Donors by Output Process Count: %d" % row_count
 donorOutputs = []
 for l in donorOutput:
-    donorOutputs.append(dict(zip(donorOutHeader,l)))
+    donorOutputs.append(dict(zip(donorOutHeader,l))) # this returns a list of dicts of donors for each output
 
 # Process Outputs 
+# ***************
 outputs = csv.DictReader(open('download/undp_export/report_outputs.csv', 'rb'), delimiter = ',', quotechar = '"')
 outputs_sort = sorted(outputs, key = lambda x: x['projectID'])
 
@@ -125,12 +130,6 @@ for out,output in groupby(outputs_sort, lambda x: x['projectID']):
         outputFY.append(o['fiscal_year'])
         outputBudget.append(float(o['budget']))
         outputExpend.append(float(o['expenditure']))
-#    outputList.append(outputGenID)
-#    outputList.append(outputGenDescr)
-#    outputList.append(outputFA)
-#    outputList.append(outputFAdescr)
-#    outputList.append(outputCRS)
-#    outputList.append(outputCRSdescr)
     outputList.append(outputFY)
     outputList.append(outputBudget)
     outputList.append(outputExpend)
@@ -141,16 +140,12 @@ for out,output in groupby(outputs_sort, lambda x: x['projectID']):
             outputList.append(dOut['donorName'])
             outputList.append(dOut['donorTypeID'])
             outputList.append(dOut['donorType'])
-    outputsFull.append(dict(zip(outputsHeader,outputList)))
+    outputsFull.append(dict(zip(outputsHeader,outputList))) # this returns a list of dicts of output informaiton for each output
 
 print "Output Process Count: %d" % row_count
-#outputsFull = []
-#for l in output:
-#    print l
-#    outputsFull.append(dict(zip(outputsHeader,l)))
-
 
 # Process Outputs and Aggregate for Projects
+# ****************************************** 
 projects = csv.DictReader(open('download/undp_export/report_projects.csv', 'rb'), delimiter = ',', quotechar = '"')
 projects_sort = sorted(projects, key = lambda x: x['awardID'])
 units = csv.DictReader(open('download/undp_export/report_units_copy.csv', 'rb'), delimiter = ',', quotechar = '"')
@@ -199,7 +194,7 @@ for award,project in groupby(projects_sort, lambda x: x['awardID']):
             docTemp.append(doc['docName'])
             docTemp.append(doc['docURL'])
     projectList.append(docTemp)
-    projectsFull.append(dict(zip(projectsHeader,projectList)))
+    projectsFull.append(dict(zip(projectsHeader,projectList))) # this joins project information, output per project, and documents for each project
 
 print "Project Process Count: %d" % row_count
 
@@ -213,6 +208,7 @@ for row in projectsFull:
 print 'Processing complete. %d project files generated.' % file_count
 
 ## Process Project Summary file
+# *****************************
 projectSum = csv.DictReader(open('download/undp_export/report_projects.csv', 'rb'), delimiter = ',', quotechar = '"')
 projectSum_sort = sorted(projectSum, key = lambda x: x['awardID'])
 
@@ -244,7 +240,7 @@ for award,summary in groupby(projectSum_sort, lambda x: x['awardID']):
         if dProj['projectID'] == award:
             summaryList.append(dProj['donorID'])
             summaryList.append(dProj['donorTypeID'])
-    projectSummary.append(dict(zip(projectSumHeader,summaryList)))
+    projectSummary.append(dict(zip(projectSumHeader,summaryList))) # this joins the project summary information 
 
 print "Project Summary Process Count: %d" % row_count
 
@@ -255,6 +251,7 @@ f_out.close()
 print 'Processing complete. project_summary.json generated.' 
 
 # Process CRS Index
+# *****************
 outputsCRS = csv.DictReader(open('download/undp_export/report_outputs.csv', 'rb'), delimiter = ',', quotechar = '"')
 outputsCRS_sort = sorted(outputsCRS, key = lambda x: x['crs'])
 
@@ -278,6 +275,7 @@ f_out.close()
 
 
 # Process Donor Index
+# *******************
 donor_index = csv.DictReader(open('download/undp_export/report_donors.csv', 'rb'), delimiter = ',', quotechar = '"')
 donor_index_sort = sorted(donor_index, key = lambda x: x['donorID'])
 
@@ -302,6 +300,7 @@ f_out.close()
 print "Donor Index Process Count: %d" % row_count
 
 # Process Donor Type Index
+# ************************
 donor_types = csv.DictReader(open('download/undp_export/report_donors.csv', 'rb'), delimiter = ',', quotechar = '"')
 donor_types_sort = sorted(donor_types, key = lambda x: x['donor_type_lvl1'])
 
@@ -327,6 +326,7 @@ f_out.close()
 print "Donor Type Index Process Count: %d" % row_count
 
 # Process Focus Area Index
+# ************************
 outputsFA = csv.DictReader(open('download/undp_export/report_outputs.csv', 'rb'), delimiter = ',', quotechar = '"')
 outputsFA_sort = sorted(outputs, key = lambda x: x['focus_area'])
 
@@ -349,6 +349,7 @@ f_out.writelines(writeout)
 f_out.close()
 
 # Process Operating Unit Index
+# ****************************
 unitsIndex = csv.DictReader(open('download/undp_export/report_units_copy.csv', 'rb'), delimiter = ',', quotechar = '"')
 unitsIndex_sort = sorted(unitsIndex, key = lambda x: x['rollup_ou'])
 geo = csv.DictReader(open('country-centroids.csv', 'rb'), delimiter = ',', quotechar = '"')
