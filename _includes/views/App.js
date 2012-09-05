@@ -25,11 +25,14 @@ views.App = Backbone.View.extend({
         $(window).resize(_.debounce(function() {
             view.$el.css('min-height', $(window).height() * 2);
         }, 300));
+
+        // Set up help popovers
+        $('.help-note').popover({ trigger: 'hover' });
     },
 
     render: function() {
         this.$el.empty().append(templates.app(this));
-        $('html, body').scrollTop(0);
+        window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
 
         return this;
     },
@@ -62,6 +65,8 @@ views.App = Backbone.View.extend({
         path = (filters.length) ? 'filter/' + filters : 'filter/'; 
 
         e.preventDefault();
+
+        $('#all-projects').attr('href', '#' + path);
         app.navigate(path, { trigger: true });
     },
 

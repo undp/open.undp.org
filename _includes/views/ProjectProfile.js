@@ -1,12 +1,6 @@
 views.ProjectProfile = Backbone.View.extend({
     initialize: function() {
         this.render();
-        $('#all-projects').on('click', function(e) {
-            if (app.app) {
-                e.preventDefault();
-                window.history.back();
-            }
-        });
         function mapsize() {
             if($(window).width() <= 1168) {
                 $('#profilemap').parent().parent().parent().attr('class', 'span11');
@@ -40,7 +34,7 @@ views.ProjectProfile = Backbone.View.extend({
             .value();
             
         
-        $('html, body').scrollTop(0);
+        window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
         this.$el.empty().append(templates.projectProfile(this)).show();
         
         this.map = new views.Map({

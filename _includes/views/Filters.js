@@ -74,7 +74,7 @@ views.Filters = Backbone.View.extend({
                 if (chartType == 'budget') {
                     var label = (model.get(chartType) / max * 100) > 28 ? accounting.formatMoney(model.get(chartType)/1000000) + 'M' : '';
                 } else {
-                    var label = (model.get(chartType) / max * 100) > 15 ? model.get(chartType) : '';
+                    var label = (model.get(chartType) / max * 100) > 15 ? accounting.formatNumber(model.get(chartType)) : '';
                 }
                 $('.data', '#chart-' + model.collection.id).append(
                     '<div style="width: ' + (model.get(chartType)/ max * 100) + '%">' + label + '</div>'
