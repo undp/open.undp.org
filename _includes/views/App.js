@@ -108,7 +108,6 @@ views.App = Backbone.View.extend({
 
     toggleChart: function (e) {
         var $target = $(e.target);
-        var cat = $target.parent().parent().parent().attr('id');
         var facet = $target.attr('data-facet');
         $('.btn-' + facet + ' button').removeClass('active');
         $(e.target).addClass('active');

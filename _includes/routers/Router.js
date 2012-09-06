@@ -87,6 +87,11 @@ routers.App = Backbone.Router.extend({
                             el: '#' + facet.id,
                             collection: collection
                         });
+                        _.each(filters, function(obj) {
+                            if (obj.collection === facet.id) {
+                                that.app.views[facet.id].active = true;
+                            }
+                        });
                         collection.watch();
                     }
                 });
