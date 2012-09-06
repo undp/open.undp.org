@@ -42,7 +42,7 @@ views.Map = Backbone.View.extend({
                     var o = data[i];
                     if ((objCheck) ? unit.operating_unit[o.id] : o.id === unit) {
                     
-                        if (!objCheck) { that.getregionData(o); }
+                        if (!objCheck) { that.getwebData(o); }
                         
                         if (o.lon) {
                             (objCheck) ? count = unit.operating_unit[o.id] : count = false;
@@ -96,11 +96,28 @@ views.Map = Backbone.View.extend({
         this.map.setSize({ x: this.$el.width(), y: this.$el.height() });
     },
     
-    getregionData: function(data) {
-        var that = this;
-        _.each(['email','facebook','flickr','twitter','web'], function(v) {
-            if (v) {
-                //$('#webinfo').append('<p><a class="' + v + '" href="' + data[v] + '">' + data[v] + '</a></p>');
+    getwebData: function(data) {
+        var that = this,
+            baseUrl;
+            
+        _.each(['web','email','facebook','twitter','flickr'], function(v) {
+            if (data[v]) {
+                if (v == 'twitter' || v == 'email') {
+                    baseUrl = ((v == 'email') ? 'mailto:' : 'http://twitter.com/');
+                } else {
+                    baseUrl = '';
+                }
+                $('#unit-contact .modal-body').append(
+                      '<div class="row-fluid">'
+                    +     '<div class="contacts span2">'
+                    +         '<p>' + ((v == 'web') ? 'Homepage' : v.capitalize()) +'</p>'
+                    +     '</div>'
+                    +     '<div class="span10">'
+                    +         '<p><a href="' + baseUrl + ((v == 'twitter') ? data[v].replace('@','') : data[v]) + '">' + data[v] + '</a></p>'
+                    +     '</div>'
+                    + '</div>'
+                );
+                
                 if (v === 'twitter' && data[v]) {
                     that.twitter(data[v]);
                 }
