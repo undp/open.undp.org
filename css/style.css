@@ -227,7 +227,7 @@ h3 {
   border-bottom: 1px solid #999;
   }
 
-#filters.fixed {
+#filters.fixed, #content-right.fixed {
   position: fixed;
   top: 10px;
   right: 20px;
@@ -333,8 +333,7 @@ h3 {
 .stats .date {
   margin-left: 5px;
 }
-.project .date {
-  font-weight: bold;
+.project .date, #top-stats .date {
   margin-right: 10px;
 }
 .project .projid {
@@ -350,7 +349,7 @@ form {
   margin: 0;
   }
 
-#filters {
+#filters, #content-right {
   position: absolute;
   top: 150px;
   right: 20px;
@@ -372,7 +371,7 @@ form {
   font-size: 10px;
   }
 
-#filters li a {
+#filters li a, #output-nav li a {
   height: 100%;
   display: block;
   border-radius: 5px;
@@ -383,7 +382,9 @@ form {
   font-size: 0.9em;
   }
 
-#filters li a:hover, #filters li a:focus {
+#filters li a:hover,
+#filters li a:focus,
+#output-nav li a:hover {
   background: rgba(171, 196, 191, 0.25);
   text-decoration: none;
   }
@@ -441,6 +442,14 @@ form {
 #filters .label.active .arrow.active {
   border-top-color: #036;
   border-right-color: transparent;
+}
+
+#content-right .twitter {
+  background:url("../img/twitter-bird.png") no-repeat;
+  display: block;
+  float: right;
+  width: 20px;
+  height: 16px;
 }
 
 .nav {
@@ -524,3 +533,58 @@ form {
   margin-bottom: 0;
   padding-bottom: 0;
   }
+  
+#documents li a {
+  display: block;
+  padding: 0.1em 0;
+  border-radius: 5px;
+}
+#documents li a:hover {
+  background: rgba(171, 196, 191, 0.25);
+  text-decoration: none;
+}
+#documents .filetype {
+  font-size: 0.8em;
+  color: #ccc;
+  margin: 0 0.5em;
+}
+  
+/* twitter feed */
+
+#twitter {
+  margin-top: 20px;
+}
+#twitter a {
+  color: inherit;
+}
+.tweet_list {
+  margin: 0;
+}
+.tweet_list a {
+  color: #333;
+  font-weight: bold;
+}
+.tweet_list div {
+  margin-left: 40px;
+}
+.tweet_list li {
+  overflow-y: auto;
+	overflow-x: hidden;
+	list-style-type: none;
+	line-height: 15px;
+	margin-bottom: 10px;
+}
+.tweet_list .actions {
+  margin-top: 5px;
+  font-size: 0.8em;
+}
+.tweet_list .actions a {
+  color: #aaa;
+  font-weight: normal;
+}
+.tweet_list .tweet_text {
+  font-size: 0.95em;
+}
+.tweet_list .tweet_avatar {
+	float: left;
+}
