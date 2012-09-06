@@ -19,8 +19,8 @@ views.ProjectProfile = Backbone.View.extend({
         });
         
         function mapsize() {
-            if($(window).width() <= 1168) {
-                $('#profilemap').parent().parent().parent().attr('class', 'span11');
+            if($(window).width() <= 960) {
+                $('#profilemap').parent().parent().parent().attr('class', 'span8');
             } else {
                 $('#profilemap').parent().parent().parent().attr('class', 'span4');
             }

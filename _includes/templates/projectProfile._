@@ -80,7 +80,7 @@
                     </ul>
                 </div>
                 <% if (model.get('inst_descr')) { %>
-                <div class="span3">
+                <div class="span3" style="min-width:125px">
                     <div class="label">Implementing Partner</div>
                     <p><%= model.get('inst_descr') %></p>
                 </div>
@@ -233,7 +233,7 @@
     <% }); %>
 </div> <!--/ #summary -->
 
-<div id="content-right" class="span3">
+<div id="content-right" class="span3 hidden-phone">
     <div class="row-fluid">
         <div class="span12">
             <p class="label">Outputs</p>
