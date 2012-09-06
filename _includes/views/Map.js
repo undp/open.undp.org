@@ -135,6 +135,6 @@ views.Map = Backbone.View.extend({
           loading_text: "loading tweets..."
         });
         
-        $('#twitter .label').append('<a href="http://twitter.com/' + user + '">' + username + '</a>');
+        $('#twitter').html('<p class="label"><span class="twitter"></span><a href="http://twitter.com/' + user + '">' + username + '</a></p>');
     }
 });
