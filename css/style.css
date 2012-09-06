@@ -478,6 +478,21 @@ form {
   padding-bottom: 0;
   }
   
+#documents li a {
+  display: block;
+  padding: 0.1em 0;
+  border-radius: 5px;
+}
+#documents li a:hover {
+  background: rgba(171, 196, 191, 0.25);
+  text-decoration: none;
+}
+#documents .filetype {
+  font-size: 0.8em;
+  color: #ccc;
+  margin: 0 0.5em;
+}
+  
 /* twitter feed */
 
 #twitter {
@@ -511,7 +526,7 @@ form {
   color: #aaa;
   font-weight: normal;
 }
-.tweet_text {
+.tweet_list .tweet_text {
   font-size: 0.95em;
 }
 .tweet_list .tweet_avatar {

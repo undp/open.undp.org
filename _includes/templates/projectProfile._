@@ -155,25 +155,22 @@
         </div>
     </div> <!--/ #top-stats -->
     
+    <% if (!_.isEmpty(model.get('document_name'))) { %>
     <div class="separator">
-        <p class="lead">Resources<span></p>
+        <p class="lead">Documents<span></p>
     </div>
     
-    <div id="resources" class="row-fluid">
-        <% if (!_.isEmpty(model.get('document_name'))) { %>
-        <div class="span6">
-            <div class="label">Documents</div>
-            <ul>
+    <div id="documents" class="row-fluid">
+        <div class="span12">
+            <ul class="unstyled">
                 <% _.each(model.get('document_name')[0], function(obj,i) { %>
-                <li><a href="<%= model.get('document_name')[1][i] %>"><%= obj %></a></li>
+                <li><a href="<%= model.get('document_name')[1][i] %>"><span class="filetype"><%= obj.split('.')[1] %></span>
+                <%= obj.split('.')[0] %></a></li>
                 <% }); %>
             </ul>
         </div>
-        <% } %>
-        <div class="span6" id="webinfo">
-            <div class="label">On the Web</div>
-        </div>
-    </div> <!--/ #resources -->
+    </div> <!--/ #documents -->
+    <% } %>
 
     <div class="separator">
         <p class="lead">Outputs <span>(<%= model.get('outputs').length %>)</p>
