@@ -2,6 +2,11 @@ views.ProjectProfile = Backbone.View.extend({
     initialize: function() {
         this.render();
         
+        var outputID = this.options.gotoOutput;
+        if (outputID) {
+            window.setTimeout(function() { window.scrollTo(0, $('#output-' + outputID).offset().top); }, 0);
+        }
+        
         $('#all-projects').on('click', function(e) {
             if (app.app) {
                 e.preventDefault();

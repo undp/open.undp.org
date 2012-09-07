@@ -3,10 +3,11 @@ routers.App = Backbone.Router.extend({
     },
     routes: {
         'project/:id': 'project',
+        'project/:id/output-:output': 'project',
         'filter/*filters': 'browser',
         '': 'browser'
     },
-    project: function(id) {
+    project: function(id,output) {
         var that = this;
 
         // Set up menu
@@ -19,7 +20,8 @@ routers.App = Backbone.Router.extend({
             success: function() {
                 that.project.view = new views.ProjectProfile({
                     el: '#profile',
-                    model: that.project.model
+                    model: that.project.model,
+                    gotoOutput: (output) ? output : false
                 });
             }
         });
