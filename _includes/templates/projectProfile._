@@ -13,7 +13,11 @@
             <div class="row-fluid">
                 <div class="span6">
                     <div class="label">Description</div>
+                    <% if (model.get('project_descr').length > 1) { %>
                     <p><%= model.get('project_descr') %></p>
+                    <% } else { %>
+                    <p><em>no description given</em></p>
+                    <% } %>
                 </div>
 
                 <div class="span3">
@@ -43,6 +47,7 @@
                             return counts; }, {})
                         .value();
                     %>
+                    <% if (focusCount.length > 0) { %>
                     <ul class="unstyled">
                     <% for (var key in focusCount) {
                         if (key != '-') { %>
@@ -50,6 +55,9 @@
                         <% } %>
                     <% } %>
                     </ul>
+                    <% } else { %>
+                    <p><em>no focus area given</em></p>
+                    <% } %>
                 </div>
                 <div class="span3">
                     <div class="label">Start</div>
@@ -73,11 +81,15 @@
                             return counts; }, {})
                         .value();
                     %>
+                    <% if (crsCount.length > 0) { %>
                     <ul class="unstyled">
                     <% for (var key in crsCount) { %>
                     <li><%= key %> (<%= crsCount[key] %>)</li>
                     <% } %>
                     </ul>
+                    <% } else { %>
+                    <p><em>no classification given</em></p>
+                    <% } %>
                 </div>
                 <% if (model.get('inst_descr')) { %>
                 <div class="span3" style="min-width:125px">
@@ -104,11 +116,15 @@
                             return counts; }, {})
                         .value();
                     %>
+                    <% if (genderCount.length > 0) { %>
                     <ul class="unstyled">
                     <% for (var key in genderCount) { %>
                     <li><%= key %> (<%= genderCount[key] %>)</li>
                     <% } %>
                     </ul>
+                    <% } else { %>
+                    <p><em>no gender data given</em></p>
+                    >% } %>
                 </div>
                 <div class="span6">
 
