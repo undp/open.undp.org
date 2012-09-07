@@ -243,7 +243,7 @@
         <div id="output-nav" class="span12">
             <ul class="output-nav unstyled">
                 <% _.all(model.get('outputs'), function(obj, i) { %>
-                    <li><a href="#project/<%= model.get('project_id') %>/output-<%= obj.output_id %>"><%= obj.output_id %></a></li>
+                    <li><a href="#project/<%= model.get('project_id') %>/output-<%= obj.output_id %>"><%= obj.output_id %> - <%= obj.output_title %></a></li>
                     <% return i < 10; %>
                 <% }); %>
             </ul>
