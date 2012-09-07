@@ -32,6 +32,8 @@ views.ProjectProfile = Backbone.View.extend({
         }
         mapsize();
         $(window).resize(function(){mapsize();});
+        
+        $('#profile .summary').removeClass('off');
     },
     
     render: function() {
