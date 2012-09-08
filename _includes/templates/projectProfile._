@@ -47,7 +47,7 @@
                             return counts; }, {})
                         .value();
                     %>
-                    <% if (focusCount.length > 0) { %>
+                    <% if (_.size(focusCount) > 0) { %>
                     <ul class="unstyled">
                     <% for (var key in focusCount) {
                         if (key != '-') { %>
@@ -81,7 +81,7 @@
                             return counts; }, {})
                         .value();
                     %>
-                    <% if (crsCount.length > 0) { %>
+                    <% if (_.size(crsCount) > 0) { %>
                     <ul class="unstyled">
                     <% for (var key in crsCount) { %>
                     <li><%= key %> (<%= crsCount[key] %>)</li>
@@ -116,7 +116,7 @@
                             return counts; }, {})
                         .value();
                     %>
-                    <% if (genderCount.length > 0) { %>
+                    <% if (_.size(genderCount) > 0) { %>
                     <ul class="unstyled">
                     <% for (var key in genderCount) { %>
                     <li><%= key %> (<%= genderCount[key] %>)</li>
@@ -124,7 +124,7 @@
                     </ul>
                     <% } else { %>
                     <p><em>no gender data given</em></p>
-                    >% } %>
+                    <% } %>
                 </div>
                 <div class="span6">
 
