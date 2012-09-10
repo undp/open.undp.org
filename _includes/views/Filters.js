@@ -37,6 +37,8 @@ views.Filters = Backbone.View.extend({
             _(filterModels).each(function(model) {
                 view.$('.filter-items').append(templates.filter({ model: model }));
                 $('#' + view.collection.id + '-' + model.id).toggleClass('active', model.get('active'));
+                $('#' + view.collection.id + '-' + model.id).parent().parent().toggleClass('active', model.get('active'));
+                $('#' + view.collection.id + '-' + model.id).parent().parent().prev().toggleClass('active', model.get('active'));
             });
             
             if (view.active) {

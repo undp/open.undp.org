@@ -5,7 +5,7 @@ views.Projects = Backbone.View.extend({
         $('#projects input[type="search"]').on('keyup', _.bind(this.search, this));
         
         var that = this,
-            low = 50
+            low = 50,
             high = 100;
         
         $(window).on('scroll', function() {
