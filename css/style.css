@@ -81,6 +81,10 @@ h3 {
 
 #main-container { position: relative; }
 
+#app {
+  min-height: 600px;
+}
+
 .map {
   background: white;
   }
@@ -190,9 +194,6 @@ h3 {
   z-index: 999;
 }
 
-#profile {
-  min-height: 600px;
-}
 .summary {
   position: relative;
   left: 0;
@@ -421,7 +422,8 @@ form {
   -webkit-transition: max-height 0.5s ease;
   transition: max-height 0.5s ease;
 }
-#filters ul.filter-items.active {
+#filters ul.filter-items.active,
+#filters ul.filter-items.active-filter {
   max-height: 150px;
 }
 #filters .label {
@@ -446,7 +448,8 @@ form {
 	border-left: none;
 	pointer-events: none;
 }
-#filters .label.active .arrow {
+#filters .label.active .arrow,
+#filters .label.active-filter .arrow {
   border-top: 6px solid #bbb;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
@@ -456,7 +459,8 @@ form {
   border-right-color: #036;
   border-top-color: transparent;
 }
-#filters .label.active .arrow.active {
+#filters .label.active .arrow.active,
+#filters .label.active-filter .arrow.active {
   border-top-color: #036;
   border-right-color: transparent;
 }

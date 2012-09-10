@@ -88,7 +88,13 @@ views.App = Backbone.View.extend({
             view.render();
         });
         
-        //(val === '') ? $('ul.filter-items').removeClass('active') : $('ul.filter-items').addClass('active');
+        if (val === '') {
+            $('ul.filter-items').removeClass('active-filter');
+            $('#filter-items .label').removeClass('active-filter');
+        } else {    
+            $('ul.filter-items').addClass('active-filter');
+            $('#filter-items .label').addClass('active-filter');
+        }
     },
     
     collapseFilter: function (e) {
