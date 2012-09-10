@@ -61,6 +61,10 @@ views.ProjectProfile = Backbone.View.extend({
         window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
         this.$el.empty().append(templates.projectProfile(this)).show();
         
+        if (app.app && this.options.gotoOutput == false) {
+            $('#profile .summary').addClass('off');
+        }
+        
         this.map = new views.Map({
             el: '#profilemap',
             model: this.model
