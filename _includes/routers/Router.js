@@ -1,5 +1,28 @@
 routers.App = Backbone.Router.extend({
     initialize: function() {
+
+        // Handle feedback form submission
+        $('#feedback-form').submit(function(e) {
+
+            // Set URL for feedback form
+            $('#entry_3').val(window.location);
+
+            var button = $('input[type=submit]', this),
+                data = $(this).serialize(),
+                form = this;
+
+            e.preventDefault();
+
+            $.ajax({
+                type: 'POST',
+                url: 'https://docs.google.com/spreadsheet/formResponse?formkey=dFRTYXNUMWIzbXRhVF94YW9rVmlZNVE6MQ&amp;ifq',
+                data: data,
+                complete: function() {
+                    $('#feedback').modal('hide');
+                    $('input[type=text], textarea', form).val('');
+                }
+            });
+        });
     },
     routes: {
         'project/:id': 'project',
