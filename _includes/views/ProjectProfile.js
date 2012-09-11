@@ -61,6 +61,7 @@ views.ProjectProfile = Backbone.View.extend({
         window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
         this.$el.empty().append(templates.projectProfile(this)).show();
         
+        // If first load is a project page or output, don't animate
         if (app.app && this.options.gotoOutput == false) {
             $('#profile .summary').addClass('off');
         }

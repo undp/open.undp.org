@@ -88,6 +88,7 @@ views.App = Backbone.View.extend({
             view.render();
         });
         
+        // Open all filter facets on search
         if (val === '') {
             $('ul.filter-items').removeClass('active-filter');
             $('#filter-items .label').removeClass('active-filter');

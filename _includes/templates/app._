@@ -19,7 +19,7 @@
             <div class="row-fluid stats">
                 <div class="span6">
                     <p id="total-donors" class="lead"></p>
-                    <p><strong>Donors</strong></p>
+                    <p><strong>Funding Sources</strong></p>
                 </div>
                 <div class="span6">
                     <p id="total-expenditure" class="lead"></p>
@@ -36,21 +36,6 @@
         <div class="span6">
             <div id="applied-filters">
             </div>
-            <div class="row-fluid">
-                <div class="span12 chart-container" id="chart-donors">
-                    <div class="label">Donors
-                        <div class="btn-donors btn-group toggle" data-toggle="buttons-radio">
-                            <button class="btn btn-mini active hidden" data-facet="donors">Count</button>
-                        </div>
-                    </div>
-                    <div class="chart">
-                        <div class="data"></div>
-                        <div class="caption"></div>
-                        <div class="placeholder lead"></div>
-                    </div>
-                </div>
-            </div>
-
             <div class="row-fluid">
                 <div class="span12 chart-container" id="chart-operating_unit">
                     <div class="label">Country Offices
@@ -73,6 +58,21 @@
                         <div class="btn-focus_area btn-group toggle" data-toggle="buttons-radio">
                             <button class="btn btn-mini active" data-facet="focus_area">Budget</button>
                             <button class="btn btn-mini" data-facet="focus_area">Count</button>
+                        </div>
+                    </div>
+                    <div class="chart">
+                        <div class="data"></div>
+                        <div class="caption"></div>
+                        <div class="placeholder lead"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row-fluid">
+                <div class="span12 chart-container" id="chart-donors">
+                    <div class="label">Funding Sources
+                        <div class="btn-donors btn-group toggle" data-toggle="buttons-radio">
+                            <button class="btn btn-mini active hidden" data-facet="donors">Count</button>
                         </div>
                     </div>
                     <div class="chart">
