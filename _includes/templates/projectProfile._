@@ -47,7 +47,9 @@
                             return counts; }, {})
                         .value();
                     %>
-                    <% if (_.size(focusCount) > 0) { %>
+                    <% if (_.size(focusCount) == 1 && focusCount['-']) { %>
+                    <p><em>no focus area given</em></p>
+                    <% } else { %>
                     <ul class="unstyled">
                     <% for (var key in focusCount) {
                         if (key != '-') { %>
@@ -55,8 +57,6 @@
                         <% } %>
                     <% } %>
                     </ul>
-                    <% } else { %>
-                    <p><em>no focus area given</em></p>
                     <% } %>
                 </div>
                 <div class="span3">
@@ -248,6 +248,24 @@
     </div><!--/ .outputs<%= obj.output_id %> -->
     <% }); %>
 </div> <!--/ #summary -->
+
+<div class="span9 webcontent raised summary">
+    <div class="row-fluid separator">
+        <p class="lead">UNDP <%= model.get('operating_unit') %></p>
+    </div>
+    <div id="flickr" class="row-fluid">
+        <div class="photo span6"></div>
+        <div class="meta span6">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="label"></div>
+                </div>
+            </div>
+        </div>
+        <div class="control prev">prev</div>
+        <div class="control next">next</div>
+    </div>
+</div>
 
 <div id="content-right" class="span3 hidden-phone">
     <div class="row-fluid">

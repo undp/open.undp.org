@@ -118,6 +118,72 @@ views.Map = Backbone.View.extend({
                     + '</div>'
                 );
                 
+                if (v === 'flickr') {
+                    $.getJSON('http://api.flickr.com/services/rest/?format=json&jsoncallback=?&method=flickr.urls.lookupUser&api_key=6a12a7e8c27f63a85bb39ee2b692822c&url=' + data[v], function(f) {
+                    
+                        var userid = f.user.id,
+                            username = f.user.username._content;
+                            
+                        $.getJSON('http://api.flickr.com/services/feeds/photos_public.gne?id=' + userid + '&lang=en-us&format=json&jsoncallback=?',
+                            function(d){
+                                var photos = d.items,
+                                    regex = /<p>(.*?)<\/p>/g,
+                                    i = 0;
+                                    
+                                console.log(d);
+                                
+                                function loadPhoto(x) {
+                                    var source = photos[x].media.m.replace('m.jpg','b.jpg');
+                                    var photoid = photos[x].link.split('/')[5];
+                                    var desc = photos[x].description;
+                                    var sizeCheck;
+                                
+                                    if (regex.test(desc)) {
+                                        photos[x].description = desc.match(regex)[2];
+                                        if (photos[x].description != undefined) {
+                                            photos[x].description = photos[x].description.replace('<p>','').replace('</p>','');
+                                        }
+                                    }
+                                    
+                                    $.getJSON('http://api.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key=22f440f4e37605b01ca22823dbc9b05d&photo_id=' + photoid + '&format=json&nojsoncallback=1', function(s) {
+                                      sizeCheck = s.sizes.size[7].height;
+                                    });
+                                    
+                                    if (sizeCheck === 1024) { //not working?
+                                        $('#flickr').css('background','url("' + source + '") center -400px no-repeat');
+                                        $('#flickr').css('background-size','cover');
+                                    } else {
+                                        $('#flickr').css('background','url("' + source + '") center -100px no-repeat');
+                                        $('#flickr').css('background-size','cover');
+                                    }
+                                        
+                                    $('#flickr .meta .label').html('<img src="http://flickr.com/buddyicons/' + userid + '.jpg"> '
+                                        + username + '<span class="iconlink"><a href="'
+                                        + d.link + '" title="See our photos on Flickr">'
+                                        + '<img src="http://l.yimg.com/g/images/goodies/white-small-chiclet.png" '
+                                        + 'width="23" height="23" alt=""></a>'
+                                    );
+                                    
+                                    $('#flickr .meta').html('<p>' + photos[x].date_taken.split('T')[0] + '</p>'
+                                        + '<p>' + photos[x].description + '</p>');
+                                }
+                                
+                                loadPhoto(i);
+                                    
+                                $('#flickr .next').click(function() {
+                                    i += 1;
+                                    loadPhoto(i);
+                                });
+                                $('#flickr .prev').click(function() {
+                                    i -= 1;
+                                    loadPhoto(i);
+                                });
+                            }
+                        );
+                    });
+                    
+                }
+                
                 if (v === 'twitter' && data[v]) {
                     that.twitter(data[v]);
                 }
