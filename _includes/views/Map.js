@@ -99,7 +99,9 @@ views.Map = Backbone.View.extend({
     getwebData: function(data) {
         var that = this,
             baseUrl;
-            
+        
+        if (!data['flickr']) { $('#profile .glance').css('display','none'); }
+        
         _.each(['web','email','facebook','twitter','flickr'], function(v) {
             if (data[v]) {
                 if (v == 'twitter' || v == 'email') {
@@ -149,17 +151,19 @@ views.Map = Backbone.View.extend({
                                         photos[x].description = desc.match(regex)[2];
                                         if (photos[x].description != undefined) {
                                             photos[x].description = photos[x].description.replace('<p>','').replace('</p>','');
+                                        } else {
+                                            photos[x].description = '';
                                         }
                                     }
                                     
                                     // Get photo dimensions (checking for landscape vs. portrait)
                                     $.getJSON('http://api.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key=6a12a7e8c27f63a85bb39ee2b692822c&photo_id=' + photoid + '&format=json&nojsoncallback=1', function(s) {
                                     
-                                        if (s.sizes.size[7].height == 1024) {
-                                            $('#flickr').css('background','url("' + source + '") center 33% no-repeat');
+                                        if (s.sizes.size[6].height > s.sizes.size[6].width) {
+                                            $('#flickr').css('background','url("' + source + '") center 38% no-repeat');
                                             $('#flickr').css('background-size','cover');
                                         } else {
-                                            $('#flickr').css('background','url("' + source + '") center 22% no-repeat');
+                                            $('#flickr').css('background','url("' + source + '") center 25% no-repeat');
                                             $('#flickr').css('background-size','cover');
                                         }
                                         
@@ -167,7 +171,7 @@ views.Map = Backbone.View.extend({
                                         
                                         $('#flickr .meta').html('<p class="label">' + date
                                             + '<span class="iconlink"><a href="'
-                                            + d.link + '" title="See our photos on Flickr">'
+                                            + d.link + photoid + '/in/photostream/" title="See our photos on Flickr">'
                                             + '<img src="http://l.yimg.com/g/images/goodies/white-small-chiclet.png" '
                                             + 'width="23" height="23" alt=""></a></span></p>'
                                             + '<p>' + photos[x].description + '</p>');
