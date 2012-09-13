@@ -29,6 +29,7 @@ views.ProjectProfile = Backbone.View.extend({
             } else {
                 $('#profilemap').parent().parent().parent().attr('class', 'span4');
             }
+            $('#flickr').css('height',$('#flickr').width()*.33);
         }
         mapsize();
         $(window).resize(function(){mapsize();});
