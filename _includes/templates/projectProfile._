@@ -251,19 +251,15 @@
 
 <div class="span9 webcontent raised summary">
     <div class="row-fluid separator">
-        <p class="lead">UNDP <%= model.get('operating_unit') %></p>
+        <p class="lead">UNDP <%= model.get('operating_unit') %>
+        </p>
     </div>
     <div id="flickr" class="row-fluid">
-        <div class="span8"></div>
-        <div class="meta span4">
-            <div class="row-fluid">
-                <div class="span12">
-                    <div class="label"></div>
-                </div>
-            </div>
+        <div class="span6"></div>
+        <div class="meta span6">
         </div>
-        <div class="control prev">prev</div>
-        <div class="control next">next</div>
+        <div class="control prev"><div class="icon-arrow-left"></div></div>
+        <div class="control next"><div class="icon-arrow-right"></div></div>
     </div>
 </div>
 

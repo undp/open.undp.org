@@ -628,27 +628,45 @@ form {
   background-size: cover;
   min-height: 250px;
   border-radius: 0 0 10px 10px;
+  padding-right: 20px;
+  padding-top: 20px;
 }
 #flickr .meta {
   padding: 10px 15px;
   background: rgb(255,255,255);
   background: rgba(255,255,255,0.8);
-}
-#flickr .photo img {
-  border-radius: 0 0 0 10px;
+  max-height: 75%;
+  overflow-y: auto;
+  display: none;
 }
 #flickr .meta .iconlink {
   float: right;
+  margin-top: -5px;
 }
 #flickr .control {
+  display: none;
   position: absolute;
   bottom: 20px;
+  background: rgba(255,255,255,.35);
+  width: 60px;
+  height: 40px;
+}
+#flickr .control div {
+  position: absolute;
+  top: 12px;
+  left: 25px;
 }
 .control.next {
   right: 20px;
+  border-radius: 0 8px 8px 0;
 }
 .control.prev {
-  left: 20px;
+  right: 80px;
+  border-radius: 8px 0 0 8px;
+  border-right: 1px solid #333;
+}
+#flickr .control:hover {
+  background: rgba(255,255,255,.8);
 }
 
 /* contact modal */
