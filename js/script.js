@@ -17,26 +17,13 @@
                 name: 'CRS Aid Classification'
             },
             */
+            /*
             {
                 id: 'donor_types',
                 url: 'api/donor-type-index.json',
                 name: 'Donor Type'
             },
-            {
-                id: 'donors',
-                url: 'api/donor-index.json',
-                name: 'Donors'
-            },
-            {
-                id: 'focus_area',
-                url: 'api/focus-area-index.json',
-                name: 'UNDP Focus Areas'
-            },
-            {
-                id: 'operating_unit',
-                url: 'api/operating-unit-index.json',
-                name: 'Country Offices / Operating Units'
-            },
+            */
             /*
             {
                 id: 'outcome',
@@ -45,9 +32,24 @@
             },
             */
             {
+                id: 'operating_unit',
+                url: 'api/operating-unit-index.json',
+                name: 'Country Offices / Operating Units'
+            },
+            {
                 id: 'region',
                 url: 'api/region-index.json',
                 name: 'Regional Bureau'
+            },
+            {
+                id: 'focus_area',
+                url: 'api/focus-area-index.json',
+                name: 'UNDP Focus Areas'
+            },
+            {
+                id: 'donors',
+                url: 'api/donor-index.json',
+                name: 'Funding Sources'
             }
         ];
 

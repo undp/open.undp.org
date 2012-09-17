@@ -26,20 +26,13 @@ views.App = Backbone.View.extend({
             view.$el.css('min-height', $(window).height() * 2);
         }, 300));
 
-        function mapsize() {
-            if($(window).width() <= 1068) {
-                $('#homemap').parent().attr('class', 'span11');
-            } else {
-                $('#homemap').parent().attr('class', 'span6');
-            }
-        }
-        mapsize();
-        $(window).resize(function(){mapsize();});
+        // Set up help popovers
+        $('.help-note').popover({ trigger: 'hover' });
     },
 
     render: function() {
         this.$el.empty().append(templates.app(this));
-        $('html, body').scrollTop(0);
+        window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
 
         return this;
     },
@@ -69,9 +62,11 @@ views.App = Backbone.View.extend({
             })
             .value().join('/');
 
-        path = (filters.length) ? 'filter/' + filters : ''; 
+        path = (filters.length) ? 'filter/' + filters : 'filter/'; 
 
         e.preventDefault();
+
+        $('#all-projects').attr('href', '#' + path);
         app.navigate(path, { trigger: true });
     },
 
@@ -93,7 +88,14 @@ views.App = Backbone.View.extend({
             view.render();
         });
         
-        //(val === '') ? $('ul.filter-items').removeClass('active') : $('ul.filter-items').addClass('active');
+        // Open all filter facets on search
+        if (val === '') {
+            $('ul.filter-items').removeClass('active-filter');
+            $('#filter-items .label').removeClass('active-filter');
+        } else {    
+            $('ul.filter-items').addClass('active-filter');
+            $('#filter-items .label').addClass('active-filter');
+        }
     },
     
     collapseFilter: function (e) {
@@ -113,7 +115,6 @@ views.App = Backbone.View.extend({
 
     toggleChart: function (e) {
         var $target = $(e.target);
-        var cat = $target.parent().parent().parent().attr('id');
         var facet = $target.attr('data-facet');
         $('.btn-' + facet + ' button').removeClass('active');
         $(e.target).addClass('active');

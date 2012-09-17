@@ -7,12 +7,13 @@
     <meta charset=utf-8 />
     <title>UNDP Projects</title>
     <link rel="shortcut icon" href="{{base}}/img/global/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <link rel="stylesheet" href="{{base}}/css/reset.css">
     <link rel="stylesheet" href="{{base}}/css/global.css">
-    <link href="{{base}}/ext/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="{{base}}/ext/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="{{base}}/ext/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="http://api.tiles.mapbox.com/mapbox.js/v0.6.4/mapbox.css" rel="stylesheet" />
     <link href="{{base}}/css/style.css" rel="stylesheet" />
 </head>
@@ -49,6 +50,7 @@
             <!-- end of #top-navigation -->
             <!-- end of #languages -->
             <!-- end of #main-navigation -->
+                <h1>Project Portal</h1>
         </div>
         <!-- end of .content -->
     </div><!-- /#header -->
@@ -56,14 +58,13 @@
     <!-- content -->
     <div class="container-fluid">
         <div class="row-fluid">
-            <div class="span4">
-                <h1>Project Portal</h1>
-            </div>
-            <div class="span5">
-                <div class="nav browser"><a href="#about" data-toggle="modal">About</a></div>
+            <div class="span9">
+                <div class="nav browser profile"><a href="#feedback" data-toggle="modal">Feedback</a></div>
                 <div class="nav browser"><a href="#download" data-toggle="modal">Download</a></div>
-                <div class="nav browser"><a href="#feedback" data-toggle="modal">Feedback</a></div>
+                <div class="nav browser"><a href="#about" data-toggle="modal">About</a></div>
+                <div class="nav profile"><a href="#unit-contact" data-toggle="modal">Contact</a></div>
                 <div class="nav profile"><a id="all-projects" href="#">&larr; All projects</a></div>
+
             </div>
         </div>
         <div id="app" class="row-fluid">
@@ -71,6 +72,67 @@
             <div id="profile" class="view"> </div>
         </div>
     </div> <!--/ .container-fluid -->
+
+    <!-- Modals -->
+    <div class="modal hide fade" id="about">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h3>About UNDP Projects</h3>
+        </div>
+        <div class="modal-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal">Close</a>
+        </div>
+    </div>
+    
+    <div class="modal hide fade" id="download">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h3>Download project data</h3>
+        </div>
+        <div class="modal-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal">Close</a>
+        </div>
+    </div>
+    
+    <div class="modal hide fade" id="feedback"><form class="form-horizontal" id="feedback-form">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h3>Send feedback</h3>
+        </div>
+        <div class="modal-body">
+            <p>You are viewing an early release of the UNDP Projects portal. Help us make it better by submitting your feedback.</p>
+                <div class="control-group">
+                    <label class="control-label" for="entry_0">Name</label>
+                    <div class="controls">
+                        <input type="text" id="entry_0" name="entry.0.single" class="input-xlarge">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="entry_0">Email</label>
+                    <div class="controls">
+                        <input type="text" id="entry_1" name="entry.1.single" class="input-xlarge">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="entry_2">Feedback</label>
+                    <div class="controls">
+                        <textarea id="inputEmail" id="entry_2" name="entry.2.single" class="input-xlarge"></textarea>
+                    </div>
+                </div>
+                <input type="hidden" id="entry_3" name="entry.3.single">
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal">Close</a>
+            <input type="submit" class="btn btn-primary" name="submit" value="Submit" id="feeback-submit"   >
+        </div>
+    </form></div>
+
 
     <div id="footer">
         <div id="contact">

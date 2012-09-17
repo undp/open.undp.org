@@ -5,7 +5,7 @@ views.Projects = Backbone.View.extend({
         $('#projects input[type="search"]').on('keyup', _.bind(this.search, this));
         
         var that = this,
-            low = 50
+            low = 50,
             high = 100;
         
         $(window).on('scroll', function() {
@@ -41,8 +41,8 @@ views.Projects = Backbone.View.extend({
 
         $('#total-count').html(accounting.formatNumber(this.collection.length));
         $('#total-donors').html(accounting.formatNumber(donor));
-        $('#total-budget').html(accounting.formatMoney(this.collection.budget));
-        $('#total-expenditure').html(accounting.formatMoney(this.collection.expenditure));
+        $('#total-budget').html(accounting.formatMoney(this.collection.budget / 1000000) + 'M');
+        $('#total-expenditure').html(accounting.formatMoney(this.collection.expenditure / 1000000) + 'M');
 
         this.$el.html(templates.projects(this));
 
@@ -58,22 +58,33 @@ views.Projects = Backbone.View.extend({
         return this;
     },
     search: function (e) {
-        var $target = $(e.target),
-            val = $target.val().toLowerCase();
+        var view = this;
 
-        this.collection.each(function(model) {
-            var name = model.get('name').toLowerCase();
+        // pasted values seem to need this delay
+        window.setTimeout(function() {
+            var $target = $(e.target),
+                val = $target.val().toLowerCase(),
+                mode = (val.substr(0, 3) === 'id:') ? 'id' : 'name';
+    
+            val = (mode === 'id') ? val.split('id:')[1].replace(/^\s\s*/, '') : val;
+    
+            view.collection.each(function(model) {
+                var name = model.get(mode).toLowerCase();
+    
+                if (val === '' || name.indexOf(val) >= 0) {
+                    model.set('visible', true);
+                } else {
+                    model.set('visible', false);
+                }
+            });
+    
+            view.render();
+        }, 100);
 
-            if (val === '' || name.indexOf(val) >= 0) {
-                model.set('visible', true);
-            } else {
-                model.set('visible', false);
-            }
-        });
-
-        this.render();
-        $('html, body').animate({
-            scrollTop: $('#projects-heading').offset().top + 1
-        }, 500);
+        if ($('body').scrollTop !== $('#projects-heading').offset().top + 1) {
+            $('html, body').animate({
+                scrollTop: $('#projects-heading').offset().top + 1
+            }, 500);
+        }
     }
 });
