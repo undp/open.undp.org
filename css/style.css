@@ -651,11 +651,16 @@ form {
   background: rgba(255,255,255,.35);
   width: 60px;
   height: 40px;
+  cursor: pointer;
 }
 #flickr .control div {
   position: absolute;
   top: 12px;
-  left: 25px;
+  left: 24px;
+}
+.control.resize {
+  right: 160px;
+  border-radius: 8px;
 }
 .control.next {
   right: 20px;
