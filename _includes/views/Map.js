@@ -10,16 +10,33 @@ views.Map = Backbone.View.extend({
     },
     render: function() {
         this.$el.empty().append('<div class="inner-shadow"></div>');
-        this.buildMap();
+        this.buildMap($('.map-btn.active').attr('data-value') || 'budget');
         return this;
     },
-    buildMap: function() {
+    updateMap: function(layer) {
+        var markers = this.map.layers[2],
+            rounder = (layer == 'budget' || layer == 'expenditure') ? 100000 : .05,
+        
+            radii = function(f) {
+                    return clustr.area_to_radius(
+                        Math.round(f.properties[layer] / rounder)
+                    );
+                };
+                
+        this.map.layers[2].factory(clustr.scale_factory(radii, "rgba(2,56,109,0.6)", "#01386C"))
+            .sort(function(a,b){ return b.properties[layer] - a.properties[layer]; });
+                
+        //console.log(markers.extent());
+    },
+    buildMap: function(layer) {
         var that = this,
             locations = [],
-            count, budget, description,
+            count, sources, budget, description,
             unit = (this.collection) ? this.collection 
                 : this.model.get('operating_unit_id'),
-            objCheck = _.isObject(unit);
+            // if unit is an object we're working with the homepage map, else the project map
+            homepage = _.isObject(unit),
+            rounder = (layer == 'budget' || layer == 'expenditure') ? 100000 : .05;
 
         mapbox.auto(this.el, 'dhcole.map-75gxxhee', function(map) {
             that.map = map;
@@ -29,29 +46,37 @@ views.Map = Backbone.View.extend({
 
             var radii = function(f) {
                 return clustr.area_to_radius(
-                    Math.round(f.properties.budget / 100000)
+                    Math.round(f.properties[layer] / rounder)
                 );
             }
             
             var markers = mapbox.markers.layer()
                 .factory(clustr.scale_factory(radii, "rgba(2,56,109,0.6)", "#01386C"))
-                .sort(function(a,b){ return b.properties.budget - a.properties.budget; });
+                .sort(function(a,b){ return b.properties[layer] - a.properties[layer]; });
 
             $.getJSON('api/operating-unit-index.json', function(data) {
                 for (var i = 0; i < data.length; i++) {
                     var o = data[i];
-                    if ((objCheck) ? unit.operating_unit[o.id] : o.id === unit) {
+                    if ((homepage) ? unit.operating_unit[o.id] : o.id === unit) {
                     
-                        if (!objCheck) { that.getwebData(o); }
+                        if (!homepage) { that.getwebData(o); }
                         
                         if (o.lon) {
-                            (objCheck) ? count = unit.operating_unit[o.id] : count = false;
-                            (objCheck) ? budget = unit.operating_unitBudget[o.id] : budget = that.model.get('budget');
+                            (homepage) ? count = unit.operating_unit[o.id] : count = false;
+                            (homepage) ? sources = unit.operating_unitSources[o.id] : sources = false;
+                            (homepage) ? budget = unit.operating_unitBudget[o.id] : budget = that.model.get('budget');
+                            (homepage) ? expenditure = unit.operating_unitExpenditure[o.id] : expenditure = that.model.get('expenditure');
+                            
                             description = '<div class="stat">Budget: <span class="value">'
-                                          + accounting.formatMoney(budget) + '</span></div>';
-                            if (objCheck) {
-                                description += '<div class="stat">Projects: <span class="value">'
-                                            + count + '</span></div>';
+                                          + accounting.formatMoney(budget) + '</span></div>'
+                                          + '<div class="stat">Expenditure: <span class="value">'
+                                          + accounting.formatMoney(expenditure) + '</span></div>';
+                            if (homepage) {
+                                description = '<div class="stat">Projects: <span class="value">'
+                                            + count + '</span></div>'
+                                            + '<div class="stat">Funding Sources: <span class="value">'
+                                            + sources + '</span></div>'
+                                            + description;
                             }
                             
                             locations.push({
@@ -63,9 +88,11 @@ views.Map = Backbone.View.extend({
                                 },
                                 properties: {
                                     id: o.id,
-                                    title: (objCheck) ? o.name : that.model.get('project_title') + '<div class="subtitle">' + o.name + '</div>',
+                                    title: (homepage) ? o.name : that.model.get('project_title') + '<div class="subtitle">' + o.name + '</div>',
                                     count: count,
+                                    sources: sources,
                                     budget: budget,
+                                    expenditure: expenditure,
                                     description: description
                                 }
                             });
@@ -85,7 +112,6 @@ views.Map = Backbone.View.extend({
                     map.centerzoom({lat:20,lon:0},2);
                 }
             });
-
         });
     },
     

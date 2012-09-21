@@ -3,7 +3,8 @@ views.App = Backbone.View.extend({
         'click a.filter': 'setFilter',
         'keyup #filters-search': 'searchFilter',
         'click #filters .label': 'collapseFilter',
-        'click button.btn-mini': 'toggleChart'
+        'click button.btn-mini': 'toggleChart',
+        'click .map-btn': 'mapLayerswitch'
     },
 
     initialize: function(options) {
@@ -28,6 +29,8 @@ views.App = Backbone.View.extend({
 
         // Set up help popovers
         $('.help-note').popover({ trigger: 'hover' });
+        
+        $('.map-btn .lead').fitText(0.6, {minFontSize: '14px', maxFontSize: '24px'});
     },
 
     render: function() {
@@ -111,6 +114,13 @@ views.App = Backbone.View.extend({
             $target.addClass('active');
             this.views[cat].active = true;
         }
+    },
+    
+    mapLayerswitch: function (e) {
+        var $target = $(e.currentTarget);
+        $('.map-btn').removeClass('active');
+        $target.addClass('active');
+        app.projects.map.updateMap($target.attr('data-value'));
     },
 
     toggleChart: function (e) {

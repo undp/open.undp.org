@@ -84,18 +84,42 @@ h3 {
   color: #fff;
   }
 
-#main-container { position: relative; }
+#main-container {
+  position: relative;
+}
+#main-container .span2 {
+  padding-top: 20px;
+}
+/*
+#applied-filters {
+  white-space: normal;
+  color: #333;
+}
+#applied-filters div {
+  margin-bottom: 5px;
+}
+*/
+#applied-filters span {
+  font-size: 24px;
+  line-height: 28px;
+}
+#applied-filters i {
+  margin-top: 8px;
+}
 
 #app {
   min-height: 600px;
 }
 
+.map-container {
+  margin-bottom: 1px !important;
+  }
 .map {
   background: white;
   }
 #homemap {
   width: 100% !important;
-  height: 350px !important;
+  height: 450px !important;
   position: relative;
   bottom: 0;
   left: 0;
@@ -189,6 +213,12 @@ h3 {
   width: 100%;
   font-size: 11px;
   }
+.map .marker-description .stat {
+  line-height: 15px;
+}
+.map .marker-description .stat .value {
+  font-weight: bold;
+}
 .map .marker-title .subtitle {
   color: #999;
   font-size: 11px;
@@ -197,6 +227,52 @@ h3 {
   }
 .map-attribution {
   z-index: 999;
+}
+.map-btn {
+  padding: 5px 0 5px 20px;
+  border-radius: 8px;
+  -moz-transition: background 0.1s linear;
+  -o-transition: background 0.1s linear;
+  -webkit-transition: background 0.1s linear;
+  transition: background 0.1s linear;
+}
+.map-btn p {
+  margin: 0;
+}
+.map-btn:hover {
+  background: #DBEBEF;
+  cursor: pointer;
+}
+.map-btn.active {
+  background: #265F91;
+  background-image: -ms-linear-gradient(bottom, #265F91 0%, #557799 100%);
+  background-image: -moz-linear-gradient(bottom, #265F91 0%, #557799 100%);
+  background-image: -o-linear-gradient(bottom, #265F91 0%, #557799 100%);
+  background-image: -webkit-gradient(linear, bottom left, top left, color-stop(0, #265F91), color-stop(1, #557799));
+  background-image: -webkit-linear-gradient(bottom, #265F91 0%, #557799 100%);
+  background-image: linear-gradient(to top, #265F91 0%, #557799 100%);
+  -moz-box-shadow:    inset 0 0 10px #444;
+  -webkit-box-shadow: inset 0 0 10px #444;
+  box-shadow:         inset 0 0 10px #444;
+}
+/*
+.map-btn.active:after {
+  content: "";
+  display: block;
+  float: right;
+  margin-right: -25px;
+  margin-top: -40px;
+  border-top: 16px solid transparent;
+  border-bottom: 16px solid transparent;
+  border-left: 16px solid #036;
+  border-right: none;
+}
+*/
+.map-btn.active .lead {
+  color: #fff;
+}
+.map-btn.active p strong, .map-btn.active .date {
+  color: #DBEBEF;
 }
 
 .summary {
@@ -313,7 +389,8 @@ h3 {
   /* Webkit (Chrome 11+) */
   background-image: -webkit-linear-gradient(right, #265F91 0%, #557799 100%);
   /* W3C Markup, IE10 Release Preview */
-  background-image: linear-gradient(to left, #265F91 0%, #557799 100%);  margin: 0.25em 0;
+  background-image: linear-gradient(to left, #265F91 0%, #557799 100%);
+  margin: 0.25em 0;
   padding-right: 0.5em;
   box-sizing: border-box;
   font-size: 0.7em;
@@ -341,9 +418,7 @@ h3 {
 .btn-donors .btn {
   float: right;
 }
-
 .stats .lead {
-  margin: 0;
   color: #265F91;
   }
 .stats strong {
@@ -522,7 +597,7 @@ form {
   border-top: 1px solid #55BBFF;
   border-bottom: 1px solid #0B387C;
   box-shadow: 0 -1px 0 #5A90DA, 0 1px 0 white;
-  background: #0055AA
+  background: #0055AA;
   /* IE10 Consumer Preview */
   background-image: -ms-linear-gradient(bottom, #0055AA 0%, #5A90DA 100%);
   /* Mozilla Firefox */

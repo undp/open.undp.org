@@ -45,6 +45,12 @@ views.ProjectProfile = Backbone.View.extend({
             .reduce(function(memo, num){ return memo + num; }, 0)
             .value();
             
+         this.model.attributes.expenditure = _.chain(this.model.attributes.outputs)
+            .map(function (o) { return o.expenditure })
+            .flatten()
+            .reduce(function(memo, num){ return memo + num; }, 0)
+            .value();
+            
         this.model.attributes.budgetyears = _.reduce(this.model.attributes.outputs, function (res, obj) {
             _.each(obj.fiscal_year, function(o,i) {
                 res[o] = (res[o] || 0) + obj.budget[i];

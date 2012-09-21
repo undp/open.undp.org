@@ -86,7 +86,6 @@ routers.App = Backbone.Router.extend({
             // Load projects
             if(!this.allProjects) {
                 this.allProjects = new models.Projects();
-    
                 this.allProjects.fetch({
                     success: function() {
                         that.projects = new models.Projects(that.allProjects.filter(filter));
