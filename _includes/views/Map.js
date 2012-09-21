@@ -3,7 +3,21 @@ views.Map = Backbone.View.extend({
         'click .map-fullscreen': 'fullscreen'
     },
     initialize: function() {
-        this.render();
+        var that = this,
+            unit = (this.collection) ? this.collection 
+                : this.model.get('operating_unit_id');
+        
+        // Get HDI data
+        $.getJSON('api/hdi.json', function(data) {
+            var hdiArray = _.reduce(data, function(res,obj) {
+                res[obj.id] = obj.hdi2011;
+                return res;
+            }, {});
+            (that.collection) ? that.collection.hdi = hdiArray : that.model.set('hdi',hdiArray[unit]);
+        }).success(function() {
+            that.render();
+        });
+
         if (this.collection) {
             this.collection.on('update', this.render, this);
         }
@@ -13,15 +27,24 @@ views.Map = Backbone.View.extend({
         this.buildMap($('.map-btn.active').attr('data-value') || 'budget');
         return this;
     },
+    scale: function(cat,x) {
+        if (cat == 'budget' || cat == 'expenditure') {
+            return Math.round(x.properties[cat] / 100000);
+        } else if (cat == 'hdi') {
+            return Math.round(Math.pow(x.properties[cat],2) / .0008);
+        } else {
+            return Math.round(x.properties[cat] / .05);
+        }
+    },
     updateMap: function(layer) {
-        var markers = this.map.layers[2],
-            rounder = (layer == 'budget' || layer == 'expenditure') ? 100000 : .05,
+        var that = this,
+            markers = this.map.layers[2],
         
             radii = function(f) {
-                    return clustr.area_to_radius(
-                        Math.round(f.properties[layer] / rounder)
-                    );
-                };
+                return clustr.area_to_radius(
+                    Math.round(that.scale(layer,f))
+                );
+            };
                 
         this.map.layers[2].factory(clustr.scale_factory(radii, "rgba(2,56,109,0.6)", "#01386C"))
             .sort(function(a,b){ return b.properties[layer] - a.properties[layer]; });
@@ -34,9 +57,9 @@ views.Map = Backbone.View.extend({
             count, sources, budget, description,
             unit = (this.collection) ? this.collection 
                 : this.model.get('operating_unit_id'),
+            
             // if unit is an object we're working with the homepage map, else the project map
-            homepage = _.isObject(unit),
-            rounder = (layer == 'budget' || layer == 'expenditure') ? 100000 : .05;
+            homepage = _.isObject(unit);
 
         mapbox.auto(this.el, 'dhcole.map-75gxxhee', function(map) {
             that.map = map;
@@ -46,7 +69,7 @@ views.Map = Backbone.View.extend({
 
             var radii = function(f) {
                 return clustr.area_to_radius(
-                    Math.round(f.properties[layer] / rounder)
+                    Math.round(that.scale(layer,f))
                 );
             }
             
@@ -66,11 +89,14 @@ views.Map = Backbone.View.extend({
                             (homepage) ? sources = unit.operating_unitSources[o.id] : sources = false;
                             (homepage) ? budget = unit.operating_unitBudget[o.id] : budget = that.model.get('budget');
                             (homepage) ? expenditure = unit.operating_unitExpenditure[o.id] : expenditure = that.model.get('expenditure');
+                            (homepage) ? hdi = unit.hdi[o.id] : hdi = that.model.get('hdi');
                             
                             description = '<div class="stat">Budget: <span class="value">'
                                           + accounting.formatMoney(budget) + '</span></div>'
                                           + '<div class="stat">Expenditure: <span class="value">'
-                                          + accounting.formatMoney(expenditure) + '</span></div>';
+                                          + accounting.formatMoney(expenditure) + '</span></div>'
+                                          + '<div class="stat">HDI: <span class="value">'
+                                          + hdi + '</span></div>';
                             if (homepage) {
                                 description = '<div class="stat">Projects: <span class="value">'
                                             + count + '</span></div>'
@@ -93,6 +119,7 @@ views.Map = Backbone.View.extend({
                                     sources: sources,
                                     budget: budget,
                                     expenditure: expenditure,
+                                    hdi: hdi,
                                     description: description
                                 }
                             });
