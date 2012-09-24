@@ -210,7 +210,7 @@ views.Map = Backbone.View.extend({
                                     // Fill in date & description
                                     $('#flickr .meta').html('<p class="label">' + date
                                         + '<span class="iconlink"><a href="'
-                                        + 'link' + photoid + '/in/photostream/" title="See our photos on Flickr">'
+                                        + url + photoid + '/in/photostream/" title="See our photos on Flickr">'
                                         + '<img src="http://l.yimg.com/g/images/goodies/white-small-chiclet.png" '
                                         + 'width="23" height="23" alt=""></a></span></p>'
                                         + '<p>' + description + '</p>');
