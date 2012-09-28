@@ -3,29 +3,68 @@ views.Map = Backbone.View.extend({
         'click .map-fullscreen': 'fullscreen'
     },
     initialize: function() {
-        var that = this,
-            unit = (this.collection) ? this.collection 
-                : this.model.get('operating_unit_id');
-        
-        // Get HDI data
-        $.getJSON('api/hdi.json', function(data) {
-            var hdiArray = _.reduce(data, function(res,obj) {
-                res[obj.id] = obj.hdi2011;
-                return res;
-            }, {});
-            (that.collection) ? that.collection.hdi = hdiArray : that.model.set('hdi',hdiArray[unit]);
-        }).success(function() {
-            that.render();
-        });
+        this.render();
 
         if (this.collection) {
             this.collection.on('update', this.render, this);
         }
     },
     render: function() {
-        this.$el.empty().append('<div class="inner-shadow"></div>');
-        this.buildMap($('.map-btn.active').attr('data-value') || 'budget');
+        $('#chart-hdi').css('display','none');
+        var that = this,
+            unit = (this.collection) ? this.collection 
+                : this.model.get('operating_unit_id');
+        
+        // Get HDI data
+        $.getJSON('api/hdi.json', function(data) {
+            /*
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].hdi2011) {
+                    $('#chart-hdi ul').append('<li class="hdi-' + data[i].id + '" style="border-radius:3px; float:left; width:20px; height:20px; margin:3px; background:#5DA7D0; display:block; opacity:' + data[i].hdi2011 + ';"></li>');
+                }
+            }
+            */
+            var hdiWorld = _.find(data,function(d){return d.name == 'World';});
+            
+            if (_.size(unit.operating_unit) === 1) {
+                var hdi = _.filter(data, function(d) {
+                    return d.id == _.keys(unit.operating_unit);
+                });
+                that.hdiChart(hdi[0],hdiWorld);
+            }
+        
+            var hdiArray = _.reduce(data, function(res,obj) {
+                if ((_.isObject(unit)) ? unit.operating_unit[obj.id] : obj.id === unit) {
+                    res[obj.id] = obj.hdi;
+                }
+                return res;
+            }, {});
+            (that.collection) ? that.collection.hdi = hdiArray : that.model.set('hdi',hdiArray[unit]);
+        }).success(function() {
+            that.$el.empty().append('<div class="inner-shadow"></div>');
+            that.buildMap($('.map-btn.active').attr('data-value') || 'budget');
+        });
+        
+        
+        //this.$el.empty().append('<div class="inner-shadow"></div>');
+        //this.buildMap($('.map-btn.active').attr('data-value') || 'budget');
+        
+        
         return this;
+    },
+    hdiChart: function(country,world) {
+        $('#chart-hdi').css('display','block');
+        $('.data', '#chart-hdi').empty().append(
+            '<div class="total" style="width:' + country.hdi*100 + '%">' + country.hdi + '</div>'
+            + '<div class="subdata total" style="width:' + world.hdi*100 + '%; opacity:.5;"></div>'
+            + '<div class="health" style="width:' + country.health*100 + '%">' + country.health + '</div>'
+            + '<div class="subdata health" style="width:' + world.health*100 + '%; opacity:.5;"></div>'
+            + '<div class="education" style="width:' + country.education*100 + '%">' + country.education + '</div>'
+            + '<div class="subdata education" style="width:' + world.education*100 + '%; opacity:.5;"></div>'
+            + '<div class="living" style="width:' + country.income*100 + '%">' + country.income + '</div>'
+            + '<div class="subdata living" style="width:' + world.income*100 + '%; opacity:.5;"></div>'
+        );
+        $('#chart-hdi .rank').html(country.rank);
     },
     scale: function(cat,x) {
         if (cat == 'budget' || cat == 'expenditure') {

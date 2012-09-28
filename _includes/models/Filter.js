@@ -25,18 +25,22 @@ models.Filters = Backbone.Collection.extend({
             var model = this.get(active.id);
             var count = app.projects[collection.id][model.id];
             var budget = app.projects[collection.id + 'Budget'][model.id];
+            var expenditure = app.projects[collection.id + 'Expenditure'][model.id];
             model.set({
                 active: true,
                 count: count,
-                budget: budget
+                budget: budget,
+                expenditure: expenditure
             });
         } else {
             collection.each(function(model) {
                 var count = app.projects[collection.id][model.id];
                 var budget = app.projects[collection.id + 'Budget'][model.id];
+                var expenditure = app.projects[collection.id + 'Expenditure'][model.id];
                 model.set({
                     count: count,
-                    budget: budget
+                    budget: budget,
+                    expenditure: expenditure
                 });
             });
         }

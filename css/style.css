@@ -86,6 +86,12 @@ h3 {
 
 #main-container {
   position: relative;
+  margin: 0;
+  /*
+  -moz-box-shadow:    inset 0 10px 10px -10px #999, inset 0 -10px 10px -10px #999;
+  -webkit-box-shadow: inset 0 10px 10px -10px #999, inset 0 -10px 10px -10px #999;
+  box-shadow:         inset 0 10px 10px -10px #999, inset 0 -10px 10px -10px #999;
+  */
 }
 #main-container .span2 {
   padding-top: 20px;
@@ -112,14 +118,14 @@ h3 {
 }
 
 .map-container {
-  margin-bottom: 1px !important;
+  margin-bottom: 0 !important;
   }
 .map {
   background: white;
   }
 #homemap {
   width: 100% !important;
-  height: 450px !important;
+  height: 425px !important;
   position: relative;
   bottom: 0;
   left: 0;
@@ -131,6 +137,17 @@ h3 {
 #profilemap .map-fullscreen,  #profilemap .zoomer {
   display: none;
   }
+.map .zoomer {
+  right: 10px;
+  left: auto;
+}
+.map .zoomout {
+  right: 39px;
+}
+.map .map-fullscreen {
+  right: 74px;
+  left: auto;
+}
 
 .map .inner-shadow {
   position: relative;
@@ -139,6 +156,11 @@ h3 {
   -moz-box-shadow:    inset 0 0 10px #999;
   -webkit-box-shadow: inset 0 0 10px #999;
   box-shadow:         inset 0 0 10px #999;
+  /*
+  -moz-box-shadow:    inset 0 10px 10px -10px #999, inset 0 -10px 10px -10px #999;
+  -webkit-box-shadow: inset 0 10px 10px -10px #999, inset 0 -10px 10px -10px #999;
+  box-shadow:         inset 0 10px 10px -10px #999, inset 0 -10px 10px -10px #999;
+  */
   z-index: 5;
   pointer-events: none;
   }
@@ -226,11 +248,19 @@ h3 {
   margin-top: -2px;
   }
 .map-attribution {
+  right: 0;
+  left: auto;
   z-index: 999;
+  background: none;
+}
+.map-attribution a {
+  color: #aaa !important;
 }
 .map-btn {
   padding: 5px 5%;
+  /*
   border-radius: 8px;
+  */
   -moz-transition: background 0.1s linear;
   -o-transition: background 0.1s linear;
   -webkit-transition: background 0.1s linear;
@@ -240,7 +270,7 @@ h3 {
   margin: 0;
 }
 .map-btn:hover {
-  background: #DBEBEF;
+  background: #DFEBEF;
   cursor: pointer;
 }
 .map-btn.active {
@@ -251,9 +281,11 @@ h3 {
   background-image: -webkit-gradient(linear, bottom left, top left, color-stop(0, #265F91), color-stop(1, #557799));
   background-image: -webkit-linear-gradient(bottom, #265F91 0%, #557799 100%);
   background-image: linear-gradient(to top, #265F91 0%, #557799 100%);
+  /*
   -moz-box-shadow:    inset 0 0 10px #444;
   -webkit-box-shadow: inset 0 0 10px #444;
   box-shadow:         inset 0 0 10px #444;
+  */
 }
 /*
 .map-btn.active:after {
@@ -364,15 +396,27 @@ h3 {
 .modal.fade {
   top: 50%;
   }
-
+#charts {
+  border-top: 1px solid #CEDEDD;
+}
+  /*
+#charts {
+  -moz-box-shadow: 0 0 5px -5px #000;
+  -webkit-box-shadow: 0 0 5px -5px #000;
+  box-shadow: 0 -5px 5px -5px #000;
+  z-index: 100;
+}
+*/
 .chart .data, .chart .caption {
+  /*
   float: left;
   width: 50%;
+  */
   text-indent: 0.5em;
   }
 
 .chart .data > div {
-  float: right;
+  float: left;
   clear: both;
   text-align: right;
   height: 20px;
@@ -390,24 +434,146 @@ h3 {
   background-image: -webkit-linear-gradient(right, #265F91 0%, #557799 100%);
   /* W3C Markup, IE10 Release Preview */
   background-image: linear-gradient(to left, #265F91 0%, #557799 100%);
-  margin: 0.25em 0;
+  margin-top: 0.25em;
   padding-right: 0.5em;
   box-sizing: border-box;
   font-size: 0.7em;
   color: #EDF4FE;
+  /*
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.7), inset 0 5px 5px -5px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3), inset 0 10px 10px -10px #999;
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3), inset 3px 3px 3px -3px rgba(0, 0, 0, 0.2);
+  border: 1px solid #CEDEDD;
+  */
+  }
+.chart .data > .subdata {
+  height: 5px;
+  background: #96CCE6;
+  margin-bottom: 0.25em;
+  margin-top: 0;
   }
 .chart .caption > div {
-  float: left;
+  float: right;
   clear: both;
-  text-align: left;
-  height: 20px;
-  line-height: 20px;
+  text-align: right;
+  height: 25px;
+  line-height: 25px;
   margin: 0.25em 0;
   box-sizing: border-box;
   overflow: hidden;
   width: 100%;
   font-size: 0.9em;
   }
+#chart-donors .data > div {
+  margin-bottom: 0.25em;
+}
+#chart-donors .caption > div {
+  height: 20px;
+  line-height: 20px;
+}
+  /*
+#chart-hdi {
+  max-height: 600px;
+  overflow-y: auto;
+}*/
+#chart-hdi .hdi-data {
+  float: left;
+  width: 100%;
+}
+
+#chart-hdi .lead {
+  line-height: 43px;
+}
+#chart-hdi .total-hdi {
+  float: left;
+  height: 43px;
+  width: 20%;
+  text-align: center;
+  background: #fff;
+  border-radius: 5px 0 0 5px;
+  border: 1px solid #CEDEDD;
+  border-right: none;
+}
+#chart-hdi .sub-hdi {
+  float: left;
+  font-size: .7em;
+  line-height: 15px;
+  width: 100%;
+  position: relative;
+}
+#chart-hdi .sub-hdi div {
+  height: 15px;
+  text-indent: 0.5em;
+}
+#chart-hdi .data .total {
+  background: #036;
+}
+#chart-hdi .data .health {
+  background: #96CCE6;
+}
+#chart-hdi .data .education {
+  /*background: #56995e;*/
+  background: #70B678;
+}
+#chart-hdi .data .living {
+  /*background: #995656;*/
+  background: #DC9B75;
+}
+#chart-hdi .world {
+  float: left;
+  display: block;
+  height: 15px;
+  width: 0;
+  border-right: 1px solid #aaa;
+  position: absolute;
+}
+#chart-hdi .health .world {
+  top: 0;
+  left: 78.6%;
+  border-color: #40B1D9;
+}
+#chart-hdi .education .world {
+  top: 15px;
+  left: 61%;
+  border-color: #b9aa31;
+}
+#chart-hdi .living .world {
+  top: 30px;
+  left: 66.1%;
+  border-color: #E44A06;
+}
+#chart-hdi .chart {
+  /*
+  border: 1px solid #CEDEDD;
+  border-radius: 5px;
+  overflow: hidden;
+  background: #fff;
+  */
+  margin-bottom: 10px;
+  clear: both;
+}
+#chart-hdi p {
+  margin-bottom: 5px;
+  line-height: 100%;
+  font-weight: bold;
+  color: #3E6B95;
+}
+#chart-hdi p.rank {
+  font-size: 40px;
+  font-weight: bold;
+  color: #036;
+}
+/*
+#chart-hdi p.health {
+  color: #96CCE6;
+}
+#chart-hdi p.education {
+  color: #70B678;
+}
+#chart-hdi p.living {
+  color: #DC9B75;
+}
+*/
 
 .toggle {
   position: absolute;
@@ -588,6 +754,7 @@ form {
 
 .chart-container {
   min-height: 138px !important;
+  margin-left: 0 !important;
 }
 
 

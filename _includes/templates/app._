@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="row-fluid" id="main-container">
-        <div class="span2">
+        <div class="" style="float:left; padding-top: 30px; text-align:right; width:215px;">
             <div class="row-fluid stats">
                 <div class="span12 map-btn" data-value="count">
                     <p id="total-count" class="lead"></p>
@@ -37,27 +37,213 @@
             </div>
             <div class="row-fluid stats">
                 <div class="span12 map-btn" data-value="hdi">
-                    <p id="hdi" class="lead"></p>
-                    <p><strong>HDI</strong></p>
+                    <p id="hdi" class="lead">0.682</p>
+                    <p><strong>HDI</strong> <span class="date">World</span></p>
                 </div>
             </div>
         </div>
-        <div class="span10">
+        <div class="" style="position:absolute; left:245px; right:0; padding:20px 20px 20px 0;">
             <div class="row-fluid map-container">
                 <div class="label visible-phone">Location</div>
+                <!--
+                <div class="span3" style="position:absolute; z-index:100; background:#fff; border:1px solid #a1b1c6; top:30px;">
+                    <div class="row-fluid stats">
+                        <div class="span12 map-btn" data-value="count">
+                            <p id="total-count" class="lead"></p>
+                            <p><strong>Projects</strong></p>
+                        </div>
+                    </div>
+                    <div class="row-fluid stats">
+                        <div class="span12 map-btn" data-value="sources">
+                            <p id="total-donors" class="lead"></p>
+                            <p><strong>Funding Sources</strong></p>
+                        </div>
+                    </div>
+                    <div class="row-fluid stats">
+                        <div class="span12 map-btn active" data-value="budget">
+                            <p id="total-budget" class="lead"></p>
+                            <p><strong>Budget</strong> <span class="date">2011</span></p>
+                        </div>
+                    </div>
+                    <div class="row-fluid stats">
+                        <div class="span12 map-btn" data-value="expenditure">
+                            <p id="total-expenditure" class="lead"></p>
+                            <p><strong>Expenditure</strong> <span class="date">2011</span></p>
+                        </div>
+                    </div>
+                    <div class="row-fluid stats">
+                        <div class="span12 map-btn" data-value="hdi">
+                            <p id="hdi" class="lead">0.682</p>
+                            <p><strong>HDI</strong> <span class="date">World</span></p>
+                        </div>
+                    </div>
+                </div>
+                -->
                 <div id="homemap" class="map"></div>
             </div>
         </div>
     </div>
+    <!--
     <div class="separator">
         <div class="span12">
         </div>
     </div>
-    <div class='row-fluid'>
-        <div class="span6">
+    -->
+    <div class="row-fluid" id="charts" style="margin:0; padding:100px 20px 20px 20px; background:#DFEBEF;">
+        
+        <div class="span12">
+        <div class="row-fluid">
+        <div class="span12 chart-container" id="chart-hdi" style="display:none;">
+            <div class="label">Human Development Index</div>
+            <div class="" style="float:left; text-align:right; padding-top:5px; width:215px; background:#DFEBEF; margin-left:0;">
+                <div class="chart">
+                    <div class="caption">
+                        <div><a href="#">HDI</a></div>
+                        <div><a href="#">Health</a></div>
+                        <div><a href="#">Education</a></div>
+                        <div><a href="#">Living Standards</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="" style="background:#DFEBEF; padding:10px 0; margin-left:0; border-left:1px solid #CEDEDD; position:absolute; left:245px; right:215px;">
+                <div class="chart">
+                    
+                    <div class="data">
+                        <div class="total" style="width: 94.3%">.943</div>
+                        <div class="subdata total" style="width: 68.2%; opacity:.5;"></div>
+                        <div class="health" style="width: 96.4%">.964</div>
+                        <div class="subdata health" style="width: 78.6%; opacity:.5;"></div>
+                        <div class="education" style="width: 98.5%">.985</div>
+                        <div class="subdata education" style="width: 61%; opacity:.5;"></div>
+                        <div class="living" style="width: 88.3%">.883</div>
+                        <div class="subdata living" style="width: 66.1%; opacity:.5;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="" style="float:right; width:155px; height:122px; background:#fff; border-radius:5px; text-align:center; padding:10px;">
+                Rank out of 186
+                <p class="rank">21</p>
+                <p class="health">Health - 22</p>
+                <p class="education">Education - 16</p>
+                <p class="living">Living - 25</p>
+            </div>
         </div>
+        </div>
+        
+        
+        
+        
+        <div class="row-fluid">
+        <div class="span12 chart-container" id="chart-operating_unit">
+            <div class="label">Country Offices
+                <div class="btn-operating_unit btn-group toggle" data-toggle="buttons-radio">
+                    <button class="btn btn-mini active" data-facet="operating_unit">Budget</button>
+                    <button class="btn btn-mini" data-facet="operating_unit">Count</button>
+                </div>
+            </div>
+            <div class="" style="float:left; text-align:right; padding-top:5px; width:215px; background:#DFEBEF; margin-left:0;">
+                <div class="chart">
+                    <div class="caption"></div>
+                </div>
+            </div>
+            <div class="" style="background:#DFEBEF; padding:10px 0; margin-left:0; border-left:1px solid #CEDEDD; position:absolute; left:245px; right:215px;">
+                <div class="chart">
+                    <div class="data"></div>
+                </div>
+            </div>
+            <div class="" style="float:right; width:155px; height:122px; background:#d4e4e9; border-radius:5px; text-align:center; padding:10px;">
+                <p class="total lead" style="font-weight:bold;"></p>
+            </div>
+        </div>
+        </div>
+        <div class="row-fluid">
+        <div class="span12 chart-container" id="chart-focus_area">
+            <div class="label">Focus Areas
+                <div class="btn-focus_area btn-group toggle" data-toggle="buttons-radio">
+                    <button class="btn btn-mini active" data-facet="focus_area">Budget</button>
+                    <button class="btn btn-mini" data-facet="focus_area">Count</button>
+                </div>
+            </div>
+            <div class="" style="float:left; text-align:right; padding-top:5px; width:215px; background:#DFEBEF; margin-left:0;">
+                <div class="chart">
+                    <div class="caption"></div>
+                </div>
+            </div>
+            <div class="" style="background:#DFEBEF; padding:10px 0; margin-left:0; border-left:1px solid #CEDEDD; position:absolute; left:245px; right:215px;">
+                <div class="chart">
+                    <div class="data"></div>
+                </div>
+            </div>
+            <div class="" style="float:right; width:175px; height:142px; background:#d4e4e9; border-radius:5px;">
+                <p class="total lead"></p>
+            </div>
+        </div>
+        </div>
+        <div class="row-fluid">
+        <div class="span12 chart-container" id="chart-donors">
+            <div class="label">Funding Sources
+                <div class="btn-donors btn-group toggle" data-toggle="buttons-radio">
+                    <button class="btn btn-mini active hidden" data-facet="donors">Count</button>
+                </div>
+            </div>
+            <div class="" style="float:left; text-align:right; padding-top:5px; width:215px; background:#DFEBEF; margin-left:0;">
+                <div class="chart">
+                    <div class="caption"></div>
+                </div>
+            </div>
+            <div class="" style="background:#DFEBEF; padding:10px 0; margin-left:0; border-left:1px solid #CEDEDD; position:absolute; left:245px; right:215px;">
+                <div class="chart">
+                    <div class="data"></div>
+                </div>
+            </div>
+            <div class="" style="float:right; width:175px; height:142px; background:#d4e4e9; border-radius:5px;">
+                <p class="total lead"></p>
+            </div>
+        </div>
+        </div>
+        </div>
+        
+        <!--
+        <div class="span12 chart-container" id="chart-focus_area">
+            <div class="span3" style="text-align:right; padding:49px 0 20px 20px; width:25.6410256410256%; background:#DFEBEF;">
+                <div class="chart">
+                    <div class="caption" style="padding-right:10px;"></div>
+                </div>
+            </div>
+            <div class="span9" style="background:#DFEBEF; padding:20px 20px 20px 0; margin-left:0;">
+                <div class="label">Focus Areas
+                    <div class="btn-focus_area btn-group toggle" data-toggle="buttons-radio">
+                        <button class="btn btn-mini active" data-facet="focus_area">Budget</button>
+                        <button class="btn btn-mini" data-facet="focus_area">Count</button>
+                    </div>
+                </div>
+                <div class="chart">
+                    <div class="data"></div>
+                </div>
+            </div>
+        </div>
+        <div class="span12 chart-container" id="chart-donors">
+            <div class="span3" style="text-align:right; padding:48px 0 20px 20px; width:25.6410256410256%; background:#DFEBEF;">
+                <div class="chart">
+                    <div class="caption" style="padding-right:10px;"></div>
+                </div>
+            </div>
+            <div class="span9" style="background:#DFEBEF; padding:20px 20px 20px 0; margin-left:0;">
+                <div class="label">Funding Sources
+                </div>
+                <div class="chart">
+                    <div class="data"></div>
+                </div>
+            </div>
+        </div>
+        -->
+    </div>
+    
+    <!--
+    <div class='row-fluid' style='background:#DFEBEF; margin:0; padding:20px;'>
         <div class="span6">
             <div class="row-fluid">
+            
                 <div class="span12 chart-container" id="chart-operating_unit">
                     <div class="label">Country Offices
                         <div class="btn-operating_unit btn-group toggle" data-toggle="buttons-radio">
@@ -71,6 +257,7 @@
                         <div class="placeholder lead"></div>
                     </div>
                 </div>
+                
             </div>
 
             <div class="row-fluid">
@@ -104,7 +291,55 @@
                 </div>
             </div>
         </div>
+        <div class="span6">
+            <div class="row-fluid">
+                <div class="span12 chart-container" id="chart-hdi">
+                    <div class="label">Human Development Index
+                        <div class="btn-hdi btn-group toggle" data-toggle="buttons-radio">
+                            <button class="btn btn-mini active hidden" data-facet="hdi">Count</button>
+                        </div>
+                    </div>
+                    
+                    <div class="chart">
+                        <div class="caption"><a href="#">Norway</a></div>
+                        <div class="hdi-data">
+                            <div class="total-hdi"><p class="lead">.943</p></div>
+                            <div class="sub-hdi">
+                                <div class="health" style="width: 96.4%">.964</div>
+                                <div class="education" style="width: 98.5%">.985</div>
+                                <div class="living" style="width: 88.3%">.883</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart">
+                        <div class="caption"><a href="#">Australia</a></div>
+                        <div class="hdi-data">
+                            <div class="total-hdi"><p class="lead">.929</p></div>
+                            <div class="sub-hdi">
+                                <div class="health" style="width: 97.6%">.976</div>
+                                <div class="education" style="width: 98.1%">.981</div>
+                                <div class="living" style="width: 83.7%">.837</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart">
+                        <div class="caption"><a href="#">Netherlands</a></div>
+                        <div class="hdi-data">
+                            <div class="total-hdi"><p class="lead">.910</p></div>
+                            <div class="sub-hdi">
+                                <div class="health" style="width: 95.8%">.958<span class="world"></span></div>
+                                <div class="education" style="width: 93.1%">.931<span class="world"></span></div>
+                                <div class="living" style="width: 84.5%">.845<span class="world"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
     </div>
+    -->
+    
     <div class="separator" id="projects-heading">
         <p class="lead">Projects</p>
     </div>
