@@ -19,19 +19,6 @@ views.Map = Backbone.View.extend({
         $.getJSON('api/hdi.json', function(data) {
         
             var hdiWorld = _.find(data,function(d){return d.name == 'World';});
-            
-            if (_.size(unit.operating_unit) === 1) {
-                var hdi = _.filter(data, function(d) {
-                    return d.id == _.keys(unit.operating_unit);
-                });
-                
-                $('#hdi').html(hdi[0].hdi);
-                $('.map-btn[data-value="hdi"] .date').empty();
-                that.hdiChart(hdi[0],hdiWorld);
-            } else {
-                $('#hdi').html(hdiWorld.hdi);
-                $('.map-btn[data-value="hdi"] .date').html('World');
-            }
         
             var hdiArray = _.reduce(data, function(res,obj) {
                 if ((_.isObject(unit)) ? unit.operating_unit[obj.id] : obj.id === unit) {
@@ -46,8 +33,32 @@ views.Map = Backbone.View.extend({
                 return res;
             }, {});
             
-            (that.collection) ? that.collection.hdi = hdiArray : that.model.set('hdi',hdiArray[unit]);
-            (that.collection) ? that.collection.hdiWorld = hdiWorld : that.model.set('hdiWorld',hdiWorld);
+            if (that.collection) {
+                that.collection.hdi = hdiArray;
+                that.collection.hdiWorld = hdiWorld;
+                if ($('#operating_unit .filter').hasClass('active')) {
+                    var hdi = _.filter(data, function(d) {
+                        return d.id == _.keys(unit.operating_unit);
+                    });
+                    
+                    $('.map-btn[data-value="hdi"] .date').empty();
+                    if (_.size(hdiArray) > 0) {
+                        $('#hdi').html(hdi[0].hdi);
+                        that.hdiChart(hdi[0],hdiWorld);
+                    } else {
+                        $('#hdi').html('no data').css('color','#ccc');
+                    }
+                } else {
+                    $('#hdi').html(hdiWorld.hdi).css('color','#265F91');
+                    $('.map-btn[data-value="hdi"] .date').html('World');
+                }
+            } else {
+                that.model.set('hdi',hdiArray[unit]);
+                that.model.set('hdiWorld',hdiWorld);
+            }
+            
+            //(that.collection) ? that.collection.hdi = hdiArray : that.model.set('hdi',hdiArray[unit]);
+            //(that.collection) ? that.collection.hdiWorld = hdiWorld : that.model.set('hdiWorld',hdiWorld);
         }).success(function() {
             //if (!that.map) {
                 that.$el.empty().append('<div class="inner-shadow"></div>');
@@ -137,12 +148,12 @@ views.Map = Backbone.View.extend({
                             (homepage) ? sources = unit.operating_unitSources[o.id] : sources = false;
                             (homepage) ? budget = unit.operating_unitBudget[o.id] : budget = that.model.get('budget');
                             (homepage) ? expenditure = unit.operating_unitExpenditure[o.id] : expenditure = that.model.get('expenditure');
-                            if (unit.hdi[o.id]) {
-                                (homepage) ? hdi = unit.hdi[o.id].hdi : hdi = that.model.get('hdi');
-                                (homepage) ? hdi_health = unit.hdi[o.id].health : hdi = that.model.get('hdi');
-                                (homepage) ? hdi_education = unit.hdi[o.id].education : hdi = that.model.get('hdi');
-                                (homepage) ? hdi_living = unit.hdi[o.id].living : hdi = that.model.get('hdi');
-                                (homepage) ? hdi_rank = unit.hdi[o.id].rank : hdi = that.model.get('hdi');
+                            if ((homepage) ? unit.hdi[o.id] : that.model.get('hdi')) {
+                                (homepage) ? hdi = unit.hdi[o.id].hdi : hdi = that.model.get('hdi').hdi;
+                                (homepage) ? hdi_health = unit.hdi[o.id].health : hdi_health = that.model.get('hdi').health;
+                                (homepage) ? hdi_education = unit.hdi[o.id].education : hdi_education = that.model.get('hdi').education;
+                                (homepage) ? hdi_living = unit.hdi[o.id].living : hdi_living = that.model.get('hdi').living;
+                                (homepage) ? hdi_rank = unit.hdi[o.id].rank : hdi_rank = that.model.get('hdi').rank;
                             } else {
                                 hdi = hdi_health = hdi_education = hdi_living = hdi_rank = 'no data';
                             }
@@ -207,7 +218,7 @@ views.Map = Backbone.View.extend({
                 + '<div class="stat">HDI: <span class="value">'
                 + data.hdi + '</span></div>';
             
-            if (data.count > 1) {
+            if (data.count) {
                 description = '<div class="stat">Projects: <span class="value">'
                     + data.count + '</span></div>'
                     + ((data.sources > 1) ? ('<div class="stat">Funding Sources: <span class="value">'

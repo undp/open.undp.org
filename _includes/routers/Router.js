@@ -75,7 +75,14 @@ routers.App = Backbone.Router.extend({
             filter = function(model) {
                 if (!filters.length) return true;
                 return _(filters).reduce(function(memo, filter) {
-                    return memo && model.get(filter.collection) == filter.id;
+                    if (filter.collection == 'region') {
+                        return memo && model.get(filter.collection) == filter.id;
+                    } else {
+                        return memo && (
+                            model.get(filter.collection) &&
+                            model.get(filter.collection).indexOf(filter.id) >= 0
+                        );
+                    }
                 }, true);
             };
             this.app.filters = filters;
