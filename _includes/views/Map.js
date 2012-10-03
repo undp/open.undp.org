@@ -17,38 +17,45 @@ views.Map = Backbone.View.extend({
         
         // Get HDI data
         $.getJSON('api/hdi.json', function(data) {
-            /*
-            for (var i = 0; i < data.length; i++) {
-                if (data[i].hdi2011) {
-                    $('#chart-hdi ul').append('<li class="hdi-' + data[i].id + '" style="border-radius:3px; float:left; width:20px; height:20px; margin:3px; background:#5DA7D0; display:block; opacity:' + data[i].hdi2011 + ';"></li>');
-                }
-            }
-            */
+        
             var hdiWorld = _.find(data,function(d){return d.name == 'World';});
             
             if (_.size(unit.operating_unit) === 1) {
                 var hdi = _.filter(data, function(d) {
                     return d.id == _.keys(unit.operating_unit);
                 });
+                
+                $('#hdi').html(hdi[0].hdi);
+                $('.map-btn[data-value="hdi"] .date').empty();
                 that.hdiChart(hdi[0],hdiWorld);
+            } else {
+                $('#hdi').html(hdiWorld.hdi);
+                $('.map-btn[data-value="hdi"] .date').html('World');
             }
         
             var hdiArray = _.reduce(data, function(res,obj) {
                 if ((_.isObject(unit)) ? unit.operating_unit[obj.id] : obj.id === unit) {
-                    res[obj.id] = obj.hdi;
+                    res[obj.id] = {
+                        hdi: obj.hdi,
+                        health: obj.health,
+                        education: obj.education,
+                        living: obj.income,
+                        rank: obj.rank
+                    };
                 }
                 return res;
             }, {});
+            
             (that.collection) ? that.collection.hdi = hdiArray : that.model.set('hdi',hdiArray[unit]);
+            (that.collection) ? that.collection.hdiWorld = hdiWorld : that.model.set('hdiWorld',hdiWorld);
         }).success(function() {
-            that.$el.empty().append('<div class="inner-shadow"></div>');
-            that.buildMap($('.map-btn.active').attr('data-value') || 'budget');
+            //if (!that.map) {
+                that.$el.empty().append('<div class="inner-shadow"></div>');
+                that.buildMap($('.map-btn.active').attr('data-value') || 'budget');
+            //} else {
+            //    that.updateMap($('.map-btn.active').attr('data-value'));
+            //}
         });
-        
-        
-        //this.$el.empty().append('<div class="inner-shadow"></div>');
-        //this.buildMap($('.map-btn.active').attr('data-value') || 'budget');
-        
         
         return this;
     },
@@ -56,13 +63,13 @@ views.Map = Backbone.View.extend({
         $('#chart-hdi').css('display','block');
         $('.data', '#chart-hdi').empty().append(
             '<div class="total" style="width:' + country.hdi*100 + '%">' + country.hdi + '</div>'
-            + '<div class="subdata total" style="width:' + world.hdi*100 + '%; opacity:.5;"></div>'
+            + '<div class="subdata total" style="width:' + world.hdi*100 + '%;"></div>'
             + '<div class="health" style="width:' + country.health*100 + '%">' + country.health + '</div>'
-            + '<div class="subdata health" style="width:' + world.health*100 + '%; opacity:.5;"></div>'
+            + '<div class="subdata health" style="width:' + world.health*100 + '%;"></div>'
             + '<div class="education" style="width:' + country.education*100 + '%">' + country.education + '</div>'
-            + '<div class="subdata education" style="width:' + world.education*100 + '%; opacity:.5;"></div>'
+            + '<div class="subdata education" style="width:' + world.education*100 + '%;"></div>'
             + '<div class="living" style="width:' + country.income*100 + '%">' + country.income + '</div>'
-            + '<div class="subdata living" style="width:' + world.income*100 + '%; opacity:.5;"></div>'
+            + '<div class="subdata living" style="width:' + world.income*100 + '%;"></div>'
         );
         $('#chart-hdi .rank').html(country.rank);
     },
@@ -80,20 +87,21 @@ views.Map = Backbone.View.extend({
             markers = this.map.layers[2],
         
             radii = function(f) {
+                f.properties.description = that.tooltip(layer,f.properties);
                 return clustr.area_to_radius(
                     Math.round(that.scale(layer,f))
                 );
             };
-                
-        this.map.layers[2].factory(clustr.scale_factory(radii, "rgba(2,56,109,0.6)", "#01386C"))
-            .sort(function(a,b){ return b.properties[layer] - a.properties[layer]; });
+            
+        markers.sort(function(a,b){ return b.properties[layer] - a.properties[layer]; })
+            .factory(clustr.scale_factory(radii, "rgba(2,56,109,0.6)", "#01386C"));
                 
         //console.log(markers.extent());
     },
     buildMap: function(layer) {
         var that = this,
             locations = [],
-            count, sources, budget, description,
+            count, sources, budget, description, hdi, hdi_health, hdi_education, hdi_living,
             unit = (this.collection) ? this.collection 
                 : this.model.get('operating_unit_id'),
             
@@ -107,6 +115,7 @@ views.Map = Backbone.View.extend({
             $(that.el).append('<a href="#" class="map-fullscreen"></a>');
 
             var radii = function(f) {
+                f.properties.description = that.tooltip(layer,f.properties);
                 return clustr.area_to_radius(
                     Math.round(that.scale(layer,f))
                 );
@@ -128,20 +137,14 @@ views.Map = Backbone.View.extend({
                             (homepage) ? sources = unit.operating_unitSources[o.id] : sources = false;
                             (homepage) ? budget = unit.operating_unitBudget[o.id] : budget = that.model.get('budget');
                             (homepage) ? expenditure = unit.operating_unitExpenditure[o.id] : expenditure = that.model.get('expenditure');
-                            (homepage) ? hdi = unit.hdi[o.id] : hdi = that.model.get('hdi');
-                            
-                            description = '<div class="stat">Budget: <span class="value">'
-                                          + accounting.formatMoney(budget) + '</span></div>'
-                                          + '<div class="stat">Expenditure: <span class="value">'
-                                          + accounting.formatMoney(expenditure) + '</span></div>'
-                                          + '<div class="stat">HDI: <span class="value">'
-                                          + hdi + '</span></div>';
-                            if (homepage) {
-                                description = '<div class="stat">Projects: <span class="value">'
-                                            + count + '</span></div>'
-                                            + '<div class="stat">Funding Sources: <span class="value">'
-                                            + sources + '</span></div>'
-                                            + description;
+                            if (unit.hdi[o.id]) {
+                                (homepage) ? hdi = unit.hdi[o.id].hdi : hdi = that.model.get('hdi');
+                                (homepage) ? hdi_health = unit.hdi[o.id].health : hdi = that.model.get('hdi');
+                                (homepage) ? hdi_education = unit.hdi[o.id].education : hdi = that.model.get('hdi');
+                                (homepage) ? hdi_living = unit.hdi[o.id].living : hdi = that.model.get('hdi');
+                                (homepage) ? hdi_rank = unit.hdi[o.id].rank : hdi = that.model.get('hdi');
+                            } else {
+                                hdi = hdi_health = hdi_education = hdi_living = hdi_rank = 'no data';
                             }
                             
                             locations.push({
@@ -159,7 +162,10 @@ views.Map = Backbone.View.extend({
                                     budget: budget,
                                     expenditure: expenditure,
                                     hdi: hdi,
-                                    description: description
+                                    hdi_health: hdi_health,
+                                    hdi_education: hdi_education,
+                                    hdi_living: hdi_living,
+                                    hdi_rank: hdi_rank
                                 }
                             });
                         }
@@ -179,6 +185,38 @@ views.Map = Backbone.View.extend({
                 }
             });
         });
+    },
+    
+    tooltip: function(layer,data) {
+        var description;
+        if (layer == 'hdi') {
+            description = '<div class="hdirank">rank: ' + data.hdi_rank + '</div>'
+                + '<div class="hdi data"><div class="total" style="width:' + data.hdi*200 + 'px">' + data.hdi + '</div>'
+                + '<div class="subdata total" style="width:' + this.collection.hdiWorld.hdi*200 + 'px;"></div>'
+                + '<div class="health" style="width:' + data.hdi_health*200 + 'px">' + data.hdi_health + '</div>'
+                + '<div class="subdata health" style="width:' + this.collection.hdiWorld.health*200 + 'px;"></div>'
+                + '<div class="education" style="width:' + data.hdi_education*200 + 'px">' + data.hdi_education + '</div>'
+                + '<div class="subdata education" style="width:' + this.collection.hdiWorld.education*200 + 'px;"></div>'
+                + '<div class="living" style="width:' + data.hdi_living*200 + 'px">' + data.hdi_living + '</div>'
+                + '<div class="subdata living" style="width:' + this.collection.hdiWorld.income*200 + 'px;"></div></div>';
+        } else {
+            description = '<div class="stat">Budget: <span class="value">'
+                + accounting.formatMoney(data.budget) + '</span></div>'
+                + '<div class="stat">Expenditure: <span class="value">'
+                + accounting.formatMoney(data.expenditure) + '</span></div>'
+                + '<div class="stat">HDI: <span class="value">'
+                + data.hdi + '</span></div>';
+            
+            if (data.count > 1) {
+                description = '<div class="stat">Projects: <span class="value">'
+                    + data.count + '</span></div>'
+                    + ((data.sources > 1) ? ('<div class="stat">Funding Sources: <span class="value">'
+                    + data.sources + '</span></div>') : '')
+                    + description;
+            }
+        }
+        
+        return description;
     },
     
     fullscreen: function(e) {

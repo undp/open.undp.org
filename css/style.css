@@ -93,6 +93,12 @@ h3 {
   box-shadow:         inset 0 10px 10px -10px #999, inset 0 -10px 10px -10px #999;
   */
 }
+#main-container .layers {
+  float: left;
+  padding-top: 30px;
+  text-align: right;
+  width: 215px;
+}
 #main-container .span2 {
   padding-top: 20px;
 }
@@ -118,8 +124,11 @@ h3 {
 }
 
 .map-container {
-  margin-bottom: 0 !important;
-  }
+  position: absolute;
+  left: 245px;
+  right: 0;
+  padding: 20px 20px 20px 0;
+}
 .map {
   background: white;
   }
@@ -397,24 +406,43 @@ h3 {
   top: 50%;
   }
 #charts {
+  margin: 0;
+  padding: 100px 20px 20px 20px;
+  background: #DFEBEF;
   border-top: 1px solid #CEDEDD;
-}
-  /*
-#charts {
-  -moz-box-shadow: 0 0 5px -5px #000;
-  -webkit-box-shadow: 0 0 5px -5px #000;
-  box-shadow: 0 -5px 5px -5px #000;
-  z-index: 100;
-}
-*/
+  }
 .chart .data, .chart .caption {
-  /*
-  float: left;
-  width: 50%;
-  */
   text-indent: 0.5em;
   }
-
+.chart .caption {
+  float:left;
+  text-align:right;
+  padding-top:5px;
+  width:215px;
+  margin-left:0;
+  }
+.chart .data {
+  padding:10px 0;
+  margin-left:0;
+  border-left:1px solid #CEDEDD;
+  position:absolute;
+  left:245px;
+  right:215px;
+  }
+.chart .ranking {
+  float:right;
+  width:155px;
+  height:122px;
+  background:#fff;
+  border-radius:5px;
+  text-align:center;
+  padding:10px;
+  /*
+  -moz-box-shadow:    inset 0 0 10px #999;
+  -webkit-box-shadow: inset 0 0 10px #999;
+  box-shadow:         inset 0 0 10px #999;
+  */
+  }
 .chart .data > div {
   float: left;
   clear: both;
@@ -471,84 +499,41 @@ h3 {
   height: 20px;
   line-height: 20px;
 }
-  /*
-#chart-hdi {
-  max-height: 600px;
-  overflow-y: auto;
-}*/
-#chart-hdi .hdi-data {
-  float: left;
-  width: 100%;
-}
-
-#chart-hdi .lead {
-  line-height: 43px;
-}
-#chart-hdi .total-hdi {
-  float: left;
-  height: 43px;
-  width: 20%;
-  text-align: center;
-  background: #fff;
-  border-radius: 5px 0 0 5px;
-  border: 1px solid #CEDEDD;
-  border-right: none;
-}
-#chart-hdi .sub-hdi {
-  float: left;
-  font-size: .7em;
-  line-height: 15px;
-  width: 100%;
-  position: relative;
-}
-#chart-hdi .sub-hdi div {
-  height: 15px;
-  text-indent: 0.5em;
-}
-#chart-hdi .data .total {
+#chart-hdi .data .total,
+.marker-description .total {
   background: #036;
 }
-#chart-hdi .data .health {
+#chart-hdi .data .health,
+.marker-description .health {
   background: #96CCE6;
 }
-#chart-hdi .data .education {
+#chart-hdi .data .education,
+.marker-description .education {
   /*background: #56995e;*/
   background: #70B678;
 }
-#chart-hdi .data .living {
+#chart-hdi .data .living,
+.marker-description .living {
   /*background: #995656;*/
   background: #DC9B75;
 }
-#chart-hdi .world {
-  float: left;
-  display: block;
-  height: 15px;
-  width: 0;
-  border-right: 1px solid #aaa;
-  position: absolute;
+#chart-hdi .subdata.total,
+.marker-description .subdata.total {
+  background: #708FAB;
 }
-#chart-hdi .health .world {
-  top: 0;
-  left: 78.6%;
-  border-color: #40B1D9;
+#chart-hdi .subdata.health,
+.marker-description .subdata.health {
+  background: #BBDCEB;
 }
-#chart-hdi .education .world {
-  top: 15px;
-  left: 61%;
-  border-color: #b9aa31;
+#chart-hdi .subdata.education,
+.marker-description .subdata.education {
+  background: #A8D1B4;
 }
-#chart-hdi .living .world {
-  top: 30px;
-  left: 66.1%;
-  border-color: #E44A06;
+#chart-hdi .subdata.living,
+.marker-description .subdata.living {
+  background: #DEC3B2;
 }
 #chart-hdi .chart {
-  /*
-  border: 1px solid #CEDEDD;
-  border-radius: 5px;
-  overflow: hidden;
-  background: #fff;
-  */
   margin-bottom: 10px;
   clear: both;
 }
@@ -562,6 +547,26 @@ h3 {
   font-size: 40px;
   font-weight: bold;
   color: #036;
+}
+.marker-description .hdi.data {
+  width: 200px;
+}
+.marker-description .data > div {
+  height: 12px;
+  font-size: 10px;
+  text-align: right;
+  line-height: 12px;
+  color: #fff;
+  padding-right: 0.5em;
+}
+.marker-description .data > .subdata {
+  height: 3px;
+  margin-bottom: 3px;
+}
+.marker-description .hdirank {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 /*
 #chart-hdi p.health {
@@ -752,7 +757,7 @@ form {
   font-size: inherit;
   }
 
-.chart-container {
+.chart {
   min-height: 138px !important;
   margin-left: 0 !important;
 }
