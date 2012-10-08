@@ -328,7 +328,7 @@ print "Donor Type Index Process Count: %d" % row_count
 # Process Focus Area Index
 # ************************
 outputsFA = csv.DictReader(open('download/undp_export/report_outputs.csv', 'rb'), delimiter = ',', quotechar = '"')
-outputsFA_sort = sorted(outputs, key = lambda x: x['focus_area'])
+outputsFA_sort = sorted(outputsFA, key = lambda x: x['focus_area'])
 
 row_count = 0
 fa_index = []
@@ -344,7 +344,7 @@ for fa,focus in groupby(outputsFA_sort, lambda x: x['focus_area']):
 
 print "Focus Area Index Process Count: %d" % row_count
 writeout = json.dumps(fa_index, sort_keys=True, indent=4)
-f_out = open('test/focus-area-index.json', 'wb')
+f_out = open('../api/focus-area-index.json', 'wb')
 f_out.writelines(writeout)
 f_out.close()
 
@@ -385,7 +385,6 @@ for un,unit in groupby(unitsIndex_sort, lambda x: x['rollup_ou']):
                         index.append(u['Facebook'])
                 opUnit_index.append(dict(zip(opUnitHeader, index)))
 
-print "CRS Index Process Count: %d" % row_count
 writeout = json.dumps(opUnit_index, sort_keys=True, indent=4)
 f_out = open('../api/operating-unit-index.json', 'wb')
 f_out.writelines(writeout)
