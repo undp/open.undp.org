@@ -279,7 +279,7 @@ views.Map = Backbone.View.extend({
     fullscreen: function(e) {
         e.preventDefault();
 
-        this.$el.toggleClass('full');
+        this.$el.parent().toggleClass('full');
         this.map.setSize({ x: this.$el.width(), y: this.$el.height() });
     },
     
