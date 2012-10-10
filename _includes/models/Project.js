@@ -15,6 +15,27 @@ models.Projects = Backbone.Collection.extend({
     update: function() {
 
         if (!this.length) return false;
+        
+        function calc(that,facet,category) {
+            that[facet + category.capitalize()] = _.reduce(that.models, function(res,obj) {
+                if (_.isArray(obj.attributes[facet])) {
+                    _.each(obj.attributes[facet], function(o) {
+                        if (!(o in res)) {
+                            res[o] = obj.attributes[category];
+                        } else {
+                            res[o] += obj.attributes[category];
+                        }
+                    });
+                } else {
+                    if (!(obj.attributes[facet] in res)) {
+                        res[obj.attributes[facet]] = obj.attributes[category];
+                    } else {
+                        res[obj.attributes[facet]] += obj.attributes[category];
+                    }
+                }
+                return res;
+            }, {});
+        }
 
         // Count projects for each facet
         _(facets).each(function(facet) {
@@ -27,25 +48,28 @@ models.Projects = Backbone.Collection.extend({
                     return obj;
                 }, {})
                 .value();
-                
-            this[facet.id + 'Budget'] = _.reduce(this.models, function(res,obj) {
-                if (_.isArray(obj.attributes[facet.id])) {
-                    _.each(obj.attributes[facet.id], function(o) {
-                        if (!(o in res)) {
-                            res[o] = obj.attributes.budget;
+            
+            if (facet.id == 'operating_unit') {
+                this[facet.id + 'Sources'] = _(this.models)
+                    .chain()
+                    .reduce(function (res,obj) {
+                        if (!(obj.attributes[facet.id] in res)) {
+                            res[obj.attributes[facet.id]] = _.uniq(obj.attributes.donors);
                         } else {
-                            res[o] += obj.attributes.budget;
+                            res[obj.attributes[facet.id]] = _.union(res[obj.attributes[facet.id]],_.uniq(obj.attributes.donors));
                         }
-                    });
-                } else {
-                    if (!(obj.attributes[facet.id] in res)) {
-                        res[obj.attributes[facet.id]] = obj.attributes.budget;
-                    } else {
-                        res[obj.attributes[facet.id]] += obj.attributes.budget;
-                    }
-                }
-                return res;
-            }, {});
+                        return res;
+                    }, {})
+                    .reduce(function (obj, v, k) {
+                        obj[k] = v.length;
+                        return obj;
+                    }, {})
+                    .value();
+            }
+                
+            calc(this,facet.id,'budget');
+            calc(this,facet.id,'expenditure');
+            
         }, this);
 
         // Total budget
