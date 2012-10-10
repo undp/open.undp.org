@@ -12,6 +12,7 @@ views.Map = Backbone.View.extend({
     render: function() {
         $('#chart-hdi').css('display','none');
         var that = this,
+            layer,
             unit = (this.collection) ? this.collection 
                 : this.model.get('operating_unit_id');
         
@@ -19,9 +20,10 @@ views.Map = Backbone.View.extend({
         $.getJSON('api/hdi.json', function(data) {
         
             var hdiWorld = _.find(data,function(d){return d.name == 'World';});
+            hdiWorld.count = _.max(data,function(d){return d.rank;}).rank;
         
             var hdiArray = _.reduce(data, function(res,obj) {
-                if ((_.isObject(unit)) ? unit.operating_unit[obj.id] : obj.id === unit) {
+                if (((_.isObject(unit)) ? unit.operating_unit[obj.id] : obj.id === unit) && obj.hdi) {
                     res[obj.id] = {
                         hdi: obj.hdi,
                         health: obj.health,
@@ -34,38 +36,34 @@ views.Map = Backbone.View.extend({
             }, {});
             
             if (that.collection) {
+                layer = $('.map-btn.active').attr('data-value');
                 that.collection.hdi = hdiArray;
                 that.collection.hdiWorld = hdiWorld;
                 if ($('#operating_unit .filter').hasClass('active')) {
                     var hdi = _.filter(data, function(d) {
                         return d.id == _.keys(unit.operating_unit);
-                    });
+                    })[0];
                     
                     $('.map-btn[data-value="hdi"] .date').empty();
                     if (_.size(hdiArray) > 0) {
-                        $('#hdi').html(hdi[0].hdi);
-                        that.hdiChart(hdi[0],hdiWorld);
+                        $('#hdi').html(_.last(hdi.hdi)[1]);
+                        that.hdiChart(hdi,hdiWorld);
+                        that.hdiDetails(hdi);
                     } else {
-                        $('#hdi').html('no data').css('color','#ccc');
+                        $('#hdi').html('no data');
                     }
                 } else {
-                    $('#hdi').html(hdiWorld.hdi).css('color','#265F91');
-                    $('.map-btn[data-value="hdi"] .date').html('World');
+                    $('#hdi').html(_.last(hdiWorld.hdi)[1]);
+                    $('.map-btn[data-value="hdi"] .date').html('Global');
                 }
             } else {
+                layer = 'budget';
                 that.model.set('hdi',hdiArray[unit]);
                 that.model.set('hdiWorld',hdiWorld);
             }
-            
-            //(that.collection) ? that.collection.hdi = hdiArray : that.model.set('hdi',hdiArray[unit]);
-            //(that.collection) ? that.collection.hdiWorld = hdiWorld : that.model.set('hdiWorld',hdiWorld);
         }).success(function() {
-            //if (!that.map) {
                 that.$el.empty().append('<div class="inner-shadow"></div>');
-                that.buildMap($('.map-btn.active').attr('data-value') || 'budget');
-            //} else {
-            //    that.updateMap($('.map-btn.active').attr('data-value'));
-            //}
+                that.buildMap(layer);
         });
         
         return this;
@@ -73,16 +71,64 @@ views.Map = Backbone.View.extend({
     hdiChart: function(country,world) {
         $('#chart-hdi').css('display','block');
         $('.data', '#chart-hdi').empty().append(
-            '<div class="total" style="width:' + country.hdi*100 + '%">' + country.hdi + '</div>'
-            + '<div class="subdata total" style="width:' + world.hdi*100 + '%;"></div>'
-            + '<div class="health" style="width:' + country.health*100 + '%">' + country.health + '</div>'
-            + '<div class="subdata health" style="width:' + world.health*100 + '%;"></div>'
-            + '<div class="education" style="width:' + country.education*100 + '%">' + country.education + '</div>'
-            + '<div class="subdata education" style="width:' + world.education*100 + '%;"></div>'
-            + '<div class="living" style="width:' + country.income*100 + '%">' + country.income + '</div>'
-            + '<div class="subdata living" style="width:' + world.income*100 + '%;"></div>'
+            '<div class="total" style="width:' + _.last(country.hdi)[1]*100 + '%">' + _.last(country.hdi)[1] + '</div>'
+            + '<div class="subdata total" style="width:' + _.last(world.hdi)[1]*100 + '%;"></div>'
+            + '<div class="health" style="width:' + _.last(country.health)[1]*100 + '%">' + _.last(country.health)[1] + '</div>'
+            + '<div class="subdata health" style="width:' + _.last(world.health)[1]*100 + '%;"></div>'
+            + '<div class="education" style="width:' + _.last(country.education)[1]*100 + '%">' + _.last(country.education)[1] + '</div>'
+            + '<div class="subdata education" style="width:' + _.last(world.education)[1]*100 + '%;"></div>'
+            + '<div class="living" style="width:' + _.last(country.income)[1]*100 + '%">' + _.last(country.income)[1] + '</div>'
+            + '<div class="subdata living" style="width:' + _.last(world.income)[1]*100 + '%;"></div>'
         );
-        $('#chart-hdi .rank').html(country.rank);
+        $('#chart-hdi .ranking').html(country.rank + '<span class="outof">/' + world.count + '</span>');
+    },
+    hdiDetails: function(data) {
+        var beginYr = _.first(data.hdi)[0],
+            endYr = _.last(data.hdi)[0],
+            ctry = data.hdi,
+            health = data.health,
+            ed = data.education,
+            inc = data.income;
+        
+        var sparklineOptions = {
+            xaxis: {show: false, min: beginYr, max: endYr},
+            yaxis: {show: false, min: 0, max: 1},
+            grid: { show: true, borderWidth: 0, color: '#CEDEDD', minBorderMargin: 0, 
+                markings: function (axes) {
+                    var markings = [];
+                    for (var x = 5; x < axes.xaxis.max; x += 5)
+                        markings.push({ xaxis: { from: x, to: x }, lineWidth: 1, color: '#CEDEDD' });
+                    for (var y = .2; y < axes.yaxis.max; y += .2)
+                        markings.push({ yaxis: { from: y, to: y }, lineWidth: 1, color: '#CEDEDD' });
+                    return markings;
+                }
+            },
+            series: {
+                lines: { lineWidth: 1 },
+                shadowSize: 0
+            },
+            colors: ['#96CCE6', '#70B678', '#DC9B75', '#036']
+        };
+        
+        var points = {points: { show:true, radius: 1 }};
+        
+        if (beginYr === endYr) {
+            _.extend(sparklineOptions.series, points);
+            endYr = '';
+        }
+        
+        $('#xlabel .beginyear').html(beginYr);
+        $('#xlabel .endyear').html(endYr);
+        
+        if (data.change > 0) {
+            $('#chart-hdi .change').html('<div class="trend hdi-up"></div>' + Math.round(data.change*1000)/1000);
+        } else if (data.change < 0) {
+            $('#chart-hdi .change').html('<div class="trend hdi-down"></div>' + Math.round(data.change*1000)/1000);
+        } else {
+            $('#chart-hdi .change').html('<div class="trend hdi-nochange">--</div>' + Math.round(data.change*1000)/1000);
+        }
+        
+        $.plot($("#sparkline"), [health,ed,inc,{data: ctry, lines: {lineWidth: 1.5}}], sparklineOptions);
     },
     scale: function(cat,x) {
         if (cat == 'budget' || cat == 'expenditure') {
@@ -106,8 +152,6 @@ views.Map = Backbone.View.extend({
             
         markers.sort(function(a,b){ return b.properties[layer] - a.properties[layer]; })
             .factory(clustr.scale_factory(radii, "rgba(2,56,109,0.6)", "#01386C"));
-                
-        //console.log(markers.extent());
     },
     buildMap: function(layer) {
         var that = this,
@@ -130,7 +174,7 @@ views.Map = Backbone.View.extend({
                 return clustr.area_to_radius(
                     Math.round(that.scale(layer,f))
                 );
-            }
+            };
             
             var markers = mapbox.markers.layer()
                 .factory(clustr.scale_factory(radii, "rgba(2,56,109,0.6)", "#01386C"))
@@ -149,10 +193,10 @@ views.Map = Backbone.View.extend({
                             (homepage) ? budget = unit.operating_unitBudget[o.id] : budget = that.model.get('budget');
                             (homepage) ? expenditure = unit.operating_unitExpenditure[o.id] : expenditure = that.model.get('expenditure');
                             if ((homepage) ? unit.hdi[o.id] : that.model.get('hdi')) {
-                                (homepage) ? hdi = unit.hdi[o.id].hdi : hdi = that.model.get('hdi').hdi;
-                                (homepage) ? hdi_health = unit.hdi[o.id].health : hdi_health = that.model.get('hdi').health;
-                                (homepage) ? hdi_education = unit.hdi[o.id].education : hdi_education = that.model.get('hdi').education;
-                                (homepage) ? hdi_living = unit.hdi[o.id].living : hdi_living = that.model.get('hdi').living;
+                                (homepage) ? hdi = _.last(unit.hdi[o.id].hdi)[1] : hdi = _.last(that.model.get('hdi').hdi)[1];
+                                (homepage) ? hdi_health = _.last(unit.hdi[o.id].health)[1] : _.last(hdi_health = that.model.get('hdi').health)[1];
+                                (homepage) ? hdi_education = _.last(unit.hdi[o.id].education)[1] : _.last(hdi_education = that.model.get('hdi').education)[1];
+                                (homepage) ? hdi_living = _.last(unit.hdi[o.id].living)[1] : _.last(hdi_living = that.model.get('hdi').living)[1];
                                 (homepage) ? hdi_rank = unit.hdi[o.id].rank : hdi_rank = that.model.get('hdi').rank;
                             } else {
                                 hdi = hdi_health = hdi_education = hdi_living = hdi_rank = 'no data';
@@ -167,7 +211,8 @@ views.Map = Backbone.View.extend({
                                 },
                                 properties: {
                                     id: o.id,
-                                    title: (homepage) ? o.name : that.model.get('project_title') + '<div class="subtitle">' + o.name + '</div>',
+                                    title: (homepage) ? o.name + '<div class="subtitle">rank: ' + hdi_rank + '</div>'
+                                                      : that.model.get('project_title') + '<div class="subtitle">' + o.name + '</div>',
                                     count: count,
                                     sources: sources,
                                     budget: budget,
@@ -201,15 +246,15 @@ views.Map = Backbone.View.extend({
     tooltip: function(layer,data) {
         var description;
         if (layer == 'hdi') {
-            description = '<div class="hdirank">rank: ' + data.hdi_rank + '</div>'
-                + '<div class="hdi data"><div class="total" style="width:' + data.hdi*200 + 'px">' + data.hdi + '</div>'
-                + '<div class="subdata total" style="width:' + this.collection.hdiWorld.hdi*200 + 'px;"></div>'
-                + '<div class="health" style="width:' + data.hdi_health*200 + 'px">' + data.hdi_health + '</div>'
-                + '<div class="subdata health" style="width:' + this.collection.hdiWorld.health*200 + 'px;"></div>'
-                + '<div class="education" style="width:' + data.hdi_education*200 + 'px">' + data.hdi_education + '</div>'
-                + '<div class="subdata education" style="width:' + this.collection.hdiWorld.education*200 + 'px;"></div>'
-                + '<div class="living" style="width:' + data.hdi_living*200 + 'px">' + data.hdi_living + '</div>'
-                + '<div class="subdata living" style="width:' + this.collection.hdiWorld.income*200 + 'px;"></div></div>';
+            description = '<div class="caption"><div>HDI</div><div>Health</div><div>Education</div><div>Income</div></div>'
+                + '<div class="data"><div class="total" style="width:' + data.hdi*150 + 'px">' + data.hdi + '</div>'
+                + '<div class="subdata total" style="width:' + _.last(this.collection.hdiWorld.hdi)[1]*150 + 'px;"></div>'
+                + '<div class="health" style="width:' + data.hdi_health*150 + 'px">' + data.hdi_health + '</div>'
+                + '<div class="subdata health" style="width:' + _.last(this.collection.hdiWorld.health)[1]*150 + 'px;"></div>'
+                + '<div class="education" style="width:' + data.hdi_education*150 + 'px">' + data.hdi_education + '</div>'
+                + '<div class="subdata education" style="width:' + _.last(this.collection.hdiWorld.education)[1]*150 + 'px;"></div>'
+                + '<div class="living" style="width:' + data.hdi_living*150 + 'px">' + data.hdi_living + '</div>'
+                + '<div class="subdata living" style="width:' + _.last(this.collection.hdiWorld.income)[1]*150 + 'px;"></div></div>';
         } else {
             description = '<div class="stat">Budget: <span class="value">'
                 + accounting.formatMoney(data.budget) + '</span></div>'
@@ -217,7 +262,8 @@ views.Map = Backbone.View.extend({
                 + accounting.formatMoney(data.expenditure) + '</span></div>'
                 + '<div class="stat">HDI: <span class="value">'
                 + data.hdi + '</span></div>';
-            
+                
+            // add this if we're counting projects
             if (data.count) {
                 description = '<div class="stat">Projects: <span class="value">'
                     + data.count + '</span></div>'

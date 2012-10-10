@@ -87,11 +87,6 @@ h3 {
 #main-container {
   position: relative;
   margin: 0;
-  /*
-  -moz-box-shadow:    inset 0 10px 10px -10px #999, inset 0 -10px 10px -10px #999;
-  -webkit-box-shadow: inset 0 10px 10px -10px #999, inset 0 -10px 10px -10px #999;
-  box-shadow:         inset 0 10px 10px -10px #999, inset 0 -10px 10px -10px #999;
-  */
 }
 #main-container .layers {
   float: left;
@@ -102,15 +97,6 @@ h3 {
 #main-container .span2 {
   padding-top: 20px;
 }
-/*
-#applied-filters {
-  white-space: normal;
-  color: #333;
-}
-#applied-filters div {
-  margin-bottom: 5px;
-}
-*/
 #applied-filters span {
   font-size: 24px;
   line-height: 28px;
@@ -122,6 +108,8 @@ h3 {
 #app {
   min-height: 600px;
 }
+
+/* Maps */
 
 .map-container {
   position: absolute;
@@ -139,7 +127,6 @@ h3 {
   bottom: 0;
   left: 0;
   }
-
 #profilemap {
   height: 300px;
   }
@@ -157,7 +144,6 @@ h3 {
   right: 74px;
   left: auto;
 }
-
 .map .inner-shadow {
   position: relative;
   width: 100%;
@@ -165,15 +151,9 @@ h3 {
   -moz-box-shadow:    inset 0 0 10px #999;
   -webkit-box-shadow: inset 0 0 10px #999;
   box-shadow:         inset 0 0 10px #999;
-  /*
-  -moz-box-shadow:    inset 0 10px 10px -10px #999, inset 0 -10px 10px -10px #999;
-  -webkit-box-shadow: inset 0 10px 10px -10px #999, inset 0 -10px 10px -10px #999;
-  box-shadow:         inset 0 10px 10px -10px #999, inset 0 -10px 10px -10px #999;
-  */
   z-index: 5;
   pointer-events: none;
   }
-
 #homemap.full {
   position: absolute !important;
   top: 0;
@@ -184,14 +164,21 @@ h3 {
   height: 100% !important;
   z-index: 100;
   }
-
 .map-fullscreen {
   z-index: 5;
   }
-
 .map.full .map-fullscreen {
   background-position:-120px 0;
   }
+.map-attribution {
+  right: 0;
+  left: auto;
+  z-index: 999;
+  background: none;
+}
+.map-attribution a {
+  color: #aaa !important;
+}
 
 /* Clustered markers */
 .map > div:last-child img {
@@ -234,42 +221,65 @@ h3 {
   margin-left: -6px;
   border-top-color: #bbb;
   }
-.map .marker-title {
+.marker-title {
   font-size: 13px;
   font-weight: bold;
   margin-bottom: 5px;
   }
-.map .marker-description {
+.marker-title .subtitle {
+  color: #999;
+  font-size: 11px;
+  font-weight: normal;
+  margin-top: -5px;
+  }
+.marker-title .stat {
+  float: right;
+}
+.marker-description {
   float: left;
   width: 100%;
   font-size: 11px;
   }
-.map .marker-description .stat {
+.marker-description .stat {
   line-height: 15px;
 }
-.map .marker-description .stat .value {
+.marker-description .stat .value {
   font-weight: bold;
 }
-.map .marker-title .subtitle {
-  color: #999;
-  font-size: 11px;
+.marker-description .data {
+  float: right;
+  width: 150px;
+  border-left:1px solid #CEDEDD;
+  padding: 5px 0;
+}
+.marker-description .caption {
+  float: left;
+  text-align: right;
+  font-size: 0.8em;
+  color: #333;
   font-weight: normal;
-  margin-top: -2px;
-  }
-.map-attribution {
-  right: 0;
-  left: auto;
-  z-index: 999;
-  background: none;
+  text-transform: none;
+  margin-right: 5px;
 }
-.map-attribution a {
-  color: #aaa !important;
+.marker-description .caption > div {
+  height: 18px;
 }
+.marker-description .data > div {
+  height: 12px;
+  font-size: 10px;
+  text-align: right;
+  line-height: 12px;
+  color: #fff;
+  padding-right: 0.5em;
+}
+.marker-description .data > .subdata {
+  height: 3px;
+  margin-bottom: 3px;
+}
+
+/* Map layer nav */
 .map-btn {
   padding: 5px 5%;
-  /*
-  border-radius: 8px;
-  */
   -moz-transition: background 0.1s linear;
   -o-transition: background 0.1s linear;
   -webkit-transition: background 0.1s linear;
@@ -290,25 +300,8 @@ h3 {
   background-image: -webkit-gradient(linear, bottom left, top left, color-stop(0, #265F91), color-stop(1, #557799));
   background-image: -webkit-linear-gradient(bottom, #265F91 0%, #557799 100%);
   background-image: linear-gradient(to top, #265F91 0%, #557799 100%);
-  /*
-  -moz-box-shadow:    inset 0 0 10px #444;
-  -webkit-box-shadow: inset 0 0 10px #444;
-  box-shadow:         inset 0 0 10px #444;
-  */
+  text-shadow: 1px 1px #333;
 }
-/*
-.map-btn.active:after {
-  content: "";
-  display: block;
-  float: right;
-  margin-right: -25px;
-  margin-top: -40px;
-  border-top: 16px solid transparent;
-  border-bottom: 16px solid transparent;
-  border-left: 16px solid #036;
-  border-right: none;
-}
-*/
 .map-btn.active .lead {
   color: #fff;
 }
@@ -405,19 +398,26 @@ h3 {
 .modal.fade {
   top: 50%;
   }
+  
+/* Charts & Graphs */ 
 #charts {
   margin: 0;
   padding: 100px 20px 20px 20px;
   background: #DFEBEF;
   border-top: 1px solid #CEDEDD;
   }
+.chart .chart-legend {
+  position: absolute;
+  left: 225px;
+  bottom: 0;
+}
 .chart .data, .chart .caption {
   text-indent: 0.5em;
   }
 .chart .caption {
   float:left;
   text-align:right;
-  padding-top:5px;
+  padding-top:8px;
   width:215px;
   margin-left:0;
   }
@@ -428,20 +428,6 @@ h3 {
   position:absolute;
   left:245px;
   right:215px;
-  }
-.chart .ranking {
-  float:right;
-  width:155px;
-  height:125px;
-  background:#fff;
-  border-radius:5px;
-  text-align:center;
-  padding:10px;
-  /*
-  -moz-box-shadow:    inset 0 0 10px #999;
-  -webkit-box-shadow: inset 0 0 10px #999;
-  box-shadow:         inset 0 0 10px #999;
-  */
   }
 .chart .data > div {
   float: left;
@@ -467,12 +453,6 @@ h3 {
   box-sizing: border-box;
   font-size: 0.7em;
   color: #EDF4FE;
-  /*
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.7), inset 0 5px 5px -5px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3), inset 0 10px 10px -10px #999;
-  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3), inset 3px 3px 3px -3px rgba(0, 0, 0, 0.2);
-  border: 1px solid #CEDEDD;
-  */
   }
 .chart .data > .subdata {
   height: 5px;
@@ -492,12 +472,19 @@ h3 {
   width: 100%;
   font-size: 0.9em;
   }
-#chart-donors .data > div {
-  margin-bottom: 0.25em;
+.chart .details {
+  float: right;
+  width: 175px;
+  margin-top: 10px;
 }
-#chart-donors .caption > div {
-  height: 20px;
-  line-height: 20px;
+.details #sparkline {
+  width:175px;
+  height:80px;
+  background:#fff;
+  border-radius:5px;
+  -moz-box-shadow:    inset 0 0 10px #bbb;
+  -webkit-box-shadow: inset 0 0 10px #bbb;
+  box-shadow:         inset 0 0 10px #bbb;
 }
 #chart-hdi .data .total,
 .marker-description .total {
@@ -509,12 +496,10 @@ h3 {
 }
 #chart-hdi .data .education,
 .marker-description .education {
-  /*background: #56995e;*/
   background: #70B678;
 }
 #chart-hdi .data .living,
 .marker-description .living {
-  /*background: #995656;*/
   background: #DC9B75;
 }
 #chart-hdi .subdata.total,
@@ -533,8 +518,10 @@ h3 {
 .marker-description .subdata.living {
   background: #DEC3B2;
 }
-#chart-hdi .chart {
-  margin-bottom: 10px;
+#charts .chart {
+  margin-bottom: 25px;
+}
+#chart-hdi.chart {
   clear: both;
 }
 #chart-hdi p {
@@ -543,42 +530,46 @@ h3 {
   font-weight: bold;
   color: #3E6B95;
 }
-#chart-hdi p.rank {
-  font-size: 40px;
+#chart-hdi .rankchange {
   font-weight: bold;
   color: #036;
 }
-.marker-description .hdi.data {
-  width: 200px;
+#chart-hdi .ranking {
+  float: left;
+  font-size: 24px;
 }
-.marker-description .data > div {
-  height: 12px;
-  font-size: 10px;
-  text-align: right;
+#chart-hdi .ranking .outof {
+  font-size: 14px;
+}
+#chart-hdi .change {
+  float: right;
+  padding-top: 10px;
+  font-size: 12px;
   line-height: 12px;
-  color: #fff;
-  padding-right: 0.5em;
 }
-.marker-description .data > .subdata {
-  height: 3px;
-  margin-bottom: 3px;
+#chart-hdi .change .trend {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-right: 6px solid transparent;
+  border-left: 6px solid transparent;
+  margin-right: 5px;
+  margin-bottom: 1px;
 }
-.marker-description .hdirank {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+.change .trend.hdi-up {
+  border-top: none;
+  border-bottom: 6px solid green;
 }
-/*
-#chart-hdi p.health {
-  color: #96CCE6;
+.change .trend.hdi-down {
+  border-top: 6px solid red;
+  border-bottom: none;
 }
-#chart-hdi p.education {
-  color: #70B678;
+.change .trend.hdi-nochange {
+  color: #999;
+  border: none;
+  width: auto !important;
+  height: auto !important;
 }
-#chart-hdi p.living {
-  color: #DC9B75;
-}
-*/
 
 .toggle {
   position: absolute;
@@ -870,6 +861,9 @@ form {
 #profile .glance {
   margin: 20px 0 0 0;
 }
+
+/* flickr gallery */
+
 #flickr {
   margin: 0;
   background-size: cover;
@@ -905,15 +899,15 @@ form {
   top: 12px;
   left: 24px;
 }
-.control.resize {
+#flickr .control.resize {
   right: 160px;
   border-radius: 8px;
 }
-.control.next {
+#flickr .control.next {
   right: 20px;
   border-radius: 0 8px 8px 0;
 }
-.control.prev {
+#flickr .control.prev {
   right: 80px;
   border-radius: 8px 0 0 8px;
   border-right: 1px solid #333;

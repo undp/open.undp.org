@@ -64,19 +64,10 @@ views.Filters = Backbone.View.extend({
             this.$el.empty();
         }
 
-        if (chartModels.length === 1) {
+        if (chartModels.length <= 1) {
             $('#chart-' + this.collection.id).parent().css('display','none');
-            /*
-            $('.data', '#chart-' + this.collection.id).empty().addClass('hidden');
-            $('.caption', '#chart-' + this.collection.id).empty().addClass('hidden');
-            $('.btn-' + this.collection.id).addClass('hidden');
-            $('.placeholder', '#chart-' + this.collection.id)
-                .empty()
-                .removeClass('hidden')
-                .text(chartModels[0].get('name'));
-            */
 
-        } else if (chartModels.length > 1) { 
+        } else { 
             var max = chartModels[0].get(chartType);
 
             // Build charts
@@ -88,22 +79,29 @@ views.Filters = Backbone.View.extend({
 
             _(chartModels).each(function(model) {
                 if (chartType == 'budget') {
-                    var label = (model.get(chartType) / max * 100) > 28 ? accounting.formatMoney(model.get(chartType)/1000000) + 'M' : '';
-                } else {
-                    var label = (model.get(chartType) / max * 100) > 15 ? accounting.formatNumber(model.get(chartType)) : '';
-                }
-                $('.data', '#chart-' + model.collection.id).append(
-                    '<div style="width: ' + (model.get(chartType)/ max * 100) + '%">' + label + '</div>'
-                );
-                if (chartType == 'budget') {
+                    var label = (model.get(chartType) / max * 100) > 15 ? accounting.formatMoney(model.get(chartType)/1000000) + 'M' : '';
+                    
+                    $('.data', '#chart-' + model.collection.id).append(
+                        '<div style="width: ' + (model.get(chartType)/ max * 100) + '%">' + label + '</div>'
+                    );
                     $('.data', '#chart-' + model.collection.id).append(
                         '<div class="subdata" style="width: ' + (model.get('expenditure')/ max * 100) + '%"></div>'
                     );
+                    $('.caption', '#chart-' + model.collection.id).append(
+                        '<div><a href="#filter/' + model.collection.id + '-' + model.get('id')
+                        + '">' + model.get('name').toLowerCase() + '</a></div>'
+                    );
+                } else {
+                    var label = (model.get(chartType) / max * 100) > 10 ? accounting.formatNumber(model.get(chartType)) : '';
+                    
+                    $('.data', '#chart-' + model.collection.id).append(
+                        '<div style="margin-bottom:0.25em; width: ' + (model.get(chartType)/ max * 100) + '%">' + label + '</div>'
+                    );
+                    $('.caption', '#chart-' + model.collection.id).append(
+                        '<div style="margin: 0;"><a href="#filter/' + model.collection.id + '-' + model.get('id')
+                        + '">' + model.get('name').toLowerCase() + '</a></div>'
+                    );
                 }
-                $('.caption', '#chart-' + model.collection.id).append(
-                    '<div><a href="#filter/' + model.collection.id + '-' + model.get('id')
-                    + '">' + model.get('name').toLowerCase() + '</a></div>'
-                );
             });
         }
         

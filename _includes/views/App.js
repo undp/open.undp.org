@@ -127,7 +127,12 @@ views.App = Backbone.View.extend({
         var $target = $(e.target);
         var facet = $target.attr('data-facet');
         $('.btn-' + facet + ' button').removeClass('active');
-        $(e.target).addClass('active');
+        $target.addClass('active');
+        if ($target.html() == 'Budget') {
+            $target.parent().parent().children('.chart-legend').css('display','block');
+        } else {
+            $target.parent().parent().children('.chart-legend').css('display','none');
+        }
         this.views[facet].render();
     }
 });
