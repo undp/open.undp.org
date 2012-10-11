@@ -1,6 +1,7 @@
 views.Map = Backbone.View.extend({
     events: {
-        'click .map-fullscreen': 'fullscreen'
+        'click .map-fullscreen': 'fullscreen',
+        'mousedown img.mapmarker': 'mapClick'
     },
     initialize: function() {
         this.render();
@@ -67,6 +68,24 @@ views.Map = Backbone.View.extend({
         });
         
         return this;
+    },
+    mapClick: function(e) {
+        var $target = $(e.target),
+            drag = false;
+            
+        this.map.addCallback('panned', function() {
+            drag = true;
+        });
+        
+        // if map has been panned do not fire click
+        $target.on('mouseup', function(e) {
+            if (drag) {
+                e.preventDefault();
+            } else {
+                window.location = '#filter/operating_unit-' + $target.attr('id');
+                $('#browser .summary').removeClass('off');
+            }
+        });
     },
     hdiChart: function(country,world) {
         $('#chart-hdi').css('display','block');
