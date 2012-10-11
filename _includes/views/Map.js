@@ -28,7 +28,7 @@ views.Map = Backbone.View.extend({
                         hdi: obj.hdi,
                         health: obj.health,
                         education: obj.education,
-                        living: obj.income,
+                        income: obj.income,
                         rank: obj.rank
                     };
                 }
@@ -77,8 +77,8 @@ views.Map = Backbone.View.extend({
             + '<div class="subdata health" style="width:' + _.last(world.health)[1]*100 + '%;"></div>'
             + '<div class="education" style="width:' + _.last(country.education)[1]*100 + '%">' + _.last(country.education)[1] + '</div>'
             + '<div class="subdata education" style="width:' + _.last(world.education)[1]*100 + '%;"></div>'
-            + '<div class="living" style="width:' + _.last(country.income)[1]*100 + '%">' + _.last(country.income)[1] + '</div>'
-            + '<div class="subdata living" style="width:' + _.last(world.income)[1]*100 + '%;"></div>'
+            + '<div class="income" style="width:' + _.last(country.income)[1]*100 + '%">' + _.last(country.income)[1] + '</div>'
+            + '<div class="subdata income" style="width:' + _.last(world.income)[1]*100 + '%;"></div>'
         );
         $('#chart-hdi .ranking').html(country.rank + '<span class="outof">/' + world.count + '</span>');
     },
@@ -156,7 +156,7 @@ views.Map = Backbone.View.extend({
     buildMap: function(layer) {
         var that = this,
             locations = [],
-            count, sources, budget, description, hdi, hdi_health, hdi_education, hdi_living,
+            count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
             unit = (this.collection) ? this.collection 
                 : this.model.get('operating_unit_id'),
             
@@ -196,10 +196,10 @@ views.Map = Backbone.View.extend({
                                 (homepage) ? hdi = _.last(unit.hdi[o.id].hdi)[1] : hdi = _.last(that.model.get('hdi').hdi)[1];
                                 (homepage) ? hdi_health = _.last(unit.hdi[o.id].health)[1] : _.last(hdi_health = that.model.get('hdi').health)[1];
                                 (homepage) ? hdi_education = _.last(unit.hdi[o.id].education)[1] : _.last(hdi_education = that.model.get('hdi').education)[1];
-                                (homepage) ? hdi_living = _.last(unit.hdi[o.id].living)[1] : _.last(hdi_living = that.model.get('hdi').living)[1];
+                                (homepage) ? hdi_income = _.last(unit.hdi[o.id].income)[1] : _.last(hdi_income = that.model.get('hdi').income)[1];
                                 (homepage) ? hdi_rank = unit.hdi[o.id].rank : hdi_rank = that.model.get('hdi').rank;
                             } else {
-                                hdi = hdi_health = hdi_education = hdi_living = hdi_rank = 'no data';
+                                hdi = hdi_health = hdi_education = hdi_income = hdi_rank = 'no data';
                             }
                             
                             locations.push({
@@ -211,8 +211,8 @@ views.Map = Backbone.View.extend({
                                 },
                                 properties: {
                                     id: o.id,
-                                    title: (homepage) ? o.name + '<div class="subtitle">rank: ' + hdi_rank + '</div>'
-                                                      : that.model.get('project_title') + '<div class="subtitle">' + o.name + '</div>',
+                                    project: (homepage) ? '' : that.model.get('project_title'),
+                                    name: o.name,
                                     count: count,
                                     sources: sources,
                                     budget: budget,
@@ -220,7 +220,7 @@ views.Map = Backbone.View.extend({
                                     hdi: hdi,
                                     hdi_health: hdi_health,
                                     hdi_education: hdi_education,
-                                    hdi_living: hdi_living,
+                                    hdi_income: hdi_income,
                                     hdi_rank: hdi_rank
                                 }
                             });
@@ -253,23 +253,29 @@ views.Map = Backbone.View.extend({
                 + '<div class="subdata health" style="width:' + _.last(this.collection.hdiWorld.health)[1]*150 + 'px;"></div>'
                 + '<div class="education" style="width:' + data.hdi_education*150 + 'px">' + data.hdi_education + '</div>'
                 + '<div class="subdata education" style="width:' + _.last(this.collection.hdiWorld.education)[1]*150 + 'px;"></div>'
-                + '<div class="living" style="width:' + data.hdi_living*150 + 'px">' + data.hdi_living + '</div>'
-                + '<div class="subdata living" style="width:' + _.last(this.collection.hdiWorld.income)[1]*150 + 'px;"></div></div>';
+                + '<div class="income" style="width:' + data.hdi_income*150 + 'px">' + data.hdi_income + '</div>'
+                + '<div class="subdata income" style="width:' + _.last(this.collection.hdiWorld.income)[1]*150 + 'px;"></div></div>';
+                
+            data.title = data.name + '<div class="subtitle">rank: ' + data.hdi_rank + '</div>';
         } else {
             description = '<div class="stat">Budget: <span class="value">'
                 + accounting.formatMoney(data.budget) + '</span></div>'
                 + '<div class="stat">Expenditure: <span class="value">'
-                + accounting.formatMoney(data.expenditure) + '</span></div>'
-                + '<div class="stat">HDI: <span class="value">'
-                + data.hdi + '</span></div>';
+                + accounting.formatMoney(data.expenditure) + '</span></div>';
                 
-            // add this if we're counting projects
+            data.title = data.project + '<div class="subtitle">' + data.name + '</div>';
+                
+            // add this if we're counting projects (on homepage)
             if (data.count) {
                 description = '<div class="stat">Projects: <span class="value">'
                     + data.count + '</span></div>'
                     + ((data.sources > 1) ? ('<div class="stat">Funding Sources: <span class="value">'
                     + data.sources + '</span></div>') : '')
-                    + description;
+                    + description
+                    + '<div class="stat">HDI: <span class="value">'
+                    + data.hdi + '</span></div>';
+                    
+                data.title = data.name;
             }
         }
         
