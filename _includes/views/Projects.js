@@ -1,31 +1,31 @@
 views.Projects = Backbone.View.extend({
     el: '#project-items',
+    events: {
+        'click .load': 'loadMore'
+    },
     initialize: function() {
         this.collection.on('update', this.render, this);
         $('#projects input[type="search"]').on('keyup', _.bind(this.search, this));
-        
-        var that = this,
-            low = 50,
-            high = 100;
-        
-        $(window).on('scroll', function() {
-            if  ($(window).scrollTop() == $(document).height() - $(window).height()){
-                that.loadMore(low,high);
-                low = high;
-                high += 50;
-            }
-        });
+
+        this.low = 50,
+        this.high = 100;
     },
-    loadMore: function(low,high) {
+    loadMore: function() {
+        var self = this;
+        this.low = this.high;
+        this.high += 50;
+
         var models = _(this.collection.filter(function(model) {
                 return model.get('visible');
-            })).slice(low,high);
+            })).slice(self.low,self.high);
             
         if (models.length) {
             _(models).each(function(model) {
                 this.$('tbody').append(templates.project({ model: model }));
             });
         }
+
+        return false;
     },
     render: function() {
 

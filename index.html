@@ -40,17 +40,22 @@
             <img class='logo png' src='img/global/logo.png' alt='UNDP' width='104' height='150' />
             </a>
             <ul id='top-navigation'>
-                <li><a id='country-selector' href='#'>UNDP in 166 countries</a>
-                </li>
-                <li><a href='#'>Global Operations</a></li>
-                <li><a href='#'>Library</a></li>
-                <li><a href='#'>Press Center</a></li>
+              <li><a id='country-selector' href='#'>UNDP in 166 countries</a></li>
+              <li><a href='#'>Global Operations</a></li>
+              <li><a href='#'>Library</a></li>
+              <li><a href='#'>Press Center</a></li>
             </ul>
             <h2>United Nations Development Programme</h2>
             <!-- end of #top-navigation -->
             <!-- end of #languages -->
             <!-- end of #main-navigation -->
-                <h1>Project Portal</h1>
+            <h1>Project Portal</h1>
+            <ul class='project-navigation'>
+              <li class='browser profile'><a href='#feedback' data-toggle='modal'>Feedback</a></li>
+              <li class='browser'><a href='#download' data-toggle='modal'>Download</a></li>
+              <li class='browser'><a href='#about' data-toggle='modal'>About</a></li>
+              <li class='profile'><a href='#unit-contact' data-toggle='modal'>Contact</a></li>
+            </ul>
         </div>
         <!-- end of .content -->
     </div><!-- /#header -->
@@ -59,12 +64,7 @@
     <div class='container-fluid'>
         <div class='row-fluid'>
             <div class='span9'>
-                <div class='nav browser profile'><a href='#feedback' data-toggle='modal'>Feedback</a></div>
-                <div class='nav browser'><a href='#download' data-toggle='modal'>Download</a></div>
-                <div class='nav browser'><a href='#about' data-toggle='modal'>About</a></div>
-                <div class='nav profile'><a href='#unit-contact' data-toggle='modal'>Contact</a></div>
-                <div class='nav profile'><a id='all-projects' href='#'>&larr; All projects</a></div>
-
+              <div class='nav profile'><a id='all-projects' href='#'>&larr; All projects</a></div>
             </div>
         </div>
         <div id='app' class='row-fluid'>
@@ -86,7 +86,7 @@
             <a href='#' class='btn' data-dismiss='modal'>Close</a>
         </div>
     </div>
-    
+
     <div class='modal hide fade' id='download'>
         <div class='modal-header'>
             <button type='button' class='close' data-dismiss='modal'>&times;</button>
@@ -99,7 +99,7 @@
             <a href='#' class='btn' data-dismiss='modal'>Close</a>
         </div>
     </div>
-    
+
     <div class='modal hide fade' id='feedback'><form class='form-horizontal' id='feedback-form'>
         <div class='modal-header'>
             <button type='button' class='close' data-dismiss='modal'>&times;</button>

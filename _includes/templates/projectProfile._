@@ -1,10 +1,10 @@
 <div class="span9 projects summary">
     <div class="row-fluid separator">
         <div class="span10">
-            <p class="lead"><%= model.get('project_title') %></p>
+            <p class="heading-title"><%= model.get('project_title') %></p>
         </div>
         <div class="span2">
-            <p class="lead projid"><%= model.get('project_id') %></p>
+            <p class="heading-title projid"><%= model.get('project_id') %></p>
         </div>
     </div>
 
@@ -173,7 +173,7 @@
     
     <% if (!_.isEmpty(model.get('document_name'))) { %>
     <div class="separator">
-        <p class="lead">Documents<span></p>
+        <p class="heading-title">Documents<span></p>
     </div>
     
     <div id="documents" class="row-fluid">
@@ -189,7 +189,7 @@
     <% } %>
 
     <div class="separator">
-        <p class="lead">Outputs <span>(<%= model.get('outputs').length %>)</p>
+        <p class="heading-title">Outputs <span>(<%= model.get('outputs').length %>)</p>
     </div>
 
     <% _.each(model.get('outputs'), function(obj, i) { %>
@@ -251,7 +251,7 @@
 
 <div class="span9 glance summary">
     <div class="row-fluid separator">
-        <p class="lead">UNDP <%= model.get('operating_unit') %>
+        <p class="heading-title">UNDP <%= model.get('operating_unit') %>
         </p>
     </div>
     <div id="flickr" class="row-fluid">

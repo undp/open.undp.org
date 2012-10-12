@@ -1,180 +1,181 @@
-<div class="span9 summary">
-    <div class="row-fluid separator">
-        <div class="span12">
-            <div id="applied-filters" class="lead">
-                <span class="operating_unit"></span>
+<div class='span9 summary'>
+    <div class='row-fluid separator'>
+        <div class='span12'>
+            <div id='applied-filters' class='heading-title'>
+                <span class='operating_unit'></span>
             </div>
             <!-- /*This intro needs to be placed back at the top somewhere*/
-            <p class="lead">We've made available detailed information about all of our current projects. Browse the summaries, click on a filter on the right, or search through the full projects below.</p>
+            <p class='heading-title'>We"ve made available detailed information about all of our current projects. Browse the summaries, click on a filter on the right, or search through the full projects below.</p>
             -->
         </div>
     </div>
-    <div class="row-fluid" id="main-container">
-        <div class="layers">
-            <div class="row-fluid stats">
-                <div class="span12 map-btn" data-value="count">
-                    <p id="total-count" class="lead"></p>
-                    <p><strong>Projects</strong></p>
+    <div class='clearfix row-fluid' id='main-container'>
+        <div class='layers'>
+            <div class='row-fluid stats'>
+                <div class='span12 map-btn' data-value='count'>
+                    <p id='total-count' class='total'></p>
+                    <p class='total-caption'>Projects</p>
                 </div>
             </div>
-            <div class="row-fluid stats">
-                <div class="span12 map-btn" data-value="sources">
-                    <p id="total-donors" class="lead"></p>
-                    <p><strong>Funding Sources</strong></p>
+            <div class='row-fluid stats'>
+                <div class='span12 map-btn' data-value='sources'>
+                    <p id='total-donors' class='total'></p>
+                    <p class='total-caption'>Funding Sources</p>
                 </div>
             </div>
-            <div class="row-fluid stats">
-                <div class="span12 map-btn active" data-value="budget">
-                    <p id="total-budget" class="lead"></p>
-                    <p><strong>Budget</strong> <span class="date">2011</span></p>
+            <div class='row-fluid stats'>
+                <div class='span12 map-btn active' data-value='budget'>
+                    <p id='total-budget' class='total'></p>
+                    <p class='total-caption'>Budget 2011</p>
                 </div>
             </div>
-            <div class="row-fluid stats">
-                <div class="span12 map-btn" data-value="expenditure">
-                    <p id="total-expenditure" class="lead"></p>
-                    <p><strong>Expenditure</strong> <span class="date">2011</span></p>
+            <div class='row-fluid stats'>
+                <div class='span12 map-btn' data-value='expenditure'>
+                    <p id='total-expenditure' class='total'></p>
+                    <p class='total-caption'>Expenditure 2011</p>
                 </div>
             </div>
-            <div class="row-fluid stats">
-                <div class="span12 map-btn" data-value="hdi">
-                    <p id="hdi" class="lead">0.682</p>
-                    <p><strong>HDI</strong> <span class="date">Global</span></p>
+            <div class='row-fluid stats'>
+                <div class='span12 map-btn' data-value='hdi'>
+                    <p id='hdi' class='total'>0.682</p>
+                    <p class='total-caption'>HDI Global</p>
                 </div>
             </div>
         </div>
-        <div class="map-container">
-            <div class="label visible-phone">Location</div>
-            <div id="homemap" class="map"></div>
+        <div class='map-container'>
+            <div class='label visible-phone'>Location</div>
+            <div id='homemap' class='map'></div>
         </div>
     </div>
-    <div class="row-fluid" id="charts">
-        <div class="span12">
-            <div class="row-fluid">
-                <div class="span12 chart" id="chart-hdi">
-                    <div class="label">
+
+    <div class='row-fluid' id='charts'>
+        <div class='span12'>
+            <div class='row-fluid'>
+                <div class='span12 chart' id='chart-hdi'>
+                    <div class='label'>
                         Human Development Index
-                        <span class="chart-legend" style="font-size:0.8em; font-weight:normal; color:#999; margin-bottom:5px;">
-                            <div class="thick-bar clearfix" style="float:left; width:90px;"><span style="display:block; float:left; width:30px; height:15px; background:#c8dde4; margin-right:5px"></span>Country</div>
-                            <div class="thin-bar" style="float:left;"><span style="display:block; float:left; width:30px; height:4px; background:#c8dde4; margin-right:5px; margin-top:5px;"></span>Global Avg</div>
+                        <span class='chart-legend' style='font-size:0.8em; font-weight:normal; color:#999; margin-bottom:5px;'>
+                            <div class='thick-bar clearfix' style='float:left; width:90px;'><span style='display:block; float:left; width:30px; height:15px; background:#c8dde4; margin-right:5px'></span>Country</div>
+                            <div class='thin-bar' style='float:left;'><span style='display:block; float:left; width:30px; height:4px; background:#c8dde4; margin-right:5px; margin-top:5px;'></span>Global Avg</div>
                         </span>
                     </div>
-                    <div class="caption">
-                        <div><a href="#">HDI</a></div>
-                        <div><a href="#">Health</a></div>
-                        <div><a href="#">Education</a></div>
-                        <div><a href="#">Income</a></div>
+                    <div class='caption'>
+                        <div><a href='#'>HDI</a></div>
+                        <div><a href='#'>Health</a></div>
+                        <div><a href='#'>Education</a></div>
+                        <div><a href='#'>Income</a></div>
                     </div>
-                    <div class="data">
+                    <div class='data'>
                     </div>
-                    <div class="details">
-                        <div class="clearfix rankchange">
-                            <div class="ranking"></div>
-                            <div class="change"></div>
+                    <div class='details'>
+                        <div class='clearfix rankchange'>
+                            <div class='ranking'></div>
+                            <div class='change'></div>
                         </div>
-                        <div id="sparkline"></div>
-                        <div id="xlabel" style="font-size:9px;">
-                            <span class="beginyear">1980</span>
-                            <span class="endyear" style="float:right;">2011</span>
+                        <div id='sparkline'></div>
+                        <div id='xlabel' style='font-size:9px;'>
+                            <span class='beginyear'>1980</span>
+                            <span class='endyear' style='float:right;'>2011</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row-fluid">
-                <div class="span12 chart" id="chart-operating_unit">
-                    <div class="label">Country Offices
-                        <span class="chart-legend" style="font-size:0.8em; font-weight:normal; color:#999; margin-bottom:5px;">
-                            <div class="thick-bar clearfix" style="float:left; width:90px;"><span style="display:block; float:left; width:30px; height:15px; background:#c8dde4; margin-right:5px"></span>Budget</div>
-                            <div class="thin-bar" style="float:left;"><span style="display:block; float:left; width:30px; height:4px; background:#c8dde4; margin-right:5px; margin-top:5px;"></span>Expenditure</div>
+            <div class='row-fluid'>
+                <div class='span12 chart' id='chart-operating_unit'>
+                    <div class='label'>Country Offices
+                        <span class='chart-legend' style='font-size:0.8em; font-weight:normal; color:#999; margin-bottom:5px;'>
+                            <div class='thick-bar clearfix' style='float:left; width:90px;'><span style='display:block; float:left; width:30px; height:15px; background:#c8dde4; margin-right:5px'></span>Budget</div>
+                            <div class='thin-bar' style='float:left;'><span style='display:block; float:left; width:30px; height:4px; background:#c8dde4; margin-right:5px; margin-top:5px;'></span>Expenditure</div>
                         </span>
-                        <div class="btn-operating_unit btn-group toggle" data-toggle="buttons-radio">
-                            <button class="btn btn-mini active" data-facet="operating_unit">Budget</button>
-                            <button class="btn btn-mini" data-facet="operating_unit">Count</button>
+                        <div class='btn-operating_unit btn-group toggle' data-toggle='buttons-radio'>
+                            <button class='btn btn-mini active' data-facet='operating_unit'>Budget</button>
+                            <button class='btn btn-mini' data-facet='operating_unit'>Count</button>
                         </div>
                     </div>
-                    <div class="caption"></div>
-                    <div class="data"></div>
-                    <div class="" style="float:right; width:155px; height:122px; background:#d4e4e9; border-radius:5px; text-align:center; padding:10px;">
-                        <p class="total lead" style="font-weight:bold;"></p>
+                    <div class='caption'></div>
+                    <div class='data'></div>
+                    <div class='' style='float:right; width:155px; height:122px; background:#d4e4e9; border-radius:5px; text-align:center; padding:10px;'>
+                        <p class='total heading-title' style='font-weight:bold;'></p>
                     </div>
                 </div>
             </div>
-            <div class="row-fluid">
-                <div class="span12 chart" id="chart-focus_area">
-                    <div class="label">Focus Areas
-                        <span class="chart-legend" style="font-size:0.8em; font-weight:normal; color:#999; margin-bottom:5px;">
-                            <div class="thick-bar clearfix" style="float:left; width:90px;"><span style="display:block; float:left; width:30px; height:15px; background:#c8dde4; margin-right:5px"></span>Budget</div>
-                            <div class="thin-bar" style="float:left;"><span style="display:block; float:left; width:30px; height:4px; background:#c8dde4; margin-right:5px; margin-top:5px;"></span>Expenditure</div>
+            <div class='row-fluid'>
+                <div class='span12 chart' id='chart-focus_area'>
+                    <div class='label'>Focus Areas
+                        <span class='chart-legend' style='font-size:0.8em; font-weight:normal; color:#999; margin-bottom:5px;'>
+                            <div class='thick-bar clearfix' style='float:left; width:90px;'><span style='display:block; float:left; width:30px; height:15px; background:#c8dde4; margin-right:5px'></span>Budget</div>
+                            <div class='thin-bar' style='float:left;'><span style='display:block; float:left; width:30px; height:4px; background:#c8dde4; margin-right:5px; margin-top:5px;'></span>Expenditure</div>
                         </span>
-                        <div class="btn-focus_area btn-group toggle" data-toggle="buttons-radio">
-                            <button class="btn btn-mini active" data-facet="focus_area">Budget</button>
-                            <button class="btn btn-mini" data-facet="focus_area">Count</button>
+                        <div class='btn-focus_area btn-group toggle' data-toggle='buttons-radio'>
+                            <button class='btn btn-mini active' data-facet='focus_area'>Budget</button>
+                            <button class='btn btn-mini' data-facet='focus_area'>Count</button>
                         </div>
                     </div>
-                    <div class="caption"></div>
-                    <div class="data"></div>
-                    <div class="" style="float:right; width:175px; height:142px; background:#d4e4e9; border-radius:5px;">
-                        <p class="total lead"></p>
+                    <div class='caption'></div>
+                    <div class='data'></div>
+                    <div class='' style='float:right; width:175px; height:142px; background:#d4e4e9; border-radius:5px;'>
+                        <p class='total heading-title'></p>
                     </div>
                 </div>
             </div>
-            <div class="row-fluid">
-                <div class="span12 chart" id="chart-donors">
-                    <div class="label">Funding Sources
-                        <div class="btn-donors btn-group toggle" data-toggle="buttons-radio">
-                            <button class="btn btn-mini active hidden" data-facet="donors">Count</button>
+            <div class='row-fluid'>
+                <div class='span12 chart' id='chart-donors'>
+                    <div class='label'>Funding Sources
+                        <div class='btn-donors btn-group toggle' data-toggle='buttons-radio'>
+                            <button class='btn btn-mini active hidden' data-facet='donors'>Count</button>
                         </div>
                     </div>
-                    <div class="caption"></div>
-                    <div class="data"></div>
-                    <div class="" style="float:right; width:175px; height:142px; background:#d4e4e9; border-radius:5px;">
-                        <p class="total lead"></p>
+                    <div class='caption'></div>
+                    <div class='data'></div>
+                    <div class='' style='float:right; width:175px; height:142px; background:#d4e4e9; border-radius:5px;'>
+                        <p class='total heading-title'></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="separator" id="projects-heading">
-        <p class="lead">Projects</p>
+    <div class='separator' id='projects-heading'>
+        <p class='heading-title'>Projects</p>
     </div>
-    <div class="row-fluid">
-        <div id="projects" class="span12">
-            <div class="row-fluid">
-                <div class="span12">
-                    <form class="form-search">
-                        <input id="projects-search" type="search" class="input-xlarge" placeholder="Search for a project...">
-                        <i 
-                            id="help-search"
-                            class="icon-question-sign help-note"
-                            data-title="Search for projects"
-                            data-content='To search by project name, enter any word. To search by project ID, enter  "id: " followed by the project id number. For example: "id: 00061104"'></i>
+    <div class='row-fluid'>
+        <div id='projects' class='span12'>
+            <div class='row-fluid'>
+                <div class='span12'>
+                    <form class='form-search'>
+                        <input id='projects-search' type='search' class='input-xlarge' placeholder='Search for a project...'>
+                        <i
+                            id='help-search'
+                            class='icon-question-sign help-note'
+                            data-title='Search for projects'
+                            data-content="To search by project name, enter any word. To search by project ID, enter  'id: ' followed by the project id number. For example: 'id: 00061104'"></i>
                     </form>
                 </div>
             </div>
-            <div class="row-fluid">
-                <div class="span12">
-                    <div id="project-items"></div>
+            <div class='row-fluid'>
+                <div class='span12'>
+                    <div id='project-items'></div>
                 </div>
             </div>
         </div> <!--/ #projects -->
     </div>
 
 </div> <!--/ #summary -->
-<div id="filters" class="span3 hidden-phone">
-  <div class='inner'>
-    <div class="row-fluid">
-        <div class="span12">
+<div id='filters' class='span3 hidden-phone'>
+  <div class="inner">
+    <div class='row-fluid'>
+        <div class='span12'>
           <h3>Filter projects</h3>
         </div>
     </div>
-    <div class="row-fluid">
-      <div class="span12">
-        <form class="form-search">
-          <input id="filters-search" type="search" id="filter-field" class="input" placeholder="Find a filter...">
+    <div class='row-fluid'>
+      <div class='span12'>
+        <form class='form-search'>
+          <input id='filters-search' type='search' id='filter-field' class='input' placeholder='Find a filter...'>
         </form>
       </div>
     </div>
-    <div class="row-fluid">
-        <div id="filter-items" class="span12">
+    <div class='row-fluid'>
+        <div id='filter-items' class='span12'>
         </div>
     </div>
   </div>
