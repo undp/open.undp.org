@@ -45,11 +45,12 @@ for don,donors in groupby(donor_projects_sort, lambda x: x['awardID']):
     donorTypeID = []
     donorType = []
     for d in donors:
-        donorID.append(d['donorID'])
-        donorName.append(d['long_descr'])
-        donorShort.append(d['short_descr'])
-        donorTypeID.append(d['donor_type_lvl1'].replace(" ",""))
-        donorType.append(d['donor_type_lvl1_descr'])
+        if d['donorID'] not in donorID:
+            donorID.append(d['donorID'])
+            donorName.append(d['long_descr'])
+            donorShort.append(d['short_descr'])
+            donorTypeID.append(d['donor_type_lvl1'].replace(" ",""))
+            donorType.append(d['donor_type_lvl1_descr'])
     donorList.append(donorID)
     donorList.append(donorName)
     donorList.append(donorShort)
