@@ -39,7 +39,7 @@
             {
                 id: 'region',
                 url: 'api/region-index.json',
-                name: 'Regional Bureau'
+                name: 'Regions'
             },
             {
                 id: 'focus_area',
