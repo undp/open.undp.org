@@ -64,9 +64,9 @@ views.Projects = Backbone.View.extend({
         window.setTimeout(function() {
             var $target = $(e.target),
                 val = $target.val().toLowerCase(),
-                mode = (val.substr(0, 3) === 'id:') ? 'id' : 'name';
+                mode = (val.substr(0, 3) === '000') ? 'id' : 'name';
     
-            val = (mode === 'id') ? val.split('id:')[1].replace(/^\s\s*/, '') : val;
+            //val = (mode === 'id') ? val.split('id:')[1].replace(/^\s\s*/, '') : val;
     
             view.collection.each(function(model) {
                 var name = model.get(mode).toLowerCase();
