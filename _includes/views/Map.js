@@ -170,7 +170,7 @@ views.Map = Backbone.View.extend({
             };
             
         markers.sort(function(a,b){ return b.properties[layer] - a.properties[layer]; })
-            .factory(clustr.scale_factory(radii, "rgba(2,56,109,0.6)", "#01386C"));
+            .factory(clustr.scale_factory(radii, "rgba(0,85,170,0.6)", "#0B387C"));
     },
     buildMap: function(layer) {
         var that = this,
@@ -196,7 +196,7 @@ views.Map = Backbone.View.extend({
             };
             
             var markers = mapbox.markers.layer()
-                .factory(clustr.scale_factory(radii, "rgba(2,56,109,0.6)", "#01386C"))
+                .factory(clustr.scale_factory(radii, "rgba(0,85,170,0.6)", "#0B387C"))
                 .sort(function(a,b){ return b.properties[layer] - a.properties[layer]; });
 
             $.getJSON('api/operating-unit-index.json', function(data) {
