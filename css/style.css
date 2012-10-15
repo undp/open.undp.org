@@ -52,22 +52,19 @@ h3 {
   }
 #header ul.project-navigation {
   position:absolute;
-  top:60px;
+  top:72px;
   left:300px;
   margin:0;
   }
   #header ul.project-navigation li {
     margin-right:10px;
+    font-size:15px;
+    line-height:15px;
     }
-    #header ul.project-navigation li a {
-      font-size:18px;
-      font-weight:bold;
-      letter-spacing:-1px;
+    #header ul.project-navigation li a:hover {
+      color:#fff;
+      text-decoration:none;
       }
-      #header ul.project-navigation li a:hover {
-        color:#fff;
-        text-decoration:none;
-        }
 
 #footer li {
   line-height:normal;
@@ -125,6 +122,7 @@ h3 {
   }
 .map {
   background:#fff;
+  border:1px solid #999;
   }
 #homemap {
   width:100%!important;
@@ -312,8 +310,7 @@ h3 {
   }
 
 .separator {
-  font-size:36px;
-  line-height:42px;
+  font-size:24px;
   font-weight:bold;
   letter-spacing:-1px;
   padding:20px 0;
@@ -339,35 +336,37 @@ h3 {
   float:left;
   text-align:right;
   padding-top:8px;
-  width:215px;
-  margin-left:0;
+  width:25%;
+  float:left;
   }
 .chart .data {
   padding:10px 0;
-  margin-left:0;
-  border-left:1px solid #CEDEDD;
+  border-left:1px solid #999;
   position:absolute;
-  left:245px;
-  right:215px;
+  left:25%;
+  right:0;
+  float:left;
   }
 .chart .data > div {
-  float: left;
-  clear: both;
-  text-align: right;
-  height: 20px;
-  line-height: 20px;
-  background: #265F91;
-  background-image: -ms-linear-gradient(right, #265F91 0%, #557799 100%);
-  background-image: -moz-linear-gradient(right, #265F91 0%, #557799 100%);
-  background-image: -o-linear-gradient(right, #265F91 0%, #557799 100%);
-  background-image: -webkit-gradient(linear, right top, left top, color-stop(0, #265F91), color-stop(1, #557799));
-  background-image: -webkit-linear-gradient(right, #265F91 0%, #557799 100%);
-  background-image: linear-gradient(to left, #265F91 0%, #557799 100%);
-  margin-top: 0.25em;
-  padding-right: 0.5em;
-  box-sizing: border-box;
-  font-size: 0.7em;
-  color: #EDF4FE;
+  background-image:-webkit-gradient(linear, right top, left top, color-stop(0, #0B387C), color-stop(1, #0055AA));
+  background-image:-webkit-linear-gradient(right, #0B387C 0%, #0055AA 100%);
+  background-image:   -moz-linear-gradient(right, #0B387C 0%, #0055AA 100%);
+  background-image:    -ms-linear-gradient(right, #0B387C 0%, #0055AA 100%);
+  background-image:     -o-linear-gradient(right, #0B387C 0%, #0055AA 100%);
+  background-image:       linear-gradient(to left, #0B387C 0%, #0055AA 100%);
+  float:left;
+  clear:both;
+  text-align:right;
+  height:25px;
+  line-height:24px;
+  margin-top:2px;
+  padding-right:5px;
+  font-size:11px;
+  font-weight:bold;
+  color:#EDF4FE;
+  -webkit-box-sizing:border-box;
+     -moz-box-sizing:border-box;
+          box-sizing:border-box;
   }
 .chart .data > .subdata {
   height: 5px;
@@ -665,21 +664,8 @@ form {
 }
 
 /* project.html */
-.projects .separator {
-  border-top: 1px solid #55BBFF;
-  border-bottom: 1px solid #0B387C;
-  box-shadow: 0 -1px 0 #5A90DA, 0 1px 0 white;
-  background: #0055AA;
-  background-image: -ms-linear-gradient(bottom, #0055AA 0%, #5A90DA 100%);
-  background-image: -moz-linear-gradient(bottom, #0055AA 0%, #5A90DA 100%);
-  background-image: -o-linear-gradient(bottom, #0055AA 0%, #5A90DA 100%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #0055AA), color-stop(1, #5A90DA));
-  background-image: -webkit-linear-gradient(bottom, #0055AA 0%, #5A90DA 100%);
-  background-image: linear-gradient(to top, #0055AA 0%, #5A90DA 100%);
-  }
 .project {
   border-bottom: 1px solid #ccc;
-  box-shadow: 0 1px white;
   padding-bottom: 20px;
   }
 .project:last-child {
