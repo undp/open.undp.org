@@ -1,7 +1,8 @@
 views.Projects = Backbone.View.extend({
     el: '#project-items',
     events: {
-        'click .load': 'loadMore'
+        'click .load': 'loadMore',
+        'click table tr': 'routeToProject'
     },
     initialize: function() {
         this.collection.on('update', this.render, this);
@@ -26,6 +27,10 @@ views.Projects = Backbone.View.extend({
         }
 
         return false;
+    },
+    routeToProject: function(e) {
+        var id = $(e.currentTarget).attr('id');
+        app.navigate(id, {trigger: true});
     },
     render: function() {
 
