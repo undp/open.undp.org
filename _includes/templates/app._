@@ -1,44 +1,44 @@
-<div class='span9 summary'>
-    <div class='row-fluid separator'>
-        <div class='span12'>
-            <div id='applied-filters' class='heading-title'>
-                <span class='operating_unit'></span>
-            </div>
-            <!-- /*This intro needs to be placed back at the top somewhere*/
-            <p class='heading-title'>We"ve made available detailed information about all of our current projects. Browse the summaries, click on a filter on the right, or search through the full projects below.</p>
-            -->
+<div class='row-fluid separator'>
+    <div class='span12'>
+        <div id='applied-filters' class='heading-title'>
+            <span class='operating_unit'></span>
+        </div>
+        <div class='col col-700'>
+          <p class='heading-title'>We've made available detailed information about all of our current projects. Browse the summaries, click on a filter on the right, or search through the full projects below.</p>
         </div>
     </div>
+</div>
+<div class='summary col col-700'>
     <div class='clearfix row-fluid' id='main-container'>
         <div class='layers'>
             <div class='row-fluid stats'>
                 <div class='span12 map-btn' data-value='count'>
-                    <p id='total-count' class='total'></p>
-                    <p class='total-caption'>Projects</p>
+                    <span id='total-count' class='total'></span>
+                    <span class='total-caption'>Projects</span>
                 </div>
             </div>
             <div class='row-fluid stats'>
                 <div class='span12 map-btn' data-value='sources'>
-                    <p id='total-donors' class='total'></p>
-                    <p class='total-caption'>Funding Sources</p>
+                    <span id='total-donors' class='total'></span>
+                    <span class='total-caption'>Funding Sources</span>
                 </div>
             </div>
             <div class='row-fluid stats'>
                 <div class='span12 map-btn active' data-value='budget'>
-                    <p id='total-budget' class='total'></p>
-                    <p class='total-caption'>Budget 2011</p>
+                    <span id='total-budget' class='total'></span>
+                    <span class='total-caption'>Budget 2011</span>
                 </div>
             </div>
             <div class='row-fluid stats'>
                 <div class='span12 map-btn' data-value='expenditure'>
-                    <p id='total-expenditure' class='total'></p>
-                    <p class='total-caption'>Expenditure 2011</p>
+                    <span id='total-expenditure' class='total'></span>
+                    <span class='total-caption'>Expenditure 2011</span>
                 </div>
             </div>
             <div class='row-fluid stats'>
                 <div class='span12 map-btn' data-value='hdi'>
-                    <p id='hdi' class='total'>0.682</p>
-                    <p class='total-caption'>HDI Global</p>
+                    <span id='hdi' class='total'>0.682</span>
+                    <span class='total-caption'>HDI Global</span>
                 </div>
             </div>
         </div>
@@ -59,7 +59,7 @@
                             <div class='thin-bar' style='float:left;'><span style='display:block; float:left; width:30px; height:4px; background:#c8dde4; margin-right:5px; margin-top:5px;'></span>Global Avg</div>
                         </span>
                     </div>
-                    <div class='data-labels'>
+                    <div class='caption'>
                         <div><a href='#'>HDI</a></div>
                         <div><a href='#'>Health</a></div>
                         <div><a href='#'>Education</a></div>
@@ -73,7 +73,7 @@
                             <div class='change'></div>
                         </div>
                         <div id='sparkline'></div>
-                        <div id='xlabel' style='font-size:9px;'>
+                        <div id='xlabel'>
                             <span class='beginyear'>1980</span>
                             <span class='endyear' style='float:right;'>2011</span>
                         </div>
@@ -92,10 +92,8 @@
                             <button class='btn btn-mini' data-facet='operating_unit'>Count</button>
                         </div>
                     </div>
-                    <div class='data-labels'></div>
+                    <div class='caption'></div>
                     <div class='data'></div>
-                    <div class='' style='float:right; width:155px; height:122px; background:#d4e4e9; border-radius:5px; text-align:center; padding:10px;'>
-                        <p class='total heading-title' style='font-weight:bold;'></p>
                     </div>
                 </div>
             </div>
@@ -111,11 +109,8 @@
                             <button class='btn btn-mini' data-facet='focus_area'>Count</button>
                         </div>
                     </div>
-                    <div class='data-lables'></div>
+                    <div class='caption'></div>
                     <div class='data'></div>
-                    <div class='' style='float:right; width:175px; height:142px; background:#d4e4e9; border-radius:5px;'>
-                        <p class='total heading-title'></p>
-                    </div>
                 </div>
             </div>
             <div class='row-fluid'>
@@ -125,11 +120,8 @@
                             <button class='btn btn-mini active hidden' data-facet='donors'>Count</button>
                         </div>
                     </div>
-                    <div class='data-labels'></div>
+                    <div class='caption'></div>
                     <div class='data'></div>
-                    <div class='' style='float:right; width:175px; height:142px; background:#d4e4e9; border-radius:5px;'>
-                        <p class='total heading-title'></p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -161,24 +153,26 @@
     </div>
 
 </div> <!--/ #summary -->
-<div id='filters' class='hidden-phone'>
-  <div class="inner">
-    <div class='row-fluid'>
+<div class='col col-240 col-end hidden-phone'>
+  <div id='filters'>
+    <div class="inner">
+      <div class='row-fluid'>
+          <div class='span12'>
+            <h3>Filter projects</h3>
+          </div>
+      </div>
+      <div class='row-fluid'>
         <div class='span12'>
-          <h3>Filter projects</h3>
+          <form class='form-search'>
+            <input id='filters-search' type='search' id='filter-field' class='input' placeholder='Find a filter'>
+            <a href='#' class='icon reset' title='Reset filter'>&times;</a>
+          </form>
         </div>
-    </div>
-    <div class='row-fluid'>
-      <div class='span12'>
-        <form class='form-search'>
-          <input id='filters-search' type='search' id='filter-field' class='input' placeholder='Find a filter'>
-          <a href='#' class='icon reset' title='Reset filter'>&times;</a>
-        </form>
+      </div>
+      <div class='row-fluid'>
+          <div id='filter-items' class='span12'>
+          </div>
       </div>
     </div>
-    <div class='row-fluid'>
-        <div id='filter-items' class='span12'>
-        </div>
-    </div>
-  </div>
-</div> <!--/ #filters -->
+  </div> <!--/ #filters -->
+</div>

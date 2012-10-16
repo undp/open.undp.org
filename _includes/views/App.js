@@ -14,8 +14,10 @@ views.App = Backbone.View.extend({
         this.render();
 
         // Filters follow scrolling
-        $(window).on('scroll', function() {
-            if($(window).scrollTop() >= 140) {
+        var top = $('#filters').offset().top - parseFloat($('#filters').css('marginTop').replace(/auto/, 0));
+        $(window).on('scroll', function () {
+            var y = $(this).scrollTop();
+            if (y >= top) {
                 $('#filters').addClass('fixed');
             } else {
                 $('#filters').removeClass('fixed');
@@ -30,7 +32,6 @@ views.App = Backbone.View.extend({
 
         // Set up help popovers
         $('.help-note').popover({ trigger: 'hover' });
-
         $('.map-btn .lead').fitText(0.6, {minFontSize: '14px', maxFontSize: '24px'});
     },
 

@@ -16,16 +16,26 @@ views.Projects = Backbone.View.extend({
         this.low = this.high;
         this.high += 50;
 
+        $(window).on('scroll', function() {
+            if  ($(window).scrollTop() === ($(document).height() - $(window).height())) {
+                self.loadMore();
+            }
+        });
+
         var models = _(this.collection.filter(function(model) {
                 return model.get('visible');
             })).slice(self.low,self.high);
- 
+
         if (models.length) {
             _(models).each(function(model) {
                 this.$('tbody').append(templates.project({ model: model }));
-                if (models.length < self.high) {
-                    $(e.target).addClass('inactive').text('All projects loaded');
-                }
+
+                // Remove the load more link once this is clicked we can
+                // load more entries on scroll.
+                if (e.target !== undefined) $(e.target).remove();
+
+                // refresh table sort if its active on a column
+                self.sorter.refresh();
             });
         }
 
@@ -64,7 +74,7 @@ views.Projects = Backbone.View.extend({
         }
 
         // enable sorting on the table
-        var sorter = new Tablesort(document.getElementById('project-table'));
+        this.sorter = new Tablesort(document.getElementById('project-table'));
 
         return this;
     },
@@ -76,19 +86,19 @@ views.Projects = Backbone.View.extend({
             var $target = $(e.target),
                 val = $target.val().toLowerCase(),
                 mode = (val.substr(0, 3) === '000') ? 'id' : 'name';
-    
+
             //val = (mode === 'id') ? val.split('id:')[1].replace(/^\s\s*/, '') : val;
-    
+
             view.collection.each(function(model) {
                 var name = model.get(mode).toLowerCase();
-    
+
                 if (val === '' || name.indexOf(val) >= 0) {
                     model.set('visible', true);
                 } else {
                     model.set('visible', false);
                 }
             });
-    
+
             view.render();
         }, 100);
 

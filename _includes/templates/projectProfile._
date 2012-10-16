@@ -1,45 +1,45 @@
-<div class="span9 projects summary">
-    <div class="row-fluid separator">
-        <div class="span10">
-            <p class="heading-title"><%= model.get('project_title') %></p>
+<div class='col col-700 projects summary'>
+    <div class='row-fluid separator'>
+        <div class='span10'>
+            <p class='heading-title'><%= model.get("project_title") %></p>
         </div>
-        <div class="span2">
-            <p class="heading-title projid"><%= model.get('project_id') %></p>
+        <div class='span2'>
+            <p class='heading-title projid'><%= model.get("project_id") %></p>
         </div>
     </div>
 
-    <div id="top-stats" class="row-fluid">
-        <div class="span8">
-            <div class="row-fluid">
-                <div class="span6">
-                    <div class="label">Description</div>
-                    <% if (model.get('project_descr').length > 1) { %>
-                    <p><%= model.get('project_descr') %></p>
+    <div id='top-stats' class='row-fluid'>
+        <div class='span8'>
+            <div class='row-fluid'>
+                <div class='span6'>
+                    <div class='label'>Description</div>
+                    <% if (model.get("project_descr").length > 1) { %>
+                    <p><%= model.get("project_descr") %></p>
                     <% } else { %>
                     <p><em>no description given</em></p>
                     <% } %>
                 </div>
 
-                <div class="span3">
-                    <div class="label">Budget</div>
-                    <% _.each(model.get('budgetyears'), function(v,k) { %>
-                    <div><span class="date"><%= k %></span> <%= accounting.formatMoney(v) %></div>
+                <div class='span3'>
+                    <div class='label'>Budget</div>
+                    <% _.each(model.get("budgetyears"), function(v,k) { %>
+                    <div><span class='date'><%= k %></span> <%= accounting.formatMoney(v) %></div>
                     <% }); %>
                 </div>
-                <div class="span3" style="min-width: 90px;">
-                    <div class="label">Expenditure</div>
-                    <% _.each(model.get('expendyears'), function(v,k) { %>
-                    <div><span class="date"><%= k %></span> <%= accounting.formatMoney(v) %></div>
+                <div class='span3' style='min-width: 90px;'>
+                    <div class='label'>Expenditure</div>
+                    <% _.each(model.get("expendyears"), function(v,k) { %>
+                    <div><span class='date'><%= k %></span> <%= accounting.formatMoney(v) %></div>
                     <% }); %>
                 </div>
 
             </div>
-            <div class="row-fluid">
-                <div class="span6">
-                    <div class="label">Focus Area</div>
+            <div class='row-fluid'>
+                <div class='span6'>
+                    <div class='label'>Focus Area</div>
                     <%
-                    var focusCount = _.chain(model.get('outputs'))
-                        .map(function (o) { return o.focus_area + '-' + o.focus_area_descr })
+                    var focusCount = _.chain(model.get("outputs"))
+                        .map(function (o) { return o.focus_area + "-" + o.focus_area_descr })
                         .flatten()
                         .compact()
                         .reduce(function(counts, items) {
@@ -47,32 +47,32 @@
                             return counts; }, {})
                         .value();
                     %>
-                    <% if (_.size(focusCount) == 1 && focusCount['-']) { %>
+                    <% if (_.size(focusCount) == 1 && focusCount["-"]) { %>
                     <p><em>no focus area given</em></p>
                     <% } else { %>
-                    <ul class="unstyled">
+                    <ul class='unstyled'>
                     <% for (var key in focusCount) {
-                        if (key != '-') { %>
-                          <li><a href="#filter/focus_area-<%= key.split('-')[0] %>"><%= key.split('-')[1] %></a> (<%= focusCount[key] %>)</li>
+                        if (key != "-") { %>
+                          <li><a href='#filter/focus_area-<%= key.split("-")[0] %>'><%= key.split("-")[1] %></a> (<%= focusCount[key] %>)</li>
                         <% } %>
                     <% } %>
                     </ul>
                     <% } %>
                 </div>
-                <div class="span3">
-                    <div class="label">Start</div>
-                    <p><%= model.get('start').split(' ')[0] %></p>
+                <div class='span3'>
+                    <div class='label'>Start</div>
+                    <p><%= model.get("start").split(" ")[0] %></p>
                 </div>
-                <div class="span3">
-                    <div class="label">End</div>
-                    <p><%= model.get('end').split(' ')[0] %></p>
+                <div class='span3'>
+                    <div class='label'>End</div>
+                    <p><%= model.get("end").split(" ")[0] %></p>
                 </div>
             </div>
-            <div class="row-fluid">
-                <div class="span6">
-                    <div class="label">Aid Classification</div>
+            <div class='row-fluid'>
+                <div class='span6'>
+                    <div class='label'>Aid Classification</div>
                     <%
-                    var crsCount = _.chain(model.get('outputs'))
+                    var crsCount = _.chain(model.get("outputs"))
                         .map(function (o) { return o.crs_descr })
                         .flatten()
                         .compact()
@@ -82,7 +82,7 @@
                         .value();
                     %>
                     <% if (_.size(crsCount) > 0) { %>
-                    <ul class="unstyled">
+                    <ul class='unstyled'>
                     <% for (var key in crsCount) { %>
                     <li><%= key %> (<%= crsCount[key] %>)</li>
                     <% } %>
@@ -91,23 +91,23 @@
                     <p><em>no classification given</em></p>
                     <% } %>
                 </div>
-                <% if (model.get('inst_descr')) { %>
-                <div class="span3" style="min-width:125px">
-                    <div class="label">Implementing Partner</div>
-                    <p><%= model.get('inst_descr') %></p>
+                <% if (model.get("inst_descr")) { %>
+                <div class='span3' style='min-width:125px'>
+                    <div class='label'>Implementing Partner</div>
+                    <p><%= model.get("inst_descr") %></p>
                 </div>
                 <% } %>
-                <div class="span3">
-                    <div class="label">Operating Unit</div>
-                    <p><a href="#filter/operating_unit-<%= model.get('operating_unit_id') %>"><%= model.get('operating_unit') %></a></p>
+                <div class='span3'>
+                    <div class='label'>Operating Unit</div>
+                    <p><a href='#filter/operating_unit-<%= model.get("operating_unit_id") %>'><%= model.get("operating_unit") %></a></p>
                 </div>
 
             </div>
-            <div class="row-fluid">
-                <div class="span6">
-                    <div class="label">Gender</div>
+            <div class='row-fluid'>
+                <div class='span6'>
+                    <div class='label'>Gender</div>
                     <%
-                    var genderCount = _.chain(model.get('outputs'))
+                    var genderCount = _.chain(model.get("outputs"))
                         .map(function (o) { return o.gender_descr })
                         .flatten()
                         .compact()
@@ -117,7 +117,7 @@
                         .value();
                     %>
                     <% if (_.size(genderCount) > 0) { %>
-                    <ul class="unstyled">
+                    <ul class='unstyled'>
                     <% for (var key in genderCount) { %>
                     <li><%= key %> (<%= genderCount[key] %>)</li>
                     <% } %>
@@ -126,21 +126,21 @@
                     <p><em>no gender data given</em></p>
                     <% } %>
                 </div>
-                <div class="span6">
+                <div class='span6'>
 
-                    <div class="label">Funding Sources</div>
+                    <div class='label'>Funding Sources</div>
                     <%
-                    var donors_id = _.chain(model.get('outputs'))
+                    var donors_id = _.chain(model.get("outputs"))
                         .map(function (o) { return o.donor_id })
                         .flatten()
                         .union()
                         .value();
-                    var donors_short = _.chain(model.get('outputs'))
+                    var donors_short = _.chain(model.get("outputs"))
                         .map(function (o) { return o.donor_short })
                         .flatten()
                         .union()
                         .value();
-                    var donors_long = _.chain(model.get('outputs'))
+                    var donors_long = _.chain(model.get("outputs"))
                         .map(function (o) { return o.donor_name })
                         .flatten()
                         .union()
@@ -149,11 +149,11 @@
                     <p>
                         <% if (donors_long.length < 5) {
                             _.each(donors_id, function(o,i) { %>
-                                <a href="#filter/donors-<%= o %>"><%= donors_long[i] %></a><% if (i != donors_id.length -1) { %>, <% } %>
+                                <a href='#filter/donors-<%= o %>'><%= donors_long[i] %></a><% if (i != donors_id.length -1) { %>, <% } %>
                             <% });
                         } else {
                             _.each(donors_id, function(o,i) { %>
-                                <a href="#filter/donors-<%= o %>"><%= donors_short[i] %></a><% if (i != donors_id.length -1) { %>, <% } %>
+                                <a href='#filter/donors-<%= o %>'><%= donors_short[i] %></a><% if (i != donors_id.length -1) { %>, <% } %>
                             <% });
                         } %>
                     </p>
@@ -161,86 +161,86 @@
 
             </div>
         </div>
-        <div class="span4">
-            <div class="row-fluid">
-                <div class="span12">
-                    <div class="label visible-phone">Location</div>
-                    <div id="profilemap" class="map"></div>
+        <div class='span4'>
+            <div class='row-fluid'>
+                <div class='span12'>
+                    <div class='label visible-phone'>Location</div>
+                    <div id='profilemap' class='map'></div>
                 </div>
             </div>
         </div>
     </div> <!--/ #top-stats -->
     
-    <% if (!_.isEmpty(model.get('document_name'))) { %>
-    <div class="separator">
-        <p class="heading-title">Documents<span></p>
+    <% if (!_.isEmpty(model.get("document_name"))) { %>
+    <div class='separator'>
+        <p class='heading-title'>Documents<span></p>
     </div>
     
-    <div id="documents" class="row-fluid">
-        <div class="span12">
-            <ul class="unstyled">
-                <% _.each(model.get('document_name')[0], function(obj,i) { %>
-                <li><a href="<%= model.get('document_name')[1][i] %>"><span class="filetype"><%= obj.split('.')[1] %></span>
-                <%= obj.split('.')[0] %></a></li>
+    <div id='documents' class='row-fluid'>
+        <div class='span12'>
+            <ul class='unstyled'>
+                <% _.each(model.get("document_name")[0], function(obj,i) { %>
+                <li><a href='<%= model.get("document_name")[1][i] %>'><span class='filetype'><%= obj.split(".")[1] %></span>
+                <%= obj.split(".")[0] %></a></li>
                 <% }); %>
             </ul>
         </div>
     </div> <!--/ #documents -->
     <% } %>
 
-    <div class="separator">
-        <p class="heading-title">Outputs <span>(<%= model.get('outputs').length %>)</p>
+    <div class='separator'>
+        <p class='heading-title'>Outputs <span>(<%= model.get("outputs").length %>)</p>
     </div>
 
-    <% _.each(model.get('outputs'), function(obj, i) { %>
-    <div id="output-<%= obj.output_id %>" class="project row-fluid">
-        <div class="span1 projid">
+    <% _.each(model.get("outputs"), function(obj, i) { %>
+    <div id='output-<%= obj.output_id %>' class='project row-fluid'>
+        <div class='span1 projid'>
             <p><strong><%= obj.output_id %></strong></p>
         </div>
-        <div class="span5">
+        <div class='span5'>
             <h3><%= obj.output_title %></h3>
             <p><%= obj.output_descr %></p>
         </div>
-        <div class="span4">
+        <div class='span4'>
             <% if (obj.focus_area) { %>
-            <div class="row-fluid">
-                <div class="label">Focus Area</div>
-                <span><a href="#filter/focus_area-<%= obj.focus_area %>"><%= obj.focus_area_descr %></a></span>
+            <div class='row-fluid'>
+                <div class='label'>Focus Area</div>
+                <span><a href='#filter/focus_area-<%= obj.focus_area %>'><%= obj.focus_area_descr %></a></span>
             </div>
             <% } %>
             <% if (obj.crs) { %>
-            <div class="row-fluid">
-                <div class="label">Aid Classification</div>
+            <div class='row-fluid'>
+                <div class='label'>Aid Classification</div>
                 <span><%= obj.crs_descr %></a></span>
             </div>
             <% } %>
             <% if (obj.gender_id) { %>
-            <div class="row-fluid">
-                <div class="label">Gender Equality</div>
+            <div class='row-fluid'>
+                <div class='label'>Gender Equality</div>
                 <span><%= obj.gender_descr %></span>
             </div>
             <% } %>
-            <div class="row-fluid">
-                <div class="label">Funding Sources</div>
+            <div class='row-fluid'>
+                <div class='label'>Funding Sources</div>
                 <% _.each(obj.donor_short, function(o, i) { %>
-                <span><a href="#filter/donors-<%= obj.donor_id[i] %>"><%= o %></a></span><% if (i != obj.donor_short.length -1) { %>, <% } %>
+                <span><a href='#filter/donors-<%= obj.donor_id[i] %>'><%= o %></a></span><% if (i != obj.donor_short.length -1) { %>, <% } %>
                 <% }); %>
             </div>
         </div>
-        <div class="span2">
-            <div class="row-fluid">
-                <div class="span12">
-                    <div class="label">Budget</div>
+        <div class='span2'>
+            <div class='row-fluid'>
+                <div class='span12'>
+                    <div class='label'>Budget</div>
                     <% _.each(obj.budget, function(o, i) { %>
-                    <div><span class="date"><%= obj.fiscal_year[i] %></span> <%= accounting.formatMoney(o) %></div>
+                    <div><span class='date'><%= obj.fiscal_year[i] %></span> <%= accounting.formatMoney(o) %></div>
                     <% }); %>
                 </div>
             </div>
-            <div class="row-fluid">
-                <div class="span12">
-                    <div class="label">Expenditure</div>
+            <div class='row-fluid'>
+                <div class='span12'>
+                    <div class='label'>Expenditure</div>
                     <% _.each(obj.expenditure, function(o, i) { %>
-                    <div><span class="date"><%= obj.fiscal_year[i] %></span> <%= accounting.formatMoney(o) %></div>
+                    <div><span class='date'><%= obj.fiscal_year[i] %></span> <%= accounting.formatMoney(o) %></div>
                     <% }); %>
                 </div>
             </div>
@@ -249,57 +249,59 @@
     <% }); %>
 </div> <!--/ #summary -->
 
-<div class="span9 glance summary">
-    <div class="row-fluid separator">
-        <p class="heading-title">UNDP <%= model.get('operating_unit') %>
+<div class='span9 glance summary'>
+    <div class='row-fluid separator'>
+        <p class='heading-title'>UNDP <%= model.get("operating_unit") %>
         </p>
     </div>
-    <div id="flickr" class="row-fluid">
-        <div class="span6"></div>
-        <div class="meta span6">
+    <div id='flickr' class='row-fluid'>
+        <div class='span6'></div>
+        <div class='meta span6'>
         </div>
-        <div class="control resize" title="Resize"><div class="icon-resize-small"></div></div>
-        <div class="control prev" title="Previous"><div class="icon-arrow-left"></div></div>
-        <div class="control next" title="Next"><div class="icon-arrow-right"></div></div>
+        <div class='control resize' title='Resize'><div class='icon-resize-small'></div></div>
+        <div class='control prev' title='Previous'><div class='icon-arrow-left'></div></div>
+        <div class='control next' title='Next'><div class='icon-arrow-right'></div></div>
     </div>
 </div>
 
-<div id="content-right" class="span3 hidden-phone">
-    <div class="row-fluid">
-        <div class="span12">
-            <p class="label">Outputs</p>
+<div id='content-right' class='col col-240 col-end hidden-phone'>
+  <div class='inner'>
+    <div class='row-fluid'>
+        <div class='span12'>
+            <p class='label'>Outputs</p>
         </div>
     </div>
-    <div class="row-fluid">
-        <div id="output-nav" class="span12">
-            <ul class="output-nav unstyled">
-                <% _.all(model.get('outputs'), function(obj, i) { %>
-                    <li><a href="#project/<%= model.get('project_id') %>/output-<%= obj.output_id %>"><%= obj.output_id %> - <%= obj.output_title %></a></li>
+    <div class='row-fluid'>
+        <div id='output-nav' class='span12'>
+            <ul class='output-nav unstyled'>
+                <% _.all(model.get("outputs"), function(obj, i) { %>
+                    <li><a href='#project/<%= model.get("project_id") %>/output-<%= obj.output_id %>'><%= obj.output_id %> - <%= obj.output_title %></a></li>
                     <% return i < 10; %>
                 <% }); %>
             </ul>
         </div>
     </div>
-    <div class="row-fluid">
-        <div id="twitter" class="span12">
+    <div class='row-fluid'>
+        <div id='twitter' class='span12'>
         </div>
     </div>
-    <div class="row-fluid">
-        <div class="span12">
+    <div class='row-fluid'>
+        <div class='span12'>
             <div class='tweet'></div>
         </div>
     </div>
+  </div>
 </div> <!--/ #content-right -->
 
 <!-- Modals -->
-<div class="modal hide fade" id="unit-contact">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h3>UNDP <%= model.get('operating_unit') %> on the Web</h3>
+<div class='modal hide fade' id='unit-contact'>
+    <div class='modal-header'>
+        <button type='button' class='close' data-dismiss='modal'>&times;</button>
+        <h3>UNDP <%= model.get("operating_unit") %> on the Web</h3>
     </div>
-    <div class="modal-body">
+    <div class='modal-body'>
     </div>
-    <div class="modal-footer">
-        <a href="#" class="btn" data-dismiss="modal">Close</a>
+    <div class='modal-footer'>
+        <a href='#' class='btn' data-dismiss='modal'>Close</a>
     </div>
 </div>

@@ -14,15 +14,15 @@ views.Map = Backbone.View.extend({
         $('#chart-hdi').css('display','none');
         var that = this,
             layer,
-            unit = (this.collection) ? this.collection 
+            unit = (this.collection) ? this.collection
                 : this.model.get('operating_unit_id');
-        
+
         // Get HDI data
         $.getJSON('api/hdi.json', function(data) {
-        
+
             var hdiWorld = _.find(data,function(d){return d.name == 'World';});
             hdiWorld.count = _.max(data,function(d){return d.rank;}).rank;
-        
+
             var hdiArray = _.reduce(data, function(res,obj) {
                 if (((_.isObject(unit)) ? unit.operating_unit[obj.id] : obj.id === unit) && obj.hdi) {
                     res[obj.id] = {
@@ -35,7 +35,7 @@ views.Map = Backbone.View.extend({
                 }
                 return res;
             }, {});
-            
+
             if (that.collection) {
                 layer = $('.map-btn.active').attr('data-value');
                 that.collection.hdi = hdiArray;
@@ -44,7 +44,7 @@ views.Map = Backbone.View.extend({
                     var hdi = _.filter(data, function(d) {
                         return d.id == _.keys(unit.operating_unit);
                     })[0];
-                    
+
                     $('.map-btn[data-value="hdi"] .date').empty();
                     if (_.size(hdiArray) > 0) {
                         $('#hdi').html(_.last(hdi.hdi)[1]);
@@ -66,17 +66,17 @@ views.Map = Backbone.View.extend({
                 that.$el.empty().append('<div class="inner-shadow"></div>');
                 that.buildMap(layer);
         });
-        
+
         return this;
     },
     mapClick: function(e) {
         var $target = $(e.target),
             drag = false;
-            
+
         this.map.addCallback('panned', function() {
             drag = true;
         });
-        
+
         // if map has been panned do not fire click
         $target.on('mouseup', function(e) {
             if (drag) {
@@ -108,11 +108,11 @@ views.Map = Backbone.View.extend({
             health = data.health,
             ed = data.education,
             inc = data.income;
-        
+
         var sparklineOptions = {
             xaxis: {show: false, min: beginYr, max: endYr},
             yaxis: {show: false, min: 0, max: 1},
-            grid: { show: true, borderWidth: 0, color: '#CEDEDD', minBorderMargin: 0, 
+            grid: { show: true, borderWidth: 0, color: '#CEDEDD', minBorderMargin: 0,
                 markings: function (axes) {
                     var markings = [];
                     for (var x = 5; x < axes.xaxis.max; x += 5)
@@ -128,17 +128,17 @@ views.Map = Backbone.View.extend({
             },
             colors: ['#96CCE6', '#70B678', '#DC9B75', '#036']
         };
-        
+
         var points = {points: { show:true, radius: 1 }};
-        
+
         if (beginYr === endYr) {
             _.extend(sparklineOptions.series, points);
             endYr = '';
         }
-        
+
         $('#xlabel .beginyear').html(beginYr);
         $('#xlabel .endyear').html(endYr);
-        
+
         if (data.change > 0) {
             $('#chart-hdi .change').html('<div class="trend hdi-up"></div>' + Math.round(data.change*1000)/1000);
         } else if (data.change < 0) {
@@ -146,7 +146,7 @@ views.Map = Backbone.View.extend({
         } else {
             $('#chart-hdi .change').html('<div class="trend hdi-nochange">--</div>' + Math.round(data.change*1000)/1000);
         }
-        
+
         $.plot($("#sparkline"), [health,ed,inc,{data: ctry, lines: {lineWidth: 1.5}}], sparklineOptions);
     },
     scale: function(cat,x) {
@@ -161,14 +161,14 @@ views.Map = Backbone.View.extend({
     updateMap: function(layer) {
         var that = this,
             markers = this.map.layers[2],
-        
+
             radii = function(f) {
                 f.properties.description = that.tooltip(layer,f.properties);
                 return clustr.area_to_radius(
                     Math.round(that.scale(layer,f))
                 );
             };
-            
+
         markers.sort(function(a,b){ return b.properties[layer] - a.properties[layer]; })
             .factory(clustr.scale_factory(radii, "rgba(0,85,170,0.6)", "#0B387C"));
     },
@@ -176,16 +176,16 @@ views.Map = Backbone.View.extend({
         var that = this,
             locations = [],
             count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
-            unit = (this.collection) ? this.collection 
+            unit = (this.collection) ? this.collection
                 : this.model.get('operating_unit_id'),
-            
+
             // if unit is an object we're working with the homepage map, else the project map
             homepage = _.isObject(unit);
 
         mapbox.auto(this.el, 'dhcole.map-75gxxhee', function(map) {
             that.map = map;
             map.setZoomRange(2, 17);
-            
+
             $(that.el).append('<a href="#" class="map-fullscreen"></a>');
 
             var radii = function(f) {
@@ -194,7 +194,7 @@ views.Map = Backbone.View.extend({
                     Math.round(that.scale(layer,f))
                 );
             };
-            
+
             var markers = mapbox.markers.layer()
                 .factory(clustr.scale_factory(radii, "rgba(0,85,170,0.6)", "#0B387C"))
                 .sort(function(a,b){ return b.properties[layer] - a.properties[layer]; });
@@ -203,9 +203,9 @@ views.Map = Backbone.View.extend({
                 for (var i = 0; i < data.length; i++) {
                     var o = data[i];
                     if ((homepage) ? unit.operating_unit[o.id] : o.id === unit) {
-                    
+
                         if (!homepage) { that.getwebData(o); }
-                        
+
                         if (o.lon) {
                             (homepage) ? count = unit.operating_unit[o.id] : count = false;
                             (homepage) ? sources = unit.operating_unitSources[o.id] : sources = false;
@@ -220,7 +220,7 @@ views.Map = Backbone.View.extend({
                             } else {
                                 hdi = hdi_health = hdi_education = hdi_income = hdi_rank = 'no data';
                             }
-                            
+
                             locations.push({
                                 geometry: {
                                     coordinates: [
@@ -246,7 +246,7 @@ views.Map = Backbone.View.extend({
                         }
                     }
                 }
-                
+
                 if (locations.length != 0) {
                     markers.features(locations);
                     mapbox.markers.interaction(markers);
@@ -261,7 +261,7 @@ views.Map = Backbone.View.extend({
             });
         });
     },
-    
+
     tooltip: function(layer,data) {
         var description;
         if (layer == 'hdi') {
@@ -274,16 +274,16 @@ views.Map = Backbone.View.extend({
                 + '<div class="subdata education" style="width:' + _.last(this.collection.hdiWorld.education)[1]*150 + 'px;"></div>'
                 + '<div class="income" style="width:' + data.hdi_income*150 + 'px">' + data.hdi_income + '</div>'
                 + '<div class="subdata income" style="width:' + _.last(this.collection.hdiWorld.income)[1]*150 + 'px;"></div></div>';
-                
+
             data.title = data.name + '<div class="subtitle">rank: ' + data.hdi_rank + '</div>';
         } else {
             description = '<div class="stat">Budget: <span class="value">'
                 + accounting.formatMoney(data.budget) + '</span></div>'
                 + '<div class="stat">Expenditure: <span class="value">'
                 + accounting.formatMoney(data.expenditure) + '</span></div>';
-                
+
             data.title = data.project + '<div class="subtitle">' + data.name + '</div>';
-                
+
             // add this if we're counting projects (on homepage)
             if (data.count) {
                 description = '<div class="stat">Projects: <span class="value">'
@@ -293,25 +293,25 @@ views.Map = Backbone.View.extend({
                     + description
                     + '<div class="stat">HDI: <span class="value">'
                     + data.hdi + '</span></div>';
-                    
+
                 data.title = data.name;
             }
         }
-        
+
         return description;
     },
-    
+
     fullscreen: function(e) {
         e.preventDefault();
 
         this.$el.parent().toggleClass('full');
         this.map.setSize({ x: this.$el.width(), y: this.$el.height() });
     },
-    
+
     getwebData: function(data) {
         var that = this,
             baseUrl;
-        
+
         _.each(['web','email','facebook','twitter','flickr'], function(v) {
             if (v === 'flickr') {
                 // if no flickr account, use general UNDP account
@@ -325,7 +325,7 @@ views.Map = Backbone.View.extend({
                 } else {
                     baseUrl = '';
                 }
-                
+
                 // Fill contact modal
                 $('#unit-contact .modal-body').append(
                       '<div class="row-fluid">'
@@ -337,14 +337,14 @@ views.Map = Backbone.View.extend({
                     +     '</div>'
                     + '</div>'
                 );
-                
+
                 if (v === 'twitter' && data[v]) {
                     that.twitter(data[v]);
                 }
             }
         });
     },
-    
+
     twitter: function(username) {
         var user = username.replace('@','');
         $(".tweet").tweet({
@@ -354,28 +354,28 @@ views.Map = Backbone.View.extend({
             template: "{avatar}<div>{text}</div><div class='actions'>{time} &#183; {reply_action} &#183; {retweet_action} &#183; {favorite_action}</div>",
             loading_text: "loading tweets..."
         });
-        
+
         $('#twitter').html('<p class="label"><span class="twitter"></span><a href="http://twitter.com/' + user + '">' + username + '</a></p>');
     },
-    
+
     flickr: function(office, url) {
         var apiBase = 'http://api.flickr.com/services/rest/?format=json&jsoncallback=?&method=',
             apiKey = '6a12a7e8c27f63a85bb39ee2b692822c',
             userid, username,
-            
+
             searchFirst = this.model.get('project_id'),
             searchSecond = office,
             //searchSecond = this.model.get('project_title').replace(/ /g,'+'),
             attempt = 0;
-        
+
         // Get user info based on flickr link
         $.getJSON(apiBase + 'flickr.urls.lookupUser&api_key=' + apiKey + '&url=' + url, function(f) {
             userid = f.user.id,
             username = f.user.username._content;
-            
+
             searchPhotos(userid, searchFirst);
         });
-        
+
         // Search Flickr based on search terms. Try project_id, then country office.
         function searchPhotos(id, search) {
             $.getJSON(apiBase + 'flickr.photos.search&api_key=' + apiKey + '&user_id=' + userid + '&text=' + search,
@@ -393,22 +393,22 @@ views.Map = Backbone.View.extend({
                     } else {
                         var photos = f.photos.photo;
                         var i = 0;
-                        
+
                         // Load single photo from array
                         function loadPhoto(x) {
                             var photoid = photos[x].id;
-                            
+
                             // Get photo info based on id
                             $.getJSON(apiBase + 'flickr.photos.getInfo&api_key=' + apiKey + '&photo_id=' + photoid, function(info) {
-                                
+
                                 var description = info.photo.description._content,
                                     source = 'http://farm' + photos[x].farm
                                         + '.staticflickr.com/' + photos[x].server
                                         + '/' + photoid + '_' + photos[x].secret + '_b.jpg';
-                                
+
                                 // Get photo dimensions, checking for portrait vs. landscape
                                 $.getJSON(apiBase + 'flickr.photos.getSizes&api_key=' + apiKey + '&photo_id=' + photoid, function(s) {
-                                    
+
                                     if (s.sizes.size[6].height > s.sizes.size[6].width) {
                                         $('#flickr').css('background','url("' + source + '") center 38% no-repeat');
                                         $('#flickr').css('background-size','cover');
@@ -416,9 +416,9 @@ views.Map = Backbone.View.extend({
                                         $('#flickr').css('background','url("' + source + '") center 25% no-repeat');
                                         $('#flickr').css('background-size','cover');
                                     }
-                                    
+
                                     var date = (new Date(info.photo.dates.taken)).toLocaleDateString();
-                                    
+
                                     // Fill in date & description
                                     $('#flickr .meta').html('<p class="label">' + date
                                         + '<span class="iconlink"><a href="'
@@ -429,9 +429,9 @@ views.Map = Backbone.View.extend({
                                 });
                             });
                         }
-                        
+
                         loadPhoto(i);
-                        
+
                         // Show description & nav when hovering over photo
                         $('#flickr').hover(
                             function() {
@@ -452,7 +452,7 @@ views.Map = Backbone.View.extend({
                                 $('#flickr .control').fadeOut();
                             }
                         );
-                        
+
                         // Cycle through photo array
                         $('#flickr .next').click(function() {
                             if (i == 0) {
@@ -474,7 +474,7 @@ views.Map = Backbone.View.extend({
                             }
                             loadPhoto(i);
                         });
-                        
+
                         // Toggle resizing of photo to fit container
                         $('#flickr .resize').click(function() {
                             if ($(this).children().hasClass('icon-resize-small')) {
