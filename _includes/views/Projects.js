@@ -11,7 +11,7 @@ views.Projects = Backbone.View.extend({
         this.low = 50,
         this.high = 100;
     },
-    loadMore: function() {
+    loadMore: function(e) {
         var self = this;
         this.low = this.high;
         this.high += 50;
@@ -19,10 +19,13 @@ views.Projects = Backbone.View.extend({
         var models = _(this.collection.filter(function(model) {
                 return model.get('visible');
             })).slice(self.low,self.high);
-            
+ 
         if (models.length) {
             _(models).each(function(model) {
                 this.$('tbody').append(templates.project({ model: model }));
+                if (models.length < self.high) {
+                    $(e.target).addClass('inactive').text('All projects loaded');
+                }
             });
         }
 
@@ -59,6 +62,9 @@ views.Projects = Backbone.View.extend({
             this.$('tbody').append('<tr><td><em>No projects</em></td><td></td><td></td></tr>');
 
         }
+
+        // enable sorting on the table
+        var sorter = new Tablesort(document.getElementById('project-table'));
 
         return this;
     },

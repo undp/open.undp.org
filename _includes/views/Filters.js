@@ -74,7 +74,7 @@ views.Filters = Backbone.View.extend({
             $('.placeholder', '#chart-' + this.collection.id).empty().addClass('hidden');
             $('.btn-' + this.collection.id).removeClass('hidden');
             $('.data', '#chart-' + this.collection.id).empty().removeClass('hidden');
-            $('.caption', '#chart-' + this.collection.id).empty().removeClass('hidden');
+            $('.data-label', '#chart-' + this.collection.id).empty().removeClass('hidden');
             $('#chart-' + this.collection.id).parent().css('display','block');
 
             _(chartModels).each(function(model) {
@@ -87,7 +87,7 @@ views.Filters = Backbone.View.extend({
                     $('.data', '#chart-' + model.collection.id).append(
                         '<div class="subdata" style="width: ' + (model.get('expenditure')/ max * 100) + '%"></div>'
                     );
-                    $('.caption', '#chart-' + model.collection.id).append(
+                    $('.data-label', '#chart-' + model.collection.id).append(
                         '<div><a href="#filter/' + model.collection.id + '-' + model.get('id')
                         + '">' + model.get('name').toLowerCase() + '</a></div>'
                     );
@@ -97,7 +97,7 @@ views.Filters = Backbone.View.extend({
                     $('.data', '#chart-' + model.collection.id).append(
                         '<div style="margin-bottom:0.25em; width: ' + (model.get(chartType)/ max * 100) + '%">' + label + '</div>'
                     );
-                    $('.caption', '#chart-' + model.collection.id).append(
+                    $('.data-label', '#chart-' + model.collection.id).append(
                         '<div style="margin: 0;"><a href="#filter/' + model.collection.id + '-' + model.get('id')
                         + '">' + model.get('name').toLowerCase() + '</a></div>'
                     );

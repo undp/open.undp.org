@@ -265,7 +265,7 @@ views.Map = Backbone.View.extend({
     tooltip: function(layer,data) {
         var description;
         if (layer == 'hdi') {
-            description = '<div class="caption"><div>HDI</div><div>Health</div><div>Education</div><div>Income</div></div>'
+            description = '<div class="data-labels"><div>HDI</div><div>Health</div><div>Education</div><div>Income</div></div>'
                 + '<div class="data"><div class="total" style="width:' + data.hdi*150 + 'px">' + data.hdi + '</div>'
                 + '<div class="subdata total" style="width:' + _.last(this.collection.hdiWorld.hdi)[1]*150 + 'px;"></div>'
                 + '<div class="health" style="width:' + data.hdi_health*150 + 'px">' + data.hdi_health + '</div>'
