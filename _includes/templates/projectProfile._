@@ -189,7 +189,7 @@
     <% } %>
 
     <div class="separator">
-        <p class="lead">Outputs <span>(<%= model.get('outputs').length %>)</p>
+        <p class="lead">Outputs<% if (model.get('outputs').length > 1) { %> <span>(<%= model.get('outputs').length %>)</span><% } %></p>
     </div>
 
     <% _.each(model.get('outputs'), function(obj, i) { %>
