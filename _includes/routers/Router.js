@@ -70,7 +70,6 @@ routers.App = Backbone.Router.extend({
             
         if (_.isEqual(this.app.filters, filters)) {
             $('html, body').scrollTop(0);
-            $('#browser .summary').removeClass('off');
         } else {
             filter = function(model) {
                 if (!filters.length) return true;
@@ -133,5 +132,7 @@ routers.App = Backbone.Router.extend({
                 });
             }
         }
+        
+        $('#browser .summary').removeClass('off');
     }
 });
