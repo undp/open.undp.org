@@ -19,115 +19,37 @@
                     <p><em>no description given</em></p>
                     <% } %>
                 </div>
+                <div class="span6 dates">
+                    <div class="dates-label">
+                        <span class="start">Start</span>
+                        <span class="end">End</span>
+                    </div>
+                    <div class="progress">
+                        <div class="bar"></div>
+                    </div>
+                    <div>
+                        <span class="start"><%= model.get('start') %></span>
+                        <span class="end"><%= model.get('end') %></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <% if (model.get('inst_descr')) { %>
+                <div class="span6" style="min-width:125px">
+                    <div class="label">Implementing Partner</div>
+                    <p><%= model.get('inst_descr') %></p>
+                </div>
+                <% } %>
 
-                <div class="span3">
+                <div class="span6">
                     <div class="label">Budget</div>
                     <% _.each(model.get('budgetyears'), function(v,k) { %>
                     <div><span class="date"><%= k %></span> <%= accounting.formatMoney(v) %></div>
                     <% }); %>
                 </div>
-                <div class="span3" style="min-width: 90px;">
-                    <div class="label">Expenditure</div>
-                    <% _.each(model.get('expendyears'), function(v,k) { %>
-                    <div><span class="date"><%= k %></span> <%= accounting.formatMoney(v) %></div>
-                    <% }); %>
-                </div>
-
             </div>
             <div class="row-fluid">
                 <div class="span6">
-                    <div class="label">Focus Area</div>
-                    <%
-                    var focusCount = _.chain(model.get('outputs'))
-                        .map(function (o) { return o.focus_area + '-' + o.focus_area_descr })
-                        .flatten()
-                        .compact()
-                        .reduce(function(counts, items) {
-                            counts[items] = (counts[items] || 0) + 1;
-                            return counts; }, {})
-                        .value();
-                    %>
-                    <% if (_.size(focusCount) == 1 && focusCount['-']) { %>
-                    <p><em>no focus area given</em></p>
-                    <% } else { %>
-                    <ul class="unstyled">
-                    <% for (var key in focusCount) {
-                        if (key != '-') { %>
-                          <li><a href="#filter/focus_area-<%= key.split('-')[0] %>"><%= key.split('-')[1] %></a> (<%= focusCount[key] %>)</li>
-                        <% } %>
-                    <% } %>
-                    </ul>
-                    <% } %>
-                </div>
-                <div class="span3">
-                    <div class="label">Start</div>
-                    <p><%= model.get('start').split(' ')[0] %></p>
-                </div>
-                <div class="span3">
-                    <div class="label">End</div>
-                    <p><%= model.get('end').split(' ')[0] %></p>
-                </div>
-            </div>
-            <div class="row-fluid">
-                <div class="span6">
-                    <div class="label">Aid Classification</div>
-                    <%
-                    var crsCount = _.chain(model.get('outputs'))
-                        .map(function (o) { return o.crs_descr })
-                        .flatten()
-                        .compact()
-                        .reduce(function(counts, items) {
-                            counts[items] = (counts[items] || 0) + 1;
-                            return counts; }, {})
-                        .value();
-                    %>
-                    <% if (_.size(crsCount) > 0) { %>
-                    <ul class="unstyled">
-                    <% for (var key in crsCount) { %>
-                    <li><%= key %> (<%= crsCount[key] %>)</li>
-                    <% } %>
-                    </ul>
-                    <% } else { %>
-                    <p><em>no classification given</em></p>
-                    <% } %>
-                </div>
-                <% if (model.get('inst_descr')) { %>
-                <div class="span3" style="min-width:125px">
-                    <div class="label">Implementing Partner</div>
-                    <p><%= model.get('inst_descr') %></p>
-                </div>
-                <% } %>
-                <div class="span3">
-                    <div class="label">Operating Unit</div>
-                    <p><a href="#filter/operating_unit-<%= model.get('operating_unit_id') %>"><%= model.get('operating_unit') %></a></p>
-                </div>
-
-            </div>
-            <div class="row-fluid">
-                <div class="span6">
-                    <div class="label">Gender</div>
-                    <%
-                    var genderCount = _.chain(model.get('outputs'))
-                        .map(function (o) { return o.gender_descr })
-                        .flatten()
-                        .compact()
-                        .reduce(function(counts, items) {
-                            counts[items] = (counts[items] || 0) + 1;
-                            return counts; }, {})
-                        .value();
-                    %>
-                    <% if (_.size(genderCount) > 0) { %>
-                    <ul class="unstyled">
-                    <% for (var key in genderCount) { %>
-                    <li><%= key %> (<%= genderCount[key] %>)</li>
-                    <% } %>
-                    </ul>
-                    <% } else { %>
-                    <p><em>no gender data given</em></p>
-                    <% } %>
-                </div>
-                <div class="span6">
-
                     <div class="label">Funding Sources</div>
                     <%
                     var donors_id = _.chain(model.get('outputs'))
@@ -158,7 +80,12 @@
                         } %>
                     </p>
                 </div>
-
+                <div class="span6" style="min-width: 90px;">
+                    <div class="label">Expenditure</div>
+                    <% _.each(model.get('expendyears'), function(v,k) { %>
+                    <div><span class="date"><%= k %></span> <%= accounting.formatMoney(v) %></div>
+                    <% }); %>
+                </div>
             </div>
         </div>
         <div class="span4">

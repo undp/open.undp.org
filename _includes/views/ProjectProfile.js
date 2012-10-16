@@ -38,6 +38,14 @@ views.ProjectProfile = Backbone.View.extend({
     },
     
     render: function() {
+        var startDate = new Date(this.model.get('start').replace('-',',')),
+            endDate = new Date(this.model.get('end').replace('-',',')),
+            curDate = new Date(),
+            progress = ((curDate - startDate)/(endDate - startDate))*100;
+            
+            console.log(progress);
+            
+        
     
         this.model.attributes.budget = _.chain(this.model.attributes.outputs)
             .map(function (o) { return o.budget })
@@ -45,7 +53,7 @@ views.ProjectProfile = Backbone.View.extend({
             .reduce(function(memo, num){ return memo + num; }, 0)
             .value();
             
-         this.model.attributes.expenditure = _.chain(this.model.attributes.outputs)
+        this.model.attributes.expenditure = _.chain(this.model.attributes.outputs)
             .map(function (o) { return o.expenditure })
             .flatten()
             .reduce(function(memo, num){ return memo + num; }, 0)
@@ -77,6 +85,8 @@ views.ProjectProfile = Backbone.View.extend({
             el: '#profilemap',
             model: this.model
         });
+        
+        $('#top-stats .progress .bar').css('width',progress + '%');
         
         return this;
     }
