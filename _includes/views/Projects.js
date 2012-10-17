@@ -1,31 +1,49 @@
 views.Projects = Backbone.View.extend({
     el: '#project-items',
+    events: {
+        'click .load': 'loadMore',
+        'click table tr': 'routeToProject'
+    },
     initialize: function() {
         this.collection.on('update', this.render, this);
         $('#projects input[type="search"]').on('keyup', _.bind(this.search, this));
-        
-        var that = this,
-            low = 50,
-            high = 100;
-        
+
+        this.low = 50,
+        this.high = 100;
+    },
+    loadMore: function(e) {
+        var self = this;
+        this.low = this.high;
+        this.high += 50;
+
         $(window).on('scroll', function() {
-            if  ($(window).scrollTop() == $(document).height() - $(window).height()){
-                that.loadMore(low,high);
-                low = high;
-                high += 50;
+            if  ($(window).scrollTop() === ($(document).height() - $(window).height())) {
+                self.loadMore();
             }
         });
-    },
-    loadMore: function(low,high) {
+
         var models = _(this.collection.filter(function(model) {
                 return model.get('visible');
-            })).slice(low,high);
-            
+            })).slice(self.low,self.high);
+
         if (models.length) {
             _(models).each(function(model) {
                 this.$('tbody').append(templates.project({ model: model }));
+
+                // Remove the load more link once this is clicked we can
+                // load more entries on scroll.
+                if (e.target !== undefined) $(e.target).remove();
+
+                // refresh table sort if its active on a column
+                self.sorter.refresh();
             });
         }
+
+        return false;
+    },
+    routeToProject: function(e) {
+        var id = $(e.currentTarget).attr('id');
+        app.navigate(id, {trigger: true});
     },
     render: function() {
 
@@ -55,6 +73,9 @@ views.Projects = Backbone.View.extend({
 
         }
 
+        // enable sorting on the table
+        this.sorter = new Tablesort(document.getElementById('project-table'));
+
         return this;
     },
     search: function (e) {
@@ -65,19 +86,19 @@ views.Projects = Backbone.View.extend({
             var $target = $(e.target),
                 val = $target.val().toLowerCase(),
                 mode = (val.substr(0, 3) === '000') ? 'id' : 'name';
-    
+
             //val = (mode === 'id') ? val.split('id:')[1].replace(/^\s\s*/, '') : val;
-    
+
             view.collection.each(function(model) {
                 var name = model.get(mode).toLowerCase();
-    
+
                 if (val === '' || name.indexOf(val) >= 0) {
                     model.set('visible', true);
                 } else {
                     model.set('visible', false);
                 }
             });
-    
+
             view.render();
         }, 100);
 
