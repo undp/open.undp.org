@@ -1,4 +1,4 @@
-<div class="span9 projects raised summary">
+<div class="col col-700 projects summary">
     <div class="row-fluid separator">
         <div class="span10">
             <p class="lead"><%= model.get('project_title') %></p>
@@ -97,12 +97,12 @@
             </div>
         </div>
     </div> <!--/ #top-stats -->
-    
+
     <% if (!_.isEmpty(model.get('document_name'))) { %>
     <div class="separator">
         <p class="lead">Documents<span></p>
     </div>
-    
+
     <div id="documents" class="row-fluid">
         <div class="span12">
             <ul class="unstyled">
@@ -176,7 +176,7 @@
     <% }); %>
 </div> <!--/ #summary -->
 
-<div class="span9 glance raised summary">
+<div class="glance summary">
     <div class="row-fluid separator">
         <p class="lead">UNDP <%= model.get('operating_unit') %>
         </p>
@@ -191,7 +191,8 @@
     </div>
 </div>
 
-<div id="content-right" class="span3 hidden-phone">
+<div id="content-right" class="col col-240 col-end hidden-phone">
+  <div class="inner">
     <div class="row-fluid">
         <div class="span12">
             <p class="label">Outputs</p>
@@ -216,6 +217,7 @@
             <div class='tweet'></div>
         </div>
     </div>
+  </div>
 </div> <!--/ #content-right -->
 
 <!-- Modals -->

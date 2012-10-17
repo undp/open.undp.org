@@ -4,7 +4,8 @@ views.App = Backbone.View.extend({
         'keyup #filters-search': 'searchFilter',
         'click #filters .label': 'collapseFilter',
         'click button.btn-mini': 'toggleChart',
-        'click .map-btn': 'mapLayerswitch'
+        'click .map-btn': 'mapLayerswitch',
+        'click .reset': 'clearForm'
     },
 
     initialize: function(options) {
@@ -13,8 +14,10 @@ views.App = Backbone.View.extend({
         this.render();
 
         // Filters follow scrolling
-        $(window).on('scroll', function() {
-            if($(window).scrollTop() >= 140) {
+        var top = $('#filters').offset().top - parseFloat($('#filters').css('marginTop').replace(/auto/, 0));
+        $(window).on('scroll', function () {
+            var y = $(this).scrollTop();
+            if (y >= top) {
                 $('#filters').addClass('fixed');
             } else {
                 $('#filters').removeClass('fixed');
@@ -29,7 +32,6 @@ views.App = Backbone.View.extend({
 
         // Set up help popovers
         $('.help-note').popover({ trigger: 'hover' });
-        
         $('.map-btn .lead').fitText(0.6, {minFontSize: '14px', maxFontSize: '24px'});
     },
 
@@ -65,7 +67,7 @@ views.App = Backbone.View.extend({
             })
             .value().join('/');
 
-        path = (filters.length) ? 'filter/' + filters : 'filter/'; 
+        path = (filters.length) ? 'filter/' + filters : 'filter/';
 
         e.preventDefault();
 
@@ -76,31 +78,36 @@ views.App = Backbone.View.extend({
     searchFilter: function(e) {
         var $target = $(e.target),
                 val = $target.val().toLowerCase();
-                
+
         _(this.views).each(function(view) {
             view.collection.each(function(model) {
                 var name = model.get('name').toLowerCase();
-    
+
                 if (val === '' || name.indexOf(val) >= 0) {
                     model.set('visible', true);
                 } else {
                     model.set('visible', false);
                 }
             });
-            
+
             view.render();
         });
-        
+
         // Open all filter facets on search
         if (val === '') {
             $('ul.filter-items').removeClass('active-filter');
             $('#filter-items .label').removeClass('active-filter');
-        } else {    
+        } else {
             $('ul.filter-items').addClass('active-filter');
             $('#filter-items .label').addClass('active-filter');
         }
     },
-    
+
+    clearForm: function(e) {
+        $(e.target).parent().find('input').val('');
+        return false;
+    },
+
     collapseFilter: function (e) {
         var $target = $(e.target),
             list = $target.next();
@@ -115,7 +122,7 @@ views.App = Backbone.View.extend({
             this.views[cat].active = true;
         }
     },
-    
+
     mapLayerswitch: function (e) {
         var $target = $(e.currentTarget);
         $('.map-btn').removeClass('active');

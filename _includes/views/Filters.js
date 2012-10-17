@@ -36,7 +36,7 @@ views.Filters = Backbone.View.extend({
 
         if (filterModels.length) {
             this.$el.html(templates.filters(this));
-            
+
             if (view.collection.id != 'operating_unit') {
                 $('#applied-filters .' + view.collection.id).remove();
             }
@@ -50,16 +50,16 @@ views.Filters = Backbone.View.extend({
                     if (view.collection.id == 'operating_unit') {
                         $('#applied-filters .operating_unit').html(model.get('name'));
                     } else {
-                        $('#applied-filters').append('<span class="' + view.collection.id + '"> <i class="icon-white icon-chevron-right"></i> '+ model.get('name') + '</span>');
+                        $('#applied-filters').append('<span class="' + view.collection.id + '"> <i class="icon chevron"></i> '+ model.get('name') + '</span>');
                     }
                 }
             });
-            
+
             if (view.active) {
                 $('#' + view.collection.id + ' .label').addClass('active');
                 $('#' + view.collection.id + ' .filter-items').addClass('active');
             }
-            
+
         } else {
             this.$el.empty();
         }
@@ -67,7 +67,7 @@ views.Filters = Backbone.View.extend({
         if (chartModels.length <= 1) {
             $('#chart-' + this.collection.id).parent().css('display','none');
 
-        } else { 
+       } else {
             var max = chartModels[0].get(chartType);
 
             // Build charts
@@ -80,7 +80,7 @@ views.Filters = Backbone.View.extend({
             _(chartModels).each(function(model) {
                 if (chartType == 'budget') {
                     var label = (model.get(chartType) / max * 100) > 15 ? accounting.formatMoney(model.get(chartType)/1000000) + 'M' : '';
-                    
+
                     $('.data', '#chart-' + model.collection.id).append(
                         '<div style="width: ' + (model.get(chartType)/ max * 100) + '%">' + label + '</div>'
                     );
@@ -93,7 +93,7 @@ views.Filters = Backbone.View.extend({
                     );
                 } else {
                     var label = (model.get(chartType) / max * 100) > 10 ? accounting.formatNumber(model.get(chartType)) : '';
-                    
+
                     $('.data', '#chart-' + model.collection.id).append(
                         '<div style="margin-bottom:0.25em; width: ' + (model.get(chartType)/ max * 100) + '%">' + label + '</div>'
                     );
@@ -104,7 +104,7 @@ views.Filters = Backbone.View.extend({
                 }
             });
         }
-        
+
         $('#filters .label').hover(
             function () {
                 $(this).children('.arrow').addClass('active');
