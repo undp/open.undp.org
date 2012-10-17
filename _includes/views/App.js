@@ -32,7 +32,6 @@ views.App = Backbone.View.extend({
 
         // Set up help popovers
         $('.help-note').popover({ trigger: 'hover' });
-        $('.map-btn .lead').fitText(0.6, {minFontSize: '14px', maxFontSize: '24px'});
     },
 
     render: function() {

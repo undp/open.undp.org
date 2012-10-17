@@ -3,9 +3,10 @@ views.Projects = Backbone.View.extend({
     events: {
         'click .load': 'loadMore',
         'click table tr': 'routeToProject',
-        'click .table th a': 'sortProjects'
+        'click .table th': 'sortProjects'
     },
     initialize: function() {
+        this.$el.html(templates.projects(this));
         this.collection.on('update', this.render, this);
         $('#projects input[type="search"]').on('keyup', _.bind(this.search, this));
 
@@ -34,9 +35,6 @@ views.Projects = Backbone.View.extend({
                 // Remove the load more link once this is clicked we can
                 // load more entries on scroll.
                 if (e.target !== undefined) $(e.target).remove();
-
-                // refresh table sort if its active on a column
-                self.sorter.refresh();
             });
         }
 
@@ -63,19 +61,15 @@ views.Projects = Backbone.View.extend({
         $('#total-budget').html(accounting.formatMoney(this.collection.budget / 1000000) + 'M');
         $('#total-expenditure').html(accounting.formatMoney(this.collection.expenditure / 1000000) + 'M');
 
-        this.$el.html(templates.projects(this));
-
         if (models.length) {
+            this.$('tbody').empty();
             _(models).each(function(model) {
                 this.$('tbody').append(templates.project({ model: model }));
             });
         } else {
-            this.$('tbody').append('<tr><td><em>No projects</em></td><td></td><td></td></tr>');
+            this.$('tbody').empty().append('<tr><td><em>No projects</em></td><td></td><td></td></tr>');
 
         }
-
-        // enable sorting on the table
-        this.sorter = new Tablesort(document.getElementById('project-table'));
 
         return this;
     },
@@ -87,8 +81,6 @@ views.Projects = Backbone.View.extend({
             var $target = $(e.target),
                 val = $target.val().toLowerCase(),
                 mode = (val.substr(0, 3) === '000') ? 'id' : 'name';
-
-            //val = (mode === 'id') ? val.split('id:')[1].replace(/^\s\s*/, '') : val;
 
             view.collection.each(function(model) {
                 var name = model.get(mode).toLowerCase();
@@ -114,13 +106,22 @@ views.Projects = Backbone.View.extend({
             $target = $(e.target);
             
         e.preventDefault();
+        e.stopPropagation();
+        $('.table th').removeClass('sort-down sort-up');
         
         // Toggle sorting by descending/ascending
         if ($target.attr('data-sort') == that.sortData) {
-            that.sortOrder = (that.sortOrder == 'desc') ? 'asc' : 'desc';
+            if (that.sortOrder == 'desc') {
+                that.sortOrder = 'asc';
+                (that.sortData == 'name') ? $target.addClass('sort-up') : $target.addClass('sort-down');
+            } else {
+                that.sortOrder = 'desc';
+                (that.sortData == 'name') ? $target.addClass('sort-down') : $target.addClass('sort-up');
+            }
         } else {
             that.sortData = $target.attr('data-sort');
             that.sortOrder = (that.sortData == 'name') ? 'asc' : 'desc';
+            $target.addClass('sort-up');
         }
         
         this.collection.models = _.sortBy(that.models, function(model) {

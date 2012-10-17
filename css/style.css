@@ -97,7 +97,7 @@ table th.sort-header:after {
   content:'';
   float:right;
   margin-top:7px;
-  border-width:0 4px 4px;
+  border-width:4px 4px 0;
   border-style:solid;
   border-color:#404040 transparent;
   visibility:hidden;
@@ -111,9 +111,9 @@ table th.sort-down:hover:after {
   visibility:visible;
   opacity:0.4;
   }
-table th.sort-up:after {
-  border-bottom:none;
-  border-width:4px 4px 0;
+table th.sort-down:after {
+  border-top:none;
+  border-width:0 4px 4px;
   }
 
 a {
