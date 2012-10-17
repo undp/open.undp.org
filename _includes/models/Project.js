@@ -8,6 +8,10 @@ models.Project = Backbone.Model.extend({
 
 // Collection
 models.Projects = Backbone.Collection.extend({
+    initialize: function() {
+        this.sortData = this.sortData || 'budget';
+        this.sortOrder = this.sortOrder || 'desc';
+    },
     watch: function() {
         this.update();
         this.on('reset', this.update, this);
@@ -81,12 +85,20 @@ models.Projects = Backbone.Collection.extend({
         this.expenditure = this.reduce(function(memo, project) {
             return memo + parseFloat(project.get('expenditure'));
         }, 0);
-
+        
         this.trigger('update');
     },
     url: 'api/project_summary.json',
     model: models.Project,
     comparator: function(model) {
-        return -1 * model.get('budget');
+        if (this.sortOrder == 'desc') {
+            if (this.sortData == 'name') {
+                return -model.get(this.sortData).toLowerCase().charCodeAt(0);
+            } else {
+                return -model.get(this.sortData);
+            }    
+        } else {
+            return model.get(this.sortData);
+        }
     } 
 });

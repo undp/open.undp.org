@@ -1,5 +1,8 @@
 views.Projects = Backbone.View.extend({
     el: '#project-items',
+    
+    events: {'click .table th a': 'sortProjects'},
+    
     initialize: function() {
         this.collection.on('update', this.render, this);
         $('#projects input[type="search"]').on('keyup', _.bind(this.search, this));
@@ -86,5 +89,33 @@ views.Projects = Backbone.View.extend({
                 scrollTop: $('#projects-heading').offset().top + 1
             }, 500);
         }
+    },
+    sortProjects: function(e) {
+        var that = this.collection,
+            $target = $(e.target);
+            
+        e.preventDefault();
+        
+        // Toggle sorting by descending/ascending
+        if ($target.attr('data-sort') == that.sortData) {
+            that.sortOrder = (that.sortOrder == 'desc') ? 'asc' : 'desc';
+        } else {
+            that.sortData = $target.attr('data-sort');
+            that.sortOrder = (that.sortData == 'name') ? 'asc' : 'desc';
+        }
+        
+        this.collection.models = _.sortBy(that.models, function(model) {
+            if (that.sortOrder == 'desc') {
+                if (that.sortData == 'name') {
+                    return -model.get(that.sortData).toLowerCase().charCodeAt(0);
+                } else {
+                    return -model.get(that.sortData);
+                }
+            } else {
+                return model.get(that.sortData);
+            }
+        });
+        
+        this.render();
     }
 });
