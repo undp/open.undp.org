@@ -396,28 +396,53 @@ views.Map = Backbone.View.extend({
 
                         // Load single photo from array
                         function loadPhoto(x) {
-                            var photoid = photos[x].id;
+                            var photoid = photos[x].id,
+                                source, pHeight, pWidth,
+                                attempt = 0;
 
                             // Get photo info based on id
                             $.getJSON(apiBase + 'flickr.photos.getInfo&api_key=' + apiKey + '&photo_id=' + photoid, function(info) {
 
                                 var description = info.photo.description._content,
-                                    source = 'http://farm' + photos[x].farm
-                                        + '.staticflickr.com/' + photos[x].server
-                                        + '/' + photoid + '_' + photos[x].secret + '_b.jpg';
+                                    date = (new Date(info.photo.dates.taken)).toLocaleDateString();
 
-                                // Get photo dimensions, checking for portrait vs. landscape
+                                // Get available sizes
                                 $.getJSON(apiBase + 'flickr.photos.getSizes&api_key=' + apiKey + '&photo_id=' + photoid, function(s) {
-
-                                    if (s.sizes.size[6].height > s.sizes.size[6].width) {
+                                
+                                    getSize('Large');
+                                    function getSize(sizeName) {
+                                        _.each(s.sizes.size, function(z) {
+                                            if (z.label == sizeName) {
+                                                source = z.source;
+                                                pHeight = z.height;
+                                                pWidth = z.width;
+                                            }
+                                        });
+                                        
+                                        if (!source) {
+                                            attempt += 1;
+                                            switch (attempt) {
+                                                case 1:
+                                                    getSize('Original');
+                                                    break;
+                                                case 2:
+                                                    getSize('Medium 800');
+                                                    break;
+                                                case 3:
+                                                    getSize('Medium 640');
+                                                    break;
+                                            }
+                                        }
+                                    }
+                                    
+                                    // Check for portrait vs. landscape
+                                    if (pHeight > pWidth) {
                                         $('#flickr').css('background','url("' + source + '") center 38% no-repeat');
                                         $('#flickr').css('background-size','cover');
                                     } else {
                                         $('#flickr').css('background','url("' + source + '") center 25% no-repeat');
                                         $('#flickr').css('background-size','cover');
                                     }
-
-                                    var date = (new Date(info.photo.dates.taken)).toLocaleDateString();
 
                                     // Fill in date & description
                                     $('#flickr .meta').html('<p class="label">' + date
