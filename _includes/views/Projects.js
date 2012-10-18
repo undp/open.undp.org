@@ -34,7 +34,7 @@ views.Projects = Backbone.View.extend({
 
                 // Remove the load more link once this is clicked we can
                 // load more entries on scroll.
-                if (e.target !== undefined) $(e.target).remove();
+                if (e !== undefined) $(e.target).remove();
             });
         }
 

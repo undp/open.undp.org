@@ -409,7 +409,7 @@ views.Map = Backbone.View.extend({
                                 // Get available sizes
                                 $.getJSON(apiBase + 'flickr.photos.getSizes&api_key=' + apiKey + '&photo_id=' + photoid, function(s) {
                                 
-                                    getSize('Large');
+                                    getSize('Medium 800');
                                     function getSize(sizeName) {
                                         _.each(s.sizes.size, function(z) {
                                             if (z.label == sizeName) {
@@ -423,13 +423,13 @@ views.Map = Backbone.View.extend({
                                             attempt += 1;
                                             switch (attempt) {
                                                 case 1:
-                                                    getSize('Original');
+                                                    getSize('Medium 640');
                                                     break;
                                                 case 2:
-                                                    getSize('Medium 800');
+                                                    getSize('Large');
                                                     break;
                                                 case 3:
-                                                    getSize('Medium 640');
+                                                    getSize('Original');
                                                     break;
                                             }
                                         }
@@ -445,38 +445,19 @@ views.Map = Backbone.View.extend({
                                     }
 
                                     // Fill in date & description
-                                    $('#flickr .meta').html('<p class="label">' + date
+                                    $('#flickr-side .meta').html('<p class="label">' + date + '</p>'
+                                        /*
                                         + '<span class="iconlink"><a href="'
                                         + url + photoid + '/in/photostream/" title="See our photos on Flickr">'
                                         + '<img src="http://l.yimg.com/g/images/goodies/white-small-chiclet.png" '
                                         + 'width="23" height="23" alt=""></a></span></p>'
+                                        */
                                         + '<p>' + description + '</p>');
                                 });
                             });
                         }
 
                         loadPhoto(i);
-
-                        // Show description & nav when hovering over photo
-                        $('#flickr').hover(
-                            function() {
-                                $('#flickr .meta').fadeIn();
-                                $('#flickr .resize').fadeIn();
-                                if (photos.length > 1) {
-                                    if (i == 0) {
-                                        $('#flickr .next').fadeIn();
-                                    } else if (i == photos.length - 1) {
-                                        $('#flickr .prev').fadeIn();
-                                    } else {
-                                        $('#flickr .control').fadeIn();
-                                    }
-                                }
-                            },
-                            function() {
-                                $('#flickr .meta').fadeOut();
-                                $('#flickr .control').fadeOut();
-                            }
-                        );
 
                         // Cycle through photo array
                         $('#flickr .next').click(function() {

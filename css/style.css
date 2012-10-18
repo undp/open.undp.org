@@ -250,7 +250,6 @@ a {
   margin:0;
   }
 .container-fluid {
-  margin-top:10px;
   margin-bottom:40px;
   }
 #main-container {
@@ -511,6 +510,9 @@ a {
     line-height: 32px;
     margin: 20px 0 0;
     }
+  #profile p.heading-title {
+    margin-top:0;
+  }
 .modal.fade {
   top: 50%;
   }
@@ -716,11 +718,19 @@ form {
 .hidden-phone {
   position:relative;
   }
+  /*
 #content-right {
   position:absolute;
   top:200px;
   right:20px;
   }
+#profile #content-right {
+  top:0;
+}*/
+#content-right #flickr-side {
+  height: 250px;
+  margin-bottom: 20px;
+}
 #content-right .inner,
 #filters .inner {
   background:#f2faff;
@@ -879,11 +889,19 @@ form {
 
 .dates .dates-label {
   font-weight: bold;
-  color: #036;
+  color: #444;
   }
 .dates .progress {
   margin-bottom: 0 !important;
   }
+.progress .bar {
+  background-image:-webkit-gradient(linear, bottom right, top right, color-stop(0, #0B387C), color-stop(1, #0055AA));
+  background-image:-webkit-linear-gradient(bottom, #0B387C 0%, #0055AA 100%);
+  background-image:   -moz-linear-gradient(bottom, #0B387C 0%, #0055AA 100%);
+  background-image:    -ms-linear-gradient(bottom, #0B387C 0%, #0055AA 100%);
+  background-image:     -o-linear-gradient(bottom, #0B387C 0%, #0055AA 100%);
+  background-image:       linear-gradient(to top, #0B387C 0%, #0055AA 100%);
+}
 #top-stats span.end {
   float: right;
   }
@@ -958,12 +976,10 @@ form {
 /* flickr gallery */
 
 #flickr {
-  margin: 0;
+  position: relative;
+  margin-bottom: 30px;
   background-size: cover;
   min-height: 250px;
-  border-radius: 0 0 10px 10px;
-  padding-right: 20px;
-  padding-top: 20px;
 }
 #flickr .meta {
   padding: 10px 15px;
@@ -978,35 +994,29 @@ form {
   margin-top: -5px;
   }
 #flickr .control {
-  display: none;
   position: absolute;
-  bottom: 20px;
-  background: rgb(255,255,255);
-  background: rgba(255,255,255,.35);
-  width: 60px;
-  height: 40px;
+  bottom: 0;
+  background: #fff;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
   }
 #flickr .control div {
   position: absolute;
-  top: 12px;
-  left: 24px;
+  top: 7px;
+  left: 9px;
   }
 #flickr .control.resize {
-  right: 160px;
-  border-radius: 8px;
+  right: 60px;
   }
 #flickr .control.next {
-  right: 20px;
-  border-radius: 0 8px 8px 0;
+  right: 0px;
   }
 #flickr .control.prev {
-  right: 80px;
-  border-radius: 8px 0 0 8px;
-  border-right: 1px solid #333;
+  right: 30px;
   }
 #flickr .control:hover {
-  background: rgba(255,255,255,.8);
+  background: #f0f0f0;
   }
 
 /* contact modal */
