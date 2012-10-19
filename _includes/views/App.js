@@ -94,11 +94,11 @@ views.App = Backbone.View.extend({
 
         // Open all filter facets on search
         if (val === '') {
-            $('ul.filter-items').removeClass('active-filter');
-            $('#filter-items .label').removeClass('active-filter');
+            $('ul.filter-items').removeClass('active');
+            $('#filter-items .label').removeClass('active');
         } else {
-            $('ul.filter-items').addClass('active-filter');
-            $('#filter-items .label').addClass('active-filter');
+            $('ul.filter-items').addClass('active');
+            $('#filter-items .label').addClass('active');
         }
     },
 
@@ -108,9 +108,14 @@ views.App = Backbone.View.extend({
     },
 
     collapseFilter: function (e) {
-        var $target = $(e.target),
-            list = $target.next();
+        if ($(e.target).hasClass('icon')) {
+            var $target = $(e.target).parent();
+        } else {
+            var $target = $(e.target);
+        }
+        var list = $target.next(),
             cat = $target.parent().parent().parent().attr('id');
+            
         if (list.hasClass('active')) {
             list.removeClass('active');
             $target.removeClass('active');
