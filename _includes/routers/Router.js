@@ -23,12 +23,55 @@ routers.App = Backbone.Router.extend({
                 }
             });
         });
+        
+        // Widget configuration/modal
+        var widgetOpts = ['title','stats','map'];
+        
+        $('a.widget-config').click(function() {
+            if (location.hash == '') {
+                var path = '#widget';
+            } else {
+                var path = location.hash.replace('filter','widget');
+            }
+            var widgetCode = '<iframe src="http://localhost:4000/undp-projects/'
+                              + path
+                              + '?' + widgetOpts.join('&')
+                              + '" width="500" height="350"> </iframe>';
+                              
+            $('#widget-config .widget-preview').html(widgetCode);
+            $('#widget-config .widget-code').html(widgetCode);
+        });
+        
+        $('#widget-config .switch').click(function() {
+            if (location.hash == '') {
+                var path = '#widget';
+            } else {
+                var path = location.hash.replace('filter','widget');
+            }
+            
+            var opt = $(this).prop('value');
+            
+            if ($(this).prop('checked')) {
+                widgetOpts.push(opt);
+            } else {
+                widgetOpts.splice(widgetOpts.indexOf(opt), 1);
+            }
+            
+            var widgetCode = '<iframe src="http://localhost:4000/undp-projects/'
+                              + path
+                              + '?' + widgetOpts.join('&')
+                              + '" width="500" height="350"> </iframe>';
+                              
+            $('#widget-config .widget-preview').html(widgetCode);
+            $('#widget-config .widget-code').html(widgetCode);
+        });
     },
     routes: {
         'project/:id': 'project',
         'project/:id/output-:output': 'project',
         'filter/*filters': 'browser',
-        '': 'browser'
+        'widget/*filters': 'widget',
+        '': 'browser',
     },
     project: function(id,output) {
         var that = this;
@@ -52,7 +95,7 @@ routers.App = Backbone.Router.extend({
     },
     browser: function(route) {
         var that = this;
-
+        
         // Set up menu
         $('#app .view, .nav').hide();
         $('#profile .summary').addClass('off');
@@ -134,5 +177,20 @@ routers.App = Backbone.Router.extend({
         }
         
         $('#browser .summary').removeClass('off');
+    },
+    widget: function(route) {
+        $('#container').empty().append('<div id="browser" class="widget map-off stats-off"></div>');
+        
+        var filters = route.split('?')[0],
+            options = route.split('?')[1];
+        
+        options = (options) ? options.split('&') : [];
+        
+        _.each(options, function(option) {
+            $('#browser.widget').removeClass(option + '-off');
+            $('#browser.widget').addClass(option + '-on');
+        });
+        
+        this.browser(filters);
     }
 });

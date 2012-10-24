@@ -45,7 +45,9 @@ views.Map = Backbone.View.extend({
                         return d.id == _.keys(unit.operating_unit);
                     })[0];
 
-                    $('.map-btn[data-value="hdi"] .date').empty();
+                    $('.map-btn[data-value="hdi"] .total-caption').html('HDI');
+                    $('.widget-options ul li.switch-hdi').show();
+                    
                     if (_.size(hdiArray) > 0) {
                         $('#hdi').html(_.last(hdi.hdi)[1]);
                         that.hdiChart(hdi,hdiWorld);
@@ -55,7 +57,8 @@ views.Map = Backbone.View.extend({
                     }
                 } else {
                     $('#hdi').html(_.last(hdiWorld.hdi)[1]);
-                    $('.map-btn[data-value="hdi"] .date').html('Global');
+                    $('.map-btn[data-value="hdi"] .total-caption').html('HDI Global');
+                    $('.widget-options ul li.switch-hdi').hide();
                 }
             } else {
                 layer = 'budget';
@@ -82,7 +85,8 @@ views.Map = Backbone.View.extend({
             if (drag) {
                 e.preventDefault();
             } else {
-                window.location = '#filter/operating_unit-' + $target.attr('id');
+                var path = '#filter/operating_unit-' + $target.attr('id');
+                app.navigate(path, { trigger: true });
                 $('#browser .summary').removeClass('off');
             }
         });

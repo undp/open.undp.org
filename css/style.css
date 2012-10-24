@@ -590,6 +590,9 @@ a {
   overflow:hidden;
   width:100%;
   }
+.chart .caption .counts {
+  margin: 3px 0 2px 0;
+}
 .chart .details {
   float:right;
   width:175px;
@@ -715,7 +718,7 @@ a {
 
 .toggle {
   position: absolute;
-  top: 0px;
+  top: -8px;
   right: 0;
   width: 93px;
   }
@@ -850,11 +853,6 @@ form {
   #content-right .label {
     color:#0055AA;
     }
-
-.chart {
-  min-height: 138px !important;
-  margin-left: 0 !important;
-}
 
 /* project.html */
 .project {
@@ -1018,6 +1016,189 @@ form {
   font-weight: bold;
   color: #333;
   }
+  
+/*-----------------------------------
+  Widget
+-------------------------------------*/
+#widget-config.modal {
+  width: 860px;
+  margin: -300px 0 0 -400px;
+}
+#widget-config .modal-body {
+  background: #F2FAFF;
+  max-height: 500px;
+}
+#widget-config .widget-options {
+  float: left;
+  width: 150px;
+  height: 400px;
+}
+#widget-config .widget-options ul {
+  list-style: none;
+  margin-left: 10px;
+}
+#widget-config .widget-options ul li {
+  height: 25px;
+  line-height: 35px;
+}
+#widget-config .widget-options input {
+  vertical-align: middle;
+  margin: 0 0 3px;
+}
+#widget-config .widget-preview {
+  float: left;
+  background: #fff;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #666;
+  margin-bottom: 30px;
+}
+#widget-config .widget-code {
+  color: #666;
+  width: 500px;
+  float: left;
+  font: 11px/15px 'Menlo Regular', Consolas, monospace;
+  overflow: hidden;
+  cursor: auto;
+}
+
+#browser.widget {
+  width: 100%;
+  min-height: inherit !important;
+  max-width: 760px;
+}
+.widget .summary {
+  width: 100%;
+}
+.widget .separator {
+  padding: 10px 0;
+}
+.widget #applied-filters {
+  color: #036;
+  font-size: 20px;
+  line-height: 28px;
+  border-bottom: 1px solid #CCC;
+  box-shadow: 0 1px 0 white;
+}
+.widget .layers {
+  width: 125px !important;
+  margin-bottom: 10px;
+}
+.widget .map-btn {
+  padding: 5px 10px 5px 0;
+}
+.widget .map-container {
+  position: absolute;
+  left: 125px;
+  right: 0;
+  width: auto;
+  float: none;
+}
+.widget #homemap {
+  height: 252px !important;
+  min-width: 256px;
+}
+.widget #charts .span12 {
+  min-height: 0;
+}
+.widget .chart {
+  margin-bottom: 10px !important;
+}
+.widget .chart .caption {
+  font-size: 11px;
+}
+.widget .chart .caption > div {
+  line-height: 15px;
+  height: 15px;
+}
+.widget .chart .data {
+  position: absolute;
+  left: 145px;
+  right: 0;
+  width: auto;
+}
+.widget .chart .data > div {
+  height: 15px;
+  font-size: 10px;
+  line-height: 15px;
+}
+.widget .chart .data > .subdata {
+  height: 5px;
+}
+.widget .chart .chart-legend {
+  left: auto;
+  right: 0;
+}
+.widget .toggle {
+  right: auto;
+  left: 145px;
+}
+.widget #projects .row-fluid:first-child {
+  display: none;
+}
+.widget .table th, .widget .table td {
+  padding: 5px;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.widget .chart .extras,
+.widget .chart .details,
+.widget .separator .col,
+.widget .form-search,
+.widget .map-container,
+.widget .layers,
+.widget #applied-filters,
+.widget .stat-chart,
+.widget #chart-hdi,
+.widget #projects-heading,
+.widget #projects,
+.widget #filters {
+  display: none !important;
+}
+.widget.title-on #applied-filters,
+.widget.charts-on .stat-chart,
+.widget.hdi-on #chart-hdi,
+.widget.projects-on #projects,
+.widget.map-on .map-container,
+.widget.stats-on .layers {
+  display: block !important;
+}
+
+.widget.map-off .layers {
+  width: 100% !important;
+  text-align: left !important;
+}
+.widget.map-off .map-btn {
+  cursor: inherit;
+}
+.widget.map-off .map-btn:hover {
+  background: inherit;
+}
+.widget.map-off .map-btn > span {
+  display: inline-block;
+  margin-right: 5px;
+  color: inherit;
+}
+.widget.map-off .map-btn.active {
+  background: inherit;
+}
+.widget.map-off .map-btn.active .total-caption,
+.widget.map-off .map-btn .total-caption {
+  color: #666;
+}
+.widget.map-off .map-btn.active:after {
+  display: none;
+}
+.widget.map-off .layers .total {
+  float: right;
+}
+.widget.stats-off .map-container {
+  left: 0;
+  height: 252px;
+  position: relative;
+  margin-bottom: 10px;
+}
 
 /*-----------------------------------
   Clearfix

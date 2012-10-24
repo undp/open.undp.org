@@ -45,13 +45,17 @@ views.Projects = Backbone.View.extend({
         app.navigate(id, {trigger: true});
     },
     render: function() {
+    
+        var pageType = Backbone.history.fragment.split('/')[0];
 
         var donor = _(app.app.filters).find(function(filter) {
                 return filter.collection === 'donors';
             }),
             models = _(this.collection.filter(function(model) {
                 return model.get('visible');
-            })).first(50);
+            }));
+            
+        models = (pageType === 'widget') ? models.first(10) : models.first(50);
 
         // Probably should replace this with donor name
         donor = (donor) ? 1 : _(this.collection.donors).size();
@@ -66,6 +70,11 @@ views.Projects = Backbone.View.extend({
             _(models).each(function(model) {
                 this.$('tbody').append(templates.project({ model: model }));
             });
+            if (pageType === 'widget') {
+                (models.length < 10) ? $('.load.button').hide() : $('.load.button').show();
+            } else {
+                (models.length < 50) ? $('.load.button').hide() : $('.load.button').show();
+            }
         } else {
             this.$('tbody').empty().append('<tr><td><em>No projects</em></td><td></td><td></td></tr>');
 

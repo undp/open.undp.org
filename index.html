@@ -55,6 +55,7 @@
               <li class='browser'><a href='#download' data-toggle='modal'>Download</a></li>
               <li class='browser'><a href='#about' data-toggle='modal'>About</a></li>
               <li class='profile'><a href='#unit-contact' data-toggle='modal'>Contact</a></li>
+              <li class='profile'><a class='widget-config' href='#widget-config' data-toggle='modal'>Widget</a></li>
             </ul>
         </div>
         <!-- end of .content -->
@@ -127,6 +128,31 @@
             <input type='submit' class='btn btn-primary' name='submit' value='Submit' id='feeback-submit'   >
         </div>
     </form></div>
+    
+    <div class='modal hide fade' id='widget-config'>
+        <div class='modal-header'>
+            <button type='button' class='close' data-dismiss='modal'>&times;</button>
+            <h3>Widget</h3>
+        </div>
+        <div class='modal-body'>
+            <div class='widget-options'>
+                <p>Select components:</p>
+                <ul>
+                    <li><input class='switch' type='checkbox' name='options' value='title' checked /> Title</li>
+                    <li><input class='switch' type='checkbox' name='options' value='stats' checked /> Stats</li>
+                    <li><input class='switch' type='checkbox' name='options' value='map' checked /> Map</li>
+                    <li class='switch-hdi'><input class='switch' type='checkbox' name='options' value='hdi' /> HDI</li>
+                    <li><input class='switch' type='checkbox' name='options' value='charts' /> Charts</li>
+                    <li><input class='switch' type='checkbox' name='options' value='projects' /> Projects</li>
+                </ul>
+            </div>
+            <div class='widget-preview'></div>
+            <textarea class='widget-code' readonly wrap='off' rows='1'></textarea>
+        </div>
+        <div class='modal-footer'>
+            <a href='#' class='btn' data-dismiss='modal'>Close</a>
+        </div>
+    </div>
 
 
     <div id='footer'>
