@@ -1,7 +1,8 @@
 views.Map = Backbone.View.extend({
     events: {
         'click .map-fullscreen': 'fullscreen',
-        'mousedown img.mapmarker': 'mapClick'
+        'mousedown img.mapmarker': 'mapClick',
+        'mousedown img.simplestyle-marker': 'mapClick'
     },
     initialize: function() {
         this.render();
@@ -74,7 +75,8 @@ views.Map = Backbone.View.extend({
     },
     mapClick: function(e) {
         var $target = $(e.target),
-            drag = false;
+            drag = false,
+            that = this;
 
         this.map.addCallback('panned', function() {
             drag = true;
@@ -85,7 +87,11 @@ views.Map = Backbone.View.extend({
             if (drag) {
                 e.preventDefault();
             } else {
-                var path = '#filter/operating_unit-' + $target.attr('id');
+                if ($target.hasClass('simplestyle-marker')) {
+                    var path = '#filter/operating_unit-' + that.model.get('operating_unit_id');
+                } else {
+                    var path = '#filter/operating_unit-' + $target.attr('id');
+                }
                 app.navigate(path, { trigger: true });
                 $('#browser .summary').removeClass('off');
             }
@@ -198,10 +204,13 @@ views.Map = Backbone.View.extend({
                     Math.round(that.scale(layer,f))
                 );
             };
-
-            var markers = mapbox.markers.layer()
-                .factory(clustr.scale_factory(radii, "rgba(0,85,170,0.6)", "#0B387C"))
-                .sort(function(a,b){ return b.properties[layer] - a.properties[layer]; });
+            
+            var markers = mapbox.markers.layer();
+            
+            if (homepage) {
+                markers.factory(clustr.scale_factory(radii, "rgba(0,85,170,0.6)", "#0B387C"))
+                    .sort(function(a,b){ return b.properties[layer] - a.properties[layer]; });
+            }
 
             $.getJSON('api/operating-unit-index.json', function(data) {
                 for (var i = 0; i < data.length; i++) {
@@ -247,6 +256,10 @@ views.Map = Backbone.View.extend({
                                     hdi_rank: hdi_rank
                                 }
                             });
+                            
+                            if (!homepage) {
+                                locations[0].properties['marker-color'] = '#0B387C';
+                            }
                         }
                     }
                 }
