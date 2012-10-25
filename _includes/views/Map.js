@@ -47,7 +47,7 @@ views.Map = Backbone.View.extend({
                     })[0];
 
                     $('.map-btn[data-value="hdi"] .total-caption').html('HDI');
-                    $('.widget-options ul li.switch-hdi').show();
+                    $('.widget-options ul li.hdi-opt').show();
                     
                     if (_.size(hdiArray) > 0) {
                         $('#hdi').html(_.last(hdi.hdi)[1]);
@@ -59,7 +59,7 @@ views.Map = Backbone.View.extend({
                 } else {
                     $('#hdi').html(_.last(hdiWorld.hdi)[1]);
                     $('.map-btn[data-value="hdi"] .total-caption').html('HDI Global');
-                    $('.widget-options ul li.switch-hdi').hide();
+                    $('.widget-options ul li.hdi-opt').hide();
                 }
             } else {
                 layer = 'budget';
@@ -258,7 +258,7 @@ views.Map = Backbone.View.extend({
                             });
                             
                             if (!homepage) {
-                                locations[0].properties['marker-color'] = '#0B387C';
+                                locations[0].properties['marker-color'] = '#2970B8';
                             }
                         }
                     }

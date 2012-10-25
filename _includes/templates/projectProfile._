@@ -5,10 +5,10 @@
         <li><a href="/undp-projects/#project/<%= model.get('id') %>"><%= model.get('id') %></a></li>
     </ul>
 </div>
-<div class="row-fluid separator">
+<div class="row-fluid separator" id="project-heading">
     <div class="span12">
         <p class="heading-title"><%= model.get('project_title') %></p>
-        <div class="col col-700">
+        <div class="col col-700" id="project-descr">
             <p class="heading-desc"><%= model.get('project_descr') %></p>
         </div>
     </div>
@@ -105,7 +105,7 @@
     </div> <!--/ #top-stats -->
 
     <% if (!_.isEmpty(model.get('document_name'))) { %>
-    <div class="separator">
+    <div class="separator" id="documents-header">
         <p class="lead">Documents<span></p>
     </div>
 
@@ -121,7 +121,7 @@
     </div> <!--/ #documents -->
     <% } %>
 
-    <div class="separator">
+    <div class="separator" id="output-header">
         <p class="lead">Outputs<% if (model.get('outputs').length > 1) { %> <span>(<%= model.get('outputs').length %>)</span><% } %></p>
     </div>
 

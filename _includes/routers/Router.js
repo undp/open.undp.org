@@ -29,14 +29,17 @@ routers.App = Backbone.Router.extend({
         
         $('a.widget-config').click(function() {
             if (location.hash == '') {
-                var path = '#widget';
+                var path = '#widget/';
             } else {
-                var path = location.hash.replace('filter','widget');
+                var path = location.hash.replace('filter','widget').replace('project','widget/project');
+                if (location.hash.split('/')[0] === '#project') {
+                    widgetOpts.push('descr');
+                }
             }
             var widgetCode = '<iframe src="http://localhost:4000/undp-projects/'
                               + path
                               + '?' + widgetOpts.join('&')
-                              + '" width="500" height="350"> </iframe>';
+                              + '" width="500" height="350" frameborder="0"> </iframe>';
                               
             $('#widget-config .widget-preview').html(widgetCode);
             $('#widget-config .widget-code').html(widgetCode);
@@ -44,9 +47,9 @@ routers.App = Backbone.Router.extend({
         
         $('#widget-config .switch').click(function() {
             if (location.hash == '') {
-                var path = '#widget';
+                var path = '#widget/';
             } else {
-                var path = location.hash.replace('filter','widget');
+                var path = location.hash.replace('filter','widget').replace('project','widget/project');
             }
             
             var opt = $(this).prop('value');
@@ -60,7 +63,7 @@ routers.App = Backbone.Router.extend({
             var widgetCode = '<iframe src="http://localhost:4000/undp-projects/'
                               + path
                               + '?' + widgetOpts.join('&')
-                              + '" width="500" height="350"> </iframe>';
+                              + '" width="500" height="350" frameborder="0"> </iframe>';
                               
             $('#widget-config .widget-preview').html(widgetCode);
             $('#widget-config .widget-code').html(widgetCode);
@@ -70,8 +73,8 @@ routers.App = Backbone.Router.extend({
         'project/:id': 'project',
         'project/:id/output-:output': 'project',
         'filter/*filters': 'browser',
-        'widget/*filters': 'widget',
-        '': 'browser',
+        'widget/*options': 'widget',
+        '': 'browser'
     },
     project: function(id,output) {
         var that = this;
@@ -80,6 +83,9 @@ routers.App = Backbone.Router.extend({
         $('#app .view, .nav').hide();
         $('#browser .summary').addClass('off');
         $('.nav.profile').show();
+        
+        $('.widget-options ul li.main-opt').hide();
+        $('.widget-options ul li.proj-opt').show();
 
         // Set up this route
         this.project.model = new models.Project({ id: id });
@@ -100,6 +106,9 @@ routers.App = Backbone.Router.extend({
         $('#app .view, .nav').hide();
         $('#profile .summary').addClass('off');
         $('#browser, .nav.browser').show();
+        
+        $('.widget-options ul li.proj-opt').hide();
+        $('.widget-options ul li.main-opt').show();
 
         // Load the main app view
         this.app = this.app || new views.App({ el: '#browser' });
@@ -179,18 +188,22 @@ routers.App = Backbone.Router.extend({
         $('#browser .summary').removeClass('off');
     },
     widget: function(route) {
-        $('#container').empty().append('<div id="browser" class="widget map-off stats-off"></div>');
-        
         var filters = route.split('?')[0],
             options = route.split('?')[1];
-        
+            
         options = (options) ? options.split('&') : [];
         
-        _.each(options, function(option) {
-            $('#browser.widget').removeClass(option + '-off');
-            $('#browser.widget').addClass(option + '-on');
-        });
+        if (filters.split('/')[0] === 'project') {
+            $('#container').empty().append('<div id="profile" class="widget map-off stats-off"></div>');
+            this.project(filters.split('/')[1]);
+        } else {
+            $('#container').empty().append('<div id="browser" class="widget map-off stats-off"></div>');
+            this.browser(filters);
+        }
         
-        this.browser(filters);
+        _.each(options, function(option) {
+            $('#container .widget').removeClass(option + '-off');
+            $('#container .widget').addClass(option + '-on');
+        });
     }
 });

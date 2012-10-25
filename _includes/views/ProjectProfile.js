@@ -22,6 +22,12 @@ views.ProjectProfile = Backbone.View.extend({
             endDate = new Date(this.model.get('end').replace('-',',')),
             curDate = new Date(),
             progress = ((curDate - startDate)/(endDate - startDate))*100;
+        
+        if (_.isEmpty(this.model.get('document_name'))) {
+            $('.widget-options ul li.doc-opt').hide();
+        } else {
+            $('.widget-options ul li.doc-opt').show();
+        }
 
         this.model.attributes.budget = _.chain(this.model.attributes.outputs)
             .map(function (o) { return o.budget })
@@ -29,7 +35,7 @@ views.ProjectProfile = Backbone.View.extend({
             .reduce(function(memo, num){ return memo + num; }, 0)
             .value();
 
-         this.model.attributes.expenditure = _.chain(this.model.attributes.outputs)
+        this.model.attributes.expenditure = _.chain(this.model.attributes.outputs)
             .map(function (o) { return o.expenditure })
             .flatten()
             .reduce(function(memo, num){ return memo + num; }, 0)
@@ -61,7 +67,9 @@ views.ProjectProfile = Backbone.View.extend({
             el: '#profilemap',
             model: this.model
         });
+        
         $('#top-stats .progress .bar').css('width',progress + '%');
+        
         return this;
     }
 });

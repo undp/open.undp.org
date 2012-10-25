@@ -1062,12 +1062,13 @@ form {
   cursor: auto;
 }
 
-#browser.widget {
+#container .widget {
   width: 100%;
   min-height: inherit !important;
   max-width: 760px;
 }
-.widget .summary {
+.widget .summary,
+.widget #project-descr {
   width: 100%;
 }
 .widget .separator {
@@ -1153,15 +1154,31 @@ form {
 .widget #chart-hdi,
 .widget #projects-heading,
 .widget #projects,
-.widget #filters {
+.widget #filters,
+.widget #flickr,
+.widget #content-right,
+.widget #breadcrumbs,
+.widget #project-heading,
+.widget .heading-title,
+.widget #project-descr,
+.widget #documents-header,
+.widget #documents,
+.widget #outputs-header,
+.widget [id*="output-"] {
   display: none !important;
 }
 .widget.title-on #applied-filters,
+.widget.title-on #project-heading,
+.widget.title-on .heading-title,
+.widget.descr-on #project-heading,
+.widget.descr-on #project-descr,
 .widget.charts-on .stat-chart,
 .widget.hdi-on #chart-hdi,
 .widget.projects-on #projects,
 .widget.map-on .map-container,
-.widget.stats-on .layers {
+.widget.stats-on .layers,
+.widget.documents-on [id*="documents"],
+.widget.outputs-on [id*="output-"] {
   display: block !important;
 }
 
