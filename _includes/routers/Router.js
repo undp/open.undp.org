@@ -107,8 +107,12 @@ routers.App = Backbone.Router.extend({
         $('#profile .summary').addClass('off');
         $('#browser, .nav.browser').show();
         
+        // Set available widget components
         $('.widget-options ul li.proj-opt').hide();
         $('.widget-options ul li.main-opt').show();
+        
+        // Set up breadcrumbs
+        $('#breadcrumbs ul').html('<li><a href="/undp-projects/">All Projects</a></li>');
 
         // Load the main app view
         this.app = this.app || new views.App({ el: '#browser' });
@@ -119,6 +123,12 @@ routers.App = Backbone.Router.extend({
                 var filter = part.split('-');
                 return { collection: filter[0], id: filter[1] };
             });
+        
+        // Remove intro once off of root
+        if (parts.length) { 
+            $('#intro').remove();
+            //$('#applied-filters').css('margin-bottom','20px');
+        }
             
         if (_.isEqual(this.app.filters, filters)) {
             $('html, body').scrollTop(0);
@@ -190,9 +200,11 @@ routers.App = Backbone.Router.extend({
     widget: function(route) {
         var filters = route.split('?')[0],
             options = route.split('?')[1];
-            
+        
+        // Get widget options from route    
         options = (options) ? options.split('&') : [];
         
+        // Determine whether widget is for project page or main page
         if (filters.split('/')[0] === 'project') {
             $('#container').empty().append('<div id="profile" class="widget map-off stats-off"></div>');
             this.project(filters.split('/')[1]);
@@ -201,6 +213,7 @@ routers.App = Backbone.Router.extend({
             this.browser(filters);
         }
         
+        // "Turn on" widget components
         _.each(options, function(option) {
             $('#container .widget').removeClass(option + '-off');
             $('#container .widget').addClass(option + '-on');

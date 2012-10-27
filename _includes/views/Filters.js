@@ -30,27 +30,35 @@ views.Filters = Backbone.View.extend({
                 }))
                 .first(5);
             if (this.collection.id === 'operating_unit') {
-                $('#applied-filters .operating_unit').html('All Offices');
+                $('#applied-filters').addClass('no-country');
             }
+            if (this.collection.id === 'region') {
+                $('#applied-filters').addClass('no-region');
+            }
+            $('#applied-filters.no-country.no-region').html('All Offices');
         }
 
         if (filterModels.length) {
             this.$el.html(templates.filters(this));
-
-            if (view.collection.id != 'operating_unit') {
-                $('#applied-filters .' + view.collection.id).remove();
-            }
-
+            
             _(filterModels).each(function(model) {
                 view.$('.filter-items').append(templates.filter({ model: model }));
                 $('#' + view.collection.id + '-' + model.id).toggleClass('active', model.get('active'));
                 $('#' + view.collection.id + '-' + model.id).parent().parent().toggleClass('active', model.get('active'));
                 $('#' + view.collection.id + '-' + model.id).parent().parent().prev().toggleClass('active', model.get('active'));
                 if (model.get('active')) {
+                    $('#breadcrumbs ul').append(
+                        '<li><a href="/undp-projects/#filter/'
+                        + view.collection.id + '-'
+                        + model.get('id') + '">'
+                        + model.get('name')
+                        + '</a></li>'
+                    );
+                        
                     if (view.collection.id == 'operating_unit') {
-                        $('#applied-filters .operating_unit').html(model.get('name'));
-                    } else {
-                        $('#applied-filters').append('<span class="' + view.collection.id + '"> <i class="icon chevron"></i> '+ model.get('name') + '</span>');
+                        $('#applied-filters').removeClass('no-country').html(model.get('name'));
+                    } else if (view.collection.id == 'region') {
+                        $('#applied-filters.no-country').removeClass('no-region').html(model.get('name'));
                     }
                 }
             });
@@ -104,15 +112,6 @@ views.Filters = Backbone.View.extend({
                 }
             });
         }
-
-        $('#filters .label').hover(
-            function () {
-                $(this).children('.arrow').addClass('active');
-            },
-            function () {
-                $(this).children('.arrow').removeClass('active');
-            }
-        );
 
         return this;
     }

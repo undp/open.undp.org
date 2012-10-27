@@ -552,6 +552,9 @@ a {
   float: left;
   width:309px;
   }
+.chart.stat-chart .data {
+  width: 544px;
+}
 .chart .data > div {
   background-image:-webkit-gradient(linear, right top, left top, color-stop(0, #0B387C), color-stop(1, #0055AA));
   background-image:-webkit-linear-gradient(right, #0B387C 0%, #0055AA 100%);
@@ -1018,11 +1021,11 @@ form {
   }
   
 /*-----------------------------------
-  Widget
+  Widget Config Modal
 -------------------------------------*/
 #widget-config.modal {
   width: 860px;
-  margin: -300px 0 0 -400px;
+  margin: -300px 0 0 -430px;
 }
 #widget-config .modal-body {
   background: #F2FAFF;
@@ -1030,7 +1033,7 @@ form {
 }
 #widget-config .widget-options {
   float: left;
-  width: 150px;
+  width: 135px;
   height: 400px;
 }
 #widget-config .widget-options ul {
@@ -1053,6 +1056,14 @@ form {
   box-shadow: 0px 0px 10px #666;
   margin-bottom: 30px;
 }
+#widget-config .widget-intro {
+  float: left;
+  width: 165px;
+  margin-left: 20px;
+  font-size: 20px;
+  line-height: 28px;
+  color: #666;
+}
 #widget-config .widget-code {
   color: #666;
   width: 500px;
@@ -1062,6 +1073,9 @@ form {
   cursor: auto;
 }
 
+/*-----------------------------------
+  Widget Embed
+-------------------------------------*/
 #container .widget {
   width: 100%;
   min-height: inherit !important;
