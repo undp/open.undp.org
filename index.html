@@ -1,0 +1,208 @@
+---
+---
+{% assign base = site.baseurl %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>UNDP Projects</title>
+    <link rel='shortcut icon' href='{{base}}/img/global/favicon.ico'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no' />
+    <meta name='apple-mobile-web-app-status-bar-style' content='black' />
+    <meta name='apple-mobile-web-app-capable' content='yes' />
+    <link href='{{base}}/css/reset.css' rel='stylesheet'>
+    <link href='{{base}}/css/global.css' rel='stylesheet'>
+    <link href='{{base}}/ext/bootstrap/css/bootstrap.min.css' rel='stylesheet' />
+    <link href='{{base}}/ext/bootstrap/css/bootstrap-responsive.min.css' rel='stylesheet'>
+    <link href='http://api.tiles.mapbox.com/mapbox.js/v0.6.6/mapbox.css' rel='stylesheet' />
+    <link href='{{base}}/css/style.css' rel='stylesheet' />
+</head>
+<!--[if lt IE 7 ]> <body class='ie ie6'> <![endif]-->
+<!--[if IE 7 ]>    <body class='ie ie7'> <![endif]-->
+<!--[if IE 8 ]>    <body class='ie ie8'> <![endif]-->
+<!--[if IE 9 ]>    <body class='ie9'> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]> <!-->
+<body>
+<!--<![endif]-->
+
+<div id='container'>
+    <div id='skiplink'>
+        <ul>
+            <li><a href='#main-navigation'>Skip to main navigation</a></li>
+            <li><a href='#content-main'>Skip to content</a></li>
+            <li><a href='#footer'>Skip to footer</a></li>
+        </ul>
+    </div>
+    <!-- end of #top-navigation -->
+    <div id='header'>
+        <div class='content'>
+            <a href='#'>
+            <img class='logo png' src='img/global/logo.png' alt='UNDP' width='104' height='150' />
+            </a>
+            <ul id='top-navigation'>
+              <li><a id='country-selector' href='#'>UNDP in 166 countries</a></li>
+              <li><a href='#'>Global Operations</a></li>
+              <li><a href='#'>Library</a></li>
+              <li><a href='#'>Press Center</a></li>
+            </ul>
+            <h2>United Nations Development Programme</h2>
+            <!-- end of #top-navigation -->
+            <!-- end of #languages -->
+            <!-- end of #main-navigation -->
+            <h1 class='site-title'><a href='{{base}}/'>Project Portal</a></h1>
+            <ul class='project-navigation'>
+              <li class='browser profile'><a href='#feedback' data-toggle='modal'>Feedback</a></li>
+              <li class='browser'><a href='#download' data-toggle='modal'>Download</a></li>
+              <li class='browser'><a href='#about' data-toggle='modal'>About</a></li>
+              <li class='profile'><a href='#unit-contact' data-toggle='modal'>Contact</a></li>
+              <li class='profile'><a class='widget-config' href='#widget-config' data-toggle='modal'>Widget</a></li>
+            </ul>
+        </div>
+        <!-- end of .content -->
+    </div><!-- /#header -->
+
+    <!-- content -->
+    <div class='container-fluid'>
+        <div id='app' class='row-fluid'>
+            <div id='browser' class='content col-wrap view'> </div>
+            <div id='profile' class='content col-wrap view'> </div>
+        </div>
+    </div> <!--/ .container-fluid -->
+
+    <!-- Modals -->
+    <div class='modal hide fade' id='about'>
+        <div class='modal-header'>
+            <button type='button' class='close' data-dismiss='modal'>&times;</button>
+            <h3>About UNDP Projects</h3>
+        </div>
+        <div class='modal-body'>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class='modal-footer'>
+            <a href='#' class='btn' data-dismiss='modal'>Close</a>
+        </div>
+    </div>
+
+    <div class='modal hide fade' id='download'>
+        <div class='modal-header'>
+            <button type='button' class='close' data-dismiss='modal'>&times;</button>
+            <h3>Download project data</h3>
+        </div>
+        <div class='modal-body'>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class='modal-footer'>
+            <a href='#' class='btn' data-dismiss='modal'>Close</a>
+        </div>
+    </div>
+
+    <div class='modal hide fade' id='feedback'><form class='form-horizontal' id='feedback-form'>
+        <div class='modal-header'>
+            <button type='button' class='close' data-dismiss='modal'>&times;</button>
+            <h3>Send feedback</h3>
+        </div>
+        <div class='modal-body'>
+            <p>You are viewing an early release of the UNDP Projects portal. Help us make it better by submitting your feedback.</p>
+                <div class='control-group'>
+                    <label class='control-label' for='entry_0'>Name</label>
+                    <div class='controls'>
+                        <input type='text' id='entry_0' name='entry.0.single' class='input-xlarge'>
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <label class='control-label' for='entry_0'>Email</label>
+                    <div class='controls'>
+                        <input type='text' id='entry_1' name='entry.1.single' class='input-xlarge'>
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <label class='control-label' for='entry_2'>Feedback</label>
+                    <div class='controls'>
+                        <textarea id='inputEmail' id='entry_2' name='entry.2.single' class='input-xlarge'></textarea>
+                    </div>
+                </div>
+                <input type='hidden' id='entry_3' name='entry.3.single'>
+        </div>
+        <div class='modal-footer'>
+            <a href='#' class='btn' data-dismiss='modal'>Close</a>
+            <input type='submit' class='btn btn-primary' name='submit' value='Submit' id='feeback-submit'   >
+        </div>
+    </form></div>
+    
+    <div class='modal hide fade' id='widget-config'>
+        <div class='modal-header'>
+            <button type='button' class='close' data-dismiss='modal'>&times;</button>
+            <h3>Widget</h3>
+        </div>
+        <div class='modal-body'>
+            <div class='widget-options'>
+                <ul>
+                    <li class='proj-opt main-opt'><input class='switch' type='checkbox' name='options' value='title' checked /> Title</li>
+                    <li class='proj-opt'><input class='switch' type='checkbox' name='options' value='descr' checked /> Description</li>
+                    <li class='proj-opt main-opt'><input class='switch' type='checkbox' name='options' value='stats' checked /> Stats</li>
+                    <li class='proj-opt main-opt'><input class='switch' type='checkbox' name='options' value='map' checked /> Map</li>
+                    <li class='hdi-opt main-opt'><input class='switch' type='checkbox' name='options' value='hdi' /> HDI</li>
+                    <li class='main-opt'><input class='switch' type='checkbox' name='options' value='charts' /> Charts</li>
+                    <li class='main-opt'><input class='switch' type='checkbox' name='options' value='projects' /> Projects</li>
+                    <li class='proj-opt doc-opt'><input class='switch' type='checkbox' name='options' value='documents' /> Documents</li>
+                    <li class='proj-opt'><input class='switch' type='checkbox' name='options' value='outputs' /> Outputs</li>
+                </ul>
+            </div>
+            <div class='widget-preview'></div>
+            <div class='widget-intro'>
+                To embed this page in your website or blog first select the desired components on the left, then copy and paste the code below.
+            </div>
+            <textarea class='widget-code' readonly wrap='off' rows='1'></textarea>
+        </div>
+        <div class='modal-footer'>
+            <a href='#' class='btn' data-dismiss='modal'>Close</a>
+        </div>
+    </div>
+
+
+    <div id='footer'>
+        <div id='contact'>
+            <div class='content'>
+                <div class='clearfix'>
+                    <ul>
+                        <li><a href='#'>Contact Us</a></li>
+                        <li><a href='#'>Jobs</a></li>
+                        <li><a href='#'>Investigation Hotline</a></li>
+                        <li><a href='#'>Copyright &amp; Terms of Use</a></li>
+                        <li><a href='#'>Information Disclosure Policy</a></li>
+                    </ul>
+                    <ul class='find-us-on'>
+                        <li>Find us on</li>
+                        <li><a class='facebook' href='#'>Facebook</a></li>
+                        <li><a class='twitter' href='#'>Twitter</a></li>
+                        <li><a class='flickr' href='#'>Flickr</a></li>
+                        <li><a class='youtube' href='#'>YouTube</a></li>
+                    </ul>
+                </div>
+                <p>&copy; Copyright 2010 United Nations Development Programme</p>
+            </div>
+            <!-- end of .content -->
+        </div>
+        <!-- end of #contact -->
+    </div><!-- #footer -->
+</div>
+
+<div id='templates'>
+{% include templates.html %}
+</div>
+
+<div id='scripts'>
+  <script src='{{base}}/ext/jquery.js'> </script>
+  <script src='{{base}}/ext/jquery.tweet.js'> </script>
+  <script src='{{base}}/ext/jquery.flot.js'> </script>
+  <script src='{{base}}/ext/bootstrap/js/bootstrap.js'> </script>
+  <script src='{{base}}/ext/underscore.js'> </script>
+  <script src='{{base}}/ext/backbone.js'> </script>
+  <script src='{{base}}/ext/accounting.js'> </script>
+  <script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.6/mapbox.js'> </script>
+  <script src='{{base}}/ext/clustr.min.js'> </script>
+  <script src='{{base}}/js/script.js'> </script>
+</div>
+
+</body>
+</html>

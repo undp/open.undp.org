@@ -1,0 +1,5 @@
+<tr id="#project/<%= model.get('id') %>">
+    <td><a href="#project/<%= model.get('id') %>"><%= model.get('name') %></a></td>
+    <td><%= accounting.formatMoney(model.get('budget')) %></td>
+    <td><%= accounting.formatMoney(model.get('expenditure')) %></td>
+</tr>

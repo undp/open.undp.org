@@ -1,0 +1,230 @@
+<div id="breadcrumbs" class="clearfix">
+    <ul>
+        <li><a href="/undp-projects/">All Projects</a></li>
+        <li><a href="/undp-projects/#filter/operating_unit-<%= model.get('operating_unit_id') %>"><%= model.get('operating_unit') %></a></li>
+        <li><a href="/undp-projects/#project/<%= model.get('id') %>"><%= model.get('id') %></a></li>
+    </ul>
+</div>
+<div class="row-fluid separator" id="project-heading">
+    <div class="span12">
+        <p class="heading-title"><%= model.get('project_title') %></p>
+        <div class="col col-700" id="project-descr">
+            <p class="heading-desc"><%= model.get('project_descr') %></p>
+        </div>
+    </div>
+</div>
+<div class="col col-700 projects summary">
+    <div id="flickr" class="row-fluid">
+        <div class="control resize" title="Resize"><div class="icon-resize-small"></div></div>
+        <div class="control prev" title="Previous"><div class="icon-arrow-left"></div></div>
+        <div class="control next" title="Next"><div class="icon-arrow-right"></div></div>
+    </div>
+    <div id="top-stats" class="row-fluid">
+        <div class="span6">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="label">Budget</div>
+                    <% _.each(model.get('budgetyears'), function(v,k) { %>
+                    <div><span class="date"><%= k %></span> <%= accounting.formatMoney(v) %></div>
+                    <% }); %>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="label">Expenditure</div>
+                    <% _.each(model.get('expendyears'), function(v,k) { %>
+                    <div><span class="date"><%= k %></span> <%= accounting.formatMoney(v) %></div>
+                    <% }); %>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <% if (model.get('inst_descr')) { %>
+                <div class="span12">
+                    <div class="label">Implementing Partner</div>
+                    <p><%= model.get('inst_descr') %></p>
+                </div>
+                <% } %>
+            </div>
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="label">Funding Sources</div>
+                    <%
+                    var donors_id = _.chain(model.get('outputs'))
+                        .map(function (o) { return o.donor_id })
+                        .flatten()
+                        .union()
+                        .value();
+                    var donors_short = _.chain(model.get('outputs'))
+                        .map(function (o) { return o.donor_short })
+                        .flatten()
+                        .union()
+                        .value();
+                    var donors_long = _.chain(model.get('outputs'))
+                        .map(function (o) { return o.donor_name })
+                        .flatten()
+                        .union()
+                        .value();
+                    %>
+                    <p>
+                        <% if (donors_long.length < 5) {
+                            _.each(donors_id, function(o,i) { %>
+                                <a href="#filter/donors-<%= o %>"><%= donors_long[i] %></a><% if (i != donors_id.length -1) { %>, <% } %>
+                            <% });
+                        } else {
+                            _.each(donors_id, function(o,i) { %>
+                                <a href="#filter/donors-<%= o %>"><%= donors_short[i] %></a><% if (i != donors_id.length -1) { %>, <% } %>
+                            <% });
+                        } %>
+                    </p>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span12 dates">
+                    <div class="dates-label">
+                        <span class="start">Start</span>
+                        <span class="end">End</span>
+                    </div>
+                    <div class="progress">
+                        <div class="bar"></div>
+                    </div>
+                    <div>
+                        <span class="start"><%= model.get('start') %></span>
+                        <span class="end"><%= model.get('end') %></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="span6">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="label visible-phone">Location</div>
+                    <div id="profilemap" class="map"></div>
+                </div>
+            </div>
+        </div>
+    </div> <!--/ #top-stats -->
+
+    <% if (!_.isEmpty(model.get('document_name'))) { %>
+    <div class="separator" id="documents-header">
+        <p class="lead">Documents<span></p>
+    </div>
+
+    <div id="documents" class="row-fluid">
+        <div class="span12">
+            <ul class="unstyled">
+                <% _.each(model.get('document_name')[0], function(obj,i) { %>
+                <li><a href="<%= model.get('document_name')[1][i] %>"><span class="filetype"><%= obj.split('.')[1] %></span>
+                <%= obj.split('.')[0] %></a></li>
+                <% }); %>
+            </ul>
+        </div>
+    </div> <!--/ #documents -->
+    <% } %>
+
+    <div class="separator" id="output-header">
+        <p class="lead">Outputs<% if (model.get('outputs').length > 1) { %> <span>(<%= model.get('outputs').length %>)</span><% } %></p>
+    </div>
+
+    <% _.each(model.get('outputs'), function(obj, i) { %>
+    <div id="output-<%= obj.output_id %>" class="project row-fluid">
+        <div class="span1 projid">
+            <p><strong><%= obj.output_id %></strong></p>
+        </div>
+        <div class="span5">
+            <h3><%= obj.output_title %></h3>
+            <p><%= obj.output_descr %></p>
+        </div>
+        <div class="span4">
+            <% if (obj.focus_area) { %>
+            <div class="row-fluid">
+                <div class="label">Focus Area</div>
+                <span><a href="#filter/focus_area-<%= obj.focus_area %>"><%= obj.focus_area_descr %></a></span>
+            </div>
+            <% } %>
+            <% if (obj.crs) { %>
+            <div class="row-fluid">
+                <div class="label">Aid Classification</div>
+                <span><%= obj.crs_descr %></a></span>
+            </div>
+            <% } %>
+            <% if (obj.gender_id) { %>
+            <div class="row-fluid">
+                <div class="label">Gender Equality</div>
+                <span><%= obj.gender_descr %></span>
+            </div>
+            <% } %>
+            <div class="row-fluid">
+                <div class="label">Funding Sources</div>
+                <% _.each(obj.donor_short, function(o, i) { %>
+                <span><a href="#filter/donors-<%= obj.donor_id[i] %>"><%= o %></a></span><% if (i != obj.donor_short.length -1) { %>, <% } %>
+                <% }); %>
+            </div>
+        </div>
+        <div class="span2">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="label">Budget</div>
+                    <% _.each(obj.budget, function(o, i) { %>
+                    <div><span class="date"><%= obj.fiscal_year[i] %></span> <%= accounting.formatMoney(o) %></div>
+                    <% }); %>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="label">Expenditure</div>
+                    <% _.each(obj.expenditure, function(o, i) { %>
+                    <div><span class="date"><%= obj.fiscal_year[i] %></span> <%= accounting.formatMoney(o) %></div>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+    </div><!--/ .outputs<%= obj.output_id %> -->
+    <% }); %>
+</div> <!--/ #summary -->
+
+<div id="content-right" class="col col-240 col-end hidden-phone">
+  <div id="flickr-side">
+      <!--<p class="lead">UNDP <%= model.get('operating_unit') %></p>-->
+      <div class="meta">
+      </div>
+  </div>
+  <div class="inner">
+    <div class="row-fluid">
+        <div class="span12">
+            <p class="label">Outputs</p>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div id="output-nav" class="span12">
+            <ul class="output-nav unstyled">
+                <% _.all(model.get('outputs'), function(obj, i) { %>
+                    <li><a href="#project/<%= model.get('project_id') %>/output-<%= obj.output_id %>"><%= obj.output_id %> - <%= obj.output_title %></a></li>
+                    <% return i < 10; %>
+                <% }); %>
+            </ul>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div id="twitter" class="span12">
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span12">
+            <div class='tweet'></div>
+        </div>
+    </div>
+  </div>
+</div> <!--/ #content-right -->
+
+<!-- Modals -->
+<div class="modal hide fade" id="unit-contact">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h3>UNDP <%= model.get('operating_unit') %> on the Web</h3>
+    </div>
+    <div class="modal-body">
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal">Close</a>
+    </div>
+</div>
