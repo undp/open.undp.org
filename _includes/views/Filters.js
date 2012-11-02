@@ -2,12 +2,12 @@ views.Filters = Backbone.View.extend({
     initialize: function () {
         this.collection.on('update', this.render, this);
     },
-    render: function() {
+    render: function(keypress) {
         var view = this,
             filterModels = [],
             chartModels = [],
             active = this.collection.where({ active: true });
-
+            
         if ($('.btn-' + this.collection.id).html()) {
             var chartType = $('.btn-' + this.collection.id + ' button.active').html().toLowerCase();
         }
@@ -46,7 +46,7 @@ views.Filters = Backbone.View.extend({
                 $('#' + view.collection.id + '-' + model.id).toggleClass('active', model.get('active'));
                 $('#' + view.collection.id + '-' + model.id).parent().parent().toggleClass('active', model.get('active'));
                 $('#' + view.collection.id + '-' + model.id).parent().parent().prev().toggleClass('active', model.get('active'));
-                if (model.get('active')) {
+                if (model.get('active') && !keypress) {
                     $('#breadcrumbs ul').append(
                         '<li><a href="/undp-projects/#filter/'
                         + view.collection.id + '-'

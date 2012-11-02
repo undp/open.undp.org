@@ -89,7 +89,7 @@ views.App = Backbone.View.extend({
                 }
             });
 
-            view.render();
+            view.render(true);
         });
 
         // Open all filter facets on search
