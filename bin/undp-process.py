@@ -394,6 +394,39 @@ f_out.close()
 
 print "Operating Unit Index Process Count: %d" % row_count
 
+# Top Donor Lists
+# ************************
+donor_gross = csv.DictReader(open('download/undp_export/donor_gross.csv', 'rb'), delimiter = ',', quotechar = '"')
+donor_gross_sort = sorted(donor_gross, key = lambda x: x['donor'])
+donor_local = csv.DictReader(open('download/undp_export/donor_local.csv', 'rb'), delimiter = ',', quotechar = '"')
+donor_local_sort = sorted(donor_local, key = lambda x: x['donor'])
+
+# Writeout donor gross list
+gross_list = []
+for g in donor_gross_sort:
+    gross = {}
+    gross['name'] = g['donor']
+    gross['amount'] = g['amount']
+    gross_list.append(gross)
+
+writeout = json.dumps(gross_list, sort_keys=True, indent=4)
+f_out = open('../api/top-donor-gross-index.json', 'wb')
+f_out.writelines(writeout)
+f_out.close()
+
+# Writeout donor local list
+local_list = []
+for g in donor_local_sort:
+    local = {}
+    local['name'] = g['donor']
+    local['amount'] = g['amount']
+    local_list.append(gross)
+    
+writeout = json.dumps(local_list, sort_keys=True, indent=4)
+f_out = open('../api/top-donor-local-index.json', 'wb')
+f_out.writelines(writeout)
+f_out.close()
+
 t1 = time.time()
 total_time = t1-t0
 print "Total Processing time = %d seconds" % total_time
