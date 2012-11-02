@@ -81,9 +81,9 @@ routers.App = Backbone.Router.extend({
         var that = this;
 
         // Set up menu
-        $('#app .view, .nav').hide();
+        $('#app .view, .project-navigation li').hide();
         $('#browser .summary').addClass('off');
-        $('.nav.profile').show();
+        $('.project-navigation .profile').show();
         
         $('.widget-options ul li.main-opt').hide();
         $('.widget-options ul li.proj-opt').show();
@@ -104,9 +104,9 @@ routers.App = Backbone.Router.extend({
         var that = this;
         
         // Set up menu
-        $('#app .view, .nav').hide();
+        $('#app .view, .project-navigation li').hide();
         $('#profile .summary').addClass('off');
-        $('#browser, .nav.browser').show();
+        $('#browser, .project-navigation .browser').show();
         
         // Set available widget components
         $('.widget-options ul li.proj-opt').hide();
