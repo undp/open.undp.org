@@ -252,6 +252,11 @@ f_out.writelines(writeout)
 f_out.close()
 print 'Processing complete. project_summary.json generated.' 
 
+## Process Operating Unit counts from Project Summary file
+# *****************************
+
+
+
 # Process CRS Index
 # *****************
 outputsCRS = csv.DictReader(open('download/undp_export/report_outputs.csv', 'rb'), delimiter = ',', quotechar = '"')
@@ -420,7 +425,7 @@ for g in donor_local_sort:
     local = {}
     local['name'] = g['donor']
     local['amount'] = g['amount']
-    local_list.append(gross)
+    local_list.append(local)
     
 writeout = json.dumps(local_list, sort_keys=True, indent=4)
 f_out = open('../api/top-donor-local-index.json', 'wb')
