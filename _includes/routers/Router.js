@@ -1,5 +1,13 @@
 routers.App = Backbone.Router.extend({
     initialize: function() {
+        
+        // Top Donors table
+        var donors = new models.TopDonors();
+        donors.fetch({
+            success: function() {
+                this.topDonors = new views.TopDonors({ el: '#top-donors', collection: donors });
+            }
+        });
 
         // Handle feedback form submission
         $('#feedback-form').submit(function(e) {
@@ -219,99 +227,5 @@ routers.App = Backbone.Router.extend({
             $('#container .widget').removeClass(option + '-off');
             $('#container .widget').addClass(option + '-on');
         });
-    },
-    search: function(search) {
-        search = decodeURIComponent(search);
-        var that = this;
-        
-        // Set up menu
-        $('#app .view, .nav').hide();
-        $('#profile .summary').addClass('off');
-        $('#browser, .nav.browser').show();
-        $('#intro').remove();
-        
-        // Set available widget components
-        $('.widget-options ul li.proj-opt').hide();
-        $('.widget-options ul li.main-opt').show();
-        
-        // Set up breadcrumbs
-        $('#breadcrumbs ul').html('<li><a href="/undp-projects/">All Projects</a></li>');
-
-        // Load the main app view
-        this.app = this.app || new views.App({ el: '#browser' });
-/*
-        var filters = _(facets).map(function(facet) {
-                return { collection: 'operating_unit', search: search, id: 'AFG' };
-            });
-            */
-        var filters = [{ collection: 'operating_unit', search: search, id: 'AFG' }];
-            
-        if (_.isEqual(this.app.filters, filters)) {
-            $('html, body').scrollTop(0);
-        } else {
-            filter = function(model) {
-                //if (!filters.length) return true;
-                return _(filters).reduce(function(memo, filter) {
-                    if (filter.collection == 'region') {
-                        return memo && model.get(filter.collection) == filter.id;
-                    } else {
-                        return memo && (
-                            model.get(filter.collection) &&
-                            model.get(filter.collection).indexOf(filter.id) >= 0
-                        );
-                    }
-                }, true);
-            };
-            this.app.filters = filters;
-            
-            // Load projects
-            if(!this.allProjects) {
-                this.allProjects = new models.Projects();
-                this.allProjects.fetch({
-                    success: function() {
-                        that.projects = new models.Projects(that.allProjects.filter(filter));
-                        var view = new views.Projects({ collection: that.projects });
-                        that.projects.watch();
-                        loadFilters();
-                        that.projects.map = new views.Map({
-                            el: '#homemap',
-                            collection: that.projects
-                        });
-                    }
-                });
-            } else {
-                // if projects are already present
-                this.projects.reset(this.allProjects.filter(filter));
-            }
-            
-            function loadFilters() {
-                that.app.views = {};
-                // Load filters
-                _(facets).each(function(facet) {
-                    $('#filter-items').append('<div id="' + facet.id + '"></div>');
-    
-                    var collection = new models.Filters({search: search});
-                    _(facet).each(function(v, k) { collection[k] = v; });
-    
-                    collection.fetch({
-                        success: function() {
-                            that.app.views[facet.id] = new views.Filters({
-                                el: '#' + facet.id,
-                                collection: collection,
-                                search: search
-                            });
-                            _.each(filters, function(obj) {
-                                if (obj.collection === facet.id) {
-                                    that.app.views[facet.id].active = true;
-                                }
-                            });
-                            collection.watch();
-                        }
-                    });
-                });
-            }
-        }
-        
-        $('#browser .summary').removeClass('off');
     }
 });

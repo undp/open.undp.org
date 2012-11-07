@@ -56,6 +56,7 @@
     // Models
     {% include models/Filter.js %}
     {% include models/Project.js %}
+    {% include models/TopDonor.js %}
 
     // Views
     {% include views/App.js %}
@@ -63,6 +64,7 @@
     {% include views/Projects.js %}
     {% include views/ProjectProfile.js %}
     {% include views/Map.js %}
+    {% include views/TopDonors.js %}
 
     // Router
     {% include routers/Router.js %}

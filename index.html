@@ -56,6 +56,8 @@
               <li class='browser'><a href='#about' data-toggle='modal'>About</a></li>
               <li class='profile'><a href='#unit-contact' data-toggle='modal'>Contact</a></li>
               <li class='browser profile'><a class='widget-config' href='#widget-config' data-toggle='modal'>Widget</a></li>
+              <li class='browser profile'><a href='#glossary' data-toggle='modal'>Glossary</a></li>
+              <li class='browser profile'><a href='#top-donors' data-toggle='modal'>Top Donors</a></li>
             </ul>
         </div>
         <!-- end of .content -->
@@ -70,31 +72,20 @@
     </div> <!--/ .container-fluid -->
 
     <!-- Modals -->
-    <div class='modal hide fade' id='about'>
+    {% for modal in site.categories.modal %}
+    <div class='modal hide fade' id='{{modal.tag}}'>
         <div class='modal-header'>
             <button type='button' class='close' data-dismiss='modal'>&times;</button>
-            <h3>About UNDP Projects</h3>
+            <h3>{{modal.title}}</h3>
         </div>
         <div class='modal-body'>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            {{modal.content}}
         </div>
         <div class='modal-footer'>
             <a href='#' class='btn' data-dismiss='modal'>Close</a>
         </div>
     </div>
-
-    <div class='modal hide fade' id='download'>
-        <div class='modal-header'>
-            <button type='button' class='close' data-dismiss='modal'>&times;</button>
-            <h3>Download project data</h3>
-        </div>
-        <div class='modal-body'>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-        <div class='modal-footer'>
-            <a href='#' class='btn' data-dismiss='modal'>Close</a>
-        </div>
-    </div>
+    {% endfor %}
 
     <div class='modal hide fade' id='feedback'><form class='form-horizontal' id='feedback-form'>
         <div class='modal-header'>
@@ -125,7 +116,7 @@
         </div>
         <div class='modal-footer'>
             <a href='#' class='btn' data-dismiss='modal'>Close</a>
-            <input type='submit' class='btn btn-primary' name='submit' value='Submit' id='feeback-submit'   >
+            <input type='submit' class='btn btn-primary' name='submit' value='Submit' id='feeback-submit'>
         </div>
     </form></div>
     
@@ -157,6 +148,9 @@
         <div class='modal-footer'>
             <a href='#' class='btn' data-dismiss='modal'>Close</a>
         </div>
+    </div>
+    
+    <div class='modal hide fade' id='top-donors'>
     </div>
 
 

@@ -30,7 +30,7 @@ views.Projects = Backbone.View.extend({
 
         if (models.length) {
             _(models).each(function(model) {
-                this.$('tbody').append(templates.project({ model: model }));
+                this.$('#project-table tbody').append(templates.project({ model: model }));
 
                 // Remove the load more link once this is clicked we can
                 // load more entries on scroll.
@@ -66,9 +66,9 @@ views.Projects = Backbone.View.extend({
         $('#total-expenditure').html(accounting.formatMoney(this.collection.expenditure / 1000000) + 'M');
 
         if (models.length) {
-            this.$('tbody').empty();
+            this.$('#project-table tbody').empty();
             _(models).each(function(model) {
-                this.$('tbody').append(templates.project({ model: model }));
+                this.$('#project-table tbody').append(templates.project({ model: model }));
             });
             if (pageType === 'widget') {
                 (models.length < 10) ? $('.load.button').hide() : $('.load.button').show();
@@ -76,7 +76,7 @@ views.Projects = Backbone.View.extend({
                 (models.length < 50) ? $('.load.button').hide() : $('.load.button').show();
             }
         } else {
-            this.$('tbody').empty().append('<tr><td><em>No projects</em></td><td></td><td></td></tr>');
+            this.$('#project-table tbody').empty().append('<tr><td><em>No projects</em></td><td></td><td></td></tr>');
 
         }
 
