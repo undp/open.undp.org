@@ -2,10 +2,18 @@ routers.App = Backbone.Router.extend({
     initialize: function() {
         
         // Top Donors table
-        var donors = new models.TopDonors();
-        donors.fetch({
+        var donorsGross = new models.TopDonors();
+            donorsGross.url = 'api/top-donor-gross-index.json';
+        var donorsLocal = new models.TopDonors();
+            donorsLocal.url = 'api/top-donor-local-index.json';
+        donorsGross.fetch({
             success: function() {
-                this.topDonors = new views.TopDonors({ el: '#top-donors', collection: donors });
+                this.topDonorsGross = new views.TopDonors({ el: '#donor-gross-table', collection: donorsGross });
+            }
+        });
+        donorsLocal.fetch({
+            success: function() {
+                this.topDonorsLocal = new views.TopDonors({ el: '#donor-local-table', collection: donorsLocal });
             }
         });
 

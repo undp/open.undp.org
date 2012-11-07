@@ -1,9 +1,9 @@
-// Model
-models.TopDonor = Backbone.Model;
+// Models
+models.TopDonor = Backbone.Model.extend({
+});
 
-// Collection
+// Collections
 models.TopDonors = Backbone.Collection.extend({
-    url: 'api/top-donor-gross-index.json',
     model: models.TopDonor,
     comparator: function(model) {
       return -1 * model.get('amount');

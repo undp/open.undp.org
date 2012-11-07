@@ -4,8 +4,9 @@ views.TopDonors = Backbone.View.extend({
         this.render();
     },
     render: function () {
+        var that = this;
         _(this.collection.models).each(function(model) {
-            this.$('tbody').append(templates.topDonor({ model: model }));
+            $('tbody', that.el).append(templates.topDonor({ model: model }));
         });
     }
 });
