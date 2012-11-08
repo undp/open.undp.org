@@ -2,7 +2,8 @@ views.Map = Backbone.View.extend({
     events: {
         'click .map-fullscreen': 'fullscreen',
         'mousedown img.mapmarker': 'mapClick',
-        'mousedown img.simplestyle-marker': 'mapClick'
+        'mousedown img.simplestyle-marker': 'mapClick',
+        'mouseover img.mapmarker': 'tooltipFlip'
     },
     initialize: function() {
         this.render();
@@ -316,6 +317,16 @@ views.Map = Backbone.View.extend({
         }
 
         return description;
+    },
+    
+    tooltipFlip: function(e) {
+        var $target = $(e.target),
+            top = $target.offset().top - $('#homemap').offset().top;
+        if (top <= 150) {
+            var tipSize = $('.marker-popup').height() + 50;
+            $('.marker-tooltip').addClass('flip')
+                .css('margin-top',tipSize + $target.height());
+        }
     },
 
     fullscreen: function(e) {

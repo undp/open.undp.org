@@ -389,7 +389,7 @@ a {
   border-left:1px solid #CEDEDD;
   padding: 5px 0;
   }
-.marker-description .caption {
+.marker-description .data-labels {
   float: left;
   text-align: right;
   font-size: 0.8em;
@@ -398,7 +398,7 @@ a {
   text-transform: none;
   margin-right: 5px;
   }
-.marker-description .caption > div {
+.marker-description .data-labels > div {
   height: 18px;
   }
 .marker-description .data > div {
@@ -413,6 +413,16 @@ a {
   height: 3px;
   margin-bottom: 3px;
   }
+.flip .marker-popup:after {
+  top: -10px;
+  border-bottom-color: #fff;
+  border-top-color: transparent;
+}
+.flip .marker-popup:before {
+  top: -12px;
+  border-bottom-color: #bbb;
+  border-top-color: transparent;
+}
 
 /*-----------------------------------
   Big number stats beside map
