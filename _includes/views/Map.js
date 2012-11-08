@@ -402,7 +402,8 @@ views.Map = Backbone.View.extend({
             searchFirst = this.model.get('project_id'),
             searchSecond = office,
             //searchSecond = this.model.get('project_title').replace(/ /g,'+'),
-            attempt = 0;
+            attempt = 0,
+            i = 0;
 
         // Get user info based on flickr link
         $.getJSON(apiBase + 'flickr.urls.lookupUser&api_key=' + apiKey + '&url=' + url, function(f) {
@@ -423,134 +424,152 @@ views.Map = Backbone.View.extend({
                                 searchPhotos(userid, searchSecond);
                                 break;
                             case 2:
-                                $('#flickr, #flickr-side').css('display','none');
+                                if (photos.length) {
+                                    loadPhoto(i);
+                                } else {
+                                    $('#flickr, #flickr-side').css('display','none');
+                                }
                                 break;
                         }
                     } else {
                         photos = photos.concat(f.photos.photo);
-                        var i = 0;
-
-                        // Load single photo from array
-                        function loadPhoto(x) {
-                            if (photos[x].id) {
-                                var photoid = photos[x].id,
-                                    source, pHeight, pWidth,
-                                    attempt = 0;
-    
-                                // Get photo info based on id
-                                $.getJSON(apiBase + 'flickr.photos.getInfo&api_key=' + apiKey + '&photo_id=' + photoid, function(info) {
-    
-                                    var description = info.photo.description._content,
-                                        date = (new Date(info.photo.dates.taken)).toLocaleDateString();
-    
-                                    // Get available sizes
-                                    $.getJSON(apiBase + 'flickr.photos.getSizes&api_key=' + apiKey + '&photo_id=' + photoid, function(s) {
-                                    
-                                        getSize('Medium 800');
-                                        function getSize(sizeName) {
-                                            _.each(s.sizes.size, function(z) {
-                                                if (z.label == sizeName) {
-                                                    source = z.source;
-                                                    pHeight = z.height;
-                                                    pWidth = z.width;
-                                                }
-                                            });
-                                            
-                                            if (!source) {
-                                                attempt += 1;
-                                                switch (attempt) {
-                                                    case 1:
-                                                        getSize('Medium 640');
-                                                        break;
-                                                    case 2:
-                                                        getSize('Large');
-                                                        break;
-                                                    case 3:
-                                                        getSize('Original');
-                                                        break;
-                                                }
-                                            }
-                                        }
-    
-                                        // Fill in date & description
-                                        $('#flickr-side .meta').html('<p class="label">' + date
-                                            + '<span class="iconlink"><a href="'
-                                            + url + photoid + '/in/photostream/" title="See our photos on Flickr">'
-                                            + '<img src="http://l.yimg.com/g/images/goodies/white-small-chiclet.png" '
-                                            + 'width="23" height="23" alt=""></a></span></p>'
-                                            + '<p>' + description + '</p>');
-                                            
-                                        insertPhoto(pHeight, pWidth, source);
-                                    });
-                                });
-                                
-                            } else if (photos[x].date) {
-                                $('#flickr-side .meta').html('<p class="label">' + photos[x].date.toLocaleDateString()
-                                    + '<span class="iconlink"><a href="'
-                                    + photos[x].link + '">'
-                                    + '<img src="img/twitter-bird.png" '
-                                    + 'width="23" height="23" alt=""></a></span></p>'
-                                    + '<p>' + photos[x].description + '</p>');
-                                    
-                                insertPhoto(photos[x].height, photos[x].width, photos[x].source);
-                                
-                            } else {
-                                var img = new Image();
-                                img.src = photos[x].source;
-                                insertPhoto(img.height, img.width, photos[x].source);
-                                $('#flickr-side .meta').empty();
-                            }
-                            
-                            function insertPhoto(height,width,src) {
-                                // Check for portrait vs. landscape
-                                if (height > width) {
-                                    $('#flickr').css('background','url("' + src + '") center 38% no-repeat');
-                                    //$('#flickr').css('width','50%');
-                                    $('#flickr').css('background-size','cover');
-                                } else {
-                                    $('#flickr').css('background','url("' + src + '") center 25% no-repeat');
-                                    $('#flickr').css('background-size','cover');
-                                }
-                            }
-                        }
-
                         loadPhoto(i);
-
-                        // Cycle through photo array
-                        $('#flickr .next').click(function() {
-                            if (i == 0) {
-                                $('#flickr .prev').css('display','block');
-                            }
-                            i += 1;
-                            if (i == photos.length - 1) {
-                                $('#flickr .next').css('display','none');
-                            }
-                            loadPhoto(i);
-                        });
-                        $('#flickr .prev').click(function() {
-                            if (i == photos.length - 1) {
-                                $('#flickr .next').css('display','block');
-                            }
-                            i -= 1;
-                            if (i == 0) {
-                                $('#flickr .prev').css('display','none');
-                            }
-                            loadPhoto(i);
-                        });
-
-                        // Toggle resizing of photo to fit container
-                        $('#flickr .resize').click(function() {
-                            if ($(this).children().hasClass('icon-resize-small')) {
-                                $('#flickr').css('background-size','contain');
-                                $(this).children().attr('class','icon-resize-full');
-                            } else {
-                                $('#flickr').css('background-size','cover');
-                                $(this).children().attr('class','icon-resize-small');
-                            }
-                        });
                     }
                 }
             );
         }
+        
+        // Load single photo from array
+        function loadPhoto(x) {
+            if (x == 0) $('#flickr .prev').css('display','none');
+            if (x == photos.length - 1) $('#flickr .next').css('display','none');
+            
+            if (photos[x].id) {
+                var photoid = photos[x].id,
+                    source, pHeight, pWidth,
+                    attempt = 0;
+
+                // Get photo info based on id
+                $.getJSON(apiBase + 'flickr.photos.getInfo&api_key=' + apiKey + '&photo_id=' + photoid, function(info) {
+
+                    var description = info.photo.description._content,
+                        date = (new Date(info.photo.dates.taken)).toLocaleDateString();
+
+                    // Get available sizes
+                    $.getJSON(apiBase + 'flickr.photos.getSizes&api_key=' + apiKey + '&photo_id=' + photoid, function(s) {
+                    
+                        getSize('Medium 800');
+                        function getSize(sizeName) {
+                            _.each(s.sizes.size, function(z) {
+                                if (z.label == sizeName) {
+                                    source = z.source;
+                                    pHeight = z.height;
+                                    pWidth = z.width;
+                                }
+                            });
+                            
+                            if (!source) {
+                                attempt += 1;
+                                switch (attempt) {
+                                    case 1:
+                                        getSize('Medium 640');
+                                        break;
+                                    case 2:
+                                        getSize('Large');
+                                        break;
+                                    case 3:
+                                        getSize('Original');
+                                        break;
+                                }
+                            }
+                        }
+
+                        // Fill in date & description
+                        $('#flickr-side .meta').html('<p class="label">' + date
+                            + '<span class="iconlink"><a href="'
+                            + url + photoid + '/in/photostream/" title="See our photos on Flickr">'
+                            + '<img src="http://l.yimg.com/g/images/goodies/white-small-chiclet.png" '
+                            + 'width="23" height="23" alt=""></a></span></p>'
+                            + '<p>' + description + '</p>');
+                            
+                        insertPhoto(pHeight, pWidth, source);
+                    });
+                });
+                
+            } else if (photos[x].date) {
+                $('#flickr-side .meta').html('<p class="label">' + photos[x].date.toLocaleDateString()
+                    + '<span class="iconlink"><a href="'
+                    + photos[x].link + '">'
+                    + '<img src="img/twitter-bird.png" '
+                    + 'width="23" height="23" alt=""></a></span></p>'
+                    + '<p>' + photos[x].description + '</p>');
+                    
+                insertPhoto(photos[x].height, photos[x].width, photos[x].source);
+                
+            } else {
+                var img = new Image();
+                img.onerror = badImg;
+                img.onload = goodImg;
+                img.src = photos[x].source;
+                
+                function badImg(e) {
+                    if (i < photos.length) {
+                        photos.splice(x,1);
+                        loadPhoto(i);
+                    } else {
+                        $('#flickr, #flickr-side').css('display','none');
+                    }
+                }
+                function goodImg(e) {
+                    insertPhoto(img.height, img.width, photos[x].source);
+                    $('#flickr-side .meta').empty();
+                }
+            }
+            
+            function insertPhoto(height,width,src) {
+                // Check for portrait vs. landscape
+                if (height > width) {
+                    $('#flickr').css('background','url("' + src + '") center 38% no-repeat');
+                    //$('#flickr').css('width','50%');
+                    $('#flickr').css('background-size','cover');
+                } else {
+                    $('#flickr').css('background','url("' + src + '") center 25% no-repeat');
+                    $('#flickr').css('background-size','cover');
+                }
+            }
+        }
+
+        // Cycle through photo array
+        $('#flickr .next').click(function() {
+            if (i == 0) {
+                $('#flickr .prev').css('display','block');
+            }
+            i += 1;
+            if (i == photos.length - 1) {
+                $('#flickr .next').css('display','none');
+            }
+            loadPhoto(i);
+        });
+        $('#flickr .prev').click(function() {
+            if (i == photos.length - 1) {
+                $('#flickr .next').css('display','block');
+            }
+            i -= 1;
+            if (i == 0) {
+                $('#flickr .prev').css('display','none');
+            }
+            loadPhoto(i);
+        });
+
+        // Toggle resizing of photo to fit container
+        $('#flickr .resize').click(function() {
+            if ($(this).children().hasClass('icon-resize-small')) {
+                $('#flickr').css('background-size','contain');
+                $(this).children().attr('class','icon-resize-full');
+            } else {
+                $('#flickr').css('background-size','cover');
+                $(this).children().attr('class','icon-resize-small');
+            }
+        });
     }
 });

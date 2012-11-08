@@ -78,8 +78,8 @@ views.ProjectProfile = Backbone.View.extend({
     docPhotos: function() {
         var photos = [];
         _.each(this.model.get('document_name')[0], function (photo, i) {
-            var filetype = photo.split('.')[1];
-            if (filetype == 'jpg' || filetype == 'png' || filetype == 'gif') {
+            var filetype = photo.split('.')[1].toLowerCase();
+            if (filetype == 'jpg' || filetype == 'jpeg' || filetype == 'png' || filetype == 'gif') {
                 photos.push({
                     'title': photo.split('.')[0],
                     'source': that.model.get('document_name')[1][i]
@@ -88,31 +88,5 @@ views.ProjectProfile = Backbone.View.extend({
         });
             
         this.model.attributes.docPhotos = photos;
-        //if (photos) loadPhoto(0);
-        
-        function loadPhoto(i) {
-            $('#flickr').css('background','url("' + photos[i].source + '") center 38% no-repeat');
-            
-            $('#flickr .next').click(function() {
-                if (i == 0) {
-                    $('#flickr .prev').css('display','block');
-                }
-                i += 1;
-                if (i == photos.length - 1) {
-                    $('#flickr .next').css('display','none');
-                }
-                loadPhoto(i);
-            });
-            $('#flickr .prev').click(function() {
-                if (i == photos.length - 1) {
-                    $('#flickr .next').css('display','block');
-                }
-                i -= 1;
-                if (i == 0) {
-                    $('#flickr .prev').css('display','none');
-                }
-                loadPhoto(i);
-            });
-        }
     }
 });
