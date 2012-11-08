@@ -254,7 +254,45 @@ print 'Processing complete. project_summary.json generated.'
 
 ## Process Operating Unit counts from Project Summary file
 # *****************************
+opUnitCount = csv.DictReader(open('download/undp_export/report_projects.csv', 'rb'), delimiter = ',', quotechar = '"')
+opUnitCount_sort = sorted(opUnitCount, key = lambda x: x['operatingunit'])
 
+row_count = 0
+opUnitCounts = []
+opUnitCountsHeader = ['operating_unit','project_count','funding_sources_count','budget_sum','expenditure_sum']
+for opunit,summary in groupby(opUnitCount_sort, lambda x: x['operatingunit']): 
+    row_count = row_count + 1
+    opUnitList = [opunit]
+    opUnitProj = []
+    opUnitBudget = []
+    opUnitDonor = []
+    projectFY = []
+    projCount = []
+    budgetSum = []
+    expendSum = []
+    donorCount = []
+    donors = []
+    for s in summary:
+        for dProj in donorProjects:
+            if dProj['projectID'] == s['awardID']:
+                projCount.append(1)
+                for d in dProj['donorID']:
+                    if d not in donors:
+                        donors.append(d)
+                budgetSum.append(float(s['budget']))
+                expendSum.append(float(s['expenditure']))
+    opUnitDonor.append(len(donors))
+#    opUnitBudget.append(sum(budgetSum))
+#    opUnitProj.append(sum(projCount))
+    opUnitList.append(sum(projCount))
+    opUnitList.append(sum(opUnitDonor))
+    opUnitList.append(sum(budgetSum))
+    opUnitList.append(sum(expendSum))
+    opUnitCounts.append(opUnitList)
+
+opUnitprint = []
+for o in opUnitCounts:
+    opUnitprint.append(dict(zip(opUnitCountsHeader,o))) # this joins the project summary information
 
 
 # Process CRS Index
