@@ -78,12 +78,22 @@ views.ProjectProfile = Backbone.View.extend({
     docPhotos: function() {
         var photos = [];
         _.each(this.model.get('document_name')[0], function (photo, i) {
-            var filetype = photo.split('.')[1].toLowerCase();
+        
+            var filetype = photo.split('.')[1].toLowerCase(),
+                source = that.model.get('document_name')[1][i];
+            
             if (filetype == 'jpg' || filetype == 'jpeg' || filetype == 'png' || filetype == 'gif') {
-                photos.push({
-                    'title': photo.split('.')[0],
-                    'source': that.model.get('document_name')[1][i]
-                })
+                var img = new Image();
+                img.onload = goodImg;
+                img.src = source;
+                
+                function goodImg(e) {
+                    photos.push({
+                        'title': photo.split('.')[0],
+                        'source': source,
+                        'image': img
+                    });
+                }
             }
         });
             

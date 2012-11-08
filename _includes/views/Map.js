@@ -507,23 +507,8 @@ views.Map = Backbone.View.extend({
                 insertPhoto(photos[x].height, photos[x].width, photos[x].source);
                 
             } else {
-                var img = new Image();
-                img.onerror = badImg;
-                img.onload = goodImg;
-                img.src = photos[x].source;
-                
-                function badImg(e) {
-                    if (i < photos.length) {
-                        photos.splice(x,1);
-                        loadPhoto(i);
-                    } else {
-                        $('#flickr, #flickr-side').css('display','none');
-                    }
-                }
-                function goodImg(e) {
-                    insertPhoto(img.height, img.width, photos[x].source);
-                    $('#flickr-side .meta').empty();
-                }
+                insertPhoto(photos[x].image.height, photos[x].image.width, photos[x].source);
+                $('#flickr-side .meta').empty();
             }
             
             function insertPhoto(height,width,src) {
