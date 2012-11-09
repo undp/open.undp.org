@@ -44,10 +44,10 @@ views.App = Backbone.View.extend({
     setFilter: function(e) {
         var $target = $(e.target),
             path = '',
-            parent = $target.attr('id').split('-');
+            parts = $target.attr('id').split('-');
             filters = [{
-                collection: parent[0],
-                id: parent[1]
+                collection: parts[0],
+                id: parts[1]
             }],
             shift = false;
 
@@ -58,6 +58,7 @@ views.App = Backbone.View.extend({
                 filters.push(filter);
             }
         });
+
         if (shift) filters.shift();
 
         filters = _(filters).chain()
@@ -71,6 +72,13 @@ views.App = Backbone.View.extend({
 
         e.preventDefault();
 
+        // Close the state of menu items before
+        // we navigate and set things up again.
+        $('.topics').toggleClass('active', false);
+        $('.topics a').toggleClass('active', false);
+        $('.topics').toggleClass('filtered', false);
+
+        console.log($('.topics'));
         $('#all-projects').attr('href', '#' + path);
         app.navigate(path, { trigger: true });
     },

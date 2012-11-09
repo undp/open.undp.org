@@ -17,7 +17,7 @@ views.Filters = Backbone.View.extend({
             // Add a filtered class to all parent containers
             // where an active element has been selected.
             _(active).each(function(a) {
-                $('#' + a.collection.id).toggleClass('filtered');
+                $('#' + a.collection.id).toggleClass('filtered', true);
             });
 
             filterModels = active;
@@ -51,8 +51,6 @@ views.Filters = Backbone.View.extend({
             _(filterModels).each(function(model) {
                 view.$('.filter-items').append(templates.filter({ model: model }));
                 $('#' + view.collection.id + '-' + model.id).toggleClass('active', model.get('active'));
-                $('#' + view.collection.id + '-' + model.id).parent().parent().toggleClass('active', model.get('active'));
-                $('#' + view.collection.id + '-' + model.id).parent().parent().prev().toggleClass('active', model.get('active'));
                 if (model.get('active') && !keypress) {
                     $('#breadcrumbs ul').append(
                         '<li><a href="/undp-projects/#filter/'
@@ -69,11 +67,6 @@ views.Filters = Backbone.View.extend({
                     }
                 }
             });
-
-            if (view.active) {
-                $('#' + view.collection.id + ' .label').addClass('active');
-                $('#' + view.collection.id + ' .filter-items').addClass('active');
-            }
 
         } else {
             this.$el.empty();
