@@ -1,7 +1,7 @@
 views.Projects = Backbone.View.extend({
     el: '#project-items',
     events: {
-        'click .load': 'loadMore',
+        'click .load a': 'loadMore',
         'click table tr': 'routeToProject',
         'click .table th': 'sortProjects'
     },
@@ -18,12 +18,6 @@ views.Projects = Backbone.View.extend({
         this.low = this.high;
         this.high += 50;
 
-        $(window).on('scroll', function() {
-            if  ($(window).scrollTop() === ($(document).height() - $(window).height())) {
-                self.loadMore();
-            }
-        });
-
         var models = _(this.collection.filter(function(model) {
                 return model.get('visible');
             })).slice(self.low,self.high);
@@ -31,11 +25,9 @@ views.Projects = Backbone.View.extend({
         if (models.length) {
             _(models).each(function(model) {
                 this.$('#project-table tbody').append(templates.project({ model: model }));
-
-                // Remove the load more link once this is clicked we can
-                // load more entries on scroll.
-                if (e !== undefined) $(e.target).remove();
             });
+        } else {
+            $(e.target).text('All Projects Loaded').addClass('disabled');
         }
 
         return false;

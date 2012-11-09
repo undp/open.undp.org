@@ -130,19 +130,23 @@ a {
   font-weight:bold;
   text-transform:uppercase;
   display:inline-block;
+  text-align:center;
   padding:10px 40px;
   margin:20px auto 0;
   -webkit-border-radius:20px;
           border-radius:20px;
   }
+  .button.disabled:hover,
+  .button.disabled {
+    background-color:#ccc;
+    }
   .button:hover {
     background:#036;
     color:#FFF;
     }
 
-.button.load {
-  display:block;
-  width:80px;
+.load {
+  text-align:center;
   }
 
 #header h1 a {
@@ -214,15 +218,14 @@ a {
   .icon.reset {background-position: 0 0;}
 
 .icon.reset {
-  background-color:#ccc;
   position:absolute;
   top:7px;
   left:195px;
   -webkit-border-radius:50%;
           border-radius:50%;
   }
-  .icon.reset:hover {
-    background-color:#666;
+  .icon.reset:active {
+    background-color:#ccc;
     }
   #projects .icon.reset {
     left:260px;
@@ -285,8 +288,8 @@ a {
   border:1px solid #999;
   }
 #homemap {
-  width:100%!important;
-  height:425px!important;
+  width:100%;
+  height:360px;
   position:relative;
   bottom:0;
   left:0;
@@ -504,7 +507,6 @@ a {
 .separator {
   font-size:38px;
   font-weight:bold;
-  letter-spacing:-1px;
   padding:20px 0;
   }
   .separator a {
@@ -566,17 +568,12 @@ a {
   width: 544px;
 }
 .chart .data > div {
-  background-image:-webkit-gradient(linear, right top, left top, color-stop(0, #0B387C), color-stop(1, #0055AA));
-  background-image:-webkit-linear-gradient(right, #0B387C 0%, #0055AA 100%);
-  background-image:   -moz-linear-gradient(right, #0B387C 0%, #0055AA 100%);
-  background-image:    -ms-linear-gradient(right, #0B387C 0%, #0055AA 100%);
-  background-image:     -o-linear-gradient(right, #0B387C 0%, #0055AA 100%);
-  background-image:       linear-gradient(to left, #0B387C 0%, #0055AA 100%);
+  background:#0B387C;
   float:left;
   clear:both;
   text-align:right;
-  height:25px;
-  line-height:24px;
+  height:20px;
+  line-height:20px;
   margin-top:2px;
   padding-right:5px;
   font-size:11px;
@@ -625,57 +622,28 @@ a {
     }
 
 #chart-hdi .data .total,
-.marker-description .total {
-  background-image:-webkit-gradient(linear, right top, left top, color-stop(0, #0B387C), color-stop(1, #0055AA));
-  background-image:-webkit-linear-gradient(right, #0B387C 0%, #0055AA 100%);
-  background-image:   -moz-linear-gradient(right, #0B387C 0%, #0055AA 100%);
-  background-image:    -ms-linear-gradient(right, #0B387C 0%, #0055AA 100%);
-  background-image:     -o-linear-gradient(right, #0B387C 0%, #0055AA 100%);
-  background-image:       linear-gradient(to left, #0B387C 0%, #0055AA 100%);
-}
+.marker-description .total              { background:#0B387C; }
+
 #chart-hdi .data .health,
-.marker-description .health {
-  background-image:-webkit-gradient(linear, right top, left top, color-stop(0, #40a6d8), color-stop(1, #96cce6));
-  background-image:-webkit-linear-gradient(right, #40a6d8 0%, #96cce6 100%);
-  background-image:   -moz-linear-gradient(right, #40a6d8 0%, #96cce6 100%);
-  background-image:    -ms-linear-gradient(right, #40a6d8 0%, #96cce6 100%);
-  background-image:     -o-linear-gradient(right, #40a6d8 0%, #96cce6 100%);
-  background-image:       linear-gradient(to left, #40a6d8 0%, #96cce6 100%);
-}
+.marker-description .health             { background:#40a6d8; }
+
 #chart-hdi .data .education,
-.marker-description .education {
-  background-image:-webkit-gradient(linear, right top, left top, color-stop(0, #0a961b), color-stop(1, #70b678));
-  background-image:-webkit-linear-gradient(right, #0a961b 0%, #70b678 100%);
-  background-image:   -moz-linear-gradient(right, #0a961b 0%, #70b678 100%);
-  background-image:    -ms-linear-gradient(right, #0a961b 0%, #70b678 100%);
-  background-image:     -o-linear-gradient(right, #0a961b 0%, #70b678 100%);
-  background-image:       linear-gradient(to left, #0a961b 0%, #70b678 100%);
-}
+.marker-description .education          { background:#0a961b; }
+
 #chart-hdi .data .income,
-.marker-description .income {
-  background-image:-webkit-gradient(linear, right top, left top, color-stop(0, #d76522), color-stop(1, #dc9b75));
-  background-image:-webkit-linear-gradient(right, #d76522 0%, #dc9b75 100%);
-  background-image:   -moz-linear-gradient(right, #d76522 0%, #dc9b75 100%);
-  background-image:    -ms-linear-gradient(right, #d76522 0%, #dc9b75 100%);
-  background-image:     -o-linear-gradient(right, #d76522 0%, #dc9b75 100%);
-  background-image:       linear-gradient(to left, #d76522 0%, #dc9b75 100%);
-}
+.marker-description .income             { background:#d76522; }
+
 #chart-hdi .subdata.total,
-.marker-description .subdata.total {
-  background: #8da5c8;
-}
+.marker-description .subdata.total      { background: #8da5c8; }
 #chart-hdi .subdata.health,
-.marker-description .subdata.health {
-  background: #bcdceb;
-}
+.marker-description .subdata.health     { background: #bcdceb; }
+
 #chart-hdi .subdata.education,
-.marker-description .subdata.education {
-  background: #a5e7ad;
-}
+.marker-description .subdata.education  { background: #a5e7ad; }
+
 #chart-hdi .subdata.income,
-.marker-description .subdata.income {
-  background: #ebc0a8;
-}
+.marker-description .subdata.income     { background: #ebc0a8; }
+
 #charts .chart {
   margin:20px 0;
   }
@@ -790,6 +758,10 @@ form {
 .form-search {
   position:relative;
   }
+#projects .form-search {
+  background:#f2faff;
+  padding:10px; 
+  }
 #filters-search {
   margin-bottom:20px;
   background:rgba(255, 255, 255, 0.6);
@@ -797,41 +769,46 @@ form {
   width:180px;
   }
 
-#filters li {
+.topics li {
   line-height: 18px;
   font-size: 10px;
   }
+  .topics li a,
+  #output-nav li a {
+    height:100%;
+    display:block;
+    color:#666;
+    font-size:13px;
+    padding:5px;
+    }
+    .topics li a:hover,
+    .topics li a:focus,
+    #output-nav li a:hover {
+      background: rgba(171, 196, 191, 0.25);
+      text-decoration: none;
+      }
 
-#filters li a,
-#output-nav li a {
-  height:100%;
-  display:block;
-  color:#666;
-  font-size:13px;
-  padding:5px;
-  }
-
-#filters li a:hover,
-#filters li a:focus,
-#output-nav li a:hover {
-  background: rgba(171, 196, 191, 0.25);
-  text-decoration: none;
-  }
-#filters li a.active {
-  background:#333;
+.topics.filtered li a.active,
+.topics.active li a.active {
+  background:#333 url(../img/sprite.png) no-repeat -155px -155px;
   color:#fff;
   text-decoration:none;
   padding-left:20px;
   }
-#filters ul.filter-items {
+.topics .filter-items {
   max-height:0;
-  overflow-y:hidden;
+  overflow:hidden;
   }
-#filters ul.filter-items.active {
-  max-height:100%;
-  margin:10px 0;
-  }
-#filters .label {
+  .topics.filtered .filter-items,
+  .topics.active .filter-items {
+    max-height:100%;
+    margin:10px 0;
+    }
+  .topics.filtered .filter-items {
+    margin-left:-20px;
+    }
+
+.topics .label {
   font-size:10px;
   text-transform:uppercase;
   cursor: pointer;
@@ -842,10 +819,11 @@ form {
       -ms-user-select:none;
           user-select:none;
   }
+
 #output-nav li a {
   padding: 0 0 0 10px;
   font-size: 0.7em;
-}
+  }
 
 .nav {
   margin:20px 0 0;
@@ -871,11 +849,27 @@ form {
   text-transform:capitalize;
   font-size:inherit;
   padding:0 0 5px;
+  -webkit-box-shadow:0 1px 0 #fff;
+          box-shadow:0 1px 0 #fff;
   }
-  #filters .label,
+  .topics .label,
   #content-right .label {
+    display:block;
     color:#0055AA;
     }
+    .topics .label:hover {
+      color:#0055AA;
+      }
+
+  /* Disable the state of a menu item that has
+   * an acvtive filter in it
+   */
+  .topics.filtered .label {
+    color:#333;
+    cursor:default;
+    pointer-events:none;
+    }
+  .topics.filtered .label .icon  { display:none; }
 
 /* project.html */
 .project {

@@ -189,7 +189,7 @@ routers.App = Backbone.Router.extend({
                 that.app.views = {};
                 // Load filters
                 _(facets).each(function(facet) {
-                    $('#filter-items').append('<div id="' + facet.id + '"></div>');
+                    $('#filter-items').append('<div id="' + facet.id + '" class="topics"></div>');
     
                     var collection = new models.Filters();
                     _(facet).each(function(v, k) { collection[k] = v; });

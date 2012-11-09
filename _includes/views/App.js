@@ -2,8 +2,8 @@ views.App = Backbone.View.extend({
     events: {
         'click a.filter': 'setFilter',
         'keyup #filters-search': 'searchFilter',
-        'click #filters .label': 'collapseFilter',
-        'click button.btn-mini': 'toggleChart',
+        'click #filters .label': 'toggleFilter',
+        'click .btn-mini': 'toggleChart',
         'click .map-btn': 'mapLayerswitch',
         'click .reset': 'clearForm'
     },
@@ -14,7 +14,7 @@ views.App = Backbone.View.extend({
         this.render();
 
         // Filters follow scrolling
-        var top = $('#filters').offset().top - parseFloat($('#filters').css('marginTop').replace(/auto/, 0));
+        var top = $('#filters').offset().top - 78;
         $(window).on('scroll', function () {
             var y = $(this).scrollTop();
             if (y >= top) {
@@ -44,9 +44,10 @@ views.App = Backbone.View.extend({
     setFilter: function(e) {
         var $target = $(e.target),
             path = '',
+            parts = $target.attr('id').split('-');
             filters = [{
-                collection: $target.attr('id').split('-')[0],
-                id: $target.attr('id').split('-')[1]
+                collection: parts[0],
+                id: parts[1]
             }],
             shift = false;
 
@@ -57,6 +58,7 @@ views.App = Backbone.View.extend({
                 filters.push(filter);
             }
         });
+
         if (shift) filters.shift();
 
         filters = _(filters).chain()
@@ -70,6 +72,13 @@ views.App = Backbone.View.extend({
 
         e.preventDefault();
 
+        // Close the state of menu items before
+        // we navigate and set things up again.
+        $('.topics').toggleClass('active', false);
+        $('.topics a').toggleClass('active', false);
+        $('.topics').toggleClass('filtered', false);
+
+        console.log($('.topics'));
         $('#all-projects').attr('href', '#' + path);
         app.navigate(path, { trigger: true });
     },
@@ -94,11 +103,9 @@ views.App = Backbone.View.extend({
 
         // Open all filter facets on search
         if (val === '') {
-            $('ul.filter-items').removeClass('active');
-            $('#filter-items .label').removeClass('active');
+            $('.topics').toggleClass('active', false);
         } else {
-            $('ul.filter-items').addClass('active');
-            $('#filter-items .label').addClass('active');
+            $('.topics').toggleClass('active', true);
         }
     },
 
@@ -107,24 +114,31 @@ views.App = Backbone.View.extend({
         return false;
     },
 
-    collapseFilter: function (e) {
-        if ($(e.target).hasClass('icon')) {
-            var $target = $(e.target).parent();
-        } else {
-            var $target = $(e.target);
-        }
-        var list = $target.next(),
-            cat = $target.parent().parent().parent().attr('id');
-            
-        if (list.hasClass('active')) {
-            list.removeClass('active');
-            $target.removeClass('active');
+    toggleFilter: function (e) {
+        var $target = $(e.target),
+            cat = $target.attr('data-category'),
+            $parent = $('#' + cat);
+
+        // Bail on the this function if the user has selected
+        // a label that has an active filtered selection.
+        if ($parent.hasClass('filtered')) return false;
+
+        if ($parent.hasClass('active')) {
+            $parent.toggleClass('active', false);
             this.views[cat].active = false;
         } else {
-            list.addClass('active');
-            $target.addClass('active');
+            $('.topics').each(function () {
+                // Loop through all the filtered menus
+                // to close active menus providing they don't 
+                // have an active filtered selection.
+                if (!$(this).hasClass('filtered')) {
+                    $(this).toggleClass('active', false);
+                }
+            });
+            $parent.toggleClass('active', true);
             this.views[cat].active = true;
         }
+        return false;
     },
 
     mapLayerswitch: function (e) {
@@ -145,5 +159,6 @@ views.App = Backbone.View.extend({
             $target.parent().parent().children('.chart-legend').css('display','none');
         }
         this.views[facet].render();
+        return false;
     }
 });
