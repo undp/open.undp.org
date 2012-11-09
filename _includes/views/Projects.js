@@ -18,12 +18,6 @@ views.Projects = Backbone.View.extend({
         this.low = this.high;
         this.high += 50;
 
-        $(window).on('scroll', function() {
-            if  ($(window).scrollTop() === ($(document).height() - $(window).height())) {
-                self.loadMore();
-            }
-        });
-
         var models = _(this.collection.filter(function(model) {
                 return model.get('visible');
             })).slice(self.low,self.high);
@@ -32,9 +26,7 @@ views.Projects = Backbone.View.extend({
             _(models).each(function(model) {
                 this.$('#project-table tbody').append(templates.project({ model: model }));
 
-                // Remove the load more link once this is clicked we can
-                // load more entries on scroll.
-                if (e !== undefined) $(e.target).remove();
+                // $(e.target).text('Load 50 More');
             });
         }
 

@@ -196,8 +196,7 @@ views.Map = Backbone.View.extend({
         mapbox.auto(this.el, 'undp.map-6grwd0n3', function(map) {
             that.map = map;
             map.setZoomRange(2, 17);
-
-            $(that.el).append('<a href="#" class="map-fullscreen"></a>');
+            map.ui.fullscreen.remove();
 
             var radii = function(f) {
                 f.properties.description = that.tooltip(layer,f.properties);
@@ -278,6 +277,7 @@ views.Map = Backbone.View.extend({
                 }
             });
         });
+        // m.ui.fullscreen.remove();        
     },
 
     tooltip: function(layer,data) {
