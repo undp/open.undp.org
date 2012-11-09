@@ -21,7 +21,7 @@ views.Map = Backbone.View.extend({
 
         // Get HDI data
         $.getJSON('api/hdi.json', function(data) {
-
+        
             var hdiWorld = _.find(data,function(d){return d.name == 'World';});
             hdiWorld.count = _.max(data,function(d){return d.rank;}).rank;
 
@@ -193,7 +193,7 @@ views.Map = Backbone.View.extend({
             // if unit is an object we're working with the homepage map, else the project map
             homepage = _.isObject(unit);
 
-        mapbox.auto(this.el, 'dhcole.map-75gxxhee', function(map) {
+        mapbox.auto(this.el, 'undp.map-6grwd0n3', function(map) {
             that.map = map;
             map.setZoomRange(2, 17);
 
@@ -218,7 +218,10 @@ views.Map = Backbone.View.extend({
                     var o = data[i];
                     if ((homepage) ? unit.operating_unit[o.id] : o.id === unit) {
 
-                        if (!homepage) { that.getwebData(o); }
+                        if (!homepage) {
+                            that.getwebData(o);
+                            $('#country-summary').html(templates.ctrySummary(o));
+                        }
 
                         if (o.lon) {
                             (homepage) ? count = unit.operating_unit[o.id] : count = false;
