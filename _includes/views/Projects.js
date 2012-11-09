@@ -1,7 +1,7 @@
 views.Projects = Backbone.View.extend({
     el: '#project-items',
     events: {
-        'click .load': 'loadMore',
+        'click .load a': 'loadMore',
         'click table tr': 'routeToProject',
         'click .table th': 'sortProjects'
     },
@@ -25,9 +25,9 @@ views.Projects = Backbone.View.extend({
         if (models.length) {
             _(models).each(function(model) {
                 this.$('#project-table tbody').append(templates.project({ model: model }));
-
-                // $(e.target).text('Load 50 More');
             });
+        } else {
+            $(e.target).text('All Projects Loaded').addClass('disabled');
         }
 
         return false;

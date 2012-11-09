@@ -130,19 +130,23 @@ a {
   font-weight:bold;
   text-transform:uppercase;
   display:inline-block;
+  text-align:center;
   padding:10px 40px;
   margin:20px auto 0;
   -webkit-border-radius:20px;
           border-radius:20px;
   }
+  .button.disabled:hover,
+  .button.disabled {
+    background-color:#ccc;
+    }
   .button:hover {
     background:#036;
     color:#FFF;
     }
 
-.button.load {
-  display:block;
-  width:80px;
+.load {
+  text-align:center;
   }
 
 #header h1 a {
@@ -564,17 +568,12 @@ a {
   width: 544px;
 }
 .chart .data > div {
-  background-image:-webkit-gradient(linear, right top, left top, color-stop(0, #0B387C), color-stop(1, #0055AA));
-  background-image:-webkit-linear-gradient(right, #0B387C 0%, #0055AA 100%);
-  background-image:   -moz-linear-gradient(right, #0B387C 0%, #0055AA 100%);
-  background-image:    -ms-linear-gradient(right, #0B387C 0%, #0055AA 100%);
-  background-image:     -o-linear-gradient(right, #0B387C 0%, #0055AA 100%);
-  background-image:       linear-gradient(to left, #0B387C 0%, #0055AA 100%);
+  background:#0B387C;
   float:left;
   clear:both;
   text-align:right;
-  height:25px;
-  line-height:24px;
+  height:20px;
+  line-height:20px;
   margin-top:2px;
   padding-right:5px;
   font-size:11px;
@@ -623,57 +622,28 @@ a {
     }
 
 #chart-hdi .data .total,
-.marker-description .total {
-  background-image:-webkit-gradient(linear, right top, left top, color-stop(0, #0B387C), color-stop(1, #0055AA));
-  background-image:-webkit-linear-gradient(right, #0B387C 0%, #0055AA 100%);
-  background-image:   -moz-linear-gradient(right, #0B387C 0%, #0055AA 100%);
-  background-image:    -ms-linear-gradient(right, #0B387C 0%, #0055AA 100%);
-  background-image:     -o-linear-gradient(right, #0B387C 0%, #0055AA 100%);
-  background-image:       linear-gradient(to left, #0B387C 0%, #0055AA 100%);
-}
+.marker-description .total              { background:#0B387C; }
+
 #chart-hdi .data .health,
-.marker-description .health {
-  background-image:-webkit-gradient(linear, right top, left top, color-stop(0, #40a6d8), color-stop(1, #96cce6));
-  background-image:-webkit-linear-gradient(right, #40a6d8 0%, #96cce6 100%);
-  background-image:   -moz-linear-gradient(right, #40a6d8 0%, #96cce6 100%);
-  background-image:    -ms-linear-gradient(right, #40a6d8 0%, #96cce6 100%);
-  background-image:     -o-linear-gradient(right, #40a6d8 0%, #96cce6 100%);
-  background-image:       linear-gradient(to left, #40a6d8 0%, #96cce6 100%);
-}
+.marker-description .health             { background:#40a6d8; }
+
 #chart-hdi .data .education,
-.marker-description .education {
-  background-image:-webkit-gradient(linear, right top, left top, color-stop(0, #0a961b), color-stop(1, #70b678));
-  background-image:-webkit-linear-gradient(right, #0a961b 0%, #70b678 100%);
-  background-image:   -moz-linear-gradient(right, #0a961b 0%, #70b678 100%);
-  background-image:    -ms-linear-gradient(right, #0a961b 0%, #70b678 100%);
-  background-image:     -o-linear-gradient(right, #0a961b 0%, #70b678 100%);
-  background-image:       linear-gradient(to left, #0a961b 0%, #70b678 100%);
-}
+.marker-description .education          { background:#0a961b; }
+
 #chart-hdi .data .income,
-.marker-description .income {
-  background-image:-webkit-gradient(linear, right top, left top, color-stop(0, #d76522), color-stop(1, #dc9b75));
-  background-image:-webkit-linear-gradient(right, #d76522 0%, #dc9b75 100%);
-  background-image:   -moz-linear-gradient(right, #d76522 0%, #dc9b75 100%);
-  background-image:    -ms-linear-gradient(right, #d76522 0%, #dc9b75 100%);
-  background-image:     -o-linear-gradient(right, #d76522 0%, #dc9b75 100%);
-  background-image:       linear-gradient(to left, #d76522 0%, #dc9b75 100%);
-}
+.marker-description .income             { background:#d76522; }
+
 #chart-hdi .subdata.total,
-.marker-description .subdata.total {
-  background: #8da5c8;
-}
+.marker-description .subdata.total      { background: #8da5c8; }
 #chart-hdi .subdata.health,
-.marker-description .subdata.health {
-  background: #bcdceb;
-}
+.marker-description .subdata.health     { background: #bcdceb; }
+
 #chart-hdi .subdata.education,
-.marker-description .subdata.education {
-  background: #a5e7ad;
-}
+.marker-description .subdata.education  { background: #a5e7ad; }
+
 #chart-hdi .subdata.income,
-.marker-description .subdata.income {
-  background: #ebc0a8;
-}
+.marker-description .subdata.income     { background: #ebc0a8; }
+
 #charts .chart {
   margin:20px 0;
   }
@@ -824,6 +794,9 @@ form {
   .topics.active .filter-items {
     max-height:100%;
     margin:10px 0;
+    }
+  .topics.filtered .filter-items {
+    margin-left:-20px;
     }
 
 .topics .label {
