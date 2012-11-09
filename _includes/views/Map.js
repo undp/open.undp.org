@@ -192,7 +192,7 @@ views.Map = Backbone.View.extend({
             // if unit is an object we're working with the homepage map, else the project map
             homepage = _.isObject(unit);
 
-        mapbox.auto(this.el, 'dhcole.map-75gxxhee', function(map) {
+        mapbox.auto(this.el, 'undp.map-6grwd0n3', function(map) {
             that.map = map;
             map.setZoomRange(2, 17);
 
