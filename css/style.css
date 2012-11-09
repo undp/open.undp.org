@@ -22,7 +22,7 @@ h2 {
   }
 h3 {
   font-size:18px;
-  line-height:27px;
+  line-height:26px;
   }
 table {
   background:#fff;
@@ -197,6 +197,14 @@ a {
       text-decoration:none;
       }
 
+
+#widget {
+  position:absolute;
+  color:#fff;
+  right:0;
+  top:125px;
+  }
+
 #footer ul {
   padding:0;
   margin:0;
@@ -211,11 +219,18 @@ a {
 .icon {
   background:transparent url(../img/sprite.png) no-repeat 0 0;
   display:inline-block;
-  width:16px;
-  height:16px;
+  width:20px;
+  height:20px;
   text-indent:-999em;
   }
   .icon.reset {background-position: 0 0;}
+  .icon.embed {
+    background-position:0 -100px;
+    margin-top:-5px;
+    position:relative;
+    top:4px;
+    right:10px;
+    }
 
 .icon.reset {
   position:absolute;
@@ -232,14 +247,17 @@ a {
     }
 
 .icon.open {
-  background-color:#05A;
-  background-position:-20px 0;
+  background-color:#fff;
+  background-position:-18px 2px;
+  float:right;
   position:relative;
   top:4px;
   -webkit-border-radius:4px;
           border-radius:4px;
   }
-  .active .icon.open { background-position:-40px 0; }
+  .active .icon.open {
+    background-position:-38px 2px;
+    }
 
 .icon.chevron {
   background-position:-60px 0;
@@ -749,8 +767,8 @@ form {
   color: #444;
   margin-bottom: 10px;
   letter-spacing: -1px;
-}
-#filters h3 {
+  }
+.col-240 h3 {
   color:#444;
   letter-spacing:-1px;
   margin-bottom:10px;
@@ -769,6 +787,10 @@ form {
   width:180px;
   }
 
+#filter-items {
+  margin:0 -10px;
+  width:240px;
+  }
 .topics li {
   line-height: 18px;
   font-size: 10px;
@@ -779,7 +801,7 @@ form {
     display:block;
     color:#666;
     font-size:13px;
-    padding:5px;
+    padding:4px 10px;
     }
     .topics li a:hover,
     .topics li a:focus,
@@ -790,39 +812,40 @@ form {
 
 .topics.filtered li a.active,
 .topics.active li a.active {
-  background:#333 url(../img/sprite.png) no-repeat -155px -155px;
+  background:#333 url(../img/sprite.png) no-repeat 230px -155px;
   color:#fff;
   text-decoration:none;
-  padding-left:20px;
+  padding-right:25px;
   }
 .topics .filter-items {
   max-height:0;
   overflow:hidden;
   }
+  .topics .count {
+    float:right;
+    font-size:10px;
+    font-weight:bold;
+    }
   .topics.filtered .filter-items,
   .topics.active .filter-items {
     max-height:100%;
     margin:10px 0;
     }
   .topics.filtered .filter-items {
-    margin-left:-20px;
+    margin-right:-10px;
     }
 
 .topics .label {
   font-size:10px;
   text-transform:uppercase;
   cursor: pointer;
+  padding:0 10px;
   -webkit-touch-callout:none;
   -webkit-user-select:none;
    -khtml-user-select:none;
      -moz-user-select:none;
       -ms-user-select:none;
           user-select:none;
-  }
-
-#output-nav li a {
-  padding: 0 0 0 10px;
-  font-size: 0.7em;
   }
 
 .nav {
@@ -842,15 +865,12 @@ form {
 .label {
   background:none;
   text-shadow:none;
-  border-bottom:1px solid #b3b3b3;
   border-radius:0;
   color:#444;
   position:relative;
   text-transform:capitalize;
   font-size:inherit;
   padding:0 0 5px;
-  -webkit-box-shadow:0 1px 0 #fff;
-          box-shadow:0 1px 0 #fff;
   }
   .topics .label,
   #content-right .label {
@@ -866,15 +886,18 @@ form {
    */
   .topics.filtered .label {
     color:#333;
+    border-bottom:none;
     cursor:default;
     pointer-events:none;
+    -webkit-box-shadow:none;
+            box-shadow:none;
     }
   .topics.filtered .label .icon  { display:none; }
 
 /* project.html */
 .project {
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 20px;
+  border-bottom:1px solid #b4b4b4;
+  margin-bottom:10px;
   }
 .project:last-child {
   padding-bottom: 0;
@@ -1093,13 +1116,13 @@ form {
   color: #666;
 }
 #widget-config .widget-code {
-  color: #666;
-  width: 500px;
-  float: left;
-  font: 11px/15px 'Menlo Regular', Consolas, monospace;
-  overflow: hidden;
-  cursor: auto;
-}
+  background:#fff;
+  width:500px;
+  float:left;
+  font:11px/15px 'Menlo Regular', Consolas, monospace;
+  overflow:hidden;
+  cursor:auto;
+  }
 
 /*-----------------------------------
   Widget Embed
@@ -1117,12 +1140,9 @@ form {
   padding: 10px 0;
 }
 .widget #applied-filters {
-  color: #036;
-  font-size: 20px;
-  line-height: 28px;
-  border-bottom: 1px solid #CCC;
-  box-shadow: 0 1px 0 white;
-}
+  font-size:18px;
+  line-height:26px;
+  }
 .widget .layers {
   width: 125px !important;
   margin-bottom: 10px;

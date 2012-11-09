@@ -37,7 +37,7 @@
     <div id='header'>
         <div class='content'>
             <a href='#'>
-            <img class='logo png' src='img/global/logo.png' alt='UNDP' width='104' height='150' />
+              <img class='logo png' src='img/global/logo.png' alt='UNDP' width='104' height='150' />
             </a>
             <ul id='top-navigation'>
               <li><a id='country-selector' href='#'>UNDP in 166 countries</a></li>
@@ -55,10 +55,13 @@
               <li class='browser profile'><a href='#download' data-toggle='modal'>Download</a></li>
               <li class='browser'><a href='#about' data-toggle='modal'>About</a></li>
               <li class='profile'><a href='#unit-contact' data-toggle='modal'>Contact</a></li>
-              <li class='browser profile'><a class='widget-config' href='#widget-config' data-toggle='modal'>Widget</a></li>
               <li class='browser profile'><a href='#glossary' data-toggle='modal'>Glossary</a></li>
               <li class='browser profile'><a href='#top-donors' data-toggle='modal'>Top Donors</a></li>
             </ul>
+            <a id='widget' class='widget-config button' href='#widget-config' data-toggle='modal'>
+              <span class='icon embed'></span>
+              Embed this
+            </a>
         </div>
         <!-- end of .content -->
     </div><!-- /#header -->
@@ -143,7 +146,7 @@
             <div class='widget-intro'>
                 To embed this page in your website or blog first select the desired components on the left, then copy and paste the code below.
             </div>
-            <textarea class='widget-code' readonly wrap='off' rows='1'></textarea>
+            <input type='text' class='widget-code' readonly wrap='off' rows='1'></input>
         </div>
         <div class='modal-footer'>
             <a href='#' class='btn' data-dismiss='modal'>Close</a>

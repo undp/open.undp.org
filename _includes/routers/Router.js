@@ -58,7 +58,10 @@ routers.App = Backbone.Router.extend({
                               + '" width="500" height="350" frameborder="0"> </iframe>';
                               
             $('#widget-config .widget-preview').html(widgetCode);
-            $('#widget-config .widget-code').html(widgetCode);
+            $('#widget-config .widget-code')
+                .val(widgetCode)
+                .focus()
+                .select();
         });
         
         $('#widget-config .switch').click(function() {
@@ -82,7 +85,10 @@ routers.App = Backbone.Router.extend({
                               + '" width="500" height="350" frameborder="0"> </iframe>';
                               
             $('#widget-config .widget-preview').html(widgetCode);
-            $('#widget-config .widget-code').html(widgetCode);
+            $('#widget-config .widget-code')
+                .val(widgetCode)
+                .focus()
+                .select();
         });
     },
     routes: {
