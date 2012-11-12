@@ -78,7 +78,6 @@ views.App = Backbone.View.extend({
         $('.topics a').toggleClass('active', false);
         $('.topics').toggleClass('filtered', false);
 
-        console.log($('.topics'));
         $('#all-projects').attr('href', '#' + path);
         app.navigate(path, { trigger: true });
     },
@@ -125,7 +124,9 @@ views.App = Backbone.View.extend({
 
         if ($parent.hasClass('active')) {
             $parent.toggleClass('active', false);
-            this.views[cat].active = false;
+            if (this.views[cat]) {
+                this.views[cat].active = false;
+            }
         } else {
             $('.topics').each(function () {
                 // Loop through all the filtered menus
@@ -136,7 +137,9 @@ views.App = Backbone.View.extend({
                 }
             });
             $parent.toggleClass('active', true);
-            this.views[cat].active = true;
+            if (this.views[cat]) {
+                this.views[cat].active = true;
+            }
         }
         return false;
     },
@@ -153,12 +156,16 @@ views.App = Backbone.View.extend({
         var facet = $target.attr('data-facet');
         $('.btn-' + facet + ' button').removeClass('active');
         $target.addClass('active');
-        if ($target.html() == 'Budget') {
+
+        if ($target.html() === 'Budget') {
             $target.parent().parent().children('.chart-legend').css('display','block');
         } else {
             $target.parent().parent().children('.chart-legend').css('display','none');
         }
-        this.views[facet].render();
+
+        if (this.views[facet]) {
+            this.views[facet].render();
+        }
         return false;
     }
 });
