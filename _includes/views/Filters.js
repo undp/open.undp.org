@@ -25,9 +25,9 @@ views.Filters = Backbone.View.extend({
         } else {
             this.collection.sort();
 
-            filterModels = _(this.collection.filter(function(model) {
-                    return (model.get('visible') && model.get('count') > 0);
-                })).first(5);
+            filterModels = this.collection.filter(function(model) {
+                    return (model.get('visible') && model.get('count') > 1);
+                });
 
             chartModels = _(this.collection.sortBy(function(model) {
                     return -1 * model.get(chartType) || 0;
