@@ -229,6 +229,10 @@ a {
   height:20px;
   text-indent:-999em;
   }
+.icon-thumbnail {
+  width:40px;
+  height:40px;
+  }
 
 .icon.reset                   { background-position:0 0; }
 .icon.filetype                { background-position:0 -75px; }
@@ -240,6 +244,11 @@ a {
 .icon.prev                    { background-position:-100px 0; }
 .icon.fullscreen              { background-position:-125px 0; }
 .fullscreen .icon.fullscreen  { background-position:-150px 0; }
+
+.icon.democratic              { background-position:0 -30px; }
+.icon.crisis                  { background-position:-45px -30px; }
+.icon.environment             { background-position:-90px -30px; }
+.icon.poverty                 { background-position:-135px -30px; }
 
 /*-----------------------------------
   Global Layout
@@ -901,7 +910,7 @@ form {
     }
   .topics.filtered .label .icon  { display:none; }
 
-/* project.html */
+/* projects */
 .project {
   border-bottom:1px solid #b4b4b4;
   margin-bottom:10px;
@@ -923,7 +932,7 @@ form {
 
 .projects > .row-fluid .row-fluid {
   margin-bottom: 10px;
-}
+  }
 .dates .dates-label {
   font-weight: bold;
   color: #444;
@@ -938,67 +947,65 @@ form {
   background-image:    -ms-linear-gradient(bottom, #0B387C 0%, #0055AA 100%);
   background-image:     -o-linear-gradient(bottom, #0B387C 0%, #0055AA 100%);
   background-image:       linear-gradient(to top, #0B387C 0%, #0055AA 100%);
-}
+  }
 #top-stats span.end {
   float: right;
   }
 
 #documents li a {
-  display: block;
-  padding: 0.1em 0;
-  border-radius: 5px;
+  display:block;
+  padding:5px 0 0 25px;
   }
-#documents li a:hover {
-  background: rgba(171, 196, 191, 0.25);
-  text-decoration: none;
+  #documents li a .icon {
+    margin-left:-25px;
+    }
+  #documents li a:hover {
+    background: rgba(171, 196, 191, 0.25);
+    text-decoration: none;
+    }
+.focus-area .text {
+  position:relative;
+  top:15px;
   }
 
 /* twitter feed */
-#content-right .twitter {
-  background:url("../img/twitter-bird.png") no-repeat;
-  display: block;
-  float: left;
-  width: 20px;
-  height: 16px;
-  margin-right: 5px;
-}
 #twitter {
-  margin-top: 20px;
-}
+  margin-top:20px;
+  }
 #twitter a {
-  color: inherit;
-}
+  color:inherit;
+  }
 .tweet_list {
-  margin: 0;
-}
+  margin:0;
+  }
 .tweet_list a {
-  color: #333;
-  font-weight: bold;
-}
+  color:#333;
+  font-weight:bold;
+  }
 .tweet_list div {
-  margin-left: 40px;
-}
+  margin-left:40px;
+  }
 .tweet_list li {
-  overflow-y: auto;
-	overflow-x: hidden;
-	list-style-type: none;
-	line-height: 15px;
-	margin-bottom: 10px;
-}
+  overflow:hidden
+  overflow-y:auto;
+	overflow-x:hidden;
+	list-style-type:none;
+	line-height:15px;
+	margin-bottom:10px;
+  }
 .tweet_list .actions {
-  margin-top: 5px;
-  font-size: 0.8em;
-}
+  font-size:11px;
+  }
 .tweet_list .actions a {
-  color: #aaa;
-  font-weight: normal;
-}
+  color:#666;
+  font-weight:normal;
+  }
 .tweet_list .tweet_text {
-  font-size: 0.95em;
-}
+  line-height:18px;
+  }
 .tweet_list .tweet_avatar {
-	float: left;
-}
+	float:left;
+  }
 
 #profile .glance {
   margin: 20px 0 0 0;
@@ -1006,6 +1013,7 @@ form {
 
 /* flickr gallery */
 #flickr {
+  background-color:#fff;
   position:relative;
   margin-bottom:10px;
   background-size:cover;

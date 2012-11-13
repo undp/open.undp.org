@@ -394,11 +394,11 @@ views.Map = Backbone.View.extend({
             username: user,
             avatar_size: 32,
             count: 3,
-            template: "{avatar}<div>{text}</div><div class='actions'>{time} &#183; {reply_action} &#183; {retweet_action} &#183; {favorite_action}</div>",
+            template: "{avatar}<div>{text}</div><div class='actions'>{time} &#183;</div>",
             loading_text: "loading tweets..."
         });
 
-        $('#twitter').html('<p class="label"><span class="twitter"></span><a href="http://twitter.com/' + user + '">' + username + '</a></p>');
+        $('#twitter').html('<a href="https://twitter.com/' + user + '" class="twitter-follow-button" data-show-count="false" data-show-screen-name="true" data-lang="en">Follow ' + username + '</a>');
     },
 
     flickr: function(office, url, photos) {

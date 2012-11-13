@@ -138,10 +138,13 @@
                 <div class='row-fluid'>
                     <div class='span8'>
                         <% if (obj.focus_area) { %>
-                        <div class='row-fluid'>
-                            <div class='label'>Focus Area</div>
-                            <span><a href='#filter/focus_area-<%= obj.focus_area %>'><%= obj.focus_area_descr %></a></span>
-                        </div>
+                        <div class='row-fluid focus-area'>
+                          <div class='label'>Focus Area</div>
+                            <a href='#filter/focus_area-<%= obj.focus_area %>'>
+                              <span class="icon icon-thumbnail <%= (obj.focus_area_descr).replace(/\s+/g, '-').toLowerCase().split('-')[0] %>"></span>
+                              <span class='text'><%= obj.focus_area_descr %></span>
+                            </a>
+                          </div>
                         <% } %>
                         <% if (obj.crs) { %>
                         <div class='row-fluid'>
@@ -240,3 +243,16 @@
         <a href='#' class='btn' data-dismiss='modal'>Close</a>
     </div>
 </div>
+
+<script>
+  // Follow user
+  !function(d,s,id){
+    var js,
+        fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js=d.createElement(s);
+      js.id=id;js.src='//platform.twitter.com/widgets.js';
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,'script','twitter-wjs');
+</script>
