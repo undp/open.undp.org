@@ -6,11 +6,8 @@ views.Filters = Backbone.View.extend({
         var view = this,
             filterModels = [],
             chartModels = [],
-            active = this.collection.where({ active: true });
-
-        if ($('.btn-' + this.collection.id).html()) {
-            var chartType = $('.btn-' + this.collection.id + ' a.active').html().toLowerCase();
-        }
+            active = this.collection.where({ active: true }),
+            chartType = 'budget';
 
         if(active.length) {
 
@@ -35,14 +32,14 @@ views.Filters = Backbone.View.extend({
                 .filter(function(model) {
                     return (model.get(chartType) > 0);
                 }))
-                .first(5);
+                .first(20);
             if (this.collection.id === 'operating_unit') {
                 $('#applied-filters').addClass('no-country');
             }
             if (this.collection.id === 'region') {
                 $('#applied-filters').addClass('no-region');
             }
-            $('#applied-filters.no-country.no-region').html('All Offices');
+            $('#applied-filters.no-country.no-region').html('All Projects');
         }
 
         if (filterModels.length) {
@@ -61,7 +58,7 @@ views.Filters = Backbone.View.extend({
                     );
 
                     if (view.collection.id == 'operating_unit') {
-                        $('#applied-filters').removeClass('no-country').html(model.get('name'));
+                        $('#applied-filters').removeClass('no-country').html('Projects in ' + model.get('name'));
                     } else if (view.collection.id == 'region') {
                         $('#applied-filters.no-country').removeClass('no-region').html(model.get('name'));
                     }
@@ -72,45 +69,50 @@ views.Filters = Backbone.View.extend({
             this.$el.empty();
         }
 
-        if (chartModels.length <= 1) {
+        if (chartModels.length <= 1 && this.collection.id !== 'focus_area') {
             $('#chart-' + this.collection.id).parent().css('display','none');
 
        } else {
-            var max = chartModels[0].get(chartType);
 
-            // Build charts
-            $('.placeholder', '#chart-' + this.collection.id).empty().addClass('hidden');
-            $('.btn-' + this.collection.id).removeClass('hidden');
-            $('.data', '#chart-' + this.collection.id).empty().removeClass('hidden');
-            $('.caption', '#chart-' + this.collection.id).empty().removeClass('hidden');
-            $('#chart-' + this.collection.id).parent().css('display','block');
+            if (this.collection.id === 'focus_area') {
+                chartModels = this.collection.models;
 
-            _(chartModels).each(function(model) {
-                if (chartType == 'budget') {
-                    var label = (model.get(chartType) / max * 100) > 15 ? accounting.formatMoney(model.get(chartType)/1000000) + 'M' : '';
+                var total = chartModels.reduce(function(memo, model) {
+                    return memo + (model.get('budget') || 0 ); 
+                }, 0);
 
-                    $('.data', '#chart-' + model.collection.id).append(
-                        '<div style="width: ' + (model.get(chartType)/ max * 100) + '%">' + label + '</div>'
-                    );
-                    $('.data', '#chart-' + model.collection.id).append(
-                        '<div class="subdata" style="width: ' + (model.get('expenditure')/ max * 100) + '%"></div>'
-                    );
-                    $('.caption', '#chart-' + model.collection.id).append(
-                        '<div><a href="#filter/' + model.collection.id + '-' + model.get('id')
-                        + '">' + model.get('name').toLowerCase() + '</a></div>'
-                    );
-                } else {
-                    var label = (model.get(chartType) / max * 100) > 10 ? accounting.formatNumber(model.get(chartType)) : '';
+                $('#chart-' + this.collection.id).empty();
+                _(chartModels).each(function(model, i) {
+                    $('#chart-' + model.collection.id).append(
+                        '<div class="focus fa' + model.id + '">' +
+                        '    <div class="fa-icon"></div>' +
+                        '    <div class="caption"></div>' +
+                        '    <div class="pct"></div>' +
+                        '</div>');
 
-                    $('.data', '#chart-' + model.collection.id).append(
-                        '<div style="margin-bottom:0.25em; width: ' + (model.get(chartType)/ max * 100) + '%">' + label + '</div>'
-                    );
-                    $('.caption', '#chart-' + model.collection.id).append(
-                        '<div class="counts"><a href="#filter/' + model.collection.id + '-' + model.get('id')
-                        + '">' + model.get('name').toLowerCase() + '</a></div>'
-                    );
-                }
-            });
+                    $('.fa' + (model.id) + ' .caption').text(model.get('name').toLowerCase());
+                    $('.fa' + (model.id) + ' .pct').text(((model.get('budget') || 0) / total * 100).toFixed(0) + '%');
+                });
+            } else {
+
+                var max = chartModels[0].get('budget');
+
+                _(chartModels).each(function(model) {
+                    var budget = accounting.formatMoney(model.get('budget')/1000000) + 'M';
+                    var expenditure = accounting.formatMoney(model.get('expenditure')/1000000) + 'M';
+                    var caption = '<a href="#filter/' + model.collection.id + '-' + model.get('id')
+                        + '">' + model.get('name').toLowerCase().toTitleCase() + '</a>';
+                    var bar = '<div style="width: ' + (model.get('budget')/ max * 100) + '%"></div>' + '<div class="subdata" style="width: ' + (model.get('expenditure')/ max * 100) + '%"></div>';
+
+
+                    $('#chart-' + model.collection.id + ' .rows').append(
+                        '<tr>' +
+                        '    <td>' + caption + '</td>' +
+                        '    <td class="right">' + budget + '</td>' +
+                        '    <td class="data">' + bar + '</td>' +
+                        '</tr>');
+                });
+            }
         }
 
         return this;

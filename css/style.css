@@ -304,6 +304,9 @@ a {
 .map {
   background:#fff;
   border:1px solid #999;
+  -webkit-box-sizing:border-box;
+     -moz-box-sizing:border-box;
+          box-sizing:border-box;
   }
 #homemap {
   width:100%;
@@ -555,46 +558,129 @@ a {
   }
 
 /* Charts & Graphs */
+.chart .focus {
+  width: 160px;
+  height: 110px;
+  float: left;
+  background: #EEE;
+  margin: 25px 0 25px 20px;
+  position: relative;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
+  -webkit-box-sizing:border-box;
+     -moz-box-sizing:border-box;
+          box-sizing:border-box;
+  }
+.chart .focus:first-child {
+  margin-left: 0;
+  }
+.chart .focus .caption {
+  text-align: center;
+  margin: 0;
+  text-indent: 0;
+  text-transform: capitalize;
+  width: 100%;
+  padding: 0 12px;
+  font-size: 11px;
+  line-height: 13px;
+  font-weight: bold;
+  color: white;
+  -webkit-box-sizing:border-box;
+     -moz-box-sizing:border-box;
+          box-sizing:border-box;
+  }
+.focus .pct {
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  margin-left: -50px;
+  width: 100px;
+  }
+.chart .focus .fa-icon {
+  background: white url(../img/sprite.png) no-repeat 0 0;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  left: 50%;
+  margin-left: -20px;
+  }
+.chart .focus.fa1 .fa-icon { background-position: -135px -30px; }
+.chart .focus.fa2 .fa-icon { background-position: 0 -30px; }
+.chart .focus.fa3 .fa-icon { background-position: -45px -30px; }
+.chart .focus.fa4 .fa-icon { background-position: -90px -30px; }
+
+.chart .focus.fa1 { background-color: #C8C622; }
+.chart .focus.fa2 { background-color: #299fd9; }
+.chart .focus.fa3 { background-color: #fa5640; }
+.chart .focus.fa4 { background-color: #6ab139; }
+
 .chart .chart-legend {
   position: absolute;
   left: 225px;
   bottom: 0;
   }
-.chart .data, .chart .caption {
-  text-indent: 0.5em;
+
+#charts .chart {
+  margin: 0;
+  }
+#charts .span6.stat-chart {
+  width: 50%;
+  -webkit-box-sizing:border-box;
+     -moz-box-sizing:border-box;
+          box-sizing:border-box;
+  }
+#charts .span6.stat-chart:first-child {
+  padding-right: 20px;
+  }
+
+.chart tr:first-child td {
+  border: none!important;
+  padding-top: 10px;
+  }
+.chart td {
+  vertical-align: middle;
+  overflow: hidden;
+  max-width: 110px;
+  text-transform: none;
+  border-top: 1px solid #ccc!important;
+  }
+.chart td:first-child {
+  padding-left: 0;
+  line-height: 18px;
+  }
+.chart td.right {
+  text-align: right;
+  
+  float: none;
   }
 .chart .caption {
-  text-align:right;
-  padding-top:8px;
-  width:135px;
-  margin-right:20px;
-  float:left;
-  display:block;
-  text-transform:none;
+  text-align: left;
+  text-transform:capitalize;
   font-weight:normal;
-  font-size:13px;
+  font-size: 11px;
+  line-height: 13px;
   color:#05A;
-  margin-bottom:6px;
   }
 .chart .data {
-  padding:10px 0;
-  border-left: 1px solid #999;
-  float: left;
-  width:309px;
+  min-width: 60px;
   }
-.chart.stat-chart .data {
-  width: 544px;
-}
 .chart .data > div {
   background:#0B387C;
   float:left;
   clear:both;
   text-align:right;
-  height:20px;
-  line-height:20px;
+  height:12px;
+  line-height:12px;
   margin-top:2px;
   padding-right:5px;
   font-size:11px;
+  text-shadow: 0px 1px 1px #0B387C, 
+               1px 1px 1px #0B387C, 
+               0px 0px 1px #0B387C, 
+               1px 0px 1px #0B387C;
   font-weight:bold;
   color:#EDF4FE;
   -webkit-box-sizing:border-box;
@@ -606,17 +692,6 @@ a {
   background: #96CCE6;
   margin-bottom: 0.25em;
   margin-top: 0;
-  }
-.chart .caption > div {
-  float:right;
-  clear:both;
-  text-align:right;
-  height:25px;
-  line-height:25px;
-  margin:5px 0;
-  box-sizing:border-box;
-  overflow:hidden;
-  width:100%;
   }
 .chart .caption .counts {
   margin: 3px 0 2px 0;
@@ -662,7 +737,7 @@ a {
 #chart-hdi .subdata.income,
 .marker-description .subdata.income     { background: #ebc0a8; }
 
-#charts .chart {
+#chart-hdi .chart {
   margin:20px 0;
   }
 #chart-hdi.chart {
@@ -895,6 +970,18 @@ form {
             box-shadow:none;
     }
   .topics.filtered .label .icon  { display:none; }
+
+.table-unstyled,
+.table-unstyled td,
+.table-unstyled th {
+  background: transparent;
+  margin: 0;
+  border: none;
+  -webkit-box-shadow:none;
+     -moz-box-shadow:none;
+          box-shadow:none;
+
+  }
 
 /* project.html */
 .project {
