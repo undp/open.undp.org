@@ -130,7 +130,7 @@ views.App = Backbone.View.extend({
         } else {
             $('.topics').each(function () {
                 // Loop through all the filtered menus
-                // to close active menus providing they don't 
+                // to close active menus providing they don't
                 // have an active filtered selection.
                 if (!$(this).hasClass('filtered')) {
                     $(this).toggleClass('active', false);
