@@ -394,7 +394,7 @@ views.Map = Backbone.View.extend({
             username: user,
             avatar_size: 32,
             count: 3,
-            template: "{avatar}<div>{text}</div><div class='actions'>{time} &#183;</div>",
+            template: "{avatar}<div>{text}</div><div class='actions'>{time}</div>",
             loading_text: "loading tweets..."
         });
 

@@ -63,9 +63,9 @@ views.Projects = Backbone.View.extend({
                 this.$('#project-table tbody').append(templates.project({ model: model }));
             });
             if (pageType === 'widget') {
-                (models.length < 10) ? $('.load.button').hide() : $('.load.button').show();
+                (models.length < 10) ? $('.load').hide() : $('.load').show();
             } else {
-                (models.length < 50) ? $('.load.button').hide() : $('.load.button').show();
+                (models.length < 50) ? $('.load').hide() : $('.load').show();
             }
         } else {
             this.$('#project-table tbody').empty().append('<tr><td><em>No projects</em></td><td></td><td></td></tr>');

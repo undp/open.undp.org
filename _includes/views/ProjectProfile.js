@@ -1,4 +1,8 @@
 views.ProjectProfile = Backbone.View.extend({
+    events: {
+        'click .load a': 'loadMore'
+    },
+
     initialize: function() {
         this.render();
 
@@ -15,6 +19,8 @@ views.ProjectProfile = Backbone.View.extend({
         });
 
         $('#profile .summary').removeClass('off');
+        this.low = 10,
+        this.high = 10;
     },
 
     render: function() {
@@ -62,31 +68,56 @@ views.ProjectProfile = Backbone.View.extend({
             el: '#profilemap',
             model: this.model
         });
-        
+
         $('#top-stats .progress .bar').css('width',progress + '%');
-        
+
         if (_.isEmpty(this.model.get('document_name'))) {
             $('.widget-options ul li.doc-opt').hide();
         } else {;
             $('.widget-options ul li.doc-opt').show();
             this.docPhotos();
         }
-        
+
+        this.$('#outputs').empty()
+        var outputs = this.model.attributes.outputs.slice(0, 9);
+        _(outputs).each(function(model) {
+            this.$('#outputs').append(templates.projectOutputs({ model: model }));
+        });
+
+        // Project Outputs
+        (this.model.attributes.outputs.length < 10) ? $('.load').hide() : $('.load').show();
         return this;
     },
-    
+
+    loadMore: function(e) {
+        this.low = this.high;
+        this.high += 10;
+
+        var outputs = this.model.attributes.outputs.slice(this.low, this.high);
+
+        if (outputs.length) {
+            _(outputs).each(function(model) {
+                this.$('#outputs').append(templates.projectOutputs({ model: model }));
+            });
+        } else {
+            $(e.target).text('All Projects Loaded').addClass('disabled');
+        }
+
+        return false;
+    },
+
     docPhotos: function() {
         var photos = [];
         _.each(this.model.get('document_name')[0], function (photo, i) {
-        
+
             var filetype = photo.split('.')[1].toLowerCase(),
                 source = that.model.get('document_name')[1][i];
-            
+
             if (filetype == 'jpg' || filetype == 'jpeg' || filetype == 'png' || filetype == 'gif') {
                 var img = new Image();
                 img.onload = goodImg;
                 img.src = source;
-                
+
                 function goodImg(e) {
                     photos.push({
                         'title': photo.split('.')[0],
@@ -96,7 +127,7 @@ views.ProjectProfile = Backbone.View.extend({
                 }
             }
         });
-            
+
         this.model.attributes.docPhotos = photos;
     }
 });
