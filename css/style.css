@@ -1047,6 +1047,7 @@ form {
     float:right;
     margin-top:-5px;
     }
+  #flickr .resize,
   #flickr .control {
     background-color:rgb(0,0,0);
     position:absolute;
@@ -1067,6 +1068,7 @@ form {
       opacity:0.25;
       cursor:default;
       }
+    #flickr .resize:hover,
     #flickr .control:hover {
       opacity:1;
       }
@@ -1075,14 +1077,23 @@ form {
     position:absolute;
     margin:5px 0 0 5px;
     }
-  #flickr .control.resize {
+  #flickr .resize {
     right:0;
     top:15px;
+    width:auto;
     }
-    #flickr .control.resize:active .icon {
-      margin-top:6px;
+    #flickr .resize .icon {
+      position:relative;
+      top:6px;
+      left:10px;
       }
-
+    #flickr .resize .text {
+      font-weight:bold;
+      font-size:10px;
+      color:#fff;
+      text-transform:uppercase;
+      margin:0 10px;
+      }
   #flickr .control.next {
     right:0;
     }

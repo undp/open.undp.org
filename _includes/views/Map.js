@@ -547,7 +547,13 @@ views.Map = Backbone.View.extend({
 
         // Toggle resizing of photo to fit container
         $('.resize', $el).click(function() {
-            $('body').toggleClass('fullscreen');
+            if ($('body').hasClass('fullscreen')) {
+                $('body').removeClass('fullscreen');
+                $(this).find('.text').text('Details')
+            } else {
+                $('body').addClass('fullscreen');
+                $(this).find('.text').text('Hide Details')
+            }
         });
     }
 });
