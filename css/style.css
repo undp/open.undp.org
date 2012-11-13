@@ -208,7 +208,7 @@ a {
     margin-top:-5px;
     position:relative;
     top:4px;
-    right:10px;
+    right:5px;
     }
 
 #footer ul {
@@ -817,6 +817,11 @@ form {
   text-decoration:none;
   padding-right:30px;
   }
+  .topics.filtered li a.active:hover,
+  .topics.active li a.active:hover {
+    background-color:#000;
+    }
+
 .topics .filter-items {
   max-height:0;
   overflow:hidden;
@@ -841,7 +846,7 @@ form {
   font-size:10px;
   text-transform:uppercase;
   cursor: pointer;
-  padding:0 10px;
+  padding:0 15px 0 10px;
   -webkit-touch-callout:none;
   -webkit-user-select:none;
    -khtml-user-select:none;
@@ -1057,7 +1062,7 @@ form {
     height:30px;
     cursor:pointer;
     z-index:100;
-    opacity:0.5;
+    opacity:0.8;
     -webkit-transition:opacity 250ms linear;
        -moz-transition:opacity 250ms linear;
          -o-transition:opacity 250ms linear;

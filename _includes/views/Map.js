@@ -334,14 +334,17 @@ views.Map = Backbone.View.extend({
             photos = this.model.get('docPhotos') || [],
             fLink = data['flickr'] || 'http://www.flickr.com/photos/unitednationsdevelopmentprogramme/',
             fName = ((data['flickr']) ? '' : data['name']),
+            $twitter = $('#twitter-block'),
             baseUrl;
 
         if (data['twitter']) {
             that.twitter(data['twitter'], function(twPhotos) {
                 that.flickr(fName,fLink,photos.concat(twPhotos));
+                $twitter.show().addClass('in');
             });
         } else {
             that.flickr(fName,fLink,photos);
+            $twitter.hide();
         }
 
         _.each(['web','email','facebook','twitter','flickr'], function(v) {

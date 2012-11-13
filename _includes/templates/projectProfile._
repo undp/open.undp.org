@@ -59,6 +59,26 @@
                 </div>
                 <% } %>
             </div>
+
+          <div class='row-fluid'>
+              <div class='span12'>
+                <div class='label'>Documents</div>
+                <% if (!_.isEmpty(model.get("document_name"))) { %>
+                  <div id='documents' class='row-fluid'>
+                      <div class='span12'>
+                          <ul class='unstyled'>
+                              <% _.each(model.get("document_name")[0], function(obj,i) { %>
+                              <li><a href='<%= model.get("document_name")[1][i] %>'>
+                                <span class='icon filetype'><%= obj.split(".")[1] %></span>
+                              <%= obj.split(".")[0] %></a></li>
+                              <% }); %>
+                          </ul>
+                      </div>
+                  </div> <!--/ #documents -->
+                <% } %>
+              </div>
+            </div>
+
             <div class='row-fluid'>
                 <div class='span12'>
                     <div class='label'>Funding Sources</div>
@@ -102,24 +122,6 @@
             </div>
         </div>
     </div> <!--/ #top-stats -->
-
-    <% if (!_.isEmpty(model.get("document_name"))) { %>
-    <div class='separator' id='documents-header'>
-        <p class='heading-title'>Documents<span></p>
-    </div>
-
-    <div id='documents' class='row-fluid'>
-        <div class='span12'>
-            <ul class='unstyled'>
-                <% _.each(model.get("document_name")[0], function(obj,i) { %>
-                <li><a href='<%= model.get("document_name")[1][i] %>'>
-                  <span class='icon filetype'><%= obj.split(".")[1] %></span>
-                <%= obj.split(".")[0] %></a></li>
-                <% }); %>
-            </ul>
-        </div>
-    </div> <!--/ #documents -->
-    <% } %>
 
     <div class='separator' id='output-header'>
         <p class='heading-title'><% if (model.get("outputs").length > 1) { %> <span><%= model.get("outputs").length %>&nbsp;</span><% } %>Subprojects</p>
@@ -203,7 +205,7 @@
     </div>
   </div>
 
-  <div class='inner'>
+  <div id='twitter-block' class='inner fade'>
     <div class='row-fluid'>
         <div id='twitter' class='span12'>
         </div>
