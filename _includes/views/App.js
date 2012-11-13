@@ -78,7 +78,6 @@ views.App = Backbone.View.extend({
         $('.topics a').toggleClass('active', false);
         $('.topics').toggleClass('filtered', false);
 
-        console.log($('.topics'));
         $('#all-projects').attr('href', '#' + path);
         app.navigate(path, { trigger: true });
     },
