@@ -399,6 +399,15 @@ views.Map = Backbone.View.extend({
         });
 
         $('#twitter').html('<a href="https://twitter.com/' + user + '" class="twitter-follow-button" data-show-count="false" data-show-screen-name="true" data-lang="en">Follow ' + username + '</a>');
+
+        // Add the Twitter widget link
+        var js, fjs = document.getElementsByTagName('script')[0];
+        if (!document.getElementById('twitter-follow')) {
+          js = document.createElement('script');
+          js.id = 'twitter-follow';
+          js.src = '//platform.twitter.com/widgets.js';
+          fjs.parentNode.insertBefore(js, fjs);
+        }
     },
 
     flickr: function(office, url, photos) {
