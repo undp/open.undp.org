@@ -394,7 +394,7 @@ views.Map = Backbone.View.extend({
 
         $(".tweet").tweet({
             username: user,
-            avatar_size: 32,
+            avatar_size: 40,
             count: 3,
             template: "{avatar}<div class='actions'>{time}</div><div>{text}</div>",
             loading_text: "Loading Tweets"
