@@ -100,6 +100,7 @@ views.Map = Backbone.View.extend({
     },
     hdiChart: function(country,world) {
         $('#chart-hdi').css('display','block');
+        $('#chart-hdi h3').html(country.name + ' Human Development Index');
         $('.data', '#chart-hdi').empty().append(
             '<div class="total" style="width:' + _.last(country.hdi)[1]*100 + '%">' + _.last(country.hdi)[1] + '</div>'
             + '<div class="subdata total" style="width:' + _.last(world.hdi)[1]*100 + '%;"></div>'

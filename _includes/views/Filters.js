@@ -40,13 +40,13 @@ views.Filters = Backbone.View.extend({
             if (this.collection.id === 'region') {
                 $('#applied-filters').addClass('no-region');
             }
-            $('#applied-filters.no-country.no-region').html('All Projects');
         }
-
         if (filterModels.length) {
             this.$el.html(templates.filters(this));
+            app.description =  app.description || ['The following summary includes projects'];
 
             _(filterModels).each(function(model) {
+
                 view.$('.filter-items').append(templates.filter({ model: model }));
                 $('#' + view.collection.id + '-' + model.id).toggleClass('active', model.get('active'));
                 if (model.get('active') && !keypress) {
@@ -58,10 +58,19 @@ views.Filters = Backbone.View.extend({
                         + '</a></li>'
                     );
 
-                    if (view.collection.id == 'operating_unit') {
-                        $('#applied-filters').removeClass('no-country').html('Projects in ' + model.get('name').toLowerCase().toTitleCase());
-                    } else if (view.collection.id == 'region') {
-                        $('#applied-filters.no-country').removeClass('no-region').html(model.get('name').toLowerCase().toTitleCase());
+                    if (view.collection.id === 'operating_unit') {
+                        $('#applied-filters').removeClass('no-country');
+                        app.description.push(' for the <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong> office');
+                    }
+                    if (view.collection.id === 'region') {
+                        $('#applied-filters.no-country').removeClass('no-region');
+                        app.description.push(' in the <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong> region');
+                    }
+                    if (view.collection.id === 'donors') {
+                        app.description.push(' funded by the <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong>');
+                    }
+                    if (view.collection.id === 'focus_area') {
+                        app.description.push(' with a focus on <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong>');
                     }
                 }
             });
@@ -70,19 +79,22 @@ views.Filters = Backbone.View.extend({
             this.$el.empty();
         }
 
-        if (chartModels.length <= 1 && this.collection.id !== 'focus_area') {
-            $('#chart-' + this.collection.id).parent().css('display','none');
+        $('#chart-' + this.collection.id + '.rows').empty();
 
-       } else {
+        if (chartModels.length <= 1 && this.collection.id !== 'focus_area') {
+            $('#chart-' + this.collection.id).css('display','none');
+
+        } else {
+            $('#chart-' + this.collection.id).css('display','block');
 
             if (this.collection.id === 'focus_area') {
+                $('#chart-' + this.collection.id).empty();
                 chartModels = this.collection.models;
 
                 var total = chartModels.reduce(function(memo, model) {
                     return memo + (model.get('budget') || 0 ); 
                 }, 0);
 
-                $('#chart-' + this.collection.id).empty();
                 _(chartModels).each(function(model, i) {
                     $('#chart-' + model.collection.id).append(
                         '<div class="focus fa' + model.id + '">' +
@@ -98,6 +110,7 @@ views.Filters = Backbone.View.extend({
 
                 var max = chartModels[0].get('budget');
 
+                $('#chart-' + this.collection.id + ' .rows').html('');
                 _(chartModels).each(function(model) {
                     var budget = accounting.formatMoney(model.get('budget')/1000000) + 'M';
                     var expenditure = accounting.formatMoney(model.get('expenditure')/1000000) + 'M';

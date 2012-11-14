@@ -247,9 +247,8 @@ a {
     }
 
 .icon.open {
-  background-color:#fff;
+  background-color:transparent;
   background-position:-18px 2px;
-  border: 1px solid #ccc;
   float:right;
   position:relative;
   top:-3px;
@@ -346,6 +345,15 @@ a {
   }
 .map-attribution a {
   color: #aaa!important;
+  }
+
+.zoomout {
+  left: auto;
+  right: 39px;
+  }
+.zoomin {
+  left: auto;
+  right: 10px;
   }
 
 /* Clustered markers */
@@ -541,6 +549,9 @@ a {
     line-height: 32px;
     margin: 20px 0 0;
     }
+    p.heading-title strong {
+      color: #000;
+      }
   #project-heading p.heading-title {
     margin-top:0;
     color: #333;
@@ -773,6 +784,50 @@ a {
   margin-right: 5px;
   margin-bottom: 1px;
 }
+#chart-hdi h3 {
+  display: inline-block;
+  }
+#chart-hdi .chart-legend {
+  position: relative;
+  left: 20px;
+  top: 7px;
+  display: inline-block;
+  }
+#chart-hdi .hdic {
+  position: relative;
+  top: 10px;
+  height: 123px;
+  margin-bottom: 30px;
+  }
+#chart-hdi .caption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 29px;
+  text-align: right;
+  }
+#chart-hdi .data {
+  position: absolute;
+  top: 0;
+  left: 58px;
+  width: 450px;
+  }
+#chart-hdi .details {
+  margin: 0;
+  float: none;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  }
+#chart-hdi .data > div.subdata {
+  height: 7px;
+  }
+#chart-hdi .data > div {
+  height: 18px;
+  line-height: 18px;
+  text-shadow: none;
+  }
+
 .change .trend.hdi-up {
   border-top: none;
   border-bottom: 6px solid green;
@@ -894,6 +949,10 @@ form {
   margin: 0;
   max-height:0;
   overflow:hidden;
+  -webkit-transition: all 0.3s;
+  -moz-transition:    all 0.3s;
+  -o-transition:      all 0.3s;
+  transition:         all 0.3s;
   }
   .topics .count {
     float:right;
