@@ -140,18 +140,15 @@ routers.App = Backbone.Router.extend({
         // Load the main app view
         this.app = this.app || new views.App({ el: '#browser' });
 
+        // Save default description
+        app.defaultDescription = app.defaultDescription || $('#intro p').html();
+
         // Parse hash
         var parts = (route) ? route.split('/') : [];
             filters = _(parts).map(function(part) {
                     var filter = part.split('-');
                     return { collection: filter[0], id: filter[1] };
                 });
-        
-        // Remove intro once off of root
-        if (parts.length) { 
-            $('#intro').remove();
-            //$('#applied-filters').css('margin-bottom','20px');
-        }
             
         if (_.isEqual(this.app.filters, filters)) {
             $('html, body').scrollTop(0);
@@ -189,9 +186,11 @@ routers.App = Backbone.Router.extend({
             } else {
                 // if projects are already present
                 this.projects.reset(this.allProjects.filter(filter));
+                updateDescription();
             }
     
             function loadFilters() {
+                var counter = 0;
                 that.app.views = {};
                 // Load filters
                 _(facets).each(function(facet) {
@@ -212,12 +211,27 @@ routers.App = Backbone.Router.extend({
                                 }
                             });
                             collection.watch();
+
+                            counter++;
+                            if (counter === facets.length) updateDescription();
+                            
                         }
                     });
                 });
             }
         }
-        
+
+        function updateDescription() {
+            if (app.description.length > 1) {
+                $('#applied-filters').html('Selected Projects');
+                $('#intro p').html(app.description.shift() + app.description.join(',') + '.');
+            } else {
+                $('#applied-filters').html('All Projects');
+                $('#intro p').html(app.defaultDescription);
+            }
+            app.description = false;
+        }
+
         $('#browser .summary').removeClass('off');
     },
     widget: function(route) {

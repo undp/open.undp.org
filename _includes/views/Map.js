@@ -1,6 +1,5 @@
 views.Map = Backbone.View.extend({
     events: {
-        'click .map-fullscreen': 'fullscreen',
         'mousedown img.mapmarker': 'mapClick',
         'mousedown img.simplestyle-marker': 'mapClick',
         'mouseover img.mapmarker': 'tooltipFlip'
@@ -14,6 +13,7 @@ views.Map = Backbone.View.extend({
     },
     render: function() {
         $('#chart-hdi').css('display','none');
+
         var that = this,
             layer,
             unit = (this.collection) ? this.collection
@@ -21,7 +21,7 @@ views.Map = Backbone.View.extend({
 
         // Get HDI data
         $.getJSON('api/hdi.json', function(data) {
-        
+
             var hdiWorld = _.find(data,function(d){return d.name == 'World';});
             hdiWorld.count = _.max(data,function(d){return d.rank;}).rank;
 
@@ -49,7 +49,7 @@ views.Map = Backbone.View.extend({
 
                     $('.map-btn[data-value="hdi"] .total-caption').html('HDI');
                     $('.widget-options ul li.hdi-opt').show();
-                    
+
                     if (_.size(hdiArray) > 0) {
                         $('#hdi').html(_.last(hdi.hdi)[1]);
                         that.hdiChart(hdi,hdiWorld);
@@ -100,6 +100,7 @@ views.Map = Backbone.View.extend({
     },
     hdiChart: function(country,world) {
         $('#chart-hdi').css('display','block');
+        $('#chart-hdi h3').html(country.name + ' Human Development Index');
         $('.data', '#chart-hdi').empty().append(
             '<div class="total" style="width:' + _.last(country.hdi)[1]*100 + '%">' + _.last(country.hdi)[1] + '</div>'
             + '<div class="subdata total" style="width:' + _.last(world.hdi)[1]*100 + '%;"></div>'
@@ -196,7 +197,6 @@ views.Map = Backbone.View.extend({
         mapbox.auto(this.el, 'undp.map-6grwd0n3', function(map) {
             that.map = map;
             map.setZoomRange(2, 17);
-            map.ui.fullscreen.remove();
 
             var radii = function(f) {
                 f.properties.description = that.tooltip(layer,f.properties);
@@ -204,9 +204,9 @@ views.Map = Backbone.View.extend({
                     Math.round(that.scale(layer,f))
                 );
             };
-            
+
             var markers = mapbox.markers.layer();
-            
+
             if (homepage) {
                 markers.factory(clustr.scale_factory(radii, "rgba(0,85,170,0.6)", "#0B387C"))
                     .sort(function(a,b){ return b.properties[layer] - a.properties[layer]; });
@@ -259,7 +259,7 @@ views.Map = Backbone.View.extend({
                                     hdi_rank: hdi_rank
                                 }
                             });
-                            
+
                             if (!homepage) {
                                 locations[0].properties['marker-color'] = '#2970B8';
                             }
@@ -280,7 +280,6 @@ views.Map = Backbone.View.extend({
                 }
             });
         });
-        // m.ui.fullscreen.remove();        
     },
 
     tooltip: function(layer,data) {
@@ -321,7 +320,7 @@ views.Map = Backbone.View.extend({
 
         return description;
     },
-    
+
     tooltipFlip: function(e) {
         var $target = $(e.target),
             top = $target.offset().top - $('#homemap').offset().top;
@@ -332,26 +331,23 @@ views.Map = Backbone.View.extend({
         }
     },
 
-    fullscreen: function(e) {
-        e.preventDefault();
-
-        this.$el.parent().toggleClass('full');
-        this.map.setSize({ x: this.$el.width(), y: this.$el.height() });
-    },
-
     getwebData: function(data) {
         var that = this,
             photos = this.model.get('docPhotos') || [],
             fLink = data['flickr'] || 'http://www.flickr.com/photos/unitednationsdevelopmentprogramme/',
             fName = ((data['flickr']) ? '' : data['name']),
+            $twitter = $('#twitter-block'),
             baseUrl;
-            
+
         if (data['twitter']) {
+            $twitter.show();
             that.twitter(data['twitter'], function(twPhotos) {
                 that.flickr(fName,fLink,photos.concat(twPhotos));
+                $twitter.find('.fade').addClass('in');
             });
         } else {
             that.flickr(fName,fLink,photos);
+            $twitter.hide();
         }
 
         _.each(['web','email','facebook','twitter','flickr'], function(v) {
@@ -380,7 +376,7 @@ views.Map = Backbone.View.extend({
     twitter: function(username, callback) {
         var user = username.replace('@',''),
             twPhotos = [];
-        
+
         $.getJSON('http://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&screen_name=' + user + '&count=50&callback=?', function(tweet) {
             _.each(tweet, function(t) {
                 if ((t.entities.media) ? t.entities.media[0].type == 'photo' : t.entities.media) {
@@ -396,26 +392,36 @@ views.Map = Backbone.View.extend({
             });
             callback(twPhotos);
         });
-        
+
         $(".tweet").tweet({
             username: user,
-            avatar_size: 32,
+            avatar_size: 40,
             count: 3,
-            template: "{avatar}<div>{text}</div><div class='actions'>{time} &#183; {reply_action} &#183; {retweet_action} &#183; {favorite_action}</div>",
-            loading_text: "loading tweets..."
+            template: "{avatar}<div class='actions'>{time}</div><div>{text}</div>",
+            loading_text: "Loading Tweets"
         });
 
-        $('#twitter').html('<p class="label"><span class="twitter"></span><a href="http://twitter.com/' + user + '">' + username + '</a></p>');
+        $('#twitter').html('<a href="https://twitter.com/' + user + '" class="twitter-follow-button" data-show-count="false" data-show-screen-name="true" data-lang="en">Follow ' + username + '</a>');
+
+        // Add the Twitter widget link
+        var js, fjs = document.getElementsByTagName('script')[0];
+        if (!document.getElementById('twitter-follow')) {
+          js = document.createElement('script');
+          js.id = 'twitter-follow';
+          js.src = '//platform.twitter.com/widgets.js';
+          fjs.parentNode.insertBefore(js, fjs);
+        }
     },
 
     flickr: function(office, url, photos) {
         var apiBase = 'http://api.flickr.com/services/rest/?format=json&jsoncallback=?&method=',
             apiKey = '1da8476bfea197f692c2334997c10c87', //from UNDP's main account (unitednationsdevelopmentprogramme)
             userid, username,
+            $el = $('#flickr');
+            $el.find('.spin').spin({ color:'#fff' });
 
             searchFirst = this.model.get('project_id'),
             searchSecond = office,
-            //searchSecond = this.model.get('project_title').replace(/ /g,'+'),
             attempt = 0,
             i = 0;
 
@@ -441,7 +447,7 @@ views.Map = Backbone.View.extend({
                                 if (photos.length) {
                                     loadPhoto(i);
                                 } else {
-                                    $('#flickr, #flickr-side').css('display','none');
+                                    $el.css('display','none');
                                 }
                                 break;
                         }
@@ -452,12 +458,13 @@ views.Map = Backbone.View.extend({
                 }
             );
         }
-        
+
         // Load single photo from array
         function loadPhoto(x) {
-            if (x == 0) $('#flickr .prev').css('display','none');
-            if (x == photos.length - 1) $('#flickr .next').css('display','none');
-            
+            $el.find('.spin').spin({ color:'#fff' });
+            if (x == 0) $('.prev', $el).addClass('inactive');
+            if (x == photos.length - 1) $('.next', $el).addClass('inactive');
+
             if (photos[x].id) {
                 var photoid = photos[x].id,
                     source, pHeight, pWidth,
@@ -471,7 +478,7 @@ views.Map = Backbone.View.extend({
 
                     // Get available sizes
                     $.getJSON(apiBase + 'flickr.photos.getSizes&api_key=' + apiKey + '&photo_id=' + photoid, function(s) {
-                    
+
                         getSize('Medium 800');
                         function getSize(sizeName) {
                             _.each(s.sizes.size, function(z) {
@@ -481,7 +488,7 @@ views.Map = Backbone.View.extend({
                                     pWidth = z.width;
                                 }
                             });
-                            
+
                             if (!source) {
                                 attempt += 1;
                                 switch (attempt) {
@@ -499,75 +506,62 @@ views.Map = Backbone.View.extend({
                         }
 
                         // Fill in date & description
-                        $('#flickr-side .meta').html('<p class="label">' + date
-                            + '<span class="iconlink"><a href="'
-                            + url + photoid + '/in/photostream/" title="See our photos on Flickr">'
-                            + '<img src="http://l.yimg.com/g/images/goodies/white-small-chiclet.png" '
-                            + 'width="23" height="23" alt=""></a></span></p>'
-                            + '<p>' + description + '</p>');
-                            
+                        $('.meta-inner', $el).html('<span class="date">' + date + '</span>'
+                            + '<p>' + description
+                            + '<a href="' + url + photoid + '/in/photostream/" title="See our photos on Flickr"> Source</a></p>');
+
                         insertPhoto(pHeight, pWidth, source);
                     });
                 });
-                
+
             } else if (photos[x].date) {
-                $('#flickr-side .meta').html('<p class="label">' + photos[x].date.toLocaleDateString()
-                    + '<span class="iconlink"><a href="'
-                    + photos[x].link + '">'
-                    + '<img src="img/twitter-bird.png" '
-                    + 'width="23" height="23" alt=""></a></span></p>'
-                    + '<p>' + photos[x].description + '</p>');
-                    
+                $('.meta-inner', $el).html('<span class="date">' + photos[x].date.toLocaleDateString() + '</span>'
+                    + '<p>' + photos[x].description
+                    + '<a href="' + photos[x].link + '/in/photostream/" title="See our photos on Flickr"> Source</a></p>');
+
                 insertPhoto(photos[x].height, photos[x].width, photos[x].source);
-                
+
             } else {
                 insertPhoto(photos[x].image.height, photos[x].image.width, photos[x].source);
-                $('#flickr-side .meta').empty();
+                $('.meta-inner', $el).empty();
             }
-            
-            function insertPhoto(height,width,src) {
-                // Check for portrait vs. landscape
-                if (height > width) {
-                    $('#flickr').css('background','url("' + src + '") center 38% no-repeat');
-                    //$('#flickr').css('width','50%');
-                    $('#flickr').css('background-size','cover');
-                } else {
-                    $('#flickr').css('background','url("' + src + '") center 25% no-repeat');
-                    $('#flickr').css('background-size','cover');
-                }
+
+            function insertPhoto(height, width, src) {
+                $el.find('img').attr('src', src).addClass('in');
+                $el.find('.spin').spin(false);
             }
         }
 
         // Cycle through photo array
-        $('#flickr .next').click(function() {
+        $('.next', $el).click(function() {
             if (i == 0) {
-                $('#flickr .prev').css('display','block');
+                $('.prev', $el).removeClass('inactive');
             }
             i += 1;
             if (i == photos.length - 1) {
-                $('#flickr .next').css('display','none');
+                $('.next', $el).addClass('inactive');
             }
             loadPhoto(i);
         });
-        $('#flickr .prev').click(function() {
+        $('.prev', $el).click(function() {
             if (i == photos.length - 1) {
-                $('#flickr .next').css('display','block');
+                $('.next', $el).removeClass('inactive');
             }
             i -= 1;
             if (i == 0) {
-                $('#flickr .prev').css('display','none');
+                $('.prev', $el).addClass('inactive');
             }
             loadPhoto(i);
         });
 
         // Toggle resizing of photo to fit container
-        $('#flickr .resize').click(function() {
-            if ($(this).children().hasClass('icon-resize-small')) {
-                $('#flickr').css('background-size','contain');
-                $(this).children().attr('class','icon-resize-full');
+        $('.resize', $el).click(function() {
+            if ($('body').hasClass('fullscreen')) {
+                $('body').removeClass('fullscreen');
+                $(this).find('.text').text('Details')
             } else {
-                $('#flickr').css('background-size','cover');
-                $(this).children().attr('class','icon-resize-small');
+                $('body').addClass('fullscreen');
+                $(this).find('.text').text('Hide Details')
             }
         });
     }

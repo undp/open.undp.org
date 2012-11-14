@@ -3,6 +3,11 @@ models.Filter = Backbone.Model.extend({
     defaults: {
         active: false,
         visible: true
+    },
+    initialize: function() {
+        if (this.collection.id === 'donors' && this.id === '00012') {
+            this.set({ name: 'UNDP General Fund' }, { silent: true });
+        }
     }
 });
 

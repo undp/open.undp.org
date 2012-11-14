@@ -118,24 +118,30 @@ views.App = Backbone.View.extend({
             cat = $target.attr('data-category'),
             $parent = $('#' + cat);
 
+        e.preventDefault();
+
         // Bail on the this function if the user has selected
         // a label that has an active filtered selection.
         if ($parent.hasClass('filtered')) return false;
 
         if ($parent.hasClass('active')) {
             $parent.toggleClass('active', false);
-            this.views[cat].active = false;
+            if (this.views[cat]) {
+                this.views[cat].active = false;
+            }
         } else {
             $('.topics').each(function () {
                 // Loop through all the filtered menus
-                // to close active menus providing they don't 
+                // to close active menus providing they don't
                 // have an active filtered selection.
                 if (!$(this).hasClass('filtered')) {
                     $(this).toggleClass('active', false);
                 }
             });
             $parent.toggleClass('active', true);
-            this.views[cat].active = true;
+            if (this.views[cat]) {
+                this.views[cat].active = true;
+            }
         }
         return false;
     },
@@ -152,12 +158,16 @@ views.App = Backbone.View.extend({
         var facet = $target.attr('data-facet');
         $('.btn-' + facet + ' button').removeClass('active');
         $target.addClass('active');
-        if ($target.html() == 'Budget') {
+
+        if ($target.html() === 'Budget') {
             $target.parent().parent().children('.chart-legend').css('display','block');
         } else {
             $target.parent().parent().children('.chart-legend').css('display','none');
         }
-        this.views[facet].render();
+
+        if (this.views[facet]) {
+            this.views[facet].render();
+        }
         return false;
     }
 });
