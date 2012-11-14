@@ -244,6 +244,18 @@ a {
 .icon.back                    { background-position:-100px 0; }
 .icon.fullscreen              { background-position:-125px 0; }
 .fullscreen .icon.fullscreen  { background-position:-150px 0; }
+.icon.open {
+  background-color:transparent;
+  background-position:-18px 2px;
+  float:right;
+  position:relative;
+  top:-3px;
+  -webkit-border-radius:4px;
+          border-radius:4px;
+  }
+  .active .icon.open {
+    background-position:-38px 2px;
+    }
 
 .icon.democratic              { background-position:0 -30px; }
 .icon.crisis                  { background-position:-45px -30px; }
@@ -290,6 +302,10 @@ a {
   }
 .map {
   background:#fff;
+  border:1px solid #999;
+  -webkit-box-sizing:border-box;
+     -moz-box-sizing:border-box;
+          box-sizing:border-box;
   border:1px solid #b3b3b3;
   }
 #homemap {
@@ -343,6 +359,15 @@ a {
   }
 .map-attribution a {
   color: #aaa!important;
+  }
+
+.zoomout {
+  left: auto;
+  right: 39px;
+  }
+.zoomin {
+  left: auto;
+  right: 10px;
   }
 
 /* Clustered markers */
@@ -528,9 +553,6 @@ a {
   font-weight:bold;
   padding:20px 0;
   }
-  .separator a {
-    color:#EDF4FE;
-    }
 
 .heading-title {
   line-height:42px;
@@ -539,7 +561,11 @@ a {
     font-size: 24px;
     line-height: 32px;
     margin: 20px 0 0;
+    color: #666;
     }
+    p.heading-title strong {
+      color: #000;
+      }
   #project-heading p.heading-title {
     margin-top:0;
     color: #333;
@@ -555,46 +581,129 @@ a {
   }
 
 /* Charts & Graphs */
+.chart .focus {
+  width: 160px;
+  height: 110px;
+  float: left;
+  background: #EEE;
+  margin: 25px 0 25px 20px;
+  position: relative;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
+  -webkit-box-sizing:border-box;
+     -moz-box-sizing:border-box;
+          box-sizing:border-box;
+  }
+.chart .focus:first-child {
+  margin-left: 0;
+  }
+.chart .focus .caption {
+  text-align: center;
+  margin: 0;
+  text-indent: 0;
+  text-transform: capitalize;
+  width: 100%;
+  padding: 0 12px;
+  font-size: 11px;
+  line-height: 13px;
+  font-weight: bold;
+  color: white;
+  -webkit-box-sizing:border-box;
+     -moz-box-sizing:border-box;
+          box-sizing:border-box;
+  }
+.focus .pct {
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  margin-left: -50px;
+  width: 100px;
+  }
+.chart .focus .fa-icon {
+  background: white url(../img/sprite.png) no-repeat 0 0;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  left: 50%;
+  margin-left: -20px;
+  }
+.chart .focus.fa1 .fa-icon { background-position: -135px -30px; }
+.chart .focus.fa2 .fa-icon { background-position: 0 -30px; }
+.chart .focus.fa3 .fa-icon { background-position: -45px -30px; }
+.chart .focus.fa4 .fa-icon { background-position: -90px -30px; }
+
+.chart .focus.fa1 { background-color: #C8C622; }
+.chart .focus.fa2 { background-color: #299fd9; }
+.chart .focus.fa3 { background-color: #fa5640; }
+.chart .focus.fa4 { background-color: #6ab139; }
+
 .chart .chart-legend {
   position: absolute;
   left: 225px;
   bottom: 0;
   }
-.chart .data, .chart .caption {
-  text-indent: 0.5em;
+
+#charts .chart {
+  margin: 0;
+  }
+#charts .span6.stat-chart {
+  width: 50%;
+  -webkit-box-sizing:border-box;
+     -moz-box-sizing:border-box;
+          box-sizing:border-box;
+  }
+#charts .span6.stat-chart:first-child {
+  padding-right: 20px;
+  }
+
+.chart tr:first-child td {
+  border: none!important;
+  padding-top: 10px;
+  }
+.chart td {
+  vertical-align: middle;
+  overflow: hidden;
+  max-width: 110px;
+  text-transform: none;
+  border-top: 1px solid #ccc!important;
+  }
+.chart td:first-child {
+  padding-left: 0;
+  line-height: 18px;
+  }
+.chart td.right {
+  text-align: right;
+  
+  float: none;
   }
 .chart .caption {
-  text-align:right;
-  padding-top:8px;
-  width:135px;
-  margin-right:20px;
-  float:left;
-  display:block;
-  text-transform:none;
+  text-align: left;
+  text-transform:capitalize;
   font-weight:normal;
-  font-size:13px;
+  font-size: 11px;
+  line-height: 13px;
   color:#05A;
-  margin-bottom:6px;
   }
 .chart .data {
-  padding:10px 0;
-  border-left: 1px solid #999;
-  float: left;
-  width:309px;
+  min-width: 60px;
   }
-.chart.stat-chart .data {
-  width: 544px;
-}
 .chart .data > div {
   background:#0B387C;
   float:left;
   clear:both;
   text-align:right;
-  height:20px;
-  line-height:20px;
+  height:12px;
+  line-height:12px;
   margin-top:2px;
   padding-right:5px;
   font-size:11px;
+  text-shadow: 0px 1px 1px #0B387C, 
+               1px 1px 1px #0B387C, 
+               0px 0px 1px #0B387C, 
+               1px 0px 1px #0B387C;
   font-weight:bold;
   color:#EDF4FE;
   -webkit-box-sizing:border-box;
@@ -606,17 +715,6 @@ a {
   background: #96CCE6;
   margin-bottom: 0.25em;
   margin-top: 0;
-  }
-.chart .caption > div {
-  float:right;
-  clear:both;
-  text-align:right;
-  height:25px;
-  line-height:25px;
-  margin:5px 0;
-  box-sizing:border-box;
-  overflow:hidden;
-  width:100%;
   }
 .chart .caption .counts {
   margin: 3px 0 2px 0;
@@ -662,7 +760,7 @@ a {
 #chart-hdi .subdata.income,
 .marker-description .subdata.income     { background: #ebc0a8; }
 
-#charts .chart {
+#chart-hdi .chart {
   margin:20px 0;
   }
 #chart-hdi.chart {
@@ -700,6 +798,50 @@ a {
   margin-right: 5px;
   margin-bottom: 1px;
 }
+#chart-hdi h3 {
+  display: inline-block;
+  }
+#chart-hdi .chart-legend {
+  position: relative;
+  left: 20px;
+  top: 7px;
+  display: inline-block;
+  }
+#chart-hdi .hdic {
+  position: relative;
+  top: 10px;
+  height: 123px;
+  margin-bottom: 30px;
+  }
+#chart-hdi .caption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 29px;
+  text-align: right;
+  }
+#chart-hdi .data {
+  position: absolute;
+  top: 0;
+  left: 58px;
+  width: 450px;
+  }
+#chart-hdi .details {
+  margin: 0;
+  float: none;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  }
+#chart-hdi .data > div.subdata {
+  height: 7px;
+  }
+#chart-hdi .data > div {
+  height: 18px;
+  line-height: 18px;
+  text-shadow: none;
+  }
+
 .change .trend.hdi-up {
   border-top: none;
   border-bottom: 6px solid green;
@@ -807,14 +949,6 @@ form {
       background: rgba(171, 196, 191, 0.25);
       text-decoration: none;
       }
-  .icon.open {
-    background-color:#fff;
-    float:right;
-    position:relative;
-    top:4px;
-    -webkit-border-radius:4px;
-            border-radius:4px;
-    }
 
 .icon.reset {
   position:absolute;
@@ -843,8 +977,13 @@ form {
     }
 
 .topics .filter-items {
+  margin: 0;
   max-height:0;
   overflow:hidden;
+  -webkit-transition: all 0.3s;
+  -moz-transition:    all 0.3s;
+  -o-transition:      all 0.3s;
+  transition:         all 0.3s;
   }
   .topics .count {
     float:right;
@@ -853,9 +992,10 @@ form {
     }
   .topics.filtered .filter-items,
   .topics.active .filter-items {
-    max-height:125px;
-    margin:10px 0;
+    max-height:460px;
+    margin:0;
     overflow: auto;
+    box-shadow: inset 0px 10px 10px -10px #ccc, inset 0px -10px 10px -10px #ccc;
     -webkit-overflow-scrolling: touch;
     }
   .topics.filtered .filter-items {
@@ -866,13 +1006,16 @@ form {
   font-size:10px;
   text-transform:uppercase;
   cursor: pointer;
-  padding:0 15px 0 10px;
+  padding: 10px;
   -webkit-touch-callout:none;
   -webkit-user-select:none;
    -khtml-user-select:none;
      -moz-user-select:none;
       -ms-user-select:none;
           user-select:none;
+  }
+.topics.active .label {
+  color: #333;
   }
 
 .nav {
@@ -907,6 +1050,9 @@ form {
     .topics .label:hover {
       color:#0055AA;
       }
+    .topics.active .label:hover {
+      color:#333;
+      }
 
   /* Disable the state of a menu item that has
    * an acvtive filter in it
@@ -921,7 +1067,19 @@ form {
     }
   .topics.filtered .label .icon  { display:none; }
 
-/* projects */
+.table-unstyled,
+.table-unstyled td,
+.table-unstyled th {
+  background: transparent;
+  margin: 0;
+  border: none;
+  -webkit-box-shadow:none;
+     -moz-box-shadow:none;
+          box-shadow:none;
+
+  }
+
+/* project.html */
 .project {
   border-bottom:1px solid #b4b4b4;
   margin-bottom:10px;

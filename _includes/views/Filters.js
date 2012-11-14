@@ -6,11 +6,8 @@ views.Filters = Backbone.View.extend({
         var view = this,
             filterModels = [],
             chartModels = [],
-            active = this.collection.where({ active: true });
-
-        if ($('.btn-' + this.collection.id).html()) {
-            var chartType = $('.btn-' + this.collection.id + ' a.active').html().toLowerCase();
-        }
+            active = this.collection.where({ active: true }),
+            chartType = 'budget';
 
         if(active.length) {
 
@@ -26,7 +23,8 @@ views.Filters = Backbone.View.extend({
             this.collection.sort();
 
             filterModels = this.collection.filter(function(model) {
-                    return (model.get('visible') && model.get('count') > 1);
+                    var length = (model.collection.where({ visible: true }).length > 100) ? 1 : 0;
+                    return (model.get('visible') && model.get('count') > length);
                 });
 
             chartModels = _(this.collection.sortBy(function(model) {
@@ -35,20 +33,20 @@ views.Filters = Backbone.View.extend({
                 .filter(function(model) {
                     return (model.get(chartType) > 0);
                 }))
-                .first(5);
+                .first(20);
             if (this.collection.id === 'operating_unit') {
                 $('#applied-filters').addClass('no-country');
             }
             if (this.collection.id === 'region') {
                 $('#applied-filters').addClass('no-region');
             }
-            $('#applied-filters.no-country.no-region').html('All Offices');
         }
-
         if (filterModels.length) {
             this.$el.html(templates.filters(this));
+            app.description =  app.description || ['The following summary includes projects'];
 
             _(filterModels).each(function(model) {
+
                 view.$('.filter-items').append(templates.filter({ model: model }));
                 $('#' + view.collection.id + '-' + model.id).toggleClass('active', model.get('active'));
                 if (model.get('active') && !keypress) {
@@ -56,14 +54,23 @@ views.Filters = Backbone.View.extend({
                         '<li><a href="/undp-projects/#filter/'
                         + view.collection.id + '-'
                         + model.get('id') + '">'
-                        + model.get('name')
+                        + model.get('name').toLowerCase().toTitleCase()
                         + '</a></li>'
                     );
 
-                    if (view.collection.id == 'operating_unit') {
-                        $('#applied-filters').removeClass('no-country').html(model.get('name'));
-                    } else if (view.collection.id == 'region') {
-                        $('#applied-filters.no-country').removeClass('no-region').html(model.get('name'));
+                    if (view.collection.id === 'operating_unit') {
+                        $('#applied-filters').removeClass('no-country');
+                        app.description.push(' for the <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong> office');
+                    }
+                    if (view.collection.id === 'region') {
+                        $('#applied-filters.no-country').removeClass('no-region');
+                        app.description.push(' in the <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong> region');
+                    }
+                    if (view.collection.id === 'donors') {
+                        app.description.push(' funded by the <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong>');
+                    }
+                    if (view.collection.id === 'focus_area') {
+                        app.description.push(' with a focus on <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong>');
                     }
                 }
             });
@@ -72,45 +79,54 @@ views.Filters = Backbone.View.extend({
             this.$el.empty();
         }
 
-        if (chartModels.length <= 1) {
-            $('#chart-' + this.collection.id).parent().css('display','none');
+        $('#chart-' + this.collection.id + '.rows').empty();
 
-       } else {
-            var max = chartModels[0].get(chartType);
+        if (chartModels.length <= 1 && this.collection.id !== 'focus_area') {
+            $('#chart-' + this.collection.id).css('display','none');
 
-            // Build charts
-            $('.placeholder', '#chart-' + this.collection.id).empty().addClass('hidden');
-            $('.btn-' + this.collection.id).removeClass('hidden');
-            $('.data', '#chart-' + this.collection.id).empty().removeClass('hidden');
-            $('.caption', '#chart-' + this.collection.id).empty().removeClass('hidden');
-            $('#chart-' + this.collection.id).parent().css('display','block');
+        } else {
+            $('#chart-' + this.collection.id).css('display','block');
 
-            _(chartModels).each(function(model) {
-                if (chartType == 'budget') {
-                    var label = (model.get(chartType) / max * 100) > 15 ? accounting.formatMoney(model.get(chartType)/1000000) + 'M' : '';
+            if (this.collection.id === 'focus_area') {
+                $('#chart-' + this.collection.id).empty();
+                chartModels = this.collection.models;
 
-                    $('.data', '#chart-' + model.collection.id).append(
-                        '<div style="width: ' + (model.get(chartType)/ max * 100) + '%">' + label + '</div>'
-                    );
-                    $('.data', '#chart-' + model.collection.id).append(
-                        '<div class="subdata" style="width: ' + (model.get('expenditure')/ max * 100) + '%"></div>'
-                    );
-                    $('.caption', '#chart-' + model.collection.id).append(
-                        '<div><a href="#filter/' + model.collection.id + '-' + model.get('id')
-                        + '">' + model.get('name').toLowerCase() + '</a></div>'
-                    );
-                } else {
-                    var label = (model.get(chartType) / max * 100) > 10 ? accounting.formatNumber(model.get(chartType)) : '';
+                var total = chartModels.reduce(function(memo, model) {
+                    return memo + (model.get('budget') || 0 ); 
+                }, 0);
 
-                    $('.data', '#chart-' + model.collection.id).append(
-                        '<div style="margin-bottom:0.25em; width: ' + (model.get(chartType)/ max * 100) + '%">' + label + '</div>'
-                    );
-                    $('.caption', '#chart-' + model.collection.id).append(
-                        '<div class="counts"><a href="#filter/' + model.collection.id + '-' + model.get('id')
-                        + '">' + model.get('name').toLowerCase() + '</a></div>'
-                    );
-                }
-            });
+                _(chartModels).each(function(model, i) {
+                    $('#chart-' + model.collection.id).append(
+                        '<div class="focus fa' + model.id + '">' +
+                        '    <div class="fa-icon"></div>' +
+                        '    <div class="caption"></div>' +
+                        '    <div class="pct"></div>' +
+                        '</div>');
+
+                    $('.fa' + (model.id) + ' .caption').text(model.get('name').toLowerCase().toTitleCase());
+                    $('.fa' + (model.id) + ' .pct').text(((model.get('budget') || 0) / total * 100).toFixed(0) + '%');
+                });
+            } else {
+
+                var max = chartModels[0].get('budget');
+
+                $('#chart-' + this.collection.id + ' .rows').html('');
+                _(chartModels).each(function(model) {
+                    var budget = accounting.formatMoney(model.get('budget')/1000000) + 'M';
+                    var expenditure = accounting.formatMoney(model.get('expenditure')/1000000) + 'M';
+                    var caption = '<a href="#filter/' + model.collection.id + '-' + model.get('id')
+                        + '">' + model.get('name').toLowerCase().toTitleCase() + '</a>';
+                    var bar = '<div style="width: ' + (model.get('budget')/ max * 100) + '%"></div>' + '<div class="subdata" style="width: ' + (model.get('expenditure')/ max * 100) + '%"></div>';
+
+
+                    $('#chart-' + model.collection.id + ' .rows').append(
+                        '<tr>' +
+                        '    <td>' + caption + '</td>' +
+                        '    <td class="right">' + budget + '</td>' +
+                        '    <td class="data">' + bar + '</td>' +
+                        '</tr>');
+                });
+            }
         }
 
         return this;
