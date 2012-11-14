@@ -290,7 +290,7 @@ a {
   }
 .map {
   background:#fff;
-  border:1px solid #999;
+  border:1px solid #b3b3b3;
   }
 #homemap {
   width:100%;
@@ -486,9 +486,13 @@ a {
        -o-transition: left 0.5s ease;
           transition: left 0.5s ease;
   }
-.summary.off {
-  left:-1000px;
-  }
+  .summary p {
+    margin:0;
+    }
+  .summary.off {
+    left:-1000px;
+    }
+
 .raised {
   background: white;
   box-shadow: 0 10px 20px #999;
@@ -931,10 +935,6 @@ form {
 
 .projects > .row-fluid .row-fluid {
   margin-bottom: 10px;
-  }
-.dates .dates-label {
-  font-weight: bold;
-  color: #444;
   }
 #progress {
   height:20px;

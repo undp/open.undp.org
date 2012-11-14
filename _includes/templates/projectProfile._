@@ -18,6 +18,15 @@
 
     <div id='top-stats' class='row-fluid'>
         <div class='span6'>
+            <div class='row-fluid'>
+                <div class='span12'>
+                    <div class='label visible-phone'>Location</div>
+                    <div id='profilemap' class='map'></div>
+                </div>
+            </div>
+        </div>
+
+        <div class='span6'>
             <!-- Project Progress Bar -->
             <div class='row-fluid'>
               <div class='span12 dates'>
@@ -57,25 +66,6 @@
                 <% } %>
             </div>
 
-            <% if (!_.isEmpty(model.get("document_name"))) { %>
-            <div class='row-fluid'>
-                <div class='span12'>
-                  <div class='label'>Documents</div>
-                  <div id='documents' class='row-fluid'>
-                      <div class='span12'>
-                          <ul class='unstyled'>
-                              <% _.each(model.get("document_name")[0], function(obj,i) { %>
-                              <li><a href='<%= model.get("document_name")[1][i] %>'>
-                                <span class='icon filetype'><%= obj.split(".")[1] %></span>
-                              <%= obj.split(".")[0] %></a></li>
-                              <% }); %>
-                          </ul>
-                      </div>
-                  </div> <!--/ #documents -->
-                </div>
-              </div>
-              <% } %>
-
             <div class='row-fluid'>
                 <div class='span12'>
                     <div class='label'>Funding Sources</div>
@@ -109,20 +99,31 @@
                     </p>
                 </div>
             </div>
-        </div>
-        <div class='span6'>
+
+            <% if (!_.isEmpty(model.get("document_name"))) { %>
             <div class='row-fluid'>
                 <div class='span12'>
-                    <div class='label visible-phone'>Location</div>
-                    <div id='profilemap' class='map'></div>
+                  <div class='label'>Documents</div>
+                  <div id='documents' class='row-fluid'>
+                      <div class='span12'>
+                          <ul class='unstyled'>
+                              <% _.each(model.get("document_name")[0], function(obj,i) { %>
+                              <li><a href='<%= model.get("document_name")[1][i] %>'>
+                                <span class='icon filetype'><%= obj.split(".")[1] %></span>
+                              <%= obj.split(".")[0] %></a></li>
+                              <% }); %>
+                          </ul>
+                      </div>
+                  </div> <!--/ #documents -->
                 </div>
-            </div>
+              </div>
+              <% } %>
         </div>
     </div> <!--/ #top-stats -->
 
     <div class='separator' id='output-header'>
       <p class='heading-title'>
-        <% if (model.get("outputs").length > 1) { %> 
+        <% if (model.get("outputs").length > 1) { %>
           <span><%= model.get("outputs").length %>&nbsp;</span>
         <% } %>
         Subprojects
