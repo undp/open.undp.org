@@ -733,12 +733,6 @@ form {
 .hidden-phone {
   position:relative;
   }
-#content-right #flickr-side {
-  padding-top: 5px;
-  height: 245px;
-  margin-bottom: 30px;
-  overflow: hidden;
-}
 #content-right .inner,
 #filters .inner {
   background:#f2faff;
@@ -747,7 +741,7 @@ form {
   }
 #content-right .inner-last {
   padding-bottom: 30px;
-}
+  }
 #content-right .inner h5 {
   font-size: 16px;
   color: #444;
@@ -1013,12 +1007,17 @@ form {
 
 /* flickr gallery */
 #flickr {
-  background-color:#fff;
+  background-color:#000;
   position:relative;
   margin-bottom:10px;
-  background-size:cover;
   height:240px;
+  overflow:hidden;
   }
+  #flickr img {
+    max-width:100%;
+    display:block;
+    margin:0 auto;
+    }
   #flickr .meta {
     background:rgb(10,41,77);
     background:rgba(10,41,77,0.8);

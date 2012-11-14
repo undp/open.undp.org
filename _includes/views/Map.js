@@ -513,15 +513,8 @@ views.Map = Backbone.View.extend({
                 $('.meta-inner', $el).empty();
             }
 
-            function insertPhoto(height,width,src) {
-                // Check for portrait vs. landscape
-                if (height > width) {
-                    $el.css('background','url("' + src + '") center 38% no-repeat');
-                    $el.css('background-size','cover');
-                } else {
-                    $el.css('background','url("' + src + '") center 25% no-repeat');
-                    $el.css('background-size','cover');
-                }
+            function insertPhoto(height, width, src) {
+                $el.find('img').attr('src', src);
                 $el.addClass('in');
             }
         }
