@@ -43,32 +43,49 @@ models.Projects = Backbone.Collection.extend({
 
         // Count projects for each facet
         _(facets).each(function(facet) {
-            this[facet.id] = _(this.pluck(facet.id))
-                .chain()
-                .flatten()
-                .groupBy(function(n) { return n; })
-                .reduce(function (obj, v, k) {
-                    obj[k] = v.length;
-                    return obj;
-                }, {})
-                .value();
-            
-            if (facet.id == 'operating_unit') {
-                this[facet.id + 'Sources'] = _(this.models)
+            if (facet.id == 'donor_countries') {
+                this[facet.id] = _(this.pluck(facet.id))
                     .chain()
-                    .reduce(function (res,obj) {
-                        if (!(obj.attributes[facet.id] in res)) {
-                            res[obj.attributes[facet.id]] = _.uniq(obj.attributes.donors);
-                        } else {
-                            res[obj.attributes[facet.id]] = _.union(res[obj.attributes[facet.id]],_.uniq(obj.attributes.donors));
-                        }
+                    .reduce(function(res, obj, i) {
+                        res[i] = _.uniq(obj);
                         return res;
-                    }, {})
+                    }, [])
+                    .flatten()
+                    .groupBy(function(n) { return n; })
                     .reduce(function (obj, v, k) {
                         obj[k] = v.length;
                         return obj;
                     }, {})
                     .value();
+            } else {
+            
+                this[facet.id] = _(this.pluck(facet.id))
+                    .chain()
+                    .flatten()
+                    .groupBy(function(n) { return n; })
+                    .reduce(function (obj, v, k) {
+                        obj[k] = v.length;
+                        return obj;
+                    }, {})
+                    .value();
+                
+                if (facet.id == 'operating_unit') {
+                    this[facet.id + 'Sources'] = _(this.models)
+                        .chain()
+                        .reduce(function (res,obj) {
+                            if (!(obj.attributes[facet.id] in res)) {
+                                res[obj.attributes[facet.id]] = _.uniq(obj.attributes.donors);
+                            } else {
+                                res[obj.attributes[facet.id]] = _.union(res[obj.attributes[facet.id]],_.uniq(obj.attributes.donors));
+                            }
+                            return res;
+                        }, {})
+                        .reduce(function (obj, v, k) {
+                            obj[k] = v.length;
+                            return obj;
+                        }, {})
+                        .value();
+                }
             }
                 
             calc(this,facet.id,'budget');

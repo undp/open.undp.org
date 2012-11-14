@@ -35,7 +35,7 @@ donor_projects_sort = sorted(donor_projects, key = lambda x: x['awardID'])
 
 row_count = 0
 donorProject = []
-donorProjHeader = ['projectID','donorID','donorName','donorShort','donorTypeID','donorType']
+donorProjHeader = ['projectID','donorID','donorName','donorShort','donorTypeID','donorType','donorCtyID','donorCty']
 for don,donors in groupby(donor_projects_sort, lambda x: x['awardID']):
     row_count = row_count + 1
     donorList = [don]
@@ -44,6 +44,8 @@ for don,donors in groupby(donor_projects_sort, lambda x: x['awardID']):
     donorShort = []
     donorTypeID = []
     donorType = []
+    donorCtyID = []
+    donorCty = []
     for d in donors:
         if d['donorID'] not in donorID and d['donorID'].replace(" ","") != "":
             donorID.append(d['donorID'])
@@ -51,11 +53,22 @@ for don,donors in groupby(donor_projects_sort, lambda x: x['awardID']):
             donorShort.append(d['short_descr'])
             donorTypeID.append(d['donor_type_lvl1'].replace(" ",""))
             donorType.append(d['donor_type_lvl1_descr'])
+            if d['donor_type_lvl1'] == 'PROG CTY' or d['donor_type_lvl1'] == 'NON_PROG CTY':
+                donorCtyID.append(d['donor_type_lvl3'].replace(" ",""))
+                donorCty.append(d['donor_type_lvl3_descr'])
+            elif d['donor_type_lvl1'] == 'MULTI_AGY':
+                donorCtyID.append(d['donor_type_lvl1'].replace(" ",""))
+                donorCty.append(d['donor_type_lvl1_descr'])
+            else:
+                donorCtyID.append('OTH')
+                donorCty.append('OTHERS')
     donorList.append(donorID)
     donorList.append(donorName)
     donorList.append(donorShort)
     donorList.append(donorTypeID)
     donorList.append(donorType)
+    donorList.append(donorCtyID)
+    donorList.append(donorCty)
     donorProject.append(donorList)
 
 print "Donors by Project Process Count: %d" % row_count
@@ -70,7 +83,7 @@ donor_outputs_sort = sorted(donor_outputs, key = lambda x: x['projectID'])
 
 row_count = 0
 donorOutput = []
-donorOutHeader = ['outputID','donorID','donorName','donorShort','donorTypeID','donorType']
+donorOutHeader = ['outputID','donorID','donorName','donorShort','donorTypeID','donorType','donorCtyID','donorCty']
 for don,donors in groupby(donor_outputs_sort, lambda x: x['projectID']):
     row_count = row_count + 1
     donorList = [don]
@@ -79,6 +92,8 @@ for don,donors in groupby(donor_outputs_sort, lambda x: x['projectID']):
     donorShort = []
     donorTypeID = []
     donorType = []
+    donorCtyID = []
+    donorCty = []
     for d in donors:
         if d['donorID'] not in donorID and d['donorID'].replace(" ","") != "":
             donorID.append(d['donorID'])
@@ -86,11 +101,22 @@ for don,donors in groupby(donor_outputs_sort, lambda x: x['projectID']):
             donorShort.append(d['short_descr'])
             donorTypeID.append(d['donor_type_lvl1'].replace(" ",""))
             donorType.append(d['donor_type_lvl1_descr'])
+            if d['donor_type_lvl1'] == 'PROG CTY' or d['donor_type_lvl1'] == 'NON_PROG CTY':
+                donorCtyID.append(d['donor_type_lvl3'].replace(" ",""))
+                donorCty.append(d['donor_type_lvl3_descr'])
+            elif d['donor_type_lvl1'] == 'MULTI_AGY':
+                donorCtyID.append(d['donor_type_lvl1'].replace(" ",""))
+                donorCty.append(d['donor_type_lvl1_descr'])
+            else:
+                donorCtyID.append('OTH')
+                donorCty.append('OTHERS')
     donorList.append(donorID)
     donorList.append(donorName)
     donorList.append(donorShort)
     donorList.append(donorTypeID)
     donorList.append(donorType)
+    donorList.append(donorCtyID)
+    donorList.append(donorCty)
     donorOutput.append(donorList)
 
 print "Donors by Output Process Count: %d" % row_count
@@ -106,7 +132,7 @@ outputs_sort = sorted(outputs, key = lambda x: x['projectID'])
 row_count = 0
 outputs = []
 outputsFull = []
-outputsHeader = ['output_id','award_id','output_title','output_descr','gender_id','gender_descr','focus_area','focus_area_descr','crs','crs_descr','fiscal_year','budget','expenditure','donor_id','donor_short','donor_name','donor_type_id','donor_type']
+outputsHeader = ['output_id','award_id','output_title','output_descr','gender_id','gender_descr','focus_area','focus_area_descr','crs','crs_descr','fiscal_year','budget','expenditure','donor_id','donor_short','donor_name','donor_type_id','donor_type','donor_country_id','donor_country']
 for out,output in groupby(outputs_sort, lambda x: x['projectID']): 
     row_count = row_count + 1
     outputList = [out]
@@ -142,6 +168,8 @@ for out,output in groupby(outputs_sort, lambda x: x['projectID']):
             outputList.append(dOut['donorName'])
             outputList.append(dOut['donorTypeID'])
             outputList.append(dOut['donorType'])
+            outputList.append(dOut['donorCtyID'])
+            outputList.append(dOut['donorCty'])
     outputsFull.append(dict(zip(outputsHeader,outputList))) # this returns a list of dicts of output informaiton for each output
 
 print "Output Process Count: %d" % row_count
@@ -216,7 +244,7 @@ projectSum_sort = sorted(projectSum, key = lambda x: x['awardID'])
 
 row_count = 0
 projectSummary = []
-projectSumHeader = ['id','name','operating_unit','region','budget','expenditure','crs','focus_area','donors','donor_types']
+projectSumHeader = ['id','name','operating_unit','region','budget','expenditure','crs','focus_area','donors','donor_types','donor_countries']
 for award,summary in groupby(projectSum_sort, lambda x: x['awardID']): 
     row_count = row_count + 1
     summaryList = [award]
@@ -238,10 +266,18 @@ for award,summary in groupby(projectSum_sort, lambda x: x['awardID']):
                 faTemp.append(out['focus_area'])
     summaryList.append(crsTemp)
     summaryList.append(faTemp)
+    dTemp = []
+    dtypeTemp = []
+    dCtyTemp = []
     for dProj in donorProjects:
         if dProj['projectID'] == award:
-            summaryList.append(dProj['donorID'])
-            summaryList.append(dProj['donorTypeID'])
+            dTemp = dProj['donorID']
+            dtypeTemp = dProj['donorTypeID']
+            dCtyTemp = dProj['donorCtyID']
+    summaryList.append(dTemp)
+    summaryList.append(dtypeTemp)
+    summaryList.append(dCtyTemp)
+    
     projectSummary.append(dict(zip(projectSumHeader,summaryList))) # this joins the project summary information 
 
 print "Project Summary Process Count: %d" % row_count
@@ -342,8 +378,6 @@ f_out = open('../api/donor-index.json', 'wb')
 f_out.writelines(writeout)
 f_out.close()
 
-print "Donor Index Process Count: %d" % row_count
-
 # Process Donor Type Index
 # ************************
 donor_types = csv.DictReader(open('download/undp_export/report_donors.csv', 'rb'), delimiter = ',', quotechar = '"')
@@ -367,8 +401,34 @@ f_out = open('../api/donor-type-index.json', 'wb')
 f_out.writelines(writeout)
 f_out.close()
 
+# Process Donor Country Index
+# ************************
+donor_country = csv.DictReader(open('download/undp_export/report_donors.csv', 'rb'), delimiter = ',', quotechar = '"')
+donor_country_sort = sorted(donor_country, key = lambda x: x['donor_type_lvl3'])
 
-print "Donor Type Index Process Count: %d" % row_count
+row_count = 0
+dctry_index = [
+    {"id": "OTH","name": "Others"},
+    {"id": "MULTI_AGY","name": "Multi-lateral Agency"}
+]
+dctryHeader = ['id','name']
+dlvl1_check = []
+for don,donor in groupby(donor_country_sort, lambda x: x['donor_type_lvl3']):
+    row_count = row_count + 1
+    index = []
+    for d in donor:
+        if d['donor_type_lvl1'] == 'PROG CTY' or d['donor_type_lvl1'] == 'NON_PROG CTY':
+            if don.replace(" ","") != "":
+                index.append(don.replace(" ",""))
+                index.append(d['donor_type_lvl3_descr'])
+    if index:
+        dctry_index.append(dict(zip(dctryHeader, index)))
+
+print "Donor Country Index Process Count: %d" % row_count
+writeout = json.dumps(dctry_index, sort_keys=True, indent=4)
+f_out = open('../api/donor-country-index.json', 'wb')
+f_out.writelines(writeout)
+f_out.close()
 
 # Process Focus Area Index
 # ************************
@@ -402,7 +462,7 @@ country_sort = sorted(geo, key = lambda x: x['iso3'])
 
 row_count = 0
 opUnit_index = []
-opUnitHeader = ['id','name','web','email','twitter','flickr','facebook','lat','lon']
+opUnitHeader = ['id','name','web','email','twitter','flickr','facebook','project_count','funding_sources_count','budget_sum','expenditure_sum','lat','lon']
 for un,unit in groupby(unitsIndex_sort, lambda x: x['rollup_ou']): 
     index = []
     if un != "":
@@ -410,24 +470,23 @@ for un,unit in groupby(unitsIndex_sort, lambda x: x['rollup_ou']):
         for ctry in country_sort:
             if ctry['iso3'] == un:
                 row_count = row_count + 1
+                for u in unit:
+                    index.append(u['rollup_ou_description'])
+                    index.append(u['Web'])
+                    index.append(u['Email'])
+                    index.append(u['Twitter'])
+                    index.append(u['Flickr'])
+                    index.append(u['Facebook'])
+                for x in opUnitprint:
+                    if x['operating_unit'] == un:
+                        index.append(x['project_count'])
+                        index.append(x['funding_sources_count'])
+                        index.append(x['budget_sum'])
+                        index.append(x['expenditure_sum'])
                 if ctry['lat'] != "":
-                    for u in unit:
-                        index.append(u['rollup_ou_description'])
-                        index.append(u['Web'])
-                        index.append(u['Email'])
-                        index.append(u['Twitter'])
-                        index.append(u['Flickr'])
-                        index.append(u['Facebook'])
                     index.append(float(ctry['lat']))
                     index.append(float(ctry['lon']))
-                else:
-                    for u in unit:
-                        index.append(u['rollup_ou_description'])
-                        index.append(u['Web'])
-                        index.append(u['Email'])
-                        index.append(u['Twitter'])
-                        index.append(u['Flickr'])
-                        index.append(u['Facebook'])
+                    
                 opUnit_index.append(dict(zip(opUnitHeader, index)))
 
 writeout = json.dumps(opUnit_index, sort_keys=True, indent=4)

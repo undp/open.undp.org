@@ -47,6 +47,11 @@
                 name: 'UNDP Focus Areas'
             },
             {
+                id: 'donor_countries',
+                url: 'api/donor-country-index.json',
+                name: 'Funding by Country'
+            },
+            {
                 id: 'donors',
                 url: 'api/donor-index.json',
                 name: 'Funding Sources'
