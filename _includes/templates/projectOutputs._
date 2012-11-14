@@ -1,7 +1,7 @@
 <div id='output-<%= model.output_id %>' class='project row-fluid'>
     <div class='row-fluid'>
         <div class='span10'>
-            <div class='row-fluid'>
+            <div class='row-fluid heading'>
               <% if (model.focus_area) { %>
                   <a href='#filter/focus_area-<%= model.focus_area %>' class='focus-thumbnail'>
                     <span class="icon icon-thumbnail <%= (model.focus_area_descr).replace(/\s+/g, '-').toLowerCase().split('-')[0] %>"></span>

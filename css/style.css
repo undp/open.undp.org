@@ -22,7 +22,7 @@ h2 {
   }
 h3 {
   font-size:18px;
-  line-height:26px;
+  line-height:24px;
   }
 table {
   background:#fff;
@@ -300,11 +300,25 @@ a {
   left:0;
   }
 #profilemap {
-  height:300px;
+  height:200px;
   }
-#profilemap .map-fullscreen,  #profilemap .zoomer {
+#profilemap .map-fullscreen,
+#profilemap .zoomer {
   display:none;
   }
+.country-profile {
+  background:#0A294D;
+  color:#bbb;
+  }
+  .country-profile .inner {
+    padding:10px;
+    }
+  .country-profile h3 {
+    color:#fff;
+    display:block;
+    margin-bottom:10px;
+    }
+
 .map .inner-shadow {
   position:relative;
   width:100%;
@@ -914,9 +928,12 @@ form {
   border-bottom: none;
   box-shadow: none;
   }
+.project .heading {
+  margin-bottom:10px;
+  }
 .focus-thumbnail {
   float:left;
-  margin:0 5px 20px 0;
+  margin-right:5px;
   }
 
 #timeline-comp {
@@ -954,16 +971,15 @@ form {
   #documents li a .icon {
     margin-left:-25px;
     }
-  #documents li a:hover {
-    background: rgba(171, 196, 191, 0.25);
-    text-decoration: none;
-    }
 .focus-area .text {
   position:relative;
   top:15px;
   }
 
 /* twitter feed */
+#twitter-block {
+  min-height:240px;
+  }
 #twitter {
   margin-left:40px;
   }
@@ -1149,6 +1165,15 @@ form {
   #country-summary ul li span {
     float:right;
     }
+
+.spin {
+  position:absolute;
+  width:50px;
+  height:50px;
+  top:50%;
+  left:50%;
+  margin:-30px 0 0 -25px;
+  }
 
 /*-----------------------------------
   Widget Config Modal

@@ -17,16 +17,7 @@
 <div class='col col-700 projects summary'>
 
     <div id='top-stats' class='row-fluid'>
-        <div class='span6'>
-            <div class='row-fluid'>
-                <div class='span12'>
-                    <div class='label visible-phone'>Location</div>
-                    <div id='profilemap' class='map'></div>
-                </div>
-            </div>
-        </div>
-
-        <div class='span6'>
+        <div class='span7'>
             <!-- Project Progress Bar -->
             <div class='row-fluid'>
               <div class='span12 dates'>
@@ -119,6 +110,22 @@
               </div>
               <% } %>
         </div>
+      <div class='span5'>
+        <div class='row-fluid'>
+          <div class='span12'>
+            <div class='label visible-phone'>Location</div>
+            <div id='profilemap' class='map'></div>
+            <!-- Country at a Glance -->
+            <div class="row-fluid country-profile">
+              <div class="span12 inner">
+                <h3><%= model.get('operating_unit') %> at a glance</h3>
+                <div id="country-summary"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div> <!--/ #top-stats -->
 
     <div class='separator' id='output-header'>
@@ -138,8 +145,9 @@
 </div> <!--/ #summary -->
 
 <div id='content-right' class='col col-240 col-end hidden-phone'>
-  <div id='flickr' class='fade row-fluid'>
-    <img src='' alt='' />
+  <div id='flickr' class='row-fluid'>
+    <div class='spin'></div>
+    <img class='fade' src='' alt='' />
     <div class='resize' title='Resize'>
       <div class='icon fullscreen'></div>
       <span class='text'>Details</span>
@@ -156,24 +164,15 @@
     </div>
   </div>
 
-  <div id='twitter-block' class='inner fade'>
+  <div id='twitter-block' class='inner'>
     <div class='row-fluid'>
         <div class='span12'>
-            <div class='tweet'></div>
+            <div class='tweet fade'></div>
             <div id='twitter'></div>
         </div>
     </div>
   </div>
 
-  <div class="inner inner-last">
-    <div class="row-fluid">
-        <div class="span12">
-            <h3><%= model.get('operating_unit') %> at a glance</h3>
-            <div id="country-summary">
-            </div>
-        </div>
-    </div>
-  </div>
 </div> <!--/ #content-right -->
 
 <!-- Modals -->

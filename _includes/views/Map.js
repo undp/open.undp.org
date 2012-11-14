@@ -13,6 +13,7 @@ views.Map = Backbone.View.extend({
     },
     render: function() {
         $('#chart-hdi').css('display','none');
+
         var that = this,
             layer,
             unit = (this.collection) ? this.collection
@@ -338,9 +339,10 @@ views.Map = Backbone.View.extend({
             baseUrl;
 
         if (data['twitter']) {
+            $twitter.show();
             that.twitter(data['twitter'], function(twPhotos) {
                 that.flickr(fName,fLink,photos.concat(twPhotos));
-                $twitter.show().addClass('in');
+                $twitter.find('.fade').addClass('in');
             });
         } else {
             that.flickr(fName,fLink,photos);
@@ -394,8 +396,8 @@ views.Map = Backbone.View.extend({
             username: user,
             avatar_size: 32,
             count: 3,
-            template: "{avatar}<div>{text}</div><div class='actions'>{time}</div>",
-            loading_text: "loading tweets..."
+            template: "{avatar}<div class='actions'>{time}</div><div>{text}</div>",
+            loading_text: "Loading Tweets"
         });
 
         $('#twitter').html('<a href="https://twitter.com/' + user + '" class="twitter-follow-button" data-show-count="false" data-show-screen-name="true" data-lang="en">Follow ' + username + '</a>');
@@ -418,7 +420,6 @@ views.Map = Backbone.View.extend({
 
             searchFirst = this.model.get('project_id'),
             searchSecond = office,
-            //searchSecond = this.model.get('project_title').replace(/ /g,'+'),
             attempt = 0,
             i = 0;
 
@@ -458,6 +459,7 @@ views.Map = Backbone.View.extend({
 
         // Load single photo from array
         function loadPhoto(x) {
+            $el.find('.spin').spin({ color:'#fff' });
             if (x == 0) $('.prev', $el).addClass('inactive');
             if (x == photos.length - 1) $('.next', $el).addClass('inactive');
 
@@ -523,8 +525,8 @@ views.Map = Backbone.View.extend({
             }
 
             function insertPhoto(height, width, src) {
-                $el.find('img').attr('src', src);
-                $el.addClass('in');
+                $el.find('img').attr('src', src).addClass('in');
+                $el.find('.spin').spin(false);
             }
         }
 
