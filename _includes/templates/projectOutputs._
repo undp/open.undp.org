@@ -2,20 +2,16 @@
     <div class='row-fluid'>
         <div class='span10'>
             <div class='row-fluid'>
+              <% if (model.focus_area) { %>
+                  <a href='#filter/focus_area-<%= model.focus_area %>' class='focus-thumbnail'>
+                    <span class="icon icon-thumbnail <%= (model.focus_area_descr).replace(/\s+/g, '-').toLowerCase().split('-')[0] %>"></span>
+                  </a>
+              <% } %>
               <h3><%= model.output_title %> <small><%= model.output_id %></small></h3>
-                <p><%= model.output_descr %></p>
+              <p><%= model.output_descr %></p>
             </div>
             <div class='row-fluid'>
                 <div class='span8'>
-                    <% if (model.focus_area) { %>
-                    <div class='row-fluid focus-area'>
-                      <div class='label'>Focus Area</div>
-                        <a href='#filter/focus_area-<%= model.focus_area %>'>
-                          <span class="icon icon-thumbnail <%= (model.focus_area_descr).replace(/\s+/g, '-').toLowerCase().split('-')[0] %>"></span>
-                          <span class='text'><%= model.focus_area_descr %></span>
-                        </a>
-                      </div>
-                    <% } %>
                     <% if (model.crs) { %>
                     <div class='row-fluid'>
                         <div class='label'>Aid Classification</div>
