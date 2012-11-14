@@ -417,6 +417,7 @@ views.Map = Backbone.View.extend({
             apiKey = '1da8476bfea197f692c2334997c10c87', //from UNDP's main account (unitednationsdevelopmentprogramme)
             userid, username,
             $el = $('#flickr');
+            $el.find('.spin').spin({ color:'#fff' });
 
             searchFirst = this.model.get('project_id'),
             searchSecond = office,
