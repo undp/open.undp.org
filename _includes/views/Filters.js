@@ -23,7 +23,8 @@ views.Filters = Backbone.View.extend({
             this.collection.sort();
 
             filterModels = this.collection.filter(function(model) {
-                    return (model.get('visible') && model.get('count') > 1);
+                    var length = (model.collection.where({ visible: true }).length > 100) ? 1 : 0;
+                    return (model.get('visible') && model.get('count') > length);
                 });
 
             chartModels = _(this.collection.sortBy(function(model) {
@@ -53,14 +54,14 @@ views.Filters = Backbone.View.extend({
                         '<li><a href="/undp-projects/#filter/'
                         + view.collection.id + '-'
                         + model.get('id') + '">'
-                        + model.get('name')
+                        + model.get('name').toLowerCase().toTitleCase()
                         + '</a></li>'
                     );
 
                     if (view.collection.id == 'operating_unit') {
-                        $('#applied-filters').removeClass('no-country').html('Projects in ' + model.get('name'));
+                        $('#applied-filters').removeClass('no-country').html('Projects in ' + model.get('name').toLowerCase().toTitleCase());
                     } else if (view.collection.id == 'region') {
-                        $('#applied-filters.no-country').removeClass('no-region').html(model.get('name'));
+                        $('#applied-filters.no-country').removeClass('no-region').html(model.get('name').toLowerCase().toTitleCase());
                     }
                 }
             });
@@ -90,7 +91,7 @@ views.Filters = Backbone.View.extend({
                         '    <div class="pct"></div>' +
                         '</div>');
 
-                    $('.fa' + (model.id) + ' .caption').text(model.get('name').toLowerCase());
+                    $('.fa' + (model.id) + ' .caption').text(model.get('name').toLowerCase().toTitleCase());
                     $('.fa' + (model.id) + ' .pct').text(((model.get('budget') || 0) / total * 100).toFixed(0) + '%');
                 });
             } else {

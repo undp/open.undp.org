@@ -249,9 +249,10 @@ a {
 .icon.open {
   background-color:#fff;
   background-position:-18px 2px;
+  border: 1px solid #ccc;
   float:right;
   position:relative;
-  top:4px;
+  top:-3px;
   -webkit-border-radius:4px;
           border-radius:4px;
   }
@@ -530,9 +531,6 @@ a {
   font-weight:bold;
   padding:20px 0;
   }
-  .separator a {
-    color:#EDF4FE;
-    }
 
 .heading-title {
   line-height:42px;
@@ -893,6 +891,7 @@ form {
   padding-right:25px;
   }
 .topics .filter-items {
+  margin: 0;
   max-height:0;
   overflow:hidden;
   }
@@ -903,9 +902,10 @@ form {
     }
   .topics.filtered .filter-items,
   .topics.active .filter-items {
-    max-height:125px;
-    margin:10px 0;
+    max-height:460px;
+    margin:0;
     overflow: auto;
+    box-shadow: inset 0px 10px 10px -10px #ccc, inset 0px -10px 10px -10px #ccc;
     -webkit-overflow-scrolling: touch;
     }
   .topics.filtered .filter-items {
@@ -916,7 +916,7 @@ form {
   font-size:10px;
   text-transform:uppercase;
   cursor: pointer;
-  padding:0 10px;
+  padding: 10px;
   -webkit-touch-callout:none;
   -webkit-user-select:none;
    -khtml-user-select:none;
@@ -924,6 +924,10 @@ form {
       -ms-user-select:none;
           user-select:none;
   }
+.topics.active .label {
+  color: #333;
+  }
+
 
 .nav {
   margin:20px 0 0;
@@ -956,6 +960,9 @@ form {
     }
     .topics .label:hover {
       color:#0055AA;
+      }
+    .topics.active .label:hover {
+      color:#333;
       }
 
   /* Disable the state of a menu item that has

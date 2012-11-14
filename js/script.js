@@ -34,22 +34,22 @@
             {
                 id: 'operating_unit',
                 url: 'api/operating-unit-index.json',
-                name: 'Country Offices / Operating Units'
+                name: 'Country Office / Operating Unit'
             },
             {
                 id: 'region',
                 url: 'api/region-index.json',
-                name: 'Regions'
+                name: 'Region'
             },
             {
                 id: 'focus_area',
                 url: 'api/focus-area-index.json',
-                name: 'UNDP Focus Areas'
+                name: 'UNDP Focus Area'
             },
             {
                 id: 'donors',
                 url: 'api/donor-index.json',
-                name: 'Funding Sources'
+                name: 'Funding Source'
             }
         ];
 
@@ -94,7 +94,10 @@
         }
     
         return match.charAt(0).toUpperCase() + match.substr(1);
-      }).replace(/Undp/g, 'UDNP');
+      })
+      // Words that should be all caps
+        .replace(/Undp/g, 'UDNP')
+        .replace(/Mdg/g, 'MDG');
     };
 
     // Start the application
