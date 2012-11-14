@@ -731,6 +731,10 @@ a {
 .project .date, #top-stats .date {
   margin-right: 10px;
   }
+#top-stats .stat {
+  padding-bottom:10px;
+  border-bottom:1px solid #b3b3b3;
+  }
 .project .projid {
   min-width: 45px;
   margin-top: 5px;
@@ -1139,10 +1143,10 @@ form {
   right:0;
   z-index:1000;
   background-position:0 0!important;
-  -webkit-transition:width 250ms linear;
-     -moz-transition:width 250ms linear;
-       -o-transition:width 250ms linear;
-          transition:width 250ms linear;
+  -webkit-transition:width 250ms ease-in;
+     -moz-transition:width 250ms ease-in;
+       -o-transition:width 250ms ease-in;
+          transition:width 250ms ease-in;
   -webkit-box-shadow:0 0 8px rgba(0,0,0,0.25);
           box-shadow:0 0 8px rgba(0,0,0,0.25);
   }
