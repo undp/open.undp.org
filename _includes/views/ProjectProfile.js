@@ -27,7 +27,7 @@ views.ProjectProfile = Backbone.View.extend({
         var startDate = new Date(this.model.get('start').replace('-',',')),
             endDate = new Date(this.model.get('end').replace('-',',')),
             curDate = new Date(),
-            progress = ((curDate - startDate)/(endDate - startDate))*100;
+            progress = ((curDate - startDate) / (endDate - startDate)) * 100;
             that = this;
 
         this.model.attributes.budget = _.chain(this.model.attributes.outputs)
@@ -56,8 +56,18 @@ views.ProjectProfile = Backbone.View.extend({
             return res;
             },{});
 
+        var sParts = (new Date(this.model.get('start'))).toLocaleDateString().split(',');
+        var eParts = (new Date(this.model.get('end'))).toLocaleDateString().split(',');
+
+        var start = sParts[1] + ',' + sParts[2];
+        var end = eParts[1] + ',' + eParts[2];
+
         window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
-        this.$el.empty().append(templates.projectProfile(this)).show();
+        this.$el.empty().append(templates.projectProfile({
+            start: start,
+            end: end,
+            model: this.model
+        })).show();
 
         // If first load is a project page or output, don't animate
         if (app.app && this.options.gotoOutput == false) {
@@ -69,7 +79,7 @@ views.ProjectProfile = Backbone.View.extend({
             model: this.model
         });
 
-        $('#top-stats .progress .bar').css('width',progress + '%');
+        $('#progress').find('.bar').css('width', progress + '%');
 
         if (_.isEmpty(this.model.get('document_name'))) {
             $('.widget-options ul li.doc-opt').hide();

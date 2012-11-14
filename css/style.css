@@ -489,10 +489,6 @@ a {
 .summary.off {
   left:-1000px;
   }
-.summary p {
-  color:#666;
-  }
-
 .raised {
   background: white;
   box-shadow: 0 10px 20px #999;
@@ -522,7 +518,6 @@ a {
   line-height:42px;
   }
   p.heading-title {
-    color: #666;
     font-size: 24px;
     line-height: 32px;
     margin: 20px 0 0;
@@ -914,11 +909,15 @@ form {
 .project {
   border-bottom:1px solid #b4b4b4;
   margin-bottom:10px;
+  padding-bottom:10px;
   }
 .project:last-child {
   padding-bottom: 0;
   border-bottom: none;
   box-shadow: none;
+  }
+.focus-area {
+  margin-bottom:10px;
   }
 
 #timeline-comp {
@@ -937,18 +936,19 @@ form {
   font-weight: bold;
   color: #444;
   }
-.dates .progress {
-  margin-bottom: 0 !important;
+#progress {
+  height:20px;
+  line-height:20px;
+  font-weight:bold;
+  margin-bottom:0;
   }
-.progress .bar {
-  background-image:-webkit-gradient(linear, bottom right, top right, color-stop(0, #0B387C), color-stop(1, #0055AA));
-  background-image:-webkit-linear-gradient(bottom, #0B387C 0%, #0055AA 100%);
-  background-image:   -moz-linear-gradient(bottom, #0B387C 0%, #0055AA 100%);
-  background-image:    -ms-linear-gradient(bottom, #0B387C 0%, #0055AA 100%);
-  background-image:     -o-linear-gradient(bottom, #0B387C 0%, #0055AA 100%);
-  background-image:       linear-gradient(to top, #0B387C 0%, #0055AA 100%);
+#progress .bar {
+  background:#8DCF16;
+  background:-moz-linear-gradient(#8DCF16, #65BD10);
+  background:-webkit-linear-gradient(#8DCF16, #65BD10);
+  background:linear-gradient(#8DCF16, #65BD10);
   }
-#top-stats span.end {
+.dates-label span.end {
   float: right;
   }
 

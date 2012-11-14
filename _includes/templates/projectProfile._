@@ -16,25 +16,22 @@
 
 <div class='col col-700 projects summary'>
 
-  <!-- Project Progress Bar -->
-  <div class='row-fluid'>
-    <div class='span12 dates'>
-      <div class='dates-label'>
-        <span class='start'>Start</span>
-        <span class='end'>End</span>
-      </div>
-      <div class='progress'>
-        <div class='bar'></div>
-      </div>
-      <div>
-        <span class='start'><%= model.get("start") %></span>
-        <span class='end'><%= model.get("end") %></span>
-      </div>
-    </div>
-  </div>
-
     <div id='top-stats' class='row-fluid'>
         <div class='span6'>
+            <!-- Project Progress Bar -->
+            <div class='row-fluid'>
+              <div class='span12 dates'>
+                <div class='label'>Project Timeline</div>
+                <div class='dates-label'>
+                  <span class='start'><%= start %></span>
+                  <span class='end'><%= end %></span>
+                </div>
+                <div id='progress' class='progress'>
+                  <div class='bar'></div>
+                </div>
+              </div>
+            </div>
+
             <div class='row-fluid'>
                 <div class='span12'>
                     <div class='label'>Budget</div>
