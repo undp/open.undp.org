@@ -589,7 +589,7 @@ a {
   height: 110px;
   float: left;
   background: #EEE;
-  margin: 25px 0 25px 20px;
+  margin: 25px 0 0 20px;
   position: relative;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
   -webkit-box-sizing:border-box;
@@ -653,6 +653,7 @@ a {
   margin: 0;
   }
 #charts .span6.stat-chart {
+  margin-top: 25px;
   width: 50%;
   -webkit-box-sizing:border-box;
      -moz-box-sizing:border-box;
@@ -660,6 +661,10 @@ a {
   }
 #charts .span6.stat-chart:first-child {
   padding-right: 20px;
+  }
+#charts .span6.stat-chart.full {
+  width: 100%;
+  padding-right: 0;
   }
 
 .chart tr:first-child td {
