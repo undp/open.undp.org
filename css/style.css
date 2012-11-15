@@ -84,6 +84,12 @@ table {
       text-decoration:none;
       cursor:pointer;
       }
+#projects td {
+  text-align: right;
+  }
+#projects td:first-child {
+  text-align: left;
+  }
 
 th.sort-header {
   cursor:pointer;
@@ -917,6 +923,18 @@ form {
   background:#f2faff;
   padding:10px;
   }
+.form-search strong {
+  font-size: 14px;
+  position: relative;
+  top: 2px;
+  }
+#projects-search {
+  margin-left: 10px;
+  }
+#projects .icon.reset {
+  top: 15px;
+  left: 505px;
+  }
 #filters-search {
   margin-bottom:20px;
   background:rgba(255, 255, 255, 0.6);
@@ -956,9 +974,6 @@ form {
   }
   .icon.reset:active {
     background-color:#ccc;
-    }
-  #projects .icon.reset {
-    left:260px;
     }
 
 .topics.filtered li a.active,
