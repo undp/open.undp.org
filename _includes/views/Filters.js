@@ -41,9 +41,11 @@ views.Filters = Backbone.View.extend({
                 $('#applied-filters').addClass('no-region');
             }
         }
+
+
         if (filterModels.length) {
             this.$el.html(templates.filters(this));
-            app.description =  app.description || ['The following summary includes projects'];
+            app.description =  app.description || ['The following includes projects'];
 
             _(filterModels).each(function(model) {
 
@@ -82,10 +84,18 @@ views.Filters = Backbone.View.extend({
         $('#chart-' + this.collection.id + '.rows').empty();
 
         if (chartModels.length <= 1 && this.collection.id !== 'focus_area') {
-            $('#chart-' + this.collection.id).css('display','none');
-
+            $('#chart-' + this.collection.id)
+                .css('display','none');
         } else {
-            $('#chart-' + this.collection.id).css('display','block');
+            if ($('.stat-chart').hasClass('full')) {
+                $('.stat-chart').removeClass('full');
+                $('#chart-' + this.collection.id)
+                    .css('display','block');
+            } else {
+                $('#chart-' + this.collection.id)
+                    .addClass('full')
+                    .css('display','block');
+            }
 
             if (this.collection.id === 'focus_area') {
                 $('#chart-' + this.collection.id).empty();

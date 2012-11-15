@@ -56,6 +56,8 @@ routers.App = Backbone.Router.extend({
     project: function (id, output) {
         var that = this;
 
+        window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
+
         // Set up menu
         $('#app .view, .project-navigation li').hide();
         $('#browser .summary').addClass('off');
@@ -82,6 +84,7 @@ routers.App = Backbone.Router.extend({
 
     browser: function (route) {
         var that = this;
+        window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
 
         // Set up menu
         $('#app .view, .project-navigation li').hide();
@@ -188,6 +191,18 @@ routers.App = Backbone.Router.extend({
         }
 
         function updateDescription() {
+
+            // Clear search values on refresh
+            $('#filters-search, #projects-search').val('');
+
+            if (_(filters).find(function(f) {
+                return f.collection === 'focus_area';
+            })) {
+                $('#chart-focus_area').hide();
+            } else {
+                $('#chart-focus_area').show();
+            }
+
             if (app.description.length > 1) {
                 $('#applied-filters').html('Selected Projects');
                 $('#intro p').html(app.description.shift() + app.description.join(',') + '.');

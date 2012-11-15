@@ -84,6 +84,12 @@ table {
       text-decoration:none;
       cursor:pointer;
       }
+#projects td {
+  text-align: right;
+  }
+#projects td:first-child {
+  text-align: left;
+  }
 
 th.sort-header {
   cursor:pointer;
@@ -583,7 +589,7 @@ a {
   height: 110px;
   float: left;
   background: #EEE;
-  margin: 25px 0 25px 20px;
+  margin: 25px 0 0 20px;
   position: relative;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
   -webkit-box-sizing:border-box;
@@ -647,6 +653,7 @@ a {
   margin: 0;
   }
 #charts .span6.stat-chart {
+  margin-top: 25px;
   width: 50%;
   -webkit-box-sizing:border-box;
      -moz-box-sizing:border-box;
@@ -654,6 +661,10 @@ a {
   }
 #charts .span6.stat-chart:first-child {
   padding-right: 20px;
+  }
+#charts .span6.stat-chart.full {
+  width: 100%;
+  padding-right: 0;
   }
 
 .chart tr:first-child td {
@@ -917,6 +928,18 @@ form {
   background:#f2faff;
   padding:10px;
   }
+.form-search strong {
+  font-size: 14px;
+  position: relative;
+  top: 2px;
+  }
+#projects-search {
+  margin-left: 10px;
+  }
+#projects .icon.reset {
+  top: 15px;
+  left: 505px;
+  }
 #filters-search {
   margin-bottom:20px;
   background:rgba(255, 255, 255, 0.6);
@@ -956,9 +979,6 @@ form {
   }
   .icon.reset:active {
     background-color:#ccc;
-    }
-  #projects .icon.reset {
-    left:260px;
     }
 
 .topics.filtered li a.active,

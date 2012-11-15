@@ -3,6 +3,7 @@ views.App = Backbone.View.extend({
         'click a.filter': 'setFilter',
         'keyup #filters-search': 'searchFilter',
         'click #filters .label': 'toggleFilter',
+        'submit .form-search': 'submitForm',
         'click .btn-mini': 'toggleChart',
         'click .map-btn': 'mapLayerswitch',
         'click .reset': 'clearForm'
@@ -36,8 +37,6 @@ views.App = Backbone.View.extend({
 
     render: function() {
         this.$el.empty().append(templates.app(this));
-        window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
-
         return this;
     },
 
@@ -169,5 +168,10 @@ views.App = Backbone.View.extend({
             this.views[facet].render();
         }
         return false;
+    },
+
+    submitForm: function(e) {
+        e.preventDefault();
     }
+
 });
