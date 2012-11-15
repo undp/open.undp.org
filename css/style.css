@@ -244,23 +244,19 @@ a {
 .icon.back                    { background-position:-100px 0; }
 .icon.fullscreen              { background-position:-125px 0; }
 .fullscreen .icon.fullscreen  { background-position:-150px 0; }
+.icon.democratic              { background-position:0 -30px; }
+.icon.crisis                  { background-position:-45px -30px; }
+.icon.environment             { background-position:-90px -30px; }
+.icon.poverty                 { background-position:-135px -30px; }
+
 .icon.open {
   background-color:transparent;
-  background-position:-18px 2px;
   float:right;
   position:relative;
   top:-3px;
   -webkit-border-radius:4px;
           border-radius:4px;
   }
-  .active .icon.open {
-    background-position:-38px 2px;
-    }
-
-.icon.democratic              { background-position:0 -30px; }
-.icon.crisis                  { background-position:-45px -30px; }
-.icon.environment             { background-position:-90px -30px; }
-.icon.poverty                 { background-position:-135px -30px; }
 
 /*-----------------------------------
   Global Layout
@@ -487,8 +483,8 @@ a {
   font-weight:bold;
   color:#333;
   }
-  .active .total,
-  .active .total-caption {
+  .map-btn.active .total,
+  .map-btn.active .total-caption {
     color:#fff;
     }
 .total-caption {
@@ -562,6 +558,7 @@ a {
     line-height: 32px;
     margin: 20px 0 0;
     color: #666;
+    font-weight: normal;
     }
     p.heading-title strong {
       color: #000;
@@ -1022,14 +1019,16 @@ form {
   margin:20px 0 0;
   font-size:18px;
   color:#666;
-  display:none;
+  clear: both;
+  padding-top: 30px;
+  width: 700px;
   }
   .nav a {
     color:#666;
     }
     .nav a:hover,
     .nav a:focus {
-      color: #aaa;
+      color: #000;
       }
 
 .label {
