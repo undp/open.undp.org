@@ -198,7 +198,7 @@ a {
       }
 
 
-#widget {
+.widget-config {
   position:absolute;
   color:#fff;
   right:0;
@@ -1339,52 +1339,53 @@ form {
 /*-----------------------------------
   Widget Config Modal
 -------------------------------------*/
-#widget-config.modal {
-  width: 860px;
-  margin: -300px 0 0 -430px;
-}
-#widget-config .modal-body {
-  background: #F2FAFF;
-  max-height: 500px;
-}
-#widget-config .widget-options {
+#widget {
+  width:860px;
+  margin:-300px 0 0 -430px;
+  }
+#widget .modal-body {
+  background:#F2FAFF;
+  max-height:500px;
+  }
+#widget .widget-options {
+  float:left;
+  width:135px;
+  height:400px;
+  }
+#widget .widget-options ul {
+  list-style:none;
+  margin-left:10px;
+  }
+  #widget .widget-options ul li {
+    height:25px;
+    line-height:35px;
+    }
+
+#widget .widget-options input {
+  vertical-align:middle;
+  margin:0 0 3px;
+  }
+#widget .widget-preview {
   float: left;
-  width: 135px;
-  height: 400px;
-}
-#widget-config .widget-options ul {
-  list-style: none;
-  margin-left: 10px;
-}
-#widget-config .widget-options ul li {
-  height: 25px;
-  line-height: 35px;
-}
-#widget-config .widget-options input {
-  vertical-align: middle;
-  margin: 0 0 3px;
-}
-#widget-config .widget-preview {
-  float: left;
-  background: #fff;
-  padding: 5px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px #666;
-  margin-bottom: 30px;
-}
-#widget-config .widget-intro {
-  float: left;
-  width: 165px;
-  margin-left: 20px;
-  font-size: 20px;
-  line-height: 28px;
-  color: #666;
-}
-#widget-config .widget-code {
   background:#fff;
+  padding:5px;
+  margin-bottom:30px;
+  border-radius:10px;
+  box-shadow:0 0 10px #666;
+  }
+#widget .widget-intro {
+  float:left;
+  width:165px;
+  margin-left:20px;
+  font-size:20px;
+  line-height:28px;
+  color:#666;
+  }
+#widget .widget-code {
+  background:#fff;
+  font:11px/15px 'Menlo Regular', Consolas, monospace;
   width:500px;
   float:left;
-  font:11px/15px 'Menlo Regular', Consolas, monospace;
   overflow:hidden;
   cursor:auto;
   }
@@ -1393,82 +1394,85 @@ form {
   Widget Embed
 -------------------------------------*/
 #container .widget {
-  width: 100%;
-  min-height: inherit !important;
-  max-width: 760px;
-}
+  width:100%;
+  min-height:inherit!important;
+  max-width:760px;
+  }
 .widget .summary,
 .widget #project-descr {
-  width: 100%;
-}
+  width:100%;
+  }
 .widget .separator {
-  padding: 10px 0;
-}
+  padding:10px 0;
+  }
 .widget #applied-filters {
   font-size:18px;
   line-height:26px;
   }
 .widget .layers {
-  width: 125px !important;
-  margin-bottom: 10px;
-}
+  width:125px!important;
+  margin-bottom:10px;
+  }
 .widget .map-btn {
-  padding: 5px 10px 5px 0;
-}
+  padding:5px 10px 5px 0;
+  }
 .widget .map-container {
-  position: absolute;
-  left: 125px;
-  right: 0;
-  width: auto;
-  float: none;
-}
+  position:absolute;
+  left:125px;
+  right:0;
+  width:auto;
+  float:none;
+  }
 .widget #homemap {
-  height: 252px !important;
-  min-width: 256px;
-}
+  height:252px!important;
+  min-width:256px;
+  }
 .widget #charts .span12 {
-  min-height: 0;
-}
+  min-height:0;
+  }
 .widget .chart {
-  margin-bottom: 10px !important;
-}
-.widget .chart .caption {
-  font-size: 11px;
-}
-.widget .chart .caption > div {
-  line-height: 15px;
-  height: 15px;
-}
-.widget .chart .data {
-  position: absolute;
-  left: 145px;
-  right: 0;
-  width: auto;
-}
-.widget .chart .data > div {
-  height: 15px;
-  font-size: 10px;
-  line-height: 15px;
-}
-.widget .chart .data > .subdata {
-  height: 5px;
-}
-.widget .chart .chart-legend {
-  left: auto;
-  right: 0;
-}
+  margin-bottom:10px!important;
+  }
+  .widget .chart .caption {
+    font-size:11px;
+    }
+    .widget .chart .caption > div {
+      line-height:15px;
+      height:15px;
+      }
+
+  .widget .chart .data {
+    position:absolute;
+    left:145px;
+    right:0;
+    width:auto;
+    }
+    .widget .chart .data > div {
+      height:15px;
+      font-size:10px;
+      line-height:15px;
+      }
+    .widget .chart .data > .subdata {
+      height:5px;
+      }
+
+  .widget .chart .chart-legend {
+    left:auto;
+    right:0;
+    }
+
 .widget .toggle {
-  right: auto;
-  left: 145px;
-}
+  right:auto;
+  left:145px;
+  }
 .widget #projects .row-fluid:first-child {
-  display: none;
-}
+  display:none;
+  }
 .widget .table th, .widget .table td {
-  padding: 5px;
-  font-size: 12px;
-  line-height: 16px;
-}
+  padding:5px;
+  font-size:12px;
+  line-height:16px;
+  }
 
 .widget .chart .extras,
 .widget .chart .details,
@@ -1492,8 +1496,8 @@ form {
 .widget #documents,
 .widget #outputs-header,
 .widget [id*="output-"] {
-  display: none !important;
-}
+  display:none!important;
+  }
 .widget.title-on #applied-filters,
 .widget.title-on #project-heading,
 .widget.title-on .heading-title,
@@ -1506,43 +1510,42 @@ form {
 .widget.stats-on .layers,
 .widget.documents-on [id*="documents"],
 .widget.outputs-on [id*="output-"] {
-  display: block !important;
-}
-
+  display:block!important;
+  }
 .widget.map-off .layers {
-  width: 100% !important;
-  text-align: left !important;
-}
+  width:100%!important;
+  text-align:left!important;
+  }
 .widget.map-off .map-btn {
-  cursor: inherit;
-}
+  cursor:inherit;
+  }
 .widget.map-off .map-btn:hover {
-  background: inherit;
-}
+  background:inherit;
+  }
 .widget.map-off .map-btn > span {
-  display: inline-block;
-  margin-right: 5px;
-  color: inherit;
-}
+  display:inline-block;
+  margin-right:5px;
+  color:inherit;
+  }
 .widget.map-off .map-btn.active {
-  background: inherit;
-}
+  background:inherit;
+  }
 .widget.map-off .map-btn.active .total-caption,
 .widget.map-off .map-btn .total-caption {
   color: #666;
-}
+  }
 .widget.map-off .map-btn.active:after {
-  display: none;
-}
+  display:none;
+  }
 .widget.map-off .layers .total {
-  float: right;
-}
+  float:right;
+  }
 .widget.stats-off .map-container {
-  left: 0;
-  height: 252px;
-  position: relative;
-  margin-bottom: 10px;
-}
+  left:0;
+  height:252px;
+  position:relative;
+  margin-bottom:10px;
+  }
 
 /*-----------------------------------
   Clearfix

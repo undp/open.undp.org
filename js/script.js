@@ -70,6 +70,7 @@
     {% include views/ProjectProfile.js %}
     {% include views/Map.js %}
     {% include views/TopDonors.js %}
+    {% include views/Widget.js %}
 
     // Router
     {% include routers/Router.js %}
