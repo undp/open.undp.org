@@ -34,17 +34,17 @@
             {
                 id: 'operating_unit',
                 url: 'api/operating-unit-index.json',
-                name: 'Country Offices / Operating Units'
+                name: 'Country Office / Operating Unit'
             },
             {
                 id: 'region',
                 url: 'api/region-index.json',
-                name: 'Regions'
+                name: 'Region'
             },
             {
                 id: 'focus_area',
                 url: 'api/focus-area-index.json',
-                name: 'UNDP Focus Areas'
+                name: 'UNDP Focus Area'
             },
             {
                 id: 'donor_countries',
@@ -54,7 +54,7 @@
             {
                 id: 'donors',
                 url: 'api/donor-index.json',
-                name: 'Funding Sources'
+                name: 'Funding Source'
             }
         ];
 
@@ -78,6 +78,32 @@
     String.prototype.capitalize = function() {
         return this.charAt(0).toUpperCase() + this.slice(1);
     }
+
+    /* 
+     * To Title Case 2.0.1 – http://individed.com/code/to-title-case/
+     * Copyright © 2008–2012 David Gouch. Licensed under the MIT License. 
+     */
+    
+    String.prototype.toTitleCase = function () {
+      var smallWords = /^(a|an|and|as|at|but|by|en|for|if|in|of|on|or|the|to|vs?\.?|via)$/i;
+    
+      return this.replace(/([^\W_]+[^\s-]*) */g, function (match, p1, index, title) {
+        if (index > 0 && index + p1.length !== title.length &&
+          p1.search(smallWords) > -1 && title.charAt(index - 2) !== ":" && 
+          title.charAt(index - 1).search(/[^\s-]/) < 0) {
+          return match.toLowerCase();
+        }
+    
+        if (p1.substr(1).search(/[A-Z]|\../) > -1) {
+          return match;
+        }
+    
+        return match.charAt(0).toUpperCase() + match.substr(1);
+      })
+      // Words that should be all caps
+        .replace(/Undp/g, 'UDNP')
+        .replace(/Mdg/g, 'MDG');
+    };
 
     // Start the application
     $(function() {
