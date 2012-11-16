@@ -141,6 +141,7 @@ routers.App = Backbone.Router.extend({
 
                         that.projects.watch();
                         loadFilters();
+
                         that.projects.map = new views.Map({
                             el: '#homemap',
                             collection: that.projects

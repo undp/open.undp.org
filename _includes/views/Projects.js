@@ -5,6 +5,7 @@ views.Projects = Backbone.View.extend({
         'click table tr': 'routeToProject',
         'click .table th': 'sortProjects'
     },
+
     initialize: function() {
         this.$el.html(templates.projects(this));
         this.collection.on('update', this.render, this);
@@ -13,29 +14,7 @@ views.Projects = Backbone.View.extend({
         this.low = 50,
         this.high = 100;
     },
-    loadMore: function(e) {
-        var self = this;
-        this.low = this.high;
-        this.high += 50;
 
-        var models = _(this.collection.filter(function(model) {
-                return model.get('visible');
-            })).slice(self.low,self.high);
-
-        if (models.length) {
-            _(models).each(function(model) {
-                this.$('#project-table tbody').append(templates.project({ model: model }));
-            });
-        } else {
-            $(e.target).text('All Projects Loaded').addClass('disabled');
-        }
-
-        return false;
-    },
-    routeToProject: function(e) {
-        var id = $(e.currentTarget).attr('id');
-        app.navigate(id, {trigger: true});
-    },
     render: function() {
     
         var pageType = Backbone.history.fragment.split('/')[0];
@@ -74,6 +53,32 @@ views.Projects = Backbone.View.extend({
 
         return this;
     },
+
+    loadMore: function(e) {
+        var self = this;
+        this.low = this.high;
+        this.high += 50;
+
+        var models = _(this.collection.filter(function(model) {
+                return model.get('visible');
+            })).slice(self.low,self.high);
+
+        if (models.length) {
+            _(models).each(function(model) {
+                this.$('#project-table tbody').append(templates.project({ model: model }));
+            });
+        } else {
+            $(e.target).text('All Projects Loaded').addClass('disabled');
+        }
+
+        return false;
+    },
+
+    routeToProject: function(e) {
+        var id = $(e.currentTarget).attr('id');
+        app.navigate(id, {trigger: true});
+    },
+
     search: function (e) {
         var view = this;
 
@@ -102,6 +107,7 @@ views.Projects = Backbone.View.extend({
             }, 500);
         }
     },
+
     sortProjects: function(e) {
         var that = this.collection,
             $target = $(e.target);
