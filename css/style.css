@@ -1407,29 +1407,39 @@ form {
         top:10px;
         }
 
-#widget .widget-options input {
+.widget-options input {
   vertical-align:middle;
   margin:0 0 3px;
   }
-#widget .widget-preview {
+.widget-preview {
   float:left;
   background:#fff;
   border:1px solid #B4B4B4;
-  padding:10px;
   margin-bottom:20px;
   position:relative;
   z-index:10;
   border-radius:8px;
   box-shadow:0 0 8px rgba(0,0,0,0.25);
+  width:500px;
+  height:320px;
   }
-#widget .widget-intro {
+  .widget-preview .empty {
+    color:#b3b3b3;
+    text-align:center;
+    display:block;
+    padding:0 20px;
+    margin-top:120px;
+    font-weight:normal;
+    }
+
+.widget-intro {
   float:left;
   width:180px;
   margin:20px 0 0 15px;
   font-size:20px;
   line-height:28px;
   }
-#widget .widget-code {
+.widget-code {
   background:#fff;
   font:11px/15px 'Menlo Regular', Consolas, monospace;
   width:500px;
@@ -1441,6 +1451,13 @@ form {
 /*-----------------------------------
   Widget Embed
 -------------------------------------*/
+/* Reset some bootstrappy things */
+.widget .row-fluid [class*="span"] {
+  min-height:auto;
+  }
+/* style.css resets */
+.widget .col { width:100%!important; }
+
 #container .widget {
   width:100%;
   min-height:inherit!important;
@@ -1543,6 +1560,7 @@ form {
 .widget #documents-header,
 .widget #documents,
 .widget #outputs-header,
+.widget .nav-tabs,
 .widget [id*="output-"] {
   display:none!important;
   }

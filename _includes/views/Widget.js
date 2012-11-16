@@ -56,13 +56,20 @@ views.Widget = Backbone.View.extend({
             view.widgetOpts.push(opt);
         }
 
-        view.widgetCode = '<iframe src="http://localhost:4000/undp-projects/' + view.path + '?' + view.widgetOpts.join('&') + '" width="500" height="320" frameborder="0"> </iframe>';
+        if (view.widgetOpts.length !== 0) {
+            view.widgetCode = '<iframe src="http://localhost:4000/undp-projects/' + view.path + '?' + view.widgetOpts.join('&') + '" width="500" height="320" frameborder="0"> </iframe>';
 
-        $('.widget-preview', view.$el).html(view.widgetCode);
-        $('.widget-code', view.$el)
-            .val(view.widgetCode)
-            .focus()
-            .select();
+            $('.widget-preview', view.$el).html(view.widgetCode);
+            $('.widget-code', view.$el)
+                .show()
+                .val(view.widgetCode)
+                .focus()
+                .select();
+        } else {
+            $('.widget-preview', view.$el).html('<h3 class="empty">To use this widget choose some options on the left.</h3>');
+            $('.widget-code', view.$el)
+                .hide();
+        }
 
         return false;
     }
