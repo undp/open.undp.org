@@ -10,27 +10,6 @@
         }, {}),
         app = {},
         facets = [
-            /*
-            {
-                id: 'crs',
-                url: 'api/crs-index.json',
-                name: 'CRS Aid Classification'
-            },
-            */
-            /*
-            {
-                id: 'donor_types',
-                url: 'api/donor-type-index.json',
-                name: 'Donor Type'
-            },
-            */
-            /*
-            {
-                id: 'outcome',
-                url: 'api/outcome-index.json',
-                name: 'Corporate Outcomes'
-            },
-            */
             {
                 id: 'operating_unit',
                 url: 'api/operating-unit-index.json',
@@ -74,31 +53,28 @@
 
     // Router
     {% include routers/Router.js %}
-    
+
     // String helper
     String.prototype.capitalize = function() {
         return this.charAt(0).toUpperCase() + this.slice(1);
     }
 
-    /* 
-     * To Title Case 2.0.1 – http://individed.com/code/to-title-case/
-     * Copyright © 2008–2012 David Gouch. Licensed under the MIT License. 
-     */
-    
+    // To Title Case 2.0.1 – http://individed.com/code/to-title-case/
+    // Copyright © 2008–2012 David Gouch. Licensed under the MIT License.
     String.prototype.toTitleCase = function () {
       var smallWords = /^(a|an|and|as|at|but|by|en|for|if|in|of|on|or|the|to|vs?\.?|via)$/i;
-    
+
       return this.replace(/([^\W_]+[^\s-]*) */g, function (match, p1, index, title) {
         if (index > 0 && index + p1.length !== title.length &&
-          p1.search(smallWords) > -1 && title.charAt(index - 2) !== ":" && 
+          p1.search(smallWords) > -1 && title.charAt(index - 2) !== ":" &&
           title.charAt(index - 1).search(/[^\s-]/) < 0) {
           return match.toLowerCase();
         }
-    
+
         if (p1.substr(1).search(/[A-Z]|\../) > -1) {
           return match;
         }
-    
+
         return match.charAt(0).toUpperCase() + match.substr(1);
       })
       // Words that should be all caps
