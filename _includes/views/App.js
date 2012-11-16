@@ -3,10 +3,9 @@ views.App = Backbone.View.extend({
         'click a.filter': 'setFilter',
         'keyup #filters-search': 'searchFilter',
         'click #filters .label': 'toggleFilter',
-        'submit .form-search': 'submitForm',
-        'click .btn-mini': 'toggleChart',
         'click .map-btn': 'mapLayerswitch',
-        'click .reset': 'clearForm'
+        'click .reset': 'clearForm',
+        'submit .form-search': 'submitForm'
     },
 
     initialize: function(options) {
@@ -145,33 +144,14 @@ views.App = Backbone.View.extend({
         return false;
     },
 
-    mapLayerswitch: function (e) {
+    mapLayerswitch: function(e) {
         var $target = $(e.currentTarget);
         $('.map-btn').removeClass('active');
         $target.addClass('active');
         app.projects.map.updateMap($target.attr('data-value'));
     },
 
-    toggleChart: function (e) {
-        var $target = $(e.target);
-        var facet = $target.attr('data-facet');
-        $('.btn-' + facet + ' button').removeClass('active');
-        $target.addClass('active');
-
-        if ($target.html() === 'Budget') {
-            $target.parent().parent().children('.chart-legend').css('display','block');
-        } else {
-            $target.parent().parent().children('.chart-legend').css('display','none');
-        }
-
-        if (this.views[facet]) {
-            this.views[facet].render();
-        }
-        return false;
-    },
-
     submitForm: function(e) {
-        e.preventDefault();
+        return false;
     }
-
 });

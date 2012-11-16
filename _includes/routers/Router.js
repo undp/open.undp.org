@@ -67,6 +67,7 @@ routers.App = Backbone.Router.extend({
         this.project.model = new models.Project({
             id: id
         });
+
         this.project.model.fetch({
             success: function () {
                 that.project.view = new views.ProjectProfile({

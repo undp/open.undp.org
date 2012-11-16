@@ -1,67 +1,69 @@
 views.Widget = Backbone.View.extend({
     el: '#widget',
+
     events: {
-       'click a': 'toggle' 
+       'click .widget-options a': 'widgetOptions'
     },
+
     initialize: function () {
+        var view = this;
+        view.path = '#widget/';
+        view.widgetOpts = ['title', 'stats', 'map'];
+
+        if (location.hash !== '') {
+            view.path = location.hash
+                .replace('filter', 'widget')
+                .replace('project', 'widget/project');
+            if (location.hash.split('/')[0] === '#project') {
+                view.widgetOpts.push('descr');
+            }
+        }
+
         this.render();
-
-        // Widget configuration/modal
-        this.widgetOpts = ['title', 'stats', 'map'];
-
-        // TODO Turn off menu options depending on views.options.context
-        // Project rules
-        // $('.widget-options ul li.main-opt').hide();
-        // $('.widget-options ul li.proj-opt').show();
-        // Set available widget components
-        // $('.widget-options ul li.proj-opt').hide();
-        // $('.widget-options ul li.main-opt').show();
-
     },
+
     render: function(keypress) {
         var view = this;
+
+        view.widgetCode = '<iframe src="http://localhost:4000/undp-projects/' + view.path + '?' + view.widgetOpts.join('&') + '" width="500" height="320" frameborder="0"> </iframe>';
+
         this.$el.empty().append(templates.widget());
+
+        if (view.options.context === 'projects') {
+            $('.proj-opt', view.$el).hide();
+            $('.main-opt', view.$el).show();
+        } else {
+            $('.main-opt', view.$el).hide();
+            $('.proj-opt', view.$el).show();
+        }
+
+        $('.widget-preview', view.$el).html(view.widgetCode);
+        $('.widget-code', view.$el).val(view.widgetCode)
+
         return this;
+    },
+
+    widgetOptions: function(e) {
+        var view = this;
+        var $el = $(e.target);
+        var opt = $el.attr('data-value');
+
+        if ($el.hasClass('active')) {
+            $el.removeClass('active');
+            view.widgetOpts.splice(view.widgetOpts.indexOf(opt), 1);
+        } else {
+            $el.addClass('active');
+            view.widgetOpts.push(opt);
+        }
+
+        view.widgetCode = '<iframe src="http://localhost:4000/undp-projects/' + view.path + '?' + view.widgetOpts.join('&') + '" width="500" height="320" frameborder="0"> </iframe>';
+
+        $('.widget-preview', view.$el).html(view.widgetCode);
+        $('.widget-code', view.$el)
+            .val(view.widgetCode)
+            .focus()
+            .select();
+
+        return false;
     }
 });
-        
-
-        $('a.widget-config').click(function () {
-            if (location.hash == '') {
-                var path = '#widget/';
-            } else {
-                var path = location.hash.replace('filter', 'widget').replace('project', 'widget/project');
-                if (location.hash.split('/')[0] === '#project') {
-                    widgetOpts.push('descr');
-                }
-            }
-            var widgetCode = '<iframe src="http://localhost:4000/undp-projects/' + path + '?' + widgetOpts.join('&') + '" width="500" height="350" frameborder="0"> </iframe>';
-
-            $('.widget-preview', view.$el).html(widgetCode);
-            $('.widget-code', view.$el)
-                .val(widgetCode)
-                .focus()
-                .select();
-        });
-
-        $('#widget-config .switch').click(function () {
-            if (location.hash == '') {
-                var path = '#widget/';
-            } else {
-                var path = location.hash.replace('filter', 'widget').replace('project', 'widget/project');
-            }
-
-            var opt = $(this).prop('value');
-
-            if ($(this).prop('checked')) {
-                widgetOpts.push(opt);
-            } else {
-                widgetOpts.splice(widgetOpts.indexOf(opt), 1);
-            }
-
-            var widgetCode = '<iframe src="http://localhost:4000/undp-projects/' + path + '?' + widgetOpts.join('&') + '" width="500" height="350" frameborder="0"> </iframe>';
-
-            $('#widget-config .widget-preview').html(widgetCode);
-            $('#widget-config .widget-code').val(widgetCode).focus().select();
-        });
-
