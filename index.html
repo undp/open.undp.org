@@ -58,7 +58,7 @@
               <li class='browser profile'><a href='#glossary' data-toggle='modal'>Glossary</a></li>
               <li class='browser profile'><a href='#top-donors' data-toggle='modal'>Top Donors</a></li>
             </ul>
-            <a id='widget' class='widget-config button' href='#widget-config' data-toggle='modal'>
+            <a href='#widget' class='widget-config button' data-toggle='modal'>
               <span class='icon embed'></span>
               Embed this
             </a>
@@ -123,33 +123,6 @@
         </div>
     </form></div>
     
-    <div class='modal hide fade' id='widget-config'>
-        <div class='modal-header'>
-            <button type='button' class='close' data-dismiss='modal'>&times;</button>
-            <h3>Widget</h3>
-        </div>
-        <div class='modal-body'>
-            <div class='widget-options'>
-                <ul>
-                    <li class='proj-opt main-opt'><input class='switch' type='checkbox' name='options' value='title' checked /> Title</li>
-                    <li class='proj-opt'><input class='switch' type='checkbox' name='options' value='descr' checked /> Description</li>
-                    <li class='proj-opt main-opt'><input class='switch' type='checkbox' name='options' value='stats' checked /> Stats</li>
-                    <li class='proj-opt main-opt'><input class='switch' type='checkbox' name='options' value='map' checked /> Map</li>
-                    <li class='hdi-opt main-opt'><input class='switch' type='checkbox' name='options' value='hdi' /> HDI</li>
-                    <li class='main-opt'><input class='switch' type='checkbox' name='options' value='charts' /> Charts</li>
-                    <li class='main-opt'><input class='switch' type='checkbox' name='options' value='projects' /> Projects</li>
-                    <li class='proj-opt doc-opt'><input class='switch' type='checkbox' name='options' value='documents' /> Documents</li>
-                    <li class='proj-opt'><input class='switch' type='checkbox' name='options' value='outputs' /> Outputs</li>
-                </ul>
-            </div>
-            <div class='widget-preview'></div>
-            <div class='widget-intro'>
-                To embed this page in your website or blog first select the desired components on the left, then copy and paste the code below.
-            </div>
-            <input type='text' class='widget-code' readonly wrap='off' rows='1'></input>
-        </div>
-    </div>
-    
     <div class='modal hide fade' id='top-donors'>
         <div class='modal-header'>
             <button type='button' class='close' data-dismiss='modal'>&times;</button>
@@ -169,6 +142,9 @@
             <a href='#' class='btn' data-dismiss='modal'>Close</a>
         </div>
     </div>
+
+    <!-- Widget modal -->
+    <div class='modal hide fade' id='widget'></div>
 
     <div id='footer'>
         <div id='contact'>

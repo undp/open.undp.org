@@ -7,7 +7,7 @@
 </div>
 <div class='row-fluid separator' id='project-heading'>
     <div class='span12'>
-        <p class='heading-title'><%= model.get("project_title") %></p>
+        <p class='heading-title'><%= model.get("project_title").toLowerCase().toTitleCase() %></p>
         <div class='col col-700' id='project-descr'>
             <p class='heading-desc'><%= model.get("project_descr") %></p>
         </div>
