@@ -98,10 +98,28 @@ models.Projects = Backbone.Collection.extend({
             return memo + parseFloat(project.get('budget'));
         }, 0);
 
+        // Donor budgets
+        this.donorBudget = this.reduce(function(memo, project) {
+            _(project.get('donors')).each(function(donor, i) {
+                var budget = project.get('donor_budget')[i] || 0;
+                memo[donor] = memo[donor] +  budget || budget;
+            });
+            return memo;
+        }, {});
+
         // Total expenditure
         this.expenditure = this.reduce(function(memo, project) {
             return memo + parseFloat(project.get('expenditure'));
         }, 0);
+
+        // Donor expenditure
+        this.donorExpenditure = this.reduce(function(memo, project) {
+            _(project.get('donors')).each(function(donor, i) {
+                var budget = project.get('donor_expend')[i] || 0;
+                memo[donor] = memo[donor] +  budget || budget;
+            });
+            return memo;
+        }, {});
         
         this.trigger('update');
     },

@@ -7,9 +7,18 @@ views.Filters = Backbone.View.extend({
             filterModels = [],
             chartModels = [],
             active = this.collection.where({ active: true }),
-            chartType = 'budget';
+            chartType = 'budget',
+            chartTypeExp = 'expenditure',
+            donor = '';
 
         if(active.length) {
+
+            // Use donor level financial data if available
+            if (active[0].collection.id === 'donors') {
+                chartType = 'donorBudget';
+                chartTypeExp = 'donorExpenditure';
+                donor = active[0].id;
+            }
 
             // Add a filtered class to all parent containers
             // where an active element has been selected.
@@ -102,7 +111,7 @@ views.Filters = Backbone.View.extend({
                 chartModels = this.collection.models;
 
                 var total = chartModels.reduce(function(memo, model) {
-                    return memo + (model.get('budget') || 0 ); 
+                    return memo + (model.get(chartType) || 0 ); 
                 }, 0);
 
                 _(chartModels).each(function(model, i) {
@@ -114,19 +123,19 @@ views.Filters = Backbone.View.extend({
                         '</div>');
 
                     $('.fa' + (model.id) + ' .caption').text(model.get('name').toLowerCase().toTitleCase());
-                    $('.fa' + (model.id) + ' .pct').text(((model.get('budget') || 0) / total * 100).toFixed(0) + '%');
+                    $('.fa' + (model.id) + ' .pct').text(((model.get(chartType) || 0) / total * 100).toFixed(0) + '%');
                 });
             } else {
 
-                var max = chartModels[0].get('budget');
+                var max = chartModels[0].get(chartType);
 
                 $('#chart-' + this.collection.id + ' .rows').html('');
                 _(chartModels).each(function(model) {
-                    var budget = accounting.formatMoney(model.get('budget')/1000000) + 'M';
-                    var expenditure = accounting.formatMoney(model.get('expenditure')/1000000) + 'M';
+                    var budget = accounting.formatMoney(model.get(chartType)/1000000) + 'M';
+                    var expenditure = accounting.formatMoney(model.get(chartTypeExp)/1000000) + 'M';
                     var caption = '<a href="#filter/' + model.collection.id + '-' + model.get('id')
                         + '">' + model.get('name').toLowerCase().toTitleCase() + '</a>';
-                    var bar = '<div style="width: ' + (model.get('budget')/ max * 100) + '%"></div>' + '<div class="subdata" style="width: ' + (model.get('expenditure')/ max * 100) + '%"></div>';
+                    var bar = '<div style="width: ' + (model.get(chartType)/ max * 100) + '%"></div>' + '<div class="subdata" style="width: ' + (model.get(chartTypeExp)/ max * 100) + '%"></div>';
 
 
                     $('#chart-' + model.collection.id + ' .rows').append(

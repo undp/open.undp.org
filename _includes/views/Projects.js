@@ -28,13 +28,20 @@ views.Projects = Backbone.View.extend({
             
         models = (pageType === 'widget') ? models.first(10) : models.first(50);
 
-        // Probably should replace this with donor name
-        donor = (donor) ? 1 : _(this.collection.donors).size();
-
         $('#total-count').html(accounting.formatNumber(this.collection.length));
-        $('#total-donors').html(accounting.formatNumber(donor));
-        $('#total-budget').html(accounting.formatMoney(this.collection.budget / 1000000) + 'M');
-        $('#total-expenditure').html(accounting.formatMoney(this.collection.expenditure / 1000000) + 'M');
+        $('#total-donors').html(
+            (donor) ? 1 :
+            accounting.formatNumber(_(this.collection.donors).size())
+        );
+        $('#total-budget').html(
+            (donor) ?  accounting.formatMoney(this.collection.donorBudget[donor.id] / 1000000) + 'M' :
+            accounting.formatMoney(this.collection.budget / 1000000) + 'M'
+        );
+
+        $('#total-expenditure').html(
+            (donor) ?  accounting.formatMoney(this.collection.donorExpenditure[donor.id] / 1000000) + 'M' :
+            accounting.formatMoney(this.collection.expenditure / 1000000) + 'M'
+        );
 
         if (models.length) {
             this.$('#project-table tbody').empty();
