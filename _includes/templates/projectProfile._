@@ -42,17 +42,17 @@
       </div>
       <div class='row-fluid stat'>
         <div class='span12'>
-          <div class='label'>Budget</div>
           <% _.each(model.get('budgetyears'), function(v,k) { %>
-          <div><span class='date'><%= k %></span> <%= accounting.formatMoney(v) %></div>
+            <div class='label'><%= k %> Budget</div>
+            <div><%= accounting.formatMoney(v) %></div>
           <% }); %>
         </div>
       </div>
       <div class='row-fluid stat'>
         <div class='span12'>
-          <div class='label'>Expenditure</div>
           <% _.each(model.get('expendyears'), function(v,k) { %>
-          <div><span class='date'><%= k %></span> <%= accounting.formatMoney(v) %></div>
+            <div class='label'><%= k %> Expenditure</div>
+            <div><%= accounting.formatMoney(v) %></div>
           <% }); %>
         </div>
       </div>
