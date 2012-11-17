@@ -66,6 +66,7 @@ views.ProjectProfile = Backbone.View.extend({
         this.$el.empty().append(templates.projectProfile({
             start: start,
             end: end,
+            base: BASE_URL,
             model: this.model
         })).show();
 
@@ -96,6 +97,10 @@ views.ProjectProfile = Backbone.View.extend({
 
         // Project Outputs
         (this.model.attributes.outputs.length < 10) ? $('.load').hide() : $('.load').show();
+
+        // Append menu items to the breadcrumb
+        $('breadcrumbs').find('ul').remove();
+
         return this;
     },
 

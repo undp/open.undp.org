@@ -1,3 +1,11 @@
+<div id='breadcrumbs' class='clearfix'>
+  <ul>
+    <li><a href='<%= base %>'>All Projects</a></li>
+    <li><a href='<%= base %>#filter/operating_unit-<%= model.get("operating_unit_id") %>'><%= model.get("operating_unit") %></a></li>
+    <li><a href='<%= base %>#project/<%= model.get("id") %>'><%= model.get("id") %></a></li>
+  </ul>
+</div>
+
 <div class='row-fluid separator' id='project-heading'>
   <div class='span12'>
     <p class='heading-title'><%= model.get('project_title').toLowerCase().toTitleCase() %></p>
@@ -97,27 +105,27 @@
           </p>
         </div>
       </div>
-    </div>
-    <% if (!_.isEmpty(model.get('document_name'))) { %>
-    <div class='row-fluid'>
-      <div class='span12'>
-        <div class='label'>Documents</div>
-        <div id='documents' class='row-fluid'>
-          <div class='span12'>
-            <ul class='unstyled'>
-              <% _.each(model.get('document_name')[0], function(obj,i) { %>
-              <li><a href='<%= model.get('document_name')[1][i] %>'>
-                <span class='icon filetype'><%= obj.split('.')[1] %></span>
-                <%= obj.split('.')[0] %></a>
-              </li>
-              <% }); %>
-            </ul>
+      <% if (!_.isEmpty(model.get('document_name'))) { %>
+      <div class='row-fluid'>
+        <div class='span12'>
+          <div class='label'>Documents</div>
+          <div id='documents' class='row-fluid'>
+            <div class='span12'>
+              <ul class='unstyled'>
+                <% _.each(model.get('document_name')[0], function(obj,i) { %>
+                <li><a href='<%= model.get('document_name')[1][i] %>'>
+                  <span class='icon filetype'><%= obj.split('.')[1] %></span>
+                  <%= obj.split('.')[0] %></a>
+                </li>
+                <% }); %>
+              </ul>
+            </div>
           </div>
+          <!--/ #documents -->
         </div>
-        <!--/ #documents -->
       </div>
+      <% } %>
     </div>
-    <% } %>
   </div>
 
   <!--/ #top-stats -->

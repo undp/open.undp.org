@@ -297,14 +297,24 @@ a {
     padding-top: 20px;
     }
 
+#breadcrumbs {
+  position:absolute;
+  margin:0;
+  top:-65px;
+  left:-170px;
+  }
+
 #browser,
 #profile {
   float:left;
-  margin-bottom:35px;
+  margin:65px 0 35px;
   }
-#nav-side ul {
-  margin:0;
+#nav-side {
+  margin-top:65px;
   }
+  #nav-side ul {
+    margin:0;
+    }
 
 /*-----------------------------------
   Maps
@@ -560,7 +570,7 @@ a {
   }
 
 .separator {
-  font-size:38px;
+  font-size:36px;
   font-weight:bold;
   padding:0 0 20px;
   }

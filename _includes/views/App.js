@@ -35,7 +35,9 @@ views.App = Backbone.View.extend({
     },
 
     render: function() {
-        this.$el.empty().append(templates.app(this));
+        this.$el.empty().append(templates.app({
+            base: BASE_URL
+        }));
         return this;
     },
 
