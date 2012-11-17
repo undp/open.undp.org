@@ -33,17 +33,17 @@
                 <div class='span4'>
                     <div class='row-fluid'>
                         <div class='span12'>
-                            <div class='label'>Budget</div>
                             <% _.each(model.budget, function(o, i) { %>
-                            <div><span class='date'><%= model.fiscal_year[i] %></span> <%= accounting.formatMoney(o) %></div>
+                              <div class='label'><%= model.fiscal_year[i] %> Budget</div>
+                              <div><%= accounting.formatMoney(o) %></div>
                             <% }); %>
                         </div>
                     </div>
                     <div class='row-fluid'>
                         <div class='span12'>
-                            <div class='label'>Expenditure</div>
                             <% _.each(model.expenditure, function(o, i) { %>
-                            <div><span class='date'><%= model.fiscal_year[i] %></span> <%= accounting.formatMoney(o) %></div>
+                              <div class='label'><%= model.fiscal_year[i] %> Expenditure</div>
+                              <div><%= accounting.formatMoney(o) %></div>
                             <% }); %>
                         </div>
                     </div>

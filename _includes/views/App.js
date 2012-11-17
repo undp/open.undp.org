@@ -149,6 +149,7 @@ views.App = Backbone.View.extend({
         $('.map-btn').removeClass('active');
         $target.addClass('active');
         app.projects.map.updateMap($target.attr('data-value'));
+        return false;
     },
 
     submitForm: function(e) {

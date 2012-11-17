@@ -77,9 +77,10 @@
 
         return match.charAt(0).toUpperCase() + match.substr(1);
       })
-      // Words that should be all caps
+        // Words that should be all caps
         .replace(/Undp/g, 'UDNP')
-        .replace(/Mdg/g, 'MDG');
+        .replace(/Mdg/g, 'MDG')
+        .replace(/Iii/g, 'III');
     };
 
     // Start the application
