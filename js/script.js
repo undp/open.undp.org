@@ -1,7 +1,7 @@
 ---
 ---
 (function() {
-    var BASE_URL = '/undp-projects/',
+    var BASE_URL = 'http://localhost:4000/undp-projects/',
         models = {},
         views = {},
         routers = {},
@@ -51,6 +51,7 @@
     {% include views/Map.js %}
     {% include views/TopDonors.js %}
     {% include views/Widget.js %}
+    {% include views/WidgetOutput.js %}
 
     // Router
     {% include routers/Router.js %}

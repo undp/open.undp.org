@@ -90,39 +90,6 @@
     </div>
     {% endfor %}
 
-    <div class='modal hide fade' id='feedback'><form class='form-horizontal' id='feedback-form'>
-        <div class='modal-header'>
-            <button type='button' class='close' data-dismiss='modal'>&times;</button>
-            <h3>Send feedback</h3>
-        </div>
-        <div class='modal-body'>
-            <p>You are viewing an early release of the UNDP Projects portal. Help us make it better by submitting your feedback.</p>
-                <div class='control-group'>
-                    <label class='control-label' for='entry_0'>Name</label>
-                    <div class='controls'>
-                        <input type='text' id='entry_0' name='entry.0.single' class='input-xlarge'>
-                    </div>
-                </div>
-                <div class='control-group'>
-                    <label class='control-label' for='entry_0'>Email</label>
-                    <div class='controls'>
-                        <input type='text' id='entry_1' name='entry.1.single' class='input-xlarge'>
-                    </div>
-                </div>
-                <div class='control-group'>
-                    <label class='control-label' for='entry_2'>Feedback</label>
-                    <div class='controls'>
-                        <textarea id='inputEmail' id='entry_2' name='entry.2.single' class='input-xlarge'></textarea>
-                    </div>
-                </div>
-                <input type='hidden' id='entry_3' name='entry.3.single'>
-        </div>
-        <div class='modal-footer'>
-            <a href='#' class='btn' data-dismiss='modal'>Close</a>
-            <input type='submit' class='btn btn-primary' name='submit' value='Submit' id='feeback-submit'>
-        </div>
-    </form></div>
-
     <div class='modal hide fade' id='top-donors'>
         <div class='modal-header'>
             <button type='button' class='close' data-dismiss='modal'>&times;</button>
@@ -142,6 +109,43 @@
             <a href='#' class='btn' data-dismiss='modal'>Close</a>
         </div>
     </div>
+
+  <div class='modal hide fade' id='feedback'>
+    <form class='form-horizontal' id='feedback-form'>
+      <div class='modal-header'>
+        <button type='button' class='close' data-dismiss='modal'>&times;</button>
+        <h3>Send feedback</h3>
+      </div>
+
+      <div class='modal-body'>
+        <p>You are viewing an early release of the UNDP Projects portal. Help us make it better by submitting your feedback.</p>
+        <div class='control-group'>
+          <label class='control-label' for='entry_0'>Name</label>
+          <div class='controls'>
+            <input type='text' id='entry_0' name='entry.0.single' class='input-xlarge'>
+          </div>
+        </div>
+        <div class='control-group'>
+          <label class='control-label' for='entry_0'>Email</label>
+          <div class='controls'>
+            <input type='text' id='entry_1' name='entry.1.single' class='input-xlarge'>
+          </div>
+        </div>
+        <div class='control-group'>
+          <label class='control-label' for='entry_2'>Feedback</label>
+          <div class='controls'>
+            <textarea id='inputEmail' id='entry_2' name='entry.2.single' class='input-xlarge'></textarea>
+          </div>
+        </div>
+        <input type='hidden' id='entry_3' name='entry.3.single'>
+      </div>
+
+      <div class='modal-footer'>
+        <a href='#' class='btn' data-dismiss='modal'>Close</a>
+        <input type='submit' class='btn btn-primary' name='submit' value='Submit' id='feeback-submit'>
+      </div>
+    </form>
+  </div>
 
     <!-- Widget modal -->
     <div class='modal hide fade' id='widget'></div>

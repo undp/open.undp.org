@@ -34,6 +34,7 @@ routers.App = Backbone.Router.extend({
         // Handle feedback form submission
         $('#feedback-form').submit(function (e) {
             // Set URL for feedback form
+
             $('#entry_3').val(window.location);
 
             var button = $('input[type=submit]', this),
@@ -53,36 +54,6 @@ routers.App = Backbone.Router.extend({
         });
     },
 
-    project: function (id, output) {
-        var that = this;
-
-        window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
-
-        // Set up menu
-        $('#app .view, .project-navigation li').hide();
-        $('#browser .summary').addClass('off');
-        $('.project-navigation .profile').show();
-
-        // Set up this route
-        this.project.model = new models.Project({
-            id: id
-        });
-
-        this.project.model.fetch({
-            success: function () {
-                that.project.view = new views.ProjectProfile({
-                    el: '#profile',
-                    model: that.project.model,
-                    gotoOutput: (output) ? output : false
-                });
-
-                that.project.widget = new views.Widget({
-                    context: 'project'
-                });
-            }
-        });
-    },
-
     browser: function (route) {
         var that = this;
         window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
@@ -93,7 +64,7 @@ routers.App = Backbone.Router.extend({
         $('#browser, .project-navigation .browser').show();
 
         // Set up breadcrumbs
-        $('#breadcrumbs ul').html('<li><a href="/undp-projects/">All Projects</a></li>');
+        $('#breadcrumbs ul').html('<li><a href="' + BASE_URL + '">All Projects</a></li>');
 
         // Load the main app view
         this.app = this.app || new views.App({
@@ -105,7 +76,7 @@ routers.App = Backbone.Router.extend({
 
         // Parse hash
         var parts = (route) ? route.split('/') : [];
-        filters = _(parts).map(function (part) {
+        var filters = _(parts).map(function (part) {
             var filter = part.split('-');
             return {
                 collection: filter[0],
@@ -116,14 +87,13 @@ routers.App = Backbone.Router.extend({
         if (_.isEqual(this.app.filters, filters)) {
             $('html, body').scrollTop(0);
         } else {
-            filter = function (model) {
+            var filter = function (model) {
                 if (!filters.length) return true;
                 return _(filters).reduce(function (memo, filter) {
-                    if (filter.collection == 'region') {
+                    if (filter.collection === 'region') {
                         return memo && model.get(filter.collection) == filter.id;
                     } else {
-                        return memo && (
-                        model.get(filter.collection) && model.get(filter.collection).indexOf(filter.id) >= 0);
+                        return memo && (model.get(filter.collection) && model.get(filter.collection).indexOf(filter.id) >= 0);
                     }
                 }, true);
             };
@@ -218,31 +188,107 @@ routers.App = Backbone.Router.extend({
         $('#browser .summary').removeClass('off');
     },
 
-    widget: function (route) {
-        var filters = route.split('?')[0],
-            options = route.split('?')[1];
+    project: function (id, output) {
+        var that = this;
 
-        // Get widget options from route
+        window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
+
+        // Set up menu
+        $('#app .view, .project-navigation li').hide();
+        $('#browser .summary').addClass('off');
+        $('.project-navigation .profile').show();
+
+        // Set up this route
+        this.project.model = new models.Project({
+            id: id
+        });
+
+        this.project.model.fetch({
+            success: function () {
+                that.project.view = new views.ProjectProfile({
+                    el: '#profile',
+                    model: that.project.model,
+                    gotoOutput: (output) ? output : false
+                });
+
+                that.project.widget = new views.Widget({
+                    context: 'project'
+                });
+            }
+        });
+    },
+
+    widget: function (route) {
+        var that = this,
+            parts = route.split('?'),
+            options = parts[1],
+            path = parts[0];
+
+        path = (path) ? path.split('/') : [];
         options = (options) ? options.split('&') : [];
 
-        // Determine whether widget is for project page or main page
-        if (filters.split('/')[0] === 'project') {
-            $('#container')
-                .empty()
-                .append('<div id="profile" class="widget map-off stats-off"></div>');
-            this.project(filters.split('/')[1]);
-        } else {
-            $('#container')
-                .empty()
-                .append('<div id="browser" class="widget map-off stats-off"></div>');
-            this.browser(filters);
-        }
+        if (path[0] === 'project') {
+            this.widget.model = new models.Project({
+                id: path[1]
+            });
 
-        // "Turn on" widget components
-        _.each(options, function (option) {
-            $('#container').find('.widget')
-                .removeClass(option + '-off')
-                .addClass(option + '-on');
-        });
+            this.widget.model.fetch({
+               success: function() {
+                    that.widgetOutput = new views.WidgetOutput({
+                        context: 'project',
+                        options: options,
+                        model: that.widget.model
+                    });
+               }
+            });
+        } else {
+            this.widgetOutput = new views.WidgetOutput({
+                context: 'projects',
+                options: options
+            });
+
+            var filters = _(path).map(function (f) {
+                var filter = f.split('-');
+                return {
+                    id: filter[1],
+                    collection: filter[0]
+                };
+            });
+
+            this.widgetOutput.filters = filters;
+
+            var filter = function (model) {
+                if (!filters.length) return true;
+                return _(filters).reduce(function (memo, filter) {
+                    if (filter.collection === 'region') {
+                        return memo && model.get(filter.collection) == filter.id;
+                    } else {
+                        return memo && (model.get(filter.collection) && model.get(filter.collection).indexOf(filter.id) >= 0);
+                    }
+                }, true);
+            };
+
+            // Load projects
+            if (!this.allProjects) {
+                this.allProjects = new models.Projects();
+                this.allProjects.fetch({
+                    success: function () {
+                        that.projects = new models.Projects(that.allProjects.filter(filter));
+                        var view = new views.Projects({
+                            collection: that.projects
+                        });
+
+                        that.projects.watch();
+                        that.projects.map = new views.Map({
+                            el: '#homemap',
+                            collection: that.projects
+                        });
+                    }
+                });
+            } else {
+                // if projects are already present
+                this.projects.reset(this.allProjects.filter(filter));
+            }
+        }
     }
 });
