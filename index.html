@@ -50,29 +50,29 @@
             <!-- end of #languages -->
             <!-- end of #main-navigation -->
             <h1 class='site-title'><a href='{{base}}/'>Our Projects</a></h1>
-            <ul class='project-navigation'>
-              <li class='browser profile'><a href='#feedback' data-toggle='modal'>Feedback</a></li>
-              <li class='browser profile'><a href='#download' data-toggle='modal'>Download</a></li>
-              <li class='browser'><a href='#about' data-toggle='modal'>About</a></li>
-              <li class='profile'><a href='#unit-contact' data-toggle='modal'>Contact</a></li>
-              <li class='browser profile'><a href='#glossary' data-toggle='modal'>Glossary</a></li>
-              <li class='browser profile'><a href='#top-donors' data-toggle='modal'>Top Donors</a></li>
-            </ul>
-            <a href='#widget' class='widget-config button' data-toggle='modal'>
-              <span class='icon embed'></span>
-              Embed this
-            </a>
         </div>
         <!-- end of .content -->
     </div><!-- /#header -->
 
     <!-- content -->
-    <div class='container-fluid'>
-        <div id='app' class='row-fluid'>
-            <div id='browser' class='content col-wrap view'> </div>
-            <div id='profile' class='content col-wrap view'> </div>
+    <div id='app'>
+      <div id='main' class='clearfix'>
+        <div id='nav-side' class='col col-150'>
+          <ul>
+            <li class='browser profile active'><a href='{{base}}/'>Projects</a></li>
+            <li class='browser profile'><a href='#top-donors' data-toggle='modal'>Top Donors</a></li>
+            <li class='browser'><a href='#about' data-toggle='modal'>About</a></li>
+            <li class='browser profile'><a href='#glossary' data-toggle='modal'>Glossary</a></li>
+            <li class='browser profile'><a href='#feedback' data-toggle='modal'>Feedback</a></li>
+            <li class='browser profile'><a href='#download' data-toggle='modal'>Download</a></li>
+            <li class='profile'><a href='#unit-contact' data-toggle='modal'>Contact</a></li>
+          </ul>
         </div>
-    </div> <!--/ .container-fluid -->
+        <div id='browser' class='col-790 content view'></div>
+        <div id='profile' class='col-790 content view'></div>
+        </div>
+      </div>
+    </div>
 
     <!-- Modals -->
     {% for modal in site.categories.modal %}
@@ -122,7 +122,7 @@
             <input type='submit' class='btn btn-primary' name='submit' value='Submit' id='feeback-submit'>
         </div>
     </form></div>
-    
+
     <div class='modal hide fade' id='top-donors'>
         <div class='modal-header'>
             <button type='button' class='close' data-dismiss='modal'>&times;</button>
@@ -173,23 +173,23 @@
     </div><!-- #footer -->
 </div>
 
-<div id='templates'>
-{% include templates.html %}
-</div>
+  <div id='templates'>
+  {% include templates.html %}
+  </div>
 
-<div id='scripts'>
-  <script src='{{base}}/ext/jquery.js'></script>
-  <script src='{{base}}/ext/jquery.tweet.js'></script>
-  <script src='{{base}}/ext/jquery.flot.js'></script>
-  <script src='{{base}}/ext/spin.js'></script>
-  <script src='{{base}}/ext/bootstrap/js/bootstrap.js'></script>
-  <script src='{{base}}/ext/underscore.js'></script>
-  <script src='{{base}}/ext/backbone.js'></script>
-  <script src='{{base}}/ext/accounting.js'></script>
-  <script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.6/mapbox.js'></script>
-  <script src='{{base}}/ext/clustr.min.js'></script>
-  <script src='{{base}}/js/script.js'></script>
-</div>
+  <div id='scripts'>
+    <script src='{{base}}/ext/jquery.js'></script>
+    <script src='{{base}}/ext/jquery.tweet.js'></script>
+    <script src='{{base}}/ext/jquery.flot.js'></script>
+    <script src='{{base}}/ext/spin.js'></script>
+    <script src='{{base}}/ext/bootstrap/js/bootstrap.js'></script>
+    <script src='{{base}}/ext/underscore.js'></script>
+    <script src='{{base}}/ext/backbone.js'></script>
+    <script src='{{base}}/ext/accounting.js'></script>
+    <script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.6/mapbox.js'></script>
+    <script src='{{base}}/ext/clustr.min.js'></script>
+    <script src='{{base}}/js/script.js'></script>
+  </div>
 
 </body>
 </html>

@@ -5,6 +5,7 @@ body {
   background:#fff;
   font-size:13px;
   }
+:focus { outline:0; }
 h1, h2, h3, h4, h5, h6 {
   color:#333;
   margin:0;
@@ -23,6 +24,9 @@ h2 {
 h3 {
   font-size:18px;
   line-height:24px;
+  }
+li {
+  line-height:18px;
   }
 table {
   background:#fff;
@@ -203,18 +207,19 @@ a {
       text-decoration:none;
       }
 
-
 .widget-config {
-  position:absolute;
-  color:#fff;
-  right:0;
-  top:125px;
+  background:#F2FAFF;
+  color:#003366;
+  font-weight:bold;
+  display:inline-block;
+  padding:1px 15px 5px 10px;
+  margin:10px 0;
+  float:right;
   }
   .icon.embed {
-    margin-top:-5px;
     position:relative;
-    top:4px;
-    right:5px;
+    top:5px;
+    right:-5px;
     }
 
 #footer ul {
@@ -224,6 +229,16 @@ a {
   #footer ul li {
     line-height:normal;
     }
+
+/*-----------------------------------
+  Bootstrap resets
+-------------------------------------*/
+.nav-tabs,
+.nav-tabs > .active > a,
+.nav-tabs > .active > a:hover { border-color:#b3b3b3; }
+
+.nav-tabs > .active > a,
+.nav-tabs > .active > a:hover { border-bottom-color:#fff; }
 
 /*-----------------------------------
   Icons
@@ -278,25 +293,35 @@ a {
   position: relative;
   margin: 0;
   }
-  #main-container .layers {
-    float:left;
-    text-align:right;
-    width:155px;
-    }
   #main-container .span2 {
     padding-top: 20px;
     }
 
-#app {
-  min-height: 600px;
+#breadcrumbs {
+  position:absolute;
+  margin:0;
+  top:-65px;
+  left:-170px;
   }
+
+#browser,
+#profile {
+  float:left;
+  margin:65px 0 35px;
+  }
+#nav-side {
+  margin-top:65px;
+  }
+  #nav-side ul {
+    margin:0;
+    }
 
 /*-----------------------------------
   Maps
 -------------------------------------*/
 .map-container {
   float:left;
-  width:545px;
+  width:100%;
   }
 .map-container.full {
   padding:0;
@@ -476,18 +501,38 @@ a {
 /*-----------------------------------
   Big number stats beside map
 -------------------------------------*/
-.map-btn {
-  padding:10px 20px 10px 0;
-  margin-bottom:1px;
+.layers {
+  width:100%;
+  margin:10px 0 -1px;
   }
-.map-btn p {
-  margin:0;
-  }
+  .layers li {
+    display:block;
+    float:left;
+    width:20%;
+    }
+    .layers li a {
+      display:block;
+      padding:10px;
+      height:60px;
+      }
+      .layers li:last-child a,
+      .layers li:last-child a.active {
+        border:none;
+        }
+      .layers li a:hover {
+        background:#f0f0f0;
+        }
+      .layers li a.active {
+        background:#05a;
+        position:relative;
+        }
+
 .total {
   display:block;
-  font-size:18px;
+  font-size:15px;
   font-weight:bold;
   color:#333;
+  margin-bottom:3px;
   }
   .map-btn.active .total,
   .map-btn.active .total-caption {
@@ -496,36 +541,10 @@ a {
 .total-caption {
   color:#666;
   }
-.map-btn:hover {
-  cursor:pointer;
-  background:#f0f0f0;
-  }
-.map-btn.active {
-  background:#05a;
-  position:relative;
-  }
-  .map-btn.active:after {
-    content:'';
-    position:absolute;
-    width:0;
-    height:0;
-    border-top:10px solid transparent;
-    border-left:10px solid #05a;
-    border-bottom:10px solid transparent;
-    right:-10px;
-    z-index:1000;
-    top:50%;
-    margin-top:-10px;
-    }
-
 
 .summary {
   position:relative;
   left:0;
-  -webkit-transition:left 0.5s ease;
-     -moz-transition:left 0.5s ease;
-       -o-transition:left 0.5s ease;
-          transition:left 0.5s ease;
   }
   .summary p {
     margin:0;
@@ -551,97 +570,60 @@ a {
   }
 
 .separator {
-  font-size:38px;
+  font-size:36px;
   font-weight:bold;
-  padding:20px 0;
+  padding:0 0 20px;
   }
 
 .heading-title {
   line-height:42px;
   }
   p.heading-title {
-    font-size: 24px;
-    line-height: 32px;
-    margin: 20px 0 0;
-    color: #666;
-    font-weight: normal;
+    font-size:24px;
+    line-height:32px;
+    margin:20px 0 0;
+    font-weight:normal;
+    color:#666;
     }
     p.heading-title strong {
-      color: #000;
+      color:#333;
       }
   #project-heading p.heading-title {
     margin-top:0;
     color: #333;
     }
   p.heading-desc {
-    color: #666;
-    font-size: 16px;
-    line-height: 24px;
-    font-weight: normal;
+    color:#666;
+    font-size:18px;
+    line-height:24px;
+    font-weight:normal;
+    margin:5px 0 10px;
   }
 .modal.fade {
   top: 50%;
   }
 
 /* Charts & Graphs */
-.chart .focus {
-  width: 160px;
-  height: 110px;
-  float: left;
-  background: #EEE;
-  margin: 25px 0 0 20px;
-  position: relative;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
-  -webkit-box-sizing:border-box;
-     -moz-box-sizing:border-box;
-          box-sizing:border-box;
+#focus {
+  display:block;
+  margin:20px 0 10px;
   }
-.chart .focus:first-child {
-  margin-left: 0;
+.chart li.focus {
+  float:left;
+  width:50%;
+  margin-bottom:10px;
   }
-.chart .focus .caption {
-  text-align: center;
-  margin: 0;
-  text-indent: 0;
-  text-transform: capitalize;
-  width: 100%;
-  padding: 0 12px;
-  font-size: 11px;
-  line-height: 13px;
-  font-weight: bold;
-  color: white;
-  -webkit-box-sizing:border-box;
-     -moz-box-sizing:border-box;
-          box-sizing:border-box;
-  }
-.focus .pct {
-  text-align: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  margin-left: -50px;
-  width: 100px;
-  }
-.chart .focus .fa-icon {
-  background: white url(../img/sprite.png) no-repeat 0 0;
-  width: 40px;
-  height: 40px;
-  position: relative;
-  left: 50%;
-  margin-left: -20px;
-  }
-.chart .focus.fa1 .fa-icon { background-position: -135px -30px; }
-.chart .focus.fa2 .fa-icon { background-position: 0 -30px; }
-.chart .focus.fa3 .fa-icon { background-position: -45px -30px; }
-.chart .focus.fa4 .fa-icon { background-position: -90px -30px; }
-
-.chart .focus.fa1 { background-color: #C8C622; }
-.chart .focus.fa2 { background-color: #299fd9; }
-.chart .focus.fa3 { background-color: #fa5640; }
-.chart .focus.fa4 { background-color: #6ab139; }
+  .chart li.focus .pct {
+    font-size:18px;
+    font-weight:bold;
+    margin-right:5px;
+    position:relative;
+    top:1px;
+    }
+  .chart li.focus .icon {
+    float:left;
+    margin-right:10px;
+    }
 
 .chart .chart-legend {
   position: absolute;
@@ -653,7 +635,7 @@ a {
   margin: 0;
   }
 #charts .span6.stat-chart {
-  margin-top: 25px;
+  margin-top: 20px;
   width: 50%;
   -webkit-box-sizing:border-box;
      -moz-box-sizing:border-box;
@@ -684,7 +666,6 @@ a {
   }
 .chart td.right {
   text-align: right;
-  
   float: none;
   }
 .chart .caption {
@@ -902,13 +883,18 @@ form {
   position:relative;
   }
 #content-right .inner,
+
+.col-filter {
+  margin-top:37px;
+  }
 #filters .inner {
   background:#f2faff;
   border-top:2px solid #B3B3B3;
   padding:5px 10px 50px 10px;
   }
+
 #content-right .inner-last {
-  padding-bottom: 30px;
+  padding-bottom:30px;
   }
 #content-right .inner h5 {
   font-size: 16px;
@@ -927,6 +913,7 @@ form {
 #projects .form-search {
   background:#f2faff;
   padding:10px;
+  margin-top:10px;
   }
 .form-search strong {
   font-size: 14px;
@@ -961,7 +948,8 @@ form {
     display:block;
     color:#666;
     font-size:13px;
-    padding:4px 10px;
+    line-height:18px;
+    padding:8px 10px;
     }
     .topics li a:hover,
     .topics li a:focus,
@@ -983,8 +971,9 @@ form {
 
 .topics.filtered li a.active,
 .topics.active li a.active {
-  background:#333 url(../img/sprite.png) no-repeat 240px -155px;
+  background:#434C54 url(../img/sprite.png) no-repeat 240px -155px;
   color:#fff;
+  font-weight:bold;
   text-decoration:none;
   padding-right:30px;
   }
@@ -1006,6 +995,7 @@ form {
     float:right;
     font-size:10px;
     font-weight:bold;
+    margin-left:10px;
     }
   .topics.filtered .filter-items,
   .topics.active .filter-items {
@@ -1035,20 +1025,19 @@ form {
   color: #333;
   }
 
+.tab-content {
+  overflow:visible;
+  }
 .nav {
-  margin:20px 0 0;
+  margin:0;
   font-size:18px;
-  color:#666;
-  clear: both;
-  padding-top: 30px;
-  width: 700px;
   }
   .nav a {
     color:#666;
     }
     .nav a:hover,
     .nav a:focus {
-      color: #000;
+      color:#333;
       }
 
 .label {
@@ -1116,14 +1105,18 @@ form {
   float:left;
   margin-right:10px;
   }
-.project .focus-title {
+.focus-title {
   font-weight:bold;
+  }
+
+#outputs .span4 .row-fluid,
+#outputs .span8 .row-fluid {
+  margin:10px 0;
   }
 
 #timeline-comp {
   margin-top: 2em;
   }
-
 .table {
   margin-bottom: 0;
   padding-bottom: 0;
@@ -1320,7 +1313,7 @@ form {
 /* Gallery Fullscreen */
 .fullscreen #flickr {
   position:absolute;
-  width:960px;
+  width:790px;
   height:480px;
   right:0;
   z-index:1000;
