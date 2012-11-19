@@ -30,7 +30,7 @@ views.ProjectProfile = Backbone.View.extend({
             + '<li><a href="#filter/operating_unit-' + this.model.get('operating_unit_id') + '">' + this.model.get("operating_unit") + '</a></li>'
             + '<li><a href="#project/' + this.model.get('id') + '">' + this.model.get('id') + '</a></li>'
         );
-    
+
         var startDate = new Date(this.model.get('start').replace('-',',')),
             endDate = new Date(this.model.get('end').replace('-',',')),
             curDate = new Date(),
@@ -69,11 +69,28 @@ views.ProjectProfile = Backbone.View.extend({
         var start = sParts[1] + ',' + sParts[2];
         var end = eParts[1] + ',' + eParts[2];
 
+        // Filter out any image files from showing up
+        var filterDocuments = _(this.model.get('document_name')[1]).filter(function(d) {
+            return !(/\.(gif|jpg|jpeg|tiff|png)$/i).test(d);
+        });
+        var documents = [];
+
+        if (filterDocuments.length !== 0) {
+            _(filterDocuments).each(function(d, i) {
+                documents[i] = {};
+                documents[i].title = (d.split('/').pop()).split(/(.)[^.]*$/)[0].replace('_', ' ');
+                documents[i].filetype = d.split('.').pop();
+                documents[i].src = d;
+            });
+        }
+        console.log(documents);
+
         window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
         this.$el.empty().append(templates.projectProfile({
             start: start,
             end: end,
             base: BASE_URL,
+            documents: documents,
             model: this.model
         })).show();
 
@@ -135,7 +152,7 @@ views.ProjectProfile = Backbone.View.extend({
             var filetype = photo.split('.')[1].toLowerCase(),
                 source = that.model.get('document_name')[1][i];
 
-            if (filetype == 'jpg' || filetype == 'jpeg' || filetype == 'png' || filetype == 'gif') {
+            if (filetype === 'jpg' || filetype === 'jpeg' || filetype === 'png' || filetype === 'gif') {
                 var img = new Image();
                 img.onload = goodImg;
                 img.src = source;

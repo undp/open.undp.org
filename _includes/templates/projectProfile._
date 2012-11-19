@@ -97,17 +97,17 @@
           </p>
         </div>
       </div>
-      <% if (!_.isEmpty(model.get('document_name'))) { %>
+      <% if (!_.isEmpty(documents)) { %>
       <div class='row-fluid'>
         <div class='span12'>
           <div class='label'>Documents</div>
           <div id='documents' class='row-fluid'>
             <div class='span12'>
               <ul class='unstyled'>
-                <% _.each(model.get('document_name')[0], function(obj,i) { %>
-                <li><a href='<%= model.get('document_name')[1][i] %>'>
-                  <span class='icon filetype'><%= obj.split('.')[1] %></span>
-                  <%= obj.split('.')[0] %></a>
+                <% _.each(documents, function(d) { %>
+                <li><a href='<%= d.src %>'>
+                  <span class='icon filetype filetype-<%= d.filetype %>'></span>
+                  <%= d.title %></a>
                 </li>
                 <% }); %>
               </ul>
