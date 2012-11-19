@@ -14,6 +14,7 @@ views.Map = Backbone.View.extend({
     render: function() {
         $('#chart-hdi').css('display','none');
 
+        console.log(this.options);
         var that = this,
             layer,
             unit = (this.collection) ? this.collection
