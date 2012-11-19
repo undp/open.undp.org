@@ -383,7 +383,7 @@ views.Map = Backbone.View.extend({
                 var link = '',
                     i = 0;
                     
-                if (data[v] || social[v].length) {
+                if (data[v] || (social[v] && social[v].length)) {
                     if (v == 'twitter') baseUrl = 'http://twitter.com/';
                     if (v == 'email') baseUrl = 'mailto:';
                     if (v == 'flickr') baseUrl = 'http://flickr.com/photos/';

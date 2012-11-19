@@ -4,33 +4,12 @@ routers.App = Backbone.Router.extend({
         'filter/*filters': 'browser',
         'project/:id': 'project',
         'project/:id/output-:output': 'project',
-        'widget/*options': 'widget'
+        'widget/*options': 'widget',
+        'about/*subnav': 'about',
+        'top-donors': 'topDonors'
     },
 
-    initialize: function () {
-        // Top Donors table
-        var donorsGross = new models.TopDonors();
-        donorsGross.url = 'api/top-donor-gross-index.json';
-
-        var donorsLocal = new models.TopDonors();
-        donorsLocal.url = 'api/top-donor-local-index.json';
-        donorsGross.fetch({
-            success: function () {
-                this.topDonorsGross = new views.TopDonors({
-                    el: '#donor-gross-table',
-                    collection: donorsGross
-                });
-            }
-        });
-        donorsLocal.fetch({
-            success: function () {
-                this.topDonorsLocal = new views.TopDonors({
-                    el: '#donor-local-table',
-                    collection: donorsLocal
-                });
-            }
-        });
-
+    mainApp: function () {
         // Handle feedback form submission
         $('#feedback-form').submit(function (e) {
             // Set URL for feedback form
@@ -56,13 +35,16 @@ routers.App = Backbone.Router.extend({
 
     browser: function (route) {
         var that = this;
+
+        // Load in the top donors info and feedbackform dets.
+        this.mainApp();
         window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
 
         // Set up menu
-        $('#app .view, .project-navigation li').hide();
+        $('#app .view, #mainnav li, #aboutnav').hide();
         $('#profile .summary').addClass('off');
-        $('#browser, .project-navigation .browser').show();
-
+        $('#browser, #mainnav .browser, #mainnav').show();
+ 
         // Set up breadcrumbs
         $('#breadcrumbs ul').html('<li><a href="' + BASE_URL + '">All Projects</a></li>');
 
@@ -191,12 +173,15 @@ routers.App = Backbone.Router.extend({
     project: function (id, output) {
         var that = this;
 
+        // Load in the top donors info and feedbackform dets.
+        this.mainApp();
+
         window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
 
         // Set up menu
-        $('#app .view, .project-navigation li').hide();
+        $('#app .view, #mainnav li, #aboutnav').hide();
         $('#browser .summary').addClass('off');
-        $('.project-navigation .profile').show();
+        $('#mainnav, #mainnav .profile').show();
 
         // Set up this route
         this.project.model = new models.Project({
@@ -273,16 +258,16 @@ routers.App = Backbone.Router.extend({
                 this.allProjects = new models.Projects();
                 this.allProjects.fetch({
                     success: function () {
-                        that.projects = new models.Projects(that.allProjects.filter(filter));
-                        var view = new views.Projects({
-                            collection: that.projects
-                        });
+                        //that.projects = new models.Projects(that.allProjects.filter(filter));
+                        //var view = new views.Projects({
+                            //collection: that.projects
+                        //});
 
-                        that.projects.watch();
-                        that.projects.map = new views.Map({
-                            el: '#homemap',
-                            collection: that.projects
-                        });
+                        //that.projects.watch();
+                        //that.projects.map = new views.Map({
+                            //el: '#embed-map',
+                            //collection: that.projects
+                        //});
                     }
                 });
             } else {
@@ -290,5 +275,57 @@ routers.App = Backbone.Router.extend({
                 this.projects.reset(this.allProjects.filter(filter));
             }
         }
+    },
+
+    about: function (route) {
+      window.setTimeout(function () {
+          $('html, body').scrollTop(0);
+      }, 0);
+
+      $('#breadcrumbs ul').html('<li><a href="#">Home</a></li>' + '<li><a href="/undp-projects/">Our Projects</a></li>' + '<li><a href="#about/open">About</a></li>');
+
+      $('#app .view, #mainnav').hide();
+      $('#aboutnav li').removeClass('active');
+      $('#about .section').hide();
+
+      $('#about, #aboutnav').show();
+      $('#aboutnav li a[href="#about/' + route + '"]').parent().addClass('active');
+      $('#about #' + route).show();
+    },
+
+    topDonors: function () {
+      window.setTimeout(function () {
+          $('html, body').scrollTop(0);
+      }, 0);
+
+      $('#breadcrumbs ul').html('<li><a href="#">Home</a></li>' + '<li><a href="/undp-projects/">Our Projects</a></li>' + '<li><a href="#top-donors">Top Donors</a></li>');
+
+      $('#app .view').hide();
+      $('#mainnav li').removeClass('active');
+
+      $('#top-donors').show();
+      $('#mainnav li a[href="#top-donors"]').parent().addClass('active');
+
+      var donorsGross = new models.TopDonors();
+      donorsGross.url = 'api/top-donor-gross-index.json';
+
+      var donorsLocal = new models.TopDonors();
+      donorsLocal.url = 'api/top-donor-local-index.json';
+      donorsGross.fetch({
+          success: function () {
+              this.topDonorsGross = new views.TopDonors({
+                  el: '#donor-gross-table',
+                  collection: donorsGross
+              });
+          }
+      });
+      donorsLocal.fetch({
+          success: function () {
+              this.topDonorsLocal = new views.TopDonors({
+                  el: '#donor-local-table',
+                  collection: donorsLocal
+              });
+          }
+      });
     }
 });

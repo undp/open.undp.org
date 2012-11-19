@@ -229,6 +229,24 @@ a {
   #footer ul li {
     line-height:normal;
     }
+    
+#about p {
+  color: #666;
+  margin-bottom: 30px;
+}
+#about h1, #top-donors h1 {
+  left: auto;
+}
+#about h3 {
+	font-size:24px;
+	margin-bottom: 20px;
+}
+#about .section ul {
+  list-style-type: disc;
+  margin-bottom: 30px;
+  margin-left: 50px;
+  line-height: 150%;
+}
 
 /*-----------------------------------
   Bootstrap resets
@@ -300,12 +318,9 @@ a {
 #breadcrumbs {
   position:absolute;
   margin:0;
-  top:-65px;
-  left:-170px;
   }
 
-#browser,
-#profile {
+#app .view {
   float:left;
   margin:65px 0 35px;
   }
@@ -315,6 +330,9 @@ a {
   #nav-side ul {
     margin:0;
     }
+#mainnav, #about, #top-donors {
+  display: none;
+}
 
 /*-----------------------------------
   Maps
