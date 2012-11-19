@@ -229,7 +229,7 @@ a {
   #footer ul li {
     line-height:normal;
     }
-    
+
 #about p {
   color: #666;
   margin-bottom: 30px;
@@ -265,6 +265,7 @@ a {
 
 .icon.reset                   { background-position:0 0; }
 .icon.filetype                { background-position:0 -105px; }
+.icon.filetype.filetype-pdf   { background-position:-25px -105px; }
 .icon.embed                   { background-position:0 -130px; }
 .icon.open                    { background-position:-25px 0; }
 .active .icon.open            { background-position:-50px 0; }
@@ -697,9 +698,9 @@ a {
   margin-top:2px;
   padding-right:5px;
   font-size:11px;
-  text-shadow: 0px 1px 1px #0B387C, 
-               1px 1px 1px #0B387C, 
-               0px 0px 1px #0B387C, 
+  text-shadow: 0px 1px 1px #0B387C,
+               1px 1px 1px #0B387C,
+               0px 0px 1px #0B387C,
                1px 0px 1px #0B387C;
   font-weight:bold;
   color:#EDF4FE;
@@ -1155,6 +1156,8 @@ form {
   }
   #documents li a .icon {
     margin-left:-25px;
+    position:relative;
+    top:5px;
     }
 .focus-area .text {
   position:relative;
@@ -1322,7 +1325,8 @@ form {
 .fullscreen #flickr {
   position:absolute;
   width:790px;
-  height:480px;
+  height:auto;
+  max-height:480px;
   right:0;
   z-index:1000;
   background-position:0 0!important;
