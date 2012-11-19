@@ -1421,6 +1421,9 @@ form {
   width:500px;
   height:320px;
   }
+  .widget-preview iframe {
+    border-radius:8px;
+    }
   .widget-preview .empty {
     color:#b3b3b3;
     text-align:center;
@@ -1449,168 +1452,9 @@ form {
 /*-----------------------------------
   Widget Embed
 -------------------------------------*/
-
-/*
-.widget .row-fluid [class*="span"] {
-  min-height:auto;
+.embed-container {
+  margin:10px;
   }
-.widget .col { width:100%!important; }
-
-#container .widget {
-  width:100%;
-  min-height:inherit!important;
-  max-width:760px;
-  }
-.widget .summary,
-.widget #project-descr {
-  width:100%;
-  }
-.widget .separator {
-  padding:10px 0;
-  }
-.widget #applied-filters {
-  font-size:18px;
-  line-height:26px;
-  }
-.widget .layers {
-  width:125px!important;
-  margin-bottom:10px;
-  }
-.widget .map-btn {
-  padding:5px 10px 5px 0;
-  }
-.widget .map-container {
-  position:absolute;
-  left:125px;
-  right:0;
-  width:auto;
-  float:none;
-  }
-.widget #homemap {
-  height:252px!important;
-  min-width:256px;
-  }
-.widget #charts .span12 {
-  min-height:0;
-  }
-.widget .chart {
-  margin-bottom:10px!important;
-  }
-  .widget .chart .caption {
-    font-size:11px;
-    }
-    .widget .chart .caption > div {
-      line-height:15px;
-      height:15px;
-      }
-
-  .widget .chart .data {
-    position:absolute;
-    left:145px;
-    right:0;
-    width:auto;
-    }
-    .widget .chart .data > div {
-      height:15px;
-      font-size:10px;
-      line-height:15px;
-      }
-    .widget .chart .data > .subdata {
-      height:5px;
-      }
-
-  .widget .chart .chart-legend {
-    left:auto;
-    right:0;
-    }
-
-.widget .toggle {
-  right:auto;
-  left:145px;
-  }
-.widget #projects .row-fluid:first-child {
-  display:none;
-  }
-.widget .table th, .widget .table td {
-  padding:5px;
-  font-size:12px;
-  line-height:16px;
-  }
-
-.widget .chart .extras,
-.widget .chart .details,
-.widget .separator .col,
-.widget .form-search,
-.widget .map-container,
-.widget .layers,
-.widget #applied-filters,
-.widget .stat-chart,
-.widget #chart-hdi,
-.widget #projects-heading,
-.widget #projects,
-.widget #filters,
-.widget #flickr,
-.widget #content-right,
-.widget #breadcrumbs,
-.widget #project-heading,
-.widget .heading-title,
-.widget #project-descr,
-.widget #documents-header,
-.widget #documents,
-.widget #outputs-header,
-.widget .nav-tabs,
-.widget [id*="output-"] {
-  display:none!important;
-  }
-.widget.title-on #applied-filters,
-.widget.title-on #project-heading,
-.widget.title-on .heading-title,
-.widget.descr-on #project-heading,
-.widget.descr-on #project-descr,
-.widget.charts-on .stat-chart,
-.widget.hdi-on #chart-hdi,
-.widget.projects-on #projects,
-.widget.map-on .map-container,
-.widget.stats-on .layers,
-.widget.documents-on [id*="documents"],
-.widget.outputs-on [id*="output-"] {
-  display:block!important;
-  }
-.widget.map-off .layers {
-  width:100%!important;
-  text-align:left!important;
-  }
-.widget.map-off .map-btn {
-  cursor:inherit;
-  }
-.widget.map-off .map-btn:hover {
-  background:inherit;
-  }
-.widget.map-off .map-btn > span {
-  display:inline-block;
-  margin-right:5px;
-  color:inherit;
-  }
-.widget.map-off .map-btn.active {
-  background:inherit;
-  }
-.widget.map-off .map-btn.active .total-caption,
-.widget.map-off .map-btn .total-caption {
-  color: #666;
-  }
-.widget.map-off .map-btn.active:after {
-  display:none;
-  }
-.widget.map-off .layers .total {
-  float:right;
-  }
-.widget.stats-off .map-container {
-  left:0;
-  height:252px;
-  position:relative;
-  margin-bottom:10px;
-  }
-*/
 
 /*-----------------------------------
   Clearfix

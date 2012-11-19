@@ -5,8 +5,17 @@ views.WidgetOutput = Backbone.View.extend({
         this.render();
     },
 
-    render: function(keypress) {
-        this.$el.empty().append(templates.embed());
+    render: function() {
+        var options = {}
+
+        _(this.options.options).each(function(o) {
+            options[o] = templates[o]();
+        });
+
+        this.$el.empty().append(templates.embed({
+            options:options
+        }));
+
         return this;
     }
 });

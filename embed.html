@@ -23,11 +23,22 @@
 <body>
 <!--<![endif]-->
 
-  <div id='embed'></div>
-
-  <div id='templates'>
-    {% include templates.html %}
+  <div class='embed-container'>
+    <div id='embed'></div>
   </div>
+
+  <script name='embed' type='text/html'>{% include templates/embed._ %}</script>
+
+  <!-- Partials -->
+  <script name='charts' type='text/html'>{% include templates/partials/charts._ %}</script>
+  <script name='descr' type='text/html'>{% include templates/partials/descr._ %}</script>
+  <script name='documents' type='text/html'>{% include templates/partials/documents._ %}</script>
+  <script name='hdi' type='text/html'>{% include templates/partials/hdi._ %}</script>
+  <script name='map' type='text/html'>{% include templates/partials/map._ %}</script>
+  <script name='outputs' type='text/html'>{% include templates/partials/outputs._ %}</script>
+  <script name='projects' type='text/html'>{% include templates/partials/projects._ %}</script>
+  <script name='stats' type='text/html'>{% include templates/partials/stats._ %}</script>
+  <script name='title' type='text/html'>{% include templates/partials/title._ %}</script>
 
   <div id='scripts'>
     <script src='{{base}}/ext/jquery.js'></script>
