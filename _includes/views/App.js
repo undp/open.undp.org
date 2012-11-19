@@ -35,7 +35,9 @@ views.App = Backbone.View.extend({
     },
 
     render: function() {
-        this.$el.empty().append(templates.app(this));
+        this.$el.empty().append(templates.app({
+            base: BASE_URL
+        }));
         return this;
     },
 
@@ -149,6 +151,7 @@ views.App = Backbone.View.extend({
         $('.map-btn').removeClass('active');
         $target.addClass('active');
         app.projects.map.updateMap($target.attr('data-value'));
+        return false;
     },
 
     submitForm: function(e) {

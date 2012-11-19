@@ -24,6 +24,13 @@ views.ProjectProfile = Backbone.View.extend({
     },
 
     render: function() {
+        $('#breadcrumbs ul').html(
+            '<li><a href="#">Home</a></li>'
+            + '<li><a href="/undp-projects/">Our Projects</a></li>'
+            + '<li><a href="#filter/operating_unit-' + this.model.get('operating_unit_id') + '">' + this.model.get("operating_unit") + '</a></li>'
+            + '<li><a href="#project/' + this.model.get('id') + '">' + this.model.get('id') + '</a></li>'
+        );
+    
         var startDate = new Date(this.model.get('start').replace('-',',')),
             endDate = new Date(this.model.get('end').replace('-',',')),
             curDate = new Date(),
@@ -66,6 +73,7 @@ views.ProjectProfile = Backbone.View.extend({
         this.$el.empty().append(templates.projectProfile({
             start: start,
             end: end,
+            base: BASE_URL,
             model: this.model
         })).show();
 
@@ -96,6 +104,10 @@ views.ProjectProfile = Backbone.View.extend({
 
         // Project Outputs
         (this.model.attributes.outputs.length < 10) ? $('.load').hide() : $('.load').show();
+
+        // Append menu items to the breadcrumb
+        $('breadcrumbs').find('ul').remove();
+
         return this;
     },
 

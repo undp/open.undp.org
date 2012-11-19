@@ -107,7 +107,9 @@ views.Filters = Backbone.View.extend({
             }
 
             if (this.collection.id === 'focus_area') {
-                $('#chart-' + this.collection.id).empty();
+                var $el = $('#chart-focus_area');
+                    $el.empty();
+
                 chartModels = this.collection.models;
 
                 var total = chartModels.reduce(function(memo, model) {
@@ -115,16 +117,18 @@ views.Filters = Backbone.View.extend({
                 }, 0);
 
                 _(chartModels).each(function(model, i) {
-                    $('#chart-' + model.collection.id).append(
-                        '<div class="focus fa' + model.id + '">' +
-                        '    <div class="fa-icon"></div>' +
-                        '    <div class="caption"></div>' +
-                        '    <div class="pct"></div>' +
-                        '</div>');
+                    var focusIconClass = model.get('name').replace(/\s+/g, '-').toLowerCase().split('-')[0];
+                    var focusName = model.get('name').toLowerCase().toTitleCase();
+                    $el.append(
+                        '<li class="focus fa' + model.id + '">' +
+                        '  <span class="icon icon-thumbnail ' + focusIconClass + '"></span>' +
+                        '  <span class="pct"></span><a href="#filter/focus_area-' + model.id + '" class="focus-title">' + focusName + '</a>' +
+                        '</li>');
 
-                    $('.fa' + (model.id) + ' .caption').text(model.get('name').toLowerCase().toTitleCase());
-                    $('.fa' + (model.id) + ' .pct').text(((model.get(chartType) || 0) / total * 100).toFixed(0) + '%');
+                    $('.fa' + (model.id) + ' .pct').text(((model.get('budget') || 0) / total * 100).toFixed(0) + '%');
                 });
+
+                $el.prepend('<h3 id="focus">Focus Areas</h3>');
             } else {
 
                 var max = chartModels[0].get(chartType);

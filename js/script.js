@@ -1,7 +1,8 @@
 ---
 ---
 (function() {
-    var models = {},
+    var BASE_URL = '/undp-projects/',
+        models = {},
         views = {},
         routers = {},
         templates = _($('script[name]')).reduce(function(memo, el) {
@@ -77,9 +78,11 @@
 
         return match.charAt(0).toUpperCase() + match.substr(1);
       })
-      // Words that should be all caps
+        // Words that should be all caps
         .replace(/Undp/g, 'UDNP')
-        .replace(/Mdg/g, 'MDG');
+        .replace(/Mdg/g, 'MDG')
+        .replace(/Iii/g, 'III')
+        .replace(/Vi/g, 'VI');
     };
 
     // Start the application
