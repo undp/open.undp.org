@@ -334,126 +334,153 @@ views.Map = Backbone.View.extend({
     getwebData: function(data) {
         var that = this,
             photos = this.model.get('docPhotos') || [],
-            fLink = data['flickr'] || 'http://www.flickr.com/photos/unitednationsdevelopmentprogramme/',
-            fName = ((data['flickr']) ? '' : data['name']),
-            $twitter = $('#twitter-block'),
-            baseUrl;
-
-        if (data['twitter']) {
-            $twitter.show();
-            that.twitter(data['twitter'], function(twPhotos) {
-                that.flickr(fName,fLink,photos.concat(twPhotos));
-                $twitter.find('.fade').addClass('in');
-            });
-        } else {
-            that.flickr(fName,fLink,photos);
-            $twitter.hide();
-        }
-
-        _.each(['web','email','facebook','twitter','flickr'], function(v) {
-            if (data[v]) {
-                if (v == 'twitter' || v == 'email') {
-                    baseUrl = ((v == 'email') ? 'mailto:' : 'http://twitter.com/');
-                } else {
-                    baseUrl = '';
+            baseUrl = '',
+            coContact = {
+                twitter: [],
+                flickr: [],
+                facebook: []
+            };
+    
+        // Get social media accounts from UNDP-maintained spreadsheet
+        $.getJSON('//spreadsheets.google.com/feeds/list/0Airl6dsmcbKodHB4SlVfeVRHeWoyWTdKcDY5UW1xaEE/1/public/values?alt=json-in-script&callback=?', function(g) {
+            var flickrAccts = [],
+                twitterAccts = [],
+                fbAccts = [];
+            
+            _.each(g.feed.entry, function(row) {
+                if (row.gsx$type.$t == 'Global'
+                    || (row.gsx$type.$t == 'HQ' && row.gsx$id.$t == that.model.get('region_id'))
+                    ) {
+                    if (row.gsx$twitter.$t) twitterAccts.push(row.gsx$twitter.$t.replace('@',''));
+                    if (row.gsx$flickr.$t) flickrAccts.push(row.gsx$flickr.$t);
+                    if (row.gsx$facebook.$t) fbAccts.push(row.gsx$facebook.$t);
                 }
-
-                // Fill contact modal
-                $('#unit-contact .modal-body').append(
-                      '<div class="row-fluid">'
-                    +     '<div class="contacts span2">'
-                    +         '<p>' + ((v == 'web') ? 'Homepage' : v.capitalize()) +'</p>'
-                    +     '</div>'
-                    +     '<div class="span10">'
-                    +         '<p><a href="' + baseUrl + ((v == 'twitter') ? data[v].replace('@','') : data[v]) + '">' + data[v] + '</a></p>'
-                    +     '</div>'
-                    + '</div>'
-                );
-            }
+                if (row.gsx$type.$t == 'CO' && row.gsx$id.$t == data.id) {
+                    if (row.gsx$twitter.$t) {
+                        twitterAccts.unshift(row.gsx$twitter.$t.replace('@',''));
+                        coContact.twitter.push(row.gsx$twitter.$t.replace('@',''));
+                    }
+                    if (row.gsx$flickr.$t) {
+                        flickrAccts.unshift(row.gsx$flickr.$t);
+                        coContact.flickr.push(row.gsx$flickr.$t);
+                    }
+                    if (row.gsx$facebook.$t) {
+                        fbAccts.unshift(row.gsx$facebook.$t);
+                        coContact.facebook.push(row.gsx$facebook.$t);
+                    }
+                }
+            });
+            
+            that.twitter(twitterAccts, function(twPhotos) {
+                that.flickr(flickrAccts,photos.concat(twPhotos));
+            });
+            
+            contacts(coContact);
         });
+        
+        function contacts(social) {
+            _.each(['web','email','facebook','twitter','flickr'], function(v) {
+                var link = '',
+                    i = 0;
+                    
+                if (data[v] || social[v].length) {
+                    if (v == 'twitter') baseUrl = 'http://twitter.com/';
+                    if (v == 'email') baseUrl = 'mailto:';
+                    if (v == 'flickr') baseUrl = 'http://flickr.com/photos/';
+                    
+                    if (social[v]) {
+                        _.each(social[v], function(x) {
+                            i += 1;
+                            link += '<a href="' + baseUrl + social[v] + '">'
+                                    + ((v == 'twitter') ? '@' + social[v] : social[v]) + '</a>';
+                            if (i < social[v].length) link += ', ';
+                        });
+                    } else {
+                        link += '<a href="' + baseUrl + data[v] + '">' + data[v] + '</a>'
+                    }
+    
+                    // Fill contact modal
+                    $('#unit-contact .modal-body').append(
+                          '<div class="row-fluid">'
+                        +     '<div class="contacts span2">'
+                        +         '<p>' + ((v == 'web') ? 'Homepage' : v.capitalize()) +'</p>'
+                        +     '</div>'
+                        +     '<div class="span10">'
+                        +         '<p>' + link + '</p>'
+                        +     '</div>'
+                        + '</div>'
+                    );
+                }
+            });
+        }
     },
 
     twitter: function(username, callback) {
-        var user = username.replace('@',''),
+        var query = 'from:' + username.join(' OR from:') + ' ' + this.model.get('project_id'),
             twPhotos = [];
-
-        $.getJSON('http://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&screen_name=' + user + '&count=50&callback=?', function(tweet) {
-            _.each(tweet, function(t) {
-                if ((t.entities.media) ? t.entities.media[0].type == 'photo' : t.entities.media) {
-                    twPhotos.push({
-                        'source': t.entities.media[0].media_url,
-                        'date': new Date(t.created_at),
-                        'description': t.text,
-                        'link': t.entities.media[0].expanded_url,
-                        'height': t.entities.media[0].sizes.medium.h,
-                        'width': t.entities.media[0].sizes.medium.w
-                    });
-                }
-            });
+        
+        $.getJSON('http://search.twitter.com/search.json?&q=' + encodeURIComponent(query) + '&include_entities=1&callback=?', function(tweets) {
+            if (tweets.results.length) {
+                $('#twitter-block').show();
+                _.each(tweets.results, function(t) {
+                    if ((t.entities.media) ? t.entities.media[0].type == 'photo' : t.entities.media) {
+                        twPhotos.push({
+                            'source': t.entities.media[0].media_url,
+                            'date': new Date(t.created_at),
+                            'description': t.text,
+                            'link': t.entities.media[0].expanded_url,
+                            'height': t.entities.media[0].sizes.medium.h,
+                            'width': t.entities.media[0].sizes.medium.w
+                        });
+                    }
+                });
+                
+                $(".tweet").tweet({
+                    tweets: tweets,
+                    avatar_size: 40,
+                    count: 3,
+                    template: "{avatar}<div class='actions'>{time}</div><div>{text}</div>",
+                    loading_text: "Loading Tweets"
+                });
+                
+                $('#twitter-block').find('.fade').addClass('in');
+            }
+                
             callback(twPhotos);
         });
-
-        $(".tweet").tweet({
-            username: user,
-            avatar_size: 40,
-            count: 3,
-            template: "{avatar}<div class='actions'>{time}</div><div>{text}</div>",
-            loading_text: "Loading Tweets"
-        });
-
-        $('#twitter').html('<a href="https://twitter.com/' + user + '" class="twitter-follow-button" data-show-count="false" data-show-screen-name="true" data-lang="en">Follow ' + username + '</a>');
-
-        // Add the Twitter widget link
-        var js, fjs = document.getElementsByTagName('script')[0];
-        if (!document.getElementById('twitter-follow')) {
-          js = document.createElement('script');
-          js.id = 'twitter-follow';
-          js.src = '//platform.twitter.com/widgets.js';
-          fjs.parentNode.insertBefore(js, fjs);
-        }
     },
 
-    flickr: function(office, url, photos) {
+    flickr: function(account, photos) {
         var apiBase = 'http://api.flickr.com/services/rest/?format=json&jsoncallback=?&method=',
             apiKey = '1da8476bfea197f692c2334997c10c87', //from UNDP's main account (unitednationsdevelopmentprogramme)
-            userid, username,
-            $el = $('#flickr');
-            $el.find('.spin').spin({ color:'#fff' });
-
-            searchFirst = this.model.get('project_id'),
-            searchSecond = office,
+            search = this.model.get('project_id'),
+            //search = 'africa' //for testing
             attempt = 0,
-            i = 0;
-
-        // Get user info based on flickr link
-        $.getJSON(apiBase + 'flickr.urls.lookupUser&api_key=' + apiKey + '&url=' + url, function(f) {
-            userid = f.user.id,
-            username = f.user.username._content;
-
-            searchPhotos(userid, searchFirst);
+            i = 0,
+            $el = $('#flickr');
+            
+        $el.find('.spin').spin({ color:'#fff' });
+            
+        _.each(account, function(acct) {
+            // Get user info based on flickr link
+            $.getJSON(apiBase + 'flickr.urls.lookupUser&api_key=' + apiKey + '&url=http://www.flickr.com/photos/' + acct, function(f) {
+                searchPhotos(f.user.id, search);
+            });
         });
 
-        // Search Flickr based on search terms. Try project_id, then country office.
-        function searchPhotos(id, search) {
-            $.getJSON(apiBase + 'flickr.photos.search&api_key=' + apiKey + '&user_id=' + userid + '&text=' + search,
+        // Search Flickr based on project ID.
+        function searchPhotos(id, tags) {
+            attempt += 1;
+            $.getJSON(apiBase + 'flickr.photos.search&api_key=' + apiKey + '&user_id=' + id + '&tags=' + tags,
                 function(f) {
-                    if (f.photos.total == '0') {
-                        attempt += 1;
-                        switch (attempt) {
-                            case 1:
-                                searchPhotos(userid, searchSecond);
-                                break;
-                            case 2:
-                                if (photos.length) {
-                                    loadPhoto(i);
-                                } else {
-                                    $el.css('display','none');
-                                }
-                                break;
-                        }
-                    } else {
+                    if (f.photos.total != '0') {
                         photos = photos.concat(f.photos.photo);
-                        loadPhoto(i);
+                    }
+                    if (attempt == account.length) {
+                        if (photos.length) {
+                            $el.show();
+                            loadPhoto(i);
+                        }
                     }
                 }
             );
@@ -474,7 +501,8 @@ views.Map = Backbone.View.extend({
                 $.getJSON(apiBase + 'flickr.photos.getInfo&api_key=' + apiKey + '&photo_id=' + photoid, function(info) {
 
                     var description = info.photo.description._content,
-                        date = (new Date(info.photo.dates.taken)).toLocaleDateString();
+                        date = (new Date(info.photo.dates.taken)).toLocaleDateString(),
+                        url = info.photo.urls.url[0]._content;
 
                     // Get available sizes
                     $.getJSON(apiBase + 'flickr.photos.getSizes&api_key=' + apiKey + '&photo_id=' + photoid, function(s) {
@@ -508,7 +536,7 @@ views.Map = Backbone.View.extend({
                         // Fill in date & description
                         $('.meta-inner', $el).html('<span class="date">' + date + '</span>'
                             + '<p>' + description
-                            + '<a href="' + url + photoid + '/in/photostream/" title="See our photos on Flickr"> Source</a></p>');
+                            + '<a href="' + url + 'in/photostream/" title="See our photos on Flickr"> Source</a></p>');
 
                         insertPhoto(pHeight, pWidth, source);
                     });
