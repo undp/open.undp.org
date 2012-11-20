@@ -5,8 +5,11 @@ views.TopDonors = Backbone.View.extend({
     },
     render: function () {
         var that = this;
-        _(this.collection.models).each(function(model) {
-            $('tbody', that.el).append(templates.topDonor({ model: model }));
+            chartModels = that.collection.models;
+            max = chartModels[0].get('amount');
+            
+        _(chartModels).each(function(model) {
+            $('tbody', that.el).append(templates.topDonor({ model: model, barWidth: model.get('amount')/max*100 }));
         });
     }
 });
