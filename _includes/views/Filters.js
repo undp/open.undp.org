@@ -181,8 +181,7 @@ views.Filters = Backbone.View.extend({
 
                     rows.push({
                         sort: -1 * ((donor && view.collection.id === 'operating_unit') ? donorBudget : model.get('budget') / 1000000),
-                        content: 
-                            '<tr>' +
+                        content: '<tr>' +
                             '    <td>' + caption + '</td>' +
                             '    <td class="right">' + budget + '</td>' +
                             '    <td class="data">' + bar + '</td>' +
