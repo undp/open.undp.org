@@ -16,7 +16,7 @@ views.Filters = Backbone.View.extend({
             // Use donor level financial data if available
             if (active[0].collection.id === 'donors') {
                 chartType = 'donorBudget';
-                chartTypeExp = 'donorExpenditure';
+                chartTypeExp = 'donor_expenditure';
                 donor = active[0].id;
             }
 
@@ -135,6 +135,8 @@ views.Filters = Backbone.View.extend({
 
                 $('#chart-' + this.collection.id + ' .rows').html('');
                 _(chartModels).each(function(model) {
+                    console.log(model.collection.id);
+                    console.log(model.attributes);
                     var budget = accounting.formatMoney(model.get(chartType)/1000000) + 'M';
                     var expenditure = accounting.formatMoney(model.get(chartTypeExp)/1000000) + 'M';
                     var caption = '<a href="#filter/' + model.collection.id + '-' + model.get('id')
