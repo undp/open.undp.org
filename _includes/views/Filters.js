@@ -80,6 +80,18 @@ views.Filters = Backbone.View.extend({
                         $('#applied-filters.no-country').removeClass('no-region');
                         app.description.push(' in the <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong> region');
                     }
+                    if (view.collection.id === 'donor_countries') {
+                        var mId = model.id;
+
+                        console.log(mId);
+                        if (mId === 'MULTI_AGY') {
+                            app.description.push(' with funding from  <strong>Multi-Lateral Agencies</strong>');
+                        } else if (mId === 'OTH') {
+                            app.description.push(' with funding from  <strong>Uncategorized Organizations</strong>');
+                        } else {
+                            app.description.push(' with funding from <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong>');
+                        }
+                    }
                     if (view.collection.id === 'donors') {
                         app.description.push(' funded by the <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong>');
                     }
