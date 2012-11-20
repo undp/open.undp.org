@@ -31,8 +31,8 @@ views.ProjectProfile = Backbone.View.extend({
             + '<li><a href="#project/' + this.model.get('id') + '">' + this.model.get('id') + '</a></li>'
         );
 
-        var startDate = new Date(this.model.get('start').replace('-',',')),
-            endDate = new Date(this.model.get('end').replace('-',',')),
+        var startDate = new Date(this.model.get('start')),
+            endDate = new Date(this.model.get('end')),
             curDate = new Date(),
             progress = ((curDate - startDate) / (endDate - startDate)) * 100;
             that = this;
