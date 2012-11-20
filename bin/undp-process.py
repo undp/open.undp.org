@@ -579,10 +579,9 @@ regions_sort = sorted(regions, key = lambda x: x['bureau'])
 row_count = 0
 region_index = []
 regionHeader = ['id','name']
-region_i = ['global']
+region_i = []
 index = []
 global_i = ['global','Global']
-name_i = []
 for r,region in groupby(regions_sort, lambda x: x['bureau']): 
     row_count = row_count + 1
     if r in exclude:
