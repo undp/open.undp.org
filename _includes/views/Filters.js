@@ -55,7 +55,7 @@ views.Filters = Backbone.View.extend({
                 $('#' + view.collection.id + '-' + model.id).toggleClass('active', model.get('active'));
                 if (model.get('active') && !keypress) {
                     $('#breadcrumbs ul').append(
-                        '<li><a href="/undp-projects/#filter/' +
+                        '<li><a href="' + BASE_URL + '/#filter/' +
                         view.collection.id + '-' +
                         model.get('id') + '">' +
                         model.get('name').toLowerCase().toTitleCase() +
