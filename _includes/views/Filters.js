@@ -27,13 +27,16 @@ views.Filters = Backbone.View.extend({
                     return (model.get('visible') && model.get('count') > length);
                 });
 
-            chartModels = _(this.collection.sortBy(function(model) {
-                    return -1 * model.get(chartType) || 0;
-                })
-                .filter(function(model) {
-                    return (model.get(chartType) > 0);
-                }))
-                .first(20);
+            chartModels = this.collection.sortBy(function(model) {
+                return -1 * model.get(chartType) || 0;
+            });
+
+            chartModels = _.filter(chartModels, function(model) {
+                return (model.get(chartType) > 0);
+            });
+
+            chartModels = _.first(chartModels, 20);
+
             if (this.collection.id === 'operating_unit') {
                 $('#applied-filters').addClass('no-country');
             }
@@ -41,7 +44,6 @@ views.Filters = Backbone.View.extend({
                 $('#applied-filters').addClass('no-region');
             }
         }
-
 
         if (filterModels.length) {
             this.$el.html(templates.filters(this));
@@ -103,7 +105,7 @@ views.Filters = Backbone.View.extend({
 
                 chartModels = this.collection.models;
 
-                var total = chartModels.reduce(function(memo, model) {
+                var total = _(chartModels).reduce(function(memo, model) {
                     return memo + (model.get('budget') || 0 );
                 }, 0);
 
