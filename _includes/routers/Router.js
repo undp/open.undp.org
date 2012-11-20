@@ -81,36 +81,7 @@ routers.App = Backbone.Router.extend({
             };
             this.app.filters = filters;
 
-            // Load projects
-            if (!this.allProjects) {
-                this.allProjects = new models.Projects();
-                this.allProjects.fetch({
-                    success: function () {
-                        that.projects = new models.Projects(that.allProjects.filter(filter));
-                        var view = new views.Projects({
-                            collection: that.projects
-                        });
-
-                        that.projects.watch();
-                        loadFilters();
-
-                        that.projects.map = new views.Map({
-                            el: '#homemap',
-                            collection: that.projects
-                        });
-
-                        that.projects.widget = new views.Widget({
-                            context: 'projects'
-                        });
-                    }
-                });
-            } else {
-                // if projects are already present
-                this.projects.reset(this.allProjects.filter(filter));
-                updateDescription();
-            }
-
-            function loadFilters() {
+            var loadFilters = function() {
                 var counter = 0;
                 that.app.views = {};
                 // Load filters
@@ -141,6 +112,35 @@ routers.App = Backbone.Router.extend({
                         }
                     });
                 });
+            };
+
+            // Load projects
+            if (!this.allProjects) {
+                this.allProjects = new models.Projects();
+                this.allProjects.fetch({
+                    success: function () {
+                        that.projects = new models.Projects(that.allProjects.filter(filter));
+                        var view = new views.Projects({
+                            collection: that.projects
+                        });
+
+                        that.projects.watch();
+                        loadFilters();
+
+                        that.projects.map = new views.Map({
+                            el: '#homemap',
+                            collection: that.projects
+                        });
+
+                        that.projects.widget = new views.Widget({
+                            context: 'projects'
+                        });
+                    }
+                });
+            } else {
+                // if projects are already present
+                this.projects.reset(this.allProjects.filter(filter));
+                updateDescription();
             }
         }
 

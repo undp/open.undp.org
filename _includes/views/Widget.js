@@ -38,7 +38,7 @@ views.Widget = Backbone.View.extend({
         }
 
         $('.widget-preview', view.$el).html(view.widgetCode);
-        $('.widget-code', view.$el).val(view.widgetCode)
+        $('.widget-code', view.$el).val(view.widgetCode);
 
         return this;
     },

@@ -53,11 +53,11 @@ views.Filters = Backbone.View.extend({
                 $('#' + view.collection.id + '-' + model.id).toggleClass('active', model.get('active'));
                 if (model.get('active') && !keypress) {
                     $('#breadcrumbs ul').append(
-                        '<li><a href="/undp-projects/#filter/'
-                        + view.collection.id + '-'
-                        + model.get('id') + '">'
-                        + model.get('name').toLowerCase().toTitleCase()
-                        + '</a></li>'
+                        '<li><a href="/undp-projects/#filter/' +
+                        view.collection.id + '-' +
+                        model.get('id') + '">' +
+                        model.get('name').toLowerCase().toTitleCase() +
+                        '</a></li>'
                     );
 
                     if (view.collection.id === 'operating_unit') {
@@ -128,8 +128,8 @@ views.Filters = Backbone.View.extend({
                 _(chartModels).each(function(model) {
                     var budget = accounting.formatMoney(model.get('budget')/1000000) + 'M';
                     var expenditure = accounting.formatMoney(model.get('expenditure')/1000000) + 'M';
-                    var caption = '<a href="#filter/' + model.collection.id + '-' + model.get('id')
-                        + '">' + model.get('name').toLowerCase().toTitleCase() + '</a>';
+                    var caption = '<a href="#filter/' + model.collection.id + '-' + model.get('id') +
+                        '">' + model.get('name').toLowerCase().toTitleCase() + '</a>';
                     var bar = '<div style="width: ' + (model.get('budget')/ max * 100) + '%"></div>' + '<div class="subdata" style="width: ' + (model.get('expenditure')/ max * 100) + '%"></div>';
 
 

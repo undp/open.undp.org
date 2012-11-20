@@ -31,7 +31,11 @@ views.WidgetProjects = Backbone.View.extend({
             _(models).each(function(model) {
                 this.$('tbody', view.table).append(templates.project({ model: model }));
             });
-            (models.length < 10) ? $('.load').hide() : $('.load').show();
+            if (models.length < 10) {
+                $('.load').hide();
+            } else {
+                $('.load').show();
+            }
         } else {
             this.$('tbody', view.table).empty().append('<tr><td><em>No projects</em></td><td></td><td></td></tr>');
         }
@@ -69,10 +73,18 @@ views.WidgetProjects = Backbone.View.extend({
         if ($target.attr('data-sort') === that.sortData) {
             if (that.sortOrder === 'desc') {
                 that.sortOrder = 'asc';
-                (that.sortData === 'name') ? $target.addClass('sort-up') : $target.addClass('sort-down');
+                if (that.sortData === 'name') {
+                    $target.addClass('sort-up');
+                } else {
+                    $target.addClass('sort-down');
+                }
             } else {
                 that.sortOrder = 'desc';
-                (that.sortData === 'name') ? $target.addClass('sort-down') : $target.addClass('sort-up');
+                if (that.sortData === 'name') {
+                    $target.addClass('sort-down');
+                } else {
+                    $target.addClass('sort-up');
+                }
             }
         } else {
             that.sortData = $target.attr('data-sort');
