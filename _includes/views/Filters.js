@@ -11,6 +11,7 @@ views.Filters = Backbone.View.extend({
             chartTypeExp = 'expenditure',
             donor = '';
 
+
         if (active.length) {
 
             // Use donor level financial data if available

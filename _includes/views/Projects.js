@@ -62,6 +62,7 @@ views.Projects = Backbone.View.extend({
                 }
             }
         } else {
+            this.$('.load').hide();
             this.$('#project-table tbody').empty().append('<tr><td><em>No projects</em></td><td></td><td></td></tr>');
 
         }
@@ -103,6 +104,8 @@ views.Projects = Backbone.View.extend({
                 val = $target.val().toLowerCase(),
                 mode = (val.substr(0, 3) === '000') ? 'id' : 'name';
 
+            $target.parent().find('.reset').toggleClass('hidden', (val === ''));
+
             view.collection.each(function(model) {
                 var name = model.get(mode).toLowerCase();
 
@@ -115,12 +118,6 @@ views.Projects = Backbone.View.extend({
 
             view.render();
         }, 100);
-
-        if ($('body').scrollTop !== $('#projects-heading').offset().top + 1) {
-            $('html, body').animate({
-                scrollTop: $('#projects-heading').offset().top + 1
-            }, 500);
-        }
     },
 
     sortProjects: function(e) {
