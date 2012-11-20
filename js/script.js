@@ -54,6 +54,7 @@
     {% include views/WidgetOutput.js %}
     {% include views/WidgetProjects.js %}
     {% include views/WidgetMap.js %}
+    {% include views/WidgetProjectsTitle.js %}
 
     // Router
     {% include routers/Router.js %}

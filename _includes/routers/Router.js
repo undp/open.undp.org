@@ -243,7 +243,7 @@ routers.App = Backbone.Router.extend({
             this.defaultTitle = this.defaultTitle || $('.heading-title').html();
             this.widgetOutput.filters = filters;
 
-            var filter = function (model) {
+            var filter = function(model) {
                 if (!filters.length) return true;
                 return _(filters).reduce(function (memo, filter) {
                     if (filter.collection === 'region') {
@@ -279,54 +279,54 @@ routers.App = Backbone.Router.extend({
     },
 
     about: function (route) {
-      window.setTimeout(function () {
-          $('html, body').scrollTop(0);
-      }, 0);
+        window.setTimeout(function () {
+            $('html, body').scrollTop(0);
+        }, 0);
 
-      $('#breadcrumbs ul').html('<li><a href="#">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#about/open">About</a></li>');
+        $('#breadcrumbs ul').html('<li><a href="#">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#about/open">About</a></li>');
 
-      $('#app .view, #mainnav').hide();
-      $('#aboutnav li').removeClass('active');
-      $('#about .section').hide();
+        $('#app .view, #mainnav').hide();
+        $('#aboutnav li').removeClass('active');
+        $('#about .section').hide();
 
-      $('#about, #aboutnav').show();
-      $('#aboutnav li a[href="#about/' + route + '"]').parent().addClass('active');
-      $('#about #' + route).show();
+        $('#about, #aboutnav').show();
+        $('#aboutnav li a[href="#about/' + route + '"]').parent().addClass('active');
+        $('#about #' + route).show();
     },
 
     topDonors: function () {
-      window.setTimeout(function () {
-          $('html, body').scrollTop(0);
-      }, 0);
+        window.setTimeout(function () {
+            $('html, body').scrollTop(0);
+        }, 0);
 
-      $('#breadcrumbs ul').html('<li><a href="#">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#top-donors">Top Donors</a></li>');
+        $('#breadcrumbs ul').html('<li><a href="#">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#top-donors">Top Donors</a></li>');
 
-      $('#app .view').hide();
-      $('#mainnav li').removeClass('active');
+        $('#app .view').hide();
+        $('#mainnav li').removeClass('active');
 
-      $('#top-donors').show();
-      $('#mainnav li a[href="#top-donors"]').parent().addClass('active');
+        $('#top-donors').show();
+        $('#mainnav li a[href="#top-donors"]').parent().addClass('active');
 
-      var donorsGross = new models.TopDonors();
-      donorsGross.url = 'api/top-donor-gross-index.json';
+        var donorsGross = new models.TopDonors();
+        donorsGross.url = 'api/top-donor-gross-index.json';
 
-      var donorsLocal = new models.TopDonors();
-      donorsLocal.url = 'api/top-donor-local-index.json';
-      donorsGross.fetch({
-          success: function () {
-              this.topDonorsGross = new views.TopDonors({
-                  el: '#donor-gross-table',
-                  collection: donorsGross
-              });
-          }
-      });
-      donorsLocal.fetch({
-          success: function () {
-              this.topDonorsLocal = new views.TopDonors({
-                  el: '#donor-local-table',
-                  collection: donorsLocal
-              });
-          }
-      });
+        var donorsLocal = new models.TopDonors();
+        donorsLocal.url = 'api/top-donor-local-index.json';
+        donorsGross.fetch({
+            success: function () {
+                this.topDonorsGross = new views.TopDonors({
+                    el: '#donor-gross-table',
+                    collection: donorsGross
+                });
+            }
+        });
+        donorsLocal.fetch({
+            success: function () {
+                this.topDonorsLocal = new views.TopDonors({
+                    el: '#donor-local-table',
+                    collection: donorsLocal
+                });
+            }
+        });
     }
 });

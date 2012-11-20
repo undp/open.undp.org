@@ -9,7 +9,7 @@ views.Filters = Backbone.View.extend({
             active = this.collection.where({ active: true }),
             chartType = 'budget';
 
-        if(active.length) {
+        if (active.length) {
 
             // Add a filtered class to all parent containers
             // where an active element has been selected.

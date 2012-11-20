@@ -31,8 +31,11 @@ views.ProjectProfile = Backbone.View.extend({
             '<li><a href="#project/' + this.model.get('id') + '">' + this.model.get('id') + '</a></li>'
         );
 
-        var startDate = new Date(this.model.get('start')),
-            endDate = new Date(this.model.get('end')),
+        var start = this.model.get('start').split('-');
+        var end = this.model.get('end').split('-');
+
+        var startDate = new Date(start[0],start[1]-1,start[2]),
+            endDate = new Date(end[0],end[1]-1,end[2]),
             curDate = new Date(),
             progress = ((curDate - startDate) / (endDate - startDate)) * 100;
             that = this;
@@ -63,8 +66,11 @@ views.ProjectProfile = Backbone.View.extend({
             return res;
             },{});
 
-        var start = new Date(this.model.get('start')).format('M d, Y');
-        var end = new Date(this.model.get('end')).format('M d, Y');
+        var s = this.model.get('start').split('-');
+        var e = this.model.get('end').split('-');
+
+        var start = new Date(s[0],s[1]-1,s[2]).format('M d, Y');
+        var end = new Date(e[0],e[1]-1,e[2]).format('M d, Y');
 
         // Filter out any image files from showing up
         var filterDocuments = _(this.model.get('document_name')[1]).filter(function(d) {

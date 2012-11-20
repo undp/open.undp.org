@@ -1147,10 +1147,12 @@ form {
   margin-bottom:0;
   }
 #progress .bar {
-  background:#8DCF16;
-  background:-moz-linear-gradient(#8DCF16, #65BD10);
-  background:-webkit-linear-gradient(#8DCF16, #65BD10);
-  background:linear-gradient(#8DCF16, #65BD10);
+  background-color:#8DCF16;
+  background-image:-moz-linear-gradient(top,#8DCF16,#65BD10);
+  background-image:-webkit-gradient(linear,0 0,0 100%,from(#8DCF16),to(#65BD10));
+  background-image:-webkit-linear-gradient(top,#8DCF16,#65BD10);
+  background-image:-o-linear-gradient(top,#8DCF16,#65BD10);
+  background-image:linear-gradient(to bottom,#8DCF16,#65BD10);
   }
 .dates-label span.end {
   float: right;
