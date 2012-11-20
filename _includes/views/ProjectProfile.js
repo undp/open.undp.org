@@ -25,26 +25,29 @@ views.ProjectProfile = Backbone.View.extend({
 
     render: function() {
         $('#breadcrumbs ul').html(
-            '<li><a href="#">Home</a></li>'
-            + '<li><a href="/undp-projects/">Our Projects</a></li>'
-            + '<li><a href="#filter/operating_unit-' + this.model.get('operating_unit_id') + '">' + this.model.get("operating_unit") + '</a></li>'
-            + '<li><a href="#project/' + this.model.get('id') + '">' + this.model.get('id') + '</a></li>'
+            '<li><a href="#">Home</a></li>' +
+            '<li><a href="' + BASE_URL + '">Our Projects</a></li>' +
+            '<li><a href="#filter/operating_unit-' + this.model.get('operating_unit_id') + '">' + this.model.get("operating_unit") + '</a></li>' +
+            '<li><a href="#project/' + this.model.get('id') + '">' + this.model.get('id') + '</a></li>'
         );
-    
-        var startDate = new Date(this.model.get('start').replace('-',',')),
-            endDate = new Date(this.model.get('end').replace('-',',')),
+
+        var start = this.model.get('start').split('-');
+        var end = this.model.get('end').split('-');
+
+        var startDate = new Date(start[0],start[1]-1,start[2]),
+            endDate = new Date(end[0],end[1]-1,end[2]),
             curDate = new Date(),
             progress = ((curDate - startDate) / (endDate - startDate)) * 100;
             that = this;
 
         this.model.attributes.budget = _.chain(this.model.attributes.outputs)
-            .map(function (o) { return o.budget })
+            .map(function (o) { return o.budget; })
             .flatten()
             .reduce(function(memo, num){ return memo + num; }, 0)
             .value();
 
         this.model.attributes.expenditure = _.chain(this.model.attributes.outputs)
-            .map(function (o) { return o.expenditure })
+            .map(function (o) { return o.expenditure; })
             .flatten()
             .reduce(function(memo, num){ return memo + num; }, 0)
             .value();
@@ -63,22 +66,38 @@ views.ProjectProfile = Backbone.View.extend({
             return res;
             },{});
 
-        var sParts = (new Date(this.model.get('start'))).toLocaleDateString().split(',');
-        var eParts = (new Date(this.model.get('end'))).toLocaleDateString().split(',');
+        var s = this.model.get('start').split('-');
+        var e = this.model.get('end').split('-');
 
-        var start = sParts[1] + ',' + sParts[2];
-        var end = eParts[1] + ',' + eParts[2];
+        var start = new Date(s[0],s[1]-1,s[2]).format('M d, Y');
+        var end = new Date(e[0],e[1]-1,e[2]).format('M d, Y');
+
+        // Filter out any image files from showing up
+        var filterDocuments = _(this.model.get('document_name')[1]).filter(function(d) {
+            return !(/\.(gif|jpg|jpeg|tiff|png)$/i).test(d);
+        });
+        var documents = [];
+
+        if (filterDocuments.length !== 0) {
+            _(filterDocuments).each(function(d, i) {
+                documents[i] = {};
+                documents[i].title = (d.split('/').pop()).split(/(.)[^.]*$/)[0].replace('_', ' ');
+                documents[i].filetype = d.split('.').pop();
+                documents[i].src = d;
+            });
+        }
 
         window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
         this.$el.empty().append(templates.projectProfile({
             start: start,
             end: end,
             base: BASE_URL,
+            documents: documents,
             model: this.model
         })).show();
 
         // If first load is a project page or output, don't animate
-        if (app.app && this.options.gotoOutput == false) {
+        if (app.app && this.options.gotoOutput === false) {
             $('#profile .summary').addClass('off');
         }
 
@@ -91,19 +110,23 @@ views.ProjectProfile = Backbone.View.extend({
 
         if (_.isEmpty(this.model.get('document_name'))) {
             $('.widget-options ul li.doc-opt').hide();
-        } else {;
+        } else {
             $('.widget-options ul li.doc-opt').show();
             this.docPhotos();
         }
 
-        this.$('#outputs').empty()
+        this.$('#outputs').empty();
         var outputs = this.model.attributes.outputs.slice(0, 9);
         _(outputs).each(function(model) {
             this.$('#outputs').append(templates.projectOutputs({ model: model }));
         });
 
         // Project Outputs
-        (this.model.attributes.outputs.length < 10) ? $('.load').hide() : $('.load').show();
+        if (this.model.attributes.outputs.length < 10) {
+            $('.load').hide();
+        } else {
+            $('.load').show();
+        }
 
         // Append menu items to the breadcrumb
         $('breadcrumbs').find('ul').remove();
@@ -135,18 +158,18 @@ views.ProjectProfile = Backbone.View.extend({
             var filetype = photo.split('.')[1].toLowerCase(),
                 source = that.model.get('document_name')[1][i];
 
-            if (filetype == 'jpg' || filetype == 'jpeg' || filetype == 'png' || filetype == 'gif') {
+            if (filetype === 'jpg' || filetype === 'jpeg' || filetype === 'png' || filetype === 'gif') {
                 var img = new Image();
-                img.onload = goodImg;
-                img.src = source;
-
-                function goodImg(e) {
+                var goodImg = function() {
                     photos.push({
                         'title': photo.split('.')[0],
                         'source': source,
                         'image': img
                     });
-                }
+                };
+
+                img.onload = goodImg;
+                img.src = source;
             }
         });
 

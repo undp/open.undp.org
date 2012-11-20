@@ -13,7 +13,6 @@ views.Map = Backbone.View.extend({
     },
     render: function() {
         $('#chart-hdi').css('display','none');
-
         var that = this,
             layer,
             unit = (this.collection) ? this.collection
@@ -48,7 +47,6 @@ views.Map = Backbone.View.extend({
                     })[0];
 
                     $('.map-btn[data-value="hdi"] .total-caption').html('HDI');
-                    $('.widget-options ul li.hdi-opt').show();
 
                     if (_.size(hdiArray) > 0) {
                         $('#hdi').html(_.last(hdi.hdi)[1]);
@@ -60,7 +58,6 @@ views.Map = Backbone.View.extend({
                 } else {
                     $('#hdi').html(_.last(hdiWorld.hdi)[1]);
                     $('.map-btn[data-value="hdi"] .total-caption').html('HDI Global');
-                    $('.widget-options ul li.hdi-opt').hide();
                 }
             } else {
                 layer = 'budget';
@@ -85,13 +82,14 @@ views.Map = Backbone.View.extend({
 
         // if map has been panned do not fire click
         $target.on('mouseup', function(e) {
+            var path;
             if (drag) {
                 e.preventDefault();
             } else {
                 if ($target.hasClass('simplestyle-marker')) {
-                    var path = '#filter/operating_unit-' + that.model.get('operating_unit_id');
+                    path = '#filter/operating_unit-' + that.model.get('operating_unit_id');
                 } else {
-                    var path = '#filter/operating_unit-' + $target.attr('id');
+                    path = '#filter/operating_unit-' + $target.attr('id');
                 }
                 app.navigate(path, { trigger: true });
                 $('#browser .summary').removeClass('off');
@@ -102,14 +100,14 @@ views.Map = Backbone.View.extend({
         $('#chart-hdi').css('display','block');
         $('#chart-hdi h3').html(country.name + ' Human Development Index');
         $('.data', '#chart-hdi').empty().append(
-            '<div class="total" style="width:' + _.last(country.hdi)[1]*100 + '%">' + _.last(country.hdi)[1] + '</div>'
-            + '<div class="subdata total" style="width:' + _.last(world.hdi)[1]*100 + '%;"></div>'
-            + '<div class="health" style="width:' + _.last(country.health)[1]*100 + '%">' + _.last(country.health)[1] + '</div>'
-            + '<div class="subdata health" style="width:' + _.last(world.health)[1]*100 + '%;"></div>'
-            + '<div class="education" style="width:' + _.last(country.education)[1]*100 + '%">' + _.last(country.education)[1] + '</div>'
-            + '<div class="subdata education" style="width:' + _.last(world.education)[1]*100 + '%;"></div>'
-            + '<div class="income" style="width:' + _.last(country.income)[1]*100 + '%">' + _.last(country.income)[1] + '</div>'
-            + '<div class="subdata income" style="width:' + _.last(world.income)[1]*100 + '%;"></div>'
+            '<div class="total" style="width:' + _.last(country.hdi)[1]*100 + '%">' + _.last(country.hdi)[1] + '</div>' +
+            '<div class="subdata total" style="width:' + _.last(world.hdi)[1]*100 + '%;"></div>' +
+            '<div class="health" style="width:' + _.last(country.health)[1]*100 + '%">' + _.last(country.health)[1] + '</div>' +
+            '<div class="subdata health" style="width:' + _.last(world.health)[1]*100 + '%;"></div>' +
+            '<div class="education" style="width:' + _.last(country.education)[1]*100 + '%">' + _.last(country.education)[1] + '</div>' +
+            '<div class="subdata education" style="width:' + _.last(world.education)[1]*100 + '%;"></div>' +
+            '<div class="income" style="width:' + _.last(country.income)[1]*100 + '%">' + _.last(country.income)[1] + '</div>' +
+            '<div class="subdata income" style="width:' + _.last(world.income)[1]*100 + '%;"></div>'
         );
         $('#chart-hdi .ranking').html(country.rank + '<span class="outof">/' + world.count + '</span>');
     },
@@ -129,7 +127,7 @@ views.Map = Backbone.View.extend({
                     var markings = [];
                     for (var x = 5; x < axes.xaxis.max; x += 5)
                         markings.push({ xaxis: { from: x, to: x }, lineWidth: 1, color: '#CEDEDD' });
-                    for (var y = .2; y < axes.yaxis.max; y += .2)
+                    for (var y = 0.2; y < axes.yaxis.max; y += 0.2)
                         markings.push({ yaxis: { from: y, to: y }, lineWidth: 1, color: '#CEDEDD' });
                     return markings;
                 }
@@ -165,9 +163,9 @@ views.Map = Backbone.View.extend({
         if (cat == 'budget' || cat == 'expenditure') {
             return Math.round(x.properties[cat] / 100000);
         } else if (cat == 'hdi') {
-            return Math.round(Math.pow(x.properties[cat],2) / .0008);
+            return Math.round(Math.pow(x.properties[cat],2) / 0.0008);
         } else {
-            return Math.round(x.properties[cat] / .05);
+            return Math.round(x.properties[cat] / 0.05);
         }
     },
     updateMap: function(layer) {
@@ -223,16 +221,31 @@ views.Map = Backbone.View.extend({
                         }
 
                         if (o.lon) {
-                            (homepage) ? count = unit.operating_unit[o.id] : count = false;
-                            (homepage) ? sources = unit.operating_unitSources[o.id] : sources = false;
-                            (homepage) ? budget = unit.operating_unitBudget[o.id] : budget = that.model.get('budget');
-                            (homepage) ? expenditure = unit.operating_unitExpenditure[o.id] : expenditure = that.model.get('expenditure');
+                            if (homepage) {
+                                count = unit.operating_unit[o.id];
+                                sources = unit.operating_unitSources[o.id];
+                                budget = unit.operating_unitBudget[o.id];
+                                expenditure = unit.operating_unitExpenditure[o.id];
+                            } else {
+                                count = false;
+                                sources = false;
+                                budget = that.model.get('budget');
+                                expenditure = that.model.get('expenditure');
+                            }
                             if ((homepage) ? unit.hdi[o.id] : that.model.get('hdi')) {
-                                (homepage) ? hdi = _.last(unit.hdi[o.id].hdi)[1] : hdi = _.last(that.model.get('hdi').hdi)[1];
-                                (homepage) ? hdi_health = _.last(unit.hdi[o.id].health)[1] : _.last(hdi_health = that.model.get('hdi').health)[1];
-                                (homepage) ? hdi_education = _.last(unit.hdi[o.id].education)[1] : _.last(hdi_education = that.model.get('hdi').education)[1];
-                                (homepage) ? hdi_income = _.last(unit.hdi[o.id].income)[1] : _.last(hdi_income = that.model.get('hdi').income)[1];
-                                (homepage) ? hdi_rank = unit.hdi[o.id].rank : hdi_rank = that.model.get('hdi').rank;
+                                if (homepage) {
+                                    hdi = _.last(unit.hdi[o.id].hdi)[1];
+                                    hdi_health = _.last(unit.hdi[o.id].health)[1];
+                                    hdi_education = _.last(unit.hdi[o.id].education)[1];
+                                    hdi_income = _.last(unit.hdi[o.id].income)[1];
+                                    hdi_rank = unit.hdi[o.id].rank;
+                                } else {
+                                    hdi = _.last(that.model.get('hdi').hdi)[1];
+                                    hdi_health = _.last(that.model.get('hdi').health)[1];
+                                    hdi_education = _.last(that.model.get('hdi').education)[1];
+                                    hdi_income = _.last(that.model.get('hdi').income)[1];
+                                    hdi_rank = that.model.get('hdi').rank;
+                                }
                             } else {
                                 hdi = hdi_health = hdi_education = hdi_income = hdi_rank = 'no data';
                             }
@@ -267,7 +280,7 @@ views.Map = Backbone.View.extend({
                     }
                 }
 
-                if (locations.length != 0) {
+                if (locations.length !== 0) {
                     markers.features(locations);
                     mapbox.markers.interaction(markers);
                     map.extent(markers.extent());
@@ -276,7 +289,7 @@ views.Map = Backbone.View.extend({
                         map.zoom(4);
                     }
                 } else {
-                    map.centerzoom({lat:20,lon:0},2);
+                    map.centerzoom({lat:20, lon:0}, 2);
                 }
             });
         });
@@ -284,35 +297,35 @@ views.Map = Backbone.View.extend({
 
     tooltip: function(layer,data) {
         var description;
-        if (layer == 'hdi') {
-            description = '<div class="data-labels"><div>HDI</div><div>Health</div><div>Education</div><div>Income</div></div>'
-                + '<div class="data"><div class="total" style="width:' + data.hdi*150 + 'px">' + data.hdi + '</div>'
-                + '<div class="subdata total" style="width:' + _.last(this.collection.hdiWorld.hdi)[1]*150 + 'px;"></div>'
-                + '<div class="health" style="width:' + data.hdi_health*150 + 'px">' + data.hdi_health + '</div>'
-                + '<div class="subdata health" style="width:' + _.last(this.collection.hdiWorld.health)[1]*150 + 'px;"></div>'
-                + '<div class="education" style="width:' + data.hdi_education*150 + 'px">' + data.hdi_education + '</div>'
-                + '<div class="subdata education" style="width:' + _.last(this.collection.hdiWorld.education)[1]*150 + 'px;"></div>'
-                + '<div class="income" style="width:' + data.hdi_income*150 + 'px">' + data.hdi_income + '</div>'
-                + '<div class="subdata income" style="width:' + _.last(this.collection.hdiWorld.income)[1]*150 + 'px;"></div></div>';
+        if (layer === 'hdi') {
+            description = '<div class="data-labels"><div>HDI</div><div>Health</div><div>Education</div><div>Income</div></div>' +
+                '<div class="data"><div class="total" style="width:' + data.hdi*150 + 'px">' + data.hdi + '</div>' +
+                '<div class="subdata total" style="width:' + _.last(this.collection.hdiWorld.hdi)[1]*150 + 'px;"></div>' +
+                '<div class="health" style="width:' + data.hdi_health*150 + 'px">' + data.hdi_health + '</div>' +
+                '<div class="subdata health" style="width:' + _.last(this.collection.hdiWorld.health)[1]*150 + 'px;"></div>' +
+                '<div class="education" style="width:' + data.hdi_education*150 + 'px">' + data.hdi_education + '</div>' +
+                '<div class="subdata education" style="width:' + _.last(this.collection.hdiWorld.education)[1]*150 + 'px;"></div>' +
+                '<div class="income" style="width:' + data.hdi_income*150 + 'px">' + data.hdi_income + '</div>' +
+                '<div class="subdata income" style="width:' + _.last(this.collection.hdiWorld.income)[1]*150 + 'px;"></div></div>';
 
             data.title = data.name + '<div class="subtitle">rank: ' + data.hdi_rank + '</div>';
         } else {
-            description = '<div class="stat">Budget: <span class="value">'
-                + accounting.formatMoney(data.budget) + '</span></div>'
-                + '<div class="stat">Expenditure: <span class="value">'
-                + accounting.formatMoney(data.expenditure) + '</span></div>';
+            description = '<div class="stat">Budget: <span class="value">' +
+                accounting.formatMoney(data.budget) + '</span></div>' +
+                '<div class="stat">Expenditure: <span class="value">' +
+                accounting.formatMoney(data.expenditure) + '</span></div>';
 
             data.title = data.project + '<div class="subtitle">' + data.name + '</div>';
 
             // add this if we're counting projects (on homepage)
             if (data.count) {
-                description = '<div class="stat">Projects: <span class="value">'
-                    + data.count + '</span></div>'
-                    + ((data.sources > 1) ? ('<div class="stat">Funding Sources: <span class="value">'
-                    + data.sources + '</span></div>') : '')
-                    + description
-                    + '<div class="stat">HDI: <span class="value">'
-                    + data.hdi + '</span></div>';
+                description = '<div class="stat">Projects: <span class="value">' +
+                     data.count + '</span></div>' +
+                     ((data.sources > 1) ? ('<div class="stat">Funding Sources: <span class="value">' +
+                     data.sources + '</span></div>') : '') +
+                     description +
+                     '<div class="stat">HDI: <span class="value">' +
+                     data.hdi + '</span></div>';
 
                 data.title = data.name;
             }
@@ -323,7 +336,7 @@ views.Map = Backbone.View.extend({
 
     tooltipFlip: function(e) {
         var $target = $(e.target),
-            top = $target.offset().top - $('#homemap').offset().top;
+            top = $target.offset().top - this.$el.offset().top;
         if (top <= 150) {
             var tipSize = $('.marker-popup').height() + 50;
             $('.marker-tooltip').addClass('flip')
@@ -340,22 +353,21 @@ views.Map = Backbone.View.extend({
                 flickr: [],
                 facebook: []
             };
-    
+
         // Get social media accounts from UNDP-maintained spreadsheet
         $.getJSON('//spreadsheets.google.com/feeds/list/0Airl6dsmcbKodHB4SlVfeVRHeWoyWTdKcDY5UW1xaEE/1/public/values?alt=json-in-script&callback=?', function(g) {
             var flickrAccts = [],
                 twitterAccts = [],
                 fbAccts = [];
-            
+
             _.each(g.feed.entry, function(row) {
-                if (row.gsx$type.$t == 'Global'
-                    || (row.gsx$type.$t == 'HQ' && row.gsx$id.$t == that.model.get('region_id'))
+                if (row.gsx$type.$t === 'Global' || (row.gsx$type.$t === 'HQ' && row.gsx$id.$t === that.model.get('region_id'))
                     ) {
                     if (row.gsx$twitter.$t) twitterAccts.push(row.gsx$twitter.$t.replace('@',''));
                     if (row.gsx$flickr.$t) flickrAccts.push(row.gsx$flickr.$t);
                     if (row.gsx$facebook.$t) fbAccts.push(row.gsx$facebook.$t);
                 }
-                if (row.gsx$type.$t == 'CO' && row.gsx$id.$t == data.id) {
+                if (row.gsx$type.$t === 'CO' && row.gsx$id.$t === data.id) {
                     if (row.gsx$twitter.$t) {
                         twitterAccts.unshift(row.gsx$twitter.$t.replace('@',''));
                         coContact.twitter.push(row.gsx$twitter.$t.replace('@',''));
@@ -370,45 +382,45 @@ views.Map = Backbone.View.extend({
                     }
                 }
             });
-            
+
             that.twitter(twitterAccts, function(twPhotos) {
                 that.flickr(flickrAccts,photos.concat(twPhotos));
             });
-            
+
             contacts(coContact);
         });
-        
+
         function contacts(social) {
             _.each(['web','email','facebook','twitter','flickr'], function(v) {
                 var link = '',
                     i = 0;
-                    
+
                 if (data[v] || (social[v] && social[v].length)) {
                     if (v == 'twitter') baseUrl = 'http://twitter.com/';
                     if (v == 'email') baseUrl = 'mailto:';
                     if (v == 'flickr') baseUrl = 'http://flickr.com/photos/';
-                    
+
                     if (social[v]) {
                         _.each(social[v], function(x) {
                             i += 1;
-                            link += '<a href="' + baseUrl + social[v] + '">'
-                                    + ((v == 'twitter') ? '@' + social[v] : social[v]) + '</a>';
+                            link += '<a href="' + baseUrl + social[v] + '">' +
+                                    ((v == 'twitter') ? '@' + social[v] : social[v]) + '</a>';
                             if (i < social[v].length) link += ', ';
                         });
                     } else {
-                        link += '<a href="' + baseUrl + data[v] + '">' + data[v] + '</a>'
+                        link += '<a href="' + baseUrl + data[v] + '">' + data[v] + '</a>';
                     }
-    
+
                     // Fill contact modal
                     $('#unit-contact .modal-body').append(
-                          '<div class="row-fluid">'
-                        +     '<div class="contacts span2">'
-                        +         '<p>' + ((v == 'web') ? 'Homepage' : v.capitalize()) +'</p>'
-                        +     '</div>'
-                        +     '<div class="span10">'
-                        +         '<p>' + link + '</p>'
-                        +     '</div>'
-                        + '</div>'
+                        '<div class="row-fluid">' +
+                            '<div class="contacts span2">' +
+                                '<p>' + ((v == 'web') ? 'Homepage' : v.capitalize()) +'</p>' +
+                            '</div>' +
+                            '<div class="span10">' +
+                                '<p>' + link + '</p>' +
+                            '</div>' +
+                        '</div>'
                     );
                 }
             });
@@ -418,7 +430,7 @@ views.Map = Backbone.View.extend({
     twitter: function(username, callback) {
         var query = 'from:' + username.join(' OR from:') + ' ' + this.model.get('project_id'),
             twPhotos = [];
-        
+
         $.getJSON('http://search.twitter.com/search.json?&q=' + encodeURIComponent(query) + '&include_entities=1&callback=?', function(tweets) {
             if (tweets.results.length) {
                 $('#twitter-block').show();
@@ -434,18 +446,18 @@ views.Map = Backbone.View.extend({
                         });
                     }
                 });
-                
-                $(".tweet").tweet({
+
+                $('.tweet').tweet({
                     tweets: tweets,
                     avatar_size: 40,
                     count: 3,
                     template: "{avatar}<div class='actions'>{time}</div><div>{text}</div>",
                     loading_text: "Loading Tweets"
                 });
-                
+
                 $('#twitter-block').find('.fade').addClass('in');
             }
-                
+
             callback(twPhotos);
         });
     },
@@ -458,9 +470,9 @@ views.Map = Backbone.View.extend({
             attempt = 0,
             i = 0,
             $el = $('#flickr');
-            
+
         $el.find('.spin').spin({ color:'#fff' });
-            
+
         _.each(account, function(acct) {
             // Get user info based on flickr link
             $.getJSON(apiBase + 'flickr.urls.lookupUser&api_key=' + apiKey + '&url=http://www.flickr.com/photos/' + acct, function(f) {
@@ -489,8 +501,8 @@ views.Map = Backbone.View.extend({
         // Load single photo from array
         function loadPhoto(x) {
             $el.find('.spin').spin({ color:'#fff' });
-            if (x == 0) $('.prev', $el).addClass('inactive');
-            if (x == photos.length - 1) $('.next', $el).addClass('inactive');
+            if (x === 0) $('.prev', $el).addClass('inactive');
+            if (x === photos.length - 1) $('.next', $el).addClass('inactive');
 
             if (photos[x].id) {
                 var photoid = photos[x].id,
@@ -534,18 +546,18 @@ views.Map = Backbone.View.extend({
                         }
 
                         // Fill in date & description
-                        $('.meta-inner', $el).html('<span class="date">' + date + '</span>'
-                            + '<p>' + description
-                            + '<a href="' + url + 'in/photostream/" title="See our photos on Flickr"> Source</a></p>');
+                        $('.meta-inner', $el).html('<span class="date">' + date + '</span>' +
+                            '<p>' + description +
+                            '<a href="' + url + 'in/photostream/" title="See our photos on Flickr"> Source</a></p>');
 
                         insertPhoto(pHeight, pWidth, source);
                     });
                 });
 
             } else if (photos[x].date) {
-                $('.meta-inner', $el).html('<span class="date">' + photos[x].date.toLocaleDateString() + '</span>'
-                    + '<p>' + photos[x].description
-                    + '<a href="' + photos[x].link + '/in/photostream/" title="See our photos on Flickr"> Source</a></p>');
+                $('.meta-inner', $el).html('<span class="date">' + photos[x].date.toLocaleDateString() + '</span>' +
+                    '<p>' + photos[x].description +
+                    '<a href="' + photos[x].link + '/in/photostream/" title="See our photos on Flickr"> Source</a></p>');
 
                 insertPhoto(photos[x].height, photos[x].width, photos[x].source);
 
@@ -562,7 +574,7 @@ views.Map = Backbone.View.extend({
 
         // Cycle through photo array
         $('.next', $el).click(function() {
-            if (i == 0) {
+            if (i === 0) {
                 $('.prev', $el).removeClass('inactive');
             }
             i += 1;
@@ -572,11 +584,11 @@ views.Map = Backbone.View.extend({
             loadPhoto(i);
         });
         $('.prev', $el).click(function() {
-            if (i == photos.length - 1) {
+            if (i === photos.length - 1) {
                 $('.next', $el).removeClass('inactive');
             }
             i -= 1;
-            if (i == 0) {
+            if (i === 0) {
                 $('.prev', $el).addClass('inactive');
             }
             loadPhoto(i);
@@ -586,10 +598,10 @@ views.Map = Backbone.View.extend({
         $('.resize', $el).click(function() {
             if ($('body').hasClass('fullscreen')) {
                 $('body').removeClass('fullscreen');
-                $(this).find('.text').text('Details')
+                $(this).find('.text').text('Details');
             } else {
                 $('body').addClass('fullscreen');
-                $(this).find('.text').text('Hide Details')
+                $(this).find('.text').text('Hide Details');
             }
         });
     }

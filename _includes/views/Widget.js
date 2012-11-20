@@ -25,7 +25,7 @@ views.Widget = Backbone.View.extend({
     render: function(keypress) {
         var view = this;
 
-        view.widgetCode = '<iframe src="http://localhost:4000/undp-projects/' + view.path + '?' + view.widgetOpts.join('&') + '" width="500" height="320" frameborder="0"> </iframe>';
+        view.widgetCode = '<iframe src="' + BASE_URL + 'embed.html' + view.path + '?' + view.widgetOpts.join('&') + '" width="500" height="360" frameborder="0"> </iframe>';
 
         this.$el.empty().append(templates.widget());
 
@@ -38,7 +38,7 @@ views.Widget = Backbone.View.extend({
         }
 
         $('.widget-preview', view.$el).html(view.widgetCode);
-        $('.widget-code', view.$el).val(view.widgetCode)
+        $('.widget-code', view.$el).val(view.widgetCode);
 
         return this;
     },
@@ -57,7 +57,7 @@ views.Widget = Backbone.View.extend({
         }
 
         if (view.widgetOpts.length !== 0) {
-            view.widgetCode = '<iframe src="http://localhost:4000/undp-projects/' + view.path + '?' + view.widgetOpts.join('&') + '" width="500" height="320" frameborder="0"> </iframe>';
+            view.widgetCode = '<iframe src="' + BASE_URL + 'embed.html' + view.path + '?' + view.widgetOpts.join('&') + '" width="500" height="360" frameborder="0"> </iframe>';
 
             $('.widget-preview', view.$el).html(view.widgetCode);
             $('.widget-code', view.$el)

@@ -1,6 +1,6 @@
 ---
 title: 'UNDP’s commitment to improving transparency'
-tag: 'commitment'
+tag: 'transparency'
 category: 'about'
 ---
 Publishing detailed information about UNDP’s global activities strengthens the organization’s ability to achieve positive development results through better accountability, efficient resource management, and sustainable partnerships.

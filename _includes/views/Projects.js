@@ -3,7 +3,7 @@ views.Projects = Backbone.View.extend({
     events: {
         'click .load a': 'loadMore',
         'click table tr': 'routeToProject',
-        'click .table th': 'sortProjects'
+        'click #project-table th': 'sortProjects'
     },
 
     initialize: function() {
@@ -16,7 +16,7 @@ views.Projects = Backbone.View.extend({
     },
 
     render: function() {
-    
+
         var pageType = Backbone.history.fragment.split('/')[0];
 
         var donor = _(app.app.filters).find(function(filter) {
@@ -25,7 +25,7 @@ views.Projects = Backbone.View.extend({
             models = _(this.collection.filter(function(model) {
                 return model.get('visible');
             }));
-            
+
         models = (pageType === 'widget') ? models.first(10) : models.first(50);
 
         $('#total-count').html(accounting.formatNumber(this.collection.length));
@@ -49,9 +49,17 @@ views.Projects = Backbone.View.extend({
                 this.$('#project-table tbody').append(templates.project({ model: model }));
             });
             if (pageType === 'widget') {
-                (models.length < 10) ? $('.load').hide() : $('.load').show();
+                if (models.length < 10) {
+                    $('.load').hide();
+                } else {
+                    $('.load').show();
+                }
             } else {
-                (models.length < 50) ? $('.load').hide() : $('.load').show();
+               if (models.length < 50) {
+                    $('.load').hide();
+                } else {
+                    $('.load').show();
+                }
             }
         } else {
             this.$('#project-table tbody').empty().append('<tr><td><em>No projects</em></td><td></td><td></td></tr>');
@@ -118,26 +126,34 @@ views.Projects = Backbone.View.extend({
     sortProjects: function(e) {
         var that = this.collection,
             $target = $(e.target);
-            
+
         e.preventDefault();
         e.stopPropagation();
         $('.table th').removeClass('sort-down sort-up');
-        
+
         // Toggle sorting by descending/ascending
         if ($target.attr('data-sort') == that.sortData) {
             if (that.sortOrder == 'desc') {
                 that.sortOrder = 'asc';
-                (that.sortData == 'name') ? $target.addClass('sort-up') : $target.addClass('sort-down');
+                if (that.sortData == 'name') {
+                    $target.addClass('sort-up');
+                } else {
+                    $target.addClass('sort-down');
+                }
             } else {
                 that.sortOrder = 'desc';
-                (that.sortData == 'name') ? $target.addClass('sort-down') : $target.addClass('sort-up');
+                if (that.sortData == 'name') {
+                    $target.addClass('sort-down');
+                } else {
+                    $target.addClass('sort-up');
+                }
             }
         } else {
             that.sortData = $target.attr('data-sort');
             that.sortOrder = (that.sortData == 'name') ? 'asc' : 'desc';
             $target.addClass('sort-up');
         }
-        
+
         this.collection.models = _.sortBy(that.models, function(model) {
             if (that.sortOrder == 'desc') {
                 if (that.sortData == 'name') {
@@ -149,7 +165,7 @@ views.Projects = Backbone.View.extend({
                 return model.get(that.sortData);
             }
         });
-        
+
         this.render();
     }
 });

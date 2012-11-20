@@ -11,7 +11,7 @@ views.Filters = Backbone.View.extend({
             chartTypeExp = 'expenditure',
             donor = '';
 
-        if(active.length) {
+        if (active.length) {
 
             // Use donor level financial data if available
             if (active[0].collection.id === 'donors') {
@@ -36,13 +36,16 @@ views.Filters = Backbone.View.extend({
                     return (model.get('visible') && model.get('count') > length);
                 });
 
-            chartModels = _(this.collection.sortBy(function(model) {
-                    return -1 * model.get(chartType) || 0;
-                })
-                .filter(function(model) {
-                    return (model.get(chartType) > 0);
-                }))
-                .first(20);
+            chartModels = this.collection.sortBy(function(model) {
+                return -1 * model.get(chartType) || 0;
+            });
+
+            chartModels = _.filter(chartModels, function(model) {
+                return (model.get(chartType) > 0);
+            });
+
+            chartModels = _.first(chartModels, 20);
+
             if (this.collection.id === 'operating_unit') {
                 $('#applied-filters').addClass('no-country');
             }
@@ -50,7 +53,6 @@ views.Filters = Backbone.View.extend({
                 $('#applied-filters').addClass('no-region');
             }
         }
-
 
         if (filterModels.length) {
             this.$el.html(templates.filters(this));
@@ -62,11 +64,11 @@ views.Filters = Backbone.View.extend({
                 $('#' + view.collection.id + '-' + model.id).toggleClass('active', model.get('active'));
                 if (model.get('active') && !keypress) {
                     $('#breadcrumbs ul').append(
-                        '<li><a href="/undp-projects/#filter/'
-                        + view.collection.id + '-'
-                        + model.get('id') + '">'
-                        + model.get('name').toLowerCase().toTitleCase()
-                        + '</a></li>'
+                        '<li><a href="' + BASE_URL + '/#filter/' +
+                        view.collection.id + '-' +
+                        model.get('id') + '">' +
+                        model.get('name').toLowerCase().toTitleCase() +
+                        '</a></li>'
                     );
 
                     if (view.collection.id === 'operating_unit') {
@@ -112,8 +114,8 @@ views.Filters = Backbone.View.extend({
 
                 chartModels = this.collection.models;
 
-                var total = chartModels.reduce(function(memo, model) {
-                    return memo + (model.get(chartType) || 0 ); 
+                var total = _(chartModels).reduce(function(memo, model) {
+                    return memo + (model.get('budget') || 0 );
                 }, 0);
 
                 _(chartModels).each(function(model, i) {
@@ -135,13 +137,11 @@ views.Filters = Backbone.View.extend({
 
                 $('#chart-' + this.collection.id + ' .rows').html('');
                 _(chartModels).each(function(model) {
-                    console.log(model.collection.id);
-                    console.log(model.attributes);
-                    var budget = accounting.formatMoney(model.get(chartType)/1000000) + 'M';
-                    var expenditure = accounting.formatMoney(model.get(chartTypeExp)/1000000) + 'M';
-                    var caption = '<a href="#filter/' + model.collection.id + '-' + model.get('id')
-                        + '">' + model.get('name').toLowerCase().toTitleCase() + '</a>';
-                    var bar = '<div style="width: ' + (model.get(chartType)/ max * 100) + '%"></div>' + '<div class="subdata" style="width: ' + (model.get(chartTypeExp)/ max * 100) + '%"></div>';
+                    var budget = accounting.formatMoney(model.get('budget')/1000000) + 'M';
+                    var expenditure = accounting.formatMoney(model.get('expenditure')/1000000) + 'M';
+                    var caption = '<a href="#filter/' + model.collection.id + '-' + model.get('id') +
+                        '">' + model.get('name').toLowerCase().toTitleCase() + '</a>';
+                    var bar = '<div style="width: ' + (model.get('budget')/ max * 100) + '%"></div>' + '<div class="subdata" style="width: ' + (model.get('expenditure')/ max * 100) + '%"></div>';
 
 
                     $('#chart-' + model.collection.id + ' .rows').append(

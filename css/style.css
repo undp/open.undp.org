@@ -229,7 +229,7 @@ a {
   #footer ul li {
     line-height:normal;
     }
-    
+
 #about p {
   color: #666;
   margin-bottom: 30px;
@@ -249,16 +249,6 @@ a {
 }
 
 /*-----------------------------------
-  Bootstrap resets
--------------------------------------*/
-.nav-tabs,
-.nav-tabs > .active > a,
-.nav-tabs > .active > a:hover { border-color:#b3b3b3; }
-
-.nav-tabs > .active > a,
-.nav-tabs > .active > a:hover { border-bottom-color:#fff; }
-
-/*-----------------------------------
   Icons
 -------------------------------------*/
 .icon {
@@ -275,6 +265,7 @@ a {
 
 .icon.reset                   { background-position:0 0; }
 .icon.filetype                { background-position:0 -105px; }
+.icon.filetype.filetype-pdf   { background-position:-25px -105px; }
 .icon.embed                   { background-position:0 -130px; }
 .icon.open                    { background-position:-25px 0; }
 .active .icon.open            { background-position:-50px 0; }
@@ -701,9 +692,9 @@ a {
   margin-top:2px;
   padding-right:5px;
   font-size:11px;
-  text-shadow: 0px 1px 1px #0B387C, 
-               1px 1px 1px #0B387C, 
-               0px 0px 1px #0B387C, 
+  text-shadow: 0px 1px 1px #0B387C,
+               1px 1px 1px #0B387C,
+               0px 0px 1px #0B387C,
                1px 0px 1px #0B387C;
   font-weight:bold;
   color:#EDF4FE;
@@ -737,6 +728,12 @@ a {
   #xlabel {
     font-size:11px;
     }
+#top-donors.chart .data {
+  width: 180px;
+  }
+#top-donors.chart .data > div {
+  height: 17px;
+  }
 
 #chart-hdi .data .total,
 .marker-description .total              { background:#0B387C; }
@@ -1144,10 +1141,12 @@ form {
   margin-bottom:0;
   }
 #progress .bar {
-  background:#8DCF16;
-  background:-moz-linear-gradient(#8DCF16, #65BD10);
-  background:-webkit-linear-gradient(#8DCF16, #65BD10);
-  background:linear-gradient(#8DCF16, #65BD10);
+  background-color:#8DCF16;
+  background-image:-moz-linear-gradient(top,#8DCF16,#65BD10);
+  background-image:-webkit-gradient(linear,0 0,0 100%,from(#8DCF16),to(#65BD10));
+  background-image:-webkit-linear-gradient(top,#8DCF16,#65BD10);
+  background-image:-o-linear-gradient(top,#8DCF16,#65BD10);
+  background-image:linear-gradient(to bottom,#8DCF16,#65BD10);
   }
 .dates-label span.end {
   float: right;
@@ -1159,6 +1158,8 @@ form {
   }
   #documents li a .icon {
     margin-left:-25px;
+    position:relative;
+    top:5px;
     }
 .focus-area .text {
   position:relative;
@@ -1326,7 +1327,8 @@ form {
 .fullscreen #flickr {
   position:absolute;
   width:790px;
-  height:480px;
+  height:auto;
+  max-height:480px;
   right:0;
   z-index:1000;
   background-position:0 0!important;
@@ -1338,7 +1340,7 @@ form {
           box-shadow:0 0 8px rgba(0,0,0,0.25);
   }
 
-/* contact modal */
+/* modals */
 #unit-contact .contacts {
   text-align: right;
   font-size: 11px;
@@ -1348,6 +1350,12 @@ form {
 #donor-gross-table {
   margin-bottom: 20px;
   }
+#download code {
+  font-size: 10px;
+  color: #666;
+  background: none;
+  border: none;
+}
 
 /* country summary */
 #country-summary ul {
@@ -1431,8 +1439,11 @@ form {
   border-radius:8px;
   box-shadow:0 0 8px rgba(0,0,0,0.25);
   width:500px;
-  height:320px;
+  height:360px;
   }
+  .widget-preview iframe {
+    border-radius:8px;
+    }
   .widget-preview .empty {
     color:#b3b3b3;
     text-align:center;
@@ -1461,166 +1472,15 @@ form {
 /*-----------------------------------
   Widget Embed
 -------------------------------------*/
-/* Reset some bootstrappy things */
-.widget .row-fluid [class*="span"] {
-  min-height:auto;
+.embed-container {
+  margin:10px;
   }
-/* style.css resets */
-.widget .col { width:100%!important; }
-
-#container .widget {
+#embed-map {
   width:100%;
-  min-height:inherit!important;
-  max-width:760px;
-  }
-.widget .summary,
-.widget #project-descr {
-  width:100%;
-  }
-.widget .separator {
-  padding:10px 0;
-  }
-.widget #applied-filters {
-  font-size:18px;
-  line-height:26px;
-  }
-.widget .layers {
-  width:125px!important;
-  margin-bottom:10px;
-  }
-.widget .map-btn {
-  padding:5px 10px 5px 0;
-  }
-.widget .map-container {
-  position:absolute;
-  left:125px;
-  right:0;
-  width:auto;
-  float:none;
-  }
-.widget #homemap {
-  height:252px!important;
-  min-width:256px;
-  }
-.widget #charts .span12 {
-  min-height:0;
-  }
-.widget .chart {
-  margin-bottom:10px!important;
-  }
-  .widget .chart .caption {
-    font-size:11px;
-    }
-    .widget .chart .caption > div {
-      line-height:15px;
-      height:15px;
-      }
-
-  .widget .chart .data {
-    position:absolute;
-    left:145px;
-    right:0;
-    width:auto;
-    }
-    .widget .chart .data > div {
-      height:15px;
-      font-size:10px;
-      line-height:15px;
-      }
-    .widget .chart .data > .subdata {
-      height:5px;
-      }
-
-  .widget .chart .chart-legend {
-    left:auto;
-    right:0;
-    }
-
-.widget .toggle {
-  right:auto;
-  left:145px;
-  }
-.widget #projects .row-fluid:first-child {
-  display:none;
-  }
-.widget .table th, .widget .table td {
-  padding:5px;
-  font-size:12px;
-  line-height:16px;
-  }
-
-.widget .chart .extras,
-.widget .chart .details,
-.widget .separator .col,
-.widget .form-search,
-.widget .map-container,
-.widget .layers,
-.widget #applied-filters,
-.widget .stat-chart,
-.widget #chart-hdi,
-.widget #projects-heading,
-.widget #projects,
-.widget #filters,
-.widget #flickr,
-.widget #content-right,
-.widget #breadcrumbs,
-.widget #project-heading,
-.widget .heading-title,
-.widget #project-descr,
-.widget #documents-header,
-.widget #documents,
-.widget #outputs-header,
-.widget .nav-tabs,
-.widget [id*="output-"] {
-  display:none!important;
-  }
-.widget.title-on #applied-filters,
-.widget.title-on #project-heading,
-.widget.title-on .heading-title,
-.widget.descr-on #project-heading,
-.widget.descr-on #project-descr,
-.widget.charts-on .stat-chart,
-.widget.hdi-on #chart-hdi,
-.widget.projects-on #projects,
-.widget.map-on .map-container,
-.widget.stats-on .layers,
-.widget.documents-on [id*="documents"],
-.widget.outputs-on [id*="output-"] {
-  display:block!important;
-  }
-.widget.map-off .layers {
-  width:100%!important;
-  text-align:left!important;
-  }
-.widget.map-off .map-btn {
-  cursor:inherit;
-  }
-.widget.map-off .map-btn:hover {
-  background:inherit;
-  }
-.widget.map-off .map-btn > span {
-  display:inline-block;
-  margin-right:5px;
-  color:inherit;
-  }
-.widget.map-off .map-btn.active {
-  background:inherit;
-  }
-.widget.map-off .map-btn.active .total-caption,
-.widget.map-off .map-btn .total-caption {
-  color: #666;
-  }
-.widget.map-off .map-btn.active:after {
-  display:none;
-  }
-.widget.map-off .layers .total {
-  float:right;
-  }
-.widget.stats-off .map-container {
-  left:0;
-  height:252px;
+  height:360px;
   position:relative;
-  margin-bottom:10px;
+  bottom:0;
+  left:0;
   }
 
 /*-----------------------------------

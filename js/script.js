@@ -1,7 +1,7 @@
 ---
 ---
 (function() {
-    var BASE_URL = '/undp-projects/',
+    var BASE_URL = 'http://localhost:4000/undp-projects/',
         models = {},
         views = {},
         routers = {},
@@ -51,6 +51,10 @@
     {% include views/Map.js %}
     {% include views/TopDonors.js %}
     {% include views/Widget.js %}
+    {% include views/WidgetOutput.js %}
+    {% include views/WidgetProjects.js %}
+    {% include views/WidgetMap.js %}
+    {% include views/WidgetProjectsTitle.js %}
 
     // Router
     {% include routers/Router.js %}
@@ -58,17 +62,17 @@
     // String helper
     String.prototype.capitalize = function() {
         return this.charAt(0).toUpperCase() + this.slice(1);
-    }
+    };
 
     // To Title Case 2.0.1 – http://individed.com/code/to-title-case/
     // Copyright © 2008–2012 David Gouch. Licensed under the MIT License.
     String.prototype.toTitleCase = function () {
       var smallWords = /^(a|an|and|as|at|but|by|en|for|if|in|of|on|or|the|to|vs?\.?|via)$/i;
 
-      return this.replace(/([^\W_]+[^\s-]*) */g, function (match, p1, index, title) {
+      return this.replace(/([^\W_]+[^\s\-]*) */g, function (match, p1, index, title) {
         if (index > 0 && index + p1.length !== title.length &&
           p1.search(smallWords) > -1 && title.charAt(index - 2) !== ":" &&
-          title.charAt(index - 1).search(/[^\s-]/) < 0) {
+          title.charAt(index - 1).search(/[^\s\-]/) < 0) {
           return match.toLowerCase();
         }
 

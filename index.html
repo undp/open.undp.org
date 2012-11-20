@@ -77,7 +77,7 @@
           <ul id='aboutnav'>
             <li class='about-subnav'><a href='#about/open'>Open.undp.org</a></li>
             <li class='about-subnav'><a href='#about/usage'>Using Open.undp.org</a></li>
-            <li class='about-subnav'><a href='#about/commitment'>UNDP's commitment to improving transparency</a></li>
+            <li class='about-subnav'><a href='#about/transparency'>UNDP's commitment to improving transparency</a></li>
             <li class='about-subnav'><a href='#about/involvement'>Get Involved</a></li>
             <li class='about-subnav'><a href='#about/faq'>Frequently Asked Questions</a></li>
             <li class='about-subnav'><a href='#about/glossary'>Glossary</a></li>
@@ -88,13 +88,13 @@
         <div id='browser' class='col-790 content view'></div>
         <div id='profile' class='col-790 content view'></div>
         
-        <div id='top-donors' class='col-540 content view'>
+        <div id='top-donors' class='col-540 content view chart'>
           <h1 class='title-story'>Top Contributing Countries to the UNDP General Fund</h1>
           <p class='heading-desc'>Gross income received in 2011 based on income received for regular resources.</p>
-          <table class='table' id='donor-gross-table'></table>
+          <table class='table table-unstyled' id='donor-gross-table'></table>
           <h3>Support from Programme Country Governments</h3>
           <p class='heading-desc'>Top 10 contibutors to local resources in 2011</p>
-          <table class='table' id='donor-local-table'></table>
+          <table class='table table-unstyled' id='donor-local-table'></table>
         </div>
         
         <div id='about' class='col-540 content view'>
@@ -119,44 +119,8 @@
         <div class='modal-body'>
             {{modal.content}}
         </div>
-        <div class='modal-footer'>
-            <a href='#' class='btn' data-dismiss='modal'>Close</a>
-        </div>
     </div>
     {% endfor %}
-
-    <div class='modal hide fade' id='feedback'><form class='form-horizontal' id='feedback-form'>
-        <div class='modal-header'>
-            <button type='button' class='close' data-dismiss='modal'>&times;</button>
-            <h3>Send feedback</h3>
-        </div>
-        <div class='modal-body'>
-            <p>You are viewing an early release of the UNDP Projects portal. Help us make it better by submitting your feedback.</p>
-                <div class='control-group'>
-                    <label class='control-label' for='entry_0'>Name</label>
-                    <div class='controls'>
-                        <input type='text' id='entry_0' name='entry.0.single' class='input-xlarge'>
-                    </div>
-                </div>
-                <div class='control-group'>
-                    <label class='control-label' for='entry_0'>Email</label>
-                    <div class='controls'>
-                        <input type='text' id='entry_1' name='entry.1.single' class='input-xlarge'>
-                    </div>
-                </div>
-                <div class='control-group'>
-                    <label class='control-label' for='entry_2'>Feedback</label>
-                    <div class='controls'>
-                        <textarea id='inputEmail' id='entry_2' name='entry.2.single' class='input-xlarge'></textarea>
-                    </div>
-                </div>
-                <input type='hidden' id='entry_3' name='entry.3.single'>
-        </div>
-        <div class='modal-footer'>
-            <a href='#' class='btn' data-dismiss='modal'>Close</a>
-            <input type='submit' class='btn btn-primary' name='submit' value='Submit' id='feeback-submit'>
-        </div>
-    </form></div>
 
     <div class='modal hide fade' id='top-donorsX'>
         <div class='modal-header'>
@@ -173,10 +137,40 @@
             <table class='table' id='donor-local-table'>
             </table>
         </div>
-        <div class='modal-footer'>
-            <a href='#' class='btn' data-dismiss='modal'>Close</a>
-        </div>
     </div>
+
+  <div class='modal hide fade' id='feedback'>
+    <form class='form-horizontal' id='feedback-form'>
+      <div class='modal-header'>
+        <button type='button' class='close' data-dismiss='modal'>&times;</button>
+        <h3>Send feedback</h3>
+      </div>
+
+      <div class='modal-body'>
+        <p>You are viewing an early release of the UNDP Projects portal. Help us make it better by submitting your feedback.</p>
+        <div class='control-group'>
+          <label class='control-label' for='entry_0'>Name</label>
+          <div class='controls'>
+            <input type='text' id='entry_0' name='entry.0.single' class='input-xlarge'>
+          </div>
+        </div>
+        <div class='control-group'>
+          <label class='control-label' for='entry_0'>Email</label>
+          <div class='controls'>
+            <input type='text' id='entry_1' name='entry.1.single' class='input-xlarge'>
+          </div>
+        </div>
+        <div class='control-group'>
+          <label class='control-label' for='entry_2'>Feedback</label>
+          <div class='controls'>
+            <textarea id='entry_2' name='entry.2.single' class='input-xlarge'></textarea>
+          </div>
+        </div>
+        <input type='hidden' id='entry_3' name='entry.3.single'>
+        <input type='submit' class='btn btn-primary' name='submit' value='Submit' id='feeback-submit'>
+      </div>
+    </form>
+  </div>
 
     <!-- Widget modal -->
     <div class='modal hide fade' id='widget'></div>
@@ -206,13 +200,13 @@
         </div>
         <!-- end of #contact -->
     </div><!-- #footer -->
-</div>
 
   <div id='templates'>
   {% include templates.html %}
   </div>
 
   <div id='scripts'>
+    <!--[if IE]><script src='{{base}}/ext/excanvas.js'></script><![endif]-->
     <script src='{{base}}/ext/jquery.js'></script>
     <script src='{{base}}/ext/jquery.tweet.js'></script>
     <script src='{{base}}/ext/jquery.flot.js'></script>
@@ -221,6 +215,7 @@
     <script src='{{base}}/ext/underscore.js'></script>
     <script src='{{base}}/ext/backbone.js'></script>
     <script src='{{base}}/ext/accounting.js'></script>
+    <script src='{{base}}/ext/chrono.js'></script>
     <script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.6/mapbox.js'></script>
     <script src='{{base}}/ext/clustr.min.js'></script>
     <script src='{{base}}/js/script.js'></script>
