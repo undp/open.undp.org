@@ -44,7 +44,7 @@ routers.App = Backbone.Router.extend({
         $('#app .view, #mainnav li, #aboutnav').hide();
         $('#profile .summary').addClass('off');
         $('#browser, #mainnav .browser, #mainnav').show();
- 
+
         // Set up breadcrumbs
         $('#breadcrumbs ul').html('<li><a href="' + BASE_URL + '">All Projects</a></li>');
 
@@ -240,6 +240,7 @@ routers.App = Backbone.Router.extend({
                 };
             });
 
+            this.defaultTitle = this.defaultTitle || $('.heading-title').html();
             this.widgetOutput.filters = filters;
 
             var filter = function (model) {
@@ -258,16 +259,16 @@ routers.App = Backbone.Router.extend({
                 this.allProjects = new models.Projects();
                 this.allProjects.fetch({
                     success: function () {
-                        //that.projects = new models.Projects(that.allProjects.filter(filter));
-                        //var view = new views.Projects({
-                            //collection: that.projects
-                        //});
+                        that.projects = new models.Projects(that.allProjects.filter(filter));
+                        var view = new views.WidgetProjects({
+                            collection: that.projects
+                        });
 
-                        //that.projects.watch();
-                        //that.projects.map = new views.Map({
-                            //el: '#embed-map',
-                            //collection: that.projects
-                        //});
+                        that.projects.watch();
+                        that.projects.map = new views.WidgetMap({
+                            el: '#embed-map',
+                            collection: that.projects
+                        });
                     }
                 });
             } else {
@@ -282,7 +283,7 @@ routers.App = Backbone.Router.extend({
           $('html, body').scrollTop(0);
       }, 0);
 
-      $('#breadcrumbs ul').html('<li><a href="#">Home</a></li>' + '<li><a href="/undp-projects/">Our Projects</a></li>' + '<li><a href="#about/open">About</a></li>');
+      $('#breadcrumbs ul').html('<li><a href="#">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#about/open">About</a></li>');
 
       $('#app .view, #mainnav').hide();
       $('#aboutnav li').removeClass('active');
@@ -298,7 +299,7 @@ routers.App = Backbone.Router.extend({
           $('html, body').scrollTop(0);
       }, 0);
 
-      $('#breadcrumbs ul').html('<li><a href="#">Home</a></li>' + '<li><a href="/undp-projects/">Our Projects</a></li>' + '<li><a href="#top-donors">Top Donors</a></li>');
+      $('#breadcrumbs ul').html('<li><a href="#">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#top-donors">Top Donors</a></li>');
 
       $('#app .view').hide();
       $('#mainnav li').removeClass('active');

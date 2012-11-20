@@ -52,6 +52,8 @@
     {% include views/TopDonors.js %}
     {% include views/Widget.js %}
     {% include views/WidgetOutput.js %}
+    {% include views/WidgetProjects.js %}
+    {% include views/WidgetMap.js %}
 
     // Router
     {% include routers/Router.js %}

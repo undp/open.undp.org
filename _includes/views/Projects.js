@@ -3,7 +3,7 @@ views.Projects = Backbone.View.extend({
     events: {
         'click .load a': 'loadMore',
         'click table tr': 'routeToProject',
-        'click .table th': 'sortProjects'
+        'click #project-table th': 'sortProjects'
     },
 
     initialize: function() {
@@ -16,19 +16,18 @@ views.Projects = Backbone.View.extend({
     },
 
     render: function() {
-    
-        var pageType = Backbone.history.fragment.split('/')[0];
 
-        var donor = _(app.app.filters).find(function(filter) {
-                return filter.collection === 'donors';
-            }),
-            models = _(this.collection.filter(function(model) {
+        var pageType = Backbone.history.fragment.split('/')[0];
+        var models = _(this.collection.filter(function(model) {
                 return model.get('visible');
             }));
-            
+
         models = (pageType === 'widget') ? models.first(10) : models.first(50);
 
         // Probably should replace this with donor name
+        var donor = _(app.app.filters).find(function(filter) {
+                return filter.collection === 'donors';
+            });
         donor = (donor) ? 1 : _(this.collection.donors).size();
 
         $('#total-count').html(accounting.formatNumber(this.collection.length));
@@ -112,11 +111,11 @@ views.Projects = Backbone.View.extend({
     sortProjects: function(e) {
         var that = this.collection,
             $target = $(e.target);
-            
+
         e.preventDefault();
         e.stopPropagation();
         $('.table th').removeClass('sort-down sort-up');
-        
+
         // Toggle sorting by descending/ascending
         if ($target.attr('data-sort') == that.sortData) {
             if (that.sortOrder == 'desc') {
@@ -131,7 +130,7 @@ views.Projects = Backbone.View.extend({
             that.sortOrder = (that.sortData == 'name') ? 'asc' : 'desc';
             $target.addClass('sort-up');
         }
-        
+
         this.collection.models = _.sortBy(that.models, function(model) {
             if (that.sortOrder == 'desc') {
                 if (that.sortData == 'name') {
@@ -143,7 +142,7 @@ views.Projects = Backbone.View.extend({
                 return model.get(that.sortData);
             }
         });
-        
+
         this.render();
     }
 });

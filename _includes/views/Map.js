@@ -13,8 +13,6 @@ views.Map = Backbone.View.extend({
     },
     render: function() {
         $('#chart-hdi').css('display','none');
-
-        console.log(this.options);
         var that = this,
             layer,
             unit = (this.collection) ? this.collection
@@ -49,7 +47,6 @@ views.Map = Backbone.View.extend({
                     })[0];
 
                     $('.map-btn[data-value="hdi"] .total-caption').html('HDI');
-                    $('.widget-options ul li.hdi-opt').show();
 
                     if (_.size(hdiArray) > 0) {
                         $('#hdi').html(_.last(hdi.hdi)[1]);
@@ -61,7 +58,6 @@ views.Map = Backbone.View.extend({
                 } else {
                     $('#hdi').html(_.last(hdiWorld.hdi)[1]);
                     $('.map-btn[data-value="hdi"] .total-caption').html('HDI Global');
-                    $('.widget-options ul li.hdi-opt').hide();
                 }
             } else {
                 layer = 'budget';
@@ -324,7 +320,7 @@ views.Map = Backbone.View.extend({
 
     tooltipFlip: function(e) {
         var $target = $(e.target),
-            top = $target.offset().top - $('#homemap').offset().top;
+            top = $target.offset().top - this.$el.offset().top;
         if (top <= 150) {
             var tipSize = $('.marker-popup').height() + 50;
             $('.marker-tooltip').addClass('flip')

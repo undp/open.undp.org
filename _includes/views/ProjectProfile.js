@@ -63,11 +63,8 @@ views.ProjectProfile = Backbone.View.extend({
             return res;
             },{});
 
-        var sParts = (new Date(this.model.get('start'))).toLocaleDateString().split(',');
-        var eParts = (new Date(this.model.get('end'))).toLocaleDateString().split(',');
-
-        var start = sParts[1] + ',' + sParts[2];
-        var end = eParts[1] + ',' + eParts[2];
+        var start = new Date(this.model.get('start')).format('M d, Y');
+        var end = new Date(this.model.get('end')).format('M d, Y');
 
         // Filter out any image files from showing up
         var filterDocuments = _(this.model.get('document_name')[1]).filter(function(d) {
@@ -83,7 +80,6 @@ views.ProjectProfile = Backbone.View.extend({
                 documents[i].src = d;
             });
         }
-        console.log(documents);
 
         window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
         this.$el.empty().append(templates.projectProfile({
