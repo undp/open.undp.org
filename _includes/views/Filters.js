@@ -131,26 +131,70 @@ views.Filters = Backbone.View.extend({
                 });
 
                 $el.prepend('<h3 id="focus">Focus Areas</h3>');
-            } else {
+            } else if (this.collection.id === 'operating_unit' || this.collection.id === 'donors') {
 
-                var max = chartModels[0].get(chartType);
+                donor = (_(app.app.filters).find(function(filter) {
+                        return filter.collection === 'donors';
+                    }) || {id: 0}).id;
+
+                var max = (donor) ? app.projects.chain()
+                        .map(function(project) {
+                            return project.get('donor_budget');
+                        })
+                        .flatten()
+                        .max()
+                        .value() : chartModels[0].get(chartType),
+                    view = this,
+                    rows = [],
+                    newWidth = 1;
 
                 $('#chart-' + this.collection.id + ' .rows').html('');
                 _(chartModels).each(function(model) {
-                    var budget = accounting.formatMoney(model.get('budget')/1000000) + 'M';
-                    var expenditure = accounting.formatMoney(model.get('expenditure')/1000000) + 'M';
+                    var donorBudget = (donor) ? app.projects.chain()
+                            .filter(function(project) {
+                                return project.get('operating_unit') === model.id;
+                            })
+                            .reduce(function(memo, project) {
+                                var donorIndex = _(project.get('donors')).indexOf(donor);
+                                if (donorIndex === -1) return memo;
+                                return memo + project.get('donor_budget')[donorIndex];
+                            }, 0).value() : 0;
+                    var donorExpenditure = (donor) ? app.projects.chain()
+                            .filter(function(project) {
+                                return project.get('operating_unit') === model.id;
+                            })
+                            .reduce(function(memo, project) {
+                                var donorIndex = _(project.get('donors')).indexOf(donor);
+                                if (donorIndex === -1) return memo;
+                                return memo + project.get('donor_expend')[donorIndex];
+                            }, 0).value() : 0;
+                    var budget = accounting.formatMoney(
+                                (donor && view.collection.id === 'operating_unit') ? donorBudget : model.get('budget') / 1000000
+                            ) + 'M';
+
+                    var budgetWidth = (donor && view.collection.id === 'operating_unit') ? (donorBudget / max * 100) : (model.get('budget')/ max * 100);
+                    var expenditureWidth = (donor && view.collection.id === 'operating_unit') ? (donorExpenditure / max * 100) : (model.get('expenditure')/ max * 100);
+
                     var caption = '<a href="#filter/' + model.collection.id + '-' + model.get('id') +
                         '">' + model.get('name').toLowerCase().toTitleCase() + '</a>';
-                    var bar = '<div style="width: ' + (model.get('budget')/ max * 100) + '%"></div>' + '<div class="subdata" style="width: ' + (model.get('expenditure')/ max * 100) + '%"></div>';
+                    var bar = '<div style="width: ' + budgetWidth + '%"></div>' + '<div class="subdata" style="width: ' + expenditureWidth + '%"></div>';
 
+                    rows.push({
+                        sort: -1 * ((donor && view.collection.id === 'operating_unit') ? donorBudget : model.get('budget') / 1000000),
+                        content: 
+                            '<tr>' +
+                            '    <td>' + caption + '</td>' +
+                            '    <td class="right">' + budget + '</td>' +
+                            '    <td class="data">' + bar + '</td>' +
+                            '</tr>'
+                    });
 
-                    $('#chart-' + model.collection.id + ' .rows').append(
-                        '<tr>' +
-                        '    <td>' + caption + '</td>' +
-                        '    <td class="right">' + budget + '</td>' +
-                        '    <td class="data">' + bar + '</td>' +
-                        '</tr>');
                 });
+
+                _(rows).chain().sortBy('sort').each(function(row) {
+                    $('#chart-' + view.collection.id + ' .rows').append(row.content);
+                });
+
             }
         }
 
