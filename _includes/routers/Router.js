@@ -53,6 +53,8 @@ routers.App = Backbone.Router.extend({
             this.app = this.app || new views.App({
                 el: '#browser'
             });
+        } else {
+            this.app = {};
         }
 
         // Save default description
@@ -230,7 +232,9 @@ routers.App = Backbone.Router.extend({
         if (path[0] === 'project') {
             that.project(parts[0].split('/')[1], false, options);
         } else {
-            that.browser(parts[0], options);
+            var route = parts[0];
+            if (route === '') route = undefined;
+            that.browser(route, options);
         }
     },
 
