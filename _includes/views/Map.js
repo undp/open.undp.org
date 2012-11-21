@@ -185,7 +185,7 @@ views.Map = Backbone.View.extend({
                 );
             };
         markers.sort(function(a,b){ return b.properties[layer] - a.properties[layer]; })
-            .factory(clustr.scale_factory(radii, "rgba(0,85,170,0.6)", "#0B387C"));
+            .factory(clustr.scale_factory(radii, "rgba(0,85,170,0.6)", "#FFF"));
     },
 
     buildMap: function(layer) {
