@@ -183,7 +183,7 @@ views.App = Backbone.View.extend({
     requestIframe: function() {
         var context = $('#widget'),
             path = '#widget/',
-            widgetOpts = ['title', 'stats', 'map'];
+            widgetOpts = ['title', 'stats', 'map', 'descr'];
 
         if (location.hash !== '') {
             path = location.hash.replace('filter', 'widget')

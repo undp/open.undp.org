@@ -8,15 +8,12 @@ views.Widget = Backbone.View.extend({
     initialize: function () {
         var view = this;
         view.path = '#widget/';
-        view.widgetOpts = ['title', 'stats', 'map'];
+        view.widgetOpts = ['title', 'stats', 'map', 'descr'];
 
         if (location.hash !== '') {
             view.path = location.hash
                 .replace('filter', 'widget')
                 .replace('project', 'widget/project');
-            if (location.hash.split('/')[0] === '#project') {
-                view.widgetOpts.push('descr');
-            }
         }
         this.render();
     },
