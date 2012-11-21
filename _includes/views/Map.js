@@ -477,14 +477,17 @@ views.Map = Backbone.View.extend({
             i = 0,
             $el = $('#flickr');
 
-        $el.find('.spin').spin({ color:'#fff' });
-
-        _.each(account, function(acct) {
-            // Get user info based on flickr link
-            $.getJSON(apiBase + 'flickr.urls.lookupUser&api_key=' + apiKey + '&url=http://www.flickr.com/photos/' + acct, function(f) {
-                searchPhotos(f.user.id, search);
+        if (!account.length && photos.length) {
+            $el.show();
+            loadPhoto(i);
+        } else {
+            _.each(account, function(acct) {
+                // Get user info based on flickr link
+                $.getJSON(apiBase + 'flickr.urls.lookupUser&api_key=' + apiKey + '&url=http://www.flickr.com/photos/' + acct, function(f) {
+                    searchPhotos(f.user.id, search);
+                });
             });
-        });
+        }
 
         // Search Flickr based on project ID.
         function searchPhotos(id, tags) {
