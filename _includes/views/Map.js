@@ -184,7 +184,6 @@ views.Map = Backbone.View.extend({
                     Math.round(that.scale(layer,f))
                 );
             };
-
         markers.sort(function(a,b){ return b.properties[layer] - a.properties[layer]; })
             .factory(clustr.scale_factory(radii, "rgba(0,85,170,0.6)", "#0B387C"));
     },
