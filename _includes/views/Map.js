@@ -15,6 +15,7 @@ views.Map = Backbone.View.extend({
 
     render: function() {
         $('#chart-hdi').css('display','none');
+        app.hdi = false;
         var that = this,
             layer,
             unit = (this.collection) ? this.collection : this.model.get('operating_unit_id');
@@ -51,6 +52,7 @@ views.Map = Backbone.View.extend({
 
                     if (_.size(hdiArray) > 0) {
                         $('#hdi').html(_.last(hdi.hdi)[1]);
+                        app.hdi = true;
                         that.hdiChart(hdi,hdiWorld);
                         that.hdiDetails(hdi);
                     } else {
@@ -99,8 +101,7 @@ views.Map = Backbone.View.extend({
     },
 
     hdiChart: function(country,world) {
-        $('#chart-hdi').css('display','block');
-        $('#chart-hdi h3').html(country.name + ' Human Development Index');
+        $('#chart-hdi h3').html('Human Development Index');
         $('.data', '#chart-hdi').empty().append(
             '<div class="total" style="width:' + _.last(country.hdi)[1]*100 + '%">' + _.last(country.hdi)[1] + '</div>' +
             '<div class="subdata total" style="width:' + _.last(world.hdi)[1]*100 + '%;"></div>' +
