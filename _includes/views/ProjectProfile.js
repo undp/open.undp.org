@@ -114,6 +114,7 @@ views.ProjectProfile = Backbone.View.extend({
                 documents: documents,
                 model: this.model
             })).show();
+            this.model.attributes.docPhotos = this.docPhotos();
         }
 
         // If first load is a project page or output, don't animate
@@ -201,6 +202,6 @@ views.ProjectProfile = Backbone.View.extend({
             }
         });
 
-        this.model.attributes.docPhotos = photos;
+        return photos;
     }
 });
