@@ -29,6 +29,21 @@ views.Projects = Backbone.View.extend({
         models = (pageType === 'widget') ? models.first(10) : models.first(50);
 
         $('#total-count').html(accounting.formatNumber(this.collection.length));
+
+        if (donor) {
+            $('#total-donors').parent().hide();
+            if (app.projects.map.updateMap) {
+                var $target = $('.layers li:first a');
+                $('.map-btn').removeClass('active');
+                $target.addClass('active');
+                app.projects.map.updateMap($target.attr('data-value'));
+            }
+
+        } else {
+            $('#total-donors').parent().show();
+            $('#total-donors').html(accounting.formatNumber(_(this.collection.donors).size()));
+        }
+
         $('#total-donors').html(
             (donor) ? 1 :
             accounting.formatNumber(_(this.collection.donors).size())
