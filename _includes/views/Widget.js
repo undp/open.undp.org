@@ -8,24 +8,18 @@ views.Widget = Backbone.View.extend({
     initialize: function () {
         var view = this;
         view.path = '#widget/';
-        view.widgetOpts = ['title', 'stats', 'map'];
+        view.widgetOpts = ['title', 'stats', 'map', 'descr'];
 
         if (location.hash !== '') {
             view.path = location.hash
                 .replace('filter', 'widget')
                 .replace('project', 'widget/project');
-            if (location.hash.split('/')[0] === '#project') {
-                view.widgetOpts.push('descr');
-            }
         }
-
         this.render();
     },
 
     render: function(keypress) {
         var view = this;
-
-        view.widgetCode = '<iframe src="' + BASE_URL + 'embed.html' + view.path + '?' + view.widgetOpts.join('&') + '" width="500" height="360" frameborder="0"> </iframe>';
 
         this.$el.empty().append(templates.widget());
 
@@ -36,9 +30,6 @@ views.Widget = Backbone.View.extend({
             $('.main-opt', view.$el).hide();
             $('.proj-opt', view.$el).show();
         }
-
-        $('.widget-preview', view.$el).html(view.widgetCode);
-        $('.widget-code', view.$el).val(view.widgetCode);
 
         return this;
     },

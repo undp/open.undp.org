@@ -4,6 +4,7 @@ views.Map = Backbone.View.extend({
         'mousedown img.simplestyle-marker': 'mapClick',
         'mouseover img.mapmarker': 'tooltipFlip'
     },
+
     initialize: function() {
         this.render();
 
@@ -11,12 +12,12 @@ views.Map = Backbone.View.extend({
             this.collection.on('update', this.render, this);
         }
     },
+
     render: function() {
         $('#chart-hdi').css('display','none');
         var that = this,
             layer,
-            unit = (this.collection) ? this.collection
-                : this.model.get('operating_unit_id');
+            unit = (this.collection) ? this.collection : this.model.get('operating_unit_id');
 
         // Get HDI data
         $.getJSON('api/hdi.json', function(data) {
@@ -96,6 +97,7 @@ views.Map = Backbone.View.extend({
             }
         });
     },
+
     hdiChart: function(country,world) {
         $('#chart-hdi').css('display','block');
         $('#chart-hdi h3').html(country.name + ' Human Development Index');
@@ -111,6 +113,7 @@ views.Map = Backbone.View.extend({
         );
         $('#chart-hdi .ranking').html(country.rank + '<span class="outof">/' + world.count + '</span>');
     },
+
     hdiDetails: function(data) {
         var beginYr = _.first(data.hdi)[0],
             endYr = _.last(data.hdi)[0],
@@ -159,6 +162,7 @@ views.Map = Backbone.View.extend({
 
         $.plot($("#sparkline"), [health,ed,inc,{data: ctry, lines: {lineWidth: 1.5}}], sparklineOptions);
     },
+
     scale: function(cat,x) {
         if (cat == 'budget' || cat == 'expenditure') {
             return Math.round(x.properties[cat] / 100000);
@@ -168,6 +172,7 @@ views.Map = Backbone.View.extend({
             return Math.round(x.properties[cat] / 0.05);
         }
     },
+
     updateMap: function(layer) {
         var that = this,
             markers = this.map.layers[2],
@@ -182,6 +187,7 @@ views.Map = Backbone.View.extend({
         markers.sort(function(a,b){ return b.properties[layer] - a.properties[layer]; })
             .factory(clustr.scale_factory(radii, "rgba(0,85,170,0.6)", "#0B387C"));
     },
+
     buildMap: function(layer) {
         var that = this,
             locations = [],

@@ -33,25 +33,32 @@ routers.App = Backbone.Router.extend({
         });
     },
 
-    browser: function (route) {
+    browser: function (route, embed) {
         var that = this;
 
-        // Load in the top donors info and feedbackform dets.
-        this.mainApp();
-        window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
+        if (!embed) {
+            // Load in the top donors info and feedbackform dets.
+            this.mainApp();
+            window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
 
-        // Set up menu
-        $('#app .view, #mainnav li, #aboutnav').hide();
-        $('#profile .summary').addClass('off');
-        $('#browser, #mainnav .browser, #mainnav').show();
+            // Set up menu
+            $('#app .view, #mainnav li, #aboutnav').hide();
+            $('#profile .summary').addClass('off');
+            $('#browser, #mainnav .browser, #mainnav').show();
 
-        // Set up breadcrumbs
-        $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li><li><a href="' + BASE_URL + '">Our Projects</a></li>');
+            // Set up breadcrumbs
+            $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li><li><a href="' + BASE_URL + '">Our Projects</a></li>');
 
-        // Load the main app view
-        this.app = this.app || new views.App({
-            el: '#browser'
-        });
+            // Load the main app view
+            this.app = this.app || new views.App({
+                el: '#browser'
+            });
+        } else {
+            this.app = this.app || new views.App({
+                el: '#embed',
+                embed: embed
+            });
+        }
 
         // Save default description
         app.defaultDescription = app.defaultDescription || $('#intro p').html();
@@ -127,14 +134,22 @@ routers.App = Backbone.Router.extend({
                         that.projects.watch();
                         loadFilters();
 
-                        that.projects.map = new views.Map({
-                            el: '#homemap',
-                            collection: that.projects
-                        });
+                        if (!embed) {
+                            that.projects.map = new views.Map({
+                                el: '#homemap',
+                                collection: that.projects
+                            });
 
-                        that.projects.widget = new views.Widget({
-                            context: 'projects'
-                        });
+                            that.projects.widget = new views.Widget({
+                                context: 'projects'
+                            });
+                        } else {
+                            that.projects.map = new views.Map({
+                                el: '#embed-map',
+                                collection: that.projects,
+                                embed: embed
+                            });
+                        }
                     }
                 });
             } else {
@@ -170,18 +185,20 @@ routers.App = Backbone.Router.extend({
         $('#browser .summary').removeClass('off');
     },
 
-    project: function (id, output) {
+    project: function (id, output, embed) {
         var that = this;
 
-        // Load in the top donors info and feedbackform dets.
-        this.mainApp();
+        if (!embed) {
+            // Load in feedbackform dets.
+            this.mainApp();
 
-        window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
+            window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
 
-        // Set up menu
-        $('#app .view, #mainnav li, #aboutnav').hide();
-        $('#browser .summary').addClass('off');
-        $('#mainnav, #mainnav .profile').show();
+            // Set up menu
+            $('#app .view, #mainnav li, #aboutnav').hide();
+            $('#browser .summary').addClass('off');
+            $('#mainnav, #mainnav .profile').show();
+        }
 
         // Set up this route
         this.project.model = new models.Project({
@@ -191,14 +208,17 @@ routers.App = Backbone.Router.extend({
         this.project.model.fetch({
             success: function () {
                 that.project.view = new views.ProjectProfile({
-                    el: '#profile',
+                    el: (embed) ? '#embed' : '#profile',
                     model: that.project.model,
+                    embed: embed || false,
                     gotoOutput: (output) ? output : false
                 });
 
-                that.project.widget = new views.Widget({
-                    context: 'project'
-                });
+                if (!embed) {
+                    that.project.widget = new views.Widget({
+                        context: 'project'
+                    });
+                }
             }
         });
     },
@@ -213,68 +233,11 @@ routers.App = Backbone.Router.extend({
         options = (options) ? options.split('&') : [];
 
         if (path[0] === 'project') {
-            this.widget.model = new models.Project({
-                id: path[1]
-            });
-
-            this.widget.model.fetch({
-               success: function() {
-                    that.widgetOutput = new views.WidgetOutput({
-                        context: 'project',
-                        options: options,
-                        model: that.widget.model
-                    });
-               }
-            });
+            that.project(parts[0].split('/')[1], false, options);
         } else {
-            this.widgetOutput = new views.WidgetOutput({
-                context: 'projects',
-                options: options
-            });
-
-            var filters = _(path).map(function (f) {
-                var filter = f.split('-');
-                return {
-                    id: filter[1],
-                    collection: filter[0]
-                };
-            });
-
-            this.defaultTitle = this.defaultTitle || $('.heading-title').html();
-            this.widgetOutput.filters = filters;
-
-            var filter = function(model) {
-                if (!filters.length) return true;
-                return _(filters).reduce(function (memo, filter) {
-                    if (filter.collection === 'region') {
-                        return memo && model.get(filter.collection) == filter.id;
-                    } else {
-                        return memo && (model.get(filter.collection) && model.get(filter.collection).indexOf(filter.id) >= 0);
-                    }
-                }, true);
-            };
-
-            // Load projects
-            if (!this.allProjects) {
-                this.allProjects = new models.Projects();
-                this.allProjects.fetch({
-                    success: function () {
-                        that.projects = new models.Projects(that.allProjects.filter(filter));
-                        var view = new views.WidgetProjects({
-                            collection: that.projects
-                        });
-
-                        that.projects.watch();
-                        that.projects.map = new views.WidgetMap({
-                            el: '#embed-map',
-                            collection: that.projects
-                        });
-                    }
-                });
-            } else {
-                // if projects are already present
-                this.projects.reset(this.allProjects.filter(filter));
-            }
+            var route = parts[0];
+            if (route === '') route = undefined;
+            that.browser(route, options);
         }
     },
 

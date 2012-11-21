@@ -121,18 +121,20 @@
   </div>
 
   <!--/ #top-stats -->
-  <div class='separator' id='output-header'>
-    <p class='heading-title'>
-      <% if (model.get('outputs').length > 1) { %>
-      <span><%= model.get('outputs').length %>&nbsp;</span>
-      <% } %>
-      Subprojects
-    </p>
-  </div>
-  <div id='outputs'></div>
-  <div class='load'>
-    <a href='#' class='button'>Load More</a>
-  </div>
+  <% if (model.get('outputs').length) { %>
+    <div class='separator' id='output-header'>
+      <p class='heading-title'>
+        <% if (model.get('outputs').length > 1) { %>
+        <span><%= model.get('outputs').length %>&nbsp;</span>
+        <% } %>
+        <% if (model.get('outputs').length === 1) { %>Subproject<% } else { %>Subprojects<% } %>
+      </p>
+    </div>
+    <div id='outputs'></div>
+    <div class='load'>
+      <a href='#' class='button'>Load More</a>
+    </div>
+  <% } %>
 </div>
 <!--/ #summary -->
 
