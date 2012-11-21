@@ -145,7 +145,7 @@ routers.App = Backbone.Router.extend({
                             });
                         } else {
                             that.projects.map = new views.Map({
-                                el: '#embed-map',
+                                el: '#homemap',
                                 collection: that.projects,
                                 embed: embed
                             });
