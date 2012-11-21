@@ -13,6 +13,11 @@ views.App = Backbone.View.extend({
     initialize: function(options) {
         var view = this;
         this.init = true;
+
+        // Toggle country selector
+        $(window).on('click', '#country-selector', _(this.showCountries).bind(this));
+        $(window).on('click', '#country-list .close', _(this.hideCountries).bind(this));
+
         this.render();
 
         if (!this.options.embed) {
@@ -26,12 +31,6 @@ views.App = Backbone.View.extend({
                     $('#filters').removeClass('fixed');
                 }
             });
-
-            // Minimum height so search field doesn't jump around
-            this.$el.css('min-height', $(window).height() * 2);
-            $(window).resize(_.debounce(function() {
-                view.$el.css('min-height', $(window).height() * 2);
-            }, 300));
         }
     },
 
@@ -210,5 +209,15 @@ views.App = Backbone.View.extend({
 
     submitForm: function(e) {
         return false;
+    },
+
+    showCountries: function(e) {
+        e.preventDefault();
+        $('#country-list').css('display', 'block');
+    },
+
+    hideCountries: function(e) {
+        e.preventDefault();
+        $('#country-list').css('display', 'none');
     }
 });
