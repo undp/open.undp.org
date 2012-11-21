@@ -83,7 +83,20 @@
         return match.charAt(0).toUpperCase() + match.substr(1);
       })
         // Words that should be all caps
-        .replace(/Undp/g, 'UDNP')
+        .replace(/Un /g, 'UN ')
+        .replace(/Undp/g, 'UNDP')
+        .replace(/Unesco/g, 'UNESCO')
+        .replace(/Unfip/g, 'UNFIP')
+        .replace(/Unocha\/central_emg_resp_fund/g, 'UNOCHA Central Emg Resp Fund')
+        .replace(/Unocha/g, 'UNOCHA')
+        .replace(/Mdtfo\\jp_mdg-F_conflict_\&_pb/g, 'MDTFO / JP MDG-F Conflict & PB')
+        .replace(/Bcpr/g, 'BCPR')
+        .replace(/Dfid/g, 'DFID')
+        .replace(/Usaid/g, 'USAID')
+        .replace(/Unaids/g, 'UNAIDS')
+        .replace(/Mdtfo\\jp_peace_building_fund/g, 'MDTFO / JP Peace Building Fund')
+        .replace(/Aa for Jp/g, 'AA for JP')
+        .replace(/Gtz/g, 'GTZ')
         .replace(/Mdg/g, 'MDG')
         .replace(/Iii/g, 'III')
         .replace(/Vi/g, 'VI');

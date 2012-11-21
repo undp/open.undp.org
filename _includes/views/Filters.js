@@ -15,11 +15,7 @@ views.Filters = Backbone.View.extend({
         if (active.length) {
 
             // Use donor level financial data if available
-            if (active[0].collection.id === 'donors') {
-                chartType = 'donorBudget';
-                chartTypeExp = 'donor_expenditure';
-                donor = active[0].id;
-            }
+            if (active[0].collection.id === 'donors') donor = active[0].id;
 
             // Add a filtered class to all parent containers
             // where an active element has been selected.
@@ -83,7 +79,6 @@ views.Filters = Backbone.View.extend({
                     if (view.collection.id === 'donor_countries') {
                         var mId = model.id;
 
-                        console.log(mId);
                         if (mId === 'MULTI_AGY') {
                             app.description.push(' with funding from  <strong>Multi-Lateral Agencies</strong>');
                         } else if (mId === 'OTH') {
@@ -129,18 +124,22 @@ views.Filters = Backbone.View.extend({
 
                 var total = _(chartModels).reduce(function(memo, model) {
                     return memo + (model.get('budget') || 0 );
-                }, 0);
+                }, 0) || 0;
 
                 _(chartModels).each(function(model, i) {
                     var focusIconClass = model.get('name').replace(/\s+/g, '-').toLowerCase().split('-')[0];
                     var focusName = model.get('name').toLowerCase().toTitleCase();
+
+                    var value = _(((model.get('budget') || 0) / total)).isNaN() ? 0 :
+                            ((model.get('budget') || 0) / total * 100).toFixed(0);
+
                     $el.append(
                         '<li class="focus fa' + model.id + '">' +
                         '  <span class="icon icon-thumbnail ' + focusIconClass + '"></span>' +
                         '  <span class="pct"></span><a href="#filter/focus_area-' + model.id + '" class="focus-title">' + focusName + '</a>' +
                         '</li>');
 
-                    $('.fa' + (model.id) + ' .pct').text(((model.get('budget') || 0) / total * 100).toFixed(0) + '%');
+                    $('.fa' + (model.id) + ' .pct').text(value + '%');
                 });
 
                 $el.prepend('<h3 id="focus">Focus Areas</h3>');

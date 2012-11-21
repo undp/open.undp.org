@@ -52,6 +52,8 @@ views.App = Backbone.View.extend({
             }],
             shift = false;
 
+        this.clearFilter(e);
+
         _(this.filters).each(function(filter) {
             if (_.isEqual(filter, filters[0])) {
                 shift = true;
@@ -86,6 +88,7 @@ views.App = Backbone.View.extend({
     searchFilter: function(e) {
         var $target = $(e.target),
                 val = $target.val().toLowerCase();
+                console.log(val);
 
         $target.parent().find('.reset').toggleClass('hidden', (val === ''));
 
