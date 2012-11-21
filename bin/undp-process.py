@@ -271,6 +271,8 @@ print 'Processing complete. %d project files generated.' % file_count
 projectSum = csv.DictReader(open('download/undp_export/report_projects.csv', 'rb'), delimiter = ',', quotechar = '"')
 projectSum_sort = sorted(projectSum, key = lambda x: x['awardID'])
 
+regionsList = ['PAPP','RBA','RBAP','RBAS','RBEC','RBLAC']
+
 row_count = 0
 projectSummary = []
 projectSumHeader = ['id','name','operating_unit','region','budget','expenditure','crs','focus_area','donors','donor_types','donor_countries','donor_budget','donor_expend']
@@ -282,7 +284,10 @@ for award,summary in groupby(projectSum_sort, lambda x: x['awardID']):
     for s in summary:
         summaryList.append(s['award_title'])
         summaryList.append(s['operatingunit'])
-        summaryList.append(s['bureau'])
+        if s['bureau'] not in regionsList:
+            summaryList.append('global')
+        else:
+            summaryList.append(s['bureau'])
         summaryList.append(float(s['budget']))
         summaryList.append(float(s['expenditure']))
     crsTemp = []
@@ -561,6 +566,43 @@ for g in donor_local_sort:
     
 writeout = json.dumps(local_list, sort_keys=True, indent=4)
 f_out = open('../api/top-donor-local-index.json', 'wb')
+f_out.writelines(writeout)
+f_out.close()
+
+# Region Index 
+# ************************
+exclude = ['PAPP','RBA','RBAP','RBAS','RBEC','RBLAC']
+
+regions = csv.DictReader(open('download/undp_export/report_units.csv', 'rb'), delimiter = ',', quotechar = '"')
+regions_sort = sorted(regions, key = lambda x: x['bureau'])
+
+row_count = 0
+region_index = []
+regionHeader = ['id','name']
+region_i = []
+index = []
+global_i = ['global','Global']
+for r,region in groupby(regions_sort, lambda x: x['bureau']): 
+    row_count = row_count + 1
+    if r in exclude:
+        region_i = [r]
+        for reg in region:
+            if reg['bureau'] == 'PAPP':
+                region_i.append(reg['ou_descr'])
+                index.append(region_i)
+            if reg['hq_co'] == 'HQ':
+                if reg['ou_descr'] not in region_i:
+                    region_i.append(reg['ou_descr'])
+                    index.append(region_i)
+
+index.append(global_i)
+index_print = []
+for i in index:
+    index_print.append(dict(zip(regionHeader, i)))
+    
+print "Region Index Process Count: %d" % row_count
+writeout = json.dumps(index_print, sort_keys=True, indent=4)
+f_out = open('../api/region-index.json', 'wb')
 f_out.writelines(writeout)
 f_out.close()
 

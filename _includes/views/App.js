@@ -3,6 +3,8 @@ views.App = Backbone.View.extend({
         'click a.filter': 'setFilter',
         'keyup #filters-search': 'searchFilter',
         'click #filters .label': 'toggleFilter',
+        'click #filters .reset': 'clearFilter',
+        'click #projects-tab .reset': 'clearSearch',
         'click .map-btn': 'mapLayerswitch',
         'click .reset': 'clearForm',
         'click .widget-config': 'requestIframe',
@@ -87,6 +89,8 @@ views.App = Backbone.View.extend({
         var $target = $(e.target),
                 val = $target.val().toLowerCase();
 
+        $target.parent().find('.reset').toggleClass('hidden', (val === ''));
+
         _(this.views).each(function(view) {
             view.collection.each(function(model) {
                 var name = model.get('name').toLowerCase();
@@ -109,9 +113,18 @@ views.App = Backbone.View.extend({
         }
     },
 
-    clearForm: function(e) {
+    clearFilter: function(e) {
+        e.preventDefault();
         $(e.target).parent().find('input').val('');
+        this.searchFilter(e);
         return false;
+    },
+
+    clearSearch: function(e) {
+        var view = this;
+        e.preventDefault();
+        $(e.target).parent().find('input').val('');
+        app.projects.view.search(e);
     },
 
     toggleFilter: function (e) {

@@ -47,7 +47,7 @@ routers.App = Backbone.Router.extend({
             $('#browser, #mainnav .browser, #mainnav').show();
 
             // Set up breadcrumbs
-            $('#breadcrumbs ul').html('<li><a href="' + BASE_URL + '">All Projects</a></li>');
+            $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li><li><a href="' + BASE_URL + '">Our Projects</a></li>');
 
             // Load the main app view
             this.app = this.app || new views.App({
@@ -122,7 +122,7 @@ routers.App = Backbone.Router.extend({
                 this.allProjects.fetch({
                     success: function () {
                         that.projects = new models.Projects(that.allProjects.filter(filter));
-                        var view = new views.Projects({
+                        that.projects.view = new views.Projects({
                             collection: that.projects
                         });
 
