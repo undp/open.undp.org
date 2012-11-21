@@ -1,7 +1,7 @@
 ---
 ---
 (function() {
-    var BASE_URL = 'http://localhost:4000/undp-projects/',
+    var BASE_URL = '/',
         models = {},
         views = {},
         routers = {},
