@@ -1,5 +1,6 @@
 views.ProjectProfile = Backbone.View.extend({
     events: {
+        'click .widget-config': 'requestIframe',
         'click .load a': 'loadMore'
     },
 
@@ -88,13 +89,23 @@ views.ProjectProfile = Backbone.View.extend({
         }
 
         window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
-        this.$el.empty().append(templates.projectProfile({
-            start: start,
-            end: end,
-            base: BASE_URL,
-            documents: documents,
-            model: this.model
-        })).show();
+
+        if (this.options.embed) {
+            this.$el.empty().append(templates.embedProjectProfile({
+                start: start,
+                end: end,
+                documents: documents,
+                model: this.model
+            }));
+        } else {
+            this.$el.empty().append(templates.projectProfile({
+                start: start,
+                end: end,
+                base: BASE_URL,
+                documents: documents,
+                model: this.model
+            })).show();
+        }
 
         // If first load is a project page or output, don't animate
         if (app.app && this.options.gotoOutput === false) {
@@ -107,13 +118,6 @@ views.ProjectProfile = Backbone.View.extend({
         });
 
         $('#progress').find('.bar').css('width', progress + '%');
-
-        if (_.isEmpty(this.model.get('document_name'))) {
-            $('.widget-options ul li.doc-opt').hide();
-        } else {
-            $('.widget-options ul li.doc-opt').show();
-            this.docPhotos();
-        }
 
         this.$('#outputs').empty();
         var outputs = this.model.attributes.outputs.slice(0, 9);
@@ -131,7 +135,30 @@ views.ProjectProfile = Backbone.View.extend({
         // Append menu items to the breadcrumb
         $('breadcrumbs').find('ul').remove();
 
+        // Depending on the options passed into the array add a fade
+        // in class to all elements containing a data-iotion attribute
+        if (this.options.embed) {
+            _(this.options.embed).each(function (o) {
+                $('[data-option="' + o + '"]').addClass('in');
+            });
+        }
+
         return this;
+    },
+
+    requestIframe: function() {
+        var context = $('#widget'),
+            path = '#widget/',
+            widgetOpts = ['title', 'stats', 'map', 'descr'];
+
+        if (location.hash !== '') {
+            path = location.hash.replace('project', 'widget/project');
+        }
+
+        widgetCode = '<iframe src="' + BASE_URL + 'embed.html' + path + '?' + widgetOpts.join('&') + '" width="500" height="360" frameborder="0"> </iframe>';
+
+        $('.widget-preview', context).html(widgetCode);
+        $('.widget-code', context).val(widgetCode);
     },
 
     loadMore: function(e) {

@@ -5,6 +5,7 @@ views.App = Backbone.View.extend({
         'click #filters .label': 'toggleFilter',
         'click .map-btn': 'mapLayerswitch',
         'click .reset': 'clearForm',
+        'click .widget-config': 'requestIframe',
         'submit .form-search': 'submitForm'
     },
 
@@ -152,6 +153,21 @@ views.App = Backbone.View.extend({
         $target.addClass('active');
         app.projects.map.updateMap($target.attr('data-value'));
         return false;
+    },
+
+    requestIframe: function() {
+        var context = $('#widget'),
+            path = '#widget/',
+            widgetOpts = ['title', 'stats', 'map'];
+
+        if (location.hash !== '') {
+            path = location.hash.replace('filter', 'widget')
+        }
+
+        widgetCode = '<iframe src="' + BASE_URL + 'embed.html' + path + '?' + widgetOpts.join('&') + '" width="500" height="360" frameborder="0"> </iframe>';
+
+        $('.widget-preview', context).html(widgetCode);
+        $('.widget-code', context).val(widgetCode);
     },
 
     submitForm: function(e) {

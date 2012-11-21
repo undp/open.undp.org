@@ -18,14 +18,11 @@ views.Widget = Backbone.View.extend({
                 view.widgetOpts.push('descr');
             }
         }
-
         this.render();
     },
 
     render: function(keypress) {
         var view = this;
-
-        view.widgetCode = '<iframe src="' + BASE_URL + 'embed.html' + view.path + '?' + view.widgetOpts.join('&') + '" width="500" height="360" frameborder="0"> </iframe>';
 
         this.$el.empty().append(templates.widget());
 
@@ -36,9 +33,6 @@ views.Widget = Backbone.View.extend({
             $('.main-opt', view.$el).hide();
             $('.proj-opt', view.$el).show();
         }
-
-        $('.widget-preview', view.$el).html(view.widgetCode);
-        $('.widget-code', view.$el).val(view.widgetCode);
 
         return this;
     },
