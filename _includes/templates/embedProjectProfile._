@@ -105,7 +105,7 @@
       <% if (model.get('outputs').length > 1) { %>
         <span><%= model.get('outputs').length %>&nbsp;</span>
       <% } %>
-      <% if (model.get('outputs').length === 1) { %>Subproject<% } else { %>Subprojects<% } %>
+      <% if (model.get('outputs').length === 1) { %>Output<% } else { %>Outputs<% } %>
     </p>
   </div>
   <div id='outputs'></div>

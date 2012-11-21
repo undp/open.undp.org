@@ -212,7 +212,7 @@ views.Map = Backbone.View.extend({
             var markers = mapbox.markers.layer();
 
             if (homepage) {
-                markers.factory(clustr.scale_factory(radii, "rgba(0,85,170,0.6)", "#0B387C"))
+                markers.factory(clustr.scale_factory(radii, "rgba(0,85,170,0.6)", "#FFF"))
                     .sort(function(a,b){ return b.properties[layer] - a.properties[layer]; });
             }
 
