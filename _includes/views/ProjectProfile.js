@@ -97,6 +97,15 @@ views.ProjectProfile = Backbone.View.extend({
                 documents: documents,
                 model: this.model
             }));
+
+            // Depending on the options passed into the array add a fade
+            // in class to all elements containing a data-iotion attribute
+            if (this.options.embed) {
+                _(this.options.embed).each(function (o) {
+                    $('[data-option="' + o + '"]').show();
+                });
+            }
+
         } else {
             this.$el.empty().append(templates.projectProfile({
                 start: start,
@@ -134,14 +143,6 @@ views.ProjectProfile = Backbone.View.extend({
 
         // Append menu items to the breadcrumb
         $('breadcrumbs').find('ul').remove();
-
-        // Depending on the options passed into the array add a fade
-        // in class to all elements containing a data-iotion attribute
-        if (this.options.embed) {
-            _(this.options.embed).each(function (o) {
-                $('[data-option="' + o + '"]').addClass('in');
-            });
-        }
 
         return this;
     },

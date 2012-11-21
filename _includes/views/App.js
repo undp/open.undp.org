@@ -6,7 +6,6 @@ views.App = Backbone.View.extend({
         'click #filters .reset': 'clearFilter',
         'click #projects-tab .reset': 'clearSearch',
         'click .map-btn': 'mapLayerswitch',
-        'click .reset': 'clearForm',
         'click .widget-config': 'requestIframe',
         'submit .form-search': 'submitForm'
     },
@@ -16,31 +15,44 @@ views.App = Backbone.View.extend({
 
         this.render();
 
-        // Filters follow scrolling
-        var top = $('#filters').offset().top - 78;
-        $(window).on('scroll', function () {
-            var y = $(this).scrollTop();
-            if (y >= top) {
-                $('#filters').addClass('fixed');
-            } else {
-                $('#filters').removeClass('fixed');
-            }
-        });
+        if (!this.options.embed) {
+            // Filters follow scrolling
+            var top = $('#filters').offset().top - 78;
+            $(window).on('scroll', function () {
+                var y = $(this).scrollTop();
+                if (y >= top) {
+                    $('#filters').addClass('fixed');
+                } else {
+                    $('#filters').removeClass('fixed');
+                }
+            });
 
-        // Minimum height so search field doesn't jump around
-        this.$el.css('min-height', $(window).height() * 2);
-        $(window).resize(_.debounce(function() {
-            view.$el.css('min-height', $(window).height() * 2);
-        }, 300));
-
-        // Set up help popovers
-        $('.help-note').popover({ trigger: 'hover' });
+            // Minimum height so search field doesn't jump around
+            this.$el.css('min-height', $(window).height() * 2);
+            $(window).resize(_.debounce(function() {
+                view.$el.css('min-height', $(window).height() * 2);
+            }, 300));
+        }
     },
 
     render: function() {
-        this.$el.empty().append(templates.app({
-            base: BASE_URL
-        }));
+
+        if (this.options.embed) {
+            this.$el.empty().append(templates.embedProjects());
+            // Depending on the options passed into the array add a fade
+            // in class to all elements containing a data-iotion attribute
+            if (this.options.embed) {
+                _(this.options.embed).each(function (o) {
+                    $('[data-option="' + o + '"]').show();
+                });
+            }
+
+        } else {
+            this.$el.empty().append(templates.app({
+                base: BASE_URL
+            }));
+        }
+
         return this;
     },
 

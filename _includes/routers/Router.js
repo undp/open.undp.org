@@ -54,7 +54,10 @@ routers.App = Backbone.Router.extend({
                 el: '#browser'
             });
         } else {
-            this.app = {};
+            this.app = this.app || new views.App({
+                el: '#embed',
+                embed: embed
+            });
         }
 
         // Save default description

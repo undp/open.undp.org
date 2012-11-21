@@ -1,12 +1,12 @@
-<p data-option='title' class='fade heading-title'><%= model.get('project_title').toLowerCase().toTitleCase() %></p>
+<p data-option='title' class='option heading-title'><%= model.get('project_title').toLowerCase().toTitleCase() %></p>
 
-<div data-option='descr' id='project-descr' class='fade'>
+<div data-option='descr' id='project-descr' class='option'>
   <p class='heading-desc'><%= model.get('project_descr') %></p>
 </div>
 
 <div data-option='map' id='profilemap' class='map'></div>
 
-<div data-option='stats' class='fade'></div>
+<div data-option='stats' class='option'></div>
   <div class='span7'>
     <div class='row-fluid'>
       <div class='span12 dates'>
@@ -80,7 +80,7 @@
   </div>
 </div>
 
-<div data-option='documents' id='documents' class='fade'>
+<div data-option='documents' id='documents' class='option'>
   <% if (!_.isEmpty(documents)) { %>
   <div class='row-fluid'>
     <div class='span12'>
@@ -103,7 +103,7 @@
   <% } %>
 </div>
 
-<div data-option='outputs' class='fade'>
+<div data-option='outputs' class='option'>
   <div class='separator' id='output-header'>
     <p class='heading-title'>
       <% if (model.get('outputs').length > 1) { %>
