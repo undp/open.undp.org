@@ -100,7 +100,6 @@ views.App = Backbone.View.extend({
     searchFilter: function(e) {
         var $target = $(e.target),
                 val = $target.val().toLowerCase();
-                console.log(val);
 
         $target.parent().find('.reset').toggleClass('hidden', (val === ''));
 
