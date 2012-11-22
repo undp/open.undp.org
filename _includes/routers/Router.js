@@ -61,7 +61,7 @@ routers.App = Backbone.Router.extend({
         }
 
         // Save default description
-        app.defaultDescription = app.defaultDescription || $('#intro p').html();
+        app.defaultDescription = app.defaultDescription || $('#description p').html();
 
         // Parse hash
         var parts = (route) ? route.split('/') : [];
@@ -174,10 +174,10 @@ routers.App = Backbone.Router.extend({
 
             if (app.description.length > 1) {
                 $('#applied-filters').html('Selected Projects');
-                $('#intro p').html(app.description.shift() + app.description.join(',') + '.');
+                $('#description p').html(app.description.shift() + app.description.join(',') + '.');
             } else {
                 $('#applied-filters').html('All Projects');
-                $('#intro p').html(app.defaultDescription);
+                $('#description p').html(app.defaultDescription);
             }
             app.description = false;
         }

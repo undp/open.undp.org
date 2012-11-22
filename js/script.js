@@ -2,6 +2,7 @@
 ---
 (function() {
     var BASE_URL = 'http://localhost:4000/undp-projects/',
+        widgetOts = [],
         models = {},
         views = {},
         routers = {},
@@ -94,6 +95,7 @@
         .replace(/Aa for Jp/g, 'AA for JP')
         .replace(/Gtz/g, 'GTZ')
         .replace(/Mdg/g, 'MDG')
+        .replace(/Hiv/g, 'HIV')
         .replace(/ii/g, 'II')
         .replace(/Iii/g, 'III')
         .replace(/Iv/g, 'IV')

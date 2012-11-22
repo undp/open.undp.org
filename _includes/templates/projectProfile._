@@ -125,7 +125,7 @@
   </div>
 
   <!--/ #top-stats -->
-  <% if (model.get('outputs').length) { %>
+  <% if (model.get('outputs')) { %>
     <div class='separator' id='output-header'>
       <p class='heading-title'>
         <% if (model.get('outputs').length > 1) { %>
