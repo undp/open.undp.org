@@ -15,6 +15,7 @@ views.Map = Backbone.View.extend({
 
     render: function() {
         $('#chart-hdi').css('display','none');
+        app.hdi = false;
         var that = this,
             layer,
             unit = (this.collection) ? this.collection : this.model.get('operating_unit_id');
@@ -51,6 +52,7 @@ views.Map = Backbone.View.extend({
 
                     if (_.size(hdiArray) > 0) {
                         $('#hdi').html(_.last(hdi.hdi)[1]);
+                        app.hdi = true;
                         that.hdiChart(hdi,hdiWorld);
                         that.hdiDetails(hdi);
                     } else {
@@ -99,8 +101,7 @@ views.Map = Backbone.View.extend({
     },
 
     hdiChart: function(country,world) {
-        $('#chart-hdi').css('display','block');
-        $('#chart-hdi h3').html(country.name + ' Human Development Index');
+        $('#chart-hdi h3').html('Human Development Index');
         $('.data', '#chart-hdi').empty().append(
             '<div class="total" style="width:' + _.last(country.hdi)[1]*100 + '%">' + _.last(country.hdi)[1] + '</div>' +
             '<div class="subdata total" style="width:' + _.last(world.hdi)[1]*100 + '%;"></div>' +
@@ -183,9 +184,8 @@ views.Map = Backbone.View.extend({
                     Math.round(that.scale(layer,f))
                 );
             };
-
         markers.sort(function(a,b){ return b.properties[layer] - a.properties[layer]; })
-            .factory(clustr.scale_factory(radii, "rgba(0,85,170,0.6)", "#0B387C"));
+            .factory(clustr.scale_factory(radii, "rgba(0,85,170,0.6)", "#FFF"));
     },
 
     buildMap: function(layer) {
@@ -212,7 +212,7 @@ views.Map = Backbone.View.extend({
             var markers = mapbox.markers.layer();
 
             if (homepage) {
-                markers.factory(clustr.scale_factory(radii, "rgba(0,85,170,0.6)", "#0B387C"))
+                markers.factory(clustr.scale_factory(radii, "rgba(0,85,170,0.6)", "#FFF"))
                     .sort(function(a,b){ return b.properties[layer] - a.properties[layer]; });
             }
 
@@ -555,18 +555,18 @@ views.Map = Backbone.View.extend({
                         }
 
                         // Fill in date & description
-                        $('.meta-inner', $el).html('<span class="date">' + date + '</span>' +
+                        $('.meta', $el).html('<div class="meta-inner"><span class="date">' + date + '</span>' +
                             '<p>' + description +
-                            '<a href="' + url + 'in/photostream/" title="See our photos on Flickr"> Source</a></p>');
+                            '<a href="' + url + 'in/photostream/" title="See our photos on Flickr"> Source</a></p></div>');
 
                         insertPhoto(pHeight, pWidth, source);
                     });
                 });
 
             } else if (photos[x].date) {
-                $('.meta-inner', $el).html('<span class="date">' + photos[x].date.toLocaleDateString() + '</span>' +
+                $('.meta', $el).html('<div class="meta-inner"><span class="date">' + photos[x].date.toLocaleDateString() + '</span>' +
                     '<p>' + photos[x].description +
-                    '<a href="' + photos[x].link + '/in/photostream/" title="See our photos on Flickr"> Source</a></p>');
+                    '<a href="' + photos[x].link + '/in/photostream/" title="See our photos on Flickr"> Source</a></p></div>');
 
                 insertPhoto(photos[x].height, photos[x].width, photos[x].source);
 

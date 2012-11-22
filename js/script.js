@@ -94,8 +94,11 @@
         .replace(/Aa for Jp/g, 'AA for JP')
         .replace(/Gtz/g, 'GTZ')
         .replace(/Mdg/g, 'MDG')
+        .replace(/ii/g, 'II')
         .replace(/Iii/g, 'III')
-        .replace(/Vi/g, 'VI');
+        .replace(/Iv/g, 'IV')
+        .replace(/Vi/g, 'VI')
+        .replace(/Vii/g, 'VII');
     };
 
     // Start the application
