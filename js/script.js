@@ -80,7 +80,7 @@
         return match.charAt(0).toUpperCase() + match.substr(1);
       })
         // Words that should be all caps
-        .replace(/Un /g, 'UN ')
+        .replace(/Un/g, 'UN ')
         .replace(/Undp/g, 'UNDP')
         .replace(/Unesco/g, 'UNESCO')
         .replace(/Unfip/g, 'UNFIP')
@@ -96,7 +96,7 @@
         .replace(/Gtz/g, 'GTZ')
         .replace(/Mdg/g, 'MDG')
         .replace(/Hiv/g, 'HIV')
-        .replace(/Bra/g, 'BRA')
+        .replace(/Bra\b/g, 'BRA')
         .replace(/ii/g, 'II')
         .replace(/Iii/g, 'III')
         .replace(/Iv/g, 'IV')
