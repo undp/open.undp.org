@@ -96,6 +96,7 @@
         .replace(/Gtz/g, 'GTZ')
         .replace(/Mdg/g, 'MDG')
         .replace(/Hiv/g, 'HIV')
+        .replace(/Bra/g, 'BRA')
         .replace(/ii/g, 'II')
         .replace(/Iii/g, 'III')
         .replace(/Iv/g, 'IV')
