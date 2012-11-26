@@ -153,7 +153,7 @@ views.ProjectProfile = Backbone.View.extend({
     docPhotos: function() {
         var photos = [];
 
-        if (this.model.get('documents_name')) {
+        if (this.model.get('document_name')) {
             _.each(this.model.get('document_name')[0], function (photo, i) {
 
                 var filetype = photo.split('.')[1].toLowerCase(),
