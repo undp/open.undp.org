@@ -93,15 +93,15 @@
         .replace(/Unaids/g, 'UNAIDS')
         .replace(/Mdtfo\\jp_peace_building_fund/g, 'MDTFO / JP Peace Building Fund')
         .replace(/Aa for Jp/g, 'AA for JP')
-        .replace(/Gtz/g, 'GTZ')
-        .replace(/Mdg/g, 'MDG')
-        .replace(/Hiv/g, 'HIV')
+        .replace(/Gtz\b/g, 'GTZ')
+        .replace(/Mdg\b/g, 'MDG')
+        .replace(/Hiv\b/g, 'HIV')
         .replace(/Bra\b/g, 'BRA')
-        .replace(/ii/g, 'II')
-        .replace(/Iii/g, 'III')
-        .replace(/Iv/g, 'IV')
-        .replace(/Vi/g, 'VI')
-        .replace(/Vii/g, 'VII');
+        .replace(/Ii\b/g, 'II')
+        .replace(/Iii\b/g, 'III')
+        .replace(/Iv\b/g, 'IV')
+        .replace(/Vi\b/g, 'VI')
+        .replace(/Vii\b/g, 'VII');
     };
 
     // Start the application
