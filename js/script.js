@@ -80,7 +80,7 @@
         return match.charAt(0).toUpperCase() + match.substr(1);
       })
         // Words that should be all caps
-        .replace(/Un/g, 'UN ')
+        .replace(/Un\b/g, 'UN ')
         .replace(/Undp/g, 'UNDP')
         .replace(/Unesco/g, 'UNESCO')
         .replace(/Unfip/g, 'UNFIP')
