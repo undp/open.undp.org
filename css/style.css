@@ -755,7 +755,7 @@ input.button {
   margin-top:10px;
   }
 .details #sparkline {
-  width: 516px;
+  width:516px;
   height: 118px;
   background:#fff;
   border:1px solid #999;
@@ -860,17 +860,15 @@ input.button {
   margin-bottom:30px;
   }
 #chart-hdi .caption {
-  position:absolute;
-  top:0;
-  left:0;
   line-height:29px;
   text-align:right;
+  float:left;
+  width:10%;
+  margin-right:2%;
   }
 #chart-hdi .data {
-  position:absolute;
-  top:0;
-  left:58px;
-  width:450px;
+  width:78%;
+  float:left;
   }
 #chart-hdi .details {
   margin:0;
@@ -1544,17 +1542,19 @@ form {
   border-bottom:1px solid #ccc;
   }
 #embed #chart-hdi {
-  background:#fff;
   position:static;
-  height:365px;
-  padding:10px;
-  z-index:1000;
   display:block;
-  border:1px solid #B3B3B3;
-  -webkit-box-shadow:none;
-     -moz-box-shadow:none;
-          box-shadow:none;
   }
+#embed #sparkline {
+  width:417px;
+  }
+  #embed .endyear {
+    margin-left:377px;
+    }
+  #embed #chart-hdi .change {
+    margin-left:317px;
+    float:left;
+    }
 
 /*-----------------------------------
   Clearfix
