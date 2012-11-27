@@ -60,6 +60,7 @@ views.Map = Backbone.View.extend({
                         view.hdiDetails(hdi);
                     } else {
                         $('#hdi').html('no data');
+                        $('#chart-hdi').css('display','none');
                     }
                 } else {
                     $('#hdi').html(_.last(hdiWorld.hdi)[1]);
@@ -187,8 +188,11 @@ views.Map = Backbone.View.extend({
                     Math.round(view.scale(layer,f))
                 );
             };
-        markers.sort(function(a,b){ return b.properties[layer] - a.properties[layer]; })
-            .factory(clustr.scale_factory(radii, "rgba(0,85,170,0.6)", "#FFF"));
+            
+        if (markers) {
+            markers.sort(function(a,b){ return b.properties[layer] - a.properties[layer]; })
+                .factory(clustr.scale_factory(radii, "rgba(0,85,170,0.6)", "#FFF"));
+        }
     },
 
     buildMap: function(layer) {
