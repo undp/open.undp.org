@@ -246,7 +246,7 @@ routers.App = Backbone.Router.extend({
             $('html, body').scrollTop(0);
         }, 0);
 
-        $('#breadcrumbs ul').html('<li><a href="#">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#about/open">About</a></li>');
+        $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#about/open">About</a></li>');
 
         $('#app .view, #mainnav').hide();
         $('#aboutnav li').removeClass('active');
@@ -262,7 +262,7 @@ routers.App = Backbone.Router.extend({
             $('html, body').scrollTop(0);
         }, 0);
 
-        $('#breadcrumbs ul').html('<li><a href="#">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#top-donors">Top Donors</a></li>');
+        $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#top-donors">Top Donors</a></li>');
 
         $('#app .view').hide();
         $('#mainnav li').removeClass('active');
