@@ -84,6 +84,12 @@ views.App = Backbone.View.extend({
             .value().join('/');
 
         path = (filters.length) ? 'filter/' + filters : 'filter/';
+        
+        if (filters.indexOf('operating_unit') != -1 && $('.map-btn[data-value="hdi"]').hasClass('active')) {
+            $('#chart-hdi').css('display','block');
+        } else {
+            $('#chart-hdi').css('display','none');
+        }
 
         e.preventDefault();
 
