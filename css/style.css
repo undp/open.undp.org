@@ -640,10 +640,44 @@ input.button {
     margin-right:10px;
     }
 
+.chart h3 {
+  display: inline-block;
+  margin-bottom: 15px;
+}
 .chart .chart-legend {
+  position: relative;
+  top: 7px;
   float:right;
+  font-size:0.8em;
+  font-weight:normal;
+  color:#b3b3b3;
+  display: inline-block;
   }
-
+  .chart-legend .thick-bar, .chart-legend .thin-bar {
+    line-height: 10px;
+    }
+  .chart-legend .thick-bar {
+    width:90px;
+    margin-bottom: 2px;
+    }
+    .chart-legend span {
+      display:block;
+      float:left;
+      width:30px;
+      margin-right:5px;
+      }
+    .chart-legend .thick-bar span {
+      height:12px;
+      background:#0B387C;
+      }
+    .chart-legend .thin-bar span {
+      height:5px;
+      background:#96CCE6;
+      margin-top:3px;
+      }
+    #chart-hdi .thin-bar span {
+      background:#8DA5C8;
+    }
 #charts .chart {
   margin: 0;
   }
@@ -820,15 +854,6 @@ input.button {
   margin-right: 5px;
   margin-bottom: 1px;
 }
-#chart-hdi h3 {
-  display: inline-block;
-  }
-#chart-hdi .chart-legend {
-  position: relative;
-  left: 20px;
-  top: 7px;
-  display: inline-block;
-  }
 #chart-hdi .hdic {
   position: relative;
   top: 10px;
