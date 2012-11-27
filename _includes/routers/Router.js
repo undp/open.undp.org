@@ -181,6 +181,13 @@ routers.App = Backbone.Router.extend({
             }
             app.description = false;
         }
+        
+        // if filtered on operating_unit & on HDI layer, show chart
+        if (route.indexOf('operating_unit') != -1 && $('.map-btn[data-value="hdi"]').hasClass('active')) {
+            $('#chart-hdi').css('display','block');
+        } else {
+            $('#chart-hdi').css('display','none');
+        }
 
         $('#browser .summary').removeClass('off');
     },

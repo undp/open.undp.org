@@ -10,7 +10,8 @@ views.Filters = Backbone.View.extend({
             chartType = 'budget',
             chartTypeExp = 'expenditure',
             donor = '';
-
+            
+        $('#' + this.collection.id).toggleClass('filtered', false);
 
         if (active.length) {
 
