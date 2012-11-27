@@ -293,6 +293,9 @@ input.button {
 /*-----------------------------------
   Global Layout
 -------------------------------------*/
+#main {
+  position:relative;
+  }
 #top-navigation {
   padding:0;
   margin:0;
@@ -311,6 +314,7 @@ input.button {
 #breadcrumbs {
   position:absolute;
   margin:0;
+  left:0;
   }
 
 #app .view {
@@ -1537,6 +1541,14 @@ form {
   font-size:16px;
   line-height:24px;
   }
+#embed .stats .total {
+  font-weight:normal;
+  font-size:13px;
+  }
+#embed .stats td {
+  border-bottom:1px solid #ccc;
+  }
+
 
 /*-----------------------------------
   Clearfix
