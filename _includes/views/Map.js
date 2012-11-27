@@ -14,7 +14,10 @@ views.Map = Backbone.View.extend({
     },
 
     render: function() {
-        $('#chart-hdi').css('display','none');
+        if (!this.options.embed) {
+            $('#chart-hdi').css('display','none');
+        }
+
         app.hdi = false;
         var view = this,
             layer,

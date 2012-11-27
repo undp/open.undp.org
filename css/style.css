@@ -649,13 +649,10 @@ input.button {
   margin-bottom: 15px;
 }
 .chart .chart-legend {
-  position: relative;
-  top: 7px;
   float:right;
-  font-size:0.8em;
+  font-size:10px;
   font-weight:normal;
-  color:#b3b3b3;
-  display: inline-block;
+  color:#666;
   }
   .chart-legend .thick-bar, .chart-legend .thin-bar {
     line-height: 10px;
@@ -669,19 +666,18 @@ input.button {
       float:left;
       width:30px;
       margin-right:5px;
+      position:relative;
+      top:1px;
       }
     .chart-legend .thick-bar span {
       height:12px;
-      background:#0B387C;
+      background:#c8dde4;
       }
     .chart-legend .thin-bar span {
       height:5px;
-      background:#96CCE6;
+      background:#c8dde4;
       margin-top:3px;
       }
-    #chart-hdi .thin-bar span {
-      background:#8DA5C8;
-    }
 #charts .chart {
   margin: 0;
   }
@@ -714,12 +710,12 @@ input.button {
   float: none;
   }
 .chart .caption {
-  text-align: left;
+  text-align:left;
   text-transform:capitalize;
   font-weight:normal;
-  font-size: 11px;
-  line-height: 13px;
-  color:#05A;
+  font-size:11px;
+  line-height:13px;
+  color:#666;
   }
 .chart .data {
   min-width: 60px;
@@ -763,9 +759,9 @@ input.button {
   height: 118px;
   background:#fff;
   border:1px solid #999;
-  -webkit-box-shadow:inset 0 0 8px rgba(0, 0, 0, 0.25);
-     -moz-box-shadow:inset 0 0 8px rgba(0, 0, 0, 0.25);
-          box-shadow:inset 0 0 8px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow:inset 0 0 4px rgba(0, 0, 0, 0.25);
+     -moz-box-shadow:inset 0 0 4px rgba(0, 0, 0, 0.25);
+          box-shadow:inset 0 0 4px rgba(0, 0, 0, 0.25);
   }
   #xlabel {
     font-size:11px;
@@ -859,31 +855,30 @@ input.button {
   margin-bottom: 1px;
 }
 #chart-hdi .hdic {
-  position: relative;
-  top: 10px;
-  height: 123px;
-  margin-bottom: 30px;
+  position:relative;
+  height:120px;
+  margin-bottom:30px;
   }
 #chart-hdi .caption {
-  position: absolute;
-  top: 0;
-  left: 0;
-  line-height: 29px;
-  text-align: right;
+  position:absolute;
+  top:0;
+  left:0;
+  line-height:29px;
+  text-align:right;
   }
 #chart-hdi .data {
-  position: absolute;
-  top: 0;
-  left: 58px;
-  width: 450px;
+  position:absolute;
+  top:0;
+  left:58px;
+  width:450px;
   }
 #chart-hdi .details {
-  margin: 0;
-  float: none;
-  position: absolute;
-  top: 140px;
-  left: 0;
-  width: 100%;
+  margin:0;
+  float:none;
+  position:absolute;
+  top:140px;
+  left:0;
+  width:100%;
   }
 #chart-hdi .data > div.subdata {
   height: 7px;
@@ -1398,7 +1393,7 @@ form {
   font-weight: bold;
   color: #333;
   }
-#donor-gross-table {
+.donor-gross-table {
   margin-bottom: 20px;
   }
 #download code {
@@ -1548,7 +1543,18 @@ form {
 #embed .stats td {
   border-bottom:1px solid #ccc;
   }
-
+#embed #chart-hdi {
+  background:#fff;
+  position:static;
+  height:365px;
+  padding:10px;
+  z-index:1000;
+  display:block;
+  border:1px solid #B3B3B3;
+  -webkit-box-shadow:none;
+     -moz-box-shadow:none;
+          box-shadow:none;
+  }
 
 /*-----------------------------------
   Clearfix
