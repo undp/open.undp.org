@@ -278,7 +278,7 @@ routers.App = Backbone.Router.extend({
         donorsGross.fetch({
             success: function () {
                 this.topDonorsGross = new views.TopDonors({
-                    el: '#donor-gross-table',
+                    el: '.donor-gross-table',
                     collection: donorsGross
                 });
             }
@@ -286,7 +286,7 @@ routers.App = Backbone.Router.extend({
         donorsLocal.fetch({
             success: function () {
                 this.topDonorsLocal = new views.TopDonors({
-                    el: '#donor-local-table',
+                    el: '.donor-local-table',
                     collection: donorsLocal
                 });
             }
