@@ -1,6 +1,6 @@
 ---
 ---
-(function() {
+$(function() {
     var BASE_URL = 'http://localhost:4000/undp-projects/',
         widgetOts = [],
         models = {},
@@ -143,4 +143,4 @@
         app = new routers.App();
         Backbone.history.start();
     });
-})();
+});
