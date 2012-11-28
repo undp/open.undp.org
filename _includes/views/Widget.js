@@ -6,13 +6,14 @@ views.Widget = Backbone.View.extend({
     },
 
     initialize: function () {
+        this.destroy();
         this.render();
     },
 
     render: function(keypress) {
         var view = this;
 
-        this.$el.empty().append(templates.widget());
+        $(this.el).empty().append(templates.widget());
 
         if (view.options.context === 'projects') {
             $('.proj-opt', view.$el).hide();
@@ -23,6 +24,11 @@ views.Widget = Backbone.View.extend({
         }
 
         return this;
+    },
+
+    destroy: function() {
+        this.undelegateEvents();
+        $(this.el).removeData().unbind();
     },
 
     widgetOptions: function(e) {
