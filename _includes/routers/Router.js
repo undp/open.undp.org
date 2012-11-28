@@ -180,6 +180,13 @@ routers.App = Backbone.Router.extend({
             }
             app.description = false;
         }
+        
+        // if filtered on operating_unit & on HDI layer, show chart
+        if ($('#operating_unit').hasClass('filtered') && $('.map-btn[data-value="hdi"]').hasClass('active')) {
+            $('#chart-hdi').css('display','block');
+        } else {
+            $('#chart-hdi').css('display','none');
+        }
 
         $('#browser .summary').removeClass('off');
     },
@@ -245,7 +252,7 @@ routers.App = Backbone.Router.extend({
             $('html, body').scrollTop(0);
         }, 0);
 
-        $('#breadcrumbs ul').html('<li><a href="#">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#about/open">About</a></li>');
+        $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#about/open">About</a></li>');
 
         $('#app .view, #mainnav').hide();
         $('#aboutnav li').removeClass('active');
@@ -261,7 +268,7 @@ routers.App = Backbone.Router.extend({
             $('html, body').scrollTop(0);
         }, 0);
 
-        $('#breadcrumbs ul').html('<li><a href="#">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#top-donors">Top Donors</a></li>');
+        $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#top-donors">Top Donors</a></li>');
 
         $('#app .view').hide();
         $('#mainnav li').removeClass('active');
@@ -277,7 +284,7 @@ routers.App = Backbone.Router.extend({
         donorsGross.fetch({
             success: function () {
                 this.topDonorsGross = new views.TopDonors({
-                    el: '#donor-gross-table',
+                    el: '.donor-gross-table',
                     collection: donorsGross
                 });
             }
@@ -285,7 +292,7 @@ routers.App = Backbone.Router.extend({
         donorsLocal.fetch({
             success: function () {
                 this.topDonorsLocal = new views.TopDonors({
-                    el: '#donor-local-table',
+                    el: '.donor-local-table',
                     collection: donorsLocal
                 });
             }
