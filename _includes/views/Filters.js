@@ -29,10 +29,10 @@ views.Filters = Backbone.View.extend({
         } else {
             this.collection.sort();
 
-            filterModels = this.collection.chain().first(50).filter(function(model) {
+            filterModels = this.collection.chain().filter(function(model) {
                     var length = (model.collection.where({ visible: true }).length > 100) ? 1 : 0;
                     return (model.get('visible') && model.get('count') > length);
-                }).value();
+                }).first(50).value();
 
             chartModels = this.collection.chain()
                 .sortBy(function(model) {
