@@ -321,7 +321,7 @@ views.Map = Backbone.View.extend({
         if (data.count) {
             description = '<div class="stat">Projects: <span class="value">' +
                  data.count + '</span></div>' +
-                 ((data.sources > 1) ? ('<div class="stat">Funding Sources: <span class="value">' +
+                 ((data.sources > 1) ? ('<div class="stat">Budget Sources: <span class="value">' +
                  data.sources + '</span></div>') : '') +
                  description +
                  '<div class="stat">HDI: <span class="value">' +
