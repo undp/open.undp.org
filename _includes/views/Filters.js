@@ -29,14 +29,20 @@ views.Filters = Backbone.View.extend({
     
                 filterModels = active;
                 chartModels = active;
+                filterCallback();
+
             } else {
                 view.collection.sort();
     
-                filterModels = view.collection.chain().filter(function(model) {
-                        var length = (model.collection.where({ visible: true }).length > 100) ? 1 : 0;
-                        return (model.get('visible') && model.get('count') > length);
-                    }).first(50).value();
-    
+                setTimeout(function() {
+                    filterModels = view.collection.chain().filter(function(model) {
+                            return model.get('visible');
+                        }).first(50).value();
+
+                    filterCallback();
+
+                }, 0);
+
                 chartModels = view.collection.chain()
                     .sortBy(function(model) {
                         return -1 * model.get(chartType) || 0;
@@ -53,54 +59,56 @@ views.Filters = Backbone.View.extend({
                     $('#applied-filters').addClass('no-region');
                 }
             }
-    
-            if (filterModels.length) {
-                view.$el.html(templates.filters(view));
-                app.description =  app.description || ['The following includes projects'];
-    
-                _(filterModels).each(function(model) {
-    
-                    view.$('.filter-items').append(templates.filter({ model: model }));
-                    $('#' + view.collection.id + '-' + model.id).toggleClass('active', model.get('active'));
-                    if (model.get('active') && !keypress) {
-                        $('#breadcrumbs ul').append(
-                            '<li><a href="' + BASE_URL + '/#filter/' +
-                            view.collection.id + '-' +
-                            model.get('id') + '">' +
-                            model.get('name').toLowerCase().toTitleCase() +
-                            '</a></li>'
-                        );
-    
-                        if (view.collection.id === 'operating_unit') {
-                            $('#applied-filters').removeClass('no-country');
-                            app.description.push(' for the <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong> office');
-                        }
-                        if (view.collection.id === 'region') {
-                            $('#applied-filters.no-country').removeClass('no-region');
-                            app.description.push(' in the <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong> region');
-                        }
-                        if (view.collection.id === 'donor_countries') {
-                            var mId = model.id;
-    
-                            if (mId === 'MULTI_AGY') {
-                                app.description.push(' with funding from  <strong>Multi-Lateral Agencies</strong>');
-                            } else if (mId === 'OTH') {
-                                app.description.push(' with funding from  <strong>Uncategorized Organizations</strong>');
-                            } else {
-                                app.description.push(' with funding from <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong>');
+
+            function filterCallback() {
+                if (filterModels.length) {
+                    view.$el.html(templates.filters(view));
+                    app.description =  app.description || ['The following includes projects'];
+        
+                    _(filterModels).each(function(model) {
+        
+                        view.$('.filter-items').append(templates.filter({ model: model }));
+                        $('#' + view.collection.id + '-' + model.id).toggleClass('active', model.get('active'));
+                        if (model.get('active') && !keypress) {
+                            $('#breadcrumbs ul').append(
+                                '<li><a href="' + BASE_URL + '/#filter/' +
+                                view.collection.id + '-' +
+                                model.get('id') + '">' +
+                                model.get('name').toLowerCase().toTitleCase() +
+                                '</a></li>'
+                            );
+        
+                            if (view.collection.id === 'operating_unit') {
+                                $('#applied-filters').removeClass('no-country');
+                                app.description.push(' for the <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong> office');
+                            }
+                            if (view.collection.id === 'region') {
+                                $('#applied-filters.no-country').removeClass('no-region');
+                                app.description.push(' in the <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong> region');
+                            }
+                            if (view.collection.id === 'donor_countries') {
+                                var mId = model.id;
+        
+                                if (mId === 'MULTI_AGY') {
+                                    app.description.push(' with funding from  <strong>Multi-Lateral Agencies</strong>');
+                                } else if (mId === 'OTH') {
+                                    app.description.push(' with funding from  <strong>Uncategorized Organizations</strong>');
+                                } else {
+                                    app.description.push(' with funding from <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong>');
+                                }
+                            }
+                            if (view.collection.id === 'donors') {
+                                app.description.push(' funded by the <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong>');
+                            }
+                            if (view.collection.id === 'focus_area') {
+                                app.description.push(' with a focus on <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong>');
                             }
                         }
-                        if (view.collection.id === 'donors') {
-                            app.description.push(' funded by the <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong>');
-                        }
-                        if (view.collection.id === 'focus_area') {
-                            app.description.push(' with a focus on <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong>');
-                        }
-                    }
-                });
-    
-            } else {
-                view.$el.empty();
+                    });
+        
+                } else {
+                    view.$el.empty();
+                }
             }
     
             $('#chart-' + view.collection.id + '.rows').empty();

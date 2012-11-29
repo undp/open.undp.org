@@ -15,6 +15,7 @@ models.Projects = Backbone.Collection.extend({
     watch: function() {
         var collection = this;
         this.update();
+        collection.on('reset', this.update, this);
     },
     update: function() {
         var collection = this,
@@ -167,11 +168,7 @@ models.Projects = Backbone.Collection.extend({
         
         function callback() {
             collection.trigger('update');
-            if (!collection.ready) {
-                collection.on('reset', this.update, this);
-                _(collection.cb).bind(collection)();
-                collection.ready = true;
-            }
+            _(collection.cb).bind(collection)();
         }
 
     },

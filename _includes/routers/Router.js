@@ -106,15 +106,16 @@ routers.App = Backbone.Router.extend({
                                 el: '#' + facet.id,
                                 collection: collection
                             });
+
                             _.each(filters, function (obj) {
                                 if (obj.collection === facet.id) {
                                     that.app.views[facet.id].active = true;
                                 }
                             });
+
                             collection.watch();
 
                             counter++;
-                            console.log(counter, facets.length);
                             if (counter === facets.length) updateDescription();
 
                         }
@@ -152,43 +153,44 @@ routers.App = Backbone.Router.extend({
 
             } else {
                 // if projects are already present
+                this.projects.cb = updateDescription;
                 this.projects.reset(this.allProjects.filter(filter));
-                updateDescription();
             }
         }
 
         function updateDescription() {
-            console.log('update');
+            setTimeout(function() {
 
-            // Clear search values on refresh
-            $('#filters-search, #projects-search').val('');
-
-            if (_(filters).find(function(f) {
-                return f.collection === 'focus_area';
-            })) {
-                $('#chart-focus_area').hide();
-            } else {
-                $('#chart-focus_area').show();
-            }
-
-            if (app.description && app.description.length > 1) {
-                $('#applied-filters').html('Selected Projects');
-                $('#description p').html(app.description.shift() + app.description.join(',') + '.');
-            } else {
-                $('#applied-filters').html('All Projects');
-                $('#description p').html(app.defaultDescription);
-            }
-            app.description = false;
-
-            // if filtered on operating_unit & on HDI layer, show chart
-            if ($('#operating_unit').hasClass('filtered') && $('.map-btn[data-value="hdi"]').hasClass('active')) {
-                $('#chart-hdi').css('display','block');
-            } else {
-                $('#chart-hdi').css('display','none');
-            }
+                // Clear search values on refresh
+                $('#filters-search, #projects-search').val('');
     
-            $('#browser .summary').removeClass('off');
+                if (_(filters).find(function(f) {
+                    return f.collection === 'focus_area';
+                })) {
+                    $('#chart-focus_area').hide();
+                } else {
+                    $('#chart-focus_area').show();
+                }
+    
+                if (app.description && app.description.length > 1) {
+                    $('#applied-filters').html('Selected Projects');
+                    $('#description p').html(app.description.shift() + app.description.join(',') + '.');
+                } else {
+                    $('#applied-filters').html('All Projects');
+                    $('#description p').html(app.defaultDescription);
+                }
+                app.description = false;
+    
+                // if filtered on operating_unit & on HDI layer, show chart
+                if ($('#operating_unit').hasClass('filtered') && $('.map-btn[data-value="hdi"]').hasClass('active')) {
+                    $('#chart-hdi').css('display','block');
+                } else {
+                    $('#chart-hdi').css('display','none');
+                }
+        
+                $('#browser .summary').removeClass('off');
 
+            }, 0);
         }
         
     },
