@@ -2,7 +2,8 @@ views.Widget = Backbone.View.extend({
     el: '#widget',
 
     events: {
-       'click .widget-options a': 'widgetOptions'
+       'click .widget-options a': 'widgetOptions',
+       'click .widget-code': 'inputSelect'
     },
 
     initialize: function () {
@@ -61,7 +62,6 @@ views.Widget = Backbone.View.extend({
             $('.widget-code', view.$el)
                 .show()
                 .val(view.widgetCode)
-                .focus()
                 .select();
         } else {
             $('.widget-preview', view.$el).html('<h3 class="empty">To use this widget choose some options on the left.</h3>');
@@ -70,5 +70,9 @@ views.Widget = Backbone.View.extend({
         }
 
         return false;
+    },
+
+    inputSelect: function(e) {
+        $(e.target).select();
     }
 });

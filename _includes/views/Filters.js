@@ -153,7 +153,7 @@ views.Filters = Backbone.View.extend({
                         $('.fa' + (model.id) + ' .pct').text(value + '%');
                     });
     
-                    $el.prepend('<h3 id="focus">Focus Areas</h3>');
+                    $el.prepend('<h3 id="focus">Focus Areas <span>% of budget</span></h3>');
                 } else if (view.collection.id === 'operating_unit' || view.collection.id === 'donors') {
     
                     donor = (_(app.app.filters).find(function(filter) {

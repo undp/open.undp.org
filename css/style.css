@@ -143,6 +143,11 @@ input.button {
   line-height:normal;
   border:none;
   }
+input[readonly] {
+  cursor:default;
+  background-color:#FFF;
+  }
+
 .button {
   background:#05A;
   color:#FFF;
@@ -619,6 +624,11 @@ input.button {
 #focus {
   display:block;
   margin:20px 0 10px;
+  }
+  #focus span {
+    font-size:10px;
+    font-weight:normal;
+    color:#666;
   }
 .chart li.focus {
   float:left;
