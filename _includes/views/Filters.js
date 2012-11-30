@@ -16,7 +16,10 @@ views.Filters = Backbone.View.extend({
         if (active.length) {
 
             // Use donor level financial data if available
-            if (active[0].collection.id === 'donors') donor = active[0].id;
+            if (active[0].collection.id === 'donors') {
+                donor = active[0].id;
+                app.projects.map.collection.donorID = donor;
+            }
 
             // Add a filtered class to all parent containers
             // where an active element has been selected.
@@ -175,6 +178,12 @@ views.Filters = Backbone.View.extend({
 
                         var donorExpenditure = _(donorProjects).chain().pluck('expenditure')
                             .reduce(function(memo, num){ return memo + num; }, 0).value();
+                        
+                        if (donor) {
+                            app.projects.map.collection.donorID = false;      
+                            app.projects.map.collection.donorBudget[donor] = donorBudget;
+                            app.projects.map.collection.donorExpenditure[donor] = donorExpenditure;
+                        }
 
                     } else {
                         var donorBudget = (donor) ? app.projects.chain()
@@ -195,6 +204,11 @@ views.Filters = Backbone.View.extend({
                                     if (donorIndex === -1) return memo;
                                     return memo + project.get('donor_expend')[donorIndex];
                                 }, 0).value() : 0;
+                        if (donor) {
+                            app.projects.map.collection.donorID = false;
+                            app.projects.map.collection.operating_unitBudget[model.get('id')] = donorBudget;
+                            app.projects.map.collection.operating_unitExpenditure[model.get('id')] = donorExpenditure;
+                        }
                     }
 
                     var budget = accounting.formatMoney(
