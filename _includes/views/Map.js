@@ -237,9 +237,9 @@ views.Map = Backbone.View.extend({
                         if (o.lon) {
                             if (homepage) {
                                 count = unit.operating_unit[o.id];
-                                sources = unit.operating_unitSources[o.id];
-                                budget = unit.operating_unitBudget[o.id];
-                                expenditure = unit.operating_unitExpenditure[o.id];
+                                sources = (unit.donorID) ? false : unit.operating_unitSources[o.id];
+                                budget = (unit.donorID && _.size(unit.operating_unit)) ? unit.donorBudget[unit.donorID] : unit.operating_unitBudget[o.id];
+                                expenditure = (unit.donorID && _.size(unit.operating_unit)) ? unit.donorExpenditure[unit.donorID] : unit.operating_unitExpenditure[o.id];
                             } else {
                                 count = false;
                                 sources = false;
