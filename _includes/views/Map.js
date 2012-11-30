@@ -6,6 +6,7 @@ views.Map = Backbone.View.extend({
     },
 
     initialize: function() {
+        if (this.options.render) this.render();
     },
 
     render: function() {
