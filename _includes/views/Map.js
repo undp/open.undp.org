@@ -6,77 +6,76 @@ views.Map = Backbone.View.extend({
     },
 
     initialize: function() {
-        this.render();
-
-        if (this.collection) {
-            this.collection.on('update', this.render, this);
-        }
+        if (this.options.render) this.render();
     },
 
     render: function() {
-        app.hdi = false;
-        var view = this,
-            layer,
-            unit = (this.collection) ? this.collection : this.model.get('operating_unit_id');
-
-        // Get HDI data
-        $.getJSON('api/hdi.json', function(data) {
-
-            var hdiWorld = _.find(data,function(d){return d.name == 'World';});
-            hdiWorld.count = _.max(data,function(d){return d.rank;}).rank;
-
-            var hdiArray = _.reduce(data, function(res, obj) {
-                if (((_.isObject(unit)) ? unit.operating_unit[obj.id] : obj.id === unit) && obj.hdi) {
-                    res[obj.id] = {
-                        hdi: obj.hdi,
-                        health: obj.health,
-                        education: obj.education,
-                        income: obj.income,
-                        rank: obj.rank
-                    };
-                }
-                return res;
-            }, {});
-
-            if (view.collection) {
-                if (!view.options.embed) {
-                    layer = $('.map-btn.active').attr('data-value');
-                } else {
-                    layer = 'budget'
-                }
-                view.collection.hdi = hdiArray;
-                view.collection.hdiWorld = hdiWorld;
-                if ($('#operating_unit .filter').hasClass('active') || view.options.embed) {
-                    var hdi = _.filter(data, function(d) {
-                        return d.id == _.keys(unit.operating_unit);
-                    })[0];
-
-                    $('.map-btn[data-value="hdi"] .total-caption').html('HDI');
-
-                    if (hdi && _.size(hdiArray) > 0) {
-                        $('#hdi').html(_.last(hdi.hdi)[1]);
-                        app.hdi = true;
-                        view.hdiChart(hdi,hdiWorld);
-                        view.hdiDetails(hdi);
+        view = this;
+        setTimeout(function() {
+            app.hdi = false;
+            var layer,
+                unit = (view.collection) ? view.collection : view.model.get('operating_unit_id');
+    
+            // Get HDI data
+            $.getJSON('api/hdi.json', function(data) {
+    
+                var hdiWorld = _.find(data,function(d){return d.name == 'World';});
+                hdiWorld.count = _.max(data,function(d){return d.rank;}).rank;
+    
+                var hdiArray = _.reduce(data, function(res, obj) {
+                    if (((_.isObject(unit)) ? unit.operating_unit[obj.id] : obj.id === unit) && obj.hdi) {
+                        res[obj.id] = {
+                            hdi: obj.hdi,
+                            health: obj.health,
+                            education: obj.education,
+                            income: obj.income,
+                            rank: obj.rank
+                        };
+                    }
+                    return res;
+                }, {});
+    
+                if (view.collection) {
+                    if (!view.options.embed) {
+                        layer = $('.map-btn.active').attr('data-value');
                     } else {
-                        $('#hdi').html('no data');
-                        $('#chart-hdi').css('display','none');
+                        layer = 'budget';
+                    }
+                    view.collection.hdi = hdiArray;
+                    view.collection.hdiWorld = hdiWorld;
+                    if ($('#operating_unit .filter').hasClass('active') || view.options.embed) {
+                        var hdi = _.filter(data, function(d) {
+                            return d.id == _.keys(unit.operating_unit);
+                        })[0];
+    
+                        $('.map-btn[data-value="hdi"] .total-caption').html('HDI');
+    
+                        if (hdi && _.size(hdiArray) > 0) {
+                            $('#hdi').html(_.last(hdi.hdi)[1]);
+                            app.hdi = true;
+                            view.hdiChart(hdi,hdiWorld);
+                            view.hdiDetails(hdi);
+                        } else {
+                            $('#hdi').html('no data');
+                            $('#chart-hdi').css('display','none');
+                        }
+                    } else {
+                        $('#hdi').html(_.last(hdiWorld.hdi)[1]);
+                        $('.map-btn[data-value="hdi"] .total-caption').html('HDI Global');
                     }
                 } else {
-                    $('#hdi').html(_.last(hdiWorld.hdi)[1]);
-                    $('.map-btn[data-value="hdi"] .total-caption').html('HDI Global');
+                    layer = 'budget';
+                    view.model.set('hdi',hdiArray[unit]);
+                    view.model.set('hdiWorld',hdiWorld);
                 }
-            } else {
-                layer = 'budget';
-                view.model.set('hdi',hdiArray[unit]);
-                view.model.set('hdiWorld',hdiWorld);
-            }
-        }).success(function() {
-                view.$el.empty().append('<div class="inner-shadow"></div>');
-                view.buildMap(layer);
-        });
+            }).success(function() {
+                    var IE = $.browser.msie;
+                    view.$el.empty();
+                    if (!IE) view.$el.append('<div class="inner-shadow"></div>');
+                    view.buildMap(layer);
+            });
+        }, 0);
 
-        return this;
     },
     mapClick: function(e) {
         var $target = $(e.target),
@@ -180,7 +179,7 @@ views.Map = Backbone.View.extend({
 
     updateMap: function(layer) {
         var view = this,
-            markers = this.map.layers[2],
+            markers = this.map.layers[1],
 
             radii = function(f) {
                 f.properties.description = view.tooltip(layer, f.properties);
@@ -205,107 +204,110 @@ views.Map = Backbone.View.extend({
             // if unit is an object we're working with the homepage map, else the project map
             homepage = _.isObject(unit);
 
-        mapbox.auto(this.el, 'undp.map-6grwd0n3', function(map) {
-            view.map = map;
-            map.setZoomRange(2, 17);
+        view.map = mapbox.map(this.el, null, null, null).setZoomRange(2, 17);
+        var mbLayer = mapbox.layer().tilejson(TJ);
+        view.map.addLayer(mbLayer);
+        view.map.ui.zoomer.add();
+        view.map.ui.attribution.add();
+        
+        $('.map-attribution').html(mbLayer._tilejson.attribution);
 
-            var radii = function(f) {
-                f.properties.description = view.tooltip(layer, f.properties);
-                return clustr.area_to_radius(
-                    Math.round(view.scale(layer,f))
-                );
-            };
+        var radii = function(f) {
+            f.properties.description = view.tooltip(layer, f.properties);
+            return clustr.area_to_radius(
+                Math.round(view.scale(layer,f))
+            );
+        };
 
-            var markers = mapbox.markers.layer();
+        var markers = mapbox.markers.layer();
 
-            if (homepage) {
-                markers.factory(clustr.scale_factory(radii, 'rgba(0,85,170,0.6)', '#FFF')).sort(function(a, b) {
-                    return b.properties[layer] - a.properties[layer];
-                });
-            }
+        if (homepage) {
+            markers.factory(clustr.scale_factory(radii, 'rgba(0,85,170,0.6)', '#FFF')).sort(function(a, b) {
+                return b.properties[layer] - a.properties[layer];
+            });
+        }
 
-            $.getJSON('api/operating-unit-index.json', function(data) {
-                for (var i = 0; i < data.length; i++) {
-                    var o = data[i];
-                    if ((homepage) ? unit.operating_unit[o.id] : o.id === unit) {
+        $.getJSON('api/operating-unit-index.json', function(data) {
+            for (var i = 0; i < data.length; i++) {
+                var o = data[i];
+                if ((homepage) ? unit.operating_unit[o.id] : o.id === unit) {
 
-                        if (!homepage) {
-                            view.getwebData(o);
-                            $('#country-summary').html(templates.ctrySummary(o));
-                        }
+                    if (!homepage) {
+                        view.getwebData(o);
+                        $('#country-summary').html(templates.ctrySummary(o));
+                    }
 
-                        if (o.lon) {
-                            if (homepage) {
-                                count = unit.operating_unit[o.id];
-                                sources = (unit.donorID) ? false : unit.operating_unitSources[o.id];
+                    if (o.lon) {
+                        if (homepage) {
+                            count = unit.operating_unit[o.id];
+                            sources = (unit.donorID) ? false : unit.operating_unitSources[o.id];
                                 budget = (unit.donorID && _.size(unit.operating_unit)) ? unit.donorBudget[unit.donorID] : unit.operating_unitBudget[o.id];
                                 expenditure = (unit.donorID && _.size(unit.operating_unit)) ? unit.donorExpenditure[unit.donorID] : unit.operating_unitExpenditure[o.id];
+                        } else {
+                            count = false;
+                            sources = false;
+                            budget = view.model.get('budget');
+                            expenditure = view.model.get('expenditure');
+                        }
+                        if ((homepage) ? unit.hdi[o.id] : view.model.get('hdi')) {
+                            if (homepage) {
+                                hdi = _.last(unit.hdi[o.id].hdi)[1];
+                                hdi_health = _.last(unit.hdi[o.id].health)[1];
+                                hdi_education = _.last(unit.hdi[o.id].education)[1];
+                                hdi_income = _.last(unit.hdi[o.id].income)[1];
+                                hdi_rank = unit.hdi[o.id].rank;
                             } else {
-                                count = false;
-                                sources = false;
-                                budget = view.model.get('budget');
-                                expenditure = view.model.get('expenditure');
+                                hdi = _.last(view.model.get('hdi').hdi)[1];
+                                hdi_health = _.last(view.model.get('hdi').health)[1];
+                                hdi_education = _.last(view.model.get('hdi').education)[1];
+                                hdi_income = _.last(view.model.get('hdi').income)[1];
+                                hdi_rank = view.model.get('hdi').rank;
                             }
-                            if ((homepage) ? unit.hdi[o.id] : view.model.get('hdi')) {
-                                if (homepage) {
-                                    hdi = _.last(unit.hdi[o.id].hdi)[1];
-                                    hdi_health = _.last(unit.hdi[o.id].health)[1];
-                                    hdi_education = _.last(unit.hdi[o.id].education)[1];
-                                    hdi_income = _.last(unit.hdi[o.id].income)[1];
-                                    hdi_rank = unit.hdi[o.id].rank;
-                                } else {
-                                    hdi = _.last(view.model.get('hdi').hdi)[1];
-                                    hdi_health = _.last(view.model.get('hdi').health)[1];
-                                    hdi_education = _.last(view.model.get('hdi').education)[1];
-                                    hdi_income = _.last(view.model.get('hdi').income)[1];
-                                    hdi_rank = view.model.get('hdi').rank;
-                                }
-                            } else {
-                                hdi = hdi_health = hdi_education = hdi_income = hdi_rank = 'no data';
-                            }
+                        } else {
+                            hdi = hdi_health = hdi_education = hdi_income = hdi_rank = 'no data';
+                        }
 
-                            locations.push({
-                                geometry: {
-                                    coordinates: [
-                                        o.lon,
-                                        o.lat
-                                    ]
-                                },
-                                properties: {
-                                    id: o.id,
-                                    project: (homepage) ? '' : view.model.get('project_title'),
-                                    name: o.name,
-                                    count: count,
-                                    sources: sources,
-                                    budget: budget,
-                                    expenditure: expenditure,
-                                    hdi: hdi,
-                                    hdi_health: hdi_health,
-                                    hdi_education: hdi_education,
-                                    hdi_income: hdi_income,
-                                    hdi_rank: hdi_rank
-                                }
-                            });
-
-                            if (!homepage) {
-                                locations[0].properties['marker-color'] = '#2970B8';
+                        locations.push({
+                            geometry: {
+                                coordinates: [
+                                    o.lon,
+                                    o.lat
+                                ]
+                            },
+                            properties: {
+                                id: o.id,
+                                project: (homepage) ? '' : view.model.get('project_title'),
+                                name: o.name,
+                                count: count,
+                                sources: sources,
+                                budget: budget,
+                                expenditure: expenditure,
+                                hdi: hdi,
+                                hdi_health: hdi_health,
+                                hdi_education: hdi_education,
+                                hdi_income: hdi_income,
+                                hdi_rank: hdi_rank
                             }
+                        });
+
+                        if (!homepage) {
+                            locations[0].properties['marker-color'] = '#2970B8';
                         }
                     }
                 }
+            }
 
-                if (locations.length !== 0) {
-                    markers.features(locations);
-                    mapbox.markers.interaction(markers);
-                    map.extent(markers.extent());
-                    map.addLayer(markers);
-                    if (locations.length === 1) {
-                        map.zoom(4);
-                    }
-                } else {
-                    map.centerzoom({lat:20, lon:0}, 2);
+            if (locations.length !== 0) {
+                markers.features(locations);
+                mapbox.markers.interaction(markers);
+                view.map.extent(markers.extent());
+                view.map.addLayer(markers);
+                if (locations.length === 1) {
+                    view.map.zoom(4);
                 }
-            });
+            } else {
+                view.map.centerzoom({lat:20, lon:0}, 2);
+            }
         });
     },
 
