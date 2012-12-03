@@ -83,7 +83,12 @@ views.ProjectProfile = Backbone.View.extend({
             if (filterDocuments.length !== 0) {
                 _(filterDocuments).each(function(d, i) {
                     documents[i] = {};
-                    documents[i].title = (d.split('/').pop()).split(/(.)[^.]*$/)[0].replace('_', ' ');
+                    var title = (d.split('/').pop()).split(/(.)[^.]*$/)[0].replace('_', ' ');
+                    if (title.length > 38) {
+                        documents[i].title = title.substring(0, 38) + '...';
+                    } else {
+                        documents[i].title = title;
+                    }
                     documents[i].filetype = d.split('.').pop();
                     documents[i].src = d;
                 });
