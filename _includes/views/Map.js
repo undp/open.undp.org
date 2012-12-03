@@ -312,21 +312,21 @@ views.Map = Backbone.View.extend({
     },
 
     tooltip: function(layer, data) {
-        var description = '<div class="stat">Budget: <span class="value">' +
+        var description = '<div class="stat' + ((layer == 'budget') ? ' active' : '') + '">Budget: <span class="value">' +
             accounting.formatMoney(data.budget) + '</span></div>' +
-            '<div class="stat">Expenditure: <span class="value">' +
+            '<div class="stat' + ((layer == 'expenditure') ? ' active' : '') + '">Expenditure: <span class="value">' +
             accounting.formatMoney(data.expenditure) + '</span></div>';
 
         data.title = data.project + '<div class="subtitle">' + data.name + '</div>';
 
         // add this if we're counting projects (on homepage)
         if (data.count) {
-            description = '<div class="stat">Projects: <span class="value">' +
+            description = '<div class="stat' + ((layer == 'count') ? ' active' : '') + '">Projects: <span class="value">' +
                  data.count + '</span></div>' +
-                 ((data.sources > 1) ? ('<div class="stat">Budget Sources: <span class="value">' +
+                 ((data.sources > 1) ? ('<div class="stat' + ((layer == 'sources') ? ' active' : '') + '">Budget Sources: <span class="value">' +
                  data.sources + '</span></div>') : '') +
                  description +
-                 '<div class="stat">HDI: <span class="value">' +
+                 '<div class="stat' + ((layer == 'hdi') ? ' active' : '') + '">HDI: <span class="value">' +
                  data.hdi + '</span></div>';
 
             data.title = data.name;
