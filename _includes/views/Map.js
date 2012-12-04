@@ -358,21 +358,19 @@ views.Map = Backbone.View.extend({
         // Get social media accounts from UNDP-maintained spreadsheet
         $.getJSON('//spreadsheets.google.com/feeds/list/0Airl6dsmcbKodHB4SlVfeVRHeWoyWTdKcDY5UW1xaEE/1/public/values?alt=json-in-script&callback=?', function(g) {
             var flickrAccts = [],
-                twitterAccts = [],
+                twitterAcct,
                 fbAccts = [];
 
             _.each(g.feed.entry, function(row) {
-                /*
                 if (row.gsx$type.$t === 'Global' || (row.gsx$type.$t === 'HQ' && row.gsx$id.$t === view.model.get('region_id'))
                     ) {
-                    if (row.gsx$twitter.$t) twitterAccts.push(row.gsx$twitter.$t.replace('@',''));
+                    //if (row.gsx$twitter.$t) twitterAccts.push(row.gsx$twitter.$t.replace('@',''));
                     if (row.gsx$flickr.$t) flickrAccts.push(row.gsx$flickr.$t);
                     if (row.gsx$facebook.$t) fbAccts.push(row.gsx$facebook.$t);
                 }
-                */
                 if (row.gsx$type.$t === 'CO' && row.gsx$id.$t === data.id) {
                     if (row.gsx$twitter.$t) {
-                        twitterAccts.unshift(row.gsx$twitter.$t.replace('@',''));
+                        twitterAcct = row.gsx$twitter.$t.replace('@','');
                         coContact.twitter.push(row.gsx$twitter.$t.replace('@',''));
                     }
                     if (row.gsx$flickr.$t) {
@@ -386,7 +384,8 @@ views.Map = Backbone.View.extend({
                 }
             });
 
-            view.twitter(twitterAccts, function(twPhotos) {
+            view.twitter(twitterAcct, function(tweets, twPhotos) {
+                view.showTweets(tweets);
                 view.flickr(flickrAccts,photos.concat(twPhotos));
             });
 
@@ -435,41 +434,56 @@ views.Map = Backbone.View.extend({
             goodTweets = [],
             twPhotos = [];
             
-        $.getJSON('http://api.twitter.com/1/lists/statuses.json?slug=undp-tweets&owner_screen_name=openundp&include_entities=1&include_rts=1&since_id=274016103305461762&per_page=400&callback=?', function(tweets) {
+        function gatherTweets(x) {
+            if ((x.entities.urls.length) ? x.entities.urls[0].expanded_url.indexOf(id) !== -1 : x.entities.urls.length) {
+                goodTweets.push(x);
+                
+                if ((x.entities.media) ? x.entities.media[0].type == 'photo' : x.entities.media) {
+                    twPhotos.push({
+                        'source': x.entities.media[0].media_url,
+                        'date': new Date(x.created_at),
+                        'description': x.text,
+                        'link': x.entities.media[0].expanded_url,
+                        'height': x.entities.media[0].sizes.medium.h,
+                        'width': x.entities.media[0].sizes.medium.w
+                    });
+                }
+            }
+        }
+            
+        $.getJSON('http://api.twitter.com/1/lists/statuses.json?slug=undp-tweets&owner_screen_name=openundp&include_entities=1&include_rts=0&since_id=274016103305461762&per_page=400&callback=?', function(tweets) {
             
             _.each(tweets, function(t) {
-                if ((t.entities.urls.length) ? t.entities.urls[0].expanded_url.indexOf(id) !== -1 : t.entities.urls.length) {
-                    goodTweets.push(t);
-                    
-                    if ((t.entities.media) ? t.entities.media[0].type == 'photo' : t.entities.media) {
-                        twPhotos.push({
-                            'source': t.entities.media[0].media_url,
-                            'date': new Date(t.created_at),
-                            'description': t.text,
-                            'link': t.entities.media[0].expanded_url,
-                            'height': t.entities.media[0].sizes.medium.h,
-                            'width': t.entities.media[0].sizes.medium.w
-                        });
-                    }
-                }
+                gatherTweets(t);
             });
             
-            if (goodTweets.length) {
-                $('#twitter-block').show();
+            if (username) {
+                $.getJSON('http://api.twitter.com/1/user_timeline.json?screen_name=' + username + '&include_entities=1&include_rts=0&since_id=274016103305461762&count=200&callback=?', function(coTweets) {
                 
-                $('.tweet').tweet({
-                    tweets: goodTweets,
-                    avatar_size: 40,
-                    count: 3,
-                    template: "{avatar}<div class='actions'>{time}</div><div>{text}</div>",
-                    loading_text: "Loading Tweets"
+                     _.each(coTweets, function(t) {
+                        gatherTweets(t);
+                    });
                 });
-    
-                $('#twitter-block').find('.fade').addClass('in');
             }
-
-            callback(twPhotos);
+            
+            callback(goodTweets, twPhotos);
         });
+    },
+    
+    showTweets: function(tweets) {
+        if (tweets.length) {
+            $('#twitter-block').show();
+            
+            $('.tweet').tweet({
+                tweets: tweets,
+                avatar_size: 40,
+                count: 3,
+                template: "{avatar}<div class='actions'>{time}</div><div>{text}</div>",
+                loading_text: "Loading Tweets"
+            });
+
+            $('#twitter-block').find('.fade').addClass('in');
+        }
     },
 
     flickr: function(account, photos) {
