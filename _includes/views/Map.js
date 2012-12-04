@@ -362,12 +362,14 @@ views.Map = Backbone.View.extend({
                 fbAccts = [];
 
             _.each(g.feed.entry, function(row) {
+                /*
                 if (row.gsx$type.$t === 'Global' || (row.gsx$type.$t === 'HQ' && row.gsx$id.$t === view.model.get('region_id'))
                     ) {
                     if (row.gsx$twitter.$t) twitterAccts.push(row.gsx$twitter.$t.replace('@',''));
                     if (row.gsx$flickr.$t) flickrAccts.push(row.gsx$flickr.$t);
                     if (row.gsx$facebook.$t) fbAccts.push(row.gsx$facebook.$t);
                 }
+                */
                 if (row.gsx$type.$t === 'CO' && row.gsx$id.$t === data.id) {
                     if (row.gsx$twitter.$t) {
                         twitterAccts.unshift(row.gsx$twitter.$t.replace('@',''));
@@ -429,13 +431,16 @@ views.Map = Backbone.View.extend({
     },
 
     twitter: function(username, callback) {
-        var query = 'from:' + username.join(' OR from:') + ' ' + this.model.get('project_id'),
+        var id = this.model.get('project_id'),
+            goodTweets = [],
             twPhotos = [];
-
-        $.getJSON('http://search.twitter.com/search.json?&q=' + encodeURIComponent(query) + '&include_entities=1&callback=?', function(tweets) {
-            if (tweets.results.length) {
-                $('#twitter-block').show();
-                _.each(tweets.results, function(t) {
+            
+        $.getJSON('http://api.twitter.com/1/lists/statuses.json?slug=undp-tweets&owner_screen_name=openundp&include_entities=1&include_rts=1&since_id=274016103305461762&per_page=400&callback=?', function(tweets) {
+            
+            _.each(tweets, function(t) {
+                if ((t.entities.urls.length) ? t.entities.urls[0].expanded_url.indexOf(id) !== -1 : t.entities.urls.length) {
+                    goodTweets.push(t);
+                    
                     if ((t.entities.media) ? t.entities.media[0].type == 'photo' : t.entities.media) {
                         twPhotos.push({
                             'source': t.entities.media[0].media_url,
@@ -446,16 +451,20 @@ views.Map = Backbone.View.extend({
                             'width': t.entities.media[0].sizes.medium.w
                         });
                     }
-                });
-
+                }
+            });
+            
+            if (goodTweets.length) {
+                $('#twitter-block').show();
+                
                 $('.tweet').tweet({
-                    tweets: tweets,
+                    tweets: goodTweets,
                     avatar_size: 40,
                     count: 3,
                     template: "{avatar}<div class='actions'>{time}</div><div>{text}</div>",
                     loading_text: "Loading Tweets"
                 });
-
+    
                 $('#twitter-block').find('.fade').addClass('in');
             }
 

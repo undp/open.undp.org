@@ -957,7 +957,7 @@ form {
 .col-filter {
   margin-top:37px;
   }
-#filters .inner {
+#filters .inner, #twitter-block.inner {
   background:#f2faff;
   border-top:2px solid #B3B3B3;
   padding:5px 10px 50px 10px;
@@ -1224,7 +1224,6 @@ form {
 
 /* twitter feed */
 #twitter-block {
-  min-height:240px;
   display: none;
   }
 #twitter {
@@ -1257,6 +1256,7 @@ form {
   }
 .tweet_list .tweet_text {
   line-height:18px;
+  word-wrap: break-word;
   }
 .tweet_list .tweet_avatar {
 	float:left;
