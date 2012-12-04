@@ -402,17 +402,20 @@ donor_index_sort = sorted(donor_index, key = lambda x: x['donorID'])
 
 row_count = 0
 donor_index = []
-donorIndexHeader = ['id','name']
+donorIndexHeader = ['id','name','country']
 for don,donor in groupby(donor_index_sort, lambda x: x['donorID']): 
     row_count = row_count + 1
     index = []
     if don.replace(" ","") != "":
         index.append(don)
         for d in donor:
-            if don == '00012':
-                index.append('Voluntary Contributions')
+            index.append(d['long_descr'])
+            if d['donor_type_lvl1'] == 'MULTI_AGY':
+                index.append('MULTI_AGY')
+            elif d['donor_type_lvl1'] == 'PROG CTY' or d['donor_type_lvl1'] == 'NON_PROG CTY':
+                index.append(d['donor_type_lvl3'])
             else:
-                index.append(d['long_descr'])
+                index.append('OTH')
         donor_index.append(dict(zip(donorIndexHeader, index)))
 
 print "Donor Index Process Count: %d" % row_count
