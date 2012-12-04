@@ -15,7 +15,7 @@ views.Filters = Backbone.View.extend({
                 donor = '';
                 
             $('#' + view.collection.id).toggleClass('filtered', false);
-    
+
             if (active.length) {
     
                 // Use donor level financial data if available
@@ -39,7 +39,16 @@ views.Filters = Backbone.View.extend({
     
                 setTimeout(function() {
                     filterModels = view.collection.chain().filter(function(model) {
-                            return (model.get('visible') && model.get('count') > 0);
+
+                            // Filter donors on active donor country
+                            if (view.collection.id === 'donors') {
+                                var donorCountry = _(app.app.filters).where({ collection: 'donor_countries' });
+                                donorCountry = (donorCountry.length) ? donorCountry[0].id : false;
+                            }
+
+                            var donorCountryFilter = (donorCountry) ? (model.get('country') === donorCountry) : true;
+
+                            return (model.get('visible') && model.get('count') > 0 && donorCountryFilter);
                         }).first(50).value();
 
                     filterCallback();
