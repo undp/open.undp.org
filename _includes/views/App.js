@@ -22,7 +22,7 @@ views.App = Backbone.View.extend({
 
         if (!this.options.embed) {
             // Filters follow scrolling
-            var top = $('#filters').offset().top - 78;
+            var top = $('#filters').offset().top - 12;
             $(window).on('scroll', function () {
                 var y = $(this).scrollTop();
                 if (y >= top) {
