@@ -42,9 +42,12 @@ routers.App = Backbone.Router.extend({
             window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
 
             // Set up menu
-            $('#app .view, #mainnav li, #aboutnav').hide();
+            $('#app .view, #mainnav .profile').hide();
+            $('#mainnav li').removeClass('active');
             $('#profile .summary').addClass('off');
-            $('#browser, #mainnav .browser, #mainnav').show();
+            $('#browser, #mainnav .browser').show();
+            $('#mainnav li a[href="/"]').parent().addClass('active');
+            $('#mainnav li.parent').removeClass('parent-active');
 
             // Set up breadcrumbs
             $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li><li><a href="' + BASE_URL + '">Our Projects</a></li>');
@@ -205,9 +208,12 @@ routers.App = Backbone.Router.extend({
             window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
 
             // Set up menu
-            $('#app .view, #mainnav li, #aboutnav').hide();
+            $('#app .view, #mainnav .browser').hide();
+            $('#mainnav li').removeClass('active');
             $('#browser .summary').addClass('off');
-            $('#mainnav, #mainnav .profile').show();
+            $('#mainnav .profile').show();
+            $('#mainnav li a[href="/"]').parent().addClass('active');
+            $('#mainnav li.parent').removeClass('parent-active');
         }
 
         // Set up this route
@@ -256,15 +262,15 @@ routers.App = Backbone.Router.extend({
             $('html, body').scrollTop(0);
         }, 0);
 
-        $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#about/open">About</a></li>');
+        $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#about/' + route + '">About: ' + route.capitalize().replace('info','') + '</a></li>');
 
-        $('#app .view, #mainnav').hide();
-        $('#aboutnav li').removeClass('active');
-        $('#about .section').hide();
+        $('#app .view, #about .section, #mainnav .profile').hide();
+        $('#aboutnav li, #mainnav li').removeClass('active');
 
-        $('#about, #aboutnav').show();
+        $('#about, #mainnav .browser').show();
         $('#aboutnav li a[href="#about/' + route + '"]').parent().addClass('active');
         $('#about #' + route).show();
+        $('#mainnav li.parent').addClass('parent-active');
     },
 
     topDonors: function () {
@@ -276,6 +282,7 @@ routers.App = Backbone.Router.extend({
 
         $('#app .view').hide();
         $('#mainnav li').removeClass('active');
+        $('#mainnav li.parent').removeClass('parent-active');
 
         $('#top-donors').show();
         $('#mainnav li a[href="#top-donors"]').parent().addClass('active');

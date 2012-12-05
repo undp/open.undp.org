@@ -167,6 +167,17 @@ $(function() {
         ],
         webpage: "http://tiles.mapbox.com/undp/map/map-6grwd0n3"
     };
+    
+    // About nav toggle
+    $('#mainnav a.parent-link').click(function(e) {
+        e.preventDefault();
+        var $target = $(e.target);
+        if ($target.parent().hasClass('parent-active')) {
+            $target.parent().removeClass('parent-active');
+        } else {
+            $target.parent().addClass('parent-active');
+        }
+    });
 
     // Start the application
     $(function() {

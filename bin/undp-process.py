@@ -56,7 +56,7 @@ for don,donors in groupby(donor_projects_sort, lambda x: x['awardID']):
         if d['donorID'] not in donorID and d['donorID'].replace(" ","") != "":
             donorID.append(d['donorID'])
             if d['donorID'] == '00012':
-                donorName.append('Voluntary Contributions')
+                donorName.append('UNDP Regular Resources')
             else:
                 donorName.append(d['long_descr'])
             donorShort.append(d['short_descr'])
@@ -118,7 +118,7 @@ for don,donors in groupby(donor_outputs_sort, lambda x: x['projectID']):
         if d['donorID'] not in donorID and d['donorID'].replace(" ","") != "":
             donorID.append(d['donorID'])
             if d['donorID'] == '00012':
-                donorName.append('Voluntary Contributions')
+                donorName.append('UNDP Regular Resources')
             else:
                 donorName.append(d['long_descr'])
             donorShort.append(d['short_descr'])
@@ -409,7 +409,10 @@ for don,donor in groupby(donor_index_sort, lambda x: x['donorID']):
     if don.replace(" ","") != "":
         index.append(don)
         for d in donor:
-            index.append(d['long_descr'])
+            if don == '00012':
+                index.append('UNDP Regular Resources')
+            else:
+                index.append(d['long_descr'])
             if d['donor_type_lvl1'] == 'MULTI_AGY':
                 index.append('MULTI_AGY')
             elif d['donor_type_lvl1'] == 'PROG CTY' or d['donor_type_lvl1'] == 'NON_PROG CTY':
