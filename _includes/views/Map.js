@@ -648,24 +648,28 @@ views.Map = Backbone.View.extend({
 
         // Cycle through photo array
         $('.next', $el).click(function() {
-            if (i === 0) {
-                $('.prev', $el).removeClass('inactive');
+            if (!$('.next', $el).hasClass('inactive')) {
+                if (i === 0) {
+                    $('.prev', $el).removeClass('inactive');
+                }
+                i += 1;
+                if (i == photos.length - 1) {
+                    $('.next', $el).addClass('inactive');
+                }
+                loadPhoto(i);
             }
-            i += 1;
-            if (i == photos.length - 1) {
-                $('.next', $el).addClass('inactive');
-            }
-            loadPhoto(i);
         });
         $('.prev', $el).click(function() {
-            if (i === photos.length - 1) {
-                $('.next', $el).removeClass('inactive');
+            if (!$('.prev', $el).hasClass('inactive')) {
+                if (i === photos.length - 1) {
+                    $('.next', $el).removeClass('inactive');
+                }
+                i -= 1;
+                if (i === 0) {
+                    $('.prev', $el).addClass('inactive');
+                }
+                loadPhoto(i);
             }
-            i -= 1;
-            if (i === 0) {
-                $('.prev', $el).addClass('inactive');
-            }
-            loadPhoto(i);
         });
 
         // Toggle resizing of photo to fit container
