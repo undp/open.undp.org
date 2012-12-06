@@ -1,3 +1,10 @@
+# ------------------
+# UNDP Import Script 
+# ------------------
+
+# This script runs Python commands to create the JSON API. 
+# Requirements: Python 2.6 or greater 
+
 import csv, sys, json, time
 from itertools import groupby
 
@@ -56,7 +63,7 @@ for don,donors in groupby(donor_projects_sort, lambda x: x['awardID']):
         if d['donorID'] not in donorID and d['donorID'].replace(" ","") != "":
             donorID.append(d['donorID'])
             if d['donorID'] == '00012':
-                donorName.append('UNDP Regular Resources')
+                donorName.append('Voluntary Contributions')
             else:
                 donorName.append(d['long_descr'])
             donorShort.append(d['short_descr'])
@@ -118,7 +125,7 @@ for don,donors in groupby(donor_outputs_sort, lambda x: x['projectID']):
         if d['donorID'] not in donorID and d['donorID'].replace(" ","") != "":
             donorID.append(d['donorID'])
             if d['donorID'] == '00012':
-                donorName.append('UNDP Regular Resources')
+                donorName.append('Voluntary Contributions')
             else:
                 donorName.append(d['long_descr'])
             donorShort.append(d['short_descr'])
@@ -322,9 +329,14 @@ for award,summary in groupby(projectSum_sort, lambda x: x['awardID']):
 
 print "Project Summary Process Count: %d" % row_count
 
-writeout = json.dumps(projectSummary, sort_keys=True, separators=(',',':'))
-f_out = open('../api/project_summary.json', 'wb')
+jsvalue = "var SUMMARY = "
+jsondump = json.dumps(projectSummary, sort_keys=True, separators=(',',':'))
+writeout = jsvalue + jsondump
+f_out = open('../api/project_summary.js', 'wb')
 f_out.writelines(writeout)
+f_out.close()
+f_out = open('../api/project_summary.json', 'wb')
+f_out.writelines(jsondump)
 f_out.close()
 print 'Processing complete. project_summary.json generated.' 
 
@@ -358,8 +370,6 @@ for opunit,summary in groupby(opUnitCount_sort, lambda x: x['operatingunit']):
                 budgetSum.append(float(s['budget']))
                 expendSum.append(float(s['expenditure']))
     opUnitDonor.append(len(donors))
-#    opUnitBudget.append(sum(budgetSum))
-#    opUnitProj.append(sum(projCount))
     opUnitList.append(sum(projCount))
     opUnitList.append(sum(opUnitDonor))
     opUnitList.append(sum(budgetSum))
@@ -409,10 +419,7 @@ for don,donor in groupby(donor_index_sort, lambda x: x['donorID']):
     if don.replace(" ","") != "":
         index.append(don)
         for d in donor:
-            if don == '00012':
-                index.append('UNDP Regular Resources')
-            else:
-                index.append(d['long_descr'])
+            index.append(d['long_descr'])
             if d['donor_type_lvl1'] == 'MULTI_AGY':
                 index.append('MULTI_AGY')
             elif d['donor_type_lvl1'] == 'PROG CTY' or d['donor_type_lvl1'] == 'NON_PROG CTY':
@@ -506,7 +513,7 @@ f_out.close()
 # ****************************
 unitsIndex = csv.DictReader(open('download/undp_export/report_units.csv', 'rb'), delimiter = ',', quotechar = '"')
 unitsIndex_sort = sorted(unitsIndex, key = lambda x: x['operating_unit'])
-geo = csv.DictReader(open('country-centroids.csv', 'rb'), delimiter = ',', quotechar = '"')
+geo = csv.DictReader(open('process_files/country-centroids.csv', 'rb'), delimiter = ',', quotechar = '"')
 country_sort = sorted(geo, key = lambda x: x['iso3'])
 
 row_count = 0

@@ -3,8 +3,8 @@ import requests, csv, json
 #from lxml import etree
 #from lxml import objectify
 
-hdi = csv.DictReader(open('hdi-csv-test.csv', 'rb'), delimiter = ',', quotechar = '"')
-geo = csv.DictReader(open('country-centroids.csv', 'rb'), delimiter = ',', quotechar = '"')
+hdi = csv.DictReader(open('hdi-csv-clean.csv', 'rb'), delimiter = ',', quotechar = '"')
+geo = csv.DictReader(open('../process_files/country-centroids.csv', 'rb'), delimiter = ',', quotechar = '"')
 
 hdi_sort = sorted(hdi, key = lambda x: x['hdi2011'], reverse = True)
 country_sort = sorted(geo, key = lambda x: x['iso3'])
