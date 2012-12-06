@@ -1,3 +1,10 @@
+# ------------------
+# UNDP Import Script 
+# ------------------
+
+# This script runs Python commands to create the JSON API. 
+# Requirements: Python 2.6 or greater 
+
 import csv, sys, json, time
 from itertools import groupby
 
@@ -322,8 +329,10 @@ for award,summary in groupby(projectSum_sort, lambda x: x['awardID']):
 
 print "Project Summary Process Count: %d" % row_count
 
-writeout = json.dumps(projectSummary, sort_keys=True, separators=(',',':'))
-f_out = open('../api/project_summary.json', 'wb')
+jsvalue = "var SUMMARY = "
+jsondump = json.dumps(projectSummary, sort_keys=True, separators=(',',':'))
+writeout = jsvalue + jsondump
+f_out = open('../api/project_summary.js', 'wb')
 f_out.writelines(writeout)
 f_out.close()
 print 'Processing complete. project_summary.json generated.' 
@@ -358,8 +367,6 @@ for opunit,summary in groupby(opUnitCount_sort, lambda x: x['operatingunit']):
                 budgetSum.append(float(s['budget']))
                 expendSum.append(float(s['expenditure']))
     opUnitDonor.append(len(donors))
-#    opUnitBudget.append(sum(budgetSum))
-#    opUnitProj.append(sum(projCount))
     opUnitList.append(sum(projCount))
     opUnitList.append(sum(opUnitDonor))
     opUnitList.append(sum(budgetSum))
@@ -503,7 +510,7 @@ f_out.close()
 # ****************************
 unitsIndex = csv.DictReader(open('download/undp_export/report_units.csv', 'rb'), delimiter = ',', quotechar = '"')
 unitsIndex_sort = sorted(unitsIndex, key = lambda x: x['operating_unit'])
-geo = csv.DictReader(open('country-centroids.csv', 'rb'), delimiter = ',', quotechar = '"')
+geo = csv.DictReader(open('process_files/country-centroids.csv', 'rb'), delimiter = ',', quotechar = '"')
 country_sort = sorted(geo, key = lambda x: x['iso3'])
 
 row_count = 0
