@@ -386,7 +386,7 @@ views.Map = Backbone.View.extend({
             
             // Gather photos from documents, twitter, and flickr, in that order
             view.docPhotos(function(dPhotos) {
-                var photos = dPhotos;
+                photos = dPhotos;
                 view.twitter(twitterAcct, function(tweets, twPhotos) {
                     view.showTweets(tweets);
                     view.flickr(flickrAccts,photos.concat(twPhotos));
@@ -467,9 +467,9 @@ views.Map = Backbone.View.extend({
             twPhotos = [],
             twPage = 1;
             
-        searchTweets(twPage);
+        getTweets(twPage);
             
-        function gatherTweets(t) {
+        function filterTweets(t) {
             if (t.length) {
                 var i = 0;
                 _.each(t, function(x) {
@@ -493,7 +493,7 @@ views.Map = Backbone.View.extend({
                     } else if (i == t.length) {
                         if (twPage < 4) {
                             twPage++;
-                            searchTweets(twPage);
+                            getTweets(twPage);
                         } else {
                             callback(goodTweets, twPhotos);
                         }
@@ -504,14 +504,14 @@ views.Map = Backbone.View.extend({
             }
         }
         
-        function searchTweets(page) {
+        function getTweets(page) {
             $.getJSON('http://api.twitter.com/1/lists/statuses.json?slug=undp-tweets&owner_screen_name=openundp&include_entities=1&include_rts=0&since_id=274016103305461762&per_page=200&page=' + page + '&callback=?', function(globalTweets) {
                 if (username) {
                     $.getJSON('http://api.twitter.com/1/user_timeline.json?screen_name=' + username + '&include_entities=1&include_rts=0&since_id=274016103305461762&count=200&page=' + page + '&callback=?', function(coTweets) {
-                        gatherTweets(coTweets.concat(globalTweets));
+                        filterTweets(coTweets.concat(globalTweets));
                     });
                 } else {
-                    gatherTweets(globalTweets);
+                    filterTweets(globalTweets);
                 }
             });
         }
