@@ -347,7 +347,7 @@ views.Map = Backbone.View.extend({
 
     getwebData: function(data) {
         var view = this,
-            photos = this.model.get('docPhotos') || [],
+            photos = [],
             baseUrl = '',
             coContact = {
                 twitter: [],
@@ -383,10 +383,14 @@ views.Map = Backbone.View.extend({
                     }
                 }
             });
-
-            view.twitter(twitterAcct, function(tweets, twPhotos) {
-                view.showTweets(tweets);
-                view.flickr(flickrAccts,photos.concat(twPhotos));
+            
+            // Gather photos from documents, twitter, and flickr, in that order
+            view.docPhotos(function(dPhotos) {
+                var photos = dPhotos;
+                view.twitter(twitterAcct, function(tweets, twPhotos) {
+                    view.showTweets(tweets);
+                    view.flickr(flickrAccts,photos.concat(twPhotos));
+                });
             });
 
             contacts(coContact);
@@ -428,46 +432,89 @@ views.Map = Backbone.View.extend({
             });
         }
     },
+    
+    docPhotos: function(callback) {
+        var dPhotos = [];
+
+        if (this.model.get('document_name')) {
+            _.each(this.model.get('document_name')[0], function (photo, i) {
+
+                var filetype = photo.split('.')[1].toLowerCase(),
+                    source = that.model.get('document_name')[1][i];
+
+                if (filetype === 'jpg' || filetype === 'jpeg' || filetype === 'png' || filetype === 'gif') {
+                    var img = new Image();
+                    var goodImg = function() {
+                        dPhotos.push({
+                            'title': photo.split('.')[0],
+                            'source': source,
+                            'image': img
+                        });
+                    };
+
+                    img.onload = goodImg;
+                    img.src = source;
+                }
+            });
+        }
+        
+        callback(dPhotos);
+    },
 
     twitter: function(username, callback) {
         var id = this.model.get('project_id'),
             goodTweets = [],
-            twPhotos = [];
+            twPhotos = [],
+            twPage = 1;
             
-        function gatherTweets(x) {
-            if ((x.entities.urls.length) ? x.entities.urls[0].expanded_url.indexOf(id) !== -1 : x.entities.urls.length) {
-                goodTweets.push(x);
-                
-                if ((x.entities.media) ? x.entities.media[0].type == 'photo' : x.entities.media) {
-                    twPhotos.push({
-                        'source': x.entities.media[0].media_url,
-                        'date': new Date(x.created_at),
-                        'description': x.text,
-                        'link': x.entities.media[0].expanded_url,
-                        'height': x.entities.media[0].sizes.medium.h,
-                        'width': x.entities.media[0].sizes.medium.w
-                    });
-                }
+        searchTweets(twPage);
+            
+        function gatherTweets(t) {
+            if (t.length) {
+                var i = 0;
+                _.each(t, function(x) {
+                    i++;
+                    if ((x.entities.urls.length) ? x.entities.urls[0].expanded_url.indexOf(id) !== -1 : x.entities.urls.length) {
+                        goodTweets.push(x);
+                        
+                        if ((x.entities.media) ? x.entities.media[0].type == 'photo' : x.entities.media) {
+                            twPhotos.push({
+                                'source': x.entities.media[0].media_url,
+                                'date': new Date(x.created_at),
+                                'description': x.text,
+                                'link': x.entities.media[0].expanded_url,
+                                'height': x.entities.media[0].sizes.medium.h,
+                                'width': x.entities.media[0].sizes.medium.w
+                            });
+                        }
+                    }
+                    if (goodTweets.length === 3) {
+                        callback(goodTweets, twPhotos);
+                    } else if (i == t.length) {
+                        if (twPage < 5) {
+                            twPage++;
+                            searchTweets(twPage);
+                        } else {
+                            callback(goodTweets, twPhotos);
+                        }
+                    }
+                });
+            } else {
+                callback(goodTweets, twPhotos);
             }
         }
-            
-        $.getJSON('http://api.twitter.com/1/lists/statuses.json?slug=undp-tweets&owner_screen_name=openundp&include_entities=1&include_rts=0&since_id=274016103305461762&per_page=400&callback=?', function(tweets) {
-            
-            _.each(tweets, function(t) {
-                gatherTweets(t);
-            });
-            
-            if (username) {
-                $.getJSON('http://api.twitter.com/1/user_timeline.json?screen_name=' + username + '&include_entities=1&include_rts=0&since_id=274016103305461762&count=200&callback=?', function(coTweets) {
-                
-                     _.each(coTweets, function(t) {
-                        gatherTweets(t);
+        
+        function searchTweets(page) {
+            $.getJSON('http://api.twitter.com/1/lists/statuses.json?slug=undp-tweets&owner_screen_name=openundp&include_entities=1&include_rts=0&since_id=274016103305461762&per_page=200&page=' + page + '&callback=?', function(globalTweets) {
+                if (username) {
+                    $.getJSON('http://api.twitter.com/1/user_timeline.json?screen_name=' + username + '&include_entities=1&include_rts=0&since_id=274016103305461762&count=200&page=' + page + '&callback=?', function(coTweets) {
+                        gatherTweets(coTweets.concat(globalTweets));
                     });
-                });
-            }
-            
-            callback(goodTweets, twPhotos);
-        });
+                } else {
+                    gatherTweets(globalTweets);
+                }
+            });
+        }
     },
     
     showTweets: function(tweets) {

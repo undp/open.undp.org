@@ -121,7 +121,6 @@ views.ProjectProfile = Backbone.View.extend({
                 documents: documents,
                 model: this.model
             })).show();
-            this.model.attributes.docPhotos = this.docPhotos();
         }
 
         // If first load is a project page or output, don't animate
@@ -156,33 +155,6 @@ views.ProjectProfile = Backbone.View.extend({
         $('breadcrumbs').find('ul').remove();
 
         return this;
-    },
-
-    docPhotos: function() {
-        var photos = [];
-
-        if (this.model.get('document_name')) {
-            _.each(this.model.get('document_name')[0], function (photo, i) {
-
-                var filetype = photo.split('.')[1].toLowerCase(),
-                    source = that.model.get('document_name')[1][i];
-
-                if (filetype === 'jpg' || filetype === 'jpeg' || filetype === 'png' || filetype === 'gif') {
-                    var img = new Image();
-                    var goodImg = function() {
-                        photos.push({
-                            'title': photo.split('.')[0],
-                            'source': source,
-                            'image': img
-                        });
-                    };
-
-                    img.onload = goodImg;
-                    img.src = source;
-                }
-            });
-        }
-        return photos;
     },
 
     requestIframe: function() {
