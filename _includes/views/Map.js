@@ -491,7 +491,7 @@ views.Map = Backbone.View.extend({
                     if (goodTweets.length === 3) {
                         callback(goodTweets, twPhotos);
                     } else if (i == t.length) {
-                        if (twPage < 5) {
+                        if (twPage < 4) {
                             twPage++;
                             searchTweets(twPage);
                         } else {
