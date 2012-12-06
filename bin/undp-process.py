@@ -335,6 +335,9 @@ writeout = jsvalue + jsondump
 f_out = open('../api/project_summary.js', 'wb')
 f_out.writelines(writeout)
 f_out.close()
+f_out = open('../api/project_summary.json', 'wb')
+f_out.writelines(jsondump)
+f_out.close()
 print 'Processing complete. project_summary.json generated.' 
 
 ## Process Operating Unit counts from Project Summary file
