@@ -126,7 +126,7 @@ views.Filters = Backbone.View.extend({
                     app.filtercounter = (app.filtercounter) ? app.filtercounter + 1 : 2;
                 } else {
                     app.filtercounter = 0;
-                    app.projects.map.render();
+                    if (!keypress) app.projects.map.render();
                 }
 
             }
