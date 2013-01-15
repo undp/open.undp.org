@@ -474,8 +474,13 @@ views.Map = Backbone.View.extend({
                 var i = 0;
                 _.each(t, function(x) {
                     i++;
-                    if ((x.entities.urls.length) ? x.entities.urls[0].expanded_url.indexOf(id) !== -1 : x.entities.urls.length) {
-                        goodTweets.push(x);
+                    if (x.entities.urls.length) {
+                        _(x.entities.urls).each(function(url) {
+                            if (url.expanded_url.indexOf(id) !== -1) {
+                                goodTweets.push(x);
+                                return;
+                            }
+                        });
                         
                         if ((x.entities.media) ? x.entities.media[0].type == 'photo' : x.entities.media) {
                             twPhotos.push({
