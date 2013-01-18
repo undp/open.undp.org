@@ -103,7 +103,7 @@
         <div id='nav-side' class='col col-150'>
           <ul id='mainnav'>
             <li class='browser profile active'><a href='{{base}}/'>Projects</a></li>
-            <li class='browser profile'><a href='#top-donors'>Top Donors</a></li>
+            <li class='browser profile'><a href='#top-donors/regular'>Top Donors</a></li>
             <li class='browser profile parent'><a class='parent-link' href='#'>About</a>
               <ul id='aboutnav'>
                 <li class='about-subnav'><a href='#about/open'>Open.undp.org</a></li>
@@ -125,8 +125,13 @@
         <div id='profile' class='col-790 content view'></div>
 
         <div id='top-donors' class='col-540 content view chart'>
-          <h1 class='title-story'>Top Contributing Countries</h1>
-          <p class='heading-desc'>Gross income received in 2011 based on income received for regular resources and other resources.</p>
+          <h1 class='title-story'>Top Contributing Donors</h1>
+          <p class='heading-desc'>List of top donors is based on total income received for regular and other resources in 2011 (excluding contribution to local resources)</p>
+          <ul id='donor-nav'>
+            <li><a href='#top-donors/regular'>Regular</a></li>
+            <li><a href='#top-donors/other'>Other</a></li>
+            <li><a href='#top-donors/total'>Total</a></li>
+          </ul>
           <table class='table table-unstyled donor-gross-table'></table>
           <h3>Support from Programme Country Governments</h3>
           <p class='heading-desc'>Top 10 contibutors to local resources in 2011</p>

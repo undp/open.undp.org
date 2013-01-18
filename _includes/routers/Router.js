@@ -6,7 +6,7 @@ routers.App = Backbone.Router.extend({
         'project/:id/output-:output': 'project',
         'widget/*options': 'widget',
         'about/*subnav': 'about',
-        'top-donors': 'topDonors'
+        'top-donors/*cat': 'topDonors'
     },
 
     mainApp: function () {
@@ -273,40 +273,51 @@ routers.App = Backbone.Router.extend({
         $('#mainnav li.parent').addClass('parent-active');
     },
 
-    topDonors: function () {
-        window.setTimeout(function () {
-            $('html, body').scrollTop(0);
-        }, 0);
+    topDonors: function (route) {
+        var that = this;
 
-        $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#top-donors">Top Donors</a></li>');
+        $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#top-donors/regular">Top Donors</a></li>');
 
         $('#app .view').hide();
         $('#mainnav li').removeClass('active');
         $('#mainnav li.parent').removeClass('parent-active');
 
         $('#top-donors').show();
-        $('#mainnav li a[href="#top-donors"]').parent().addClass('active');
-
-        var donorsGross = new models.TopDonors();
-        donorsGross.url = 'api/top-donor-gross-index.json';
-
-        var donorsLocal = new models.TopDonors();
-        donorsLocal.url = 'api/top-donor-local-index.json';
-        donorsGross.fetch({
-            success: function () {
-                this.topDonorsGross = new views.TopDonors({
-                    el: '.donor-gross-table',
-                    collection: donorsGross
-                });
-            }
-        });
-        donorsLocal.fetch({
-            success: function () {
-                this.topDonorsLocal = new views.TopDonors({
-                    el: '.donor-local-table',
-                    collection: donorsLocal
-                });
-            }
-        });
+        $('#mainnav li a[href="#top-donors/regular"]').parent().addClass('active');
+        
+        $('#donor-nav li a').removeClass('active');
+        $('#donor-nav li a[href="#top-donors/' + route + '"]').addClass('active');
+        
+        if (!that.donorsGross) {
+            that.donorsGross = new models.TopDonors({type: route});
+            that.donorsGross.url = 'api/top-donor-gross-index.json';
+    
+            that.donorsLocal = new models.TopDonors({type: 'amount'});
+            that.donorsLocal.url = 'api/top-donor-local-index.json';
+            
+            that.donorsGross.fetch({
+                success: function () {
+                    that.topDonorsGross = new views.TopDonors({
+                        el: '.donor-gross-table',
+                        collection: that.donorsGross
+                    });
+                }
+            });
+            this.donorsLocal.fetch({
+                success: function () {
+                    that.topDonorsLocal = new views.TopDonors({
+                        el: '.donor-local-table',
+                        collection: that.donorsLocal
+                    });
+                }
+            });
+            
+            window.setTimeout(function () {
+                $('html, body').scrollTop(0);
+            }, 0);
+            
+        } else {
+            that.topDonorsGross.update(route);
+        }
     }
 });

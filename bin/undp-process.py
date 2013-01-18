@@ -561,7 +561,9 @@ gross_list = []
 for g in donor_gross_sort:
     gross = {}
     gross['name'] = g['donor']
-    gross['amount'] = g['amount']
+    gross['regular'] = g['regular']
+    gross['other'] = g['other']
+    gross['total'] = g['total']
     gross_list.append(gross)
 
 writeout = json.dumps(gross_list, sort_keys=True, separators=(',',':'))
