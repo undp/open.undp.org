@@ -50,6 +50,7 @@ $(function() {
     {% include views/Projects.js %}
     {% include views/ProjectProfile.js %}
     {% include views/Map.js %}
+    {% include views/ProjectMap.js %}
     {% include views/TopDonors.js %}
     {% include views/Widget.js %}
 

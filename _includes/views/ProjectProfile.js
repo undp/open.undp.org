@@ -128,7 +128,7 @@ views.ProjectProfile = Backbone.View.extend({
             $('#profile .summary').addClass('off');
         }
 
-        this.map = new views.Map({
+        this.map = new views.ProjectMap({
             el: '#profilemap',
             model: this.model,
             render: true
