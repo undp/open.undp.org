@@ -16,7 +16,8 @@ views.HDI = Backbone.View.extend({
         $('#hdi').html(_.last(HDI[unit].hdi)[1]);
         $('.map-btn[data-value="hdi"] .total-caption').html('HDI');
     },
-
+    
+    // Builds HDI bar chart
     hdiChart: function(country,world) {
         $('#chart-hdi h3').html('Human Development Index');
         $('.data', '#chart-hdi').empty().append(
@@ -32,6 +33,7 @@ views.HDI = Backbone.View.extend({
         $('#chart-hdi .ranking').html(country.rank + '<span class="outof">/' + HDI.total + '</span>');
     },
 
+    // Builds HDI historical graph, uses flot.js
     hdiDetails: function(data) {
         var beginYr = _.first(data.hdi)[0],
             endYr = _.last(data.hdi)[0],

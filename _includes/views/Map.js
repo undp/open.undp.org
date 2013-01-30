@@ -12,65 +12,18 @@ views.Map = Backbone.View.extend({
     render: function() {
         var view = this;
         
+        // Condition for embed
         if (!view.options.embed) {
             layer = $('.map-btn.active').attr('data-value');
         } else {
             layer = 'budget';
         }
-                
+        
+        // Give map an inner shadow unless browser is IE
         var IE = $.browser.msie;
         view.$el.empty();
         if (!IE) view.$el.append('<div class="inner-shadow"></div>');
         view.buildMap(layer);
-    },
-    
-    mapClick: function(e) {
-        var $target = $(e.target),
-            drag = false,
-            view = this;
-
-        this.map.addCallback('panned', function() {
-            drag = true;
-        });
-
-        // if map has been panned do not fire click
-        $target.on('mouseup', function(e) {
-            var path;
-            if (drag) {
-                e.preventDefault();
-            } else {
-                path = '#filter/operating_unit-' + $target.attr('id');
-                app.navigate(path, { trigger: true });
-                $('#browser .summary').removeClass('off');
-            }
-        });
-    },
-
-    scale: function(cat,x) {
-        if (cat == 'budget' || cat == 'expenditure') {
-            return Math.round(x.properties[cat] / 100000);
-        } else if (cat == 'hdi') {
-            return Math.round(Math.pow(x.properties[cat],2) / 0.0008);
-        } else {
-            return Math.round(x.properties[cat] / 0.05);
-        }
-    },
-
-    updateMap: function(layer) {
-        var view = this,
-            markers = this.map.layers[1],
-
-            radii = function(f) {
-                f.properties.description = view.tooltip(layer, f.properties);
-                return clustr.area_to_radius(
-                    Math.round(view.scale(layer,f))
-                );
-            };
-
-        if (markers) {
-            markers.sort(function(a,b){ return b.properties[layer] - a.properties[layer]; })
-                .factory(clustr.scale_factory(radii, 'rgba(0,85,170,0.6)', '#FFF'));
-        }
     },
 
     buildMap: function(layer) {
@@ -78,15 +31,16 @@ views.Map = Backbone.View.extend({
             locations = [],
             count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
             unit = this.collection;
-
+        
+        // Map set up, uses mapbox.js
         view.map = mapbox.map(this.el, null, null, null).setZoomRange(2, 17);
-        var mbLayer = mapbox.layer().tilejson(TJ);
+        var mbLayer = mapbox.layer().tilejson(TJ); //basemap tilejson is hardcoded into the site as variable TJ
         view.map.addLayer(mbLayer);
         view.map.ui.zoomer.add();
         view.map.ui.attribution.add();
         
         $('.map-attribution').html(mbLayer._tilejson.attribution);
-
+        
         var radii = function(f) {
             f.properties.description = view.tooltip(layer, f.properties);
             return clustr.area_to_radius(
@@ -96,10 +50,12 @@ views.Map = Backbone.View.extend({
 
         var markers = mapbox.markers.layer();
         
+        // Use clustr.js to generate scaled markers
         markers.factory(clustr.scale_factory(radii, 'rgba(0,85,170,0.6)', '#FFF')).sort(function(a, b) {
             return b.properties[layer] - a.properties[layer];
         });
 
+        // operating-unit-index.json cointains coords for country centroids
         $.getJSON('api/operating-unit-index.json', function(data) {
             for (var i = 0; i < data.length; i++) {
                 var o = data[i];
@@ -125,7 +81,8 @@ views.Map = Backbone.View.extend({
                     } else {
                         hdi = hdi_health = hdi_education = hdi_income = hdi_rank = 'no data';
                     }
-
+                    
+                    // Create location and tooltip info for each active country marker
                     locations.push({
                         geometry: {
                             coordinates: [
@@ -140,11 +97,7 @@ views.Map = Backbone.View.extend({
                             sources: sources,
                             budget: budget,
                             expenditure: expenditure,
-                            hdi: hdi,
-                            hdi_health: hdi_health,
-                            hdi_education: hdi_education,
-                            hdi_income: hdi_income,
-                            hdi_rank: hdi_rank
+                            hdi: hdi
                         }
                     });
                 }
@@ -160,6 +113,58 @@ views.Map = Backbone.View.extend({
                 }
             } else {
                 view.map.centerzoom({lat:20, lon:0}, 2);
+            }
+        });
+    },
+    
+    // Update map when switching between layer types
+    updateMap: function(layer) {
+        var view = this,
+            markers = this.map.layers[1],
+
+            radii = function(f) {
+                f.properties.description = view.tooltip(layer, f.properties);
+                return clustr.area_to_radius(
+                    Math.round(view.scale(layer,f))
+                );
+            };
+
+        if (markers) {
+            markers.sort(function(a,b){ return b.properties[layer] - a.properties[layer]; })
+                .factory(clustr.scale_factory(radii, 'rgba(0,85,170,0.6)', '#FFF'));
+        }
+    },
+    
+    // Set marker scale depending on type of data
+    scale: function(cat,x) {
+        if (cat == 'budget' || cat == 'expenditure') {
+            return Math.round(x.properties[cat] / 100000);
+        } else if (cat == 'hdi') {
+            return Math.round(Math.pow(x.properties[cat],2) / 0.0008);
+        } else {
+            return Math.round(x.properties[cat] / 0.05);
+        }
+    },
+    
+    // Enable clicking on markers to choose country
+    mapClick: function(e) {
+        var $target = $(e.target),
+            drag = false,
+            view = this;
+
+        this.map.addCallback('panned', function() {
+            drag = true;
+        });
+
+        // if map has been panned do not fire click
+        $target.on('mouseup', function(e) {
+            var path;
+            if (drag) {
+                e.preventDefault();
+            } else {
+                path = '#filter/operating_unit-' + $target.attr('id');
+                app.navigate(path, { trigger: true });
+                $('#browser .summary').removeClass('off');
             }
         });
     },
