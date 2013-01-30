@@ -51,6 +51,7 @@ $(function() {
     {% include views/ProjectProfile.js %}
     {% include views/Map.js %}
     {% include views/ProjectMap.js %}
+    {% include views/HDI.js %}
     {% include views/TopDonors.js %}
     {% include views/Widget.js %}
 

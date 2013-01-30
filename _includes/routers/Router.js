@@ -34,7 +34,8 @@ routers.App = Backbone.Router.extend({
     },
 
     browser: function (route, embed) {
-        var that = this;
+        var that = this,
+            unit = false;
 
         if (!embed) {
             // Load in the top donors info and feedbackform dets.
@@ -70,6 +71,9 @@ routers.App = Backbone.Router.extend({
         var parts = (route) ? route.split('/') : [];
         var filters = _(parts).map(function (part) {
             var filter = part.split('-');
+            if (filter[0] === 'operating_unit') {
+                unit = filter[1];
+            }
             return {
                 collection: filter[0],
                 id: filter[1]
@@ -124,7 +128,8 @@ routers.App = Backbone.Router.extend({
                         }
                     });
                 });
-
+                
+                // Create summary map view
                 if (!embed) {
                     that.projects.map = new views.Map({
                         el: '#homemap',
@@ -141,7 +146,7 @@ routers.App = Backbone.Router.extend({
                         embed: embed
                     });
                 }
-
+                
             };
 
             // Load projects
@@ -183,17 +188,30 @@ routers.App = Backbone.Router.extend({
                     $('#description p').html(app.defaultDescription);
                 }
                 app.description = false;
-    
-                // if filtered on operating_unit & on HDI layer, show chart
-                if ($('#operating_unit').hasClass('filtered') && $('.map-btn[data-value="hdi"]').hasClass('active')) {
-                    $('#chart-hdi').css('display','block');
-                } else {
-                    $('#chart-hdi').css('display','none');
-                }
         
                 $('#browser .summary').removeClass('off');
 
             }, 0);
+        }
+        
+        // Show proper HDI data
+        if (unit && ((HDI[unit]) ? HDI[unit].hdi != '' : HDI[unit])) {
+            app.hdi = new views.HDI({
+                unit: unit
+            });
+            if ($('.map-btn[data-value="hdi"]').hasClass('active')) {
+                $('#chart-hdi').css('display','block');
+            }
+        } else {
+            app.hdi = false;
+            $('#chart-hdi').css('display','none');
+            if (unit) {
+                $('#hdi').html('no data');
+                $('.map-btn[data-value="hdi"] .total-caption').html('HDI');
+            } else {
+                $('#hdi').html(_.last(HDI['A-000'].hdi)[1]);
+                $('.map-btn[data-value="hdi"] .total-caption').html('HDI Global');
+            }
         }
         
     },
