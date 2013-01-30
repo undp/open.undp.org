@@ -1,6 +1,6 @@
 # Open.undp.org Documentation
 
-Open.undp.org is a [Jekyll site](https://github.com/mojombo/jekyll) designed by [Development Seed](http://developmentseed.org). Its purpose is to visualize UNDP's global project data through an updatable, static data API.
+Open.undp.org is a CMS-free [Jekyll site](https://github.com/mojombo/jekyll) designed by [Development Seed](http://developmentseed.org). Its purpose is to visualize UNDP's global project data through an updatable, static data API.
 
 ## Building the site
 
