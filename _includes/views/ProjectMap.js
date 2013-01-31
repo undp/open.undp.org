@@ -44,13 +44,13 @@ views.ProjectMap = Backbone.View.extend({
                                 properties: {
                                     id: o.id,
                                     project: view.model.get('project_title'),
-                                    name: o.name,
-                                    description: view.tooltip(o)
+                                    name: o.name
                                 }
                             });
 
                             locations[0].properties['marker-color'] = '#2970B8';
                         }
+                        createMarkers(locations);
                     } else {
                         $.getJSON('api/subnational-locs-index.json', function(g) {
                         
@@ -83,7 +83,7 @@ views.ProjectMap = Backbone.View.extend({
                     }
                 }
             }
-            
+
             function createMarkers(x) {
                 if (x.length !== 0) {
                     markers.features(x);
