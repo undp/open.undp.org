@@ -120,6 +120,7 @@ views.ProjectMap = Backbone.View.extend({
                     }
                 });
                 
+                contacts(coContact);
                 cb();
             });
             
@@ -152,8 +153,6 @@ views.ProjectMap = Backbone.View.extend({
                     view.flickr(flickrAccts,photos.concat(twPhotos));
                 });
             });
-
-            contacts(coContact);
         });
 
         function contacts(social) {
