@@ -597,60 +597,6 @@ f_out = open('../api/top-donor-local-index.json', 'wb')
 f_out.writelines(writeout)
 f_out.close()
 
-# Subnational Locations Index
-# ************************
-refType = csv.DictReader(open('download/undp_export/ref_typeofproject.csv', 'rb'), delimiter = ',', quotechar = '"')
-refType_sort = sorted(refType, key = lambda x: x['id'])
-refPrec = csv.DictReader(open('download/undp_export/ref_precisioncodes.csv', 'rb'), delimiter = ',', quotechar = '"')
-refPrec_sort = sorted(refPrec, key = lambda x: x['id'])
-refScope = csv.DictReader(open('download/undp_export/ref_scopeofproject.csv', 'rb'), delimiter = ',', quotechar = '"')
-refScope_sort = sorted(refScope, key = lambda x: x['id'])
-
-row_count = 0
-referenceList = []
-referenceFull = []
-referenceHeader = ['type','precision','scope']
-
-for x in refType_sort: 
-    row_count = row_count + 1
-    refTypeTemp = []
-    for types in refType_sort:   
-            typeTemp = {}
-            typeTemp['id'] = types['id']
-            typeTemp['description'] = types['description']
-            refTypeTemp.append(typeTemp)
-    referenceList.append(refTypeTemp)
-
-for y in refScope_sort: 
-    row_count = row_count + 1
-    refScopeTemp = []
-    for scope in refScope_sort:  
-            scopeTemp = {}
-            scopeTemp['id'] = scope['id']
-            scopeTemp['description'] = scope['description']
-            refScopeTemp.append(scopeTemp)
-    referenceList.append(refScopeTemp) 
-
-for z in refPrec_sort: 
-    row_count = row_count + 1
-    refPrecTemp = []
-    for wah in refPrec_sort:
-            precTemp = {}
-            precTemp['id'] = wah['id']
-            precTemp['description'] = wah['description']
-            refPrecTemp.append(precTemp)
-    referenceList.append(refPrecTemp)
-    referenceFull.append(dict(zip(referenceHeader, referenceList))) # this joins project information, output per project, and documents for each project
-    
-file_count = 0
-for row in referenceFull:
-    file_count = file_count + 1
-    writeout = json.dumps(row, sort_keys=True, indent=4)
-    f_out = open('../api/subnational-locs-index.json', 'wb')
-    f_out.writelines(writeout)
-    f_out.close()
-print "Subnational Area Index Count: %d" % row_count
-
 # Region Index 
 # ************************
 exclude = ['PAPP','RBA','RBAP','RBAS','RBEC','RBLAC']
