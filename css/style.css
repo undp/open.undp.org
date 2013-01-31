@@ -375,11 +375,17 @@ input[readonly] {
 #profilemap {
   height:200px;
   }
-#profilemap .map-fullscreen,
-#profilemap .zoomer {
-  display:none;
-  }
+#profilemap.full {
+  z-index:4;
+}
+#profilemap, .country-profile {
+  -webkit-transition: all 0.3s;
+  -moz-transition:    all 0.3s;
+  -o-transition:      all 0.3s;
+  transition:         all 0.3s;
+}
 .country-profile {
+  position: relative;
   background:#0A294D;
   color:#bbb;
   }
@@ -391,6 +397,10 @@ input[readonly] {
     display:block;
     margin-bottom:10px;
     }
+.country-profile.full {
+  width: 540px;
+  z-index: 5;
+}
 
 .map .inner-shadow {
   position:relative;
@@ -404,6 +414,10 @@ input[readonly] {
   }
 .map-fullscreen {
   z-index:5;
+  top:auto;
+  left:auto;
+  bottom:5px;
+  right:5px;
   }
 .map.full .map-fullscreen {
   background-position:-120px 0;
@@ -417,6 +431,10 @@ input[readonly] {
 .map-attribution a {
   color: #aaa!important;
   }
+#profilemap .map-attribution {
+  left:0;
+  right:auto;
+}
 
 .zoomout {
   left: auto;

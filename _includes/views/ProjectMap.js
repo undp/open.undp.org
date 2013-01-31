@@ -1,6 +1,7 @@
 views.ProjectMap = Backbone.View.extend({
     events: {
-        //'mouseover img.mapmarker': 'tooltipFlip'
+        //'mouseover img.mapmarker': 'tooltipFlip',
+        'click .map-fullscreen': 'fullscreen'
     },
 
     initialize: function() {
@@ -19,6 +20,7 @@ views.ProjectMap = Backbone.View.extend({
         view.map.ui.attribution.add();
         
         $('.map-attribution').html(mbLayer._tilejson.attribution);
+        $(view.el).append('<a href="#" class="map-fullscreen"></a>');
 
         var markers = mapbox.markers.layer();
 
@@ -62,6 +64,19 @@ views.ProjectMap = Backbone.View.extend({
                 view.map.centerzoom({lat:20, lon:0}, 2);
             }
         });
+    },
+    
+    fullscreen: function(e) {
+        e.preventDefault();
+
+        this.$el.toggleClass('full');
+        $('.country-profile').toggleClass('full');
+        
+        if (this.$el.hasClass('full')) {
+            this.map.setSize({ x: 540, y: 338 });
+        } else {
+            this.map.setSize({ x: 218, y: 200 });
+        }
     },
     
     getwebData: function(data) {
