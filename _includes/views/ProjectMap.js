@@ -93,35 +93,61 @@ views.ProjectMap = Backbone.View.extend({
         $.getJSON('//spreadsheets.google.com/feeds/list/0Airl6dsmcbKodHB4SlVfeVRHeWoyWTdKcDY5UW1xaEE/1/public/values?alt=json-in-script&callback=?', function(g) {
             var flickrAccts = [],
                 twitterAcct,
-                fbAccts = [];
+                fbAccts = [],
+                q = queue(1);
 
-            _.each(g.feed.entry, function(row) {
-                if (row.gsx$type.$t === 'Global' || (row.gsx$type.$t === 'HQ' && row.gsx$id.$t === view.model.get('region_id'))
-                    ) {
-                    //if (row.gsx$twitter.$t) twitterAccts.push(row.gsx$twitter.$t.replace('@',''));
-                    if (row.gsx$flickr.$t) flickrAccts.push(row.gsx$flickr.$t);
-                    if (row.gsx$facebook.$t) fbAccts.push(row.gsx$facebook.$t);
-                }
-                if (row.gsx$type.$t === 'CO' && row.gsx$id.$t === data.id) {
-                    if (row.gsx$twitter.$t) {
-                        twitterAcct = row.gsx$twitter.$t.replace('@','');
-                        coContact.twitter.push(row.gsx$twitter.$t.replace('@',''));
+            q.defer(function(cb) {
+                _.each(g.feed.entry, function(row) {
+                    if (row.gsx$type.$t === 'Global' || (row.gsx$type.$t === 'HQ' && row.gsx$id.$t === view.model.get('region_id'))
+                        ) {
+                        //if (row.gsx$twitter.$t) twitterAccts.push(row.gsx$twitter.$t.replace('@',''));
+                        if (row.gsx$flickr.$t) flickrAccts.push(row.gsx$flickr.$t);
+                        if (row.gsx$facebook.$t) fbAccts.push(row.gsx$facebook.$t);
                     }
-                    if (row.gsx$flickr.$t) {
-                        flickrAccts.unshift(row.gsx$flickr.$t);
-                        coContact.flickr.push(row.gsx$flickr.$t);
+                    if (row.gsx$type.$t === 'CO' && row.gsx$id.$t === data.id) {
+                        if (row.gsx$twitter.$t) {
+                            twitterAcct = row.gsx$twitter.$t.replace('@','');
+                            coContact.twitter.push(row.gsx$twitter.$t.replace('@',''));
+                        }
+                        if (row.gsx$flickr.$t) {
+                            flickrAccts.unshift(row.gsx$flickr.$t);
+                            coContact.flickr.push(row.gsx$flickr.$t);
+                        }
+                        if (row.gsx$facebook.$t) {
+                            fbAccts.unshift(row.gsx$facebook.$t);
+                            coContact.facebook.push(row.gsx$facebook.$t);
+                        }
                     }
-                    if (row.gsx$facebook.$t) {
-                        fbAccts.unshift(row.gsx$facebook.$t);
-                        coContact.facebook.push(row.gsx$facebook.$t);
-                    }
-                }
+                });
+                
+                cb();
             });
             
             // Gather photos from documents, twitter, and flickr, in that order
-            view.docPhotos(function(dPhotos) {
-                photos = dPhotos;
-                view.twitter(twitterAcct, function(tweets, twPhotos) {
+            q.defer(function(cb) {
+                if (that.model.get('document_name')) {
+                    _.each(that.model.get('document_name')[0], function (photo, i) {
+                        var filetype = photo.split('.')[1].toLowerCase(),
+                            source = that.model.get('document_name')[1][i];
+                            
+                        if (filetype === 'jpg' || filetype === 'jpeg' || filetype === 'png' || filetype === 'gif') {
+                            var img = new Image();
+                            photos.push({
+                                'title': photo.split('.')[0],
+                                'source': source,
+                                'image': img
+                            });
+                            
+                            img.src = source;
+                        }
+                    });
+                }
+                
+                cb();
+            });
+            
+            q.await(function() {
+               view.twitter(twitterAcct, function(tweets, twPhotos) {
                     view.showTweets(tweets);
                     view.flickr(flickrAccts,photos.concat(twPhotos));
                 });
@@ -165,34 +191,6 @@ views.ProjectMap = Backbone.View.extend({
                 }
             });
         }
-    },
-    
-    docPhotos: function(callback) {
-        var dPhotos = [];
-
-        if (this.model.get('document_name')) {
-            _.each(this.model.get('document_name')[0], function (photo, i) {
-
-                var filetype = photo.split('.')[1].toLowerCase(),
-                    source = that.model.get('document_name')[1][i];
-
-                if (filetype === 'jpg' || filetype === 'jpeg' || filetype === 'png' || filetype === 'gif') {
-                    var img = new Image();
-                    var goodImg = function() {
-                        dPhotos.push({
-                            'title': photo.split('.')[0],
-                            'source': source,
-                            'image': img
-                        });
-                    };
-
-                    img.onload = goodImg;
-                    img.src = source;
-                }
-            });
-        }
-        
-        callback(dPhotos);
     },
 
     twitter: function(username, callback) {
