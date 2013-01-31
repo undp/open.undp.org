@@ -13,7 +13,6 @@ views.ProjectMap = Backbone.View.extend({
             count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
             unit = this.model.get('operating_unit_id');
             subLocations = this.model.get('subnational');
-     
 
         view.map = mapbox.map(this.el, null, null, null).setZoomRange(2, 17);
         var mbLayer = mapbox.layer().tilejson(TJ);
@@ -24,9 +23,6 @@ views.ProjectMap = Backbone.View.extend({
         $('.map-attribution').html(mbLayer._tilejson.attribution);
 
         var markers = mapbox.markers.layer();
-
-        
-
 
         $.getJSON('api/operating-unit-index.json', function(data) {
             for (var i = 0; i < data.length; i++) {
@@ -56,52 +52,66 @@ views.ProjectMap = Backbone.View.extend({
                             locations[0].properties['marker-color'] = '#2970B8';
                         }
                     } else {
-                        var count = 0;
-                        _.each(subLocations, function (o) {
-                            locations.push({
-                                geometry: {
-                                    coordinates: [
-                                        o.lon,
-                                        o.lat
-                                    ]
-                                },
-                                properties: {
-                                    id: o.awardID,
-                                    precision: o.precision,
-                                    type: o.type,
-                                    scope: o.scope,
-                                    project: view.model.get('project_title'),
-                                    name: o.name,
-                                    description: view.tooltip(o)
-                                } 
+                        $.getJSON('api/subnational-locs-index.json', function(g) {
+                        
+                            var count = 0;
+                            _.each(subLocations, function (o) {
+                                locations.push({
+                                    geometry: {
+                                        coordinates: [
+                                            o.lon,
+                                            o.lat
+                                        ]
+                                    },
+                                    properties: {
+                                        id: o.awardID,
+                                        precision: o.precision,
+                                        type: o.type,
+                                        scope: o.scope,
+                                        project: view.model.get('project_title'),
+                                        name: o.name,
+                                        description: view.tooltip(o, g)
+                                    } 
+                                });
+                               
+                                if (o.type == 1){locations[count].properties['marker-color'] = '#049FD9';}
+                                else if (o.type == 2){locations[count].properties['marker-color'] = '#DD4B39';}
+                                count += 1;
                             });
-                            
-                            if (o.type == 1){locations[count].properties['marker-color'] = '#049FD9';}
-                            else if (o.type == 2){locations[count].properties['marker-color'] = '#DD4B39';}
-                            count += 1;
+                         createMarkers(locations);
                         });
                     }
                 }
             }
-
-            if (locations.length !== 0) {
-                markers.features(locations);
-                mapbox.markers.interaction(markers);
-                view.map.extent(markers.extent());
-                view.map.addLayer(markers);
-                if (locations.length === 1) {
-                    view.map.zoom(4);
+            
+            function createMarkers(x) {
+                if (x.length !== 0) {
+                    markers.features(x);
+                    mapbox.markers.interaction(markers);
+                    view.map.extent(markers.extent());
+                    view.map.addLayer(markers);
+                    if (x.length === 1) {
+                        view.map.zoom(4);
+                    }
+                } else {
+                    view.map.centerzoom({lat:20, lon:0}, 2);
                 }
-            } else {
-                view.map.centerzoom({lat:20, lon:0}, 2);
             }
         });
     },
 
-    tooltip: function(data) {
+    tooltip: function(data, g) {
 
-        return data.type;
-        console.log(data.type)
+        var typeNum = data.type;
+        var scopeNum = data.scope;
+       
+        var scope = g.scope[scopeNum].split(':')[0];
+        var type = g.type[typeNum].split(':')[0];
+
+        var description = '<div><b>Project type:</b> <span class="value">' + type 
+        + '</span></div><div><b>Scope:</b> <span class="value">' + scope + '</span></div>';
+       
+        return description
     },
 
     getwebData: function(data) {
