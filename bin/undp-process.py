@@ -214,6 +214,8 @@ print "Output Process Count: %d" % row_count
 # ****************************************** 
 projects = csv.DictReader(open('download/undp_export/report_projects.csv', 'rb'), delimiter = ',', quotechar = '"')
 projects_sort = sorted(projects, key = lambda x: x['awardID'])
+subnational = csv.DictReader(open('download/undp_export/subnational.csv','rb'), delimiter = ',', quotechar = '"')
+subnational_sort = sorted(subnational, key = lambda x: x['awardID'])
 units = csv.DictReader(open('download/undp_export/report_units.csv', 'rb'), delimiter = ',', quotechar = '"')
 units_sort = sorted(units, key = lambda x: x['operating_unit'])
 bureau = csv.DictReader(open('download/undp_export/regions.csv', 'rb'), delimiter = ',', quotechar = '"')
@@ -222,12 +224,13 @@ bureau_sort = sorted(bureau, key = lambda x: x['bureau'])
 row_count = 0
 projects = []
 projectsFull = []
-projectsHeader = ['project_id','project_title','project_descr','inst_id','inst_descr','inst_type_id','inst_type_descr','fiscal_year','start','end','operating_unit_id','operating_unit','region_id','region_name','outputs','document_name','document_url']
+projectsHeader = ['project_id','project_title','project_descr','inst_id','inst_descr','inst_type_id','inst_type_descr','fiscal_year','start','end','operating_unit_id','operating_unit','region_id','region_name','outputs','document_name','subnational']
 for award,project in groupby(projects_sort, lambda x: x['awardID']): 
     row_count = row_count + 1
     projectList = [award]
     projectFY = []
     docTemp = []
+    subnationalTemp = []
     for p in project:
         projectList.append(p['award_title'])
         projectList.append(p['award_description'])
@@ -260,6 +263,16 @@ for award,project in groupby(projects_sort, lambda x: x['awardID']):
             docTemp.append(doc['docName'])
             docTemp.append(doc['docURL'])
     projectList.append(docTemp)
+    for loc in subnational_sort:
+        if loc['awardID'] == award:
+            locationTemp = {}
+            locationTemp['lat'] = loc['lat']
+            locationTemp['lon'] = loc['lon']
+            locationTemp['type'] = loc['type']
+            locationTemp['precision'] = loc['precision']
+            locationTemp['scope'] = loc['scope']
+            subnationalTemp.append(locationTemp)
+    projectList.append(subnationalTemp)
     projectsFull.append(dict(zip(projectsHeader,projectList))) # this joins project information, output per project, and documents for each project
 
 print "Project Process Count: %d" % row_count
@@ -711,6 +724,40 @@ for i in index:
 print "Region Index Process Count: %d" % row_count
 writeout = json.dumps(index_print, sort_keys=True, separators=(',',':'))
 f_out = open('../api/region-index.json', 'wb')
+f_out.writelines(writeout)
+f_out.close()
+
+# Subnational Locations Index
+# ************************
+refType = csv.DictReader(open('download/undp_export/ref_typeofproject.csv', 'rb'), delimiter = ',', quotechar = '"')
+refType_sort = sorted(refType, key = lambda x: x['id'])
+refPrec = csv.DictReader(open('download/undp_export/ref_precisioncodes.csv', 'rb'), delimiter = ',', quotechar = '"')
+refPrec_sort = sorted(refPrec, key = lambda x: x['id'])
+refScope = csv.DictReader(open('download/undp_export/ref_scopeofproject.csv', 'rb'), delimiter = ',', quotechar = '"')
+refScope_sort = sorted(refScope, key = lambda x: x['id'])
+
+ref = {}
+ref['type'] = {}
+ref['precision'] = {}
+ref['scope'] = {}
+
+row_count = 0
+
+for x in refType_sort:
+    ref['type'][x['id']] = x['description']
+    row_count = row_count + 1
+ 
+for x in refScope_sort:
+    ref['scope'][x['id']] = x['description']
+    row_count = row_count + 1
+ 
+for x in refPrec_sort:
+    ref['precision'][x['id']] = x['description']
+    row_count = row_count + 1
+    
+print "Subnational Location Index Count: %d" % row_count
+writeout = json.dumps(ref, sort_keys=True, separators=(',',':'))
+f_out = open('../api/subnational-locs-index.json', 'wb')
 f_out.writelines(writeout)
 f_out.close()
 

@@ -1,23 +1,25 @@
 views.ProjectMap = Backbone.View.extend({
     events: {
-        //'mouseover img.mapmarker': 'tooltipFlip',
-        'click .map-fullscreen': 'fullscreen'
+        'click .map-fullscreen': 'fullscreen',
+        'mouseover img.mapmarker': 'tooltipFlip'
     },
 
     initialize: function() {
         if (this.options.render) this.render();
     },
-
+  
     render: function() {
         var view = this,
             locations = [],
             count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
             unit = this.model.get('operating_unit_id');
+            subLocations = this.model.get('subnational');
 
         view.map = mapbox.map(this.el, null, null, null).setZoomRange(2, 17);
         var mbLayer = mapbox.layer().tilejson(TJ);
         view.map.addLayer(mbLayer);
         view.map.ui.attribution.add();
+        window.sub = subLocations;
         
         $('.map-attribution').html(mbLayer._tilejson.attribution);
         $(view.el).append('<a href="#" class="map-fullscreen"></a>');
@@ -32,40 +34,74 @@ views.ProjectMap = Backbone.View.extend({
                     view.getwebData(o);
                     $('#country-summary').html(templates.ctrySummary(o));
 
-                    if (o.lon) {
-                        locations.push({
-                            geometry: {
-                                coordinates: [
-                                    o.lon,
-                                    o.lat
-                                ]
-                            },
-                            properties: {
-                                id: o.id,
-                                project: view.model.get('project_title'),
-                                name: o.name
-                            }
-                        });
+                    if (subLocations.length <= 0) { 
+                        if (o.lon) {
+                            locations.push({
+                                geometry: {
+                                    coordinates: [
+                                        o.lon,
+                                        o.lat
+                                    ]
+                                },
+                                properties: {
+                                    id: o.id,
+                                    project: view.model.get('project_title'),
+                                    name: o.name
+                                }
+                            });
 
-                        locations[0].properties['marker-color'] = '#2970B8';
+                            locations[0].properties['marker-color'] = '#2970B8';
+                        }
+                        createMarkers(locations);
+                    } else {
+                        $.getJSON('api/subnational-locs-index.json', function(g) {
+                        
+                            var count = 0;
+                            _.each(subLocations, function (o) {
+                                locations.push({
+                                    geometry: {
+                                        coordinates: [
+                                            o.lon,
+                                            o.lat
+                                        ]
+                                    },
+                                    properties: {
+                                        id: o.awardID,
+                                        precision: o.precision,
+                                        type: o.type,
+                                        scope: o.scope,
+                                        project: view.model.get('project_title'),
+                                        name: o.name,
+                                        description: view.tooltip(o, g)
+                                    } 
+                                });
+                               
+                                if (o.type == 1){locations[count].properties['marker-color'] = '#049FD9';}
+                                else if (o.type == 2){locations[count].properties['marker-color'] = '#DD4B39';}
+                                count += 1;
+                            });
+                         createMarkers(locations);
+                        });
                     }
                 }
             }
 
-            if (locations.length !== 0) {
-                markers.features(locations);
-                mapbox.markers.interaction(markers);
-                view.map.extent(markers.extent());
-                view.map.addLayer(markers);
-                if (locations.length === 1) {
-                    view.map.zoom(4);
+            function createMarkers(x) {
+                if (x.length !== 0) {
+                    markers.features(x);
+                    mapbox.markers.interaction(markers);
+                    view.map.extent(markers.extent());
+                    view.map.addLayer(markers);
+                    if (x.length === 1) {
+                        view.map.zoom(4);
+                    }
+                } else {
+                    view.map.centerzoom({lat:20, lon:0}, 2);
                 }
-            } else {
-                view.map.centerzoom({lat:20, lon:0}, 2);
             }
         });
     },
-    
+
     fullscreen: function(e) {
         e.preventDefault();
 
@@ -78,7 +114,21 @@ views.ProjectMap = Backbone.View.extend({
             this.map.setSize({ x: 218, y: 200 });
         }
     },
-    
+
+    tooltip: function(data, g) {
+
+        var typeNum = data.type;
+        var scopeNum = data.scope;
+       
+        var scope = g.scope[scopeNum].split(':')[0];
+        var type = g.type[typeNum].split(':')[0];
+
+        var description = '<div><b>Project type:</b> <span class="value">' + type 
+        + '</span></div><div><b>Scope:</b> <span class="value">' + scope + '</span></div>';
+       
+        return description
+    },
+
     getwebData: function(data) {
         var view = this,
             photos = [],
@@ -418,5 +468,16 @@ views.ProjectMap = Backbone.View.extend({
                 $(this).find('.text').text('Hide Details');
             }
         });
+    },
+
+    tooltipFlip: function(e) {
+        var $target = $(e.target),
+            top = $target.offset().top - this.$el.offset().top;
+        if (top <= 150) {
+            var tipSize = $('.marker-popup').height() + 50;
+            $('.marker-tooltip')
+                .addClass('flip')
+                .css('margin-top',tipSize + $target.height());
+        }
     }
 });
