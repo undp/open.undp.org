@@ -166,10 +166,13 @@ outputs_sort = sorted(outputs, key = lambda x: x['projectID'])
 row_count = 0
 outputs = []
 outputsFull = []
-outputsHeader = ['output_id','award_id','output_title','output_descr','gender_id','gender_descr','focus_area','focus_area_descr','crs','crs_descr','fiscal_year','budget','expenditure','donor_id','donor_short','donor_name','donor_type_id','donor_type','donor_country_id','donor_country','donor_budget','donor_expend']
+outputsHeader = ['output_id','award_id','output_title','output_descr','gender_id','gender_descr','focus_area','focus_area_descr','crs','crs_descr','fiscal_year','budget','expenditure']#,'donor_id','donor_short','donor_name','donor_type_id','donor_type','donor_country_id','donor_country','donor_budget','donor_expend']
 for out,output in groupby(outputs_sort, lambda x: x['projectID']): 
     row_count = row_count + 1
     outputList = [out]
+    outputAward = []
+    outputTitle = []
+    outputDescr = []
     outputGenID = []
     outputGenDescr = []
     outputFA = []
@@ -180,18 +183,37 @@ for out,output in groupby(outputs_sort, lambda x: x['projectID']):
     outputBudget = []
     outputExpend = []
     for o in output:
-        outputList.append(o['awardid'])
-        outputList.append(o['project_description'])
-        outputList.append(o['project_med_de'])
-        outputList.append(o['gender_marker'])
-        outputList.append(o['gender_marker_descr'])
-        outputList.append(o['focus_area'])
-        outputList.append(o['fa_description'])
-        outputList.append(o['crs'])
-        outputList.append(o['crs_descr'])
-        outputFY.append(o['fiscal_year'])
-        outputBudget.append(float(o['budget']))
-        outputExpend.append(float(o['expenditure']))
+        if o['awardid'] not in outputAward:
+            outputAward.append((o['awardid'] if o['awardid'] != "" else "-"))
+        if o['project_description'] not in outputTitle:
+            outputTitle.append((o['project_description'] if o['project_description'] != "" else "-"))
+        if o['project_med_de'] not in outputDescr:
+            outputDescr.append((o['project_med_de'] if o['project_med_de'] != "" else "-"))
+        if o['gender_marker'] not in outputGenID:
+            outputGenID.append((o['gender_marker'] if o['gender_marker'] != "" else "-"))
+        if o['gender_marker_descr'] not in outputGenDescr:
+            outputGenDescr.append((o['gender_marker_descr'] if o['gender_marker_descr'] != "" else "-"))
+        if o['focus_area'] not in outputFA:
+            outputFA.append((o['focus_area'] if o['focus_area'] != "" else "-"))
+        if o['fa_description'] not in outputFAdescr:
+            outputFAdescr.append((o['fa_description'] if o['fa_description'] != "" else "-"))
+        if o['crs'] not in outputCRS:
+            outputCRS.append((o['crs'] if o['crs'] != "" else "-"))
+        if o['crs_descr'] not in outputCRSdescr:
+            outputCRSdescr.append((o['crs_descr'] if o['crs_descr'] != "" else "-"))
+        if o['fiscal_year'] not in outputFY:
+            outputFY.append((o['fiscal_year'] if o['fiscal_year'] != "" else "-"))
+        outputBudget.append((float(o['budget']) if o['budget'] != "" else 0))
+        outputExpend.append((float(o['expenditure']) if o['expenditure'] != "" else 0))
+    outputList.append(outputAward[0])
+    outputList.append(outputTitle[0])
+    outputList.append(outputDescr[0])
+    outputList.append(outputGenID[0])
+    outputList.append(outputGenDescr[0])
+    outputList.append(outputFA[0])
+    outputList.append(outputFAdescr[0])
+    outputList.append(outputCRS[0])
+    outputList.append(outputCRSdescr[0])
     outputList.append(outputFY)
     outputList.append(outputBudget)
     outputList.append(outputExpend)
