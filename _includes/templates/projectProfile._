@@ -72,7 +72,7 @@
                       var change = (((v - prevBudget)/prevBudget)*100),
                           changeSign = (change > 0) ? '+' : '';
                  %>
-                      <span class='fiscalchange'>(<%= changeSign %><%= change.toFixed(1) %>%)</span>
+                      <span class='fiscalchange'>(<%= changeSign %><%= (change >= 100) ? change.toFixed(0) : change.toFixed(1) %>%)</span>
                  <% } %>
                </div>
              </div>
@@ -82,7 +82,7 @@
                       var change = (((model.get('expendyears')[k] - prevExpend)/prevExpend)*100),
                           changeSign = (change > 0) ? '+' : '';
                  %>
-                      <span class='fiscalchange'>(<%= changeSign %><%= change.toFixed(1) %>%)</span>
+                      <span class='fiscalchange'>(<%= changeSign %><%= (change >= 100) ? change.toFixed(0) : change.toFixed(1) %>%)</span>
                  <% } %>
                </div>
              </div>
