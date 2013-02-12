@@ -291,7 +291,9 @@ views.ProjectMap = Backbone.View.extend({
         }
         
         function getTweets(page) {
+            var success = false;
             $.getJSON('http://api.twitter.com/1/lists/statuses.json?slug=undp-tweets&owner_screen_name=openundp&include_entities=1&include_rts=0&since_id=274016103305461762&per_page=200&page=' + page + '&callback=?', function(globalTweets) {
+                success = true;
                 if (username) {
                     $.getJSON('http://api.twitter.com/1/user_timeline.json?screen_name=' + username + '&include_entities=1&include_rts=0&since_id=274016103305461762&count=200&page=' + page + '&callback=?', function(coTweets) {
                         filterTweets(coTweets.concat(globalTweets));
@@ -300,6 +302,12 @@ views.ProjectMap = Backbone.View.extend({
                     filterTweets(globalTweets);
                 }
             });
+            setTimeout(function() {
+                if (!success)
+                {
+                    callback([], []);
+                }
+            }, 3000);
         }
     },
     
