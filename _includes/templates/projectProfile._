@@ -57,19 +57,20 @@
         </div>
         <% var prevBudget = null,
                prevExpend = null;
-           _.each(model.get('budgetyears'), function(v,k) { %>
+           _.each(FISCALYEARS, function(y,i) { 
+             if (model.get('budgetyears')[y] != undefined) { %>
            <div>
              <div class='span2'>
-               <div class='fiscalyear'><%= k %></div>
+               <div class='fiscalyear'><%= y %></div>
              </div>
              <div class='span5'>
-               <% if (k === '2010') { %>
+               <% if (y === '2010') { %>
                  <div><em>no data</em>
                <% } else { %>
-                 <div><%= accounting.formatMoney(v) %>
+                 <div><%= accounting.formatMoney(model.get('budgetyears')[y]) %>
                <% } %>
                  <% if (prevBudget != null) { 
-                      var change = (((v - prevBudget)/prevBudget)*100),
+                      var change = (((model.get('budgetyears')[y] - prevBudget)/prevBudget)*100),
                           changeSign = (change > 0) ? '+' : '';
                  %>
                       <span class='fiscalchange'>(<%= changeSign %><%= (change >= 100) ? change.toFixed(0) : change.toFixed(1) %>%)</span>
@@ -77,9 +78,9 @@
                </div>
              </div>
              <div class='span5'>
-               <div><%= accounting.formatMoney(model.get('expendyears')[k]) %>
+               <div><%= accounting.formatMoney(model.get('expendyears')[y]) %>
                  <% if (prevExpend != null) { 
-                      var change = (((model.get('expendyears')[k] - prevExpend)/prevExpend)*100),
+                      var change = (((model.get('expendyears')[y] - prevExpend)/prevExpend)*100),
                           changeSign = (change > 0) ? '+' : '';
                  %>
                       <span class='fiscalchange'>(<%= changeSign %><%= (change >= 100) ? change.toFixed(0) : change.toFixed(1) %>%)</span>
@@ -88,9 +89,9 @@
              </div>
            </div>
            <%
-           if (k != '2010') prevBudget = v;
-           prevExpend = model.get('expendyears')[k];
-           %>
+           if (y != '2010') prevBudget = model.get('budgetyears')[y];
+           prevExpend = model.get('expendyears')[y];
+           } %>
         <% }); %>
       </div>
       <% if (model.get('inst_descr')) { %>
