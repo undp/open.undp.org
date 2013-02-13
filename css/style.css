@@ -431,18 +431,38 @@ input[readonly] {
 .map-attribution a {
   color: #aaa!important;
   }
-#profilemap .map-attribution {
-  left:0;
-  right:auto;
-}
-
-.zoomout {
+#homemap .zoomout {
   left: auto;
   right: 39px;
   }
-.zoomin {
+#homemap .zoomin {
   left: auto;
   right: 10px;
+  }
+#profilemap .map-attribution {
+  left:0;
+  right:auto;
+  font-size:9px;
+  line-height:15px;
+  }
+#profilemap .zoomer {
+  width:15px;
+  height:15px;
+  top:5px;
+  left:5px;
+  text-indent:inherit;
+  color:#3b3b3b;
+  text-align:center;
+  line-height:11px;
+  }
+#profilemap .zoomout {
+  top:19px;
+  -webkit-border-radius:0 0 3px 3px;
+          border-radius:0 0 3px 3px;
+  }
+#profilemap .zoomin {
+  -webkit-border-radius:3px 3px 0 0;
+          border-radius:3px 3px 0 0;
   }
 
 /* Clustered markers */
@@ -459,6 +479,10 @@ input[readonly] {
   padding:10px;
   margin:0 10px;
   border-radius:4px;
+  }
+#profilemap .marker-popup {
+  padding:6px;
+  border-width:1px;
   }
   .marker-popup:after {
     border-width:5px;
@@ -488,6 +512,10 @@ input[readonly] {
     float:left;
     width:100%;
     font-size:11px;
+    }
+  #profilemap .marker-description {
+    font-size:10px;
+    line-height:15px;
     }
   .marker-description .stat {
     line-height:15px;

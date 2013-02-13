@@ -1,7 +1,7 @@
 views.ProjectMap = Backbone.View.extend({
     events: {
         'click .map-fullscreen': 'fullscreen',
-        'mouseover img.mapmarker': 'tooltipFlip'
+        'mouseover img.simplestyle-marker': 'tooltipFlip'
     },
 
     initialize: function() {
@@ -12,14 +12,14 @@ views.ProjectMap = Backbone.View.extend({
         var view = this,
             locations = [],
             count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
-            unit = this.model.get('operating_unit_id');
+            unit = this.model.get('operating_unit_id'),
             subLocations = this.model.get('subnational');
 
         view.map = mapbox.map(this.el, null, null, null).setZoomRange(2, 17);
         var mbLayer = mapbox.layer().tilejson(TJ);
         view.map.addLayer(mbLayer);
+        view.map.ui.zoomer.add();
         view.map.ui.attribution.add();
-        window.sub = subLocations;
         
         $('.map-attribution').html(mbLayer._tilejson.attribution);
         $(view.el).append('<a href="#" class="map-fullscreen"></a>');
@@ -72,7 +72,8 @@ views.ProjectMap = Backbone.View.extend({
                                         scope: o.scope,
                                         project: view.model.get('project_title'),
                                         name: o.name,
-                                        description: view.tooltip(o, g)
+                                        description: view.tooltip(o, g),
+                                        'marker-size': 'small'
                                     } 
                                 });
                                
@@ -116,17 +117,15 @@ views.ProjectMap = Backbone.View.extend({
     },
 
     tooltip: function(data, g) {
+        var scope = g.scope[data.scope].split(':')[0],
+            type = g.type[data.type].split(':')[0],
+            precision = g.precision[data.precision].split(' ')[0];
 
-        var typeNum = data.type;
-        var scopeNum = data.scope;
+        var description = '<div><b>Project type:</b> <span class="value">' + type + '</span></div>'
+                        + '<div><b>Scope:</b> <span class="value">' + scope + '</span></div>'
+                        + '<div><b>Precision:</b> <span class="value">' + precision + '</span></div>';
        
-        var scope = g.scope[scopeNum].split(':')[0];
-        var type = g.type[typeNum].split(':')[0];
-
-        var description = '<div><b>Project type:</b> <span class="value">' + type 
-        + '</span></div><div><b>Scope:</b> <span class="value">' + scope + '</span></div>';
-       
-        return description
+        return description;
     },
 
     getwebData: function(data) {
@@ -481,8 +480,8 @@ views.ProjectMap = Backbone.View.extend({
     tooltipFlip: function(e) {
         var $target = $(e.target),
             top = $target.offset().top - this.$el.offset().top;
-        if (top <= 150) {
-            var tipSize = $('.marker-popup').height() + 50;
+        if (top <= 70) {
+            var tipSize = $('.marker-popup').height() + 15;
             $('.marker-tooltip')
                 .addClass('flip')
                 .css('margin-top',tipSize + $target.height());
