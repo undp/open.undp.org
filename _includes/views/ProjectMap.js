@@ -121,7 +121,7 @@ views.ProjectMap = Backbone.View.extend({
             type = g.type[data.type].split(':')[0],
             precision = g.precision[data.precision].split(' ')[0];
 
-        var description = '<div><b>Project type:</b> <span class="value">' + type + '</span></div>'
+        var description = '<div><b>Location type:</b> <span class="value">' + type + '</span></div>'
                         + '<div><b>Scope:</b> <span class="value">' + scope + '</span></div>'
                         + '<div><b>Precision:</b> <span class="value">' + precision + '</span></div>';
        
