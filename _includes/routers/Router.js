@@ -241,6 +241,7 @@ routers.App = Backbone.Router.extend({
 
         this.project.model.fetch({
             success: function () {
+                if (that.project.view) that.project.view.undelegateEvents();
                 that.project.view = new views.ProjectProfile({
                     el: (embed) ? '#embed' : '#profile',
                     model: that.project.model,
