@@ -52,7 +52,7 @@ routers.App = Backbone.Router.extend({
     fiscalyear: function (year, route, embed) {
         var that = this;
         if (!$('#y' + year).length) {
-            loadjsFile('/api/project_summary_' + year + '.js', year, function() {
+            loadjsFile('api/project_summary_' + year + '.js', year, function() {
                 that.browser(year, route, embed);
             });
         } else {
