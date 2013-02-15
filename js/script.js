@@ -1,7 +1,7 @@
 ---
 ---
 $(function() {
-    var BASE_URL = 'http://open.undp.org/',
+    var BASE_URL = 'undp.github.com/',
         widgetOts = [],
         models = {},
         views = {},
