@@ -8,7 +8,8 @@ views.App = Backbone.View.extend({
         'click .map-btn': 'mapLayerswitch',
         'click .widget-config': 'requestIframe',
         'submit .form-search': 'submitForm',
-        'click .nav-tabs a': 'tabSwitch'
+        'click .nav-tabs a': 'tabSwitch',
+        'change #yearselect select': 'yearChange'
     },
     
     initialize: function(options) {
@@ -48,7 +49,8 @@ views.App = Backbone.View.extend({
 
         } else {
             this.$el.empty().append(templates.app({
-                base: BASE_URL
+                base: BASE_URL,
+                year: this.options.year
             }));
         }
 
@@ -63,6 +65,7 @@ views.App = Backbone.View.extend({
                 collection: parts[0],
                 id: parts[1]
             }],
+            year = app.fiscalYear;
             shift = false;
 
         this.clearFilter(e);
@@ -84,9 +87,7 @@ views.App = Backbone.View.extend({
             })
             .value().join('/');
 
-        path = (filters.length) ? 'filter/' + filters : 'filter/';
-        
-        
+        path = (filters.length) ? year + '/filter/' + filters : year;
 
         e.preventDefault();
 
@@ -219,5 +220,30 @@ views.App = Backbone.View.extend({
         if ($(e.target).attr('href') === '#summary-tab') {
             app.projects.map.map.requestRedraw();
         }
+    },
+    
+    yearChange: function(e) {
+        e.preventDefault();
+        var year = e.target.value;
+        if (year != app.fiscalYear) {
+            var filters = _(this.filters).chain()
+                .compact()
+                .map(function(filter) {
+                    return filter.collection + '-' + filter.id;
+                })
+                .value().join('/');
+
+            var path = (filters.length) ? year + '/filter/' + filters : year;
+            
+            app.navigate(path, { trigger: true });
+        }
+    },
+    
+    updateYear: function(year) {
+        $('#total-budget').next('span').html(year + ' Budget');
+        $('#total-expenditure').next('span').html(year + ' Expenditure');
+        
+        $('#yearselect select option').attr('selected', false);
+        $('#yearselect select option[value="' + year + '"]').attr('selected', 'selected');
     }
 });
