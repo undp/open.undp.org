@@ -305,6 +305,7 @@ input[readonly] {
 -------------------------------------*/
 #main {
   position:relative;
+  min-height:800px;
   }
 #top-navigation {
   padding:0;
@@ -1051,11 +1052,33 @@ form {
 .hidden-phone {
   position:relative;
   }
-#content-right .inner,
-
-.col-filter {
+#content-right .inner {
   margin-top:37px;
   }
+#yearselect {
+  padding: 0 10px;
+  text-align: right;
+}
+#yearselect h3 {
+  float: left;
+  line-height: 28px;
+}
+/*
+#yearselect span {
+  font-size: 18px;
+  font-weight: bold;
+  color: #444;
+  letter-spacing: -2;
+  text-rendering: optimizelegibility;
+  float: left;
+  line-height: 28px;
+}
+*/
+#yearselect select {
+  height: 28px;
+  width: 100px;
+  margin-left: 10px;
+}
 #filters .inner, #twitter-block.inner {
   background:#f2faff;
   border-top:2px solid #B3B3B3;

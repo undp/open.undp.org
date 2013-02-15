@@ -21,13 +21,13 @@
           <li>
             <a href='#' class='map-btn active' data-value='budget'>
               <span id='total-budget' class='total'></span>
-              <span class='total-caption'>2011 Budget</span>
+              <span class='total-caption'><%= year %> Budget</span>
             </a>
           </li>
           <li>
             <a href='#' class='map-btn' data-value='expenditure'>
               <span id='total-expenditure' class='total'></span>
-              <span class='total-caption'>2011 Expenditure</span>
+              <span class='total-caption'><%= year %> Expenditure</span>
             </a>
           </li>
           <li>
@@ -151,6 +151,14 @@
 </div>
 <!-- / .tab-content -->
 <div class='col col-240 col-end col-filter hidden-phone'>
+  <div id='yearselect'>
+    <h3>Fiscal Year</h3>
+    <select>
+    <% _.each(FISCALYEARS, function(y) { %>
+      <option value='<%= y %>'<% if (y === year) { %> selected='selected'<% } %>><%= y %></option>
+    <% }); %>
+    </select>
+  </div>
   <div id='filters'>
     <div class='inner'>
       <div class='row-fluid'>
