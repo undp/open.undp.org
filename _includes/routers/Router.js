@@ -12,8 +12,13 @@ routers.App = Backbone.Router.extend({
     mainApp: function () {
         // Handle feedback form submission
         $('#feedback-form').submit(function (e) {
+            // Require 'Feedback' field to have content
+            if ($('#entry_2').val() === '') {
+                alert('Please fill in the required fields before submitting.');
+                return false;
+            }
+        
             // Set URL for feedback form
-
             $('#entry_3').val(window.location);
 
             var button = $('input[type=submit]', this),
