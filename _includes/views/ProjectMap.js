@@ -257,21 +257,22 @@ views.ProjectMap = Backbone.View.extend({
                     if (x.entities.urls.length) {
                         _(x.entities.urls).each(function(url) {
                             if (url.expanded_url.indexOf(id) !== -1) {
+                                if ((x.entities.media) ? x.entities.media[0].type == 'photo' : x.entities.media) {
+                                    twPhotos.push({
+                                        'source': x.entities.media[0].media_url,
+                                        'date': new Date(x.created_at),
+                                        'description': x.text,
+                                        'link': x.entities.media[0].expanded_url,
+                                        'height': x.entities.media[0].sizes.medium.h,
+                                        'width': x.entities.media[0].sizes.medium.w
+                                    });
+                                }
+                                
                                 goodTweets.push(x);
                                 return;
                             }
                         });
                         
-                        if ((x.entities.media) ? x.entities.media[0].type == 'photo' : x.entities.media) {
-                            twPhotos.push({
-                                'source': x.entities.media[0].media_url,
-                                'date': new Date(x.created_at),
-                                'description': x.text,
-                                'link': x.entities.media[0].expanded_url,
-                                'height': x.entities.media[0].sizes.medium.h,
-                                'width': x.entities.media[0].sizes.medium.w
-                            });
-                        }
                     }
                     if (goodTweets.length === 3) {
                         callback(goodTweets, twPhotos);
