@@ -9,7 +9,7 @@ views.App = Backbone.View.extend({
         'click .widget-config': 'requestIframe',
         'submit .form-search': 'submitForm',
         'click .nav-tabs a': 'tabSwitch',
-        'change #yearselect select': 'yearChange'
+        'click #yearselect .dropdown-menu a': 'yearChange'
     },
     
     initialize: function(options) {
@@ -23,13 +23,13 @@ views.App = Backbone.View.extend({
 
         if (!this.options.embed) {
             // Filters follow scrolling
-            var top = $('#filters').offset().top - 12;
+            var top = $('#siderail').offset().top - 12;
             $(window).on('scroll', function () {
                 var y = $(this).scrollTop();
                 if (y >= top) {
-                    $('#filters').addClass('fixed');
+                    $('#siderail').addClass('fixed');
                 } else {
-                    $('#filters').removeClass('fixed');
+                    $('#siderail').removeClass('fixed');
                 }
             });
         }
@@ -224,7 +224,7 @@ views.App = Backbone.View.extend({
     
     yearChange: function(e) {
         e.preventDefault();
-        var year = e.target.value;
+        var year = $(e.target).attr('data-value');
         if (year != app.fiscalYear) {
             var filters = _(this.filters).chain()
                 .compact()
@@ -242,8 +242,6 @@ views.App = Backbone.View.extend({
     updateYear: function(year) {
         $('#total-budget').next('span').html(year + ' Budget');
         $('#total-expenditure').next('span').html(year + ' Expenditure');
-        
-        $('#yearselect select option').attr('selected', false);
-        $('#yearselect select option[value="' + year + '"]').attr('selected', 'selected');
+        $('#yearselect .dropdown-toggle').html(year + ' <b class="caret"></b>');
     }
 });

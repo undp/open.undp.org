@@ -633,7 +633,7 @@ input[readonly] {
   border-bottom: 1px solid #999;
   }
 
-#filters.fixed,
+#siderail.fixed,
 #content-right.fixed {
   position:fixed;
   width:240px;
@@ -1055,25 +1055,36 @@ form {
 #content-right .inner {
   margin-top:37px;
   }
+#siderail {
+  position: relative;
+}
 #yearselect {
   padding: 0 10px;
   text-align: right;
 }
 #yearselect h3 {
   float: left;
-  line-height: 28px;
+  line-height: 32px;
+  margin-bottom: 5px;
 }
-/*
-#yearselect span {
-  font-size: 18px;
-  font-weight: bold;
-  color: #444;
-  letter-spacing: -2;
-  text-rendering: optimizelegibility;
-  float: left;
-  line-height: 28px;
+#yearselect .nav {
+  margin-left: 138px;
 }
-*/
+#yearselect .dropdown-menu {
+  min-width: 0;
+}
+#yearselect .dropdown-menu a {
+  font-size: 14px;
+  line-height: inherit;
+}
+#yearselect .open .dropdown-toggle,
+#yearselect .dropdown-menu a:hover {
+  background: #eee;
+  color: inherit;
+}
+#yearselect .caret {
+  border-top-color: #036;
+}
 #yearselect select {
   height: 28px;
   width: 100px;
