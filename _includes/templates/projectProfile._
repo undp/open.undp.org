@@ -56,8 +56,9 @@
           </div>
         </div>
         <% var prevBudget = null,
-               prevExpend = null;
-           _.each(FISCALYEARS.reverse(), function(y,i) { 
+               prevExpend = null,
+               fYears = FISCALYEARS.reverse();
+           _.each(fYears, function(y,i) { 
              if (model.get('budgetyears')[y] != undefined) { %>
            <div>
              <div class='span2'>
@@ -73,7 +74,7 @@
                       var change = (((model.get('budgetyears')[y] - prevBudget)/prevBudget)*100),
                           changeSign = (change > 0) ? '+' : '';
                  %>
-                      <span class='fiscalchange'>(<%= changeSign %><%= (change >= 100) ? change.toFixed(0) : change.toFixed(1) %>%)</span>
+                      <span class='fiscalchange'><%= changeSign %><%= (change >= 100) ? change.toFixed(0) : change.toFixed(1) %>%</span>
                  <% } %>
                </div>
              </div>
@@ -83,7 +84,7 @@
                       var change = (((model.get('expendyears')[y] - prevExpend)/prevExpend)*100),
                           changeSign = (change > 0) ? '+' : '';
                  %>
-                      <span class='fiscalchange'>(<%= changeSign %><%= (change >= 100) ? change.toFixed(0) : change.toFixed(1) %>%)</span>
+                      <span class='fiscalchange'><%= changeSign %><%= (change >= 100) ? change.toFixed(0) : change.toFixed(1) %>%</span>
                  <% } %>
                </div>
              </div>

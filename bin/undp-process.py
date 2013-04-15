@@ -161,7 +161,7 @@ for l in donorOutput:
 # Process Outputs 
 # ***************
 outputs = csv.DictReader(open('download/undp_export/report_outputs.csv', 'rb'), delimiter = ',', quotechar = '"')
-outputs_sort = sorted(outputs, key = lambda x: x['projectID'])
+outputs_sort = sorted(outputs, reverse=True, key = lambda x: (x['projectID'], x['fiscal_year']))
 
 row_count = 0
 outputs = []
