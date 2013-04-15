@@ -305,6 +305,7 @@ input[readonly] {
 -------------------------------------*/
 #main {
   position:relative;
+  min-height:800px;
   }
 #top-navigation {
   padding:0;
@@ -632,7 +633,7 @@ input[readonly] {
   border-bottom: 1px solid #999;
   }
 
-#filters.fixed,
+#siderail.fixed,
 #content-right.fixed {
   position:fixed;
   width:240px;
@@ -1013,27 +1014,24 @@ input[readonly] {
   padding-bottom:10px;
   border-bottom:1px solid #b3b3b3;
   }
-#top-stats .finance [class*='span'] {
+#profile .finance [class*='span'] {
   height: 19px;
   min-height: 19px;
 }
-#top-stats .finance .span2 {
+#profile .finance .span2 {
   width: 10%;
 }
-#top-stats .finance .span5 {
+#profile .finance .span5 {
   width: 42.5%;
 }
-#top-stats .finance .fiscalyear {
+#profile .finance .fiscalyear {
   font-weight: bold;
 }
-#top-stats .finance .fiscalchange {
+#profile .finance .fiscalchange {
   font-size: 9px;
   float: right;
   line-height: 22px;
   color: #666;
-}
-#outputs .fiscalyear {
-  margin-right: 8px;
 }
 .project .projid {
   min-width: 45px;
@@ -1051,11 +1049,44 @@ form {
 .hidden-phone {
   position:relative;
   }
-#content-right .inner,
-
-.col-filter {
+#content-right .inner {
   margin-top:37px;
   }
+#siderail {
+  position: relative;
+}
+#yearselect {
+  padding: 0 10px;
+  text-align: right;
+}
+#yearselect h3 {
+  float: left;
+  line-height: 32px;
+  margin-bottom: 5px;
+}
+#yearselect .nav {
+  margin-left: 138px;
+}
+#yearselect .dropdown-menu {
+  min-width: 0;
+}
+#yearselect .dropdown-menu a {
+  font-size: 14px;
+  line-height: inherit;
+}
+#yearselect .open .dropdown-toggle,
+#yearselect .dropdown-menu a:hover {
+  background: #eee;
+  color: inherit;
+}
+#yearselect .caret {
+  border-top-color: #036;
+}
+#yearselect select {
+  height: 28px;
+  width: 100px;
+  margin-left: 10px;
+}
 #filters .inner, #twitter-block.inner {
   background:#f2faff;
   border-top:2px solid #B3B3B3;

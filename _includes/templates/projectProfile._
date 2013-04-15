@@ -57,7 +57,7 @@
         </div>
         <% var prevBudget = null,
                prevExpend = null;
-           _.each(FISCALYEARS, function(y,i) { 
+           _.each(FISCALYEARS.reverse(), function(y,i) { 
              if (model.get('budgetyears')[y] != undefined) { %>
            <div>
              <div class='span2'>

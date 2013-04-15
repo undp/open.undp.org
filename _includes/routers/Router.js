@@ -1,12 +1,28 @@
 routers.App = Backbone.Router.extend({
     routes: {
-        '': 'browser',
-        'filter/*filters': 'browser',
+        '': 'redirect',
+        'filter/*filters': 'redirect',
+        ':fiscalyear': 'fiscalyear',
+        ':fiscalyear/filter/*filters': 'fiscalyear',
         'project/:id': 'project',
         'project/:id/output-:output': 'project',
-        'widget/*options': 'widget',
+        'widget/*options': 'widgetRedirect',
+        ':fiscalyear/widget/*options': 'widget',
         'about/*subnav': 'about',
         'top-donors/*cat': 'topDonors'
+    },
+    
+    redirect: function(route) {
+        //if url lacks a year, default to most recent
+        if (route) {
+            this.navigate(FISCALYEARS[0] + '/filter/' + route, {trigger: true});
+        } else {
+            this.navigate(FISCALYEARS[0], {trigger: true});
+        }
+    },
+    
+    widgetRedirect: function(route) {
+        this.navigate(FISCALYEARS[0] + '/widget/' + route, {trigger: true});
     },
 
     mainApp: function () {
@@ -37,8 +53,19 @@ routers.App = Backbone.Router.extend({
             return false;
         });
     },
+    
+    fiscalyear: function (year, route, embed) {
+        var that = this;
+        if (!$('#y' + year).length) {
+            loadjsFile('api/project_summary_' + year + '.js', year, function() {
+                that.browser(year, route, embed);
+            });
+        } else {
+            that.browser(year, route, embed);
+        }
+    },
 
-    browser: function (route, embed) {
+    browser: function (year, route, embed) {
         var that = this,
             unit = false;
 
@@ -60,12 +87,14 @@ routers.App = Backbone.Router.extend({
 
             // Load the main app view
             this.app = this.app || new views.App({
-                el: '#browser'
+                el: '#browser',
+                year: year
             });
         } else {
             this.app = this.app || new views.App({
                 el: '#embed',
-                embed: embed
+                embed: embed,
+                year: year
             });
         }
 
@@ -85,7 +114,7 @@ routers.App = Backbone.Router.extend({
             };
         });
 
-        if (_.isEqual(this.app.filters, filters)) {
+        if (_.isEqual(this.app.filters, filters) && app.fiscalYear === year) {
             $('html, body').scrollTop(0);
         } else {
             var filter = function (model) {
@@ -155,7 +184,8 @@ routers.App = Backbone.Router.extend({
             };
 
             // Load projects
-            if (!this.allProjects) {
+            if (!this.allProjects || app.fiscalYear != year) {
+                app.fiscalYear = year;
                 this.allProjects = new models.Projects(SUMMARY);
 
                 that.projects = new models.Projects(that.allProjects.filter(filter));
@@ -163,6 +193,8 @@ routers.App = Backbone.Router.extend({
                 that.projects.cb = _(loadFilters).bind(that);
 
                 that.projects.watch();
+                
+                that.app.updateYear(year);
 
             } else {
                 // if projects are already present
@@ -263,7 +295,7 @@ routers.App = Backbone.Router.extend({
         });
     },
 
-    widget: function (route) {
+    widget: function (year, route) {
         var that = this,
             parts = route.split('?'),
             options = parts[1],
@@ -277,7 +309,7 @@ routers.App = Backbone.Router.extend({
         } else {
             var route = parts[0];
             if (route === '') route = undefined;
-            that.browser(route, options);
+            that.fiscalyear(year, route, options);
         }
     },
 

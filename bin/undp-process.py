@@ -416,10 +416,11 @@ for y in yearList:
     f_out = open('../api/project_summary_%s.json' % y['year'], 'wb')
     f_out.writelines(jsondump)
     f_out.close()
-print 'Project Summary json files generated.' 
+print 'Project Summary json files generated.'
 
 # Make year index 
-yearJSvalue = "var year ="
+yearJSvalue = "var FISCALYEARS ="
+yearJson.reverse()
 writeout = "%s %s" % (yearJSvalue, yearJson) 
 f_out = open('../api/year-index.js', 'wb')
 f_out.writelines(writeout)

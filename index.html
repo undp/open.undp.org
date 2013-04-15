@@ -30,7 +30,6 @@
     <script src='{{base}}/ext/queue.js'></script>
     <script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.js'></script>
     <script src='{{base}}/ext/clustr.min.js'></script>
-    <script src='{{base}}/api/project_summary_2011.js'></script>
     <script src='{{base}}/api/hdi.js'></script>
     <script src='{{base}}/api/year-index.js'></script>
     <script src='{{base}}/js/script.js'></script>
@@ -191,7 +190,7 @@
           </div>
         </div>
         <div class='control-group'>
-          <label class='control-label' for='entry_2'>Feedback<span class='required-asterisk'>*</span></label>
+          <label class='control-label' for='entry_2'>Feedback<span style='color:red;'>*</span></label>
           <div class='controls'>
             <textarea id='entry_2' name='entry.2.single' class='input-xlarge'></textarea>
           </div>
@@ -240,6 +239,9 @@
 
   <div id='templates'>
   {% include templates.html %}
+  </div>
+  
+  <div id='fiscalData'>
   </div>
 
 </body>
