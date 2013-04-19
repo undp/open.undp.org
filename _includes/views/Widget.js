@@ -36,7 +36,9 @@ views.Widget = Backbone.View.extend({
         var view = this;
         view.path = '#widget/';
 
-        if (location.hash !== '') {
+        if (location.hash.split('/').length === 1) {
+            view.path = location.hash + '/widget/';
+        } else {
             view.path = location.hash
                 .replace('filter', 'widget')
                 .replace('project', 'widget/project');
@@ -53,7 +55,7 @@ views.Widget = Backbone.View.extend({
         }
 
         if (widgetOpts.length !== 0) {
-            view.widgetCode = '<iframe src="' + 'http://localhost:4000/' +
+            view.widgetCode = '<iframe src="' + BASE_URL +
                 'embed.html' + view.path + '?' +
                 widgetOpts.join('&') +
                 '" width="500" height="360" frameborder="0"> </iframe>';
