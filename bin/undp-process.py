@@ -38,64 +38,69 @@ for d in docProject:
 # Process donors by Projects
 # **************************
 donor_projects = csv.DictReader(open('download/undp_export/report_donors.csv', 'rb'), delimiter = ',', quotechar = '"')
-donor_projects_sort = sorted(donor_projects, key = lambda x: x['awardID'])
+donor_projects_sort = sorted(donor_projects, key = lambda x: x['fiscal_year'])
 
 row_count = 0
 donorProject = []
 donorProjHeader = ['projectID','donorID','donorName','donorShort','donorTypeID','donorType','donorCtyID','donorCty','donorBudget','donorExpend']
-for don,donors in groupby(donor_projects_sort, lambda x: x['awardID']):
-    row_count = row_count + 1
-    donorList = [don]
-    donorID = []
-    donorName = []
-    donorShort = []
-    donorTypeID = []
-    donorType = []
-    donorCtyID = []
-    donorCty = []
-    donorBudget = []
-    donorExpend = []
-    for d in donors:
-        if d['donorID'] in donorID and d['donorID'].replace(" ","") != "":
-            i = donorID.index(d['donorID'])
-            donorBudget[i] += float(d['budget'])
-            donorExpend[i] += float(d['expenditure'])
-        if d['donorID'] not in donorID and d['donorID'].replace(" ","") != "":
-            donorID.append(d['donorID'])
-            if d['donorID'] == '00012':
-                donorName.append('Voluntary Contributions')
-            else:
-                donorName.append(d['long_descr'])
-            donorShort.append(d['short_descr'])
-            donorTypeID.append(d['donor_type_lvl1'].replace(" ",""))
-            donorType.append(d['donor_type_lvl1_descr'])
-            if d['donor_type_lvl1'] == 'PROG CTY' or d['donor_type_lvl1'] == 'NON_PROG CTY':
-                donorCtyID.append(d['donor_type_lvl3'].replace(" ",""))
-                donorCty.append(d['donor_type_lvl3_descr'])
-            elif d['donor_type_lvl1'] == 'MULTI_AGY':
-                donorCtyID.append(d['donor_type_lvl1'].replace(" ",""))
-                donorCty.append(d['donor_type_lvl1_descr'])
-            else:
-                donorCtyID.append('OTH')
-                donorCty.append('OTHERS')
-            donorBudget.append(float(d['budget']))
-            donorExpend.append(float(d['expenditure']))
-    donorList.append(donorID)
-    donorList.append(donorName)
-    donorList.append(donorShort)
-    donorList.append(donorTypeID)
-    donorList.append(donorType)
-    donorList.append(donorCtyID)
-    donorList.append(donorCty)
-    donorList.append(donorBudget)
-    donorList.append(donorExpend)
-    
-    donorProject.append(donorList)
+donorYearList = {}
 
+for year,donorYears in groupby(donor_projects_sort, lambda x: x['fiscal_year']):
+    for don,donors in groupby(sorted(donorYears, key = lambda x: x['awardID']), lambda x: x['awardID']):
+        row_count = row_count + 1
+        donorList = [don]
+        donorID = []
+        donorName = []
+        donorShort = []
+        donorTypeID = []
+        donorType = []
+        donorCtyID = []
+        donorCty = []
+        donorBudget = []
+        donorExpend = []
+        for d in donors:
+            if d['donorID'] in donorID and d['donorID'].replace(" ","") != "":
+                i = donorID.index(d['donorID'])
+                donorBudget[i] += float(d['budget'])
+                donorExpend[i] += float(d['expenditure'])
+            if d['donorID'] not in donorID and d['donorID'].replace(" ","") != "":
+                donorID.append(d['donorID'])
+                if d['donorID'] == '00012':
+                    donorName.append('Voluntary Contributions')
+                else:
+                    donorName.append(d['long_descr'])
+                donorShort.append(d['short_descr'])
+                donorTypeID.append(d['donor_type_lvl1'].replace(" ",""))
+                donorType.append(d['donor_type_lvl1_descr'])
+                if d['donor_type_lvl1'] == 'PROG CTY' or d['donor_type_lvl1'] == 'NON_PROG CTY':
+                    donorCtyID.append(d['donor_type_lvl3'].replace(" ",""))
+                    donorCty.append(d['donor_type_lvl3_descr'])
+                elif d['donor_type_lvl1'] == 'MULTI_AGY':
+                    donorCtyID.append(d['donor_type_lvl1'].replace(" ",""))
+                    donorCty.append(d['donor_type_lvl1_descr'])
+                else:
+                    donorCtyID.append('OTH')
+                    donorCty.append('OTHERS')
+                donorBudget.append(float(d['budget']))
+                donorExpend.append(float(d['expenditure']))
+        donorList.append(donorID)
+        donorList.append(donorName)
+        donorList.append(donorShort)
+        donorList.append(donorTypeID)
+        donorList.append(donorType)
+        donorList.append(donorCtyID)
+        donorList.append(donorCty)
+        donorList.append(donorBudget)
+        donorList.append(donorExpend)
+        
+        donorProject.append(donorList)
+
+    donorProjects = []
+    for l in donorProject:
+        donorProjects.append(dict(zip(donorProjHeader,l))) # this returns a list of dicts of donors for each project
+    donorYearList[year] = donorProjects
+    
 print "Donors by Project Process Count: %d" % row_count
-donorProjects = []
-for l in donorProject:
-    donorProjects.append(dict(zip(donorProjHeader,l))) # this returns a list of dicts of donors for each project
 
 # Process donors by Outputs
 # *************************
@@ -387,13 +392,14 @@ for year,projectYears in groupby(projectSum_sort, lambda x: x['fiscal_year']):
         dCtyTemp = []
         dBudget = []
         dExpend = []
-        for dProj in donorProjects:
-            if dProj['projectID'] == award:
-                dTemp = dProj['donorID']
-                dtypeTemp = dProj['donorTypeID']
-                dCtyTemp = dProj['donorCtyID']
-                dBudget = dProj['donorBudget']
-                dExpend = dProj['donorExpend']
+        if year in donorYearList:
+            for dProj in donorYearList[year]:
+                if dProj['projectID'] == award:
+                    dTemp = dProj['donorID']
+                    dtypeTemp = dProj['donorTypeID']
+                    dCtyTemp = dProj['donorCtyID']
+                    dBudget = dProj['donorBudget']
+                    dExpend = dProj['donorExpend']
         summaryList.append(dTemp)
         summaryList.append(dtypeTemp)
         summaryList.append(dCtyTemp)
