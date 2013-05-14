@@ -325,7 +325,7 @@ for award,project in groupby(projects_sort, lambda x: x['awardID']):
             docTemp.append(doc['docURL'])
     projectList.append(docTemp)
     for loc in subnational_sort:
-        if loc['awardID'] == award:
+        if loc['awardID'] == award or str(loc['awardID']) == award[3:]:
             locationTemp = {}
             locationTemp['lat'] = loc['lat']
             locationTemp['lon'] = loc['lon']
@@ -345,7 +345,7 @@ for row in projectsFull:
     f_out = open('../api/projects/%s.json' % row['project_id'], 'wb')
     f_out.writelines(writeout)
     f_out.close()
-print '%d project files generated.' % file_count
+print '%d project files generated...' % file_count
 
 ## Process Project Summary file
 # *****************************
@@ -422,7 +422,7 @@ for y in yearList:
     f_out = open('../api/project_summary_%s.json' % y['year'], 'wb')
     f_out.writelines(jsondump)
     f_out.close()
-print 'Project Summary json files generated.'
+print 'Project Summary json files generated...'
 
 # Make year index 
 yearJSvalue = "var FISCALYEARS ="
