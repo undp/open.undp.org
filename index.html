@@ -127,9 +127,9 @@
         <div id='profile' class='col-790 content view'></div>
 
         <div id='top-donors' class='col-540 content view chart'>
-          <h1 class='title-story'>Top Contributing Donors</h1>
-          {% for donor in site.categories.donors %}
-            {{donor.content}}
+          {% for donor in site.categories['donors-gross'] %}
+          <h1 class='title-story'>{{donor.title}}</h1>
+          {{donor.content}}
           {% endfor %}
           <ul id='donor-nav'>
             <li><a href='#top-donors/regular'>Regular</a></li>
@@ -137,8 +137,10 @@
             <li><a href='#top-donors/total'>Total</a></li>
           </ul>
           <table class='table table-unstyled donor-gross-table'></table>
-          <h3>Support from Programme Country Governments</h3>
-          <p class='heading-desc'>Top 10 contibutors to local resources in 2012</p>
+          {% for donor in site.categories['donors-local'] %}
+          <h3>{{donor.title}}</h3>
+          {{donor.content}}
+          {% endfor %}
           <table class='table table-unstyled donor-local-table'></table>
         </div>
 

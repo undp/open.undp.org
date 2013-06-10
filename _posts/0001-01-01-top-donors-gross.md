@@ -1,5 +1,6 @@
 ---
-category: 'donors'
+category: "donors-gross"
+title: "Top Contributing Donors"
 ---
 
 <p class='heading-desc'>
