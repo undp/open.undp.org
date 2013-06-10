@@ -57,7 +57,7 @@
         </div>
         <% var prevBudget = null,
                prevExpend = null,
-               fYears = FISCALYEARS.reverse();
+               fYears = FISCALYEARS.slice().reverse();
            _.each(fYears, function(y,i) { 
              if (model.get('budgetyears')[y] != undefined) { %>
            <div>
@@ -70,7 +70,7 @@
                <% } else { %>
                  <div><%= accounting.formatMoney(model.get('budgetyears')[y]) %>
                <% } %>
-                 <% if (prevBudget != null) { 
+                 <% if (prevBudget != null && prevBudget > 0) { 
                       var change = (((model.get('budgetyears')[y] - prevBudget)/prevBudget)*100),
                           changeSign = (change > 0) ? '+' : '';
                  %>
