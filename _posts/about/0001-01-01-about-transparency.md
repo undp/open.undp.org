@@ -13,7 +13,7 @@ UNDP also leads outreach efforts with partner countries and other UN agencies to
 - South-South cooperation information sharing
 - Alignment of aid information with budget and medium-term expenditure frameworks
 
-Among its planned innovations to open.undp.org, UNDP will in 2013 UNDP will start publishing quarterly project-level information, including sub-national geolocation and additional activity-level financial attributes. UNDP is also reviewing and updating several policy guidelines.
+Among its planned innovations to open.undp.org, in 2013 UNDP will start publishing quarterly project-level information, including sub-national geolocation and additional activity-level financial attributes. UNDP is also reviewing and updating several policy guidelines.
 
 ###Notes on UNDP work
 
