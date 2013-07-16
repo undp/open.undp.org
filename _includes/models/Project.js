@@ -56,7 +56,7 @@ models.Projects = Backbone.Collection.extend({
                         collection[facet.id] = _(collection.pluck(facet.id))
                             .chain()
                             .map(function(v) {
-                                //return _(v).uniq(true);
+                                return _(v).uniq(true);
                             })
                             .flatten()
                             .countBy(function(n) { return n; })
