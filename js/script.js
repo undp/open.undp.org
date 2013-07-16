@@ -1,5 +1,3 @@
----
----
 var CURRENT_YR = FISCALYEARS[0];
 $(function() {
     var BASE_URL = 'http://open.undp.org/',
