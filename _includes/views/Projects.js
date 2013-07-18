@@ -56,6 +56,9 @@ views.Projects = Backbone.View.extend({
         if (models.length) {
             this.$('#project-table tbody').empty();
             _(models).each(function(model) {
+                if(model.get('id').indexOf('000') == -1) {
+                    model.set('id', '000'+model.get('id'));
+                }
                 this.$('#project-table tbody').append(templates.project({ model: model }));
             });
             if (pageType === 'widget') {
