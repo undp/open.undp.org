@@ -30,30 +30,32 @@ views.ProjectProfile = Backbone.View.extend({
 			'<li><a href="#filter/operating_unit-' + this.model.get('operating_unit_id') + '">' + this.model.get("operating_unit") + '</a></li>' +
 			'<li><a href="#project/' + this.model.get('id') + '">' + this.model.get('id') + '</a></li>'
 		);
-		/*var start =[];
-		var end =[];
 		if(this.model.get('start').indexOf('/')>=0)
 		{
-			start = this.model.get('start').split('/');
+			var start = this.model.get('start').split('/');
+			var startDate = new Date(start[1],start[0]-1,start[2]);
 		}
 		if(this.model.get('start').indexOf('-')>=0)
 		{
-			start = this.model.get('start').split('-');
+			var start = this.model.get('start').split('-');
+			var startDate = new Date(start[0],start[1]-1,start[2]);
 		}
 		if(this.model.get('end').indexOf('/')>=0)
 		{
-			end = this.model.get('end').split('/');            
+			var end = this.model.get('end').split('/');
+			var endDate = new Date(end[1],end[0]-1,end[2]);
 		}
 		if(this.model.get('end').indexOf('-')>=0)
 		{
-			end = this.model.get('end').split('-');
-		}*/
-		var start = this.model.get('start').split('/');
-		var end = this.model.get('end').split('/');
+			var end = this.model.get('end').split('-');
+			var endDate = new Date(end[0],end[1]-1,end[2]);
+		}
+		// var start = this.model.get('start').split('/');
+		// var end = this.model.get('end').split('/');
 
-		var startDate = new Date(start[1],start[0]-1,start[2]),
-			endDate = new Date(end[1],end[0]-1,end[2]),
-			curDate = new Date(),
+		// var startDate = new Date(start[1],start[0]-1,start[2]),
+		// 	endDate = new Date(end[1],end[0]-1,end[2]),
+		var curDate = new Date(),
 			progress = ((curDate - startDate) / (endDate - startDate)) * 100;
 			that = this;
 
