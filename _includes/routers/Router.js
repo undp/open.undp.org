@@ -84,7 +84,7 @@ routers.App = Backbone.Router.extend({
             $('#mainnav li.parent').removeClass('parent-active');
 
             // Set up breadcrumbs
-            $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li><li><a href="' + BASE_URL + '">Our Projects</a></li>');
+            $('#breadcrumbs ul').html('<li><a href="http://akshaysinha.github.io/test/">Home</a></li><li><a href="' + BASE_URL + '">Our Projects</a></li>');
 
             // Load the main app view
             this.app = this.app || new views.App({
@@ -124,7 +124,7 @@ routers.App = Backbone.Router.extend({
                     if (filter.collection === 'region') {
                         return memo && model.get(filter.collection) == filter.id;
                     } else {
-                        return memo && (model.get(filter.collection) && model.get(filter.collection).indexOf(filter.id) >= 0);
+                        return memo && (model.get(filter.collection) && (model.get(filter.collection).toString()).indexOf(filter.id) >= 0);
                     }
                 }, true);
             };
