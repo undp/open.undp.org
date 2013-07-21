@@ -1,5 +1,5 @@
 views.ProjectProfile = Backbone.View.extend({
-    events: {
+	events: {
 		'click .widget-config': 'requestIframe',
 		'click .load a': 'loadMore'
 	},
@@ -24,38 +24,49 @@ views.ProjectProfile = Backbone.View.extend({
 	},
 
 	render: function() {
+		var id = this.model.get('id');
+		if(id.indexOf('000') == -1) {
+			id = '000'+id;
+		}
+
 		$('#breadcrumbs ul').html(
-			'<li><a href="http://open.undp.org/">Home</a></li>' +
+			'<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' +
 			'<li><a href="' + BASE_URL + '">Our Projects</a></li>' +
 			'<li><a href="#filter/operating_unit-' + this.model.get('operating_unit_id') + '">' + this.model.get("operating_unit") + '</a></li>' +
-			'<li><a href="#project/' + this.model.get('id') + '">' + this.model.get('id') + '</a></li>'
+			'<li><a href="#project/' + id + '">' + this.model.get('id') + '</a></li>'
 		);
-		if(this.model.get('start').indexOf('/')>=0)
-		{
-			var start = this.model.get('start').split('/');
-			var startDate = new Date(start[1],start[0]-1,start[2]);
-		}
-		if(this.model.get('start').indexOf('-')>=0)
-		{
-			var start = this.model.get('start').split('-');
-			var startDate = new Date(start[0],start[1]-1,start[2]);
-		}
-		if(this.model.get('end').indexOf('/')>=0)
-		{
-			var end = this.model.get('end').split('/');
-			var endDate = new Date(end[1],end[0]-1,end[2]);
-		}
-		if(this.model.get('end').indexOf('-')>=0)
-		{
-			var end = this.model.get('end').split('-');
-			var endDate = new Date(end[0],end[1]-1,end[2]);
-		}
-		// var start = this.model.get('start').split('/');
-		// var end = this.model.get('end').split('/');
 
-		// var startDate = new Date(start[1],start[0]-1,start[2]),
-		// 	endDate = new Date(end[1],end[0]-1,end[2]),
-		var curDate = new Date(),
+		if(this.model.get('start').length) {
+			if(this.model.get('start').indexOf('-') >= 0) {
+				var start = this.model.get('start').split('-');
+			} else if(this.model.get('start').indexOf('/') >=0 ){
+				var start = this.model.get('start').split('/');
+				var year = start[2], month = start[0], day = start[1];
+				start[0] = year;
+				start[1] = month;
+				start[2] = day;
+			}
+		} else {
+			var start = this.model.get('start').split('-');
+		}
+
+		if(this.model.get('end').length) {
+			if(this.model.get('end').indexOf('-') >= 0) {
+				var end = this.model.get('end').split('-');
+			} else if(this.model.get('end').indexOf('/') >=0 ){
+				var end = this.model.get('end').split('/');
+				var year = end[2], month = end[0], day = end[1];
+				end[0] = year;
+				end[1] = month;
+				end[2] = day;
+			}
+		} else {
+			var end = this.model.get('end').split('-');
+		}
+
+		var startDate = new Date(start[0],start[1]-1,start[2]),
+			endDate = new Date(end[0],end[1]-1,end[2]),
+			curDate = new Date(),
 			progress = ((curDate - startDate) / (endDate - startDate)) * 100;
 			that = this;
 
@@ -73,40 +84,60 @@ views.ProjectProfile = Backbone.View.extend({
 
 		this.model.attributes.budgetyears = _.reduce(this.model.attributes.outputs, function (res, obj) {
 			_.each(obj.fiscal_year, function(o,i) {
-				res[o] = (res[o] || 0) + obj.budget[i];
+				if(obj.fiscal_year.length == obj.budget.length) {
+					res[o] = (res[o] || 0) + obj.budget[i];
+				} else if(obj.fiscal_year.length < obj.budget.length) {
+					res[o] = (res[o] || 0) + obj.budget[i+1];
+				}
 			});
 			return res;
 			},{});
 
 		this.model.attributes.expendyears = _.reduce(this.model.attributes.outputs, function (res, obj) {
 			_.each(obj.fiscal_year, function(o,i) {
-				res[o] = (res[o] || 0) + obj.expenditure[i];
+				if(obj.fiscal_year.length == obj.expenditure.length) {
+					res[o] = (res[o] || 0) + obj.expenditure[i];
+				} else if(obj.fiscal_year.length < obj.expenditure.length) {
+					res[o] = (res[o] || 0) + obj.expenditure[i+1];
+				}
 			});
 			return res;
 			},{});
-		/*var s=[];
-		var e=[];
-		if(this.model.get('start').indexOf('/')>=0)
-		{
-			s = this.model.get('start').split('/');
-		}
-		if(this.model.get('start').indexOf('-')>=0)
-		{
-			s = this.model.get('start').split('-');
-		}
-		if(this.model.get('end').indexOf('/')>=0)
-        {
-            e = this.model.get('end').split('/');            
-        }
-        if(this.model.get('end').indexOf('-')>=0)
-        {
-            e = this.model.get('end').split('-');
-        }*/
-		var s = this.model.get('start').split('/');
-		 var e = this.model.get('end').split('/');
 
-		var start = new Date(s[1],s[0]-1,s[2]).format('M d, Y');
-		var end = new Date(e[1],e[0]-1,e[2]).format('M d, Y');
+		if(this.model.get('start').length) {
+			if(this.model.get('start').indexOf('-') >= 0) {
+				var s = this.model.get('start').split('-');
+			} else if(this.model.get('start').indexOf('/') >=0 ){
+				var s = this.model.get('start').split('/');
+				var year = s[2], month = s[0], day = s[1];
+				s[0] = year;
+				s[1] = month;
+				s[2] = day;
+			}
+		} else {
+			var s = this.model.get('start').split('-');
+		}
+		if(this.model.get('end').length) {
+			if(this.model.get('end').indexOf('-') >= 0) {
+				var e = this.model.get('end').split('-');
+			} else if(this.model.get('end').indexOf('/') >=0 ){
+				var e = this.model.get('end').split('/');
+				var year = e[2], month = e[0], day = e[1];
+				e[0] = year;
+				e[1] = month;
+				e[2] = day;
+			}
+		} else {
+			var e = this.model.get('end').split('-');
+		}
+
+		var start = end = '';
+		if(s.length === 3) {
+			start = new Date(s[0],s[1]-1,s[2]).format('M d, Y');
+		}
+		if(e.length === 3) {
+			end = new Date(e[0],e[1]-1,e[2]).format('M d, Y');
+		}
 
 		// Filter out any image files from showing up
 		var documents = [];
@@ -135,8 +166,8 @@ views.ProjectProfile = Backbone.View.extend({
 
 		if (this.options.embed) {
 			this.$el.empty().append(templates.embedProjectProfile({
-				start: this.model.get('start'),
-                		end: this.model.get('end'),
+				start: start,
+				end: end,
 				documents: documents,
 				model: this.model
 			}));
@@ -151,8 +182,8 @@ views.ProjectProfile = Backbone.View.extend({
 
 		} else {
 			this.$el.empty().append(templates.projectProfile({
-				start: this.model.get('start'),
-                		end: this.model.get('end'),
+				start: start,
+				end: end,
 				base: BASE_URL,
 				documents: documents,
 				model: this.model
