@@ -36,8 +36,8 @@
               </a>
           </div>
           <div class='dates-label'>
-            <span class='start'><%= start %></span>
-            <span class='end'><%= end %></span>
+            <span class='start'><%= start?start:'' %></span>
+            <span class='end'><%= end?end:'' %></span>
           </div>
           <div id='progress' class='progress'>
             <div class='bar'></div>
