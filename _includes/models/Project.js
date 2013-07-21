@@ -2,7 +2,12 @@
 models.Project = Backbone.Model.extend({
     defaults: { visible: true },
     url: function() {
-        return 'api/projects/' + this.get('id') + '.json';
+        id = this.get('id');
+        if(id.indexOf('000') == 0)
+        {
+            id = id.substr(3, id.length);
+        }
+        return 'api/projects/' + id + '.json';
     }
 });
 
@@ -56,7 +61,10 @@ models.Projects = Backbone.Collection.extend({
                         collection[facet.id] = _(collection.pluck(facet.id))
                             .chain()
                             .map(function(v) {
-                                return _(v).uniq(true);
+                                if(typeof(v.sort) == 'function')
+                                    return _(v.sort()).uniq(true);
+                                else
+                                    return _(v).uniq(true);
                             })
                             .flatten()
                             .countBy(function(n) { return n; })
