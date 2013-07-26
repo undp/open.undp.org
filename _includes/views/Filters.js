@@ -158,6 +158,7 @@ views.Filters = Backbone.View.extend({
 					}, 0) || 0;
 
 					_(chartModels).each(function(model, i) {
+						if(model.id > 0){
 						var focusIconClass = model.get('name').replace(/\s+/g, '-').toLowerCase().split('-')[0];
 						var focusName = model.get('name').toLowerCase().toTitleCase();
 
@@ -172,6 +173,7 @@ views.Filters = Backbone.View.extend({
 							'</li>');
 
 						$('.fa' + (model.id) + ' .pct').text(value + '%');
+						}
 					});
 
 					$el.prepend('<h3 id="focus">Focus Areas <span>% of budget</span></h3>');
