@@ -11,6 +11,7 @@ views.Map = Backbone.View.extend({
 
     render: function() {
         var view = this;
+        console.log(view);
         
         // Condition for embed
         if (!view.options.embed) {
@@ -24,6 +25,17 @@ views.Map = Backbone.View.extend({
         view.$el.empty();
         if (!IE) view.$el.append('<div class="inner-shadow"></div>');
         view.buildMap(layer);
+    },
+
+    // UTIL set marker scale depending on type of data
+    scale: function(cat,x) {
+        if (cat == 'budget' || cat == 'expenditure') {
+            return Math.round(x.properties[cat] / 100000);
+        } else if (cat == 'hdi') {
+            return Math.round(Math.pow(x.properties[cat],2) / 0.0008);
+        } else {
+            return Math.round(x.properties[cat] / 0.05);
+        }
     },
 
     buildMap: function(layer) {
@@ -102,7 +114,6 @@ views.Map = Backbone.View.extend({
                     });
                 }
             }
-
             if (locations.length !== 0) {
                 markers.features(locations);
                 mapbox.markers.interaction(markers);

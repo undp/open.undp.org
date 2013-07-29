@@ -182,6 +182,22 @@ routers.App = Backbone.Router.extend({
                     });
                 }
                 
+                // if (!embed) {
+                //     that.projects.map = new views.Map({
+                //         el: '#homemap',
+                //         collection: that.projects
+                //     });
+
+                //     that.projects.widget = new views.Widget({
+                //         context: 'projects'
+                //     });
+                // } else {
+                //     that.projects.map = new views.Map({
+                //         el: '#homemap',
+                //         collection: that.projects,
+                //         embed: embed
+                //     });
+                // }
             };
 
             // Load projects

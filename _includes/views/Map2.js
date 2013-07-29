@@ -1,8 +1,8 @@
 views.Map2 = Backbone.View.extend({
+
     events: {
         'click img.mapmarker': 'mapClick',
         'click img.simplestyle-marker': 'mapClick',
-        'mouseover img.mapmarker': 'tooltipFlip'
     },
 
     initialize: function() {
@@ -25,36 +25,55 @@ views.Map2 = Backbone.View.extend({
         view.buildMap(layer);
     },
 
+    // UTIL set marker scale depending on type of data
+    scale: function(cat,x) {
+        if (cat == 'budget' || cat == 'expenditure') {
+            return Math.round(x.properties[cat] / 100000);
+        } else if (cat == 'hdi') {
+            return Math.round(Math.pow(x.properties[cat],2) / 0.0008);
+        } else {
+            return Math.round(x.properties[cat] / 0.05);
+        }
+    },
+    //UTIL format description for popup
+    popup: function(layer, data) {
+        var description = '<div class="stat' + ((layer == 'budget') ? ' active' : '') + '">Budget: <span class="value">' +
+            accounting.formatMoney(data.budget) + '</span></div>' +
+            '<div class="stat' + ((layer == 'expenditure') ? ' active' : '') + '">Expenditure: <span class="value">' +
+            accounting.formatMoney(data.expenditure) + '</span></div>';
+
+        if (data.count) { // if data has project nubmer count
+            description = '<div class="stat' + ((layer == 'count') ? ' active' : '') + '">Projects: <span class="value">' +
+                 data.count + '</span></div>' +
+                 ((data.sources > 1) ? ('<div class="stat' + ((layer == 'sources') ? ' active' : '') + '">Budget Sources: <span class="value">' +
+                 data.sources + '</span></div>') : '') +
+                 description + // all data
+                 '<div class="stat' + ((layer == 'hdi') ? ' active' : '') + '">HDI: <span class="value">' +
+                 data.hdi + '</span></div>';
+        }
+
+        return description;
+    },
+    //UTIL set popup description and return the radius for circles
+
     buildMap: function(layer) {
         var view = this,
             locations = [],
             count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
             unit = this.collection;
 
-        // Map set up, uses mapbox.js 1.3.1
+        var radius =  function(f){
+            var r = Math.round(Math.sqrt(view.scale(layer,f)/ Math.PI));
+            return r
+            };
+
+        // Map setup with mapbox.js 1.3.1
         view.map = L.mapbox.map(this.el,TJ.id,{ //basemap tilejson is hardcoded into the site as variable TJ
                 center: [0,0],
                 zoom: 2,
                 minZoom: TJ.minzoom,
                 maxZoom: TJ.maxzoom
             });
-
-        // new marker setup
-        var markers = L.mapbox.markerLayer()
-            .addTo(view.map);  
-        
-        var radii = function(f) {
-            console.log(f);
-            f.properties.description = view.tooltip(layer, f.properties);
-            return clustr.area_to_radius(
-                Math.round(view.scale(layer,f))
-            );
-        };
-
-        // Use clustr.js to generate scaled markers
-        // markers.factory(clustr.scale_factory(radii, 'rgba(0,85,170,0.6)', '#FFF')).sort(function(a, b) {
-        //     return b.properties[layer] - a.properties[layer];
-        // });    
 
         // operating-unit-index.json cointains coords for country centroids
         $.getJSON('api/operating-unit-index.json', function(data) {
@@ -73,22 +92,18 @@ views.Map2 = Backbone.View.extend({
                         hdi_education = _.last(HDI[o.id].education)[1];
                         hdi_income = _.last(HDI[o.id].income)[1];
                         hdi_rank = HDI[o.id].rank;
-                        /*
-                        view.hdi = new views.HDI({
-                            unit: o.id
-                        });
-                        */
-                        
+
                     } else {
                         hdi = hdi_health = hdi_education = hdi_income = hdi_rank = 'no data';
                     }
-                    
-                    // Create location and tooltip info for each active country marker
+                    // Create location geojson with tooltip info (properties) for each active country marker
                     locations.push({
+                        type: "Feature",
                         geometry: {
+                            type: "Point",
                             coordinates: [
-                                o.lon,
-                                o.lat
+                                o.lat,
+                                o.lon
                             ]
                         },
                         properties: {
@@ -105,49 +120,69 @@ views.Map2 = Backbone.View.extend({
             }
 
             if (locations.length !== 0) {
-                markers.features(locations);
-                mapbox.markers.interaction(markers);
-                view.map.extent(markers.extent());
-                view.map.addLayer(markers);
-                if (locations.length === 1) {
-                    view.map.zoom(4);
+                var circleOptions = {
+                    radius:radius(feature),
+                    color:"#fff",
+                    opacity:1,
+                    fillColor: "#0055aa",
+                    fillOpacity: 0.6
+                };
+                // using pointToLayer to make locations into a circleMarker vector layer
+                // turn this into a function
+                // read up http://leafletjs.com/examples/geojson.html
+                var circles = function(loc,feature,options){
+                    L.geoJson(loc,{
+                        pointToLayer:function(feature,latlng){
+                            return.cicleMarker(latlng,options);
+                        }
+                    }).addTo(view.map);
                 }
-            } else {
-                view.map.centerzoom({lat:20, lon:0}, 2);
+
+                // view.map.markerLayer.on("layeradd", function(o) {
+                //     var marker = o.layer, //acesses all the method of marker
+                //         feature = marker.feature;
+                //     // Create custom popup content
+                //     var popupContent =  view.popup(layer, feature.properties);
+                //     var circles = L.circleMarker(feature.geometry.coordinates, radius(feature),{
+                //         stroke:false,
+                //         color: "#fff",
+                //         fillColor: "#0055aa",
+                //     }).bindPopup(popupContent,{
+                //         closeButton: false,
+                //         minWidth: 180
+                //     });
+                // });
+
+                // Add features to the map
+                // view.map.markerLayer.setGeoJSON({
+                //     type:"FeatureCollection",
+                //     features:locations
+                // });
+                (locations.length === 1) ? view.map.setZoom(4) : view.map.setZoom(2)
             }
         });
     },
     
     // Update map when switching between layer types
     updateMap: function(layer) {
-        var view = this,
-            markers = this.map.layers[1],
+        console.log('this is triggered by clicking categories');
+        // var view = this;
+        // markers = this.map.layers[1],
 
-            radii = function(f) {
-                f.properties.description = view.tooltip(layer, f.properties);
-                return clustr.area_to_radius(
-                    Math.round(view.scale(layer,f))
-                );
-            };
+        // radii = function(f) {
+        //     f.properties.description = view.popup(layer, f.properties);
+        //     return clustr.area_to_radius(
+        //         Math.round(view.scale(layer,f))
+        //     );
+        // };
 
-        if (markers) {
-            markers.sort(function(a,b){ return b.properties[layer] - a.properties[layer]; })
-                .factory(clustr.scale_factory(radii, 'rgba(0,85,170,0.6)', '#FFF'));
-        }
+        // if (markers) {
+        //     markers.sort(function(a,b){ return b.properties[layer] - a.properties[layer]; })
+        //         .factory(clustr.scale_factory(radii, 'rgba(0,85,170,0.6)', '#FFF'));
+        // }
     },
     
-    // Set marker scale depending on type of data
-    scale: function(cat,x) {
-        if (cat == 'budget' || cat == 'expenditure') {
-            return Math.round(x.properties[cat] / 100000);
-        } else if (cat == 'hdi') {
-            return Math.round(Math.pow(x.properties[cat],2) / 0.0008);
-        } else {
-            return Math.round(x.properties[cat] / 0.05);
-        }
-    },
-    
-    // Enable clicking on markers to choose country
+    // Enable clicking on markers to choose country, needs to be updated with circleClick
     mapClick: function(e) {
         var $target = $(e.target),
             drag = false,
@@ -168,34 +203,5 @@ views.Map2 = Backbone.View.extend({
                 $('#browser .summary').removeClass('off');
             }
         });
-    },
-
-    tooltip: function(layer, data) {
-        var description = '<div class="stat' + ((layer == 'budget') ? ' active' : '') + '">Budget: <span class="value">' +
-            accounting.formatMoney(data.budget) + '</span></div>' +
-            '<div class="stat' + ((layer == 'expenditure') ? ' active' : '') + '">Expenditure: <span class="value">' +
-            accounting.formatMoney(data.expenditure) + '</span></div>';
-            
-        if (data.count) {
-            description = '<div class="stat' + ((layer == 'count') ? ' active' : '') + '">Projects: <span class="value">' +
-                 data.count + '</span></div>' +
-                 ((data.sources > 1) ? ('<div class="stat' + ((layer == 'sources') ? ' active' : '') + '">Budget Sources: <span class="value">' +
-                 data.sources + '</span></div>') : '') +
-                 description +
-                 '<div class="stat' + ((layer == 'hdi') ? ' active' : '') + '">HDI: <span class="value">' +
-                 data.hdi + '</span></div>';
-        }
-        return description;
-    },
-
-    tooltipFlip: function(e) {
-        var $target = $(e.target),
-            top = $target.offset().top - this.$el.offset().top;
-        if (top <= 150) {
-            var tipSize = $('.marker-popup').height() + 50;
-            $('.marker-tooltip')
-                .addClass('flip')
-                .css('margin-top',tipSize + $target.height());
-        }
     }
 });
