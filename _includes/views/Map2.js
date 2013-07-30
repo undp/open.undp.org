@@ -16,13 +16,13 @@ views.Map2 = Backbone.View.extend({
             layer = $('.map-btn.active').attr('data-value');
         } else {
             layer = 'budget';
-        }
-        
+        }   
         // Give map an inner shadow unless browser is IE
         var IE = $.browser.msie;
         view.$el.empty();
         if (!IE) view.$el.append('<div class="inner-shadow"></div>');
         view.buildMap(layer);
+        console.log(layer);
     },
 
     // UTIL set marker scale depending on type of data
@@ -55,26 +55,36 @@ views.Map2 = Backbone.View.extend({
         return description;
     },
     //UTIL set popup description and return the radius for circles
-
     buildMap: function(layer) {
         var view = this,
             locations = [],
             count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
             unit = this.collection;
 
-        var radius =  function(f){
-            var r = Math.round(Math.sqrt(view.scale(layer,f)/ Math.PI));
-            return r
-            };
-
-        // Map setup with mapbox.js 1.3.1
+        // Create the map with mapbox.js 1.3.1
+        // TODO avoid continous world
+        // http://www.mapbox.com/mapbox.js/api/v1.3.1/#L.mapbox.map
         view.map = L.mapbox.map(this.el,TJ.id,{ //basemap tilejson is hardcoded into the site as variable TJ
                 center: [0,0],
                 zoom: 2,
                 minZoom: TJ.minzoom,
-                maxZoom: TJ.maxzoom
+                maxZoom: TJ.maxzoom,
+                noWrap: true
             });
-
+        // calculate the radius
+        var radius =  function(f){
+            var r = Math.round(Math.sqrt(view.scale(layer,f)/ Math.PI));
+            return r
+            };
+        // using pointToLayer to make location points into a circleMarker vector layer
+        // http://leafletjs.com/examples/geojson.html
+        var circle = function(geoJsonFeature,options){
+            L.geoJson(geoJsonFeature,{
+                pointToLayer:function(feature,latlng){
+                    return L.circleMarker(latlng,options);
+                }
+            }).addTo(view.map);
+        };
         // operating-unit-index.json cointains coords for country centroids
         $.getJSON('api/operating-unit-index.json', function(data) {
             for (var i = 0; i < data.length; i++) {
@@ -102,8 +112,8 @@ views.Map2 = Backbone.View.extend({
                         geometry: {
                             type: "Point",
                             coordinates: [
-                                o.lat,
-                                o.lon
+                                o.lon,
+                                o.lat
                             ]
                         },
                         properties: {
@@ -120,27 +130,20 @@ views.Map2 = Backbone.View.extend({
             }
 
             if (locations.length !== 0) {
-                var circleOptions = {
-                    radius:radius(feature),
-                    color:"#fff",
-                    opacity:1,
-                    fillColor: "#0055aa",
-                    fillOpacity: 0.6
-                };
-                // using pointToLayer to make locations into a circleMarker vector layer
-                // turn this into a function
-                // read up http://leafletjs.com/examples/geojson.html
-                var circles = function(loc,feature,options){
-                    L.geoJson(loc,{
-                        pointToLayer:function(feature,latlng){
-                            return.cicleMarker(latlng,options);
-                        }
-                    }).addTo(view.map);
-                }
 
-                // view.map.markerLayer.on("layeradd", function(o) {
-                //     var marker = o.layer, //acesses all the method of marker
-                //         feature = marker.feature;
+                _.each(locations, function(o){
+                    o.properties.description = view.popup(layer,o); //add description to feature properties
+                    var circleOptions = {
+                        radius: radius(o),
+                        color:"#fff",
+                        weight:1,
+                        opacity:1,
+                        fillColor: "#0055aa",
+                        fillOpacity: 0.6
+                    };
+                    circle(o,circleOptions);
+                });
+
                 //     // Create custom popup content
                 //     var popupContent =  view.popup(layer, feature.properties);
                 //     var circles = L.circleMarker(feature.geometry.coordinates, radius(feature),{
@@ -151,13 +154,7 @@ views.Map2 = Backbone.View.extend({
                 //         closeButton: false,
                 //         minWidth: 180
                 //     });
-                // });
 
-                // Add features to the map
-                // view.map.markerLayer.setGeoJSON({
-                //     type:"FeatureCollection",
-                //     features:locations
-                // });
                 (locations.length === 1) ? view.map.setZoom(4) : view.map.setZoom(2)
             }
         });
@@ -165,24 +162,11 @@ views.Map2 = Backbone.View.extend({
     
     // Update map when switching between layer types
     updateMap: function(layer) {
-        console.log('this is triggered by clicking categories');
-        // var view = this;
-        // markers = this.map.layers[1],
-
-        // radii = function(f) {
-        //     f.properties.description = view.popup(layer, f.properties);
-        //     return clustr.area_to_radius(
-        //         Math.round(view.scale(layer,f))
-        //     );
-        // };
-
-        // if (markers) {
-        //     markers.sort(function(a,b){ return b.properties[layer] - a.properties[layer]; })
-        //         .factory(clustr.scale_factory(radii, 'rgba(0,85,170,0.6)', '#FFF'));
-        // }
+        console.log('this is triggered by clicking categories, and the "layer" varible should change, to affect the radius');
+        var view = this;
     },
     
-    // Enable clicking on markers to choose country, needs to be updated with circleClick
+    // TODO - needs update: Enable clicking on markers to choose country
     mapClick: function(e) {
         var $target = $(e.target),
             drag = false,
