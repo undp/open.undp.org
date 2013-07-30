@@ -13,16 +13,15 @@ views.Map2 = Backbone.View.extend({
         var view = this;
         // Condition for embed
         if (!view.options.embed) {
-            layer = $('.map-btn.active').attr('data-value');
+            layer = $('.map-btn.active').attr('data-value'); //the layer name is coded in app._
         } else {
             layer = 'budget';
-        }   
+        }
         // Give map an inner shadow unless browser is IE
         var IE = $.browser.msie;
         view.$el.empty();
         if (!IE) view.$el.append('<div class="inner-shadow"></div>');
         view.buildMap(layer);
-        console.log(layer);
     },
 
     // UTIL set marker scale depending on type of data
@@ -35,21 +34,24 @@ views.Map2 = Backbone.View.extend({
             return Math.round(x.properties[cat] / 0.05);
         }
     },
-    //UTIL format description for popup
+    //UTIL format description for popup (html structure)
     popup: function(layer, data) {
-        var description = '<div class="stat' + ((layer == 'budget') ? ' active' : '') + '">Budget: <span class="value">' +
-            accounting.formatMoney(data.budget) + '</span></div>' +
+        var title = '<div class="title">' + data.properties.title + '</div>'
+        var description = title +
+            '<div class="stat' + ((layer == 'budget') ? ' active' : '') + '">Budget: <span class="value">' +
+            accounting.formatMoney(data.properties.budget) + '</span></div>' +
             '<div class="stat' + ((layer == 'expenditure') ? ' active' : '') + '">Expenditure: <span class="value">' +
-            accounting.formatMoney(data.expenditure) + '</span></div>';
+            accounting.formatMoney(data.properties.expenditure) + '</span></div>';
 
         if (data.count) { // if data has project nubmer count
-            description = '<div class="stat' + ((layer == 'count') ? ' active' : '') + '">Projects: <span class="value">' +
-                 data.count + '</span></div>' +
-                 ((data.sources > 1) ? ('<div class="stat' + ((layer == 'sources') ? ' active' : '') + '">Budget Sources: <span class="value">' +
-                 data.sources + '</span></div>') : '') +
-                 description + // all data
-                 '<div class="stat' + ((layer == 'hdi') ? ' active' : '') + '">HDI: <span class="value">' +
-                 data.hdi + '</span></div>';
+            description = title +
+                '<div class="stat' + ((layer == 'count') ? ' active' : '') + '">Projects: <span class="value">' +
+                data.properties.count + '</span></div>' +
+                ((data.sources > 1) ? ('<div class="stat' + ((layer == 'sources') ? ' active' : '') + '">Budget Sources: <span class="value">' +
+                data.properties.sources + '</span></div>') : '') +
+                description + // all data
+                '<div class="stat' + ((layer == 'hdi') ? ' active' : '') + '">HDI: <span class="value">' +
+                data.properties.hdi + '</span></div>';
         }
 
         return description;
@@ -62,33 +64,71 @@ views.Map2 = Backbone.View.extend({
             unit = this.collection;
 
         // Create the map with mapbox.js 1.3.1
-        // TODO avoid continous world
         // http://www.mapbox.com/mapbox.js/api/v1.3.1/#L.mapbox.map
         view.map = L.mapbox.map(this.el,TJ.id,{ //basemap tilejson is hardcoded into the site as variable TJ
                 center: [0,0],
                 zoom: 2,
                 minZoom: TJ.minzoom,
                 maxZoom: TJ.maxzoom,
-                noWrap: true
+                noWrap: true // TODO avoid continous world
             });
         // calculate the radius
         var radius =  function(f){
             var r = Math.round(Math.sqrt(view.scale(layer,f)/ Math.PI));
             return r
             };
+        // create the group for all the circle markers
+        var markers = L.featureGroup();
+        // highlight layer
+        var highlight = function(e) {
+            var layer = e.target;
+            layer.setStyle({
+                // fillColor: '#BBD5DD',
+                // fillOpacity:0.6
+                color:'#0055aa',
+                weight:2
+            });
+        };
+        var deHighlight = function(e) {
+            var layer = e.target;
+            layer.setStyle({
+                color:'#fff',
+                weight:1
+                // fillColor: '#0055aa',
+                // fillOpacity:0.6
+            });
+        }
         // using pointToLayer to make location points into a circleMarker vector layer
         // http://leafletjs.com/examples/geojson.html
-        var circle = function(geoJsonFeature,options){
+        var circle = function(geoJsonFeature,options,popup){
             L.geoJson(geoJsonFeature,{
                 pointToLayer:function(feature,latlng){
-                    return L.circleMarker(latlng,options);
+                    return L.circleMarker(latlng,options
+                        ).bindPopup(popup,{
+                            closeButton: false,
+                            offset:(100,0)
+                        }).on('mouseover',function(e){
+                            highlight(e);
+                        }).on('mouseout',function(e){
+                            deHighlight(e)
+                        })
                 }
-            }).addTo(view.map);
+            }).addTo(markers
+            ).addTo(view.map);
         };
+
+        // make popup hover events instead of click
+        // markers.on('mouseover',function(e){
+        //     e.layer.openPopup().on('click',function(){
+        //         closePopup();
+        //         // TODO insert the mapclick function here
+        //     })
+        // });
         // operating-unit-index.json cointains coords for country centroids
         $.getJSON('api/operating-unit-index.json', function(data) {
             for (var i = 0; i < data.length; i++) {
                 var o = data[i];
+
                 if (unit.operating_unit[o.id] && o.lon) {
                     count = unit.operating_unit[o.id];
                     sources = (unit.donorID) ? false : unit.operating_unitSources[o.id];
@@ -132,28 +172,17 @@ views.Map2 = Backbone.View.extend({
             if (locations.length !== 0) {
 
                 _.each(locations, function(o){
-                    o.properties.description = view.popup(layer,o); //add description to feature properties
-                    var circleOptions = {
-                        radius: radius(o),
-                        color:"#fff",
-                        weight:1,
-                        opacity:1,
-                        fillColor: "#0055aa",
-                        fillOpacity: 0.6
-                    };
-                    circle(o,circleOptions);
+                    var popupContent = view.popup(layer,o),
+                        circleOptions = {
+                            radius: radius(o),
+                            color:"#fff",
+                            weight:1,
+                            opacity:1,
+                            fillColor: "#0055aa",
+                            fillOpacity: 0.6
+                        };
+                    circle(o,circleOptions,popupContent);
                 });
-
-                //     // Create custom popup content
-                //     var popupContent =  view.popup(layer, feature.properties);
-                //     var circles = L.circleMarker(feature.geometry.coordinates, radius(feature),{
-                //         stroke:false,
-                //         color: "#fff",
-                //         fillColor: "#0055aa",
-                //     }).bindPopup(popupContent,{
-                //         closeButton: false,
-                //         minWidth: 180
-                //     });
 
                 (locations.length === 1) ? view.map.setZoom(4) : view.map.setZoom(2)
             }
