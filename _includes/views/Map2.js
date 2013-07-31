@@ -77,26 +77,16 @@ views.Map2 = Backbone.View.extend({
             var r = Math.round(Math.sqrt(view.scale(layer,f)/ Math.PI));
             return r
             };
-        // create the group for all the circle markers
-        var markers = L.featureGroup();
-        // highlight layer
-        var highlight = function(e) {
-            var layer = e.target;
+        // highlight/selected
+        var markerState = function(layer,options){
+            if (!options){options = {}}
             layer.setStyle({
-                // fillColor: '#BBD5DD',
-                // fillOpacity:0.6
-                color:'#0055aa',
-                weight:2
-            });
-        };
-        var deHighlight = function(e) {
-            var layer = e.target;
-            layer.setStyle({
-                color:'#fff',
-                weight:1
-                // fillColor: '#0055aa',
-                // fillOpacity:0.6
-            });
+                color: options.color || '#fff',
+                weight: options.weight || 1,
+                opacity: options.opacity || 1,
+                fillColor: options.fillColor || '#0055aa',
+                fillOpacity: options.fillOpacity || 0.6
+            })
         }
         // using pointToLayer to make location points into a circleMarker vector layer
         // http://leafletjs.com/examples/geojson.html
@@ -106,24 +96,28 @@ views.Map2 = Backbone.View.extend({
                     return L.circleMarker(latlng,options
                         ).bindPopup(popup,{
                             closeButton: false,
-                            offset:(100,0)
-                        }).on('mouseover',function(e){
-                            highlight(e);
-                        }).on('mouseout',function(e){
-                            deHighlight(e)
+                            offset:(0,0)
+                        }).on('mouseover',function(circleMarker){
+                            if (!this._popup._isOpen){
+                                markerState(circleMarker.target,{color:'#0055aa',weight:2})
+                            }
+                        }).on('mouseout',function(circleMarker){
+                            if (!this._popup._isOpen){
+                                markerState(circleMarker.target)
+                            }
                         })
                 }
-            }).addTo(markers
-            ).addTo(view.map);
+            }).addTo(view.map);
         };
 
-        // make popup hover events instead of click
-        // markers.on('mouseover',function(e){
-        //     e.layer.openPopup().on('click',function(){
-        //         closePopup();
-        //         // TODO insert the mapclick function here
-        //     })
-        // });
+        view.map.on('popupopen',function(e){
+            var marker = e.popup._source;
+            markerState(marker,{fillColor:'#eaac54'})
+        }).on('popupclose',function(e){
+            var marker= e.popup._source;
+            markerState(marker);
+        });
+
         // operating-unit-index.json cointains coords for country centroids
         $.getJSON('api/operating-unit-index.json', function(data) {
             for (var i = 0; i < data.length; i++) {
@@ -191,8 +185,8 @@ views.Map2 = Backbone.View.extend({
     
     // Update map when switching between layer types
     updateMap: function(layer) {
-        console.log('this is triggered by clicking categories, and the "layer" varible should change, to affect the radius');
         var view = this;
+        view.buildMap(layer);
     },
     
     // TODO - needs update: Enable clicking on markers to choose country
