@@ -182,7 +182,7 @@ views.App = Backbone.View.extend({
         var $target = $(e.currentTarget);
         $('.map-btn').removeClass('active');
         $target.addClass('active');
-        app.projects.map.updateMap($target.attr('data-value'));
+        app.projects.map.buildLayer($target.attr('data-value'));
 
         if ($target.attr('data-value') === 'hdi' && app.hdi) {
             $('#chart-hdi').css('display','block');

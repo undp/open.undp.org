@@ -21,7 +21,16 @@ views.Map2 = Backbone.View.extend({
         var IE = $.browser.msie;
         view.$el.empty();
         if (!IE) view.$el.append('<div class="inner-shadow"></div>');
-        view.buildMap(layer);
+        // Create the map with mapbox.js 1.3.1
+        view.markers = L.featureGroup();
+        view.map = L.mapbox.map(this.el,TJ.id,{ //basemap tilejson is hardcoded into the site as variable TJ
+            center: [0,0],
+            zoom: 2,
+            minZoom: TJ.minzoom,
+            maxZoom: TJ.maxzoom,
+            noWrap: true // TODO avoid continous world
+        });
+        view.buildLayer(layer);
     },
 
     // UTIL set marker scale depending on type of data
@@ -34,50 +43,39 @@ views.Map2 = Backbone.View.extend({
             return Math.round(x.properties[cat] / 0.05);
         }
     },
+    //UTIL calculate the radius
+    radius: function(scaleResult){
+        var r = Math.round(Math.sqrt(scaleResult/ Math.PI));
+        return r
+    },
     //UTIL format description for popup (html structure)
     popup: function(layer, data) {
-        var title = '<div class="title">' + data.properties.title + '</div>'
-        var description = title +
+        var description = '<div class="title">' + data.properties.title + '</div>' +
+            '<div class="stat' + ((layer == 'count') ? ' active' : '') + '">Projects: <span class="value">' +
+            data.properties.count + '</span></div>' +
+            ((data.sources > 1) ? ('<div class="stat' + ((layer == 'sources') ? ' active' : '') + '">Budget Sources: <span class="value">' +
+            data.properties.sources + '</span></div>') : '') +
             '<div class="stat' + ((layer == 'budget') ? ' active' : '') + '">Budget: <span class="value">' +
             accounting.formatMoney(data.properties.budget) + '</span></div>' +
             '<div class="stat' + ((layer == 'expenditure') ? ' active' : '') + '">Expenditure: <span class="value">' +
-            accounting.formatMoney(data.properties.expenditure) + '</span></div>';
-
-        if (data.count) { // if data has project nubmer count
-            description = title +
-                '<div class="stat' + ((layer == 'count') ? ' active' : '') + '">Projects: <span class="value">' +
-                data.properties.count + '</span></div>' +
-                ((data.sources > 1) ? ('<div class="stat' + ((layer == 'sources') ? ' active' : '') + '">Budget Sources: <span class="value">' +
-                data.properties.sources + '</span></div>') : '') +
-                description + // all data
-                '<div class="stat' + ((layer == 'hdi') ? ' active' : '') + '">HDI: <span class="value">' +
-                data.properties.hdi + '</span></div>';
-        }
+            accounting.formatMoney(data.properties.expenditure) + '</span></div>' +
+            '<div class="stat' + ((layer == 'hdi') ? ' active' : '') + '">HDI: <span class="value">' +
+            data.properties.hdi + '</span></div>';
 
         return description;
     },
     //UTIL set popup description and return the radius for circles
-    buildMap: function(layer) {
+    buildLayer: function(layer) {
+
         var view = this,
             locations = [],
             count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
             unit = this.collection;
 
-        // Create the map with mapbox.js 1.3.1
-        // http://www.mapbox.com/mapbox.js/api/v1.3.1/#L.mapbox.map
-        view.map = L.mapbox.map(this.el,TJ.id,{ //basemap tilejson is hardcoded into the site as variable TJ
-                center: [0,0],
-                zoom: 2,
-                minZoom: TJ.minzoom,
-                maxZoom: TJ.maxzoom,
-                noWrap: true // TODO avoid continous world
-            });
-        // calculate the radius
-        var radius =  function(f){
-            var r = Math.round(Math.sqrt(view.scale(layer,f)/ Math.PI));
-            return r
-            };
-        // highlight/selected
+        view.map.removeLayer(view.markers); //remove the marker featureGroup from view.map
+        view.markers.clearLayers(); // inside of marker featureGroup, clear the layers from the previous build
+
+        // style markers
         var markerState = function(layer,options){
             if (!options){options = {}}
             layer.setStyle({
@@ -88,34 +86,42 @@ views.Map2 = Backbone.View.extend({
                 fillOpacity: options.fillOpacity || 0.6
             })
         }
-        // using pointToLayer to make location points into a circleMarker vector layer
+        // use pointToLayer to make location points into a circleMarker vector layer
         // http://leafletjs.com/examples/geojson.html
-        var circle = function(geoJsonFeature,options,popup){
+        var circle = function(geoJsonFeature,options,hoverPop,clickPop){
+            var brief = L.popup({closeButton:false})
+                .setContent(hoverPop);
             L.geoJson(geoJsonFeature,{
                 pointToLayer:function(feature,latlng){
                     return L.circleMarker(latlng,options
-                        ).bindPopup(popup,{
-                            closeButton: false,
-                            offset:(0,0)
+                        ).bindPopup(clickPop,  {
+                            closeButton:false,
+                            offset:new L.Point(0,90)
                         }).on('mouseover',function(circleMarker){
-                            if (!this._popup._isOpen){
-                                markerState(circleMarker.target,{color:'#0055aa',weight:2})
+                            brief.setLatLng(latlng);
+                            view.map.openPopup(brief);
+                            if (!this._popup._isOpen){ //if the popup of the layer is not open
+                                markerState(circleMarker.target,{color:'#0055aa',weight:2});
                             }
                         }).on('mouseout',function(circleMarker){
+                            view.map.closePopup(brief);
                             if (!this._popup._isOpen){
-                                markerState(circleMarker.target)
+                                markerState(circleMarker.target);
                             }
                         })
                 }
-            }).addTo(view.map);
+            }).addTo(view.markers);
         };
 
+        view.map.addLayer(view.markers); //add newly generated marker featureGroup to the map
+
         view.map.on('popupopen',function(e){
-            var marker = e.popup._source;
-            markerState(marker,{fillColor:'#eaac54'})
+            var marker = e.popup._source; // marker is the layer the popup is bound to, only applicable to those that used bindPopup()
+            console.log(marker);
+            if (marker != undefined){markerState(marker,{fillColor:'#eaac54'})} //undefined means the popup does not have a marker it is attached to
         }).on('popupclose',function(e){
             var marker= e.popup._source;
-            markerState(marker);
+            if (marker != undefined){markerState(marker);}
         });
 
         // operating-unit-index.json cointains coords for country centroids
@@ -162,33 +168,27 @@ views.Map2 = Backbone.View.extend({
                     });
                 }
             }
-
             if (locations.length !== 0) {
-
                 _.each(locations, function(o){
-                    var popupContent = view.popup(layer,o),
+                    var country = o.properties.title,
+                        popupContent = view.popup(layer,o),
                         circleOptions = {
-                            radius: radius(o),
+                            radius: view.radius(view.scale(layer,o)),
                             color:"#fff",
                             weight:1,
                             opacity:1,
                             fillColor: "#0055aa",
                             fillOpacity: 0.6
                         };
-                    circle(o,circleOptions,popupContent);
+                    circle(o,circleOptions,country,popupContent);
                 });
-
                 (locations.length === 1) ? view.map.setZoom(4) : view.map.setZoom(2)
             }
         });
     },
-    
-    // Update map when switching between layer types
-    updateMap: function(layer) {
+    updateMap:function(layer){
         var view = this;
-        view.buildMap(layer);
     },
-    
     // TODO - needs update: Enable clicking on markers to choose country
     mapClick: function(e) {
         var $target = $(e.target),
