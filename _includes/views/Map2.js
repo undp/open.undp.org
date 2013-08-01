@@ -11,6 +11,8 @@ views.Map2 = Backbone.View.extend({
 
     render: function() {
         var view = this;
+        // new instance of the map does not work
+        if (view.map){view.map.remove()}
         // Condition for embed
         if (!view.options.embed) {
             layer = $('.map-btn.active').attr('data-value'); //the layer name is coded in app._
@@ -117,7 +119,6 @@ views.Map2 = Backbone.View.extend({
 
         view.map.on('popupopen',function(e){
             var marker = e.popup._source; // marker is the layer the popup is bound to, only applicable to those that used bindPopup()
-            console.log(marker);
             if (marker != undefined){markerState(marker,{fillColor:'#eaac54'})} //undefined means the popup does not have a marker it is attached to
         }).on('popupclose',function(e){
             var marker= e.popup._source;

@@ -58,6 +58,7 @@ routers.App = Backbone.Router.extend({
     fiscalyear: function (year, route, embed) {
         var that = this;
         if (!$('#y' + year).length) {
+             //passing in year index js (json) is passed in
             loadjsFile('api/project_summary_' + year + '.js', year, function() {
                 that.browser(year, route, embed);
             });
@@ -181,23 +182,6 @@ routers.App = Backbone.Router.extend({
                         embed: embed
                     });
                 }
-                
-                // if (!embed) {
-                //     that.projects.map = new views.Map({
-                //         el: '#homemap',
-                //         collection: that.projects
-                //     });
-
-                //     that.projects.widget = new views.Widget({
-                //         context: 'projects'
-                //     });
-                // } else {
-                //     that.projects.map = new views.Map({
-                //         el: '#homemap',
-                //         collection: that.projects,
-                //         embed: embed
-                //     });
-                // }
             };
 
             // Load projects
