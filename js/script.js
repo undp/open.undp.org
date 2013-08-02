@@ -51,6 +51,7 @@ $(function() {
     {% include views/Projects.js %}
     {% include views/ProjectProfile.js %}
     {% include views/Map.js %}
+    {% include views/Map2.js %}
     {% include views/ProjectMap.js %}
     {% include views/HDI.js %}
     {% include views/TopDonors.js %}
@@ -165,7 +166,6 @@ $(function() {
     
     //localize map tilejson
     var TJ = {
-        attribution: "<a href='http://mapbox.com/about/maps' target='_blank'>Terms & Feedback</a>",
         bounds: [
             -180,
             -85,

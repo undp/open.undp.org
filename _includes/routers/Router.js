@@ -58,6 +58,7 @@ routers.App = Backbone.Router.extend({
     fiscalyear: function (year, route, embed) {
         var that = this;
         if (!$('#y' + year).length) {
+             //passing in year index js (json) is passed in
             loadjsFile('api/project_summary_' + year + '.js', year, function() {
                 that.browser(year, route, embed);
             });
@@ -166,7 +167,7 @@ routers.App = Backbone.Router.extend({
                 
                 // Create summary map view
                 if (!embed) {
-                    that.projects.map = new views.Map({
+                    that.projects.map = new views.Map2({
                         el: '#homemap',
                         collection: that.projects
                     });
@@ -175,13 +176,12 @@ routers.App = Backbone.Router.extend({
                         context: 'projects'
                     });
                 } else {
-                    that.projects.map = new views.Map({
+                    that.projects.map = new views.Map2({
                         el: '#homemap',
                         collection: that.projects,
                         embed: embed
                     });
                 }
-                
             };
 
             // Load projects
