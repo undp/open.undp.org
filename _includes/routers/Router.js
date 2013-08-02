@@ -167,7 +167,7 @@ routers.App = Backbone.Router.extend({
                 
                 // Create summary map view
                 if (!embed) {
-                    that.projects.map = new views.Map2({
+                    that.projects.map = new views.Map({
                         el: '#homemap',
                         collection: that.projects
                     });
@@ -176,7 +176,7 @@ routers.App = Backbone.Router.extend({
                         context: 'projects'
                     });
                 } else {
-                    that.projects.map = new views.Map2({
+                    that.projects.map = new views.Map({
                         el: '#homemap',
                         collection: that.projects,
                         embed: embed
