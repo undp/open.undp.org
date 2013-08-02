@@ -98,7 +98,7 @@ views.Map2 = Backbone.View.extend({
                     return L.circleMarker(latlng,options
                         ).bindPopup(clickPop,  {
                             closeButton:false,
-                            offset:new L.Point(0,90)
+                            offset:new L.Point(-10,100) //offset has centering problem? or is this related to the circle radius?
                         }).on('mouseover',function(circleMarker){
                             brief.setLatLng(latlng);
                             view.map.openPopup(brief);
