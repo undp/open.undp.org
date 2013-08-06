@@ -58,7 +58,7 @@ routers.App = Backbone.Router.extend({
     fiscalyear: function (year, route, embed) {
         var that = this;
         if (!$('#y' + year).length) {
-             //passing in year index js (json) is passed in
+             //passing in year index js (json)
             loadjsFile('api/project_summary_' + year + '.js', year, function() {
                 that.browser(year, route, embed);
             });
@@ -108,10 +108,10 @@ routers.App = Backbone.Router.extend({
         var filters = _(parts).map(function (part) {
             var filter = part.split('-');
             if (filter[0] === 'operating_unit') {
-                unit = filter[1];
+                unit = filter[1];//"operating_unit-LBN" returns the unit name
             }
             return {
-                collection: filter[0],
+                collection: filter[0], //eg. for ["region","RBEC"], the collection will be region, and the id to look for is "RBEC"
                 id: filter[1]
             };
         });
@@ -119,6 +119,7 @@ routers.App = Backbone.Router.extend({
         if (_.isEqual(this.app.filters, filters) && app.fiscalYear === year) {
             $('html, body').scrollTop(0);
         } else {
+            // slicing the selected facets and getting the json items
             var filter = function (model) {
                 if (!filters.length) return true;
                 return _(filters).reduce(function (memo, filter) {
@@ -155,7 +156,6 @@ routers.App = Backbone.Router.extend({
                                     that.app.views[facet.id].active = true;
                                 }
                             });
-
                             collection.watch();
 
                             counter++;
@@ -164,14 +164,12 @@ routers.App = Backbone.Router.extend({
                         }
                     });
                 });
-                
                 // Create summary map view
-                if (!embed) {
+                if (!embed){
                     that.projects.map = new views.Map({
                         el: '#homemap',
                         collection: that.projects
                     });
-
                     that.projects.widget = new views.Widget({
                         context: 'projects'
                     });

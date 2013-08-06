@@ -4,7 +4,6 @@ views.Filters = Backbone.View.extend({
     },
     render: function(keypress) {
         var view = this;
-
         setTimeout(function() {
 
             var filterModels = [],
@@ -23,7 +22,6 @@ views.Filters = Backbone.View.extend({
                     donor = active[0].id;
                     app.projects.map.collection.donorID = donor;
                 }
-    
                 // Add a filtered class to all parent containers
                 // where an active element has been selected.
                 _(active).each(function(a) {

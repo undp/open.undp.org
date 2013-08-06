@@ -1,30 +1,43 @@
 views.ProjectMap = Backbone.View.extend({
     events: {
         'click .map-fullscreen': 'fullscreen',
-        'mouseover img.simplestyle-marker': 'tooltipFlip'
     },
 
     initialize: function() {
         if (this.options.render) this.render();
     },
   
+    tooltip: function(data, g) {
+        // unknown is defined in js
+        var scope = (g.scope[data.scope]) ? g.scope[data.scope].split(':')[0] : 'unknown',
+            type = (g.type[data.type]) ? g.type[data.type].split(':')[0] : 'unknown',
+            precision = (g.precision[data.precision]) ? g.precision[data.precision].split(' ')[0] : 'unknown';
+
+        var description = '<div><b>Location type:</b> <span class="value">' + type + '</span></div>'
+                        + '<div><b>Scope:</b> <span class="value">' + scope + '</span></div>'
+                        + '<div><b>Precision:</b> <span class="value">' + precision + '</span></div>';
+       
+        return description;
+    },
+
     render: function() {
         var view = this,
             locations = [],
             count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
             unit = this.model.get('operating_unit_id'),
             subLocations = this.model.get('subnational');
+        console.log(this.model);
 
-        view.map = mapbox.map(this.el, null, null, null).setZoomRange(2, 17);
-        var mbLayer = mapbox.layer().tilejson(TJ);
-        view.map.addLayer(mbLayer);
-        view.map.ui.zoomer.add();
-        view.map.ui.attribution.add();
-        
-        $('.map-attribution').html(mbLayer._tilejson.attribution);
+        return
         $(view.el).append('<a href="#" class="map-fullscreen"></a>');
 
-        var markers = mapbox.markers.layer();
+        view.map = L.mapbox.map(this.el,TJ.id,{ //basemap tilejson is hardcoded into the site as variable TJ
+            center: [0,0],
+            zoom: 2,
+            minZoom: TJ.minzoom,
+            maxZoom: TJ.maxzoom,
+            noWrap: true // TODO avoid continous world
+        });
 
         $.getJSON('api/operating-unit-index.json', function(data) {
             for (var i = 0; i < data.length; i++) {
@@ -86,20 +99,19 @@ views.ProjectMap = Backbone.View.extend({
                     }
                 }
             }
-
-            function createMarkers(x) {
-                if (x.length !== 0) {
-                    markers.features(x);
-                    mapbox.markers.interaction(markers);
-                    view.map.extent(markers.extent());
-                    view.map.addLayer(markers);
-                    if (x.length === 1) {
-                        view.map.zoom(4);
-                    }
-                } else {
-                    view.map.centerzoom({lat:20, lon:0}, 2);
+        function createMarkers(x) {
+            if (x.length !== 0) {
+                markers.features(x);
+                mapbox.markers.interaction(markers);
+                view.map.extent(markers.extent());
+                view.map.addLayer(markers);
+                if (x.length === 1) {
+                    view.map.zoom(4);
                 }
+            } else {
+                view.map.centerzoom({lat:20, lon:0}, 2);
             }
+        }
         });
     },
 
@@ -114,18 +126,6 @@ views.ProjectMap = Backbone.View.extend({
         } else {
             this.map.setSize({ x: 218, y: 200 });
         }
-    },
-
-    tooltip: function(data, g) {
-        var scope = (g.scope[data.scope]) ? g.scope[data.scope].split(':')[0] : 'unknown',
-            type = (g.type[data.type]) ? g.type[data.type].split(':')[0] : 'unknown',
-            precision = (g.precision[data.precision]) ? g.precision[data.precision].split(' ')[0] : 'unknown';
-
-        var description = '<div><b>Location type:</b> <span class="value">' + type + '</span></div>'
-                        + '<div><b>Scope:</b> <span class="value">' + scope + '</span></div>'
-                        + '<div><b>Precision:</b> <span class="value">' + precision + '</span></div>';
-       
-        return description;
     },
 
     getwebData: function(data) {
@@ -476,16 +476,5 @@ views.ProjectMap = Backbone.View.extend({
                 $(this).find('.text').text('Hide Details');
             }
         });
-    },
-
-    tooltipFlip: function(e) {
-        var $target = $(e.target),
-            top = $target.offset().top - this.$el.offset().top;
-        if (top <= 70) {
-            var tipSize = $('.marker-popup').height() + 15;
-            $('.marker-tooltip')
-                .addClass('flip')
-                .css('margin-top',tipSize + $target.height());
-        }
     }
 });
