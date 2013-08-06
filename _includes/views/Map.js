@@ -10,7 +10,7 @@ views.Map = Backbone.View.extend({
         if (view.map){view.map.remove()}
         // Condition for embed
         if (!view.options.embed) {
-            layer = $('.map-btn.active').attr('data-value'); //the layer name is coded in app._
+            layer = $('.map-btn.active').attr('data-value');
         } else {
             layer = 'budget';
         }
@@ -178,11 +178,7 @@ views.Map = Backbone.View.extend({
                         };
                     circle(o,circleOptions,country,popupContent);
                 });
-                (locations.length === 1) ? view.map.setZoom(4) : view.map.setZoom(2)
             }
         });
-    },
-    updateMap:function(layer){
-        var view = this;
     }
 });
