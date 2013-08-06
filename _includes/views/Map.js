@@ -18,8 +18,12 @@ views.Map = Backbone.View.extend({
         var IE = $.browser.msie;
         view.$el.empty();
         if (!IE) view.$el.append('<div class="inner-shadow"></div>');
+        // check the size of the collection's operating unit
+        view.opUnitSize = _.size(view.collection.operating_unit);
+
+        view.markers = new L.featureGroup(); // for circle marker
+
         // Create the map with mapbox.js 1.3.1
-        view.markers = new L.featureGroup();
         view.map = L.mapbox.map(this.el,TJ.id,{ //basemap tilejson is hardcoded into the site as variable TJ
             center: [0,0],
             zoom: 2,
@@ -68,6 +72,33 @@ views.Map = Backbone.View.extend({
             locations = [],
             count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
             unit = this.collection;
+
+        // treat the operating unit filter differently
+        // need to create a subnational model/collection
+        // that is processed more upstream
+        // temp solution is not sustainable
+        if (view.opUnitSize === 1){
+            var opUnitName = _.keys(unit.operating_unit)[0]; // get the key of the unit API
+            var filteredProjectId = [];
+            _.each(unit.models,function(d){
+                filteredProjectId.push(d.id)
+            })
+            $.getJSON('api/units/' + opUnitName + '.json',function(json){
+                var allProjectId = [];
+                var newList = [];
+                _.each(json.projects,function(o){
+                    _.each(filteredProjectId,function(str){
+                        if (o.project_id === str) {newList.push(o)};
+                    })
+                })
+                console.log(newList);
+            })
+
+
+            // var subnational = new views.Subnational({
+            //     id: opUnitName
+            // });
+        }
 
         view.map.removeLayer(view.markers); //remove the marker featureGroup from view.map
         view.markers.clearLayers(); // inside of marker featureGroup, clear the layers from the previous build
@@ -164,7 +195,7 @@ views.Map = Backbone.View.extend({
                     });
                 }
             }
-            if (locations.length !== 0) {
+            if (locations.length !==0 && locations.length !==1 ) {
                 _.each(locations, function(o){
                     var country = o.properties.title,
                         popupContent = view.popup(layer,o),
