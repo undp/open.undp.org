@@ -44,6 +44,7 @@ $(function() {
     {% include models/Filter.js %}
     {% include models/Project.js %}
     {% include models/TopDonor.js %}
+    {% include models/Subnational.js %}
 
     // Views
     {% include views/App.js %}
