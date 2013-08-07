@@ -66,7 +66,6 @@ routers.App = Backbone.Router.extend({
         }
     },
 
-
     browser: function (year, route, embed) {
 
         var that = this,
@@ -208,14 +207,16 @@ routers.App = Backbone.Router.extend({
         // Check for operating_unit filter to shrink map
         var opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
         // if the operating unit filter exists, aka if it is an object
-        if (_.isObject(opUnitFilter)){
+        if(_.isObject(opUnitFilter)){
             $('ul.layers').hide();
             if (!$('.map-container').hasClass('small')){
                 $('.map-container').toggleClass('small');
+                $('#homemap').toggleClass('small');
             }
         } else {
             $('ul.layers').show();
             $('.map-container').removeClass('small');  
+            $('#homemap').removeClass('small');
         }
 
         function updateDescription() {
