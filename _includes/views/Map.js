@@ -87,13 +87,17 @@ views.Map = Backbone.View.extend({
             subs.fetch({
                 url:"/api/units-temp/AFG.json", // placeholder, the actually url will be 'api/units/' + opUnitFilter.id + '.json'
                 success:function(){
-                    // this will return ALL the projects under the opUnitFilter.id + '.json'
-                    // this should then compare against the "unit", which is the collections being filtered
-                    // compare unit.models.id and subs.models.id
-                    // var evens = _.filter([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0; });
-                    // => [2, 4, 6]
-                    // var filteredSubs = _(subs.model).filter(unit.models)
-
+                    if (subs.length <= unit.length){
+                    // there are fewer projects in the subnational collection than in the unit
+                        filteredSubs = subs;
+                    } else {
+                    // the projects in subs need to be matched to the unit models
+                    // matching subs.models and unit.models on id and set the visible ones
+                    _(unit.models).each(function(model){
+                        if (subs.get(model.id) != undefined){subs.get(model.id).set({visible:true})}
+                    })
+                        filteredSubs = subs.update();
+                    }
                 }
             });
         }
