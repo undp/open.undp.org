@@ -18,7 +18,15 @@ views.Map = Backbone.View.extend({
         var IE = $.browser.msie;
         view.$el.empty();
         if (!IE) view.$el.append('<div class="inner-shadow"></div>');
-        view.markers = new L.featureGroup();
+
+        // among all the filters find the operating unit filter
+        view.opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
+
+        if (_.isObject(view.opUnitFilter)){
+            view.markers = new L.MarkerClusterGroup();
+        } else {
+            view.markers = new L.featureGroup()
+        };
 
         // Create the map with mapbox.js 1.3.1
         view.map = L.mapbox.map(this.el,TJ.id,{ //basemap tilejson is hardcoded into the site as variable TJ
@@ -73,16 +81,28 @@ views.Map = Backbone.View.extend({
         view.map.removeLayer(view.markers); //remove the marker featureGroup from view.map
         view.markers.clearLayers(); // inside of marker featureGroup, clear the layers from the previous build
 
-         // among all the filters find the operating unit filter
-        var opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
-
         // if the operating unit filter exists, aka if it is an object
-        if(_.isObject(opUnitFilter)){
+        if(_.isObject(view.opUnitFilter)){
 
-            var renderClusters = function(){
-                var cluster = new L.MarkerClusterGroup();
+            var renderClusters = function(collection){
+
+                var filteredMarkers = [];
+                _(collection.models).each(function(model){
+                    filteredMarkers.push(model.geojson)
+                })
+
+                filteredMarkers = _(filteredMarkers).flatten(false);
+
+                _(filteredMarkers).each(function(o){
+                    var marker = L.marker(new L.LatLng(o.geometry.coordinates[0], o.geometry.coordinates[1]), {
+                        icon: L.mapbox.marker.icon({'marker-color': '0044FF'}),
+                        title: o.properties.project
+                    });
+                    marker.bindPopup(title);
+                    view.markers.addLayer(marker);
+                });
+                view.map.addLayer(view.markers);
             };
-
             subs = new models.Subnationals();
             subs.fetch({
                 url:"/api/units-temp/AFG.json", // placeholder, the actually url will be 'api/units/' + opUnitFilter.id + '.json'
@@ -93,14 +113,19 @@ views.Map = Backbone.View.extend({
                     } else {
                     // the projects in subs need to be matched to the unit models
                     // matching subs.models and unit.models on id and set the visible ones
-                    _(unit.models).each(function(model){
-                        if (subs.get(model.id) != undefined){subs.get(model.id).set({visible:true})}
-                    })
-                        filteredSubs = subs.update();
+                        _(unit.models).each(function(model){
+                            if (subs.get(model.id) != undefined){
+                                subs.get(model.id).set({visible:true}
+                            )}
+                        })
+                        filteredSubs = subs.filtered(); //update is a method in the collection
                     }
+                    // create the clusters
+                    renderClusters(filteredSubs)
                 }
             });
         }
+
         var markerState = function(layer,options){
             if (!options){options = {}}
             layer.setStyle({
