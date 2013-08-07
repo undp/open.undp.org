@@ -15,7 +15,6 @@ routers.App = Backbone.Router.extend({
     redirect: function(route) {
         //if url lacks a year, default to most recent
         if (route) {
-        console.log(CURRENT_YR);
             this.navigate(CURRENT_YR + '/filter/' + route, {trigger: true});
         } else {
             this.navigate(CURRENT_YR, {trigger: true});
@@ -67,7 +66,9 @@ routers.App = Backbone.Router.extend({
         }
     },
 
+
     browser: function (year, route, embed) {
+
         var that = this,
             unit = false;
 
@@ -102,14 +103,14 @@ routers.App = Backbone.Router.extend({
 
         // Save default description
         app.defaultDescription = app.defaultDescription || $('#description p').html();
-
+        
         // Parse hash
         var parts = (route) ? route.split('/') : [];
         var filters = _(parts).map(function (part) {
             var filter = part.split('-');
             if (filter[0] === 'operating_unit') {
-                unit = filter[1];
-            }
+                unit = filter[1]; 
+            } 
             return {
                 collection: filter[0],
                 id: filter[1]
@@ -136,13 +137,14 @@ routers.App = Backbone.Router.extend({
                 that.app.views = {};
                 // Load filters
                 _(facets).each(function (facet) {
+
                     var collection = new models.Filters();
                     $('#filter-items').append('<div id="' + facet.id + '" class="topics"></div>');
 
                     _(facet).each(function (v, k) {
                         collection[k] = v;
                     });
-
+                   
                     collection.fetch({
                         success: function () {
                             that.app.views[facet.id] = new views.Filters({
@@ -202,6 +204,18 @@ routers.App = Backbone.Router.extend({
                 this.projects.cb = updateDescription;
                 this.projects.reset(this.allProjects.filter(filter));
             }
+        }
+        // Check for operating_unit filter to shrink map
+        var opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
+        // if the operating unit filter exists, aka if it is an object
+        if (_.isObject(opUnitFilter)){
+            $('ul.layers').hide();
+            if (!$('.map-container').hasClass('small')){
+                $('.map-container').toggleClass('small');
+            }
+        } else {
+            $('ul.layers').show();
+            $('.map-container').removeClass('small');  
         }
 
         function updateDescription() {

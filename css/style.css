@@ -327,7 +327,7 @@ input[readonly] {
   margin:0;
   left:0;
   }
-
+  
 #app .view {
   float:left;
   margin:50px 0 35px;
@@ -348,6 +348,19 @@ input[readonly] {
 .map-container {
   float:left;
   width:100%;
+  -moz-transition-duration:.5s;
+  -webkit-transition-duration:.5s;
+  -o-transition-duration:.5s;
+  transition-duration:.5s;
+  }
+.map-container.small {
+  float:left;
+  width:50%;
+  margin-top: 10px;
+  -moz-transition-duration:.5s;
+  -webkit-transition-duration:.5s;
+  -o-transition-duration:.5s;
+  transition-duration:.5s;
   }
 .map-container.full {
   padding:0;
