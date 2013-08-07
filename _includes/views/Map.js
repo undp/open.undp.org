@@ -22,12 +22,6 @@ views.Map = Backbone.View.extend({
         // among all the filters find the operating unit filter
         view.opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
 
-        if (_.isObject(view.opUnitFilter)){
-            view.markers = new L.MarkerClusterGroup();
-        } else {
-            view.markers = new L.featureGroup()
-        };
-
         // Create the map with mapbox.js 1.3.1
         view.map = L.mapbox.map(this.el,TJ.id,{ //basemap tilejson is hardcoded into the site as variable TJ
             center: [0,0],
@@ -36,6 +30,13 @@ views.Map = Backbone.View.extend({
             maxZoom: TJ.maxzoom,
             noWrap: true // TODO avoid continous world
         });
+
+        if (_.isObject(view.opUnitFilter)){
+            view.markers = new L.MarkerClusterGroup();
+        } else {
+            view.markers = new L.featureGroup()
+        };
+
         view.buildLayer(layer);
     },
 
@@ -73,13 +74,14 @@ views.Map = Backbone.View.extend({
     //UTIL set popup description and return the radius for circles
     buildLayer: function(layer) {
 
-        var view = this,
-            locations = [],
-            count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
-            unit = this.collection; //unit also == app.projects
+        var view = this;
 
         view.map.removeLayer(view.markers); //remove the marker featureGroup from view.map
         view.markers.clearLayers(); // inside of marker featureGroup, clear the layers from the previous build
+
+        var locations = [],
+            count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
+            unit = this.collection; //unit also == app.projects
 
         // if the operating unit filter exists, aka if it is an object
         if(_.isObject(view.opUnitFilter)){
@@ -91,10 +93,10 @@ views.Map = Backbone.View.extend({
                     filteredMarkers.push(model.geojson)
                 })
 
-                filteredMarkers = _(filteredMarkers).flatten(false);
+                filteredMarkers = _(filteredMarkers).flatten(false).filter(function(o){return _.isObject(o)});
 
                 _(filteredMarkers).each(function(o){
-                    var marker = L.marker(new L.LatLng(o.geometry.coordinates[0], o.geometry.coordinates[1]), {
+                        var marker = L.marker(new L.LatLng(o.geometry.coordinates[0], o.geometry.coordinates[1]), {
                         icon: L.mapbox.marker.icon({'marker-color': '0044FF'}),
                         title: o.properties.project
                     });
@@ -121,7 +123,7 @@ views.Map = Backbone.View.extend({
                         filteredSubs = subs.filtered(); //update is a method in the collection
                     }
                     // create the clusters
-                    renderClusters(filteredSubs)
+                    renderClusters(filteredSubs);
                 }
             });
         }
