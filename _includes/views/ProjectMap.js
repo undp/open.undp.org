@@ -25,19 +25,19 @@ views.ProjectMap = Backbone.View.extend({
             locations = [],
             count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
             unit = this.model.get('operating_unit_id'),
-            subLocations = this.model.get('subnational');
-        console.log(this.model);
+            subLocations = this.model.get('subnational'); //getting the subnational locations from the Project.js model
 
-        return
         $(view.el).append('<a href="#" class="map-fullscreen"></a>');
 
-        view.map = L.mapbox.map(this.el,TJ.id,{ //basemap tilejson is hardcoded into the site as variable TJ
+        view.map = L.mapbox.map(this.el,TJ.id,{
             center: [0,0],
             zoom: 2,
             minZoom: TJ.minzoom,
             maxZoom: TJ.maxzoom,
-            noWrap: true // TODO avoid continous world
+            noWrap: true
         });
+
+        //view.markers = new L.mapbox.markerLayer().addTo(view.map);
 
         $.getJSON('api/operating-unit-index.json', function(data) {
             for (var i = 0; i < data.length; i++) {
@@ -47,10 +47,12 @@ views.ProjectMap = Backbone.View.extend({
                     view.getwebData(o);
                     $('#country-summary').html(templates.ctrySummary(o));
 
-                    if (subLocations.length <= 0) { 
+                    if (subLocations.length <= 0) {//no subLocation for the project
                         if (o.lon) {
                             locations.push({
+                                type: "Feature",
                                 geometry: {
+                                    type: "Point",
                                     coordinates: [
                                         o.lon,
                                         o.lat
@@ -59,20 +61,25 @@ views.ProjectMap = Backbone.View.extend({
                                 properties: {
                                     id: o.id,
                                     project: view.model.get('project_title'),
-                                    name: o.name
+                                    name: o.name,
+                                    'marker-size':'small'
                                 }
                             });
-
-                            locations[0].properties['marker-color'] = '#2970B8';
+                            locations[0].properties['marker-color'] = '#2970B8'; // color for projects with no locations
+                            view.map.markerLayer.setGeoJSON({
+                                type:"FeatureCollection",
+                                features: locations[0]
+                            })
                         }
-                        createMarkers(locations);
+                        //createMarkers(locations);
                     } else {
                         $.getJSON('api/subnational-locs-index.json', function(g) {
-                        
                             var count = 0;
                             _.each(subLocations, function (o) {
                                 locations.push({
+                                    type: "Feature",
                                     geometry: {
+                                        type: "Point",
                                         coordinates: [
                                             o.lon,
                                             o.lat
@@ -89,29 +96,19 @@ views.ProjectMap = Backbone.View.extend({
                                         'marker-size': 'small'
                                     } 
                                 });
-                               
-                                if (o.type == 1){locations[count].properties['marker-color'] = '#049FD9';}
-                                else if (o.type == 2){locations[count].properties['marker-color'] = '#DD4B39';}
+
+                                if (o.type == 1){locations[count].properties['marker-color'] = '#049FD9';} // 1 - "Country level accuracy."
+                                else if (o.type == 2){locations[count].properties['marker-color'] = '#DD4B39';} // 2 - "ADM1 = Sub-region (administrative division, state, district, province) level accuracy.",
                                 count += 1;
                             });
-                         createMarkers(locations);
+                            view.map.markerLayer.setGeoJSON({
+                                type:"FeatureCollection",
+                                features: locations
+                            })
                         });
                     }
                 }
             }
-        function createMarkers(x) {
-            if (x.length !== 0) {
-                markers.features(x);
-                mapbox.markers.interaction(markers);
-                view.map.extent(markers.extent());
-                view.map.addLayer(markers);
-                if (x.length === 1) {
-                    view.map.zoom(4);
-                }
-            } else {
-                view.map.centerzoom({lat:20, lon:0}, 2);
-            }
-        }
         });
     },
 
