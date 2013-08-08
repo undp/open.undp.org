@@ -3,16 +3,17 @@ models.Subnational = Backbone.Model.extend({
     defaults: {visible:false},
     initialize:function(){ // can this happen on a collection level?
         model = this;
-        sub = model.get('subnational');
+        sub = model.get('subnational');//would be good if subnational is a formatted geojson in the attribute
         if (sub.length === 0 ) {
             model.geojson = null;
         } else {
-            geojson = []; //_.isArray
+            geojson = [];
             _(sub).each(function(data){
                 var feature = {
                     "type":"Feature",
                     "properties":{
                         project:model.get('id'),
+                        title:model.get('title'),
                         precision: data.precision,
                         scope: data.scope,
                         type: data.type

@@ -52,7 +52,10 @@ views.Map = Backbone.View.extend({
         var r = Math.round(Math.sqrt(scaleResult/ Math.PI));
         return r
     },
-    //UTIL format description for popup (html structure)
+    goToLink: function(path){
+        app.navigate(path, { trigger: true });
+        $('#browser .summary').removeClass('off');
+    },
     popup: function(layer, data) {
         var description = '<div class="title"><b>' + data.properties.title + '</b></div>' +
             '<div class="stat' + ((layer == 'count') ? ' active' : '') + '">Projects: <span class="value">' +
@@ -68,13 +71,17 @@ views.Map = Backbone.View.extend({
         return description;
     },
     clusterPopup: function(data, g) {
-        var scope = (g.scope[data.scope]) ? g.scope[data.scope].split(':')[0] : 'unknown',
+        var project = data.project,
+            title = data.title,
             type = (g.type[data.type]) ? g.type[data.type].split(':')[0] : 'unknown',
+            scope = (g.scope[data.scope]) ? g.scope[data.scope].split(':')[0] : 'unknown',
             precision = (g.precision[data.precision]) ? g.precision[data.precision].split(' ')[0] : 'unknown';
 
-        var description = '<div><b>Location type:</b> <span class="value">' + type + '</span></div>'
-                        + '<div><b>Scope:</b> <span class="value">' + scope + '</span></div>'
-                        + '<div><b>Precision:</b> <span class="value">' + precision + '</span></div>';
+        var description = '<div><b>Project: </b>' + project + '</div>'
+                        + '<div><b>Name: </b>' + title + '</div>'
+                        + '<div><b>Location type: </b>' + type + '</div>'
+                        + '<div><b>Scope: </b>' + scope + '</div>'
+                        + '<div><b>Precision: </b>' + precision + '</div>';
         return description;
     },
     buildLayer: function(layer) {
@@ -87,33 +94,6 @@ views.Map = Backbone.View.extend({
         var locations = [],
             count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
             unit = this.collection; //unit == app.projects
-
-        var renderClusters = function(collection){
-
-            var filteredMarkers = [];
-            _(collection.models).each(function(model){
-                filteredMarkers.push(model.geojson)
-            });
-
-            filteredMarkers = _(filteredMarkers).flatten(false).filter(function(o){return _.isObject(o)}); //filter out those with no geo locations
-
-
-            $.getJSON('api/subnational-locs-index.json', function(subLocIndex){ // get the 
-                _(filteredMarkers).each(function(o){
-                    var marker = L.marker(new L.LatLng(o.geometry.coordinates[0], o.geometry.coordinates[1]), {
-                        icon: L.mapbox.marker.icon({
-                            'marker-color': '0055aa',
-                            'marker-size': 'small'
-                        })
-                    });
-                    marker.bindPopup(view.clusterPopup(o, subLocIndex),{
-                        closeButton: false
-                    });
-                    view.markers.addLayer(marker);
-                });
-            });
-            view.map.addLayer(view.markers);
-        };
 
         // marker styles
         var star = L.icon({
@@ -134,6 +114,44 @@ views.Map = Backbone.View.extend({
                 fillOpacity: options.fillOpacity || 0.6
             })
         }
+
+        var renderClusters = function(collection){
+            var filteredMarkers = [];
+            _(collection.models).each(function(model){
+                filteredMarkers.push(model.geojson)
+            });
+
+            filteredMarkers = _(filteredMarkers).flatten(false).filter(function(o){return _.isObject(o)}); //filter out those with no geo locations
+
+            $.getJSON('api/subnational-locs-index.json', function(subLocIndex){ // get the 
+                _(filteredMarkers).each(function(o){
+                    var latlng = new L.LatLng(o.geometry.coordinates[0], o.geometry.coordinates[1]);
+                    var marker = L.marker((latlng), {
+                        icon: L.mapbox.marker.icon({
+                            'marker-color': '0055aa',
+                            'marker-opacity': 0.6,
+                            'marker-size': 'small'
+                        })
+                    });
+                    var clusterBrief = L.popup({
+                        closeButton:false,
+                        offset: new L.Point(0,-20)
+                    }).setContent(view.clusterPopup(o.properties, subLocIndex));
+
+                    marker.on('mouseover',function(){
+                        clusterBrief.setLatLng(latlng);
+                        view.map.openPopup(clusterBrief);
+                    }).on('mouseout',function(){
+                        view.map.closePopup(clusterBrief);
+                    }).on('click',function(){
+                        path = '#project/'+ o.properties.project
+                        view.goToLink(path);
+                    });
+                    view.markers.addLayer(marker);
+                });
+            });
+            view.map.addLayer(view.markers);
+        };
 
         // if the operating unit filter exists, aka if it is an object
         // TODO there certain countries are not being passed in as an op unit filter (PER, LBN)
@@ -167,8 +185,9 @@ views.Map = Backbone.View.extend({
         // use pointToLayer to make location points into a circleMarker vector layer
         // http://leafletjs.com/examples/geojson.html
         var circle = function(geoJsonFeature,options,hoverPop){
-            var brief = L.popup({closeButton:false})
-                .setContent(hoverPop);
+            var brief = L.popup({
+                    closeButton:false
+                }).setContent(hoverPop);
             L.geoJson(geoJsonFeature,{
                 pointToLayer:function(feature,latlng){
                     return L.circleMarker(latlng,options
@@ -180,11 +199,8 @@ views.Map = Backbone.View.extend({
                             view.map.closePopup(brief);
                             circleHighlight(circleMarker);
                         }).on('click',function(e){
-                            // clicking on the circle marker will re-route and trigger the opUnitFilter
-                            var opUnit = e.target.feature.properties.id;
-                            path = '#filter/operating_unit-' + opUnit;
-                            app.navigate(path, { trigger: true });
-                            $('#browser .summary').removeClass('off');
+                            path = '#filter/operating_unit-' + e.target.feature.properties.id;
+                            view.goToLink(path);
                         })
                 }
             }).addTo(view.markers);
