@@ -1,9 +1,7 @@
 views.Map = Backbone.View.extend({
-
     initialize: function() {
         if (this.options.render) this.render();
     },
-
     render: function() {
         var view = this;
         // new instance of the map does not work
@@ -32,14 +30,13 @@ views.Map = Backbone.View.extend({
         });
 
         if (_.isObject(view.opUnitFilter)){
-            view.markers = new L.MarkerClusterGroup();
+            view.markers = new L.MarkerClusterGroup({showCoverageOnHover:false});
         } else {
             view.markers = new L.featureGroup()
         };
 
         view.buildLayer(layer);
     },
-
     // UTIL set marker scale depending on type of data
     scale: function(cat,x) {
         if (cat == 'budget' || cat == 'expenditure') {
@@ -68,10 +65,18 @@ views.Map = Backbone.View.extend({
             accounting.formatMoney(data.properties.expenditure) + '</span></div>' +
             '<div class="stat' + ((layer == 'hdi') ? ' active' : '') + '">HDI: <span class="value">' +
             data.properties.hdi + '</span></div>';
-
         return description;
     },
-    //UTIL set popup description and return the radius for circles
+    clusterPopup: function(data, g) {
+        var scope = (g.scope[data.scope]) ? g.scope[data.scope].split(':')[0] : 'unknown',
+            type = (g.type[data.type]) ? g.type[data.type].split(':')[0] : 'unknown',
+            precision = (g.precision[data.precision]) ? g.precision[data.precision].split(' ')[0] : 'unknown';
+
+        var description = '<div><b>Location type:</b> <span class="value">' + type + '</span></div>'
+                        + '<div><b>Scope:</b> <span class="value">' + scope + '</span></div>'
+                        + '<div><b>Precision:</b> <span class="value">' + precision + '</span></div>';
+        return description;
+    },
     buildLayer: function(layer) {
 
         var view = this;
@@ -81,36 +86,55 @@ views.Map = Backbone.View.extend({
 
         var locations = [],
             count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
-            unit = this.collection; //unit also == app.projects
+            unit = this.collection; //unit == app.projects
 
-        // if the operating unit filter exists, aka if it is an object
-        if(_.isObject(view.opUnitFilter)){
+        var renderClusters = function(collection){
 
-            var renderClusters = function(collection){
+            var filteredMarkers = [];
+            _(collection.models).each(function(model){
+                filteredMarkers.push(model.geojson)
+            });
 
-                var filteredMarkers = [];
-                _(collection.models).each(function(model){
-                    filteredMarkers.push(model.geojson)
-                })
+            filteredMarkers = _(filteredMarkers).flatten(false).filter(function(o){return _.isObject(o)}); //filter out those with no geo locations
 
-                filteredMarkers = _(filteredMarkers).flatten(false).filter(function(o){return _.isObject(o)});
 
+            $.getJSON('api/subnational-locs-index.json', function(subLocIndex){ // get the 
                 _(filteredMarkers).each(function(o){
-                        var marker = L.marker(new L.LatLng(o.geometry.coordinates[0], o.geometry.coordinates[1]), {
-                        icon: L.mapbox.marker.icon({'marker-color': '0044FF'}),
-                        title: o.properties.project
+                    var marker = L.marker(new L.LatLng(o.geometry.coordinates[0], o.geometry.coordinates[1]), {
+                        icon: L.mapbox.marker.icon({
+                            'marker-color': '0055aa',
+                            'marker-size': 'small'
+                        })
                     });
-                    marker.bindPopup(title);
+                    marker.bindPopup(view.clusterPopup(o, subLocIndex));
                     view.markers.addLayer(marker);
                 });
-                view.map.addLayer(view.markers);
-            };
+            });
+            view.map.addLayer(view.markers);
+        };
+
+        var markerState = function(layer,options){
+            if (!options){options = {}}
+            layer.setStyle({
+                color: options.color || '#fff',
+                weight: options.weight || 1,
+                opacity: options.opacity || 1,
+                fillColor: options.fillColor || '#0055aa',
+                fillOpacity: options.fillOpacity || 0.6
+            })
+        }
+
+        // if the operating unit filter exists, aka if it is an object
+        // TODO there certain countries are not being passed in as an op unit filter (PER, LBN)
+        if(_.isObject(view.opUnitFilter)){
+
             subs = new models.Subnationals();
             subs.fetch({
-                url:"/api/units-temp/AFG.json", // placeholder, the actually url will be 'api/units/' + opUnitFilter.id + '.json'
+                url: 'api/units/' + view.opUnitFilter.id + '.json',
                 success:function(){
                     if (subs.length <= unit.length){
                     // there are fewer projects in the subnational collection than in the unit
+                    // then there's no need to filter these sub projects
                         filteredSubs = subs;
                     } else {
                     // the projects in subs need to be matched to the unit models
@@ -126,40 +150,30 @@ views.Map = Backbone.View.extend({
                     renderClusters(filteredSubs);
                 }
             });
-        }
-
-        var markerState = function(layer,options){
-            if (!options){options = {}}
-            layer.setStyle({
-                color: options.color || '#fff',
-                weight: options.weight || 1,
-                opacity: options.opacity || 1,
-                fillColor: options.fillColor || '#0055aa',
-                fillOpacity: options.fillOpacity || 0.6
-            })
+            //zoom to the centroid of the country
+            //view.map.setView()
         }
         // use pointToLayer to make location points into a circleMarker vector layer
         // http://leafletjs.com/examples/geojson.html
-        var circle = function(geoJsonFeature,options,hoverPop,clickPop){
+        var circle = function(geoJsonFeature,options,hoverPop){
             var brief = L.popup({closeButton:false})
                 .setContent(hoverPop);
             L.geoJson(geoJsonFeature,{
                 pointToLayer:function(feature,latlng){
                     return L.circleMarker(latlng,options
-                        ).bindPopup(clickPop,  {
-                            closeButton:false,
-                            offset:new L.Point(-10,100) //offset has centering problem? or is this related to the circle radius?
-                        }).on('mouseover',function(circleMarker){
+                        ).on('mouseover',function(circleMarker){
                             brief.setLatLng(latlng);
                             view.map.openPopup(brief);
-                            if (!this._popup._isOpen){ //if the popup of the layer is not open
-                                markerState(circleMarker.target,{color:'#0055aa',weight:2});
-                            }
+                            markerState(circleMarker.target,{color:'#0055aa',weight:2});
                         }).on('mouseout',function(circleMarker){
                             view.map.closePopup(brief);
-                            if (!this._popup._isOpen){
-                                markerState(circleMarker.target);
-                            }
+                            markerState(circleMarker.target);
+                        }).on('click',function(e){
+                            // clicking on the circle marker will re-route and trigger the opUnitFilter
+                            var opUnit = e.target.feature.properties.id;
+                            path = '#filter/operating_unit-' + opUnit;
+                            app.navigate(path, { trigger: true });
+                            $('#browser .summary').removeClass('off');
                         })
                 }
             }).addTo(view.markers);
@@ -167,19 +181,10 @@ views.Map = Backbone.View.extend({
 
         view.map.addLayer(view.markers); //add newly generated marker featureGroup to the map
 
-        view.map.on('popupopen',function(e){
-            var marker = e.popup._source; // marker is the layer the popup is bound to, only applicable to those that used bindPopup()
-            if (marker != undefined){markerState(marker,{fillColor:'#eaac54'})} //undefined means the popup does not have a marker it is attached to
-        }).on('popupclose',function(e){
-            var marker= e.popup._source;
-            if (marker != undefined){markerState(marker);}
-        });
-
         // operating-unit-index.json cointains coords for country centroids
         $.getJSON('api/operating-unit-index.json', function(data) {
             for (var i = 0; i < data.length; i++) {
                 var o = data[i];
-
                 if (unit.operating_unit[o.id] && o.lon) {
                     count = unit.operating_unit[o.id];
                     sources = (unit.donorID) ? false : unit.operating_unitSources[o.id];
@@ -218,22 +223,19 @@ views.Map = Backbone.View.extend({
                         }
                     });
                 }
-            }
-            if (locations.length !==0 && locations.length !==1 ) {
-                _.each(locations, function(o){
-                    var country = o.properties.title,
-                        popupContent = view.popup(layer,o),
-                        circleOptions = {
-                            radius: view.radius(view.scale(layer,o)),
-                            color:"#fff",
-                            weight:1,
-                            opacity:1,
-                            fillColor: "#0055aa",
-                            fillOpacity: 0.6
-                        };
-                    circle(o,circleOptions,country,popupContent);
-                });
-            }
+            };
+            _.each(locations, function(feature){
+                var popupContent = view.popup(layer,feature),
+                    circleOptions = {
+                        radius: view.radius(view.scale(layer,feature)),
+                        color:"#fff",
+                        weight:1,
+                        opacity:1,
+                        fillColor: "#0055aa",
+                        fillOpacity: 0.6
+                    };
+                circle(feature,circleOptions,popupContent);
+            });
         });
     }
 });
