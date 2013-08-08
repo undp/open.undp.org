@@ -178,7 +178,7 @@ $(function() {
             2
         ],
         id: "undp.map-6grwd0n3",
-        maxzoom: 17,
+        maxzoom: 7, //set to 7 to avoid zooming too much in order to get the granular markers on cluster markers
         minzoom: 2,
         name: "UNDP base layer",
         private: true,
