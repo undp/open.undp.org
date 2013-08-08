@@ -307,7 +307,6 @@ for award,project in groupby(projects_sort, lambda x: x['awardID']):
                 if b['bureau_description'] not in bureau_description:
                     bureau_description.append(b['bureau_description'])
     projectList.append(award_title[0])
-    projectSmallList['title'] = award_title[0]
     projectList.append(award_description[0])
     projectList.append(institutionid[0])
     projectList.append(inst_descr[0])
@@ -316,11 +315,11 @@ for award,project in groupby(projects_sort, lambda x: x['awardID']):
     projectList.append(projectFY)
     projectList.append(start_date[0])
     projectList.append(end_date[0])
+    projectList.append(operatingunit[0])
+    projectList.append(ou_descr[0])
     projectList.append(bureau[0])
     projectList.append(bureau_description[0])
-    projectList.append(operatingunit[0])
-    projectSmallList['op_unit'] = operatingunit[0]
-    projectList.append(ou_descr[0])
+    
     outputTemp = []
     for out in outputsFull:
         if out['award_id'] == award:
@@ -341,9 +340,15 @@ for award,project in groupby(projects_sort, lambda x: x['awardID']):
             locationTemp['scope'] = loc['scope']
             subnationalTemp.append(locationTemp)
     projectList.append(subnationalTemp)
-    projectSmallList['subnational'] = subnationalTemp
     projectsFull.append(dict(zip(projectsHeader,projectList))) # this joins project information, output per project, and documents for each project
+    
+    # Add info to smaller object for op unit JSONs
+    projectSmallList['title'] = award_title[0]
+    projectSmallList['op_unit'] = operatingunit[0]
+    projectSmallList['subnational'] = subnationalTemp
     projectsSmallFull.append(projectSmallList)
+
+
 
 # Sort projects by operating unit
 unitFinal = []
@@ -366,7 +371,6 @@ for unit, index in groupby(units_sort, lambda x: x['operating_unit']):
 # Generate JSONs for each operating unit
 file_count = 0
 for row in unitFinal:
-    print row
     file_count = file_count + 1
     writeout = json.dumps(row, sort_keys=True, separators=(',',':'))
     f_out = open('../api/units/%s.json' % row['op_unit'], 'wb')
