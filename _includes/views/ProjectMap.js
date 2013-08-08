@@ -100,8 +100,8 @@ views.ProjectMap = Backbone.View.extend({
 
     fullscreen: function(e) {
         e.preventDefault();
-
         this.$el.toggleClass('full');
+        $('.map-fullscreen').toggleClass('full');
         $('.country-profile').toggleClass('full');
         // if (this.$el.hasClass('full')) {
         //     this.map.newSize({ x: 540, y: 338 });
