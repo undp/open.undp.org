@@ -54,7 +54,7 @@ views.Map = Backbone.View.extend({
     },
     //UTIL format description for popup (html structure)
     popup: function(layer, data) {
-        var description = '<div class="title">' + data.properties.title + '</div>' +
+        var description = '<div class="title"><b>' + data.properties.title + '</b></div>' +
             '<div class="stat' + ((layer == 'count') ? ' active' : '') + '">Projects: <span class="value">' +
             data.properties.count + '</span></div>' +
             ((data.sources > 1) ? ('<div class="stat' + ((layer == 'sources') ? ' active' : '') + '">Budget Sources: <span class="value">' +
@@ -106,16 +106,27 @@ views.Map = Backbone.View.extend({
                             'marker-size': 'small'
                         })
                     });
-                    marker.bindPopup(view.clusterPopup(o, subLocIndex));
+                    marker.bindPopup(view.clusterPopup(o, subLocIndex),{
+                        closeButton: false
+                    });
                     view.markers.addLayer(marker);
                 });
             });
             view.map.addLayer(view.markers);
         };
 
-        var markerState = function(layer,options){
+        // marker styles
+        var star = L.icon({
+            iconUrl: 'img/star.png',
+            iconSize: [18, 18],
+            iconAnchor: [9, 9],
+            popupAnchor: [0, 0]
+        });
+
+        var circleHighlight = function(e,options){
             if (!options){options = {}}
-            layer.setStyle({
+            $target = e.target;
+            $target.setStyle({
                 color: options.color || '#fff',
                 weight: options.weight || 1,
                 opacity: options.opacity || 1,
@@ -164,10 +175,10 @@ views.Map = Backbone.View.extend({
                         ).on('mouseover',function(circleMarker){
                             brief.setLatLng(latlng);
                             view.map.openPopup(brief);
-                            markerState(circleMarker.target,{color:'#0055aa',weight:2});
+                            circleHighlight(circleMarker,{color:'#0055aa',weight:2});
                         }).on('mouseout',function(circleMarker){
                             view.map.closePopup(brief);
-                            markerState(circleMarker.target);
+                            circleHighlight(circleMarker);
                         }).on('click',function(e){
                             // clicking on the circle marker will re-route and trigger the opUnitFilter
                             var opUnit = e.target.feature.properties.id;
@@ -224,7 +235,7 @@ views.Map = Backbone.View.extend({
                     });
                 }
             };
-            _.each(locations, function(feature){
+            _(locations).each(function(feature){
                 var popupContent = view.popup(layer,feature),
                     circleOptions = {
                         radius: view.radius(view.scale(layer,feature)),
@@ -234,7 +245,22 @@ views.Map = Backbone.View.extend({
                         fillColor: "#0055aa",
                         fillOpacity: 0.6
                     };
-                circle(feature,circleOptions,popupContent);
+                if (locations.length > 1){
+                    circle(feature,circleOptions,popupContent)
+                } else if (locations.length === 1 ){
+                    L.marker([
+                            locations[0].geometry.coordinates[1],
+                            locations[0].geometry.coordinates[0]
+                        ],{icon:star
+                        }).bindPopup(popupContent,{
+                            closeButton:false
+                        }).addTo(view.map);
+
+                    view.map.setView([
+                        locations[0].geometry.coordinates[1],
+                        locations[0].geometry.coordinates[0]
+                    ],3);
+                }
             });
         });
     }
