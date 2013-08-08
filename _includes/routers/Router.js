@@ -15,7 +15,6 @@ routers.App = Backbone.Router.extend({
     redirect: function(route) {
         //if url lacks a year, default to most recent
         if (route) {
-        console.log(CURRENT_YR);
             this.navigate(CURRENT_YR + '/filter/' + route, {trigger: true});
         } else {
             this.navigate(CURRENT_YR, {trigger: true});

@@ -25,17 +25,22 @@ views.ProjectMap = Backbone.View.extend({
             count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
             unit = this.model.get('operating_unit_id'),
             subLocations = this.model.get('subnational');
-
-
         view.map = L.mapbox.map(this.el,TJ.id,{
             minZoom: TJ.minzoom,
             maxZoom: TJ.maxzoom,
+            trackResize:true,
             noWrap: true
         });
-        view.map.on('ready',function(){
+        view.map.on('ready',function(){ // once the map is loaded, append the fullscreen button to the control-zoom div
             $('.leaflet-control-zoom','.leaflet-control-container').append('<a href="#" class="icon map-fullscreen"></a>')
         });
-        // debugger;
+        // for countries with no subnational data
+        var star = L.icon({
+            iconUrl: 'img/star.png',
+            iconSize: [18, 18],
+            iconAnchor: [9, 9],
+            popupAnchor: [18, 18]
+        });
         $.getJSON('api/operating-unit-index.json', function(data) {
             for (var i = 0; i < data.length; i++) {
                 var o = data[i];
@@ -44,30 +49,13 @@ views.ProjectMap = Backbone.View.extend({
                     view.getwebData(o);
                     $('#country-summary').html(templates.ctrySummary(o));
 
-                    if (subLocations.length <= 0) {//no subLocation for the project
+                    //no subLocation for the project
+                    if (subLocations.length <= 0) {
                         if (o.lon) {
-                            locations.push({
-                                type: "Feature",
-                                geometry: {
-                                    type: "Point",
-                                    coordinates: [
-                                        o.lon,
-                                        o.lat
-                                    ]
-                                },
-                                properties: {
-                                    id: o.id,
-                                    project: view.model.get('project_title'),
-                                    name: o.name,
-                                    'marker-size':'small'
-                                }
-                            });
-                            locations[0].properties['marker-color'] = '#2970B8'; // color for projects with no locations
-                            view.map.setView([locations[0].geometry.coordinates[1],locations[0].geometry.coordinates[0]],2);
-                            view.map.markerLayer.setGeoJSON({
-                                type:"FeatureCollection",
-                                features: locations[0]
-                            });
+                            // if the unit has a centroid
+                            // give a star icon, but no need for any other info
+                            L.marker([o.lat,o.lon],{icon:star}).addTo(view.map);
+                            view.map.setView([o.lat,o.lon],2);
                         }
                     } else {
                         $.getJSON('api/subnational-locs-index.json', function(g) {
@@ -98,7 +86,7 @@ views.ProjectMap = Backbone.View.extend({
                                 else if (o.type == 2){locations[count].properties['marker-color'] = '#DD4B39';} // 2 - "ADM1 = Sub-region (administrative division, state, district, province) level accuracy.",
                                 count += 1;
                             });
-                            view.map.setView([locations[0].geometry.coordinates[0],locations[0].geometry.coordinates[1]],2);
+                            view.map.setView([locations[0].geometry.coordinates[1],locations[0].geometry.coordinates[0]],2);
                             view.map.markerLayer.setGeoJSON({
                                 type:"FeatureCollection",
                                 features: locations
