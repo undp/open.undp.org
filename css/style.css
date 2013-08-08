@@ -283,8 +283,7 @@ input[readonly] {
 .icon.chevron                 { background-position:-60px 0; }
 .icon.forward                 { background-position:-75px 0; }
 .icon.back                    { background-position:-100px 0; }
-.icon.fullscreen              { background-position:-125px 0; }
-.fullscreen .icon.fullscreen  { background-position:-150px 0; }
+.icon.map-fullscreen          { background-position:-168px 4px;}
 .icon.democratic              { background-position:0 -30px; }
 .icon.crisis                  { background-position:-65px -30px; }
 .icon.environment             { background-position:-130px -30px; }
@@ -377,6 +376,7 @@ input[readonly] {
   height:200px;
   }
 #profilemap.full {
+  width:540px;
   z-index:4;
 }
 #profilemap, .country-profile {
@@ -413,90 +413,7 @@ input[readonly] {
      -moz-box-shadow:inset 0 0 8px rgba(0,0,0,0.25);
           box-shadow:inset 0 0 8px rgba(0,0,0,0.25);
   }
-.map-fullscreen {
-  z-index:5;
-  top:auto;
-  left:auto;
-  bottom:5px;
-  right:5px;
-  }
-.map.full .map-fullscreen {
-  background-position:-120px 0;
-  }
-.map-attribution {
-  right:0;
-  left:auto;
-  z-index:999;
-  background:none;
-  }
-.map-attribution a {
-  color: #aaa!important;
-  }
-#homemap .zoomout {
-  left: auto;
-  right: 39px;
-  }
-#homemap .zoomin {
-  left: auto;
-  right: 10px;
-  }
-#profilemap .map-attribution {
-  left:0;
-  right:auto;
-  font-size:9px;
-  line-height:15px;
-  }
-#profilemap .zoomer {
-  width:15px;
-  height:15px;
-  top:5px;
-  left:5px;
-  text-indent:inherit;
-  color:#3b3b3b;
-  text-align:center;
-  line-height:11px;
-  background:#fff;
-  }
-#profilemap .zoomout {
-  top:19px;
-  -webkit-border-radius:0 0 3px 3px;
-          border-radius:0 0 3px 3px;
-  }
-#profilemap .zoomin {
-  -webkit-border-radius:3px 3px 0 0;
-          border-radius:3px 3px 0 0;
-  }
-
 /* Clustered markers */
-.map > div:last-child img {
-  pointer-events: all;
-  cursor: pointer;
-  }
-.map .marker-popup {
-  background:#fff;
-  min-width:100px;
-  top:10px;
-  float:left;
-  color:#333;
-  padding:10px;
-  margin:0 10px;
-  border-radius:4px;
-  }
-#profilemap .marker-popup {
-  padding:6px;
-  border-width:1px;
-  }
-  .marker-popup:after {
-    border-width:5px;
-    margin-left:-5px;
-    border-top-color:#fff;
-    }
-  .marker-popup:before {
-    border-width:6px;
-    margin-left:-6px;
-    border-top-color:#b3b3b3;
-    }
-
   .marker-title {
     font-size:13px;
     font-weight:bold;
