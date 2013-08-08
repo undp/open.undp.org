@@ -253,7 +253,7 @@ projects = []
 projectsFull = []
 projectsSmallFull = []
 projectsHeader = ['project_id','project_title','project_descr','inst_id','inst_descr','inst_type_id','inst_type_descr','fiscal_year','start','end','operating_unit_id','operating_unit','region_id','region_name','outputs','document_name','subnational']
-projectsSmallHeader = ['project_id','subnational']
+projectsSmallHeader = ['project_id','title','subnational']
 for award,project in groupby(projects_sort, lambda x: x['awardID']): 
     row_count = row_count + 1
     projectList = [award]
@@ -307,6 +307,7 @@ for award,project in groupby(projects_sort, lambda x: x['awardID']):
                 if b['bureau_description'] not in bureau_description:
                     bureau_description.append(b['bureau_description'])
     projectList.append(award_title[0])
+    projectSmallList['title'] = award_title[0]
     projectList.append(award_description[0])
     projectList.append(institutionid[0])
     projectList.append(inst_descr[0])
@@ -357,6 +358,7 @@ for unit, index in groupby(units_sort, lambda x: x['operating_unit']):
                 listingTemp = {}
                 listingTemp['subnational'] = proj['subnational']
                 listingTemp['id'] = proj['id']
+                listingTemp['title'] = proj['title']
                 listing.append(listingTemp)
         info.append(listing)   
     unitFinal.append(dict(zip(unitHeader,info))) # this joins project information, output per project, and documents for each project
@@ -364,6 +366,7 @@ for unit, index in groupby(units_sort, lambda x: x['operating_unit']):
 # Generate JSONs for each operating unit
 file_count = 0
 for row in unitFinal:
+    print row
     file_count = file_count + 1
     writeout = json.dumps(row, sort_keys=True, separators=(',',':'))
     f_out = open('../api/units/%s.json' % row['op_unit'], 'wb')
