@@ -67,6 +67,7 @@ routers.App = Backbone.Router.extend({
     },
 
     browser: function (year, route, embed) {
+
         var that = this,
             unit = false;
 
@@ -101,7 +102,7 @@ routers.App = Backbone.Router.extend({
 
         // Save default description
         app.defaultDescription = app.defaultDescription || $('#description p').html();
-
+        
         // Parse hash
         var parts = (route) ? route.split('/') : [];
         var filters = _(parts).map(function (part) {
@@ -136,13 +137,14 @@ routers.App = Backbone.Router.extend({
                 that.app.views = {};
                 // Load filters
                 _(facets).each(function (facet) {
+
                     var collection = new models.Filters();
                     $('#filter-items').append('<div id="' + facet.id + '" class="topics"></div>');
 
                     _(facet).each(function (v, k) {
                         collection[k] = v;
                     });
-
+                   
                     collection.fetch({
                         success: function () {
                             that.app.views[facet.id] = new views.Filters({
@@ -199,6 +201,25 @@ routers.App = Backbone.Router.extend({
                 this.projects.cb = updateDescription;
                 this.projects.reset(this.allProjects.filter(filter));
             }
+        }
+        // Check for operating_unit filter to shrink map
+        var opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
+        // if the operating unit filter exists, aka if it is an object
+        if(_.isObject(opUnitFilter)){
+            $('.map-btn').removeClass('active');
+            $('ul.layers li').addClass('no-hover');
+            $('ul.layers li a').css('cursor','default');
+            $('ul.layers').removeClass('layer-shadow');
+            $('li.hdi').addClass('layer-shadow');
+            $('li.hdi a').addClass('cursor');
+            $('span.graph').addClass('active');
+        } else {
+            $('ul.layers li').removeClass('no-hover');
+            $('ul.layers li a').css('cursor','auto');
+            $('ul.layers').addClass('layer-shadow');
+            $('li.hdi').removeClass('layer-shadow');
+            $('li.hdi a').removeClass('cursor');
+            $('span.graph').removeClass('active');
         }
 
         function updateDescription() {

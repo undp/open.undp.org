@@ -17,7 +17,7 @@
     <div class='clearfix row-fluid' id='main-container'>
       <div id='map-view'>
         <!--Layer Switcher on the Map-->
-        <ul class='layers clearfix'>
+        <ul class='layers layer-shadow clearfix'>
           <li>
             <a href='#' class='map-btn active' data-value='budget'>
               <span id='total-budget' class='total'></span>
@@ -42,10 +42,11 @@
               <span class='total-caption'>Budget Sources</span>
             </a>
           </li>
-          <li>
-            <a href='#' class='map-btn' data-value='hdi'>
+          <li class='hdi'>
+            <a href='#' class='map-btn hdi' data-value='hdi'>
               <span id='hdi' class='total'>0.682</span>
               <span class='total-caption'>HDI Global</span>
+              <span class='graph total-count'>Graph</span>
             </a>
           </li>
         </ul>

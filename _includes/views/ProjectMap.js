@@ -50,6 +50,8 @@ views.ProjectMap = Backbone.View.extend({
 
                     //no subLocation for the project
                     if (subLocations.length <= 0) {
+                        $('#profilemap').hide();
+                        $('.label').hide();
                         if (o.lon) {
                             // if the unit has a centroid
                             // give a star icon, but no need for any other info
@@ -57,6 +59,8 @@ views.ProjectMap = Backbone.View.extend({
                             view.map.setView([o.lat,o.lon],2);
                         }
                     } else {
+                        $('#profilemap').show();
+                        $('.label').show();
                         $.getJSON('api/subnational-locs-index.json', function(g) {
                             var count = 0;
                             _.each(subLocations, function (o) {

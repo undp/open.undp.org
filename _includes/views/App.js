@@ -13,7 +13,7 @@ views.App = Backbone.View.extend({
     },
     
     initialize: function(options) {
-        var view = this;
+        var view = t.his;
 
         // Toggle country selector
         $(window).on('click', '#country-selector', _(this.showCountries).bind(this));
@@ -183,14 +183,24 @@ views.App = Backbone.View.extend({
         $('#chart-hdi').css('display','none');
         var $target = $(e.currentTarget);
         $('.map-btn').removeClass('active');
-        $target.addClass('active');
-        layer = $target.attr('data-value');
-        app.projects.map.buildLayer(layer); // see Map.js
 
-        if ($target.attr('data-value') === 'hdi' && app.hdi) {
-            $('#chart-hdi').css('display','block');
+        // When on operating unit, turn on/off the HDI graph
+        if ($('ul.layers li').hasClass('no-hover')){
+            if ($target.attr('data-value') === 'hdi' && app.hdi) {
+                if ($('li.hdi').hasClass('active')) {
+                    $('li.hdi').removeClass('active')
+                    $($target).removeClass('active');
+                    $('#chart-hdi').css('display','none');
+                } else {
+                    $('#chart-hdi').css('display','block');
+                    $($target).addClass('active');
+                    $('li.hdi').addClass('active');
+                }
+            } 
+        } else {
+            $target.addClass('active');
         }
-
+        app.projects.map.buildLayer($target.attr('data-value')); // see Map.js
         return false;
     },
 
