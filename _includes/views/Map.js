@@ -5,7 +5,6 @@ views.Map = Backbone.View.extend({
     render: function() {
         var view = this;
         if (view.map){view.map.remove()}
-
         // Condition for embed
         if (!view.options.embed) {
             layer = $('.map-btn.active').attr('data-value');
@@ -86,8 +85,7 @@ views.Map = Backbone.View.extend({
                         + '<div><b>Precision: </b>' + precision + '</div>';
         return description;
     },
-    buildLayer: function(layer) {
-
+    buildLayer: function(layer,mapFilter){
         var view = this;
 
         view.map.removeLayer(view.markers); //remove the marker featureGroup from view.map
@@ -147,11 +145,11 @@ views.Map = Backbone.View.extend({
                     noGeo += 1;
                 }
             });
+
             filteredMarkers = _(filteredMarkers).flatten(false).filter(function(o){return _.isObject(o)}); //filter out those null
 
-            // TODO add this through app.description
             if (noGeo != 0 && !hasGeo){
-                $('#description p').append(' None of these projects has associated geography.');
+                $('#description p .geography').html(' None of these projects has associated geography.');
             } else if (noGeo != 0 && hasGeo) {
                 var noGeography = " <b>" + noGeo
                     + "</b> of them do not have associated geography; the remaining <b>"
@@ -159,45 +157,61 @@ views.Map = Backbone.View.extend({
                     + "</b> have <b>"
                     + filteredMarkers.length
                     + "</b> sub-national locations in total."
-                $('#description p').append(noGeography);
+                $('#description p .geography').html(noGeography);
             }
 
+            // create clustered markers
             $.getJSON('api/subnational-locs-index.json', function(subLocIndex){
-                _(filteredMarkers).each(function(o){
-                    var latlng = new L.LatLng(o.geometry.coordinates[0], o.geometry.coordinates[1]);
-                    var marker = L.marker((latlng), {
-                        icon: L.mapbox.marker.icon({
-                            'marker-color': '0055aa',
-                            'marker-opacity': 0.6,
-                            'marker-size': 'small'
-                        })
-                    });
-                    var clusterBrief = L.popup({
-                        closeButton:false,
-                        offset: new L.Point(0,-20)
-                    }).setContent(view.clusterPopup(o.properties, subLocIndex));
+                var markerOptions = {
+                    'marker-color': '0055aa',
+                    'marker-size': 'small'
+                    };
 
-                    marker.on('mouseover',function(){
-                        clusterBrief.setLatLng(latlng);
-                        view.map.openPopup(clusterBrief);
-                    }).on('mouseout',function(){
-                        view.map.closePopup(clusterBrief);
-                    }).on('click',function(){
-                        path = '#project/'+ o.properties.project
-                        view.goToLink(path);
+                if (mapFilter == undefined){
+                    subFilter = "1"
+                } else (subFilter = mapFilter)
+
+                //var subFilter = "1" || mapFilter; // TODO || not working?
+
+                var filteredMarkersLayer = L.geoJson({
+                        "type":"FeatureCollection",
+                        "features":filteredMarkers
+                    }, {
+                        filter: function(feature, layer) { // only two cases for type, hard code is fine
+                            console.log(subFilter)
+                            return feature.properties['type'] === subFilter
+                        },
+                        pointToLayer: function(feature,latlon){
+                            console.log(latlon)
+                            return L.marker(latlon,{
+                                icon: L.mapbox.marker.icon(markerOptions) // use MapBox style markers
+                            })
+                        },
+                        onEachFeature: function (feature, layer) {
+                            var clusterBrief = L.popup({
+                                    closeButton:false,
+                                    offset: new L.Point(0,-20)
+                                }).setContent(view.clusterPopup(feature.properties, subLocIndex)); 
+                            layer.on('mouseover',function(){
+                                clusterBrief.setLatLng(this.getLatLng());
+                                view.map.openPopup(clusterBrief);
+                            }).on('mouseout',function(){
+                                view.map.closePopup(clusterBrief);
+                            }).on('click',function(){
+                                path = '#project/'+ feature.properties.project
+                                view.goToLink(path);
+                            });
+                        }
                     });
-                    view.markers.addLayer(marker);
-                });
+                view.markers.addLayer(filteredMarkersLayer);
             });
         };
 
-        // use pointToLayer to make location points into a circleMarker vector layer
-        // http://leafletjs.com/examples/geojson.html
         var circle = function(geoJsonFeature,options,hoverPop){
             var brief = L.popup({
                     closeButton:false
                 }).setContent(hoverPop);
-            L.geoJson(geoJsonFeature,{
+            var circleLayer = L.geoJson(geoJsonFeature,{
                 pointToLayer:function(feature,latlng){
                     return L.circleMarker(latlng,options
                         ).on('mouseover',function(circleMarker){
@@ -212,7 +226,8 @@ views.Map = Backbone.View.extend({
                             view.goToLink(path);
                         })
                 }
-            }).addTo(view.markers);
+            });
+            view.markers.addLayer(circleLayer);
         };
 
         view.map.addLayer(view.markers);

@@ -238,10 +238,10 @@ routers.App = Backbone.Router.extend({
     
                 if (app.description && app.description.length > 1) {
                     $('#applied-filters').html(app.projects.length + ' Projects Selected');
-                    $('#description p').html(app.description.shift() + app.description.join(',') + '.');
+                    $('#description p .desc').html(app.description.shift() + app.description.join(',') + '.');
                 } else {
                     $('#applied-filters').html('All Projects');
-                    $('#description p').html(app.defaultDescription);
+                    $('#description p .desc').html(app.defaultDescription);
                 }
                 app.description = false;
         
@@ -284,7 +284,6 @@ routers.App = Backbone.Router.extend({
             // Set up menu
             $('#app .view, #mainnav .browser').hide();
             $('#mainnav li').removeClass('active');
-            $('#browser .summary').addClass('off');
             $('#mainnav .profile').show();
             $('#mainnav li a[href="/"]').parent().addClass('active');
             $('#mainnav li.parent').removeClass('parent-active');

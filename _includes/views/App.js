@@ -8,12 +8,12 @@ views.App = Backbone.View.extend({
         'click .map-btn': 'mapLayerswitch',
         'click .widget-config': 'requestIframe',
         'submit .form-search': 'submitForm',
-        'click .nav-tabs a': 'tabSwitch',
-        'click #yearselect .dropdown-menu a': 'yearChange'
+        'click #yearselect .dropdown-menu a': 'yearChange',
+        'click .map-filter':'mapFilter'
     },
     
     initialize: function(options) {
-        var view = this;
+        var view = t.his;
 
         // Toggle country selector
         $(window).on('click', '#country-selector', _(this.showCountries).bind(this));
@@ -36,6 +36,8 @@ views.App = Backbone.View.extend({
     },
 
     render: function() {
+
+        var layer;
 
         if (this.options.embed) {
             this.$el.empty().append(templates.embedProjects());
@@ -179,9 +181,9 @@ views.App = Backbone.View.extend({
     mapLayerswitch: function(e) {
         e.preventDefault();
         $('#chart-hdi').css('display','none');
-        console.log(e.currentTarget)
         var $target = $(e.currentTarget);
         $('.map-btn').removeClass('active');
+
         // When on operating unit, turn on/off the HDI graph
         if ($('ul.layers li').hasClass('no-hover')){
             if ($target.attr('data-value') === 'hdi' && app.hdi) {
@@ -227,12 +229,6 @@ views.App = Backbone.View.extend({
         $('#country-list').css('display', 'none');
     },
     
-    tabSwitch: function(e) {
-        if ($(e.target).attr('href') === '#summary-tab') {
-            app.projects.map.map.requestRedraw();
-        }
-    },
-    
     yearChange: function(e) {
         e.preventDefault();
         var year = $(e.target).attr('data-value');
@@ -249,10 +245,26 @@ views.App = Backbone.View.extend({
             app.navigate(path, { trigger: true });
         }
     },
-    
+
     updateYear: function(year) {
         $('#total-budget').next('span').html(year + ' Budget');
         $('#total-expenditure').next('span').html(year + ' Expenditure');
         $('#yearselect .dropdown-toggle').html(year + ' <b class="caret"></b>');
+    },
+
+    mapFilter: function(e){
+        e.preventDefault();
+        $target = e.target;
+
+        var subFilter = $target.id.split('-'), // ['type','1']
+            subFilterValue = subFilter[subFilter.length-1] + "";
+
+        var anchor = $('#'+$target.id);
+
+        if ($('.map-filter').hasClass('active')){
+            $('.map-filter').removeClass('active');
+            anchor.addClass('active')
+        }
+        app.projects.map.buildLayer(layer,subFilterValue); // see Map.js
     }
 });
