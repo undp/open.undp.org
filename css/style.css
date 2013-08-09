@@ -386,6 +386,28 @@ input[readonly] {
   -o-transition:      all 0.3s;
   transition:         all 0.3s;
 }
+#map-filters {
+  width:100%;
+  border-bottom:1px solid #C8DDE4;
+  }
+#map-filters ul {
+  margin:0;
+  }
+#map-filters ul li {
+  float:left;
+  margin:20px 20px 20px 0;
+  font-weight:700;
+  }
+#map-filters ul li a.map-filter {
+  padding:10px;
+  background: #F2FAFF;
+  font-size:10px;
+  text-transform:uppercase;
+  }
+#map-filters ul li a.map-filter.active {
+  color:#fff;
+  background:#434C54;
+  }
 .country-profile {
   position: relative;
   background:#0A294D;

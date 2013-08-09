@@ -18,17 +18,16 @@ views.ProjectMap = Backbone.View.extend({
        
         return description;
     },
-
     render: function() {
         var view = this,
             locations = [],
             count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
             unit = this.model.get('operating_unit_id'),
             subLocations = this.model.get('subnational');
+        if(view.map){view.map.remove()}
         view.map = L.mapbox.map(this.el,TJ.id,{
             minZoom: TJ.minzoom,
             maxZoom: TJ.maxzoom,
-            trackResize:true,
             noWrap: true
         });
         view.map.on('ready',function(){ // once the map is loaded, append the fullscreen button to the control-zoom div
@@ -103,11 +102,7 @@ views.ProjectMap = Backbone.View.extend({
         this.$el.toggleClass('full');
         $('.map-fullscreen').toggleClass('full');
         $('.country-profile').toggleClass('full');
-        // if (this.$el.hasClass('full')) {
-        //     this.map.newSize({ x: 540, y: 338 });
-        // } else {
-        //     this.map.newSize({ x: 218, y: 200 });
-        // }
+        app.projects.map.map.requestRedraw();
    },
 
     getwebData: function(data) {
