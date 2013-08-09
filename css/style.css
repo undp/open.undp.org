@@ -543,15 +543,16 @@ input[readonly] {
       .layers li a.hdi:hover {
         background:#f0f0f0;
         }
+      .cursor {
+        cursor: pointer !important;
+      }
       .layers li.no-hover {
         border-left: 1px solid #fff;
         background: none;
-        cursor: default;
         }
-   /*   .layers li a.no-hover:hover {
-        background: none;
-        cursor: default;
-        }*/
+      .layers li.no-hover.child {
+       cursor: default;
+        }
       .layers li a.active {
         background:#05a;
         position:relative;

@@ -208,27 +208,19 @@ routers.App = Backbone.Router.extend({
         if(_.isObject(opUnitFilter)){
             $('.map-btn').removeClass('active');
             $('ul.layers li').addClass('no-hover');
-            // $('ul.layers li a').addClass('no-hover');
+            $('ul.layers li a').css('cursor','default');
             $('ul.layers').removeClass('layer-shadow');
             $('li.hdi').addClass('layer-shadow');
+            $('li.hdi a').addClass('cursor');
             $('span.graph').addClass('active');
         } else {
             $('ul.layers li').removeClass('no-hover');
-            // $('ul.layers li a').removeClass('no-hover');
+            $('ul.layers li a').css('cursor','auto');
             $('ul.layers').addClass('layer-shadow');
             $('li.hdi').removeClass('layer-shadow');
+            $('li.hdi a').removeClass('cursor');
             $('span.graph').removeClass('active');
         }
-        // Disable click on ul.layers when operating_unit is selected
-        // $('ul.layers a').click(function(e){
-        //     if($('ul.layers li a').hasClass('no-hover')){
-        //         return false;
-        //     } else if ($('ul.layers li a').hasClass('hdi')){
-        //         return true;
-        //     } else {
-        //         return true;
-        //     }
-        // });
 
         function updateDescription() {
             setTimeout(function() {
