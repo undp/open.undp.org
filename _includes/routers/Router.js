@@ -217,10 +217,10 @@ routers.App = Backbone.Router.extend({
     
                 if (app.description && app.description.length > 1) {
                     $('#applied-filters').html(app.projects.length + ' Projects Selected');
-                    $('#description p').html(app.description.shift() + app.description.join(',') + '.');
+                    $('#description p .desc').html(app.description.shift() + app.description.join(',') + '.');
                 } else {
                     $('#applied-filters').html('All Projects');
-                    $('#description p').html(app.defaultDescription);
+                    $('#description p .desc').html(app.defaultDescription);
                 }
                 app.description = false;
         

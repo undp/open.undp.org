@@ -149,7 +149,7 @@ views.Map = Backbone.View.extend({
             filteredMarkers = _(filteredMarkers).flatten(false).filter(function(o){return _.isObject(o)}); //filter out those null
 
             if (noGeo != 0 && !hasGeo){
-                $('#description p').append(' None of these projects has associated geography.');
+                $('#description p .geography').html(' None of these projects has associated geography.');
             } else if (noGeo != 0 && hasGeo) {
                 var noGeography = " <b>" + noGeo
                     + "</b> of them do not have associated geography; the remaining <b>"
@@ -157,7 +157,7 @@ views.Map = Backbone.View.extend({
                     + "</b> have <b>"
                     + filteredMarkers.length
                     + "</b> sub-national locations in total."
-                $('#description p').append(noGeography);
+                $('#description p .geography').html(noGeography);
             }
 
             // create clustered markers
