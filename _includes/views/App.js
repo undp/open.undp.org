@@ -179,14 +179,21 @@ views.App = Backbone.View.extend({
     mapLayerswitch: function(e) {
         e.preventDefault();
         $('#chart-hdi').css('display','none');
-        
+        console.log(e.currentTarget)
         var $target = $(e.currentTarget);
         $('.map-btn').removeClass('active');
-
+        // When on operating unit, turn on/off the HDI graph
         if ($('ul.layers li').hasClass('no-hover')){
             if ($target.attr('data-value') === 'hdi' && app.hdi) {
-                $('#chart-hdi').css('display','block');
-                $target.addClass('active');
+                if ($('li.hdi').hasClass('active')) {
+                    $('li.hdi').removeClass('active')
+                    $($target).removeClass('active');
+                    $('#chart-hdi').css('display','none');
+                } else {
+                    $('#chart-hdi').css('display','block');
+                    $($target).addClass('active');
+                    $('li.hdi').addClass('active');
+                }
             } 
         } else {
             $target.addClass('active');
