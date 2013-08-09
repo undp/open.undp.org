@@ -216,7 +216,7 @@ routers.App = Backbone.Router.extend({
                 }
     
                 if (app.description && app.description.length > 1) {
-                    $('#applied-filters').html('Selected Projects');
+                    $('#applied-filters').html(app.projects.length + ' Projects Selected');
                     $('#description p').html(app.description.shift() + app.description.join(',') + '.');
                 } else {
                     $('#applied-filters').html('All Projects');
