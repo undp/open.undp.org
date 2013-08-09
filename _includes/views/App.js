@@ -13,7 +13,7 @@ views.App = Backbone.View.extend({
     },
     
     initialize: function(options) {
-        var view = t.his;
+        var view = this;
 
         // Toggle country selector
         $(window).on('click', '#country-selector', _(this.showCountries).bind(this));

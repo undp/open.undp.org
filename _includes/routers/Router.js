@@ -241,7 +241,7 @@ routers.App = Backbone.Router.extend({
                     $('#description p .desc').html(app.description.shift() + app.description.join(',') + '.');
                 } else {
                     $('#applied-filters').html('All Projects');
-                    $('#description p .desc').html(app.defaultDescription);
+                    $('#description p').html(app.defaultDescription);
                 }
                 app.description = false;
         
