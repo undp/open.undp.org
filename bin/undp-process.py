@@ -248,7 +248,6 @@ units_sort = sorted(units, key = lambda x: x['operating_unit'])
 bureau = csv.DictReader(open('download/undp_export/regions.csv', 'rb'), delimiter = ',', quotechar = '"')
 bureau_sort = sorted(bureau, key = lambda x: x['bureau'])
 
-
 row_count = 0
 projects = []
 projectsFull = []
@@ -258,11 +257,8 @@ projectsSmallHeader = ['project_id','title','subnational']
 for award,project in groupby(projects_sort, lambda x: x['awardID']): 
     row_count = row_count + 1
     projectList = [award]
-<<<<<<< HEAD
     projectSmallList = {}
     projectSmallList['id'] = award
-=======
->>>>>>> 17333319183c99511330aeb2b2811e37cf46d8f8
     projects = []
     docTemp = []
     subnationalTemp = []
@@ -319,23 +315,20 @@ for award,project in groupby(projects_sort, lambda x: x['awardID']):
     projectList.append(projectFY)
     projectList.append(start_date[0])
     projectList.append(end_date[0])
-    projectList.append(bureau[0])
-    projectList.append(bureau_description[0])
-<<<<<<< HEAD
-=======
     projectList.append(operatingunit[0])
     projectList.append(ou_descr[0])
->>>>>>> 17333319183c99511330aeb2b2811e37cf46d8f8
+    projectList.append(bureau[0])
+    projectList.append(bureau_description[0])
     
     outputTemp = []
-    # for out in outputsFull:
-    #     if out['award_id'] == award:
-    #         outputTemp.append(out)
+    for out in outputsFull:
+        if out['award_id'] == award:
+            outputTemp.append(out)
     projectList.append(outputTemp)
-    # for doc in docProjects:
-    #     if doc['projectID'] == award:
-    #         docTemp.append(doc['docName'])
-    #         docTemp.append(doc['docURL'])
+    for doc in docProjects:
+        if doc['projectID'] == award:
+            docTemp.append(doc['docName'])
+            docTemp.append(doc['docURL'])
     projectList.append(docTemp)
     for loc in subnational_sort:
         if loc['awardID'] == award or str(loc['awardID']) == award[3:]:
@@ -385,33 +378,6 @@ for row in unitFinal:
     f_out.close()
 print '%d operating unit files generated...' % file_count
 
-<<<<<<< HEAD
-=======
-# Sort projects by operating unit
-unitFinal = []
-unitHeader = ['operating_unit','projects']
-for unit, index in groupby(units_sort, lambda x: x['operating_unit']): 
-    info = []
-    projectList = []
-    for i in index:
-        info.append(i['operating_unit'])
-        for project in projectsFull:
-            if i['operating_unit'] == project['region_id']:
-                projectList.append(project)
-        info.append(projectList)
-        unitFinal.append(dict(zip(unitHeader,info))) # this joins project information, output per project, and documents for each project
-
-# Generate JSONs for each operating unit
-file_count = 0
-for row in unitFinal:
-    file_count = file_count + 1
-    writeout = json.dumps(row, sort_keys=True, separators=(',',':'))
-    f_out = open('../api/units/%s.json' % row['operating_unit'], 'wb')
-    f_out.writelines(writeout)
-    f_out.close()
-print '%d operating unit files generated...' % file_count
-
->>>>>>> 17333319183c99511330aeb2b2811e37cf46d8f8
 # Generate JSONs for each project
 file_count = 0
 for row in projectsFull:
