@@ -263,7 +263,6 @@ routers.App = Backbone.Router.extend({
             // Set up menu
             $('#app .view, #mainnav .browser').hide();
             $('#mainnav li').removeClass('active');
-            $('#browser .summary').addClass('off');
             $('#mainnav .profile').show();
             $('#mainnav li a[href="/"]').parent().addClass('active');
             $('#mainnav li.parent').removeClass('parent-active');
