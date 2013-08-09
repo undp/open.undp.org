@@ -4,3 +4,26 @@
 	-o-transition: -o-transform 0.2s ease-out, opacity 0.2s ease-in;
 	transition: transform 0.2s ease-out, opacity 0.2s ease-in;
 	}
+.marker-cluster {
+	background-color: rgba(0, 85, 170, 0.5);
+	background-clip: padding-box;
+	border-radius: 20px;
+	}
+.marker-cluster div {
+	background-color: rgb(0, 85, 170);
+	width: 30px;
+	height: 30px;
+	margin-left: 5px;
+	margin-top: 5px;
+	text-align: center;
+	border-radius: 15px;
+	color:#fff;
+	font: 13px "Helvetica Neue", Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	}
+.marker-cluster span {
+	line-height: 30px;
+	}
+.ie .marker-cluster {
+	background-color: rgb(128,170,213);
+	}
