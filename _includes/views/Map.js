@@ -178,11 +178,9 @@ views.Map = Backbone.View.extend({
                         "features":filteredMarkers
                     }, {
                         filter: function(feature, layer) { // only two cases for type, hard code is fine
-                            console.log(subFilter)
                             return feature.properties['type'] === subFilter
                         },
                         pointToLayer: function(feature,latlon){
-                            console.log(latlon)
                             return L.marker(latlon,{
                                 icon: L.mapbox.marker.icon(markerOptions) // use MapBox style markers
                             })
