@@ -151,7 +151,7 @@ views.Map = Backbone.View.extend({
 
             // TODO add this through app.description
             if (noGeo != 0 && !hasGeo){
-                $('#description p').append(' None of these projects has associated geography.');
+                $('#description p .geography').html(' None of these projects has associated geography.');
             } else if (noGeo != 0 && hasGeo) {
                 var noGeography = " <b>" + noGeo
                     + "</b> of them do not have associated geography; the remaining <b>"
@@ -159,7 +159,7 @@ views.Map = Backbone.View.extend({
                     + "</b> have <b>"
                     + filteredMarkers.length
                     + "</b> sub-national locations in total."
-                $('#description p').append(noGeography);
+                $('#description p .geography').html(noGeography);
             }
 
             $.getJSON('api/subnational-locs-index.json', function(subLocIndex){
