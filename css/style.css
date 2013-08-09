@@ -270,8 +270,8 @@ input[readonly] {
   text-indent:-999em;
   }
 .icon-thumbnail {
-  width:60px;
-  height:60px;
+  width:40px;
+  height:40px;
   }
 
 .icon.reset                   { background-position:0 0; }
@@ -283,8 +283,8 @@ input[readonly] {
 .icon.chevron                 { background-position:-60px 0; }
 .icon.forward                 { background-position:-75px 0; }
 .icon.back                    { background-position:-100px 0; }
-.icon.fullscreen              { background-position:-125px 0; }
-.fullscreen .icon.fullscreen  { background-position:-150px 0; }
+.icon.map-fullscreen          { background-position:-168px 4px;}
+.icon.map-fullscreen.full     { background-position:-192px 4px;}
 .icon.democratic              { background-position:0 -30px; }
 .icon.crisis                  { background-position:-65px -30px; }
 .icon.environment             { background-position:-130px -30px; }
@@ -327,7 +327,7 @@ input[readonly] {
   margin:0;
   left:0;
   }
-
+  
 #app .view {
   float:left;
   margin:50px 0 35px;
@@ -348,6 +348,20 @@ input[readonly] {
 .map-container {
   float:left;
   width:100%;
+  -moz-transition-duration:.5s;
+  -webkit-transition-duration:.5s;
+  -o-transition-duration:.5s;
+  transition-duration:.5s;
+  }
+.map-container.small {
+  float:left;
+  width:40%;
+  height: 200px;
+  margin-top: 10px;
+  -moz-transition-duration:.5s;
+  -webkit-transition-duration:.5s;
+  -o-transition-duration:.5s;
+  transition-duration:.5s;
   }
 .map-container.full {
   padding:0;
@@ -372,11 +386,23 @@ input[readonly] {
   position:relative;
   bottom:0;
   left:0;
+   -moz-transition-duration:.5s;
+  -webkit-transition-duration:.5s;
+  -o-transition-duration:.5s;
+  transition-duration:.5s;
   }
+#homemap.small {
+  height: 200px;
+   -moz-transition-duration:.5s;
+  -webkit-transition-duration:.5s;
+  -o-transition-duration:.5s;
+  transition-duration:.5s;
+}
 #profilemap {
   height:200px;
   }
 #profilemap.full {
+  width:540px;
   z-index:4;
 }
 #profilemap, .country-profile {
@@ -385,6 +411,28 @@ input[readonly] {
   -o-transition:      all 0.3s;
   transition:         all 0.3s;
 }
+#map-filters {
+  width:100%;
+  border-bottom:1px solid #C8DDE4;
+  }
+#map-filters ul {
+  margin:0;
+  }
+#map-filters ul li {
+  float:left;
+  margin:20px 20px 20px 0;
+  font-weight:700;
+  }
+#map-filters ul li a.map-filter {
+  padding:10px;
+  background: #F2FAFF;
+  font-size:10px;
+  text-transform:uppercase;
+  }
+#map-filters ul li a.map-filter.active {
+  color:#fff;
+  background:#434C54;
+  }
 .country-profile {
   position: relative;
   background:#0A294D;
@@ -413,90 +461,7 @@ input[readonly] {
      -moz-box-shadow:inset 0 0 8px rgba(0,0,0,0.25);
           box-shadow:inset 0 0 8px rgba(0,0,0,0.25);
   }
-.map-fullscreen {
-  z-index:5;
-  top:auto;
-  left:auto;
-  bottom:5px;
-  right:5px;
-  }
-.map.full .map-fullscreen {
-  background-position:-120px 0;
-  }
-.map-attribution {
-  right:0;
-  left:auto;
-  z-index:999;
-  background:none;
-  }
-.map-attribution a {
-  color: #aaa!important;
-  }
-#homemap .zoomout {
-  left: auto;
-  right: 39px;
-  }
-#homemap .zoomin {
-  left: auto;
-  right: 10px;
-  }
-#profilemap .map-attribution {
-  left:0;
-  right:auto;
-  font-size:9px;
-  line-height:15px;
-  }
-#profilemap .zoomer {
-  width:15px;
-  height:15px;
-  top:5px;
-  left:5px;
-  text-indent:inherit;
-  color:#3b3b3b;
-  text-align:center;
-  line-height:11px;
-  background:#fff;
-  }
-#profilemap .zoomout {
-  top:19px;
-  -webkit-border-radius:0 0 3px 3px;
-          border-radius:0 0 3px 3px;
-  }
-#profilemap .zoomin {
-  -webkit-border-radius:3px 3px 0 0;
-          border-radius:3px 3px 0 0;
-  }
-
 /* Clustered markers */
-.map > div:last-child img {
-  pointer-events: all;
-  cursor: pointer;
-  }
-.map .marker-popup {
-  background:#fff;
-  min-width:100px;
-  top:10px;
-  float:left;
-  color:#333;
-  padding:10px;
-  margin:0 10px;
-  border-radius:4px;
-  }
-#profilemap .marker-popup {
-  padding:6px;
-  border-width:1px;
-  }
-  .marker-popup:after {
-    border-width:5px;
-    margin-left:-5px;
-    border-top-color:#fff;
-    }
-  .marker-popup:before {
-    border-width:6px;
-    margin-left:-6px;
-    border-top-color:#b3b3b3;
-    }
-
   .marker-title {
     font-size:13px;
     font-weight:bold;
@@ -511,7 +476,6 @@ input[readonly] {
     float:right;
     }
   .marker-description {
-    float:left;
     width:100%;
     font-size:11px;
     }
@@ -573,6 +537,9 @@ input[readonly] {
 /*-----------------------------------
   Big number stats beside map
 -------------------------------------*/
+.layer-shadow {
+  box-shadow: inset 0px 2px 15px 0px rgba(60,60,60 ,.2);
+}
 .layers {
   width:100%;
   margin:10px 0 -1px;
@@ -580,7 +547,8 @@ input[readonly] {
   .layers li {
     display:block;
     float:left;
-    width:20%;
+    width:19.817%;
+    border-left: 1px solid #E3E3E3;
     }
     .layers li a {
       display:block;
@@ -591,13 +559,43 @@ input[readonly] {
       .layers li:last-child a.active {
         border:none;
         }
-      .layers li a:hover {
+      .layers li:hover {
         background:#f0f0f0;
+        }
+      .layers li a.hdi:hover {
+        background:#f0f0f0;
+        }
+      .cursor {
+        cursor: pointer !important;
+      }
+      .layers li.no-hover {
+        border-left: 1px solid #fff;
+        background: none;
+        }
+      .layers li.no-hover.child {
+       cursor: default;
         }
       .layers li a.active {
         background:#05a;
         position:relative;
         }
+      .layers li a.active:hover {
+        color: #666;
+      }
+.graph {
+  display: none;
+}
+.graph.active {
+  display: block;
+  width: 40px;
+  font-weight: bold;
+  background: #D5EFFB;
+  color: #666;
+  padding: 1px;
+  margin-top: 2px;
+  -webkit-border-radius:3px;
+          border-radius:3px;
+}
 
 .total {
   display:block;
@@ -690,15 +688,11 @@ input[readonly] {
 .chart li.focus {
   float:left;
   width:50%;
-  margin-bottom:10px;
-  }
-.chart li.focus {
-  padding-right: 10px;
+  padding: 10px 20px 10px 0;
   -webkit-box-sizing:border-box;
      -moz-box-sizing:border-box;
           box-sizing:border-box;
   }
-
   .chart li.focus .pct {
     font-size:18px;
     font-weight:bold;

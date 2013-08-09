@@ -15,7 +15,6 @@ routers.App = Backbone.Router.extend({
     redirect: function(route) {
         //if url lacks a year, default to most recent
         if (route) {
-        console.log(CURRENT_YR);
             this.navigate(CURRENT_YR + '/filter/' + route, {trigger: true});
         } else {
             this.navigate(CURRENT_YR, {trigger: true});
@@ -58,6 +57,7 @@ routers.App = Backbone.Router.extend({
     fiscalyear: function (year, route, embed) {
         var that = this;
         if (!$('#y' + year).length) {
+             //passing in year index js (json)
             loadjsFile('api/project_summary_' + year + '.js', year, function() {
                 that.browser(year, route, embed);
             });
@@ -67,6 +67,7 @@ routers.App = Backbone.Router.extend({
     },
 
     browser: function (year, route, embed) {
+
         var that = this,
             unit = false;
 
@@ -101,16 +102,16 @@ routers.App = Backbone.Router.extend({
 
         // Save default description
         app.defaultDescription = app.defaultDescription || $('#description p').html();
-
+        
         // Parse hash
         var parts = (route) ? route.split('/') : [];
         var filters = _(parts).map(function (part) {
             var filter = part.split('-');
             if (filter[0] === 'operating_unit') {
-                unit = filter[1];
+                unit = filter[1];//"operating_unit-LBN" returns the unit name
             }
             return {
-                collection: filter[0],
+                collection: filter[0], //eg. for ["region","RBEC"], the collection will be region, and the id to look for is "RBEC"
                 id: filter[1]
             };
         });
@@ -118,6 +119,7 @@ routers.App = Backbone.Router.extend({
         if (_.isEqual(this.app.filters, filters) && app.fiscalYear === year) {
             $('html, body').scrollTop(0);
         } else {
+            // slicing the selected facets and getting the json items
             var filter = function (model) {
                 if (!filters.length) return true;
                 return _(filters).reduce(function (memo, filter) {
@@ -135,13 +137,14 @@ routers.App = Backbone.Router.extend({
                 that.app.views = {};
                 // Load filters
                 _(facets).each(function (facet) {
+
                     var collection = new models.Filters();
                     $('#filter-items').append('<div id="' + facet.id + '" class="topics"></div>');
 
                     _(facet).each(function (v, k) {
                         collection[k] = v;
                     });
-
+                   
                     collection.fetch({
                         success: function () {
                             that.app.views[facet.id] = new views.Filters({
@@ -154,7 +157,6 @@ routers.App = Backbone.Router.extend({
                                     that.app.views[facet.id].active = true;
                                 }
                             });
-
                             collection.watch();
 
                             counter++;
@@ -163,14 +165,12 @@ routers.App = Backbone.Router.extend({
                         }
                     });
                 });
-                
                 // Create summary map view
-                if (!embed) {
+                if (!embed){
                     that.projects.map = new views.Map({
                         el: '#homemap',
                         collection: that.projects
                     });
-
                     that.projects.widget = new views.Widget({
                         context: 'projects'
                     });
@@ -181,7 +181,6 @@ routers.App = Backbone.Router.extend({
                         embed: embed
                     });
                 }
-                
             };
 
             // Load projects
@@ -203,6 +202,25 @@ routers.App = Backbone.Router.extend({
                 this.projects.reset(this.allProjects.filter(filter));
             }
         }
+        // Check for operating_unit filter to shrink map
+        var opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
+        // if the operating unit filter exists, aka if it is an object
+        if(_.isObject(opUnitFilter)){
+            $('.map-btn').removeClass('active');
+            $('ul.layers li').addClass('no-hover');
+            $('ul.layers li a').css('cursor','default');
+            $('ul.layers').removeClass('layer-shadow');
+            $('li.hdi').addClass('layer-shadow');
+            $('li.hdi a').addClass('cursor');
+            $('span.graph').addClass('active');
+        } else {
+            $('ul.layers li').removeClass('no-hover');
+            $('ul.layers li a').css('cursor','auto');
+            $('ul.layers').addClass('layer-shadow');
+            $('li.hdi').removeClass('layer-shadow');
+            $('li.hdi a').removeClass('cursor');
+            $('span.graph').removeClass('active');
+        }
 
         function updateDescription() {
             setTimeout(function() {
@@ -219,8 +237,8 @@ routers.App = Backbone.Router.extend({
                 }
     
                 if (app.description && app.description.length > 1) {
-                    $('#applied-filters').html('Selected Projects');
-                    $('#description p').html(app.description.shift() + app.description.join(',') + '.');
+                    $('#applied-filters').html(app.projects.length + ' Projects Selected');
+                    $('#description p .desc').html(app.description.shift() + app.description.join(',') + '.');
                 } else {
                     $('#applied-filters').html('All Projects');
                     $('#description p').html(app.defaultDescription);
@@ -266,7 +284,6 @@ routers.App = Backbone.Router.extend({
             // Set up menu
             $('#app .view, #mainnav .browser').hide();
             $('#mainnav li').removeClass('active');
-            $('#browser .summary').addClass('off');
             $('#mainnav .profile').show();
             $('#mainnav li a[href="/"]').parent().addClass('active');
             $('#mainnav li.parent').removeClass('parent-active');

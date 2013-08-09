@@ -4,14 +4,14 @@
 
 # This script runs Python commands to create the JSON API. 
 # Requirements: Python 2.6 or greater 
-
+ 
 import csv, sys, json, time, copy
 from itertools import groupby
 
 t0 = time.time()
 
-# Process document file by Projects
-# ********************************* 
+#Process document file by Projects
+#********************************* 
 documents = csv.DictReader(open('download/undp_export/report_documents.csv', 'rb'), delimiter = ',', quotechar = '"')
 documents_sort = sorted(documents, key = lambda x: x['awardid'])
 
@@ -251,10 +251,15 @@ bureau_sort = sorted(bureau, key = lambda x: x['bureau'])
 row_count = 0
 projects = []
 projectsFull = []
+projectsSmallFull = []
 projectsHeader = ['project_id','project_title','project_descr','inst_id','inst_descr','inst_type_id','inst_type_descr','fiscal_year','start','end','operating_unit_id','operating_unit','region_id','region_name','outputs','document_name','subnational']
+projectsSmallHeader = ['project_id','title','subnational']
 for award,project in groupby(projects_sort, lambda x: x['awardID']): 
     row_count = row_count + 1
     projectList = [award]
+    projectSmallList = {}
+    projectSmallList['id'] = award
+    projects = []
     docTemp = []
     subnationalTemp = []
     award_title = []
@@ -314,6 +319,7 @@ for award,project in groupby(projects_sort, lambda x: x['awardID']):
     projectList.append(ou_descr[0])
     projectList.append(bureau[0])
     projectList.append(bureau_description[0])
+    
     outputTemp = []
     for out in outputsFull:
         if out['award_id'] == award:
@@ -327,17 +333,52 @@ for award,project in groupby(projects_sort, lambda x: x['awardID']):
     for loc in subnational_sort:
         if loc['awardID'] == award or str(loc['awardID']) == award[3:]:
             locationTemp = {}
-            locationTemp['lat'] = loc['lat']
-            locationTemp['lon'] = loc['lon']
+            locationTemp['lat'] = float(loc['lat'])
+            locationTemp['lon'] = float(loc['lon'])
             locationTemp['type'] = loc['type']
             locationTemp['precision'] = loc['precision']
             locationTemp['scope'] = loc['scope']
             subnationalTemp.append(locationTemp)
     projectList.append(subnationalTemp)
     projectsFull.append(dict(zip(projectsHeader,projectList))) # this joins project information, output per project, and documents for each project
+    
+    # Add info to smaller object for op unit JSONs
+    projectSmallList['title'] = award_title[0]
+    projectSmallList['op_unit'] = operatingunit[0]
+    projectSmallList['subnational'] = subnationalTemp
+    projectsSmallFull.append(projectSmallList)
 
-print "Project Process Count: %d" % row_count
 
+
+# Sort projects by operating unit
+unitFinal = []
+unitHeader = ['op_unit','projects']
+for unit, index in groupby(units_sort, lambda x: x['operating_unit']): 
+    info = []
+    listing = []
+    for i in index:
+        info.append(i['operating_unit'])
+        for proj in projectsSmallFull:
+            if i['operating_unit'] == proj['op_unit']:
+                listingTemp = {}
+                listingTemp['subnational'] = proj['subnational']
+                listingTemp['id'] = proj['id']
+                listingTemp['title'] = proj['title']
+                listing.append(listingTemp)
+        info.append(listing)   
+    unitFinal.append(dict(zip(unitHeader,info))) # this joins project information, output per project, and documents for each project
+
+# Generate JSONs for each operating unit
+file_count = 0
+for row in unitFinal:
+    file_count = file_count + 1
+    writeout = json.dumps(row, sort_keys=True, separators=(',',':'))
+    f_out = open('../api/units/%s.json' % row['op_unit'], 'wb')
+    f_out.writelines(writeout)
+    f_out.close()
+print '%d operating unit files generated...' % file_count
+
+# Generate JSONs for each project
 file_count = 0
 for row in projectsFull:
     file_count = file_count + 1

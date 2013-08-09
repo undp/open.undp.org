@@ -1,31 +1,45 @@
 views.ProjectMap = Backbone.View.extend({
     events: {
         'click .map-fullscreen': 'fullscreen',
-        'mouseover img.simplestyle-marker': 'tooltipFlip'
     },
 
     initialize: function() {
         if (this.options.render) this.render();
     },
   
+    tooltip: function(data, g) {
+        var scope = (g.scope[data.scope]) ? g.scope[data.scope].split(':')[0] : 'unknown',
+            type = (g.type[data.type]) ? g.type[data.type].split(':')[0] : 'unknown',
+            precision = (g.precision[data.precision]) ? g.precision[data.precision].split(' ')[0] : 'unknown';
+
+        var description = '<div><b>Location type:</b> <span class="value">' + type + '</span></div>'
+                        + '<div><b>Scope:</b> <span class="value">' + scope + '</span></div>'
+                        + '<div><b>Precision:</b> <span class="value">' + precision + '</span></div>';
+       
+        return description;
+    },
     render: function() {
         var view = this,
             locations = [],
             count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
             unit = this.model.get('operating_unit_id'),
             subLocations = this.model.get('subnational');
-
-        view.map = mapbox.map(this.el, null, null, null).setZoomRange(2, 17);
-        var mbLayer = mapbox.layer().tilejson(TJ);
-        view.map.addLayer(mbLayer);
-        view.map.ui.zoomer.add();
-        view.map.ui.attribution.add();
-        
-        $('.map-attribution').html(mbLayer._tilejson.attribution);
-        $(view.el).append('<a href="#" class="map-fullscreen"></a>');
-
-        var markers = mapbox.markers.layer();
-
+        if(view.map){view.map.remove()}
+        view.map = L.mapbox.map(this.el,TJ.id,{
+            minZoom: TJ.minzoom,
+            maxZoom: TJ.maxzoom,
+            noWrap: true
+        });
+        view.map.on('ready',function(){ // once the map is loaded, append the fullscreen button to the control-zoom div
+            $('.leaflet-control-zoom','.leaflet-control-container').append('<a href="#" class="icon map-fullscreen"></a>')
+        });
+        // for countries with no subnational data
+        var star = L.icon({
+            iconUrl: 'img/star.png',
+            iconSize: [18, 18],
+            iconAnchor: [9, 9],
+            popupAnchor: [18, 18]
+        });
         $.getJSON('api/operating-unit-index.json', function(data) {
             for (var i = 0; i < data.length; i++) {
                 var o = data[i];
@@ -34,32 +48,26 @@ views.ProjectMap = Backbone.View.extend({
                     view.getwebData(o);
                     $('#country-summary').html(templates.ctrySummary(o));
 
-                    if (subLocations.length <= 0) { 
+                    //no subLocation for the project
+                    if (subLocations.length <= 0) {
+                        $('#profilemap').hide();
+                        $('.label').hide();
                         if (o.lon) {
-                            locations.push({
-                                geometry: {
-                                    coordinates: [
-                                        o.lon,
-                                        o.lat
-                                    ]
-                                },
-                                properties: {
-                                    id: o.id,
-                                    project: view.model.get('project_title'),
-                                    name: o.name
-                                }
-                            });
-
-                            locations[0].properties['marker-color'] = '#2970B8';
+                            // if the unit has a centroid
+                            // give a star icon, but no need for any other info
+                            L.marker([o.lat,o.lon],{icon:star}).addTo(view.map);
+                            view.map.setView([o.lat,o.lon],2);
                         }
-                        createMarkers(locations);
                     } else {
+                        $('#profilemap').show();
+                        $('.label').show();
                         $.getJSON('api/subnational-locs-index.json', function(g) {
-                        
                             var count = 0;
                             _.each(subLocations, function (o) {
                                 locations.push({
+                                    type: "Feature",
                                     geometry: {
+                                        type: "Point",
                                         coordinates: [
                                             o.lon,
                                             o.lat
@@ -76,28 +84,18 @@ views.ProjectMap = Backbone.View.extend({
                                         'marker-size': 'small'
                                     } 
                                 });
-                               
-                                if (o.type == 1){locations[count].properties['marker-color'] = '#049FD9';}
-                                else if (o.type == 2){locations[count].properties['marker-color'] = '#DD4B39';}
+
+                                if (o.type == 1){locations[count].properties['marker-color'] = '#049FD9';} // 1 - "Country level accuracy."
+                                else if (o.type == 2){locations[count].properties['marker-color'] = '#DD4B39';} // 2 - "ADM1 = Sub-region (administrative division, state, district, province) level accuracy.",
                                 count += 1;
                             });
-                         createMarkers(locations);
-                        });
+                            view.map.setView([locations[0].geometry.coordinates[1],locations[0].geometry.coordinates[0]],2);
+                            view.map.markerLayer.setGeoJSON({
+                                type:"FeatureCollection",
+                                features: locations
+                            });
+                         });
                     }
-                }
-            }
-
-            function createMarkers(x) {
-                if (x.length !== 0) {
-                    markers.features(x);
-                    mapbox.markers.interaction(markers);
-                    view.map.extent(markers.extent());
-                    view.map.addLayer(markers);
-                    if (x.length === 1) {
-                        view.map.zoom(4);
-                    }
-                } else {
-                    view.map.centerzoom({lat:20, lon:0}, 2);
                 }
             }
         });
@@ -105,28 +103,11 @@ views.ProjectMap = Backbone.View.extend({
 
     fullscreen: function(e) {
         e.preventDefault();
-
         this.$el.toggleClass('full');
+        $('.map-fullscreen').toggleClass('full');
         $('.country-profile').toggleClass('full');
-        
-        if (this.$el.hasClass('full')) {
-            this.map.setSize({ x: 540, y: 338 });
-        } else {
-            this.map.setSize({ x: 218, y: 200 });
-        }
-    },
-
-    tooltip: function(data, g) {
-        var scope = (g.scope[data.scope]) ? g.scope[data.scope].split(':')[0] : 'unknown',
-            type = (g.type[data.type]) ? g.type[data.type].split(':')[0] : 'unknown',
-            precision = (g.precision[data.precision]) ? g.precision[data.precision].split(' ')[0] : 'unknown';
-
-        var description = '<div><b>Location type:</b> <span class="value">' + type + '</span></div>'
-                        + '<div><b>Scope:</b> <span class="value">' + scope + '</span></div>'
-                        + '<div><b>Precision:</b> <span class="value">' + precision + '</span></div>';
-       
-        return description;
-    },
+        app.projects.map.map.requestRedraw();
+   },
 
     getwebData: function(data) {
         var view = this,
@@ -476,16 +457,5 @@ views.ProjectMap = Backbone.View.extend({
                 $(this).find('.text').text('Hide Details');
             }
         });
-    },
-
-    tooltipFlip: function(e) {
-        var $target = $(e.target),
-            top = $target.offset().top - this.$el.offset().top;
-        if (top <= 70) {
-            var tipSize = $('.marker-popup').height() + 15;
-            $('.marker-tooltip')
-                .addClass('flip')
-                .css('margin-top',tipSize + $target.height());
-        }
     }
 });
