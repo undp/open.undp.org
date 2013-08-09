@@ -515,6 +515,9 @@ input[readonly] {
 /*-----------------------------------
   Big number stats beside map
 -------------------------------------*/
+.layer-shadow {
+  box-shadow: inset 0px 2px 15px 0px rgba(60,60,60 ,.2);
+}
 .layers {
   width:100%;
   margin:10px 0 -1px;
@@ -522,7 +525,8 @@ input[readonly] {
   .layers li {
     display:block;
     float:left;
-    width:20%;
+    width:19.817%;
+    border-left: 1px solid #E3E3E3;
     }
     .layers li a {
       display:block;
@@ -533,13 +537,39 @@ input[readonly] {
       .layers li:last-child a.active {
         border:none;
         }
-      .layers li a:hover {
+      .layers li:hover {
         background:#f0f0f0;
         }
+      .layers li a.hdi:hover {
+        background:#f0f0f0;
+        }
+      .layers li.no-hover {
+        border-left: 1px solid #fff;
+        background: none;
+        cursor: default;
+        }
+   /*   .layers li a.no-hover:hover {
+        background: none;
+        cursor: default;
+        }*/
       .layers li a.active {
         background:#05a;
         position:relative;
         }
+.graph {
+  display: none;
+}
+.graph.active {
+  display: block;
+  width: 40px;
+  font-weight: bold;
+  background: #D5EFFB;
+  color: #666;
+  padding: 1px;
+  margin-top: 2px;
+  -webkit-border-radius:3px;
+          border-radius:3px;
+}
 
 .total {
   display:block;

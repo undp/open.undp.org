@@ -206,16 +206,29 @@ routers.App = Backbone.Router.extend({
         var opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
         // if the operating unit filter exists, aka if it is an object
         if(_.isObject(opUnitFilter)){
-            $('ul.layers').hide();
-            if (!$('.map-container').hasClass('small')){
-                $('.map-container').toggleClass('small');
-                $('#homemap').toggleClass('small');
-            }
+            $('.map-btn').removeClass('active');
+            $('ul.layers li').addClass('no-hover');
+            // $('ul.layers li a').addClass('no-hover');
+            $('ul.layers').removeClass('layer-shadow');
+            $('li.hdi').addClass('layer-shadow');
+            $('span.graph').addClass('active');
         } else {
-            $('ul.layers').show();
-            $('.map-container').removeClass('small');  
-            $('#homemap').removeClass('small');
+            $('ul.layers li').removeClass('no-hover');
+            // $('ul.layers li a').removeClass('no-hover');
+            $('ul.layers').addClass('layer-shadow');
+            $('li.hdi').removeClass('layer-shadow');
+            $('span.graph').removeClass('active');
         }
+        // Disable click on ul.layers when operating_unit is selected
+        // $('ul.layers a').click(function(e){
+        //     if($('ul.layers li a').hasClass('no-hover')){
+        //         return false;
+        //     } else if ($('ul.layers li a').hasClass('hdi')){
+        //         return true;
+        //     } else {
+        //         return true;
+        //     }
+        // });
 
         function updateDescription() {
             setTimeout(function() {
