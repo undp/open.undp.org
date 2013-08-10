@@ -20,7 +20,7 @@ models.Subnational = Backbone.Model.extend({
                         },
                     "geometry": {
                         "type": "Point",
-                        "coordinates": [parseFloat(data.lat),parseFloat(data.lon)]
+                        "coordinates": [parseFloat(data.lon),parseFloat(data.lat)]
                         }
                     };
                 geojson.push(feature);   
