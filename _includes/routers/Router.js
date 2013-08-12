@@ -207,18 +207,15 @@ routers.App = Backbone.Router.extend({
         // if the operating unit filter exists, aka if it is an object
         if(_.isObject(opUnitFilter)){
             $('.map-btn').removeClass('active');
-            $('ul.layers li').addClass('no-hover');
-            $('ul.layers li a').css('cursor','default');
             $('ul.layers').removeClass('layer-shadow');
-            $('li.hdi').addClass('layer-shadow');
-            $('li.hdi a').addClass('cursor');
+            $('ul.layers li').addClass('no-hover');
+            $('ul.layers li.hdi').addClass('layer-shadow');
             $('span.graph').addClass('active');
         } else {
-            $('ul.layers li').removeClass('no-hover');
-            $('ul.layers li a').css('cursor','auto');
+            $('.map-btn.budget').addClass('active');
             $('ul.layers').addClass('layer-shadow');
-            $('li.hdi').removeClass('layer-shadow');
-            $('li.hdi a').removeClass('cursor');
+            $('ul.layers li').removeClass('no-hover');
+            $('ul.layers li.hdi').removeClass('layer-shadow');
             $('span.graph').removeClass('active');
         }
 
