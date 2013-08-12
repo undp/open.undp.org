@@ -4,7 +4,8 @@ views.Map = Backbone.View.extend({
     },
     render: function() {
         var view = this;
-        if (view.map){view.map.remove()}
+        if (view.map){view.map.remove()} // remove previous map, same concept as view.$el.empty() for updating, http://leafletjs.com/reference.html#map-remove
+
         // Condition for embed
         if (!view.options.embed) {
             layer = $('.map-btn.active').attr('data-value');
@@ -13,7 +14,6 @@ views.Map = Backbone.View.extend({
         }
         // Give map an inner shadow unless browser is IE
         var IE = $.browser.msie;
-        view.$el.empty();
         if (!IE) view.$el.append('<div class="inner-shadow"></div>');
 
         // Create the map with mapbox.js 1.3.1
