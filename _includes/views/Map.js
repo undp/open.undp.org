@@ -6,12 +6,6 @@ views.Map = Backbone.View.extend({
         var view = this;
         if (view.map){view.map.remove()} // remove previous map, same concept as view.$el.empty() for updating, http://leafletjs.com/reference.html#map-remove
 
-        // Condition for embed
-        if (!view.options.embed) {
-            layer = $('.map-btn.active').attr('data-value');
-        } else {
-            layer = 'budget';
-        }
         // Give map an inner shadow unless browser is IE
         var IE = $.browser.msie;
         if (!IE) view.$el.append('<div class="inner-shadow"></div>');
@@ -19,10 +13,10 @@ views.Map = Backbone.View.extend({
         // Create the map with mapbox.js 1.3.1
         view.map = L.mapbox.map(this.el,TJ.id,{ //basemap tilejson is hardcoded into the site as variable TJ
             center: [0,0],
-            zoom: 2,
+            zoom: TJ.minzoom,
             minZoom: TJ.minzoom,
-            maxZoom: TJ.maxzoom,
-            noWrap: true
+            maxZoom: TJ.maxzoom
+            // worldCopyJump: true <-- buggy http://leafletjs.com/reference.html#map-worldcopyjump
         });
 
         // among all the filters find the operating unit filter
@@ -36,7 +30,7 @@ views.Map = Backbone.View.extend({
             view.markers = new L.featureGroup()
         };
 
-        view.buildLayer(layer);
+        view.buildLayer('budget');//budget is the default layer
     },
     // UTIL set marker scale depending on type of data
     scale: function(cat,x) {
@@ -149,7 +143,7 @@ views.Map = Backbone.View.extend({
             filteredMarkers = _(filteredMarkers).flatten(false).filter(function(o){return _.isObject(o)}); //filter out those null
 
             if (noGeo != 0 && !hasGeo){
-                $('#description p .geography').html(' None of these projects has associated geography.');
+                $('#description p .geography').html(' None of these projects have associated geography.');
             } else if (noGeo != 0 && hasGeo) {
                 var noGeography = " <b>" + noGeo
                     + "</b> of them do not have associated geography; the remaining <b>"
