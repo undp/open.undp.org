@@ -2,11 +2,9 @@ views.ProjectMap = Backbone.View.extend({
     events: {
         'click .map-fullscreen': 'fullscreen',
     },
-
     initialize: function() {
         if (this.options.render) this.render();
     },
-  
     tooltip: function(data, g) {
         var scope = (g.scope[data.scope]) ? g.scope[data.scope].split(':')[0] : 'unknown',
             type = (g.type[data.type]) ? g.type[data.type].split(':')[0] : 'unknown',
@@ -24,22 +22,19 @@ views.ProjectMap = Backbone.View.extend({
             count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
             unit = this.model.get('operating_unit_id'),
             subLocations = this.model.get('subnational');
-        if(view.map){view.map.remove()}
+
         view.map = L.mapbox.map(this.el,TJ.id,{
             minZoom: TJ.minzoom,
             maxZoom: TJ.maxzoom,
-            noWrap: true
         });
-        view.map.on('ready',function(){ // once the map is loaded, append the fullscreen button to the control-zoom div
-            $('.leaflet-control-zoom','.leaflet-control-container').append('<a href="#" class="icon map-fullscreen"></a>')
-        });
-        // for countries with no subnational data
-        var star = L.icon({
-            iconUrl: 'img/star.png',
-            iconSize: [18, 18],
-            iconAnchor: [9, 9],
-            popupAnchor: [18, 18]
-        });
+
+        view.map.on('ready',function(){
+            // once the map is loaded, append the fullscreen button to the control-zoom div
+            $('.leaflet-control-zoom','.leaflet-control-container').append('<a href="#" class="icon map-fullscreen"></a>');
+            console.log(view.map.getSize());
+            view.map.invalidateSize({pan:false})
+        })
+
         $.getJSON('api/operating-unit-index.json', function(data) {
             for (var i = 0; i < data.length; i++) {
                 var o = data[i];
@@ -48,19 +43,12 @@ views.ProjectMap = Backbone.View.extend({
                     view.getwebData(o);
                     $('#country-summary').html(templates.ctrySummary(o));
 
-                    //no subLocation for the project
+                    //if there is no subLocation for the project
+                    //hide the map
                     if (subLocations.length <= 0) {
                         $('#profilemap').hide();
                         $('.label').hide();
-                        if (o.lon) {
-                            // if the unit has a centroid
-                            // give a star icon, but no need for any other info
-                            L.marker([o.lat,o.lon],{icon:star}).addTo(view.map);
-                            view.map.setView([o.lat,o.lon],2);
-                        }
                     } else {
-                        $('#profilemap').show();
-                        $('.label').show();
                         $.getJSON('api/subnational-locs-index.json', function(g) {
                             var count = 0;
                             _.each(subLocations, function (o) {
@@ -103,11 +91,12 @@ views.ProjectMap = Backbone.View.extend({
 
     fullscreen: function(e) {
         e.preventDefault();
-        this.$el.toggleClass('full');
+        var view = this;
+        view.$el.toggleClass('full');
+        view.map.invalidateSize({pan:false});
         $('.map-fullscreen').toggleClass('full');
         $('.country-profile').toggleClass('full');
-        app.projects.map.map.requestRedraw();
-   },
+      },
 
     getwebData: function(data) {
         var view = this,
