@@ -239,7 +239,7 @@ views.App = Backbone.View.extend({
                 .value().join('/');
 
             var path = (filters.length) ? year + '/filter/' + filters : year;
-            app.projects.map.map.remove(); // remove previous map, see Map.js for detailed explanation
+            if (app.projects.map.map){app.projects.map.map.remove()}; // remove previous map, see Map.js for detailed explanation
             app.navigate(path, { trigger: true });
         }
     },

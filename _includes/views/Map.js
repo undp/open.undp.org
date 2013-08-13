@@ -168,7 +168,6 @@ views.Map = Backbone.View.extend({
                 }, {
                     filter: function(feature, layer, filter) { // only two cases for type, hard code is fine
                         var subFilter = mapFilter || "0";
-                        console.log(subFilter);
                         if (subFilter === "0"){
                             return feature.properties
                         } else {
