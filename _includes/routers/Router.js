@@ -108,10 +108,10 @@ routers.App = Backbone.Router.extend({
         var filters = _(parts).map(function (part) {
             var filter = part.split('-');
             if (filter[0] === 'operating_unit') {
-                unit = filter[1];//"operating_unit-LBN" returns the unit name
+                unit = filter[1];
             }
             return {
-                collection: filter[0], //eg. for ["region","RBEC"], the collection will be region, and the id to look for is "RBEC"
+                collection: filter[0],
                 id: filter[1]
             };
         });
@@ -201,25 +201,27 @@ routers.App = Backbone.Router.extend({
                 this.projects.cb = updateDescription;
                 this.projects.reset(this.allProjects.filter(filter));
             }
+            
+            updateWhenOpUnit();
         }
-        // Check for operating_unit filter to shrink map
-        var opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
-        // if the operating unit filter exists, aka if it is an object
-        if(_.isObject(opUnitFilter)){
-            $('.map-btn').removeClass('active');
-            $('ul.layers li').addClass('no-hover');
-            $('ul.layers li a').css('cursor','default');
-            $('ul.layers').removeClass('layer-shadow');
-            $('li.hdi').addClass('layer-shadow');
-            $('li.hdi a').addClass('cursor');
-            $('span.graph').addClass('active');
-        } else {
-            $('ul.layers li').removeClass('no-hover');
-            $('ul.layers li a').css('cursor','auto');
-            $('ul.layers').addClass('layer-shadow');
-            $('li.hdi').removeClass('layer-shadow');
-            $('li.hdi a').removeClass('cursor');
-            $('span.graph').removeClass('active');
+
+        function updateWhenOpUnit(){
+            var opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
+            $('.map-filter').removeClass('active') // reset the subfilter look
+            $('#map-filters').find('#type-0').addClass('active');
+            if(_.isObject(opUnitFilter)){
+                $('#map-filters').removeClass('disabled');//shows type sub-filter
+                $('.map-btn').removeClass('active');
+                $('ul.layers').removeClass('layer-shadow');
+                $('ul.layers li').addClass('no-hover');
+                $('ul.layers li.hdi .graph').addClass('active');
+            } else {
+                $('#map-filters').addClass('disabled'); //hides type sub-filter
+                $('.map-btn.budget').addClass('active');
+                $('ul.layers').addClass('layer-shadow');
+                $('ul.layers li').removeClass('no-hover');
+                $('ul.layers li.hdi .graph').removeClass('active');
+            }
         }
 
         function updateDescription() {
@@ -261,6 +263,8 @@ routers.App = Backbone.Router.extend({
         } else {
             app.hdi = false;
             $('#chart-hdi').css('display','none');
+            $('ul.layers li.no-hover.hdi a').css('cursor','default');
+            $('ul.layers li.hdi .graph').removeClass('active');
             if (unit) {
                 $('#hdi').html('no data');
                 $('.map-btn[data-value="hdi"] .total-caption').html('HDI');

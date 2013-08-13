@@ -4,25 +4,19 @@ views.Map = Backbone.View.extend({
     },
     render: function() {
         var view = this;
-        if (view.map){view.map.remove()}
-        // Condition for embed
-        if (!view.options.embed) {
-            layer = $('.map-btn.active').attr('data-value');
-        } else {
-            layer = 'budget';
-        }
+        if (view.map){view.map.remove()} // remove previous map, same concept as view.$el.empty() for updating, http://leafletjs.com/reference.html#map-remove
+
         // Give map an inner shadow unless browser is IE
         var IE = $.browser.msie;
-        view.$el.empty();
         if (!IE) view.$el.append('<div class="inner-shadow"></div>');
 
         // Create the map with mapbox.js 1.3.1
         view.map = L.mapbox.map(this.el,TJ.id,{ //basemap tilejson is hardcoded into the site as variable TJ
             center: [0,0],
-            zoom: 2,
+            zoom: TJ.minzoom,
             minZoom: TJ.minzoom,
-            maxZoom: TJ.maxzoom,
-            noWrap: true
+            maxZoom: TJ.maxzoom
+            // worldCopyJump: true <-- buggy http://leafletjs.com/reference.html#map-worldcopyjump
         });
 
         // among all the filters find the operating unit filter
@@ -36,7 +30,7 @@ views.Map = Backbone.View.extend({
             view.markers = new L.featureGroup()
         };
 
-        view.buildLayer(layer);
+        view.buildLayer('budget');//budget is the default layer
     },
     // UTIL set marker scale depending on type of data
     scale: function(cat,x) {
@@ -149,15 +143,15 @@ views.Map = Backbone.View.extend({
             filteredMarkers = _(filteredMarkers).flatten(false).filter(function(o){return _.isObject(o)}); //filter out those null
 
             if (noGeo != 0 && !hasGeo){
-                $('#description p .geography').html(' None of these projects has associated geography.');
+                $('#description p .geography').html(' None of these projects have associated geography.');
             } else if (noGeo != 0 && hasGeo) {
-                var noGeography = " <b>" + noGeo
+                var noGeoParagraph = " <b>" + noGeo
                     + "</b> of them do not have associated geography; the remaining <b>"
                     + (filteredSubs.length - noGeo)
                     + "</b> have <b>"
                     + filteredMarkers.length
                     + "</b> sub-national locations in total."
-                $('#description p .geography').html(noGeography);
+                $('#description p .geography').html(noGeoParagraph);
             }
 
             // create clustered markers
@@ -167,40 +161,41 @@ views.Map = Backbone.View.extend({
                     'marker-size': 'small'
                     };
 
-                if (mapFilter == undefined){
-                    subFilter = "1"
-                } else (subFilter = mapFilter)
-
-                //var subFilter = "1" || mapFilter; // TODO || not working?
 
                 var filteredMarkersLayer = L.geoJson({
-                        "type":"FeatureCollection",
-                        "features":filteredMarkers
-                    }, {
-                        filter: function(feature, layer) { // only two cases for type, hard code is fine
+                    "type":"FeatureCollection",
+                    "features":filteredMarkers
+                }, {
+                    filter: function(feature, layer, filter) { // only two cases for type, hard code is fine
+                        var subFilter = mapFilter || "0";
+                        console.log(subFilter);
+                        if (subFilter === "0"){
+                            return feature.properties
+                        } else {
                             return feature.properties['type'] === subFilter
-                        },
-                        pointToLayer: function(feature,latlon){
-                            return L.marker(latlon,{
-                                icon: L.mapbox.marker.icon(markerOptions) // use MapBox style markers
-                            })
-                        },
-                        onEachFeature: function (feature, layer) {
-                            var clusterBrief = L.popup({
-                                    closeButton:false,
-                                    offset: new L.Point(0,-20)
-                                }).setContent(view.clusterPopup(feature.properties, subLocIndex)); 
-                            layer.on('mouseover',function(){
-                                clusterBrief.setLatLng(this.getLatLng());
-                                view.map.openPopup(clusterBrief);
-                            }).on('mouseout',function(){
-                                view.map.closePopup(clusterBrief);
-                            }).on('click',function(){
-                                path = '#project/'+ feature.properties.project
-                                view.goToLink(path);
-                            });
                         }
-                    });
+                    },
+                    pointToLayer: function(feature,latlon){
+                        return L.marker(latlon,{
+                            icon: L.mapbox.marker.icon(markerOptions) // use MapBox style markers
+                        })
+                    },
+                    onEachFeature: function (feature, layer) {
+                        var clusterBrief = L.popup({
+                                closeButton:false,
+                                offset: new L.Point(0,-20)
+                            }).setContent(view.clusterPopup(feature.properties, subLocIndex));
+                        layer.on('mouseover',function(){
+                            clusterBrief.setLatLng(this.getLatLng());
+                            view.map.openPopup(clusterBrief);
+                        }).on('mouseout',function(){
+                            view.map.closePopup(clusterBrief);
+                        }).on('click',function(){
+                            path = '#project/'+ feature.properties.project
+                            view.goToLink(path);
+                        });
+                    }
+                });
                 view.markers.addLayer(filteredMarkersLayer);
             });
         };

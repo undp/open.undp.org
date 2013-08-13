@@ -37,8 +37,6 @@ views.App = Backbone.View.extend({
 
     render: function() {
 
-        var layer;
-
         if (this.options.embed) {
             this.$el.empty().append(templates.embedProjects());
             // Depending on the options passed into the array add a fade
@@ -241,7 +239,7 @@ views.App = Backbone.View.extend({
                 .value().join('/');
 
             var path = (filters.length) ? year + '/filter/' + filters : year;
-            
+            app.projects.map.map.remove(); // remove previous map, see Map.js for detailed explanation
             app.navigate(path, { trigger: true });
         }
     },
@@ -265,6 +263,6 @@ views.App = Backbone.View.extend({
             $('.map-filter').removeClass('active');
             anchor.addClass('active')
         }
-        app.projects.map.buildLayer(layer,subFilterValue); // see Map.js
+        app.projects.map.buildLayer('budget',subFilterValue); // see Map.js
     }
 });
