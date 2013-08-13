@@ -145,13 +145,13 @@ views.Map = Backbone.View.extend({
             if (noGeo != 0 && !hasGeo){
                 $('#description p .geography').html(' None of these projects have associated geography.');
             } else if (noGeo != 0 && hasGeo) {
-                var noGeography = " <b>" + noGeo
+                var noGeoParagraph = " <b>" + noGeo
                     + "</b> of them do not have associated geography; the remaining <b>"
                     + (filteredSubs.length - noGeo)
                     + "</b> have <b>"
                     + filteredMarkers.length
                     + "</b> sub-national locations in total."
-                $('#description p .geography').html(noGeography);
+                $('#description p .geography').html(noGeoParagraph);
             }
 
             // create clustered markers
@@ -161,40 +161,41 @@ views.Map = Backbone.View.extend({
                     'marker-size': 'small'
                     };
 
-                if (mapFilter == undefined){
-                    subFilter = "1"
-                } else (subFilter = mapFilter)
-
-                //var subFilter = "1" || mapFilter; // TODO || not working?
 
                 var filteredMarkersLayer = L.geoJson({
-                        "type":"FeatureCollection",
-                        "features":filteredMarkers
-                    }, {
-                        filter: function(feature, layer) { // only two cases for type, hard code is fine
+                    "type":"FeatureCollection",
+                    "features":filteredMarkers
+                }, {
+                    filter: function(feature, layer, filter) { // only two cases for type, hard code is fine
+                        var subFilter = mapFilter || "0";
+                        console.log(subFilter);
+                        if (subFilter === "0"){
+                            return feature.properties
+                        } else {
                             return feature.properties['type'] === subFilter
-                        },
-                        pointToLayer: function(feature,latlon){
-                            return L.marker(latlon,{
-                                icon: L.mapbox.marker.icon(markerOptions) // use MapBox style markers
-                            })
-                        },
-                        onEachFeature: function (feature, layer) {
-                            var clusterBrief = L.popup({
-                                    closeButton:false,
-                                    offset: new L.Point(0,-20)
-                                }).setContent(view.clusterPopup(feature.properties, subLocIndex)); 
-                            layer.on('mouseover',function(){
-                                clusterBrief.setLatLng(this.getLatLng());
-                                view.map.openPopup(clusterBrief);
-                            }).on('mouseout',function(){
-                                view.map.closePopup(clusterBrief);
-                            }).on('click',function(){
-                                path = '#project/'+ feature.properties.project
-                                view.goToLink(path);
-                            });
                         }
-                    });
+                    },
+                    pointToLayer: function(feature,latlon){
+                        return L.marker(latlon,{
+                            icon: L.mapbox.marker.icon(markerOptions) // use MapBox style markers
+                        })
+                    },
+                    onEachFeature: function (feature, layer) {
+                        var clusterBrief = L.popup({
+                                closeButton:false,
+                                offset: new L.Point(0,-20)
+                            }).setContent(view.clusterPopup(feature.properties, subLocIndex));
+                        layer.on('mouseover',function(){
+                            clusterBrief.setLatLng(this.getLatLng());
+                            view.map.openPopup(clusterBrief);
+                        }).on('mouseout',function(){
+                            view.map.closePopup(clusterBrief);
+                        }).on('click',function(){
+                            path = '#project/'+ feature.properties.project
+                            view.goToLink(path);
+                        });
+                    }
+                });
                 view.markers.addLayer(filteredMarkersLayer);
             });
         };
