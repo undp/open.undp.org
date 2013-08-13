@@ -535,7 +535,7 @@ input[readonly] {
   Big number stats beside map
 -------------------------------------*/
 .layer-shadow {
-  box-shadow: inset 0px 2px 15px 0px rgba(60,60,60 ,.2);
+  box-shadow: inset 0px 1px 4px 0px rgba(60,60,60 ,.2);
   }
 .layers {
   width:100%;
@@ -545,7 +545,7 @@ input[readonly] {
     display:block;
     float:left;
     width:19.817%;
-    border-left: 1px solid #E3E3E3;
+    border-left: 1px solid #eee;
     }
   .layers li a {
     display:block;
@@ -553,7 +553,7 @@ input[readonly] {
     height:60px;
     }
   .layers li:hover {
-    background:#f0f0f0;
+    background:#f6f6f6;
     }
   .layers li a.active {
     background:#05a;
@@ -562,8 +562,8 @@ input[readonly] {
   .layers li a.active:hover {
     color: #666;
     }
-  .layers li:last-child a,
-  .layers li:last-child a.active {
+  .layers li.hdi a,
+  .layers li.hdi a.active {
     border:none;
     }
   .layers li.no-hover {
@@ -573,25 +573,34 @@ input[readonly] {
   .layers li.no-hover a {
     cursor:default;
     }
-  .layers li.hdi a{
-    cursor:pointer !important;
+  .layers li.no-hover.hdi a {
+    cursor:pointer;
     }
-
-.graph {
-  display: none;
-}
-.graph.active {
-  display: block;
-  width: 40px;
-  font-weight: bold;
-  background: #D5EFFB;
-  color: #666;
-  padding: 1px;
-  margin-top: 2px;
-  -webkit-border-radius:3px;
-          border-radius:3px;
-}
-
+  .layers li.no-hover.hdi.active a {
+    border:1px solid #eee;
+    }
+  .layers li.no-hover.hdi.active a:hover {
+    color:#f6f6f6;
+    }
+  .layers li.hdi .graph {
+    display: none;
+    padding: 2px 10px;
+    margin-top: 3px;
+    width: 38px;
+    background:#dbe9ed;
+    color:#333;
+    text-transform:uppercase;
+    font-size:10px;
+    font-weight:700;
+    -webkit-border-radius:4px;
+        border-radius:4px;
+    }
+  .layers li.hdi .graph:hover {
+    background:#eee;
+  }
+  .layers li.hdi .graph.active {
+    display:block;
+  }
 .total {
   display:block;
   font-size:15px;
