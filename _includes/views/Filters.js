@@ -47,8 +47,8 @@ views.Filters = Backbone.View.extend({
                             var donorCountryFilter = (donorCountry) ? (model.get('country') === donorCountry) : true;
 
                             return (model.get('visible') && model.get('count') > 0 && donorCountryFilter);
-                        }).first(50).value();
 
+                        }).value();
                     filterCallback();
 
                 }, 0);
@@ -60,7 +60,7 @@ views.Filters = Backbone.View.extend({
                     .filter(function(model) {
                         return (model.get(chartType) > 0);
                     })
-                    .first(20).value();
+                    .first(20).value(); // Top 20
     
                 if (view.collection.id === 'operating_unit') {
                     $('#applied-filters').addClass('no-country');
@@ -79,6 +79,7 @@ views.Filters = Backbone.View.extend({
         
                         view.$('.filter-items').append(templates.filter({ model: model }));
                         $('#' + view.collection.id + '-' + model.id).toggleClass('active', model.get('active'));
+
                         if (model.get('active') && !keypress) {
                             $('#breadcrumbs ul').append(
                                 '<li><a href="' + BASE_URL + '/#filter/' +
@@ -130,7 +131,6 @@ views.Filters = Backbone.View.extend({
             }
     
             $('#chart-' + view.collection.id + '.rows').empty();
-    
             if (chartModels.length <= 1 && view.collection.id !== 'focus_area') {
                 $('#chart-' + view.collection.id)
                     .css('display','none');
