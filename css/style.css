@@ -37,9 +37,6 @@ table {
   border:1px solid #ddd;
   border-collapse:separate;
   *border-collapse:collapsed;
-  -webkit-box-shadow:0 0 4px rgba(0,0,0,0.10);
-     -moz-box-shadow:0 0 4px rgba(0,0,0,0.10);
-          box-shadow:0 0 4px rgba(0,0,0,0.10);
   }
   table th,
   table td {
@@ -49,9 +46,7 @@ table {
     border-top:1px solid #ddd;
     }
   table th {
-    background:#eee;
-    background:-webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#eee));
-    background:-moz-linear-gradient(top, #f6f6f6, #eee);
+    background:#f6f6f6;
     text-shadow:0 1px 0 #fff;
     font-weight:bold;
     vertical-align:bottom;
@@ -290,6 +285,12 @@ input[readonly] {
           border-radius:4px;
   }
 
+/* areas color spans*/
+.democratic {background: #049fd9;}
+.crisis {background:#ff5640;}
+.environment {background:#6ab139;}
+.poverty {background:#c8c605;}
+
 /*-----------------------------------
   Global Layout
 -------------------------------------*/
@@ -456,91 +457,8 @@ input[readonly] {
   z-index: 5;
 }
 
-.map .inner-shadow {
-  position:relative;
-  width:100%;
-  height:100%;
-  z-index:5;
-  pointer-events:none;
-  -webkit-box-shadow:inset 0 0 8px rgba(0,0,0,0.25);
-     -moz-box-shadow:inset 0 0 8px rgba(0,0,0,0.25);
-          box-shadow:inset 0 0 8px rgba(0,0,0,0.25);
-  }
-/* Clustered markers */
-  .marker-title {
-    font-size:13px;
-    font-weight:bold;
-    }
-  .marker-title .subtitle {
-    color:#666;
-    font-size:11px;
-    font-weight:normal;
-    margin-top:-5px;
-    }
-  .marker-title .stat {
-    float:right;
-    }
-  .marker-description {
-    width:100%;
-    font-size:11px;
-    }
-  #profilemap .marker-description {
-    font-size:10px;
-    line-height:15px;
-    }
-  .marker-description .stat {
-    line-height:15px;
-    }
-  .marker-description .stat.active {
-    color:#036;
-    font-weight:bold;
-    }
-  .marker-description .stat .value {
-    font-weight:bold;
-    }
-  .marker-description .data {
-    float:right;
-    width:150px;
-    border-left:1px solid #b3b3b3;
-    padding:5px 0;
-    }
-  .marker-description .data-labels {
-    float:left;
-    text-align:right;
-    font-size:11px;
-    color:#333;
-    font-weight:normal;
-    text-transform:none;
-    margin-right:5px;
-    }
-  .marker-description .data-labels > div {
-    height:18px;
-    }
-  .marker-description .data > div {
-    height:12px;
-    font-size:10px;
-    text-align:right;
-    line-height:12px;
-    color:#fff;
-    padding-right:5px;
-    }
-  .marker-description .data > .subdata {
-    height:3px;
-    margin-bottom:3px;
-    }
-  .flip .marker-popup:after {
-    top:-10px;
-    border-bottom-color:#fff;
-    border-top-color:transparent;
-    }
-  .flip .marker-popup:before {
-    top:-12px;
-    border-bottom-color:#b3b3b3;
-    border-top-color:transparent;
-    }
-
 /*-----------------------------------
-  Big number stats beside map
+  Summary above map
 -------------------------------------*/
 ul.layers {
   width:96%;
@@ -655,14 +573,13 @@ ul.layers {
   top:10px;
   bottom:0;
   }
-
-.separator {
-  background:#f6f6f6;
+.heading-title {
+  line-height:42px;
   }
   p.heading-title {
-    padding: 15px;
-    font-size: 20px;
-    line-height: 30px;
+    font-size:24px;
+    line-height:32px;
+    margin:20px 0 0;
     font-weight:normal;
     color:#666;
     }
@@ -687,37 +604,23 @@ ul.layers {
   }
 
 /* Charts & Graphs */
-#focus {
+h3#focus {
   display:block;
   margin:20px 0 10px;
   }
-  #focus span {
+  h3#focus span {
     font-size:10px;
     font-weight:normal;
     color:#666;
   }
 .chart li.focus {
-  float:left;
-  width:50%;
-  padding: 10px 20px 10px 0;
-  -webkit-box-sizing:border-box;
-     -moz-box-sizing:border-box;
-          box-sizing:border-box;
+  padding: 20px 0;
+  font-size: 15px;
+  font-weight:bold;
   }
   .chart li.focus .pct {
-    float: left;
-    background: #049fd9;
     color:#fff;
-    padding: 10px 4px;
-    font-size: 16px;
-    font-weight:bold;
-    margin: -3px 10px 0 0;
-    position:relative;
-    top:1px;
     }
-  .chart li.focus .pct.crisis {background:#ff5640;}
-  .chart li.focus .pct.environment {background:#6ab139;}
-  .chart li.focus .pct.poverty {background:#c8c605;}
 
 .chart h3 {
   display: inline-block;
@@ -1020,7 +923,7 @@ ul.layers {
   }
 #top-stats .stat {
   padding-bottom:10px;
-  border-bottom:1px solid #b3b3b3;
+  border-bottom:1px solid #ddd;
   }
 #profile .finance [class*='span'] {
   height: 19px;
@@ -1097,7 +1000,7 @@ form {
 }
 #filters .inner, #twitter-block.inner {
   background:#f2faff;
-  border-top:2px solid #B3B3B3;
+  border-top:2px solid #ddd;
   padding:5px 10px 50px 10px;
   }
 
@@ -1298,9 +1201,7 @@ form {
 
 /* project.html */
 .project {
-  border-bottom:1px solid #b4b4b4;
-  margin-bottom:10px;
-  padding-bottom:10px;
+  margin:10px 0;
   }
 .project:last-child {
   padding-bottom: 0;
@@ -1308,21 +1209,40 @@ form {
   box-shadow: none;
   }
 .project .heading {
-  margin-bottom:10px;
+  padding:0 10px;
+  border-top:1px solid #ddd;
+  border-left:1px solid #ddd;
+  border-right:1px solid #ddd;
+  background:#f6f6f6;
   }
-.project .icon-thumbnail {
-  float:left;
-  margin-right:10px;
+.project .content {
+  border-bottom:1px solid #ddd;
+  border-left:1px solid #ddd;
+  border-right:1px solid #ddd;
+  padding:10px;
   }
 .focus-title {
   font-weight:bold;
   }
-
-#outputs .span4 .row-fluid,
-#outputs .span8 .row-fluid {
+.project .span4 .row-fluid,
+.project .span8 .row-fluid {
   margin:10px 0;
   }
-
+.project .focus {
+  margin:10px 0;
+  }
+.project .focus span{
+  padding:0 7px;
+  margin-right:10px;
+  }
+.project h3,
+.project .span5 .row-fluid,
+.project .span7 .row-fluid {
+  margin-bottom:10px;
+  }
+.project .heading p {
+  padding-bottom:10px;
+  }
 #timeline-comp {
   margin-top: 2em;
   }
@@ -1656,7 +1576,7 @@ form {
     border-radius:8px;
     }
   .widget-preview .empty {
-    color:#b3b3b3;
+    color:#ddd;
     text-align:center;
     display:block;
     padding:0 20px;
