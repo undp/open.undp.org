@@ -618,9 +618,17 @@ h3#focus {
   font-size: 15px;
   font-weight:bold;
   }
-  .chart li.focus .pct {
+  .chart li.focus span.pct {
+    display: block;
+    position: absolute;
+    padding: 10px 8px;
+    margin-top: -10px;
     color:#fff;
     }
+  .chart li.focus a {
+    padding-left:65px;
+    }
+
 
 .chart h3 {
   display: inline-block;
