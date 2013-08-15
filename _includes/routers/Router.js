@@ -225,6 +225,11 @@ routers.App = Backbone.Router.extend({
         function updateDescription() {
             setTimeout(function() {
 
+                // empty the sub loc content since
+                // on a DOM level since it is generated with the page/map
+                // instead of beforehdand
+                $('#description p .geography').empty();
+
                 // Clear search values on refresh
                 $('#filters-search, #projects-search').val('');
     
@@ -235,16 +240,32 @@ routers.App = Backbone.Router.extend({
                 } else {
                     $('#chart-focus_area').show();
                 }
-    
-                if (app.description && app.description.length > 1) {
-                    $('#applied-filters').html(app.projects.length + ' Projects Selected');
-                    $('#description p .desc').html(app.description.shift() + app.description.join(',') + '.');
-                } else {
-                    $('#applied-filters').html('All Projects');
-                    $('#description p').html(app.defaultDescription);
+
+                // three kinds of descriptions
+                // 1. no filter --> defaultDescription
+                // 2. filter (no donor) --> start with "The above includes"
+                // 3. filter (with donor) --> start with "DONOR funds the above"
+                var counts = (app.projects.length === 1) ? 'project' : 'projects';
+                    projectCounts = 'The above includes <strong>' + app.projects.length +'</strong> ' + counts;
+
+                if (app.description && app.description.length === 0){
+                    if (app.donorDescription.length > 0) {
+                        $('#description p .desc').html(app.donorDescription + counts +' accoss the world.');
+                    } else {
+                        $('#description p .desc').html(app.defaultDescription);
+                    }
+                } else if (app.description && app.description.length > 0){
+                    if (app.donorDescription.length > 0) {
+                        $('#description p .desc').html(app.donorDescription + counts + ' ' + app.description.join(',') + '.');
+                    } else {
+                        $('#description p .desc').html(projectCounts + app.description.join(',') + '.');
+                    }
                 }
+
+                // reset description
                 app.description = false;
-        
+                app.donorDescription = "";
+
                 $('#browser .summary').removeClass('off');
 
             }, 0);

@@ -73,7 +73,8 @@ views.Filters = Backbone.View.extend({
             function filterCallback() {
                 if (filterModels.length) {
                     view.$el.html(templates.filters(view));
-                    app.description =  app.description || ['The following includes projects'];
+                        app.description = app.description || [];
+                        app.donorDescription = app.donorDescription || [];
         
                     _(filterModels).each(function(model) {
         
@@ -88,7 +89,7 @@ views.Filters = Backbone.View.extend({
                                 model.get('name').toLowerCase().toTitleCase() +
                                 '</a></li>'
                             );
-        
+
                             if (view.collection.id === 'operating_unit') {
                                 app.description.push(' for the <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong> office');
                             }
@@ -107,7 +108,7 @@ views.Filters = Backbone.View.extend({
                                 }
                             }
                             if (view.collection.id === 'donors') {
-                                app.description.push(' funded by the <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong>');
+                                app.donorDescription = '<strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong> funds <strong>' + app.projects.length +'</strong> ';
                             }
                             if (view.collection.id === 'focus_area') {
                                 app.description.push(' with a focus on <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong>');
@@ -129,6 +130,7 @@ views.Filters = Backbone.View.extend({
             }
     
             $('#chart-' + view.collection.id + '.rows').empty();
+
             if (chartModels.length <= 1 && view.collection.id !== 'focus_area') {
                 $('#chart-' + view.collection.id)
                     .css('display','none');

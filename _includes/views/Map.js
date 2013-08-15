@@ -142,9 +142,11 @@ views.Map = Backbone.View.extend({
 
             filteredMarkers = _(filteredMarkers).flatten(false).filter(function(o){return _.isObject(o)}); //filter out those null
 
+            // append sub-national location paragraph directly to the DOM
+            // since it is in the filter collection
             if (noGeo != 0 && !hasGeo){
                 $('#description p .geography').html(' None of these projects have associated geography.');
-            } else if (noGeo != 0 && hasGeo) {
+            } else if (noGeo != 0 && hasGeo){
                 var noGeoParagraph = " <b>" + noGeo
                     + "</b> of them do not have associated geography; the remaining <b>"
                     + (filteredSubs.length - noGeo)
@@ -160,7 +162,6 @@ views.Map = Backbone.View.extend({
                     'marker-color': '0055aa',
                     'marker-size': 'small'
                     };
-
 
                 var filteredMarkersLayer = L.geoJson({
                     "type":"FeatureCollection",
