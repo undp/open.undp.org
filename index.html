@@ -7,17 +7,32 @@
     <meta charset=utf-8 />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>UNDP Projects</title>
-    <link rel='shortcut icon' href='http://akshaysinha.github.io/test/img/favicon.ico'>
+    <link rel='shortcut icon' href='{{base}}/img/favicon.ico'>
     <meta name='viewport' content='width=960, initial-scale=1.0' />
     <meta name='apple-mobile-web-app-status-bar-style' content='black' />
     <meta name='apple-mobile-web-app-capable' content='yes' />
-    <link href='http://akshaysinha.github.io/test/css/reset.css' rel='stylesheet'>
-    <link href='http://akshaysinha.github.io/test/css/global.css' rel='stylesheet'>
-    <link href='http://akshaysinha.github.io/test/ext/bootstrap/css/bootstrap.min.css' rel='stylesheet' />
+    <link href='{{base}}/css/reset.css' rel='stylesheet'>
+    <link href='{{base}}/css/global.css' rel='stylesheet'>
+    <link href='{{base}}/ext/bootstrap/css/bootstrap.min.css' rel='stylesheet' />
     <link href='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.css' rel='stylesheet' />
-    <link href='http://akshaysinha.github.io/test/css/style.css' rel='stylesheet' />
+    <link href='{{base}}/css/style.css' rel='stylesheet' />
 
-    
+    <!--[if IE]><script src='{{base}}/ext/excanvas.js'></script><![endif]-->
+    <script src='{{base}}/ext/jquery.js'></script>
+    <script src='{{base}}/ext/jquery.tweet.js'></script>
+    <script src='{{base}}/ext/jquery.flot.js'></script>
+    <script src='{{base}}/ext/spin.js'></script>
+    <script src='{{base}}/ext/bootstrap/js/bootstrap.js'></script>
+    <script src='{{base}}/ext/underscore.js'></script>
+    <script src='{{base}}/ext/backbone.js'></script>
+    <script src='{{base}}/ext/accounting.js'></script>
+    <script src='{{base}}/ext/chrono.js'></script>
+    <script src='{{base}}/ext/queue.js'></script>
+    <script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.js'></script>
+    <script src='{{base}}/ext/clustr.min.js'></script>
+    <script src='{{base}}/api/hdi.js'></script>
+    <script src='{{base}}/api/year-index.js'></script>
+    <script src='{{base}}/js/script.js'></script>
 </head>
 <!--[if lt IE 7 ]> <body class='ie ie6'> <![endif]-->
 <!--[if IE 7 ]>    <body class='ie ie7'> <![endif]-->
@@ -73,7 +88,7 @@
             <!-- end of #top-navigation -->
             <!-- end of #languages -->
             <!-- end of #main-navigation -->
-            <h1 class='site-title'><a href='http://akshaysinha.github.io/test/'>Our Projects</a></h1>
+            <h1 class='site-title'><a href='{{base}}/'>Our Projects</a></h1>
         </div>
         <!-- end of .content -->
     </div><!-- /#header -->
@@ -84,12 +99,12 @@
         <div id='breadcrumbs' class='clearfix'>
           <ul>
             <li><a href='#'>Home</a></li>
-            <li><a href='http://akshaysinha.github.io/test/'>Our Projects</a></li>
+            <li><a href='{{base}}/'>Our Projects</a></li>
           </ul>
         </div>
         <div id='nav-side' class='col col-150'>
           <ul id='mainnav'>
-            <li class='browser profile active'><a href='http://akshaysinha.github.io/test/'>Projects</a></li>
+            <li class='browser profile active'><a href='{{base}}/'>Projects</a></li>
             <li class='browser profile'><a href='#top-donors/regular'>Top Donors</a></li>
             <li class='browser profile parent'><a class='parent-link' href='#'>About</a>
               <ul id='aboutnav'>
@@ -122,8 +137,10 @@
             <li><a href='#top-donors/total'>Total</a></li>
           </ul>
           <table class='table table-unstyled donor-gross-table'></table>
-          <h3>Support from Programme Country Governments</h3>
-          <p class='heading-desc'>Top 10 contibutors to local resources in 2012</p>
+          {% for donor in site.categories['donors-local'] %}
+          <h3>{{donor.title}}</h3>
+          {{donor.content}}
+          {% endfor %}
           <table class='table table-unstyled donor-local-table'></table>
         </div>
 
@@ -229,22 +246,5 @@
   <div id='fiscalData'>
   </div>
 
-<!--[if IE]><script src='http://akshaysinha.github.io/test/ext/excanvas.js'></script><![endif]-->
-    <script src='http://akshaysinha.github.io/test/ext/jquery.js'></script>
-    <script src='http://akshaysinha.github.io/test/ext/jquery.tweet.js'></script>
-    <script src='http://akshaysinha.github.io/test/ext/jquery.flot.js'></script>
-    <script src='http://akshaysinha.github.io/test/ext/spin.js'></script>
-    <script src='http://akshaysinha.github.io/test/ext/bootstrap/js/bootstrap.js'></script>
-    <script src='http://akshaysinha.github.io/test/ext/underscore.js'></script>
-    <script src='http://akshaysinha.github.io/test/ext/backbone.js'></script>
-    <script src='http://akshaysinha.github.io/test/ext/accounting.js'></script>
-    <script src='http://akshaysinha.github.io/test/ext/chrono.js'></script>
-    <script src='http://akshaysinha.github.io/test/ext/queue.js'></script>
-    <script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.js'></script>
-    <script src='http://akshaysinha.github.io/test/ext/clustr.min.js'></script>
-    <script src='http://akshaysinha.github.io/test/api/hdi.js'></script>
-    <script src='http://akshaysinha.github.io/test/api/year-index.js'></script>
-    <script src='http://akshaysinha.github.io/test/js/script.js'></script>
-    
 </body>
 </html>

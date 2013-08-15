@@ -84,7 +84,7 @@ routers.App = Backbone.Router.extend({
             $('#mainnav li.parent').removeClass('parent-active');
 
             // Set up breadcrumbs
-            $('#breadcrumbs ul').html('<li><a href="http://akshaysinha.github.io/test/">Home</a></li><li><a href="' + BASE_URL + '">Our Projects</a></li>');
+            $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li><li><a href="' + BASE_URL + '">Our Projects</a></li>');
 
             // Load the main app view
             this.app = this.app || new views.App({
@@ -274,11 +274,11 @@ routers.App = Backbone.Router.extend({
 
         // Set up this route
         this.project.model = new models.Project({
-            id: id.replace('000', '')
+            id: id
         });
-		
-		var projectSuccess = function () {
-			if (that.project.view) that.project.view.undelegateEvents();
+
+        var projectSuccess = function () {
+    		if (that.project.view) that.project.view.undelegateEvents();
 			that.project.view = new views.ProjectProfile({
 				el: (embed) ? '#embed' : '#profile',
 				model: that.project.model,
@@ -297,13 +297,31 @@ routers.App = Backbone.Router.extend({
             success: projectSuccess,
 			error: function() {
 				that.project.model = new models.Project({
-					id: '000'+id.replace('000', '')
+					id: id.replace('000', '')
 				});
 				that.project.model.fetch({
 					success: projectSuccess
 				});
 			}
         });
+
+        /*this.project.model.fetch({
+            success: function () {
+                if (that.project.view) that.project.view.undelegateEvents();
+                that.project.view = new views.ProjectProfile({
+                    el: (embed) ? '#embed' : '#profile',
+                    model: that.project.model,
+                    embed: embed || false,
+                    gotoOutput: (output) ? output : false
+                });
+
+                if (!embed) {
+                    that.project.widget = new views.Widget({
+                        context: 'project'
+                    });
+                }
+            }
+        });*/
     },
 
     widget: function (year, route) {

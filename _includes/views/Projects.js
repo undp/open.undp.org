@@ -1,5 +1,5 @@
 views.Projects = Backbone.View.extend({
-	el: '#project-items',
+    el: '#project-items',
 	events: {
 		'click .load a': 'loadMore',
 		'click table tr': 'routeToProject',
