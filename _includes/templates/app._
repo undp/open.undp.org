@@ -90,8 +90,10 @@
         <div class='span12'>
           <div id='description'>
             {% for intro in site.categories.intro %}
-              {{intro.content}}
+            {{intro.content}}
             {% endfor %}
+            <p class='desc'></p>
+            <p class='geography'></p>
           </div>
         </div>
       </div>

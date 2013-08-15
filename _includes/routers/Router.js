@@ -101,7 +101,7 @@ routers.App = Backbone.Router.extend({
         }
 
         // Save default description
-        app.defaultDescription = app.defaultDescription || $('#description p').html();
+        app.defaultDescription = app.defaultDescription || $('#description p.intro').html();
         
         // Parse hash
         var parts = (route) ? route.split('/') : [];
@@ -225,11 +225,6 @@ routers.App = Backbone.Router.extend({
         function updateDescription() {
             setTimeout(function() {
 
-                // empty the sub loc content since
-                // on a DOM level since it is generated with the page/map
-                // instead of beforehdand
-                $('#description p .geography').empty();
-
                 // Clear search values on refresh
                 $('#filters-search, #projects-search').val('');
     
@@ -250,16 +245,18 @@ routers.App = Backbone.Router.extend({
 
                 if (app.description && app.description.length === 0){
                     if (app.donorDescription.length > 0) {
-                        $('#description p .desc').html(app.donorDescription + counts +' accoss the world.');
+                        $('#description p.desc').html(app.donorDescription + counts +' accoss the world.');
                     } else {
-                        $('#description p .desc').html(app.defaultDescription);
+                        $('#description p.desc').html(app.defaultDescription);
                     }
                 } else if (app.description && app.description.length > 0){
                     if (app.donorDescription.length > 0) {
-                        $('#description p .desc').html(app.donorDescription + counts + ' ' + app.description.join(',') + '.');
+                        $('#description p.desc').html(app.donorDescription + counts + ' ' + app.description.join(',') + '.');
                     } else {
-                        $('#description p .desc').html(projectCounts + app.description.join(',') + '.');
+                        $('#description p.desc').html(projectCounts + app.description.join(',') + '.');
                     }
+                } else if (!app.description) {
+                    $('#description p.desc').html(app.defaultDescription);
                 }
 
                 // reset description
@@ -267,6 +264,14 @@ routers.App = Backbone.Router.extend({
                 app.donorDescription = "";
 
                 $('#browser .summary').removeClass('off');
+
+                // defaultDescription is already populated
+                $('#description p.intro').empty();
+
+                // empty the sub loc content since
+                // on a DOM level since it is generated with the page/map
+                // instead of beforehdand
+                $('#description p.geography').empty();
 
             }, 0);
         }

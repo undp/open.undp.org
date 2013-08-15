@@ -145,7 +145,7 @@ views.Map = Backbone.View.extend({
             // append sub-national location paragraph directly to the DOM
             // since it is in the filter collection
             if (noGeo != 0 && !hasGeo){
-                $('#description p .geography').html(' None of these projects have associated geography.');
+                $('#description p.geography').html(' None of these projects have associated geography.');
             } else if (noGeo != 0 && hasGeo){
                 var noGeoParagraph = " <b>" + noGeo
                     + "</b> of them do not have associated geography; the remaining <b>"
@@ -153,7 +153,7 @@ views.Map = Backbone.View.extend({
                     + "</b> have <b>"
                     + filteredMarkers.length
                     + "</b> sub-national locations in total."
-                $('#description p .geography').html(noGeoParagraph);
+                $('#description p.geography').html(noGeoParagraph);
             }
 
             // create clustered markers
