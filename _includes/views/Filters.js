@@ -90,11 +90,9 @@ views.Filters = Backbone.View.extend({
                             );
         
                             if (view.collection.id === 'operating_unit') {
-                                $('#applied-filters').removeClass('no-country');
                                 app.description.push(' for the <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong> office');
                             }
                             if (view.collection.id === 'region') {
-                                $('#applied-filters.no-country').removeClass('no-region');
                                 app.description.push(' in the <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong> region');
                             }
                             if (view.collection.id === 'donor_countries') {
@@ -164,8 +162,7 @@ views.Filters = Backbone.View.extend({
     
                         $el.append(
                             '<li class="focus fa' + model.id + '">' +
-                            '  <span class="icon icon-thumbnail ' + focusIconClass + '"></span>' +
-                            '  <span class="pct"></span><a href="#filter/focus_area-' + model.id + '" class="focus-title">' + focusName + '</a>' +
+                            '  <span class="pct ' + focusIconClass + '"></span><a href="#filter/focus_area-' + model.id + '" class="focus-title">' + focusName + '</a>' +
                             '</li>');
     
                         $('.fa' + (model.id) + ' .pct').text(value + '%');

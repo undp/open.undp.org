@@ -253,12 +253,6 @@ input[readonly] {
   margin-left: 50px;
   line-height: 150%;
 }
-#description p.heading-title {
-  font-size: 20px;
-  margin-top: 10px;
-  line-height: 28px;
-}
-
 /*-----------------------------------
   Icons
 -------------------------------------*/
@@ -285,10 +279,6 @@ input[readonly] {
 .icon.back                    { background-position:-100px 0; }
 .icon.map-fullscreen          { background-position:-168px 4px;}
 .icon.map-fullscreen.full     { background-position:-192px 4px;}
-.icon.democratic              { background-position:0 -30px; }
-.icon.crisis                  { background-position:-65px -30px; }
-.icon.environment             { background-position:-130px -30px; }
-.icon.poverty                 { background-position:-195px -30px; }
 
 .icon.open {
   background-color:#c8dde4;
@@ -317,6 +307,9 @@ input[readonly] {
 #main-container {
   position: relative;
   margin: 0;
+  border-left:  1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom:1px solid #ddd;
   }
   #main-container .span2 {
     padding-top: 20px;
@@ -346,8 +339,9 @@ input[readonly] {
   Maps
 -------------------------------------*/
 .map-container {
-  float:left;
-  width:100%;
+  position:relative;
+  width:96%;
+  margin:20px auto;
   -moz-transition-duration:.5s;
   -webkit-transition-duration:.5s;
   -o-transition-duration:.5s;
@@ -410,7 +404,7 @@ input[readonly] {
 }
 #map-filters {
   width:100%;
-  border-bottom:1px solid #C8DDE4;
+  height:40px;
   }
 #map-filters.disabled {
   display:none;
@@ -537,41 +531,38 @@ input[readonly] {
 /*-----------------------------------
   Big number stats beside map
 -------------------------------------*/
-.layer-shadow {
-  box-shadow: inset 0px 1px 4px 0px rgba(60,60,60 ,.2);
-  }
-.layers {
-  width:100%;
-  margin:10px 0 -1px;
+ul.layers {
+  width:96%;
+  margin:15px 10px;
   }
   .layers li {
     display:block;
     float:left;
-    width:19.817%;
-    border-left: 1px solid #eee;
+    width:20%;
+    border-right:1px dotted #ddd;
+    }
+  .layers li.hdi,
+  .layers li.no-hover.hdi {
+    border-right:none;
+    width:19%;
     }
   .layers li a {
+    padding:10px 0 0 8px;
     display:block;
-    padding:10px;
-    height:60px;
+    width:92%;
+    height:70px;
     }
   .layers li:hover {
     background:#f6f6f6;
     }
   .layers li a.active {
     background:#05a;
-    position:relative;
-    }
-  .layers li a.active:hover {
-    color: #666;
-    }
-  .layers li.hdi a,
-  .layers li.hdi a.active {
-    border:none;
     }
   .layers li.no-hover {
-    border-left: 1px solid #fff;
-    background: none;
+    border-right:1px dotted #fff;
+    }
+  .layers li.no-hover:hover {
+    background:#fff;
     }
   .layers li.no-hover a {
     cursor:default;
@@ -647,18 +638,12 @@ input[readonly] {
   }
 
 .separator {
-  font-size:36px;
-  font-weight:bold;
-  padding:0 0 20px;
-  }
-
-.heading-title {
-  line-height:42px;
+  background:#f6f6f6;
   }
   p.heading-title {
-    font-size:24px;
-    line-height:32px;
-    margin:20px 0 0;
+    padding: 15px;
+    font-size: 20px;
+    line-height: 30px;
     font-weight:normal;
     color:#666;
     }
@@ -701,16 +686,19 @@ input[readonly] {
           box-sizing:border-box;
   }
   .chart li.focus .pct {
-    font-size:18px;
+    float: left;
+    background: #049fd9;
+    color:#fff;
+    padding: 10px 4px;
+    font-size: 16px;
     font-weight:bold;
-    margin-right:5px;
+    margin: -3px 10px 0 0;
     position:relative;
     top:1px;
     }
-  .chart li.focus .icon {
-    float:left;
-    margin-right:10px;
-    }
+  .chart li.focus .pct.crisis {background:#ff5640;}
+  .chart li.focus .pct.environment {background:#6ab139;}
+  .chart li.focus .pct.poverty {background:#c8c605;}
 
 .chart h3 {
   display: inline-block;

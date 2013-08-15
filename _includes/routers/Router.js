@@ -212,13 +212,11 @@ routers.App = Backbone.Router.extend({
             if(_.isObject(opUnitFilter)){
                 $('#map-filters').removeClass('disabled');//shows type sub-filter
                 $('.map-btn').removeClass('active');
-                $('ul.layers').removeClass('layer-shadow');
                 $('ul.layers li').addClass('no-hover');
                 $('ul.layers li.hdi .graph').addClass('active');
             } else {
                 $('#map-filters').addClass('disabled'); //hides type sub-filter
                 $('.map-btn.budget').addClass('active');
-                $('ul.layers').addClass('layer-shadow');
                 $('ul.layers li').removeClass('no-hover');
                 $('ul.layers li.hdi .graph').removeClass('active');
             }
