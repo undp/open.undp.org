@@ -8,7 +8,8 @@ views.Map = Backbone.View.extend({
 
         // Give map an inner shadow unless browser is IE
         var IE = $.browser.msie;
-        if (!IE) view.$el.append('<div class="inner-shadow"></div>');
+        if (!IE) {view.$el.append('<div class="inner-shadow"></div>')
+        } else { view.$el.addClass('border')}
 
         // Create the map with mapbox.js 1.3.1
         view.map = L.mapbox.map(this.el,TJ.id,{ //basemap tilejson is hardcoded into the site as variable TJ
