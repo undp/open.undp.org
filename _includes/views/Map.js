@@ -192,7 +192,7 @@ views.Map = Backbone.View.extend({
                         }).on('mouseout',function(){
                             view.map.closePopup(clusterBrief);
                         }).on('click',function(){
-                            path = '#project/'+ feature.properties.project
+                            path = '#project/'+ feature.properties.project;
                             view.goToLink(path);
                         });
                     }
@@ -216,8 +216,12 @@ views.Map = Backbone.View.extend({
                             view.map.closePopup(brief);
                             circleHighlight(circleMarker);
                         }).on('click',function(e){
+                        if (app.app.filters.length === 0 ){
                             path = '#filter/operating_unit-' + e.target.feature.properties.id;
-                            view.goToLink(path);
+                        } else {
+                            path = document.location.hash + '/operating_unit-' +  e.target.feature.properties.id;
+                        }
+                        view.goToLink(path);
                         })
                 }
             });

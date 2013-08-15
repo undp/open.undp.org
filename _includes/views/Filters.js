@@ -163,6 +163,8 @@ views.Filters = Backbone.View.extend({
                                 ((model.get('budget') || 0) / total * 100).toFixed(0);
     
                         $el.append(
+                            //TODO so they can interact with the other filters
+
                             '<li class="focus fa' + model.id + '">' +
                             '  <span class="pct ' + focusIconClass + '"></span><a href="#filter/focus_area-' + model.id + '" class="focus-title">' + focusName + '</a>' +
                             '</li>');
