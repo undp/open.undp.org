@@ -12,17 +12,21 @@ views.Map = Backbone.View.extend({
         } else { view.$el.addClass('border')}
 
         // Create the map with mapbox.js 1.3.1
-        view.map = L.mapbox.map(this.el,TJ.id,{ //basemap tilejson is hardcoded into the site as variable TJ
-            center: [0,0],
-            zoom: TJ.minzoom,
+        view.map = L.mapbox.map(this.el,TJ.id,{
             minZoom: TJ.minzoom,
             maxZoom: TJ.maxzoom
-            // worldCopyJump: true <-- buggy http://leafletjs.com/reference.html#map-worldcopyjump
+            // worldCopyJump: true // <-- buggy http://leafletjs.com/reference.html#map-worldcopyjump
         });
+        regionFilter =_(app.app.filters).findWhere({collection:"region"});
 
-        // among all the filters find the operating unit filter
+        if(_.isObject(regionFilter)){
+            view.zoomToRegion(regionFilter.id)
+        } else {
+            view.map.setView([0,0],2)
+        }
+
+        // create marker or cluster layer based on the operating unit filter
         view.opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
-
         if (_.isObject(view.opUnitFilter)){
             view.markers = new L.MarkerClusterGroup({
                 showCoverageOnHover:false
@@ -32,6 +36,21 @@ views.Map = Backbone.View.extend({
         };
 
         view.buildLayer('budget');//budget is the default layer
+    },
+    zoomToRegion: function(region){
+        if (region === "RBA"){
+            this.map.setView([0,20],3)
+        } else if (region === "RBAP"){
+            this.map.setView([37,80],2)
+        } else if (region === "RBAS" || region === "PAPP"){
+            this.map.setView([32,32],3)
+        } else if (region === "RBEC"){
+            this.map.setView([50,55],3)
+        } else if (region === "RBLAC"){
+            this.map.setView([-2,-67],2)
+        } else if (region === "global"){
+            this.map.setView([0,0],2)
+        }
     },
     // UTIL set marker scale depending on type of data
     scale: function(cat,x) {
@@ -100,7 +119,7 @@ views.Map = Backbone.View.extend({
                 fillColor: options.fillColor || '#0055aa',
                 fillOpacity: options.fillOpacity || 0.6
             })
-        }
+        };
 
         if(_.isObject(view.opUnitFilter)){
             subs = new models.Subnationals();
@@ -142,6 +161,8 @@ views.Map = Backbone.View.extend({
             });
 
             filteredMarkers = _(filteredMarkers).flatten(false).filter(function(o){return _.isObject(o)}); //filter out those null
+            var verbDo = (noGeo === 1) ? "does" : "do";
+            var verbHave = (noGeo === 1) ? "has" : "have";
 
             // append sub-national location paragraph directly to the DOM
             // since it is in the filter collection
@@ -149,7 +170,7 @@ views.Map = Backbone.View.extend({
                 $('#description p.geography').html(' None of these projects have associated geography.');
             } else if (noGeo != 0 && hasGeo){
                 var noGeoParagraph = " <b>" + noGeo
-                    + "</b> of them do not have associated geography; the remaining <b>"
+                    + "</b> of them " + verbDo + " not" + verbHave + " associated geography; the remaining <b>"
                     + (filteredSubs.length - noGeo)
                     + "</b> have <b>"
                     + filteredMarkers.length
