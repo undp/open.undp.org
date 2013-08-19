@@ -589,19 +589,13 @@ ul.layers {
   bottom:0;
   }
 .heading-title {
-  line-height:42px;
+  font-size:18px;
+  line-height:32px;
   }
-  p.heading-title {
-    font-size:24px;
-    line-height:32px;
-    margin:20px 0 0;
-    font-weight:normal;
-    color:#666;
-    }
-    p.heading-title strong {
-      color:#333;
-      }
-  #project-heading p.heading-title {
+.heading-title strong {
+  color:#333;
+  }
+  #project-heading .heading-title {
     margin-top:0;
     color: #333;
     font-weight:bold;
@@ -612,7 +606,9 @@ ul.layers {
     font-size:18px;
     line-height:24px;
     font-weight:normal;
-    margin:5px 0 10px;
+  }
+  .projects #top-stats .label {
+    margin-bottom:10px;
   }
 .modal.fade {
   top: 50%;
@@ -990,14 +986,14 @@ form {
 #siderail {
   position: relative;
 }
+.col-filter h3{
+  float: left;
+  font-size:15px;
+  line-height: 28px;
+}
 #yearselect {
   padding: 0 10px;
   text-align: right;
-}
-#yearselect h3 {
-  float: left;
-  line-height: 32px;
-  margin-bottom: 5px;
 }
 #yearselect .nav {
   margin-left: 138px;
@@ -1024,7 +1020,7 @@ form {
 }
 #filters .inner, #twitter-block.inner {
   background:#f2faff;
-  border-top:2px solid #ddd;
+  border-top:1px solid #ddd;
   padding:5px 10px 50px 10px;
   }
 
@@ -1063,7 +1059,7 @@ form {
   left: 505px;
   }
 #filters-search {
-  margin-bottom:20px;
+  margin:10px 0 30px;
   background:rgba(255, 255, 255, 0.6);
   padding-right:30px;
   width:180px;
@@ -1086,6 +1082,7 @@ form {
     line-height:18px;
     padding:8px 10px;
     }
+    .topics:hover .label,
     .topics li a:hover,
     .topics li a:focus,
     #output-nav li a:hover {
@@ -1095,10 +1092,25 @@ form {
 
 .icon.reset {
   position:absolute;
-  top:5px;
+  top:14px;
   left:195px;
   }
 
+.topics .label {
+  font-size:10px;
+  text-transform:uppercase;
+  cursor: pointer;
+  padding: 10px;
+  -webkit-touch-callout:none;
+  -webkit-user-select:none;
+   -khtml-user-select:none;
+     -moz-user-select:none;
+      -ms-user-select:none;
+          user-select:none;
+  }
+.topics.active .label {
+  color: #333;
+  }
 .topics.filtered li a.active,
 .topics.active li a.active {
   background:#434C54 url(../img/sprite.png) no-repeat 240px -150px;
@@ -1141,22 +1153,6 @@ form {
     margin-right:-20px;
     }
 
-.topics .label {
-  font-size:10px;
-  text-transform:uppercase;
-  cursor: pointer;
-  padding: 10px;
-  -webkit-touch-callout:none;
-  -webkit-user-select:none;
-   -khtml-user-select:none;
-     -moz-user-select:none;
-      -ms-user-select:none;
-          user-select:none;
-  }
-.topics.active .label {
-  color: #333;
-  }
-
 .tab-content {
   overflow:visible;
   }
@@ -1188,12 +1184,9 @@ form {
   .topics .label,
   #content-right .label {
     display:block;
-    color:#05A;
     border-bottom:1px solid #C8DDE4;
     }
-    .topics .label:hover {
-      color:#0055AA;
-      }
+    .topics .label:hover,
     .topics.active .label:hover {
       color:#333;
       }
