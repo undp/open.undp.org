@@ -9,7 +9,6 @@ views.Map = Backbone.View.extend({
     },
     render: function() {
         var view = this;
-        view.$el.find('.inner-grey').remove();
         if (view.map){view.map.remove()} // remove previous map, same concept as view.$el.empty() for updating, http://leafletjs.com/reference.html#map-remove
 
         // Create the map with mapbox.js 1.3.1
@@ -144,8 +143,24 @@ views.Map = Backbone.View.extend({
                         }
                     });
 
-                    var parent = _(country.models).findWhere({id:view.opUnitFilter.id});
+                    var parent = _(country.models).findWhere({id:view.opUnitFilter.id}),
+                        iso = parseInt(parent.get('iso_num'));
                     view.map.setView([parent.lat,parent.lon],3); //why is the lat and lon reversed here?
+
+                    //draw country outline with the topojson file
+                    $.getJSON('api/world-110m.json',function(world){
+                        var topoFeatures = topojson.feature(world, world.objects.countries).features,
+                            selectedFeature = _(topoFeatures).findWhere({id:iso});
+
+                            countryOutline = L.geoJson(selectedFeature, {
+                                style: {
+                                    "color": "#b5b5b5",
+                                    "weight": 3,
+                                    clickable: false
+                                    }
+                            }).addTo(view.map);
+                        });
+
                 } else {
                     renderCircles(country);
                     if(_.isObject(view.regionFilter)){
@@ -178,10 +193,10 @@ views.Map = Backbone.View.extend({
             // append sub-national location paragraph directly to the DOM
             // since it is in the filter collection
             if (noGeo != 0 && !hasGeo){
-                if (!view.IE){view.$el.prepend('<div class="inner-grey"><p>None of these projects have associated geography.</p></div>')};
+                $('#description p.geography').html("None of these projects have associated geography.");
             } else if (noGeo != 0 && hasGeo){
                 var noGeoParagraph = " <b>" + noGeo
-                    + "</b> of them " + verbDo + " not" + verbHave + " associated geography; the remaining <b>"
+                    + "</b> of them " + verbDo + " not " + verbHave + " associated geography; the remaining <b>"
                     + (filteredSubs.length - noGeo)
                     + "</b> have <b>"
                     + filteredMarkers.length
