@@ -435,6 +435,9 @@ input[readonly] {
     padding:10px;
     border:1px solid #ddd;
   }
+  .country-profile.nogeo .inner {
+    padding:46px 10px;
+  }
   .country-profile h3 {
     display:block;
     margin-bottom:10px;
@@ -550,7 +553,6 @@ ul.layers {
 .total-caption {
   color:#666;
   }
-
 .summary {
   position:relative;
   left:0;
@@ -561,7 +563,6 @@ ul.layers {
   .summary.off {
     left:-1000px;
     }
-
 .raised {
   background: white;
   box-shadow: 0 10px 20px #999;
@@ -1214,6 +1215,10 @@ form {
   }
 
 /* project.html */
+.projects.summary {
+  padding-top:10px;
+  border-top:2px solid #f6f6f6;
+}
 .project {
   margin:10px 0;
   }
@@ -1252,7 +1257,7 @@ form {
 .project h3,
 .project .span5 .row-fluid,
 .project .span7 .row-fluid {
-  margin-bottom:10px;
+  margin:10px 0;
   }
 .project .heading p {
   padding-bottom:10px;

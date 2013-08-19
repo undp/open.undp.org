@@ -31,7 +31,6 @@ views.ProjectMap = Backbone.View.extend({
         view.map.on('ready',function(){
             // once the map is loaded, append the fullscreen button to the control-zoom div
             $('.leaflet-control-zoom','.leaflet-control-container').append('<a href="#" class="icon map-fullscreen"></a>');
-            console.log(view.map.getSize());
             view.map.invalidateSize({pan:false})
         })
 
@@ -43,13 +42,30 @@ views.ProjectMap = Backbone.View.extend({
                     view.getwebData(o);
                     $('#country-summary').html(templates.ctrySummary(o));
 
-                    //if there is no subLocation for the project
-                    //hide the map
-                    if (subLocations.length <= 0) {
-                        $('#profilemap').hide();
-                        $('.label').hide();
+                    if (!o.lon) {// if the unit has no geography
+                        view.$el.prev().hide();
+                        view.$el.next().addClass('nogeo');
+                        view.$el.hide();
                     } else {
-                        $.getJSON('api/subnational-locs-index.json', function(g) {
+                        var iso = parseInt(o.iso_num);
+
+                        $.getJSON('api/world-110m.json',function(world){
+                            var topoFeatures = topojson.feature(world, world.objects.countries).features,
+                            selectedFeature = _(topoFeatures).findWhere({id:iso});
+
+                            outline = L.geoJson(selectedFeature, {
+                                style: {
+                                    "color": "#b5b5b5",
+                                    "weight": 3,
+                                    clickable: false
+                                }
+                            }).addTo(view.map);
+                        });
+
+                        if (subLocations.length <= 0) {
+                            view.map.setView([o.lat,o.lon],3);
+                        } else {
+                            $.getJSON('api/subnational-locs-index.json', function(g) {
                             var count = 0;
                             _.each(subLocations, function (o) {
                                 locations.push({
@@ -83,6 +99,8 @@ views.ProjectMap = Backbone.View.extend({
                                 features: locations
                             });
                          });
+
+                        }
                     }
                 }
             }

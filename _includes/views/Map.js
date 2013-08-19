@@ -148,6 +148,7 @@ views.Map = Backbone.View.extend({
                         iso = parseInt(parent.get('iso_num'));
 
                     if (_.isNaN(iso)){
+                        view.map.setView([0,-15],2);
                         view.$el.prepend('<div class="inner-grey"><p>The operating unit does not have a geographic location.</p></div>');
                     } else {
                         view.map.setView([parent.lat,parent.lon],3); //why is the lat and lon reversed here
@@ -171,7 +172,7 @@ views.Map = Backbone.View.extend({
                     if(_.isObject(view.regionFilter)){
                         view.zoomToRegion(view.regionFilter.id);
                     } else {
-                        view.map.setView([0,0],2);
+                        view.map.setView([0,-15],2);
                     }
                 }
             }
