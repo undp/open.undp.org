@@ -9,6 +9,7 @@ views.Map = Backbone.View.extend({
     },
     render: function() {
         var view = this;
+        view.$el.find('.inner-grey').remove();
         if (view.map){view.map.remove()} // remove previous map, same concept as view.$el.empty() for updating, http://leafletjs.com/reference.html#map-remove
 
         // Create the map with mapbox.js 1.3.1
@@ -145,21 +146,25 @@ views.Map = Backbone.View.extend({
 
                     var parent = _(country.models).findWhere({id:view.opUnitFilter.id}),
                         iso = parseInt(parent.get('iso_num'));
-                    view.map.setView([parent.lat,parent.lon],3); //why is the lat and lon reversed here?
 
-                    //draw country outline with the topojson file
-                    $.getJSON('api/world-110m.json',function(world){
-                        var topoFeatures = topojson.feature(world, world.objects.countries).features,
+                    if (_.isNaN(iso)){
+                        view.$el.prepend('<div class="inner-grey"><p>The operating unit does not have a geographic location.</p></div>');
+                    } else {
+                        view.map.setView([parent.lat,parent.lon],3); //why is the lat and lon reversed here
+                        //draw country outline with the topojson file
+                        $.getJSON('api/world-110m.json',function(world){
+                            var topoFeatures = topojson.feature(world, world.objects.countries).features,
                             selectedFeature = _(topoFeatures).findWhere({id:iso});
 
-                            countryOutline = L.geoJson(selectedFeature, {
+                            outline = L.geoJson(selectedFeature, {
                                 style: {
                                     "color": "#b5b5b5",
                                     "weight": 3,
                                     clickable: false
-                                    }
+                                }
                             }).addTo(view.map);
                         });
+                    }
 
                 } else {
                     renderCircles(country);

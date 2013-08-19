@@ -411,7 +411,9 @@ input[readonly] {
   transition-duration:.5s;
 }
 #profilemap {
-  width:218px;
+  border-left:  1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-top:  1px solid #ddd;
   height:200px;
   z-index:4;
   }
@@ -419,12 +421,29 @@ input[readonly] {
   width:560px;
   height:300px;
   }
-#profilemap, .country-profile {
+#profilemap,
+.country-profile {
   -webkit-transition: all 0.3s;
   -moz-transition:    all 0.3s;
   -o-transition:      all 0.3s;
   transition:         all 0.3s;
 }
+.country-profile {
+  position: relative;
+  }
+  .country-profile .inner {
+    padding:10px;
+    border:1px solid #ddd;
+  }
+  .country-profile h3 {
+    display:block;
+    margin-bottom:10px;
+    }
+.country-profile.full {
+  width: 560px;
+  z-index: 5;
+}
+
 #map-filters {
   width:100%;
   height:40px;
@@ -450,24 +469,6 @@ input[readonly] {
   color:#fff;
   background:#434C54;
   }
-.country-profile {
-  position: relative;
-  background:#0A294D;
-  color:#bbb;
-  }
-  .country-profile .inner {
-    padding:10px;
-    }
-  .country-profile h3 {
-    color:#fff;
-    display:block;
-    margin-bottom:10px;
-    }
-.country-profile.full {
-  width: 560px;
-  z-index: 5;
-}
-
 /*-----------------------------------
   Summary above map
 -------------------------------------*/
@@ -591,9 +592,7 @@ ul.layers {
 .heading-title {
   font-size:18px;
   line-height:32px;
-  }
-.heading-title strong {
-  color:#333;
+  margin:10px 0;
   }
   #project-heading .heading-title {
     margin-top:0;
@@ -607,14 +606,14 @@ ul.layers {
     line-height:24px;
     font-weight:normal;
   }
-  .projects #top-stats .label {
-    margin-bottom:10px;
-  }
+
 .modal.fade {
   top: 50%;
   }
 
-/* Charts & Graphs */
+/*-----------------------------------
+  Charts and graphs
+-------------------------------------*/
 h3#focus {
   display:block;
   margin:20px 0 10px;
@@ -640,8 +639,6 @@ h3#focus {
   .chart li.focus a {
     padding-left:65px;
     }
-
-
 .chart h3 {
   display: inline-block;
   margin-bottom: 15px;
@@ -687,7 +684,6 @@ h3#focus {
      -moz-box-sizing:border-box;
           box-sizing:border-box;
   }
-
 .chart tr:first-child td {
   border: none!important;
   padding-top: 10px;
@@ -938,12 +934,13 @@ h3#focus {
   font-size: 11px;
   color: #333;
   }
-.project .date, #top-stats .date {
+.project .date,
+#top-stats .date {
   margin-right: 10px;
   }
-#top-stats .stat {
-  padding-bottom:10px;
-  border-bottom:1px solid #ddd;
+#top-stats .stat,
+#top-stats .documents {
+  padding-top:10px;
   }
 #profile .finance [class*='span'] {
   height: 19px;
@@ -1266,10 +1263,6 @@ form {
 .table {
   margin-bottom: 0;
   padding-bottom: 0;
-  }
-
-.projects > .row-fluid .row-fluid {
-  margin-bottom: 10px;
   }
 #progress {
   height:20px;

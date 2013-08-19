@@ -12,15 +12,13 @@
 
     <div class='span5'>
       <div class='row-fluid'>
-        <div class='span12'>
-          <div class='label visible-phone'>Location</div>
-          <div id='profilemap' class='map'></div>
-          <!-- Country at a Glance -->
-          <div class='row-fluid country-profile'>
-            <div class='inner'>
-              <h3><%= model.get('operating_unit') %> at a glance</h3>
-              <div id='country-summary'></div>
-            </div>
+        <div class='label visible-phone'>Location</div>
+        <div id='profilemap' class='map'></div>
+        <!-- Country at a Glance -->
+        <div class='row-fluid country-profile'>
+          <div class='inner'>
+            <h3><%= model.get('operating_unit') %> at a glance</h3>
+            <div id='country-summary'></div>
           </div>
         </div>
       </div>
@@ -153,7 +151,7 @@
         </div>
       </div>
       <% if (!_.isEmpty(documents)) { %>
-      <div class='row-fluid'>
+      <div class='row-fluid documents'>
         <div class='span12'>
           <div class='label'>Documents</div>
           <div id='documents' class='row-fluid'>
