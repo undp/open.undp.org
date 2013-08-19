@@ -374,7 +374,8 @@ for unit, index in groupby(units_sort, lambda x: x['operating_unit']):
         isoTemp = c['iso3'].decode('utf-8')
         isoDecode = isoTemp.encode('ascii', 'ignore')
         if isoDecode == unit:
-            info.append(numDecode)
+            if numDecode != "":
+                info.append(numDecode)
     unitFinal.append(dict(zip(unitHeader,info))) # this joins project information, output per project, and documents for each project
 
 # Generate JSONs for each operating unit
@@ -752,24 +753,14 @@ unitsIndex_sort = sorted(unitsIndex, key = lambda x: x['operating_unit'])
 
 row_count = 0
 opUnit_index = []
-opUnitHeader = ['id','iso_num','name','web','email','project_count','funding_sources_count','budget_sum','expenditure_sum','lat','lon']
+opUnitHeader = ['id','name','web','email','project_count','funding_sources_count','budget_sum','expenditure_sum','lat','lon','iso_num']
 for un,unit in groupby(unitsIndex_sort, lambda x: x['operating_unit']): 
     index = []
     if un != "":
         index.append(un)
         for ctry in country_sort:
             if ctry['iso3'] == un:
-            	print un
                 row_count = row_count + 1
-                for c in iso_sort:
-					# Correct encoding for the match below
-					numTemp = c['iso_num'].decode('utf-8')
-					numDecode = numTemp.encode('ascii','ignore')
-					isoTemp = c['iso3'].decode('utf-8')
-					isoDecode = isoTemp.encode('ascii', 'ignore')
-					if isoDecode == ctry['iso3']:
-						print "we're matching"
-						index.append(numDecode)
                 for u in unit:
                     index.append(u['ou_descr'])
                     index.append(u['web'])
@@ -783,7 +774,14 @@ for un,unit in groupby(unitsIndex_sort, lambda x: x['operating_unit']):
                 if ctry['lat'] != "":
                     index.append(float(ctry['lat']))
                     index.append(float(ctry['lon']))
-                
+                for c in iso_sort:
+					# Correct encoding for the match below
+					numTemp = c['iso_num'].decode('utf-8')
+					numDecode = numTemp.encode('ascii','ignore')
+					isoTemp = c['iso3'].decode('utf-8')
+					isoDecode = isoTemp.encode('ascii', 'ignore')
+					if isoDecode == ctry['iso3']:
+						index.append(numDecode)
                 # Join values to header and append to final object
                 opUnit_index.append(dict(zip(opUnitHeader, index)))
 writeout = json.dumps(opUnit_index, sort_keys=True, separators=(',',':'))
