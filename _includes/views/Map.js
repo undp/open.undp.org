@@ -17,7 +17,7 @@ views.Map = Backbone.View.extend({
             minZoom: TJ.minzoom,
             maxZoom: TJ.maxzoom
             // worldCopyJump: true // <-- buggy http://leafletjs.com/reference.html#map-worldcopyjump
-        });
+            }).setView([0,-15],2);
         view.regionFilter =_(app.app.filters).findWhere({collection:"region"});
         view.opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
 
@@ -28,8 +28,10 @@ views.Map = Backbone.View.extend({
                 showCoverageOnHover:false
             });
         } else {
-            view.markers = new L.featureGroup()
+            view.markers = new L.FeatureGroup();
         };
+
+        view.outline = new L.GeoJSON();
 
         if (!view.options.embed) {
             layer = $('.map-btn.active').attr('data-value') || 'budget';
@@ -107,6 +109,7 @@ views.Map = Backbone.View.extend({
 
         view.map.removeLayer(view.markers); //remove the marker featureGroup from view.map
         view.markers.clearLayers(); // inside of marker featureGroup, clear the layers from the previous build
+        view.outline.clearLayers(); // clear the geoJSON group
 
         var count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
             unit = this.collection; //unit == app.projects
@@ -156,21 +159,23 @@ views.Map = Backbone.View.extend({
 
                     if (_.isNaN(iso)){
                         view.map.setView([0,-15],2);
-                        view.$el.prepend('<div class="inner-grey"><p>The operating unit does not have a geographic location.</p></div>');
+                        view.$el.prepend('<div class="inner-grey"><p>The seleted operating unit and its project(s) do not have associated geography.</p></div>');
                     } else {
                         view.map.setView([parent.lat,parent.lon],3); //why is the lat and lon reversed here
+
                         //draw country outline with the topojson file
                         $.getJSON('api/world-110m.json',function(world){
                             var topoFeatures = topojson.feature(world, world.objects.countries).features,
                             selectedFeature = _(topoFeatures).findWhere({id:iso});
 
-                            outline = L.geoJson(selectedFeature, {
-                                style: {
+                            view.outline.addData(selectedFeature
+                                ).setStyle({
                                     "color": "#b5b5b5",
                                     "weight": 3,
                                     clickable: false
-                                }
-                            }).addTo(view.map);
+                                });
+
+                            view.outline.addTo(view.map);
                         });
                     }
 
@@ -178,8 +183,6 @@ views.Map = Backbone.View.extend({
                     renderCircles(country);
                     if(_.isObject(view.regionFilter)){
                         view.zoomToRegion(view.regionFilter.id);
-                    } else {
-                        view.map.setView([0,-15],2);
                     }
                 }
             }
@@ -187,7 +190,7 @@ views.Map = Backbone.View.extend({
 
         var renderClusters = function(collection){
             var filteredMarkers = [],
-                noGeo = 0;
+                projectWithNoGeo = 0;
                 hasGeo = false;
 
             _(collection.models).each(function(model){
@@ -195,26 +198,26 @@ views.Map = Backbone.View.extend({
                     hasGeo = true;
                     filteredMarkers.push(model.geojson);
                 } else {
-                    noGeo += 1;
+                    projectWithNoGeo += 1;
                 }
             });
 
             filteredMarkers = _(filteredMarkers).flatten(false).filter(function(o){return _.isObject(o)}); //filter out those null
-            var verbDo = (noGeo === 1) ? "does" : "do";
-            var verbHave = (noGeo === 1) ? "has" : "have";
+            var verbDo = (projectWithNoGeo === 1) ? "does" : "do";
+            var verbHave = (projectWithNoGeo === 1) ? "has" : "have";
 
-            // append sub-national location paragraph directly to the DOM
-            // since it is in the filter collection
-            if (noGeo != 0 && !hasGeo){
+            // append sub-national location paragraph
+            if (projectWithNoGeo != 0 && !hasGeo){
+                $('#map-filters').addClass('disabled'); // no sub filter on page
                 $('#description p.geography').html("None of these projects have associated geography.");
-            } else if (noGeo != 0 && hasGeo){
-                var noGeoParagraph = " <b>" + noGeo
+            } else if (projectWithNoGeo != 0 && hasGeo){
+                var projectWithNoGeoParagraph = " <b>" + projectWithNoGeo
                     + "</b> of them " + verbDo + " not " + verbHave + " associated geography; the remaining <b>"
-                    + (filteredSubs.length - noGeo)
+                    + (filteredSubs.length - projectWithNoGeo)
                     + "</b> have <b>"
                     + filteredMarkers.length
                     + "</b> sub-national locations in total."
-                $('#description p.geography').html(noGeoParagraph);
+                $('#description p.geography').html(projectWithNoGeoParagraph);
             }
 
             // create clustered markers

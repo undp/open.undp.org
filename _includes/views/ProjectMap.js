@@ -89,8 +89,8 @@ views.ProjectMap = Backbone.View.extend({
                                     } 
                                 });
 
-                                if (o.type == 1){locations[count].properties['marker-color'] = '#049FD9';} // 1 - "Country level accuracy."
-                                else if (o.type == 2){locations[count].properties['marker-color'] = '#DD4B39';} // 2 - "ADM1 = Sub-region (administrative division, state, district, province) level accuracy.",
+                                if (o.type == 1){locations[count].properties['marker-color'] = '#049FD9';} //Activity
+                                else if (o.type == 2){locations[count].properties['marker-color'] = '#DD4B39';} //Intended Beneficiary
                                 count += 1;
                             });
                             view.map.setView([locations[0].geometry.coordinates[1],locations[0].geometry.coordinates[0]],2);

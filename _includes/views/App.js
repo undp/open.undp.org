@@ -257,7 +257,7 @@ views.App = Backbone.View.extend({
 
         if ($('.map-filter').hasClass('active')){
             $('.map-filter').removeClass('active');
-            anchor.addClass('active')
+            anchor.addClass('active');
         }
         app.projects.map.buildLayer(this.layer,subFilterValue); // see Map.js
     }
