@@ -136,13 +136,6 @@ views.App = Backbone.View.extend({
         return false;
     },
 
-    clearSearch: function(e) {
-        var view = this;
-        e.preventDefault();
-        $(e.target).parent().find('input').val('');
-        app.projects.view.search(e);
-    },
-
     toggleFilter: function (e) {
         var $target = $(e.target),
             cat = $target.attr('data-category'),
@@ -182,6 +175,8 @@ views.App = Backbone.View.extend({
         var $target = $(e.currentTarget);
         $('.map-btn').removeClass('active');
 
+        this.layer = $target.attr('data-value') || 'budget';
+
         // When on operating unit, turn on/off the HDI graph
         if ($('ul.layers li').hasClass('no-hover')){
             if ($target.attr('data-value') === 'hdi' && app.hdi) {
@@ -198,7 +193,8 @@ views.App = Backbone.View.extend({
         } else {
             $target.addClass('active');
         }
-        app.projects.map.buildLayer($target.attr('data-value')); // see Map.js
+
+        app.projects.map.buildLayer(this.layer); // see Map.js
         return false;
     },
 
@@ -263,6 +259,6 @@ views.App = Backbone.View.extend({
             $('.map-filter').removeClass('active');
             anchor.addClass('active')
         }
-        app.projects.map.buildLayer('budget',subFilterValue); // see Map.js
+        app.projects.map.buildLayer(this.layer,subFilterValue); // see Map.js
     }
 });

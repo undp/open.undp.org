@@ -31,7 +31,14 @@ views.Map = Backbone.View.extend({
             view.markers = new L.featureGroup()
         };
 
-        view.buildLayer('budget');//budget is the default layer
+        if (!view.options.embed) {
+            layer = $('.map-btn.active').attr('data-value') || 'budget';
+            if (layer === 'budget' && _.isUndefined(view.opUnitFilter)){$('.map-btn.budget').addClass('active')};
+        } else {
+            layer = 'budget';
+        };
+
+        view.buildLayer(layer);//budget is the default layer
     },
     zoomToRegion: function(region){
         if (region === "RBA"){

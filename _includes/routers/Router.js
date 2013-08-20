@@ -216,7 +216,6 @@ routers.App = Backbone.Router.extend({
                 $('ul.layers li.hdi .graph').addClass('active');
             } else {
                 $('#map-filters').addClass('disabled'); //hides type sub-filter
-                $('.map-btn.budget').addClass('active');
                 $('ul.layers li').removeClass('no-hover');
                 $('ul.layers li.hdi .graph').removeClass('active');
             }
