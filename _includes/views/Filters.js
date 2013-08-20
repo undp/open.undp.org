@@ -71,6 +71,7 @@ views.Filters = Backbone.View.extend({
             }
 
             function filterCallback() {
+
                 if (filterModels.length) {
                     view.$el.html(templates.filters(view));
                         app.description = app.description || [];
@@ -131,6 +132,13 @@ views.Filters = Backbone.View.extend({
     
             $('#chart-' + view.collection.id + '.rows').empty();
 
+            // update hash for charts
+            if (app.app.filters.length === 0 ){
+                var pathTo = '#filter/';
+            } else {
+                pathTo = document.location.hash + "/";
+            };
+
             if (chartModels.length <= 1 && view.collection.id !== 'focus_area') {
                 $('#chart-' + view.collection.id)
                     .css('display','none');
@@ -161,12 +169,11 @@ views.Filters = Backbone.View.extend({
     
                         var value = _(((model.get('budget') || 0) / total)).isNaN() ? 0 :
                                 ((model.get('budget') || 0) / total * 100).toFixed(0);
-    
+
                         $el.append(
-                            //TODO so they can interact with the other filters
 
                             '<li class="focus fa' + model.id + '">' +
-                            '  <span class="pct ' + focusIconClass + '"></span><a href="#filter/focus_area-' + model.id + '" class="focus-title">' + focusName + '</a>' +
+                            '  <span class="pct ' + focusIconClass + '"></span><a href="'+ pathTo + view.collection.id + '-' + model.id + '" class="focus-title">' + focusName + '</a>' +
                             '</li>');
     
                         $('.fa' + (model.id) + ' .pct').text(value + '%');
@@ -248,8 +255,8 @@ views.Filters = Backbone.View.extend({
         
                             var budgetWidth = (donor) ? (donorBudget) : (model.get('budget'));
                             var expenditureWidth = (donor) ? (donorExpenditure) : (model.get('expenditure'));
-        
-                            var caption = '<a href="#filter/' + model.collection.id + '-' + model.get('id') +
+
+                            var caption = '<a href="' + pathTo + model.collection.id + '-' + model.get('id') +
                                 '">' + model.get('name').toLowerCase().toTitleCase() + '</a>';
                             var bar = '<div class="budgetdata" data-budget="' + budgetWidth + '"></div>' + '<div class="subdata" data-expenditure="' + expenditureWidth + '"></div>';
         
