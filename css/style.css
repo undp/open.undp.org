@@ -412,7 +412,7 @@ input[readonly] {
 }
 #profilemap,
 .country-profile {
-  width:210px;
+  width:98%;
   background:#fff;
   -webkit-transition: all 0.3s;
   -moz-transition:    all 0.3s;
@@ -420,10 +420,11 @@ input[readonly] {
   transition:         all 0.3s;
 }
 #profilemap {
+  margin-top:5px;
+  height:210px;
   border-left:  1px solid #ddd;
   border-right: 1px solid #ddd;
   border-top:  1px solid #ddd;
-  height:200px;
   z-index:4;
   }
 #profilemap.full {
@@ -434,7 +435,7 @@ input[readonly] {
   position: relative;
   }
   .country-profile .inner {
-    padding:10px;
+    padding:15px;
     border:1px solid #ddd;
   }
   .country-profile.nogeo .inner {
@@ -938,10 +939,15 @@ h3#focus {
 #top-stats .date {
   margin-right: 10px;
   }
+#top-stats .finance,
+#top-stats .stat {
+  padding-bottom:10px;
+  border-bottom:1px solid #ddd;
+  }
 #top-stats .stat,
 #top-stats .documents {
   padding-top:10px;
-  }
+}
 #profile .finance [class*='span'] {
   height: 19px;
   min-height: 19px;
@@ -1179,7 +1185,7 @@ form {
   position:relative;
   text-transform:capitalize;
   font-size:inherit;
-  padding:0 0 12px;
+  padding:0 0 5px;
   }
   .topics .label,
   #content-right .label {
