@@ -1,6 +1,6 @@
 <div class='row-fluid separator' id='project-heading'>
   <div class='col col-540'>
-    <h3 class='heading-title'><%= model.get('project_title').toLowerCase().toTitleCase() %></h3>
+    <h3 class='heading-title'>&#8857; <%= model.get('project_title').toLowerCase().toTitleCase() %></h3>
     <div id='project-descr'>
       <p class='heading-desc'><%= model.get('project_descr') %></p>
     </div>
@@ -176,11 +176,11 @@
   <!--/ #top-stats -->
   <% if (model.get('outputs')) { %>
     <div class='separator' id='output-header'>
-      <h3 class='heading-title'>
-        <% if (model.get('outputs').length > 1) { %>
-        <span><%= model.get('outputs').length %></span>
+      <h3 class='heading-title'>&#9675; 
+        <% if (model.get('outputs').length === 1) { %>
+        There is <span>1</span> output under this project.<% } else { %>
+        There are <span><%= model.get('outputs').length %></span> outputs under this project.
         <% } %>
-        <% if (model.get('outputs').length === 1) { %>Output<% } else { %>Outputs<% } %>
       </h3>
     </div>
     <div id='outputs'></div>

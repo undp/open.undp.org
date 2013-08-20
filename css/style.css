@@ -383,13 +383,13 @@ input[readonly] {
           box-shadow:inset 0 0 8px rgba(0,0,0,0.25);
   }
 .map .inner-grey {
-  background:rgba(255,255,255,0.4);
+  background:rgba(255,255,255,0.5);
   }
 .map .inner-grey p {
-  padding:150px;
+  padding:150px 100px;
   font-size:15px;
   font-weight:700;
-  color:#434C54;
+  color:#666;
   text-align:center;
   }
 #homemap {
@@ -410,6 +410,15 @@ input[readonly] {
   -o-transition-duration:.5s;
   transition-duration:.5s;
 }
+#profilemap,
+.country-profile {
+  width:210px;
+  background:#fff;
+  -webkit-transition: all 0.3s;
+  -moz-transition:    all 0.3s;
+  -o-transition:      all 0.3s;
+  transition:         all 0.3s;
+}
 #profilemap {
   border-left:  1px solid #ddd;
   border-right: 1px solid #ddd;
@@ -421,13 +430,6 @@ input[readonly] {
   width:560px;
   height:300px;
   }
-#profilemap,
-.country-profile {
-  -webkit-transition: all 0.3s;
-  -moz-transition:    all 0.3s;
-  -o-transition:      all 0.3s;
-  transition:         all 0.3s;
-}
 .country-profile {
   position: relative;
   }
@@ -512,13 +514,7 @@ ul.layers {
     cursor:default;
     }
   .layers li.no-hover.hdi a {
-    cursor:pointer;
-    }
-  .layers li.no-hover.hdi.active a {
-    border:1px solid #eee;
-    }
-  .layers li.no-hover.hdi.active a:hover {
-    color:#f6f6f6;
+    cursor:pointer!important;
     }
   .layers li.hdi .graph {
     display: none;
@@ -533,9 +529,9 @@ ul.layers {
     -webkit-border-radius:4px;
         border-radius:4px;
     }
-  .layers li.hdi .graph:hover {
+  .layers li.hdi .graph.active:hover {
     background:#eee;
-  }
+    }
   .layers li.hdi .graph.active {
     display:block;
   }
@@ -591,22 +587,27 @@ ul.layers {
   bottom:0;
   }
 .heading-title {
-  font-size:18px;
+  font-size:16px;
   line-height:32px;
   margin:10px 0;
+  font-weight:normal;
+  color:#666;
   }
-  #project-heading .heading-title {
-    margin-top:0;
-    color: #333;
-    font-weight:bold;
-    letter-spacing:-1px;
-    }
-  p.heading-desc {
-    color:#666;
-    font-size:18px;
-    line-height:24px;
-    font-weight:normal;
+#project-heading .heading-title,
+.heading-title span {
+  margin-top:0;
+  color: #333;
+  font-weight:bold;
+  letter-spacing:-1px;
+  font-size:18px;
   }
+p.heading-desc {
+  color:#666;
+  font-size:16px;
+  line-height:24px;
+  font-weight:normal;
+  margin-bottom:20px;
+}
 
 .modal.fade {
   top: 50%;
@@ -750,13 +751,10 @@ h3#focus {
   margin-top:10px;
   }
 .details #sparkline {
-  width:516px;
+  width:494px;
   height: 118px;
   background:#fff;
-  border:1px solid #999;
-  -webkit-box-shadow:inset 0 0 4px rgba(0, 0, 0, 0.25);
-     -moz-box-shadow:inset 0 0 4px rgba(0, 0, 0, 0.25);
-          box-shadow:inset 0 0 4px rgba(0, 0, 0, 0.25);
+  border:1px solid #ddd;
   }
   #xlabel {
     font-size:11px;
@@ -799,15 +797,16 @@ h3#focus {
 
 #chart-hdi {
   position: absolute;
-  top: 89px;
+  top: 0;
   left: 0;
+  right:-1px;
   margin: 0;
   height: 365px;
   background: white;
   padding: 10px;
   z-index: 1000;
   display: none;
-  border: 1px solid #B3B3B3;
+  border: 1px solid #ddd;
   -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: inset 0 0 8px rgba(0,0,0,0.25);
   box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.25);
@@ -961,6 +960,9 @@ h3#focus {
   float: right;
   line-height: 22px;
   color: #666;
+}
+#documents {
+  margin-top:-10px;
 }
 .project .projid {
   min-width: 45px;
@@ -1177,7 +1179,7 @@ form {
   position:relative;
   text-transform:capitalize;
   font-size:inherit;
-  padding:0 0 5px;
+  padding:0 0 12px;
   }
   .topics .label,
   #content-right .label {
@@ -1215,10 +1217,6 @@ form {
   }
 
 /* project.html */
-.projects.summary {
-  padding-top:10px;
-  border-top:2px solid #f6f6f6;
-}
 .project {
   margin:10px 0;
   }
