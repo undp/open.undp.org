@@ -1228,7 +1228,6 @@ form {
   -webkit-box-shadow:none;
      -moz-box-shadow:none;
           box-shadow:none;
-
   }
 
 /* project.html */
@@ -1241,17 +1240,22 @@ form {
   box-shadow: none;
   }
 .project .heading {
-  padding:0 10px;
   border-top:1px solid #ddd;
   border-left:1px solid #ddd;
   border-right:1px solid #ddd;
   background:#f6f6f6;
   }
+  .project .heading .focus,
+  .project .heading h3,
+  .project .heading p,
+  .project .content .span5:first-child  {
+    padding-left:10px;
+  }
 .project .content {
+  padding:5px 0;
   border-bottom:1px solid #ddd;
   border-left:1px solid #ddd;
   border-right:1px solid #ddd;
-  padding:10px;
   }
 .focus-title {
   font-weight:bold;
@@ -1318,6 +1322,9 @@ form {
   }
 
 /* twitter feed */
+#content-right {
+  position:absolute;
+}
 #twitter-block {
   display: none;
   }
@@ -1540,11 +1547,15 @@ form {
   Widget Config Modal
 -------------------------------------*/
 #widget {
-  width:860px;
+  width:820px;
   margin:-300px 0 0 -430px;
+  border
   }
+#widget .modal-header {
+  background:#f6f6f6;
+  border:0;
+}
 #widget .modal-body {
-  background:#F2FAFF;
   max-height:500px;
   padding:20px 10px;
   }
@@ -1560,6 +1571,7 @@ form {
     display:block;
     height:30px;
     line-height:30px;
+    font-weight:700;
     padding:0 15px;
     border-bottom:1px solid #f2faff;
     position:relative;
@@ -1594,14 +1606,14 @@ form {
 .widget-preview {
   float:left;
   background:#fff;
-  border:1px solid #B4B4B4;
+  border:1px solid #ddd;
   margin-bottom:20px;
   position:relative;
   z-index:10;
   border-radius:8px;
-  box-shadow:0 0 8px rgba(0,0,0,0.25);
-  width:500px;
-  height:360px;
+  width:640px;
+  height:380px;
+  overflow:scroll;
   }
   .widget-preview iframe {
     border-radius:8px;
@@ -1624,8 +1636,9 @@ form {
   }
 .widget-code {
   background:#fff;
+  border:#ddd;
   font:11px/15px 'Menlo Regular', Consolas, monospace;
-  width:500px;
+  width:630px;
   float:left;
   overflow:hidden;
   cursor:auto;

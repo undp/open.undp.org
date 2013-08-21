@@ -11,15 +11,8 @@ views.Map = Backbone.View.extend({
         var view = this;
         view.$el.find('.inner-grey').remove();
         if (view.map){view.map.remove()} // remove previous map, same concept as view.$el.empty() for updating, http://leafletjs.com/reference.html#map-remove
-
-        // Create the map with mapbox.js 1.3.1
-        view.map = L.mapbox.map(this.el,TJ.id,{
-            minZoom: TJ.minzoom,
-            maxZoom: TJ.maxzoom
-            }).setView([0,-15],2);
         view.regionFilter =_(app.app.filters).findWhere({collection:"region"});
         view.opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
-
 
         // create marker or cluster layer based on the operating unit filter
         if (_.isObject(view.opUnitFilter)){
@@ -35,9 +28,19 @@ views.Map = Backbone.View.extend({
         if (!view.options.embed) {
             layer = $('.map-btn.active').attr('data-value') || 'budget';
             if (layer === 'budget' && _.isUndefined(view.opUnitFilter)){$('.map-btn.budget').addClass('active')};
+            wheelZoom = true;
         } else {
             layer = 'budget';
+            view.map
+            wheelZoom = false;
         };
+
+        // Create the map with mapbox.js 1.3.1
+        view.map = L.mapbox.map(this.el,TJ.id,{
+            minZoom: TJ.minzoom,
+            maxZoom: TJ.maxzoom,
+            scrollWheelZoom: wheelZoom
+            }).setView([0,-15],2);
 
         view.buildLayer(layer);//budget is the default layer
     },

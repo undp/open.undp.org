@@ -58,7 +58,7 @@ views.Widget = Backbone.View.extend({
             view.widgetCode = '<iframe src="' + BASE_URL +
                 'embed.html' + view.path + '?' +
                 widgetOpts.join('&') +
-                '" width="500" height="360" frameborder="0"> </iframe>';
+                '" width="640" height="380" frameborder="0"> </iframe>';
 
             $('.widget-preview', view.$el).html(view.widgetCode);
             $('.widget-code', view.$el)
@@ -67,8 +67,6 @@ views.Widget = Backbone.View.extend({
                 .select();
         } else {
             $('.widget-preview', view.$el).html('<h3 class="empty">To use this widget choose some options on the left.</h3>');
-            $('.widget-code', view.$el)
-                .hide();
         }
 
         return false;
