@@ -16,7 +16,6 @@ views.Map = Backbone.View.extend({
         view.map = L.mapbox.map(this.el,TJ.id,{
             minZoom: TJ.minzoom,
             maxZoom: TJ.maxzoom
-            // worldCopyJump: true // <-- buggy http://leafletjs.com/reference.html#map-worldcopyjump
             }).setView([0,-15],2);
         view.regionFilter =_(app.app.filters).findWhere({collection:"region"});
         view.opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});

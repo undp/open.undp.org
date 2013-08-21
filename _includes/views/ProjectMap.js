@@ -23,16 +23,13 @@ views.ProjectMap = Backbone.View.extend({
             unit = this.model.get('operating_unit_id'),
             subLocations = this.model.get('subnational');
 
-        view.map = L.mapbox.map(this.el,TJ.id,{
-            minZoom: TJ.minzoom,
-            maxZoom: TJ.maxzoom,
-        });
+            view.map = L.mapbox.map(this.el,TJ.id,{
+                minZoom: TJ.minzoom,
+                maxZoom: TJ.maxzoom
+            });
 
-        view.map.on('ready',function(){
-            // once the map is loaded, append the fullscreen button to the control-zoom div
-            $('.leaflet-control-zoom','.leaflet-control-container').append('<a href="#" class="icon map-fullscreen"></a>');
-            view.map.invalidateSize({pan:false})
-        })
+        // adding faux fullscreen control
+        $('#profilemap').append('<div class="full-control"><a href="#" class="icon map-fullscreen"></a></div>');
 
         $.getJSON('api/operating-unit-index.json', function(data) {
             for (var i = 0; i < data.length; i++) {
@@ -106,13 +103,14 @@ views.ProjectMap = Backbone.View.extend({
             }
         });
     },
-
     fullscreen: function(e) {
         e.preventDefault();
         var view = this;
+
         view.$el.toggleClass('full');
         view.map.invalidateSize({pan:false});
-        $('.map-fullscreen').toggleClass('full');
+
+        $('a.map-fullscreen').toggleClass('full');
         $('.country-profile').toggleClass('full');
       },
 
