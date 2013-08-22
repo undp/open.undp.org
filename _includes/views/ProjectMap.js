@@ -29,7 +29,7 @@ views.ProjectMap = Backbone.View.extend({
             });
 
         // adding faux fullscreen control
-        $('#profilemap').append('<div class="full-control"><a href="#" class="icon map-fullscreen"></a></div>');
+        if (!view.options.embed){$('#profilemap').append('<div class="full-control"><a href="#" class="icon map-fullscreen"></a></div>');}
 
         $.getJSON('api/operating-unit-index.json', function(data) {
             for (var i = 0; i < data.length; i++) {

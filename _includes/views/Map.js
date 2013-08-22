@@ -9,10 +9,19 @@ views.Map = Backbone.View.extend({
     },
     render: function() {
         var view = this;
-        view.$el.find('.inner-grey').remove();
+        view.$el.find('.inner-grey').remove(); // remove 'operating unit has no geo' paragraph
         if (view.map){view.map.remove()} // remove previous map, same concept as view.$el.empty() for updating, http://leafletjs.com/reference.html#map-remove
         view.regionFilter =_(app.app.filters).findWhere({collection:"region"});
         view.opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
+
+        if (!view.options.embed) {
+            layer = $('.map-btn.active').attr('data-value') || 'budget';
+            if (layer === 'budget' && _.isUndefined(view.opUnitFilter)){$('.map-btn.budget').addClass('active')};
+            wheelZoom = true;
+        } else {
+            layer = 'budget';
+            wheelZoom = false;
+        };
 
         // create marker or cluster layer based on the operating unit filter
         if (_.isObject(view.opUnitFilter)){
@@ -24,16 +33,6 @@ views.Map = Backbone.View.extend({
         };
 
         view.outline = new L.GeoJSON();
-
-        if (!view.options.embed) {
-            layer = $('.map-btn.active').attr('data-value') || 'budget';
-            if (layer === 'budget' && _.isUndefined(view.opUnitFilter)){$('.map-btn.budget').addClass('active')};
-            wheelZoom = true;
-        } else {
-            layer = 'budget';
-            view.map
-            wheelZoom = false;
-        };
 
         // Create the map with mapbox.js 1.3.1
         view.map = L.mapbox.map(this.el,TJ.id,{
@@ -258,7 +257,7 @@ views.Map = Backbone.View.extend({
                             view.map.closePopup(clusterBrief);
                         }).on('click',function(){
                             path = '#project/'+ feature.properties.project;
-                            view.goToLink(path);
+                            if (!view.options.embed){view.goToLink(path)};
                         });
                     }
                 });
@@ -325,7 +324,7 @@ views.Map = Backbone.View.extend({
                     } else {
                         path = document.location.hash + '/operating_unit-' +  e.target.feature.properties.id;
                     }
-                    view.goToLink(path);
+                    if (!view.options.embed){view.goToLink(path)};
                     })
                 }
             });

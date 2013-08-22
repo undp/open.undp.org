@@ -131,6 +131,7 @@ views.ProjectProfile = Backbone.View.extend({
         this.map = new views.ProjectMap({
             el: '#profilemap',
             model: this.model,
+            embed: this.options.embed,
             render: true
         });
 
@@ -159,13 +160,28 @@ views.ProjectProfile = Backbone.View.extend({
 
     requestIframe: function() {
         var context = $('#widget');
+        widgetOpts = ['title','map','outputs'];
 
-        // Reset things each time the widget
-        // is requested to the page.
-        widgetOpts = []
-        $('.widget-preview', context).html('<h3 class="empty">To use this widget choose some options on the left.</h3>');
-        $('.widget-code', context).hide();
-        $('.widget-options a', context).removeClass('active');
+        $('.widget-options a',context).removeClass('active');
+        _(widgetOpts).each(function(widgetTitle){
+            var widgetEl =widgetTitle + '-opt';
+            $("." + widgetEl).find('a').addClass('active');
+        })
+
+        embedPath = location.hash.replace('project', 'widget/project');
+
+        // defaultIframe = '<iframe src="' + BASE_URL + 'embed.html' + embedPath + '?' +
+        //         widgetOpts.join('&') +
+        //         '" width="680" height="500" frameborder="0"> </iframe>';
+
+        // for testing only, using {{site.baseurl}}
+        defaultIframe = '<iframe src="{{site.baseurl}}/embed.html' + embedPath + '?' +
+        widgetOpts.join('&') +
+        '" width="680" height="500" frameborder="0"> </iframe>';
+        $('.widget-preview', context).html(defaultIframe);
+        $('.widget-code', context)
+            .val(defaultIframe)
+            .select();
     },
 
     loadMore: function(e) {

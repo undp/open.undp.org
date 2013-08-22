@@ -200,13 +200,33 @@ views.App = Backbone.View.extend({
 
     requestIframe: function() {
         var context = $('#widget');
+        widgetOpts = ["title", "map", "projects"]; //default layers for main map
 
-        // Reset things each time the widget
-        // is requested to the page.
-        widgetOpts = []
-        $('.widget-preview', context).html('<h3 class="empty">To use this widget choose some options on the left.</h3>');
-        $('.widget-code', context).hide();
-        $('.widget-options a', context).removeClass('active');
+        $('.widget-options a',context).removeClass('active');
+        _(widgetOpts).each(function(widgetTitle){
+            var widgetEl =widgetTitle + '-opt';
+            $("." + widgetEl).find('a').addClass('active');
+        })
+
+        if (location.hash.split('/').length === 1) {
+            embedPath = location.hash + '/widget/';
+        } else {
+            embedPath = location.hash
+                .replace('filter', 'widget')
+        }
+
+        // defaultIframe = '<iframe src="' + BASE_URL + 'embed.html' + embedPath + '?' +
+        //         widgetOpts.join('&') +
+        //         '" width="680" height="500" frameborder="0"> </iframe>';
+
+        // for testing only, using {{site.baseurl}}
+        defaultIframe = '<iframe src="{{site.baseurl}}/embed.html' + embedPath + '?' +
+        widgetOpts.join('&') +
+        '" width="680" height="500" frameborder="0"> </iframe>';
+        $('.widget-preview', context).html(defaultIframe);
+        $('.widget-code', context)
+            .val(defaultIframe)
+            .select();
     },
 
     submitForm: function(e) {

@@ -240,7 +240,7 @@ routers.App = Backbone.Router.extend({
                 // 2. filter (no donor) --> start with "The above includes"
                 // 3. filter (with donor) --> start with "DONOR funds the above"
                 var counts = (app.projects.length === 1) ? 'project' : 'projects';
-                    projectCounts = 'The above includes <strong>' + app.projects.length +'</strong> ' + counts;
+                    projectCounts = 'There are <strong>' + app.projects.length +'</strong> ' + counts;
 
                 if (app.description && app.description.length === 0){
                     if (app.donorDescription.length > 0) {
