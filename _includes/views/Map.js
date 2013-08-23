@@ -1,21 +1,19 @@
 views.Map = Backbone.View.extend({
     initialize: function() {
         if (this.options.render) this.render();
-
-        // Give map an inner shadow unless browser is IE
-        this.IE = $.browser.msie;
-        if (!this.IE) {this.$el.append('<div class="inner-shadow"></div>')
-        } else { this.$el.addClass('border')};
     },
     render: function() {
         var view = this;
+        view.$el.append('<div class="inner-shadow"></div>');
         view.$el.find('.inner-grey').remove(); // remove 'operating unit has no geo' paragraph
-        if (view.map){view.map.remove()} // remove previous map, same concept as view.$el.empty() for updating, http://leafletjs.com/reference.html#map-remove
+        if (view.map){view.map.remove()}; // remove previous map, same concept as view.$el.empty() for updating, http://leafletjs.com/reference.html#map-remove
+
         view.regionFilter =_(app.app.filters).findWhere({collection:"region"});
         view.opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
 
         if (!view.options.embed) {
             layer = $('.map-btn.active').attr('data-value') || 'budget';
+            // when there is no layer switcher and no filter selected -- a reset to the global map
             if (layer === 'budget' && _.isUndefined(view.opUnitFilter)){$('.map-btn.budget').addClass('active')};
             wheelZoom = true;
         } else {
