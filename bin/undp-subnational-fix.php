@@ -41,8 +41,8 @@ if (($handle = fopen($source, "r")) !== FALSE) {
 			'lat'		=> $data[1],
 			'lon'		=> $data[2],
 			'precision'	=> $data[3],
-			'scope'		=> $data[4],
-			'type'		=> $data[5]
+			'type'		=> $data[4],
+			'scope'		=> $data[5]
 			);
 		$awardIDCount++;
 		
