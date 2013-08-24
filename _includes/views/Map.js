@@ -6,6 +6,7 @@ views.Map = Backbone.View.extend({
         var view = this;
         view.$el.append('<div class="inner-shadow"></div>');
         view.$el.find('.inner-grey').remove(); // remove 'operating unit has no geo' paragraph
+
         if (view.map){view.map.remove()}; // remove previous map, same concept as view.$el.empty() for updating, http://leafletjs.com/reference.html#map-remove
 
         view.regionFilter =_(app.app.filters).findWhere({collection:"region"});
