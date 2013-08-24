@@ -215,11 +215,6 @@ views.App = Backbone.View.extend({
                 .replace('filter', 'widget')
         }
 
-        // defaultIframe = '<iframe src="' + BASE_URL + 'embed.html' + embedPath + '?' +
-        //         widgetOpts.join('&') +
-        //         '" width="680" height="500" frameborder="0"> </iframe>';
-
-        // for testing only, using {{site.baseurl}}
         defaultIframe = '<iframe src="{{site.baseurl}}/embed.html' + embedPath + '?' +
         widgetOpts.join('&') +
         '" width="680" height="500" frameborder="0"> </iframe>';

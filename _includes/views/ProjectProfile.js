@@ -26,7 +26,7 @@ views.ProjectProfile = Backbone.View.extend({
     render: function() {
         $('#breadcrumbs ul').html(
             '<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' +
-            '<li><a href="' + BASE_URL + '">Our Projects</a></li>' +
+            '<li><a href="{{site.baseurl}}">Our Projects</a></li>' +
             '<li><a href="#filter/operating_unit-' + this.model.get('operating_unit_id') + '">' + this.model.get("operating_unit") + '</a></li>' +
             '<li><a href="#project/' + this.model.get('id') + '">' + this.model.get('id') + '</a></li>'
         );
@@ -170,11 +170,6 @@ views.ProjectProfile = Backbone.View.extend({
 
         embedPath = location.hash.replace('project', 'widget/project');
 
-        // defaultIframe = '<iframe src="' + BASE_URL + 'embed.html' + embedPath + '?' +
-        //         widgetOpts.join('&') +
-        //         '" width="680" height="500" frameborder="0"> </iframe>';
-
-        // for testing only, using {{site.baseurl}}
         defaultIframe = '<iframe src="{{site.baseurl}}/embed.html' + embedPath + '?' +
         widgetOpts.join('&') +
         '" width="680" height="500" frameborder="0"> </iframe>';
