@@ -1,242 +1,254 @@
 
-import time, csv, json,  os, re, sys, wget, requests
+import time, csv, json,  os, re, sys, wget, requests, chardet
 from lxml import etree
 from itertools import groupby
 from datetime import datetime
 from sys import argv
 from sets import Set
 
-# set the file location
-projects_file = 'download/atlas_projects_small.xml'
-
-def nodecpy(out, node, name, attrs={}, convert=unicode):
-    if ((node is None) or (node.text is None)):
-        return
-    if node.text:
-        out[name] = convert(node.text)
-    for k, v in attrs.items():
-    	try:
-            out[name + '_' + v] = node.get(k)
-        except AttributeError:
-            pass
-
-def getValue(value):
-    try:
-        return float(value)
-    except ValueError:
-        nicevalue = re.sub(",","",value)
-        return float(nicevalue)
-
-def getFieldsData(fields, activity, out):
-    for field in fields:
-        xpath = field[0]
-        fieldname = field[1]
-        attribs = dict([(k, k) for k in field[2]])
-        nodecpy(out, activity.find(xpath), fieldname, attribs)
-
-def parse_tx(tx):
-    out = {}
-    value = tx.find('value')
-    if value is not None:
-        out['value_date'] = value.get('value-date')
-        out['value_currency'] = value.get('currency')
-        out['value'] = getValue(value.text)
-    fields = [
-      ('description', 'description', {}),
-      ('transaction-type', 'transaction_type', {'code'}),
-      ('flow-type', 'flow_type', {'code'}),
-      ('finance-type', 'finance_type', {'code'}),
-      ('tied-status', 'tied_status', {'code'}),
-      ('aid-type', 'aid_type', {'code'}),
-      ('disbursement-channel', 'disbursement_channel', {'code'}),
-      ('provider-org', 'provider_org', {'ref'}),
-      ('receiver-org', 'receiver_org', {'ref'})
-            ]
-    
-    getFieldsData(fields, tx, out)
-
-    for date in tx.findall('transaction-date'):
-        try:
-            # for some (WB) projects, the date is not set even though the tag exists...
-            if (date is not None):
-                temp = {}
-                nodecpy(temp, date,
-                    'date',
-                    {'iso-date': 'iso-date'})
-
-                date_iso_date = date.get('iso-date')
-
-                if (date_iso_date):
-                    d = (date_iso_date)
-                    out['transaction_date_iso'] = d
-                elif (temp.has_key('date')):
-                    d = (temp['date'])
-                    out['transaction_date_iso'] = d
-
-            else:
-                print "No date!!"
-           
-        except ValueError:
-            pass
-
-    if not (out.has_key('transaction_date_iso')):
-        out['transaction_date_iso'] = out['value_date']
-    return out
-    
-
-def dcntryIndex():
-	# dctry_index = [
-	#     {"id": "OTH","name": "Others"},
-	#     {"id": "MULTI_AGY","name": "Multi-lateral Agency"}
-	# ]
-	# dctryHeader = ['id','name']
-	# dlvl1_check = []
-	# for don,donor in groupby(donor_country_sort, lambda x: x['donor_type_lvl3']):
-	#     row_count = row_count + 1
-	#     index = []
-	#     for d in donor:
-	#         if d['donor_type_lvl1'] == 'PROG CTY' or d['donor_type_lvl1'] == 'NON_PROG CTY':
-	#             if don.replace(" ","") != "":
-	#                 index.append(don.replace(" ",""))
-	#                 index.append(d['donor_type_lvl3_descr'])
-	#     if index:
-	#         dctry_index.append(dict(zip(dctryHeader, index)))
-	
-	print "Donor Country Index Process Count"
-	writeout = json.dumps(dctry_index, sort_keys=True, separators=(',',':'))
-	f_out = open('../api_new/donor-country-index.json', 'wb')
-	f_out.writelines(writeout)
-	f_out.close()
+# Global Output Arrays
+# ********************
+fiscalYears = []
+row_count = 0
+outputs = []
+outputsFull = []
+locationsFull = []
+# outputsHeader = ['output_id','award_id','output_title','output_descr','gender_id','gender_descr','focus_area','focus_area_descr','crs','crs_descr','fiscal_year','budget','expenditure','donor_id','donor_short','donor_name','donor_type_id','donor_type','donor_country_id','donor_country','donor_budget','donor_expend']
 
 
-#outputsHeader = ['output_id','award_id','output_title','output_descr','gender_id','gender_descr','focus_area','focus_area_descr','crs','crs_descr','fiscal_year','budget','expenditure','donor_id','donor_short','donor_name','donor_type_id','donor_type','donor_country_id','donor_country','donor_budget','donor_expend']
-outputsHeader = ['outpud_id','award_id','output_title','output_descr','gender_id','gender_descr','focus_area','focus_area_descr']
+# For donor JSONs
+# ***************
+cntry_donors = csv.DictReader(open('download/undp_export/country_donors.csv','rb'), delimiter = ',', quotechar = '"')
+cntry_donors_sort = sorted(cntry_donors, key = lambda x: x['id'])
 
+# Global Donors Arrays
+# ********************
 dctry_index = [
 	    {"id": "OTH","name": "Others"},
 	    {"id": "MULTI_AGY","name": "Multi-lateral Agency"}
 	]
-dctryHeader = ['id','type','name']
-outputs = []
+donor_index = []
+# for donor index JSON
+donor_header = ['id','name','country']
+donorCtryCheck = []
+donorCtry_index = []
+# for donor country index JSON
+donorCtry_header = ['id','name']
+donorCheck = []
+donorOutput = []
 outputsFull = []
-def outputsLoop(o, award):
-	index = []
-	donorRefs = []
-	money = []
-	for donor in o.findall("./participating-org[@role='Funding']"):
-		donorRefs.append(donor.get('ref'))
-		print donor.text
-		# append to dcntryIndex
-		if donor.get('ref') not in index:
-			index.append(donor.get('ref'))
-			index.append(donor.text)
-			index.append(donor.get('type'))
-		# print indexid
-			# dctry_index.append(dict(zip(dctryHeader, index)))
-	transactions = o.findall('transaction')
-	for tx in transactions:
-		transaction = parse_tx(tx)
-		money.append(transaction)
-		for provider  in tx.iterchildren(tag='provider-org'):
-			for ref in donorRefs:
-				if ref == provider.get('ref'):
-					pass
-	print len(donorRefs)
-	print "    "
-	donorOutputs = []
-	outputList = []
-	outputAward = [award]
+
+# For CRS-index.json
+# ******************
+crs_index = []
+crsCheck = []
+crsHeader = ['id','name']
+
+def outputsLoop(o, output_id):
+	print "         "
+	print "         "
+	print "new ouput"
+	# Outputs 
+	# *******
+	
+	related = o.find("./related-activity[@type='1']")
+	relatedArray = related.get('ref').split('-', 2)
+	rltdProject = relatedArray[2]
 	outputTitle = o.find("./title").text
 	outputDescr = o.find("./description").text
-	# Not in the XML, but not using gender information on the site, 
-	# outputGenID = []
-	# outputGenDescr = []
-	outputFA = []
-	outputFAdescr = []
+	gen = o.find(".policy-marker").attrib
+	outputGenID = gen.get('code')
+	outputGenDescr = o.find(".policy-marker").text
+	# Waiting on UNDP to add output Focus areas to the XML
+	# outputFA = []
+	# outputFAdescr = []
+	outputList = [output_id]
+	outputAward = rltdProject
 	outputCRS = []
 	outputCRSdescr = []
 	outputFY = []
 	outputBudget = []
 	outputExpend = []
-	# for o in output:
-	#     if o['awardid'] not in outputAward:
-	#         outputAward.append((o['awardid'] if o['awardid'] != "" else "-"))
-	#     if o['project_description'] not in outputTitle:
-	#         outputTitle.append((o['project_description'] if o['project_description'] != "" else "-"))
-	#     if o['project_med_de'] not in outputDescr:
-	#         outputDescr.append((o['project_med_de'] if o['project_med_de'] != "" else "-"))
-	#     if o['gender_marker'] not in outputGenID:
-	#         outputGenID.append((o['gender_marker'] if o['gender_marker'] != "" else "-"))
-	#     if o['gender_marker_descr'] not in outputGenDescr:
-	#         outputGenDescr.append((o['gender_marker_descr'] if o['gender_marker_descr'] != "" else "-"))
-	#     if o['focus_area'] not in outputFA:
-	#         outputFA.append((o['focus_area'] if o['focus_area'] != "" else "-"))
-	#     if o['fa_description'] not in outputFAdescr:
-	#         outputFAdescr.append((o['fa_description'] if o['fa_description'] != "" else "-"))
-	#     if o['crs'] not in outputCRS:
-	#         outputCRS.append((o['crs'] if o['crs'] != "" else "-"))
-	#     if o['crs_descr'] not in outputCRSdescr:
-	#         outputCRSdescr.append((o['crs_descr'] if o['crs_descr'] != "" else "-"))
-	#     if o['fiscal_year'] not in outputFY:
-	#         outputFY.append((o['fiscal_year'] if o['fiscal_year'] != "" else "-"))
-	#     outputBudget.append((float(o['budget']) if o['budget'] != "" else 0))
-	#     outputExpend.append((float(o['expenditure']) if o['expenditure'] != "" else 0))
+	# Donors
+	# ******
+	donorRefs = []
+	for donor in o.findall("./participating-org[@role='Funding']"):	
+		ref = donor.get('ref')
+		if ref not in donorRefs:
+			donorRefs.append(ref)
+		# Check for duplicates in donorCheck array
+		if donor.get('ref') not in donorCheck:
+			donorTemp = []
+			donorCtryTemp = []
+			ref = donor.get('ref')
+			donorCheck.append(ref)
+			donorTemp.append(ref)
+			donorTemp.append(donor.text)
+			for d in cntry_donors_sort:
+				# Check IDs from the CSV against the cntry_donors_sort. This provides funding country names not in XML
+				if d['id'] == ref:
+					donorTemp.append(d['country'])
+					if donor.text.find('GOVERNMENT') != -1 and d['country'] != "MULTI_AGY" and d['country'] != "OTH":
+						donorCtryTemp.append(d['country'])
+						donorCtryTemp.append(d['name'])
+						dctry_index.append(dict(zip(donorCtry_header,donorCtryTemp)))
+			donor_index.append(dict(zip(donor_header,donorTemp)))
+		
+	# Find budget information to later append to projectFY array
+	outputYears = []
+	outputBudget = []
+	budgets = o.findall("./budget")
+	for budget in budgets:
+		for b in budget.iterchildren(tag='value'):
+			date = b.get('value-date').split('-', 3)
+			amt = b.text
+			year = date[0]
+			outputBudget.append(amt)
+			if year not in fiscalYears:
+				# Append to global array for year-index.js
+				fiscalYears.append(year) 
+			if year not in outputFY:
+				# Append to output array
+				outputFY.append(year)
+	# Find sectors for crs-index.json
+	outputCRSdescr = []
+	outputCRS = []
+	sector = o.find('sector')
+	if sector.text not in crsCheck:
+		# Set CRS for the output itself
+		outputCRSdescr = sector.text
+		outputCRS = sector.get('code')
+		# Append CRS to global array for index JSON
+		sectorTemp = []
+		crsCheck.append(sector.text)
+		sectorTemp.append(sector.text)
+		sectorTemp.append(sector.get('code'))
+		crs_index.append(dict(zip(crsHeader, sectorTemp)))
+	# Use transaction data to get expenditure and budget by donor
+	donorShort = []
+	donorName = []
+	donorTypeID = []
+	donorType = []
+	donorCtyID = []
+	donorCty = []
+	donorBudget = []
+	donorExpend = []
+	transactions = o.findall('transaction')
+	for d in donorRefs:
+		for tx in transactions:
+			for expen in tx.findall("./transaction-type[@code='E']"):
+				for sib in expen.itersiblings():
+					pass
+			for cmt in tx.findall("./transaction-type[@code='C']") or tx.findall("./transaction-type[@code='IF']"):
+				for sib in cmt.itersiblings():
+					if sib.tag == 'value':
+						value = sib.text
+						
+					if sib.tag == 'provider-org':
+						if d == sib.get('ref'):
+							donorBudget.append(value)
+							if sib.text not in donorName:
+								donorName.append(sib.text)
+	# Get subnational locations
+	locs = []
+	locHeader = ['awardID','lat','lon','precision','name','type']
+	locations = o.findall('location')
+	for location in locations:
+		locTemp = []
+		awardID = rltdProject
+ 		for loc in location.iterchildren():
+			if loc.tag == 'coordinates':
+				lat = loc.get('latitude')
+				lon = loc.get('longitude')
+				precision = loc.get('precision')
+			if loc.tag == 'name':
+				name = loc.text
+			if loc.tag == 'location-type':
+				locType = loc.get('code')
+		locTemp.append(awardID)
+		locTemp.append(lat)
+		locTemp.append(lon)
+		locTemp.append(precision)
+		locTemp.append(name)
+		locTemp.append(locType)
+		locationsFull.append(dict(zip(locHeader,locTemp)))
+	
+	#outputList.append(dOut['donorTypeID'])
+	#outputList.append(dOut['donorType'])
+	#outputList.append(dOut['donorCtyID'])
+	#outputList.append(dOut['donorCty'])
+	#outputList.append(dOut['donorBudget'])
+	#outputList.append(dOut['donorExpend'])
+	
+	outputsHeader = ['output_id',
+	'award_id',
+	'output_title',
+	'output_descr',
+	'gender_id',
+	'gender_descr',
+	'crs',
+	'crs_descr',
+	'fiscal_year',
+	'budget']
+	# 'donor_id',
+	# 'donor_short',
+	# 'donor_name',
+	# 'donor_type_id',
+	# 'donor_type',
+	# 'donor_country_id',
+	# 'donor_country']
 	outputList.append(outputAward)
 	outputList.append(outputTitle)
 	outputList.append(outputDescr)
-	# outputList.append(outputGenID)
-	# outputList.append(outputGenDescr)
+	outputList.append(outputGenID)
+	outputList.append(outputGenDescr)
+	# Waiting on UNDP to add output Focus areas to the XML	
 	# outputList.append(outputFA)
 	# outputList.append(outputFAdescr)
-	# outputList.append(outputCRS)
-	# outputList.append(outputCRSdescr)
-	# outputList.append(outputFY)
-	# outputList.append(outputBudget)
+	outputList.append(outputCRS)
+	outputList.append(outputCRSdescr)
+	outputList.append(outputFY)
+	outputList.append(outputBudget)
+	# outputList.append(donorBudget)
+	# outputList.append(donorName)
 	# outputList.append(outputExpend)
-	# for dOut in donorOutputs:
-	#     if dOut['outputID'] == out:
-	#         outputList.append(dOut['donorID'])
-	#         outputList.append(dOut['donorShort'])
-	#         outputList.append(dOut['donorName'])
-	#         outputList.append(dOut['donorTypeID'])
-	#         outputList.append(dOut['donorType'])
-	#         outputList.append(dOut['donorCtyID'])
-	#         outputList.append(dOut['donorCty'])
-	#         outputList.append(dOut['donorBudget'])
-	#         outputList.append(dOut['donorExpend'])
-	#     outputsFull.append(dict(zip(outputsHeader,outputList))) # this returns a list of dicts of output informaiton for each output
+	outputsFull.append(dict(zip(outputsHeader,outputList))) # this returns a list of dicts of output informaiton for each output
 
+	
+# Global project arrays
+# *********************
 projects = []
 projectsFull = []
 projectsSmallFull = []
 # projectsHeader = ['project_id','project_title','project_descr','inst_id','inst_descr','inst_type_id','inst_type_descr','fiscal_year','start','end','operating_unit_id','operating_unit','region_id','region_name','outputs','document_name','subnational']
-projectsHeader = ['project_id','project_title','project_descr','start','end','inst_id','inst_descr','inst_type_id','subnational','operating_unit','operating_unit_id','document_name']
+projectsHeader = ['project_id','project_title','project_descr','start','end','inst_id','inst_descr','inst_type_id','operating_unit','operating_unit_id','document_name']
 projectsSmallHeader = ['project_id','title','subnational']
+units = csv.DictReader(open('download/undp_export/report_units.csv', 'rb'), delimiter = ',', quotechar = '"')
+units_sort = sorted(units, key = lambda x: x['operating_unit'])
 
 def loopData(file_name, key):
-# Get CSVs
+	# Get CSVs
 	subnational = csv.DictReader(open('download/undp_export/subnational.csv','rb'), delimiter = ',', quotechar = '"')
 	subnational_sort = sorted(subnational, key = lambda x: x['awardID'])
-	units = csv.DictReader(open('download/undp_export/report_units.csv', 'rb'), delimiter = ',', quotechar = '"')
-	units_sort = sorted(units, key = lambda x: x['operating_unit'])
 	bureau = csv.DictReader(open('download/undp_export/regions.csv', 'rb'), delimiter = ',', quotechar = '"')
 	bureau_sort = sorted(bureau, key = lambda x: x['bureau'])
-# Get IATI activities XML
+	# Get IATI activities XML
 	context = iter(etree.iterparse(file_name,tag='iati-activity'))
-# Loop through each IATI activity in the XML
+	# Loop through each IATI activity in the XML
 	row_count = 0
 	projectSmallList = {}
 	projects = []
 	for event, p in context:
 		docTemp = []
-	# IATI hierarchy used to determine if output or input1
+		projectFY = []
+		# IATI hierarchy used to determine if output or input1
 		hierarchy = p.attrib['hierarchy']
 		current = p.attrib['default-currency']
 		awardArray = p[1].text.split('-', 2)
 		award = awardArray[2]
 		implement = p.find("./participating-org[@role='Implementing']")
 		if hierarchy == '2':	
-		# Send the outputs to a separate function, to be joined to their projects later.
+			# Send the outputs to a separate function, to be joined to their projects later.
 			outputsLoop(p, award)
 
 		# Check for projects		
@@ -248,38 +260,33 @@ def loopData(file_name, key):
 			subnationalTemp = []
 			award_title = p.find("./title").text
 			award_description = p.find("./description").text
-			
-		# Get document-links
+			# Get document-links
 			documents = p.findall("./document-link")
 			docLinks = []
 			docNames = []
 			for doc in documents:
-			# Determine how to get a name when title does not exist in XML
-			# name =  doc.get('url').split('/', 20)
 				docLinks.append(doc.get('url'))
-				try:
-					for d in doc.iterchildren(tag='title'):
-						# print "this has title"
-						docNames.append(d.text)
-				except: 
-					docNames.append('no title for this document')
-			docTemp.append(docNames)
-			docTemp.append(docLinks)
-			projectFY = [] 
+				for d in doc.iterchildren(tag='title'):
+					docNames.append(d.text)
+			if docNames:
+				docTemp.append(docNames)
+				docTemp.append(docLinks)
+			# Find start and end dates
 			start_date = p.find("./activity-date[@type='start-planned']").text
 			end_date = p.find("./activity-date[@type='end-planned']").text
-			op_unit = p.find("./recipient-country").attrib
-			operatingunit = op_unit.get('code')
-			ou_descr = p.find("./recipient-country").text
-			bureau = []
-			bureau_description = []
-		
-		# Append all items to the project Array
+			# Find recipient country for operating_unit_id
+			try: 
+				op_unit = p.find("./recipient-country").attrib
+				ou_descr = p.find("./recipient-country").text
+				operatingunit = op_unit.get('code')
+			except: 
+				pass
+			# Append all items to the project Array
 			projectList.append(award_title)
 			projectList.append(award_description)
 			projectList.append(start_date)
 			projectList.append(end_date)
-		# Check for implementing organization 
+			# Check for implementing organization 
 			try: 
 				inst = p.find("./participating-org[@role='Implementing']").attrib
 				inst_descr = p.find("./participating-org[@role='Implementing']").text
@@ -289,8 +296,10 @@ def loopData(file_name, key):
 				projectList.append(inst_descr)
 				projectList.append(inst_type_id)
 			except: 
-				pass
-			projectList.append(subnationalTemp)
+				projectList.append("")
+				projectList.append("")
+				projectList.append("")
+			# projectList.append(subnationalTemp)
 			projectList.append(ou_descr)
 			projectList.append(operatingunit)
 			projectList.append(docTemp)
@@ -306,23 +315,186 @@ def loopData(file_name, key):
 			# projectSmallList['subnational'] = subnationalTemp
 			# projectsSmallFull.append(projectSmallList)
 
-# Take outputs Array and join to projects
-#def joinOutputs():
-	# outputTemp = []
-	# for out in outputsFull:
-	#     if out['award_id'] == award:
-	#         outputTemp.append(out)
-	# projectList.append(outputTemp)
-	# for doc in docProjects:
-	#     if doc['projectID'] == award:
-	#         docTemp.append(doc['docName'])
-	#         docTemp.append(doc['docURL'])
-	# projectList.append(docTemp)
 
+def createSummary():
+	## Process Project Summary file
+	# *****************************
+	projectSum = csv.DictReader(open('download/undp_export/report_projects.csv', 'rb'), delimiter = ',', quotechar = '"')
+	projectSum_sort = sorted(projectSum, key = lambda x: x['fiscal_year'])
+	
+	regionsList = ['PAPP','RBA','RBAP','RBAS','RBEC','RBLAC']
+	
+	row_count = 0
+	yearJson = []
+	yearList = []
+	projectSumHeader = ['fiscal_year','id','name','operating_unit','region','budget','expenditure','crs','focus_area','donors','donor_types','donor_countries','donor_budget','donor_expend']
+	for year,projectYears in groupby(projectSum_sort, lambda x: x['fiscal_year']):
+		projectSummary = []
+		yearJson.append(year)
+		yearSummary = {'year':"",'summary':""} 
+		for award,summary in groupby(sorted(fiscalYears, key = lambda x: x['awardID']), lambda x: x['awardID']): 
+			row_count = row_count + 1
+			summaryList = [year]
+			summaryList.append(award)
+			projectFY = []
+			docTemp = []
+			for s in summary:
+				summaryList.append(s['award_title'])
+				summaryList.append(s['operatingunit'])
+				if s['bureau'] not in regionsList:
+					summaryList.append('global')
+				else:
+					summaryList.append(s['bureau'])
+				summaryList.append(float(s['budget']))
+				summaryList.append(float(s['expenditure']))
+			crsTemp = []
+			faTemp = []
+			for out in outputsFull:
+			    if out['award_id'] == award:
+			        if out['crs'] not in crsTemp:
+			            crsTemp.append(out['crs'])
+			        if out['focus_area'] not in faTemp:
+			            faTemp.append(out['focus_area'])
+			summaryList.append(crsTemp)
+			summaryList.append(faTemp)
+			dTemp = []
+			dtypeTemp = []
+			dCtyTemp = []
+			dBudget = []
+			dExpend = []
+			if year in donorYearList:
+			    for dProj in donorYearList[year]:
+			        if dProj['projectID'] == award:
+			            dTemp = dProj['donorID']
+			            dtypeTemp = dProj['donorTypeID']
+			            dCtyTemp = dProj['donorCtyID']
+			            dBudget = dProj['donorBudget']
+			            dExpend = dProj['donorExpend']
+			summaryList.append(dTemp)
+			summaryList.append(dtypeTemp)
+			summaryList.append(dCtyTemp)
+			summaryList.append(dBudget)
+			summaryList.append(dExpend)
+			projectSummary.append(dict(zip(projectSumHeader,summaryList))) # this joins the project summary information 
+		yearSummary['year'] = year
+		yearSummary['summary'] = projectSummary 
+		yearList.append(yearSummary)
+	
+	print "Project Summary Process Count: %d" % row_count
+	
+	for y in yearList:
+	    jsvalue = "var SUMMARY = "
+	    jsondump = json.dumps(y['summary'], sort_keys=True, separators=(',',':'))
+	    writeout = jsvalue + jsondump
+	    f_out = open('../api/project_summary_%s.js' % y['year'], 'wb')
+	    f_out.writelines(writeout)
+	    f_out.close()
+	    f_out = open('../api/project_summary_%s.json' % y['year'], 'wb')
+	    f_out.writelines(jsondump)
+	    f_out.close()
+	print 'Project Summary json files generated...'
+
+
+# 1. Scipt starts here
+# *****************
+# Specify XML project file location
+projects_file = 'download/atlas_projects_small.xml'
 loopData(projects_file,'document-link')
-print dctry_index
-print len(dctry_index) 
-dcntryIndex()
+
+# 2. Joing outputs to projects
+
+regionsList = ['PAPP','RBA','RBAP','RBAS','RBEC','RBLAC']
+row_count = 0
+yearJson = []
+yearList = []
+
+for year in fiscalYears:
+	projectSummary = []
+	yearJson.append(year)
+	yearSummary = {'year':"",'summary':""} 
+	for row in projectsFull:
+
+		# Join outputs
+		row['outputs'] = []
+		for o in outputsFull:
+			if row['project_id'] == o['award_id']:
+				row['outputs'].append(o)
+		row['subnational'] = []
+		for l in locationsFull:
+			if row['project_id'] == l['awardID']:
+				row['subnational'].append(l)
+		# join region information
+		row['region_id'] = []
+		for r in units_sort:
+			try:
+				if row['operating_unit_id'] == r['iati_operating_unit']:
+					row['region_id'] = r['bureau']
+			except: 
+				pass
+
+# OLD VERSION OF SUMMMARY
+# ((((((((((())))))))))))
+regionsList = ['PAPP','RBA','RBAP','RBAS','RBEC','RBLAC']
+
+row_count = 0
+yearJson = []
+yearList = []
+projectSumHeader = ['fiscal_year','id','name','operating_unit','region','budget','expenditure','crs','focus_area','donors','donor_types','donor_countries','donor_budget','donor_expend']
+for year,projectYears in groupby(projectSum_sort, lambda x: x['fiscal_year']):
+    projectSummary = []
+    yearJson.append(year)
+    yearSummary = {'year':"",'summary':""} 
+    for award,summary in groupby(sorted(projectYears, key = lambda x: x['awardID']), lambda x: x['awardID']): 
+		row_count = row_count + 1
+		summaryList = [year]
+		summaryList.append(award)
+		projectFY = []
+		docTemp = []
+		for s in summary:
+		    summaryList.append(s['award_title'])
+		    summaryList.append(s['operatingunit'])
+		    if s['bureau'] not in regionsList:
+		        summaryList.append('global')
+		    else:
+		        summaryList.append(s['bureau'])
+		    summaryList.append(float(s['budget']))
+		    summaryList.append(float(s['expenditure']))
+		crsTemp = []
+		faTemp = []
+		for out in outputsFull:
+		    if out['award_id'] == award:
+		        if out['crs'] not in crsTemp:
+		            crsTemp.append(out['crs'])
+		        if out['focus_area'] not in faTemp:
+		            faTemp.append(out['focus_area'])
+		summaryList.append(crsTemp)
+		summaryList.append(faTemp)
+		dTemp = []
+		dtypeTemp = []
+		dCtyTemp = []
+		dBudget = []
+		dExpend = []
+		if year in donorYearList:
+		    for dProj in donorYearList[year]:
+		        if dProj['projectID'] == award:
+		            dTemp = dProj['donorID']
+		            dtypeTemp = dProj['donorTypeID']
+		            dCtyTemp = dProj['donorCtyID']
+		            dBudget = dProj['donorBudget']
+		            dExpend = dProj['donorExpend']
+		summaryList.append(dTemp)
+		summaryList.append(dtypeTemp)
+		summaryList.append(dCtyTemp)
+		summaryList.append(dBudget)
+		summaryList.append(dExpend)
+		projectSummary.append(dict(zip(projectSumHeader,summaryList))) # this joins the project summary information 
+	yearSummary['year'] = year
+	yearSummary['summary'] = projectSummary 
+	yearList.append(yearSummary)
+
+# 3. Generate JSONs
+# ****************
+
 # Generate JSONs for each project
 file_count = 0
 for row in projectsFull:
@@ -332,3 +504,123 @@ for row in projectsFull:
 	f_out.writelines(writeout)
 	f_out.close()
 print '%d project files generated...' % file_count
+
+# Process CRS Index
+# *****************
+row_count = 0
+print "CRS Index Process Count: %d" % row_count
+writeout = json.dumps(crs_index, sort_keys=True, separators=(',',':'))
+f_out = open('../api_new/crs-index.json', 'wb')
+f_out.writelines(writeout)
+f_out.close()
+
+# Process Donor Index
+# *****************
+print "Donor Index Process Count: %d" % row_count
+writeout = json.dumps(donor_index, sort_keys=True, separators=(',',':'))
+f_out = open('../api_new/donor-index.json', 'wb')
+f_out.writelines(writeout)
+f_out.close()
+
+# Process Donor Country Index
+# *****************
+print "Donor Country Index Process Count"
+writeout = json.dumps(dctry_index, sort_keys=True, separators=(',',':'))
+f_out = open('../api_new/donor-country-index.json', 'wb')
+f_out.writelines(writeout)
+f_out.close()
+
+# Make year index 
+# ***************
+yearJSvalue = "var FISCALYEARS ="
+writeout = "%s %s" % (yearJSvalue, fiscalYears) 
+f_out = open('../api_new/year-index.js', 'wb')
+f_out.writelines(writeout)
+f_out.close()
+
+print "Donors by Output Process Count: %d"
+donorOutputs = []
+donorOutHeader = ['outputID','donorID','donorName','donorShort','donorTypeID','donorCtyID','donorCty','donorBudget','donorExpend']
+
+# Top Donor Lists
+# ************************
+donor_gross = csv.DictReader(open('download/undp_export/donor_gross.csv', 'rb'), delimiter = ',', quotechar = '"')
+donor_gross_sort = sorted(donor_gross, key = lambda x: x['donor'])
+donor_local = csv.DictReader(open('download/undp_export/donor_local.csv', 'rb'), delimiter = ',', quotechar = '"')
+donor_local_sort = sorted(donor_local, key = lambda x: x['donor'])
+
+# Writeout donor gross list
+# ************************
+gross_list = []
+for g in donor_gross_sort:
+	gross = {}
+	gross['name'] = g['donor']
+	gross['regular'] = g['regular']
+	gross['other'] = g['other']
+	gross['total'] = g['total']
+	for d in cntry_donors_sort:
+		if d['name'] == g['donor']:
+			gross['donor_id'] = d['id']
+	gross_list.append(gross)
+
+writeout = json.dumps(gross_list, sort_keys=True, separators=(',',':'))
+f_out = open('../api/top-donor-gross-index.json', 'wb')
+f_out.writelines(writeout)
+f_out.close()
+
+# Writeout donor local list
+# ************************
+local_list = []
+for g in donor_local_sort:
+	local = {}
+	local['name'] = g['donor']
+	local['amount'] = g['amount']
+	for d in cntry_donors_sort:
+		if d['name'] == g['donor']:
+			local['donor_id'] = d['id']
+	local_list.append(local)
+	
+writeout = json.dumps(local_list, sort_keys=True, separators=(',',':'))
+f_out = open('../api/top-donor-local-index.json', 'wb')
+f_out.writelines(writeout)
+f_out.close()
+
+# Region Index 
+# ************************
+exclude = ['PAPP','RBA','RBAP','RBAS','RBEC','RBLAC']
+	
+row_count = 0
+region_index = []
+regionHeader = ['id','name']
+region_i = []
+index = []
+global_i = ['global','Global']
+for r,region in groupby(units_sort, lambda x: x['bureau']): 
+    row_count = row_count + 1
+    if r in exclude:
+        region_i = [r]
+        for reg in region:
+            if reg['bureau'] == 'PAPP':
+                region_i.append(reg['ou_descr'])
+                index.append(region_i)
+            if reg['hq_co'] == 'HQ':
+                if reg['ou_descr'] not in region_i:
+                    region_i.append(reg['ou_descr'])
+                    index.append(region_i)
+
+index.append(global_i)
+index_print = []
+for i in index:
+    index_print.append(dict(zip(regionHeader, i)))
+    
+print "Region Index Process Count: %d" % row_count
+writeout = json.dumps(index_print, sort_keys=True, separators=(',',':'))
+f_out = open('../api_new/region-index.json', 'wb')
+f_out.writelines(writeout)
+f_out.close()
+
+
+# HDI processing
+# **************
+
+# To add...
