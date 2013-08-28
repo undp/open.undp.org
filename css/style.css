@@ -1325,6 +1325,12 @@ form {
 #content-right {
   position:absolute;
 }
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  
+  ::i-block-chrome,#content-right {
+  right: -50px;
+}
+}
 #twitter-block {
   display: none;
   }

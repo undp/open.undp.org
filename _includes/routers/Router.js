@@ -81,7 +81,7 @@ routers.App = Backbone.Router.extend({
             $('#mainnav li').removeClass('active');
             $('#profile .summary').addClass('off');
             $('#browser, #mainnav .browser').show();
-            $('#mainnav li a[href="/"]').parent().addClass('active');
+            $('#mainnav li a[href="/undp-projects/"]').parent().addClass('active');
             $('#mainnav li.parent').removeClass('parent-active');
 
             // Set up breadcrumbs
