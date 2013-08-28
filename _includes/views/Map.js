@@ -164,19 +164,21 @@ views.Map = Backbone.View.extend({
                         view.map.setView([parent.lat,parent.lon],3); //why is the lat and lon reversed here
 
                         //draw country outline with the topojson file
-                        $.getJSON('api/world-110m.json',function(world){
+                        if (IE && IE_VERSION >= 8){
+                             $.getJSON('api/world-110m.json',function(world){
                             var topoFeatures = topojson.feature(world, world.objects.countries).features,
-                            selectedFeature = _(topoFeatures).findWhere({id:iso});
+                                selectedFeature = _(topoFeatures).findWhere({id:iso});
 
-                            view.outline.addData(selectedFeature
-                                ).setStyle({
-                                    "color": "#b5b5b5",
-                                    "weight": 3,
-                                    clickable: false
-                                });
+                                view.outline.addData(selectedFeature
+                                    ).setStyle({
+                                        "color": "#b5b5b5",
+                                        "weight": 3,
+                                        clickable: false
+                                    });
 
-                            view.outline.addTo(view.map);
-                        });
+                                view.outline.addTo(view.map);
+                            });
+                        }
                     }
 
                 } else {
@@ -318,12 +320,12 @@ views.Map = Backbone.View.extend({
                         view.map.closePopup(brief);
                         circleHighlight(circleMarker);
                     }).on('click',function(e){
-                    if (app.app.filters.length === 0 ){
+                        if (app.app.filters.length === 0 ){
                         path = '#filter/operating_unit-' + e.target.feature.properties.id;
-                    } else {
+                        } else {
                         path = document.location.hash + '/operating_unit-' +  e.target.feature.properties.id;
-                    }
-                    if (!view.options.embed){view.goToLink(path)};
+                        }
+                        if (!view.options.embed){view.goToLink(path)};
                     })
                 }
             });
