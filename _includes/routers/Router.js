@@ -185,6 +185,7 @@ routers.App = Backbone.Router.extend({
 
             // Load projects
             if (!this.allProjects || app.fiscalYear != year) {
+                if (app.fiscalYear && app.fiscalYear != year){app.projects.map.map.remove();}
                 app.fiscalYear = year;
                 this.allProjects = new models.Projects(SUMMARY);
 

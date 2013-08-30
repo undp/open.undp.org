@@ -248,9 +248,9 @@ views.App = Backbone.View.extend({
                     return filter.collection + '-' + filter.id;
                 })
                 .value().join('/');
-
+            
             var path = (filters.length) ? year + '/filter/' + filters : year;
-            if (app.projects.map.map){app.projects.map.map.remove()}; // remove previous map, see Map.js for detailed explanation
+            
             app.navigate(path, { trigger: true });
         }
     },

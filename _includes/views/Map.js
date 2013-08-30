@@ -4,10 +4,10 @@ views.Map = Backbone.View.extend({
     },
     render: function() {
         var view = this;
+        if (view.map){view.map.remove();} // remove previous map, same concept as view.$el.empty() for updating, http://leafletjs.com/reference.html#map-remove
+        view.$el.empty();
         view.$el.append('<div class="inner-shadow"></div>');
         view.$el.find('.inner-grey').remove(); // remove 'operating unit has no geo' paragraph
-
-        if (view.map){view.map.remove()}; // remove previous map, same concept as view.$el.empty() for updating, http://leafletjs.com/reference.html#map-remove
 
         view.regionFilter =_(app.app.filters).findWhere({collection:"region"});
         view.opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
@@ -318,12 +318,12 @@ views.Map = Backbone.View.extend({
                         view.map.closePopup(brief);
                         circleHighlight(circleMarker);
                     }).on('click',function(e){
-                    if (app.app.filters.length === 0 ){
-                        path = '#filter/operating_unit-' + e.target.feature.properties.id;
-                    } else {
-                        path = document.location.hash + '/operating_unit-' +  e.target.feature.properties.id;
-                    }
-                    if (!view.options.embed){view.goToLink(path)};
+                        if (app.app.filters.length === 0 ){
+                            path = document.location.hash + '/filter/operating_unit-' + e.target.feature.properties.id;
+                        } else {
+                            path = document.location.hash + '/operating_unit-' +  e.target.feature.properties.id;
+                        }
+                        if (!view.options.embed){view.goToLink(path)};
                     })
                 }
             });
