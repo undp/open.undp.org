@@ -106,7 +106,6 @@ views.Map = Backbone.View.extend({
     },
     buildLayer: function(layer,mapFilter){
         var view = this;
-
         view.map.removeLayer(view.markers); //remove the marker featureGroup from view.map
         view.markers.clearLayers(); // inside of marker featureGroup, clear the layers from the previous build
         view.outline.clearLayers(); // clear the geoJSON group
@@ -232,11 +231,12 @@ views.Map = Backbone.View.extend({
                     "features":filteredMarkers
                 }, {
                     filter: function(feature, layer, filter) { // only two cases for type, hard code is fine
-                        var subFilter = mapFilter || "0";
-                        if (subFilter === "0"){
+                        var subFilter = mapFilter || "6";
+                        if (subFilter === "6"){
                             return feature.properties
                         } else {
-                            return feature.properties['type'] === subFilter
+                            return feature.properties['precision'] === subFilter
+                            
                         }
                     },
                     pointToLayer: function(feature,latlon){
