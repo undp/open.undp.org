@@ -1,5 +1,5 @@
 <tr>
-    <td><%= name %></td>
+    <td><a href='#filter/donors-<%= id %>'><%= name %></a></td>
     <td class='right'><%= accounting.formatMoney(number) %></td>
     <td class='data'>
         <div style='width:<%= barWidth %>%'></div>

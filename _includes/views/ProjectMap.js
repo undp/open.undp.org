@@ -23,17 +23,13 @@ views.ProjectMap = Backbone.View.extend({
             unit = this.model.get('operating_unit_id'),
             subLocations = this.model.get('subnational');
 
-        view.map = L.mapbox.map(this.el,TJ.id,{
-            minZoom: TJ.minzoom,
-            maxZoom: TJ.maxzoom,
-        });
+            view.map = L.mapbox.map(this.el,TJ.id,{
+                minZoom: TJ.minzoom,
+                maxZoom: TJ.maxzoom
+            });
 
-        view.map.on('ready',function(){
-            // once the map is loaded, append the fullscreen button to the control-zoom div
-            $('.leaflet-control-zoom','.leaflet-control-container').append('<a href="#" class="icon map-fullscreen"></a>');
-            console.log(view.map.getSize());
-            view.map.invalidateSize({pan:false})
-        })
+        // adding faux fullscreen control
+        if (!view.options.embed){$('#profilemap').append('<div class="full-control"><a href="#" class="icon map-fullscreen"></a></div>');}
 
         $.getJSON('api/operating-unit-index.json', function(data) {
             for (var i = 0; i < data.length; i++) {
@@ -43,13 +39,30 @@ views.ProjectMap = Backbone.View.extend({
                     view.getwebData(o);
                     $('#country-summary').html(templates.ctrySummary(o));
 
-                    //if there is no subLocation for the project
-                    //hide the map
-                    if (subLocations.length <= 0) {
-                        $('#profilemap').hide();
-                        $('.label').hide();
+                    if (!o.lon) {// if the unit has no geography
+                        view.$el.prev().hide();
+                        view.$el.next().addClass('nogeo');
+                        view.$el.hide();
                     } else {
-                        $.getJSON('api/subnational-locs-index.json', function(g) {
+                        var iso = parseInt(o.iso_num);
+
+                        $.getJSON('api/world-110m.json',function(world){
+                            var topoFeatures = topojson.feature(world, world.objects.countries).features,
+                            selectedFeature = _(topoFeatures).findWhere({id:iso});
+
+                            outline = L.geoJson(selectedFeature, {
+                                style: {
+                                    "color": "#b5b5b5",
+                                    "weight": 3,
+                                    clickable: false
+                                }
+                            }).addTo(view.map);
+                        });
+
+                        if (subLocations.length <= 0) {
+                            view.map.setView([o.lat,o.lon],3);
+                        } else {
+                            $.getJSON('api/subnational-locs-index.json', function(g) {
                             var count = 0;
                             _.each(subLocations, function (o) {
                                 locations.push({
@@ -73,8 +86,8 @@ views.ProjectMap = Backbone.View.extend({
                                     } 
                                 });
 
-                                if (o.type == 1){locations[count].properties['marker-color'] = '#049FD9';} // 1 - "Country level accuracy."
-                                else if (o.type == 2){locations[count].properties['marker-color'] = '#DD4B39';} // 2 - "ADM1 = Sub-region (administrative division, state, district, province) level accuracy.",
+                                if (o.type == 1){locations[count].properties['marker-color'] = '#049FD9';} //Activity
+                                else if (o.type == 2){locations[count].properties['marker-color'] = '#DD4B39';} //Intended Beneficiary
                                 count += 1;
                             });
                             view.map.setView([locations[0].geometry.coordinates[1],locations[0].geometry.coordinates[0]],2);
@@ -83,18 +96,21 @@ views.ProjectMap = Backbone.View.extend({
                                 features: locations
                             });
                          });
+
+                        }
                     }
                 }
             }
         });
     },
-
     fullscreen: function(e) {
         e.preventDefault();
         var view = this;
+
         view.$el.toggleClass('full');
         view.map.invalidateSize({pan:false});
-        $('.map-fullscreen').toggleClass('full');
+
+        $('a.map-fullscreen').toggleClass('full');
         $('.country-profile').toggleClass('full');
       },
 

@@ -136,13 +136,6 @@ views.App = Backbone.View.extend({
         return false;
     },
 
-    clearSearch: function(e) {
-        var view = this;
-        e.preventDefault();
-        $(e.target).parent().find('input').val('');
-        app.projects.view.search(e);
-    },
-
     toggleFilter: function (e) {
         var $target = $(e.target),
             cat = $target.attr('data-category'),
@@ -182,6 +175,8 @@ views.App = Backbone.View.extend({
         var $target = $(e.currentTarget);
         $('.map-btn').removeClass('active');
 
+        this.layer = $target.attr('data-value') || 'budget';
+
         // When on operating unit, turn on/off the HDI graph
         if ($('ul.layers li').hasClass('no-hover')){
             if ($target.attr('data-value') === 'hdi' && app.hdi) {
@@ -198,19 +193,35 @@ views.App = Backbone.View.extend({
         } else {
             $target.addClass('active');
         }
-        app.projects.map.buildLayer($target.attr('data-value')); // see Map.js
+
+        app.projects.map.buildLayer(this.layer); // see Map.js
         return false;
     },
 
     requestIframe: function() {
         var context = $('#widget');
+        widgetOpts = ["title", "map", "projects"]; //default layers for main map
 
-        // Reset things each time the widget
-        // is requested to the page.
-        widgetOpts = []
-        $('.widget-preview', context).html('<h3 class="empty">To use this widget choose some options on the left.</h3>');
-        $('.widget-code', context).hide();
-        $('.widget-options a', context).removeClass('active');
+        $('.widget-options a',context).removeClass('active');
+        _(widgetOpts).each(function(widgetTitle){
+            var widgetEl =widgetTitle + '-opt';
+            $("." + widgetEl).find('a').addClass('active');
+        })
+
+        if (location.hash.split('/').length === 1) {
+            embedPath = location.hash + '/widget/';
+        } else {
+            embedPath = location.hash
+                .replace('filter', 'widget')
+        }
+
+        defaultIframe = '<iframe src="{{site.baseurl}}/embed.html' + embedPath + '?' +
+        widgetOpts.join('&') +
+        '" width="680" height="500" frameborder="0"> </iframe>';
+        $('.widget-preview', context).html(defaultIframe);
+        $('.widget-code', context)
+            .val(defaultIframe)
+            .select();
     },
 
     submitForm: function(e) {
@@ -239,7 +250,7 @@ views.App = Backbone.View.extend({
                 .value().join('/');
 
             var path = (filters.length) ? year + '/filter/' + filters : year;
-            if (app.projects.map.map){app.projects.map.map.remove()}; // remove previous map, see Map.js for detailed explanation
+            
             app.navigate(path, { trigger: true });
         }
     },
@@ -253,16 +264,15 @@ views.App = Backbone.View.extend({
     mapFilter: function(e){
         e.preventDefault();
         $target = e.target;
-
+        
         var subFilter = $target.id.split('-'), // ['type','1']
             subFilterValue = subFilter[subFilter.length-1] + "";
-
         var anchor = $('#'+$target.id);
 
         if ($('.map-filter').hasClass('active')){
             $('.map-filter').removeClass('active');
-            anchor.addClass('active')
+            anchor.addClass('active');
         }
-        app.projects.map.buildLayer('budget',subFilterValue); // see Map.js
+        app.projects.map.buildLayer(this.layer,subFilterValue); // see Map.js
     }
 });

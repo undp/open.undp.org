@@ -5,7 +5,7 @@
 # This script runs Python commands to create the JSON API. 
 # Requirements: Python 2.6 or greater 
  
-import csv, sys, json, time, copy
+import csv, sys, json, time, copy, chardet
 from itertools import groupby
 
 t0 = time.time()
@@ -247,6 +247,8 @@ units = csv.DictReader(open('download/undp_export/report_units.csv', 'rb'), deli
 units_sort = sorted(units, key = lambda x: x['operating_unit'])
 bureau = csv.DictReader(open('download/undp_export/regions.csv', 'rb'), delimiter = ',', quotechar = '"')
 bureau_sort = sorted(bureau, key = lambda x: x['bureau'])
+iso = csv.DictReader(open('download/undp_export/country_iso.csv', 'rb'), delimiter = ',', quotechar = '"')
+iso_sort = sorted(iso, key = lambda x: x['iso3'])
 
 row_count = 0
 projects = []
@@ -348,12 +350,10 @@ for award,project in groupby(projects_sort, lambda x: x['awardID']):
     projectSmallList['subnational'] = subnationalTemp
     projectsSmallFull.append(projectSmallList)
 
-
-
 # Sort projects by operating unit
 unitFinal = []
-unitHeader = ['op_unit','projects']
-for unit, index in groupby(units_sort, lambda x: x['operating_unit']): 
+unitHeader = ['op_unit','projects','iso_num']
+for unit, index in groupby(units_sort, lambda x: x['operating_unit']):  
     info = []
     listing = []
     for i in index:
@@ -366,6 +366,16 @@ for unit, index in groupby(units_sort, lambda x: x['operating_unit']):
                 listingTemp['title'] = proj['title']
                 listing.append(listingTemp)
         info.append(listing)   
+    # Grab the iso number for each operating unit to match to TopoJSON
+    for c in iso_sort:
+        # Correct encoding for the match below
+        numTemp = c['iso_num'].decode('utf-8')
+        numDecode = numTemp.encode('ascii','ignore')
+        isoTemp = c['iso3'].decode('utf-8')
+        isoDecode = isoTemp.encode('ascii', 'ignore')
+        if isoDecode == unit:
+            if numDecode != "":
+                info.append(numDecode)
     unitFinal.append(dict(zip(unitHeader,info))) # this joins project information, output per project, and documents for each project
 
 # Generate JSONs for each operating unit
@@ -513,7 +523,6 @@ opUnitprint = []
 for o in opUnitCounts:
     opUnitprint.append(dict(zip(opUnitCountsHeader,o))) # this joins the project summary information
 
-
 # Process CRS Index
 # *****************
 outputsCRS = csv.DictReader(open('download/undp_export/report_outputs.csv', 'rb'), delimiter = ',', quotechar = '"')
@@ -590,8 +599,8 @@ f_out = open('../api/donor-type-index.json', 'wb')
 f_out.writelines(writeout)
 f_out.close()
 
-# Process Donor Country Index
-# ************************
+# # Process Donor Country Index
+# # ************************
 donor_country = csv.DictReader(open('download/undp_export/report_donors.csv', 'rb'), delimiter = ',', quotechar = '"')
 donor_country_sort = sorted(donor_country, key = lambda x: x['donor_type_lvl3'])
 
@@ -744,7 +753,7 @@ unitsIndex_sort = sorted(unitsIndex, key = lambda x: x['operating_unit'])
 
 row_count = 0
 opUnit_index = []
-opUnitHeader = ['id','name','web','email','project_count','funding_sources_count','budget_sum','expenditure_sum','lat','lon']
+opUnitHeader = ['id','name','web','email','project_count','funding_sources_count','budget_sum','expenditure_sum','lat','lon','iso_num']
 for un,unit in groupby(unitsIndex_sort, lambda x: x['operating_unit']): 
     index = []
     if un != "":
@@ -765,9 +774,16 @@ for un,unit in groupby(unitsIndex_sort, lambda x: x['operating_unit']):
                 if ctry['lat'] != "":
                     index.append(float(ctry['lat']))
                     index.append(float(ctry['lon']))
-                    
+                for c in iso_sort:
+					# Correct encoding for the match below
+					numTemp = c['iso_num'].decode('utf-8')
+					numDecode = numTemp.encode('ascii','ignore')
+					isoTemp = c['iso3'].decode('utf-8')
+					isoDecode = isoTemp.encode('ascii', 'ignore')
+					if isoDecode == ctry['iso3']:
+						index.append(numDecode)
+                # Join values to header and append to final object
                 opUnit_index.append(dict(zip(opUnitHeader, index)))
-
 writeout = json.dumps(opUnit_index, sort_keys=True, separators=(',',':'))
 f_out = open('../api/operating-unit-index.json', 'wb')
 f_out.writelines(writeout)

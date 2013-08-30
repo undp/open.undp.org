@@ -3,7 +3,7 @@ models.Subnational = Backbone.Model.extend({
     defaults: {visible:false},
     initialize:function(){ // can this happen on a collection level?
         model = this;
-        sub = model.get('subnational');//would be good if subnational is a formatted geojson in the attribute
+        sub = model.get('subnational');
         if (sub.length === 0 ) {
             model.geojson = null;
         } else {
