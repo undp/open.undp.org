@@ -108,7 +108,7 @@ views.ProjectMap = Backbone.View.extend({
         var view = this;
 
         view.$el.toggleClass('full');
-        view.map.invalidateSize({pan:false});
+        setTimeout(function(){view.map.invalidateSize({pan:false});}, 200)
 
         $('a.map-fullscreen').toggleClass('full');
         $('.country-profile').toggleClass('full');
@@ -183,10 +183,11 @@ views.ProjectMap = Backbone.View.extend({
             });
             
             q.await(function() {
-               view.twitter(twitterAcct, function(tweets, twPhotos) {
-                    view.showTweets(tweets);
-                    view.flickr(flickrAccts,photos.concat(twPhotos));
-                });
+               //view.twitter(twitterAcct, function(tweets, twPhotos) {
+               //     view.showTweets(tweets);
+               //     view.flickr(flickrAccts,photos.concat(twPhotos));
+               //});
+               view.flickr(flickrAccts,photos);
             });
         });
 
@@ -278,10 +279,10 @@ views.ProjectMap = Backbone.View.extend({
         
         function getTweets(page) {
             var success = false;
-            $.getJSON('http://api.twitter.com/1/lists/statuses.json?slug=undp-tweets&owner_screen_name=openundp&include_entities=1&include_rts=0&since_id=274016103305461762&per_page=200&page=' + page + '&callback=?', function(globalTweets) {
+            $.getJSON('https://api.twitter.com/1.1/lists/statuses.json?slug=undp-tweets&owner_screen_name=openundp&include_rts=0&since_id=274016103305461762&count=200&page=' + page + '&callback=?', function(globalTweets) {
                 success = true;
                 if (username) {
-                    $.getJSON('http://api.twitter.com/1/user_timeline.json?screen_name=' + username + '&include_entities=1&include_rts=0&since_id=274016103305461762&count=200&page=' + page + '&callback=?', function(coTweets) {
+                    $.getJSON('https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=' + username + '&include_rts=0&since_id=274016103305461762&count=200&page=' + page + '&callback=?', function(coTweets) {
                         filterTweets(coTweets.concat(globalTweets));
                     });
                 } else {
