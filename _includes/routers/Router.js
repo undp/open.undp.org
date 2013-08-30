@@ -208,7 +208,7 @@ routers.App = Backbone.Router.extend({
         function updateWhenOpUnit(){
             var opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
             $('.map-filter').removeClass('active') // reset the subfilter look
-            $('#map-filters').find('#type-0').addClass('active');
+            $('#map-filters').find('#type-6').addClass('active');
             if(_.isObject(opUnitFilter)){
                 $('#map-filters').removeClass('disabled');//shows type sub-filter
                 $('.map-btn').removeClass('active');

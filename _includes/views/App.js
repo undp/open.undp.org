@@ -248,7 +248,6 @@ views.App = Backbone.View.extend({
                     return filter.collection + '-' + filter.id;
                 })
                 .value().join('/');
-
             var path = (filters.length) ? year + '/filter/' + filters : year;
             if (app.projects.map.map){app.projects.map.map.remove()}; // remove previous map, see Map.js for detailed explanation
             app.navigate(path, { trigger: true });
@@ -264,10 +263,9 @@ views.App = Backbone.View.extend({
     mapFilter: function(e){
         e.preventDefault();
         $target = e.target;
-
+        
         var subFilter = $target.id.split('-'), // ['type','1']
             subFilterValue = subFilter[subFilter.length-1] + "";
-
         var anchor = $('#'+$target.id);
 
         if ($('.map-filter').hasClass('active')){
