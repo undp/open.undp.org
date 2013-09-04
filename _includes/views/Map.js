@@ -160,7 +160,14 @@ views.Map = Backbone.View.extend({
                         view.map.setView([0,-15],2);
                         view.$el.prepend('<div class="inner-grey"><p>The seleted operating unit and its project(s) do not have associated geography.</p></div>');
                     } else {
-                        view.map.setView([parent.lat,parent.lon],3); //why is the lat and lon reversed here
+                        // Determine zoom level based on size of country
+                        var bigCntry = "CHN USA ARG﻿ BRA"
+                        var smlCntry = "PHL SVK NPL BTN BLZ BLR LTU﻿ LIE LSO BRB"
+                        if (parent.id == 'RUS'){cntryZoom = 2}
+                        else if (bigCntry.indexOf(parent.id) > -1){cntryZoom = 3}
+                        else if (smlCntry.indexOf(parent.id) > -1){cntryZoom = 5;
+                        else {cntryZoom = 4}
+                        view.map.setView([parent.lat,parent.lon],cntryZoom); //why is the lat and lon reversed here
 
                         //draw country outline with the topojson file
                         $.getJSON('api/world-110m.json',function(world){
@@ -173,11 +180,9 @@ views.Map = Backbone.View.extend({
                                     "weight": 3,
                                     clickable: false
                                 });
-
                             view.outline.addTo(view.map);
                         });
                     }
-
                 } else {
                     renderCircles(country);
                     if(_.isObject(view.regionFilter)){
