@@ -1,5 +1,9 @@
 <tr>
-    <td><a href='#filter/donors-<%= id %>'><%= name %></a></td>
+	<% if (model.get('donor_id')==='00280') { %>
+		<td><a href='#filter/donor-00280'><%= name %></a></td>
+	<% } else { %>
+		<td><a href='#filter/donor-countries_<%= country %>'><%= name %></a></td>
+	<% } %>
     <td class='right'><%= accounting.formatMoney(number) %></td>
     <td class='data'>
         <div style='width:<%= barWidth %>%'></div>
