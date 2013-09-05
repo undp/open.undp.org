@@ -8,13 +8,12 @@ views.TopDonors = Backbone.View.extend({
             cat = that.collection.type,
             chartModels = that.collection.models,
             max = chartModels[0].get(cat);
-            
         _(chartModels).each(function(model) {
             if (model.get(cat) != '') {
                 $('tbody', that.el).append(templates.topDonor({
                     name: model.get('name'),
                     id: model.get('donor_id'),
-                    country: model.get('donor_country'),
+                    country: model.get('country'),
                     number: model.get(cat),
                     barWidth: model.get(cat)/max*100
                 }));
@@ -37,6 +36,7 @@ views.TopDonors = Backbone.View.extend({
                 $('tbody', that.el).append(templates.topDonor({
                     name: model.get('name'),
                     id: model.get('donor_id'),
+                    country: model.get('country'),
                     number: model.get(cat),
                     barWidth: model.get(cat)/max*100
                 }));
