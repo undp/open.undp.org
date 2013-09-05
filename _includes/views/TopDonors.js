@@ -14,6 +14,7 @@ views.TopDonors = Backbone.View.extend({
                 $('tbody', that.el).append(templates.topDonor({
                     name: model.get('name'),
                     id: model.get('donor_id'),
+                    country: model.get('donor_country'),
                     number: model.get(cat),
                     barWidth: model.get(cat)/max*100
                 }));
