@@ -276,6 +276,7 @@ views.Map = Backbone.View.extend({
             });
         };
         var renderCircles = function(){
+            var circles = [];
             _(country.models).each(function(model){
                 if (unit.operating_unit[model.id] && model.lon){
                     count = unit.operating_unit[model.id];
@@ -299,37 +300,38 @@ views.Map = Backbone.View.extend({
                     model.centroid.properties.sources = sources,
                     model.centroid.properties.budget = budget,
                     model.centroid.properties.expenditure = expenditure,
-                    model.centroid.properties.hdi = hdi;
+                    model.centroid.properties.hdi = hdi,
+                    model.centroid.properties.popup = view.circlePopup(category,model.centroid),
+                    model.centroid.properties.radius = view.radius(view.scale(category,model.centroid));
 
-                    var popupContent = view.circlePopup(layer,model.centroid),
-
-                    circleOptions = {
-                        radius: view.radius(view.scale(layer,model.centroid)),
-                        color:"#fff",
-                        weight:1,
-                        opacity:1,
-                        fillColor: "#0055aa",
-                        fillOpacity: 0.6
-                    };
-                    createCircle(model.centroid,circleOptions,popupContent);
+                    circles.push(model.centroid);
                 }
             })
-        }
-        var createCircle = function(geoJsonFeature,options,hoverPop){
-            var brief = L.popup({
-                    closeButton:false
-                }).setContent(hoverPop);
-            var circleLayer = L.geoJson(geoJsonFeature,{
+            var defaultCircle = {
+                color:"#fff",
+                weight:1,
+                opacity:1,
+                fillColor: "#0055aa",
+                fillOpacity: 0.6,
+            };
+            var circleLayer = L.geoJson({
+                "type":"FeatureCollection",
+                "features":circles
+            },{
                 pointToLayer:function(feature,latlng){
-                    return L.circleMarker(latlng,options
-                    ).on('mouseover',function(circleMarker){
-                        debugger;
-                        brief.setLatLng(latlng);
+                    return L.circleMarker(latlng,defaultCircle).setRadius(feature.properties.radius)
+                },
+                onEachFeature:function(feature, layer){
+                    var brief = L.popup({
+                            closeButton:false,
+                        }).setContent(feature.properties.popup);
+                    layer.on('mouseover',function(e){
+                        brief.setLatLng(this.getLatLng());
                         view.map.openPopup(brief);
-                        view.circleHighlight(circleMarker,{color:'#0055aa',weight:2});
-                    }).on('mouseout',function(circleMarker){
+                        view.circleHighlight(e,{color:'#0055aa',weight:2});
+                    }).on('mouseout',function(e){
                         view.map.closePopup(brief);
-                        view.circleHighlight(circleMarker);
+                        view.circleHighlight(e);
                     }).on('click',function(e){
                         if (app.app.filters.length === 0 ){
                             path = document.location.hash + '/filter/operating_unit-' + e.target.feature.properties.id;
@@ -341,7 +343,7 @@ views.Map = Backbone.View.extend({
                 }
             });
             view.markers.addLayer(circleLayer);
-        };
+        }
         view.map.addLayer(view.markers);
     }
 });
