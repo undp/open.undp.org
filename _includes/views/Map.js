@@ -322,7 +322,7 @@ views.Map = Backbone.View.extend({
             };
             var circleLayer = L.geoJson({
                 "type":"FeatureCollection",
-                "features":circles
+                "features":_(circles).sortBy(function(f) { return -f.properties[layer]; })
             },{
                 pointToLayer:function(feature,latlng){
                     return L.circleMarker(latlng,defaultCircle).setRadius(feature.properties.radius);
