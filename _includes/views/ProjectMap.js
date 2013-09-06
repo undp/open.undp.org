@@ -25,12 +25,12 @@ views.ProjectMap = Backbone.View.extend({
 
             view.map = L.mapbox.map(this.el,TJ.id,{
                 minZoom: TJ.minzoom,
-                maxZoom: TJ.maxzoom
+                maxZoom: 10
             });
 
         // adding faux fullscreen control
         if (!view.options.embed){$('#profilemap').append('<div class="full-control"><a href="#" class="icon map-fullscreen"></a></div>');}
-
+        
         $.getJSON('api/operating-unit-index.json', function(data) {
             for (var i = 0; i < data.length; i++) {
                 var o = data[i];
@@ -85,24 +85,37 @@ views.ProjectMap = Backbone.View.extend({
                                         'marker-size': 'small'
                                     } 
                                 });
-
+                            
                                 if (o.type == 1){locations[count].properties['marker-color'] = '#049FD9';} //Activity
                                 else if (o.type == 2){locations[count].properties['marker-color'] = '#DD4B39';} //Intended Beneficiary
                                 count += 1;
                             });
-                            view.map.setView([locations[0].geometry.coordinates[1],locations[0].geometry.coordinates[0]],2);
-                            view.map.markerLayer.setGeoJSON({
-                                type:"FeatureCollection",
-                                features: locations
-                            });
+                            view.map.setView([locations[0].geometry.coordinates[1],locations[0].geometry.coordinates[0]],3);
+                            function onEachFeature(feature, layer) {
+                                var clusterBrief = L.popup({
+                                        closeButton:false,
+                                        offset: new L.Point(0,-20)
+                                    }).setContent(feature.properties.description);
+                                layer.on('mouseover',function(){
+                                    clusterBrief.setLatLng(this.getLatLng());
+                                    view.map.openPopup(clusterBrief);
+                                }).on('mouseout',function(){
+                                    view.map.closePopup(clusterBrief);
+                                })
+                            }
+                            L.geoJson(locations, {
+                                pointToLayer: L.mapbox.marker.style,
+                                onEachFeature: onEachFeature
+                            }).addTo(view.map);
                          });
-
+                            
                         }
                     }
                 }
             }
         });
     },
+
     fullscreen: function(e) {
         e.preventDefault();
         var view = this;

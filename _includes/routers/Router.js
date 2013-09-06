@@ -85,7 +85,7 @@ routers.App = Backbone.Router.extend({
             $('#mainnav li.parent').removeClass('parent-active');
 
             // Set up breadcrumbs
-            $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li><li><a href="{{site.baseurl}}">Our Projects</a></li>');
+            $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li><li><a href="{{site.baseurl}}/">Our Projects</a></li>');
 
             // Load the main app view
             this.app = this.app || new views.App({

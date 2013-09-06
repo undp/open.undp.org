@@ -3,58 +3,65 @@ views.Map = Backbone.View.extend({
         if (this.options.render) this.render();
     },
     render: function() {
-        var view = this;
+        var view = this,
+            category;
         if (view.map){view.map.remove();} // remove previous map, same concept as view.$el.empty() for updating, http://leafletjs.com/reference.html#map-remove
         view.$el.empty();
-        view.$el.append('<div class="inner-shadow"></div>');
+        if (IE) {
+            view.$el.css('border','1px solid #ddd');
+        } else {
+            view.$el.append('<div class="inner-shadow"></div>');
+        }
         view.$el.find('.inner-grey').remove(); // remove 'operating unit has no geo' paragraph
 
         view.regionFilter =_(app.app.filters).findWhere({collection:"region"});
         view.opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
 
         if (!view.options.embed) {
-            layer = $('.map-btn.active').attr('data-value') || 'budget';
+            category = $('.map-btn.active').attr('data-value') || 'budget';
             // when no operating unit is selected, reset to the global map
-            if (layer === 'budget' && _.isUndefined(view.opUnitFilter)){$('.map-btn.budget').addClass('active')};
+            if (category === 'budget' && _.isUndefined(view.opUnitFilter)){$('.map-btn.budget').addClass('active')};
             wheelZoom = true;
         } else {
-            layer = 'budget';
+            category = 'budget';
             wheelZoom = false;
         };
 
         // create the map with mapbox.js 1.3.1
         view.map = L.mapbox.map(this.el,TJ.id,{
+            center: [0,-15],
+            zoom: 2,
             minZoom: TJ.minzoom,
             maxZoom: TJ.maxzoom,
             scrollWheelZoom: wheelZoom
-            }).setView([0,-15],2);
+            });
 
         // create circle or cluster based on the operating unit filter
         if (_.isObject(view.opUnitFilter)){
             view.markers = new L.MarkerClusterGroup({showCoverageOnHover:false});
         } else {
-            view.markers = new L.FeatureGroup();
+            view.markers = new L.LayerGroup();
         };
 
         //for IE 8 and above add country outline
         if (!IE || IE_VERSION > 8){view.outline = new L.GeoJSON()};
 
-        view.buildLayer(layer);
+        view.buildLayer(category);
     },
     // define map center based on region filter
     zoomToRegion: function(region){
         if (region === "RBA"){
-            this.map.setView([0,20],3)
+            this.map.setView([0,20],3,{reset:true});
         } else if (region === "RBAP"){
-            this.map.setView([37,80],2)
+            this.map.setView([37,80],2,{reset:true});
         } else if (region === "RBAS" || region === "PAPP"){
-            this.map.setView([32,32],3)
+            this.map.setView([32,32],3,{reset:true});
         } else if (region === "RBEC"){
-            this.map.setView([50,55],3)
+            this.map.setView([50,55],3,{reset:true});
         } else if (region === "RBLAC"){
-            this.map.setView([-2,-67],2)
+            this.map.setView([-2,-67],2,{reset:true});
         } else if (region === "global"){
-            this.map.setView([0,0],2)
+            this.map.setView([0,0],2,{reset:true});
         }
     },
     // CIRCLE
@@ -82,27 +89,27 @@ views.Map = Backbone.View.extend({
             fillOpacity: options.fillOpacity || 0.6
         })
     },
-    circlePopup: function(layer, data) {
-        var description = '<div class="title"><b>' + data.properties.title + '</b></div>' +
-            '<div class="stat' + ((layer == 'count') ? ' active' : '') + '">Projects: <span class="value">' +
-            data.properties.count + '</span></div>' +
-            ((data.sources > 1) ? ('<div class="stat' + ((layer == 'sources') ? ' active' : '') + '">Budget Sources: <span class="value">' +
-            data.properties.sources + '</span></div>') : '') +
-            '<div class="stat' + ((layer == 'budget') ? ' active' : '') + '">Budget: <span class="value">' +
-            accounting.formatMoney(data.properties.budget) + '</span></div>' +
-            '<div class="stat' + ((layer == 'expenditure') ? ' active' : '') + '">Expenditure: <span class="value">' +
-            accounting.formatMoney(data.properties.expenditure) + '</span></div>' +
-            '<div class="stat' + ((layer == 'hdi') ? ' active' : '') + '">HDI: <span class="value">' +
-            data.properties.hdi + '</span></div>';
+    circlePopup: function(cat,feature) {
+        var description = '<div class="title"><b>' + feature.properties.title + '</b></div>' +
+            '<div class="stat' + ((cat == 'count') ? ' active' : '') + '">Projects: <span class="value">' +
+            feature.properties.count + '</span></div>' +
+            ((feature.sources > 1) ? ('<div class="stat' + ((cat == 'sources') ? ' active' : '') + '">Budget Sources: <span class="value">' +
+            feature.properties.sources + '</span></div>') : '') +
+            '<div class="stat' + ((cat == 'budget') ? ' active' : '') + '">Budget: <span class="value">' +
+            accounting.formatMoney(feature.properties.budget) + '</span></div>' +
+            '<div class="stat' + ((cat == 'expenditure') ? ' active' : '') + '">Expenditure: <span class="value">' +
+            accounting.formatMoney(feature.properties.expenditure) + '</span></div>' +
+            '<div class="stat' + ((cat == 'hdi') ? ' active' : '') + '">HDI: <span class="value">' +
+            feature.properties.hdi + '</span></div>';
         return description;
     },
     // CLUSTER
-    clusterPopup: function(data, g) {
-        var project = data.project,
-            title = data.title,
-            type = (g.type[data.type]) ? g.type[data.type].split(':')[0] : 'unknown',
-            scope = (g.scope[data.scope]) ? g.scope[data.scope].split(':')[0] : 'unknown',
-            precision = (g.precision[data.precision]) ? g.precision[data.precision].split(' ')[0] : 'unknown';
+    clusterPopup: function(feature, g) {
+        var project = feature.properties.project,
+            title = feature.properties.title,
+            type = (g.type[feature.properties.type]) ? g.type[feature.properties.type].split(':')[0] : 'unknown',
+            scope = (g.scope[feature.properties.scope]) ? g.scope[feature.properties.scope].split(':')[0] : 'unknown',
+            precision = (g.precision[feature.properties.precision]) ? g.precision[feature.properties.precision].split(' ')[0] : 'unknown';
 
         var description = '<div><b>Project: </b>' + project + '</div>'
                         + '<div><b>Name: </b>' + title + '</div>'
@@ -115,7 +122,7 @@ views.Map = Backbone.View.extend({
         app.navigate(path, { trigger: true });
         $('#browser .summary').removeClass('off');
     },
-    buildLayer: function(layer,mapFilter){
+    buildLayer: function(layer,mapFilter,mapCenter,mapZoom){
         var view = this;
         view.map.removeLayer(view.markers); //remove the marker featureGroup from view.map
         view.markers.clearLayers(); // inside of marker group, clear the layers from the previous build
@@ -123,7 +130,7 @@ views.Map = Backbone.View.extend({
         var count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
             unit = view.collection;
 
-        country = new models.Nationals();
+        var country = new models.Nationals();
         country.fetch({
             url: 'api/operating-unit-index.json',
             success:function(){
@@ -149,12 +156,28 @@ views.Map = Backbone.View.extend({
                         iso = parseInt(parent.get('iso_num'));
 
                     if (_.isNaN(iso)){
-                        view.map.setView([0,-15],2);
                         view.$el.prepend('<div class="inner-grey">'+
                                          '<p>The seleted operating unit and its project(s) do not have associated geography.</p>'+
                                          '</div>');
                     } else {
-                        view.map.setView([parent.lat,parent.lon],3); //why is the lat and lon reversed here
+
+                        var bigCntry = "CHN USA ARG﻿ BRA",
+                            smlCntry = "PHL SVK NPL BTN BLZ BLR LTU﻿ LIE LSO BRB";
+
+                        if (parent.id == 'RUS'){
+                            cntryZoom = 2
+                        } else if (bigCntry.indexOf(parent.id) > -1){
+                            cntryZoom = 3
+                        } else if (smlCntry.indexOf(parent.id) > -1){
+                            cntryZoom = 5
+                        } else {
+                            cntryZoom = 4
+                        }
+
+                        // set sub filter center zoom
+                        var subCenter = mapCenter || [parent.lat,parent.lon],
+                            subZoom = mapZoom || cntryZoom;
+                        view.map.setView(subCenter,subZoom,{reset:true});
 
                         //draw country outline with the topojson file
                         if (!IE || IE_VERSION > 8){
@@ -162,15 +185,13 @@ views.Map = Backbone.View.extend({
                             $.getJSON('api/world-110m.json',function(world){
                             var topoFeatures = topojson.feature(world, world.objects.countries).features,
                                 selectedFeature = _(topoFeatures).findWhere({id:iso});
-
-                                view.outline.addData(selectedFeature
-                                    ).setStyle({
-                                        "color": "#b5b5b5",
-                                        "weight": 3,
-                                        clickable: false
-                                    });
-
-                                view.outline.addTo(view.map);
+                            view.outline.addData(selectedFeature
+                                ).setStyle({
+                                    "color": "#b5b5b5",
+                                    "weight": 3,
+                                    clickable: false
+                                });
+                            view.outline.addTo(view.map);
                             });
                         }
                     }
@@ -235,8 +256,8 @@ views.Map = Backbone.View.extend({
                             
                         }
                     },
-                    pointToLayer: function(feature,latlon){
-                        return L.marker(latlon,{
+                    pointToLayer: function(feature,latlng){
+                        return L.marker(latlng,{
                             icon: L.mapbox.marker.icon(markerOptions) // use MapBox style markers
                         })
                     },
@@ -244,7 +265,7 @@ views.Map = Backbone.View.extend({
                         var clusterBrief = L.popup({
                                 closeButton:false,
                                 offset: new L.Point(0,-20)
-                            }).setContent(view.clusterPopup(feature.properties, subLocIndex));
+                            }).setContent(view.clusterPopup(feature, subLocIndex));
                         layer.on('mouseover',function(){
                             clusterBrief.setLatLng(this.getLatLng());
                             view.map.openPopup(clusterBrief);
@@ -257,9 +278,11 @@ views.Map = Backbone.View.extend({
                     }
                 });
                 view.markers.addLayer(filteredMarkersLayer);
+                view.map.addLayer(view.markers);
             });
         };
         var renderCircles = function(){
+            var circles = [];
             _(country.models).each(function(model){
                 if (unit.operating_unit[model.id] && model.lon){
                     count = unit.operating_unit[model.id];
@@ -283,36 +306,39 @@ views.Map = Backbone.View.extend({
                     model.centroid.properties.sources = sources,
                     model.centroid.properties.budget = budget,
                     model.centroid.properties.expenditure = expenditure,
-                    model.centroid.properties.hdi = hdi;
+                    model.centroid.properties.hdi = hdi,
+                    model.centroid.properties.popup = view.circlePopup(layer,model.centroid),
+                    model.centroid.properties.radius = view.radius(view.scale(layer,model.centroid));
 
-                    var popupContent = view.circlePopup(layer,model.centroid),
-
-                    circleOptions = {
-                        radius: view.radius(view.scale(layer,model.centroid)),
-                        color:"#fff",
-                        weight:1,
-                        opacity:1,
-                        fillColor: "#0055aa",
-                        fillOpacity: 0.6
-                    };
-                    createCircle(model.centroid,circleOptions,popupContent);
+                    circles.push(model.centroid);
                 }
-            })
-        }
-        var createCircle = function(geoJsonFeature,options,hoverPop){
-            var brief = L.popup({
-                    closeButton:false
-                }).setContent(hoverPop);
-            var circleLayer = L.geoJson(geoJsonFeature,{
+            });
+            var defaultCircle = {
+                color:"#fff",
+                weight:1,
+                opacity:1,
+                fillColor: "#0055aa",
+                fillOpacity: 0.6,
+            };
+            var circleLayer = L.geoJson({
+                "type":"FeatureCollection",
+                "features":circles
+            },{
                 pointToLayer:function(feature,latlng){
-                    return L.circleMarker(latlng,options
-                    ).on('mouseover',function(circleMarker){
-                        brief.setLatLng(latlng);
+                    return L.circleMarker(latlng,defaultCircle).setRadius(feature.properties.radius);
+                },
+                onEachFeature:function(feature, layer){
+                    var brief = L.popup({
+                            closeButton:false,
+                            offset:[0, -feature.properties.radius+5]
+                        }).setContent(feature.properties.popup);
+                    layer.on('mouseover',function(e){
+                        brief.setLatLng(this.getLatLng());
                         view.map.openPopup(brief);
-                        view.circleHighlight(circleMarker,{color:'#0055aa',weight:2});
-                    }).on('mouseout',function(circleMarker){
+                        view.circleHighlight(e,{color:'#0055aa',weight:2});
+                    }).on('mouseout',function(e){
                         view.map.closePopup(brief);
-                        view.circleHighlight(circleMarker);
+                        view.circleHighlight(e);
                     }).on('click',function(e){
                         if (app.app.filters.length === 0 ){
                             path = document.location.hash + '/filter/operating_unit-' + e.target.feature.properties.id;
@@ -324,7 +350,7 @@ views.Map = Backbone.View.extend({
                 }
             });
             view.markers.addLayer(circleLayer);
-        };
-        view.map.addLayer(view.markers);
+            view.map.addLayer(view.markers);
+        }
     }
 });
