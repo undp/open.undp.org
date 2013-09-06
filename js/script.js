@@ -39,7 +39,8 @@ $(function() {
                 name: 'Budget Source'
             }
         ];
-
+    var IE = $.browser.msie;
+    if (IE) {var IE_VERSION = parseInt($.browser.version);} // should return 6, 7, 8, 9
     // Models
     {% include models/Filter.js %}
     {% include models/Project.js %}
