@@ -307,7 +307,6 @@ views.Map = Backbone.View.extend({
                 pointToLayer:function(feature,latlng){
                     return L.circleMarker(latlng,options
                     ).on('mouseover',function(circleMarker){
-                        debugger;
                         brief.setLatLng(latlng);
                         view.map.openPopup(brief);
                         view.circleHighlight(circleMarker,{color:'#0055aa',weight:2});
