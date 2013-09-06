@@ -9,7 +9,8 @@ views.App = Backbone.View.extend({
         'click .widget-config': 'requestIframe',
         'submit .form-search': 'submitForm',
         'click #yearselect .dropdown-menu a': 'yearChange',
-        'click .map-filter':'mapFilter'
+        'click .map-filter':'mapFilter',
+        'click .nav.nav-tabs a': 'activeMap'
     },
     
     initialize: function(options) {
@@ -273,6 +274,12 @@ views.App = Backbone.View.extend({
             $('.map-filter').removeClass('active');
             anchor.addClass('active');
         }
-        app.projects.map.buildLayer(this.layer,subFilterValue); // see Map.js
+        var currentCenter = app.projects.map.map.getCenter(),
+            currentZoom = app.projects.map.map.getZoom();
+        app.projects.map.buildLayer(this.layer,subFilterValue,currentCenter,currentZoom); // see Map.js
+    },
+    
+    activeMap: function() {
+        setTimeout(function(){app.projects.map.map.invalidateSize({pan:true});}, 200);
     }
 });

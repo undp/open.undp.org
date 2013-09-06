@@ -84,7 +84,8 @@ views.Filters = Backbone.View.extend({
 
                         if (model.get('active') && !keypress) {
                             $('#breadcrumbs ul').append(
-                                '<li><a href="{{site.baseurl}}/#filter/' +
+                                '<li><a href="{{site.baseurl}}/' +
+                                document.location.hash.split('/')[0] + '/filter/' +
                                 view.collection.id + '-' +
                                 model.get('id') + '">' +
                                 model.get('name').toLowerCase().toTitleCase() +

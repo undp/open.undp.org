@@ -17,7 +17,7 @@
 %>
 
 <div data-option='title' class='option'>
-  <h3 class='heading-title'><%= model.get('project_title').toLowerCase().toTitleCase() %></h3>
+  <a target='_blank' href='{{site.baseurl}}/#project/<%= model.get('id')%>'><h3 class='heading-title'><%= model.get('project_title').toLowerCase().toTitleCase() %></h3></a>
 </div>
 
 <div data-option='descr' class='option'>
