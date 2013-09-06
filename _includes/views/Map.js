@@ -118,7 +118,7 @@ views.Map = Backbone.View.extend({
         app.navigate(path, { trigger: true });
         $('#browser .summary').removeClass('off');
     },
-    buildLayer: function(layer,mapFilter){
+    buildLayer: function(layer,mapFilter,mapCenter,mapZoom){
         var view = this;
         view.map.removeLayer(view.markers); //remove the marker featureGroup from view.map
         view.markers.clearLayers(); // inside of marker group, clear the layers from the previous build
@@ -157,14 +157,24 @@ views.Map = Backbone.View.extend({
                                          '<p>The seleted operating unit and its project(s) do not have associated geography.</p>'+
                                          '</div>');
                     } else {
-                        // Determine zoom level based on size of country
-                        var bigCntry = "CHN USA ARG﻿ BRA"
-                        var smlCntry = "PHL SVK NPL BTN BLZ BLR LTU﻿ LIE LSO BRB"
-                        if (parent.id == 'RUS'){cntryZoom = 2}
-                        else if (bigCntry.indexOf(parent.id) > -1){cntryZoom = 3}
-                        else if (smlCntry.indexOf(parent.id) > -1){cntryZoom = 5}
-                        else {cntryZoom = 4}
-                        view.map.setView([parent.lat,parent.lon],cntryZoom); //why is the lat and lon reversed here
+
+                        var bigCntry = "CHN USA ARG﻿ BRA",
+                            smlCntry = "PHL SVK NPL BTN BLZ BLR LTU﻿ LIE LSO BRB";
+
+                        if (parent.id == 'RUS'){
+                            cntryZoom = 2
+                        } else if (bigCntry.indexOf(parent.id) > -1){
+                            cntryZoom = 3
+                        } else if (smlCntry.indexOf(parent.id) > -1){
+                            cntryZoom = 5
+                        } else {
+                            cntryZoom = 4
+                        }
+
+                        // set sub filter center zoom
+                        var subCenter = mapCenter || [parent.lat,parent.lon],
+                            subZoom = mapZoom || cntryZoom;
+                        view.map.setView(subCenter,subZoom);
 
                         //draw country outline with the topojson file
                         if (!IE || IE_VERSION > 8){
