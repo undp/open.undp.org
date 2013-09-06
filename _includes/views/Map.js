@@ -13,12 +13,12 @@ views.Map = Backbone.View.extend({
         view.opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
 
         if (!view.options.embed) {
-            layer = $('.map-btn.active').attr('data-value') || 'budget';
+            category = $('.map-btn.active').attr('data-value') || 'budget';
             // when no operating unit is selected, reset to the global map
-            if (layer === 'budget' && _.isUndefined(view.opUnitFilter)){$('.map-btn.budget').addClass('active')};
+            if (category === 'budget' && _.isUndefined(view.opUnitFilter)){$('.map-btn.budget').addClass('active')};
             wheelZoom = true;
         } else {
-            layer = 'budget';
+            category = 'budget';
             wheelZoom = false;
         };
 
@@ -34,13 +34,13 @@ views.Map = Backbone.View.extend({
         if (_.isObject(view.opUnitFilter)){
             view.markers = new L.MarkerClusterGroup({showCoverageOnHover:false});
         } else {
-            view.markers = new L.FeatureGroup();
+            view.markers = new L.LayerGroup();
         };
 
         //for IE 8 and above add country outline
         if (!IE || IE_VERSION > 8){view.outline = new L.GeoJSON()};
 
-        view.buildLayer(layer);
+        view.buildLayer(category);
     },
     // define map center based on region filter
     zoomToRegion: function(region){
@@ -83,27 +83,27 @@ views.Map = Backbone.View.extend({
             fillOpacity: options.fillOpacity || 0.6
         })
     },
-    circlePopup: function(layer, data) {
-        var description = '<div class="title"><b>' + data.properties.title + '</b></div>' +
-            '<div class="stat' + ((layer == 'count') ? ' active' : '') + '">Projects: <span class="value">' +
-            data.properties.count + '</span></div>' +
-            ((data.sources > 1) ? ('<div class="stat' + ((layer == 'sources') ? ' active' : '') + '">Budget Sources: <span class="value">' +
-            data.properties.sources + '</span></div>') : '') +
-            '<div class="stat' + ((layer == 'budget') ? ' active' : '') + '">Budget: <span class="value">' +
-            accounting.formatMoney(data.properties.budget) + '</span></div>' +
-            '<div class="stat' + ((layer == 'expenditure') ? ' active' : '') + '">Expenditure: <span class="value">' +
-            accounting.formatMoney(data.properties.expenditure) + '</span></div>' +
-            '<div class="stat' + ((layer == 'hdi') ? ' active' : '') + '">HDI: <span class="value">' +
-            data.properties.hdi + '</span></div>';
+    circlePopup: function(cat,feature) {
+        var description = '<div class="title"><b>' + feature.properties.title + '</b></div>' +
+            '<div class="stat' + ((cat == 'count') ? ' active' : '') + '">Projects: <span class="value">' +
+            feature.properties.count + '</span></div>' +
+            ((feature.sources > 1) ? ('<div class="stat' + ((cat == 'sources') ? ' active' : '') + '">Budget Sources: <span class="value">' +
+            feature.properties.sources + '</span></div>') : '') +
+            '<div class="stat' + ((cat == 'budget') ? ' active' : '') + '">Budget: <span class="value">' +
+            accounting.formatMoney(feature.properties.budget) + '</span></div>' +
+            '<div class="stat' + ((cat == 'expenditure') ? ' active' : '') + '">Expenditure: <span class="value">' +
+            accounting.formatMoney(feature.properties.expenditure) + '</span></div>' +
+            '<div class="stat' + ((cat == 'hdi') ? ' active' : '') + '">HDI: <span class="value">' +
+            feature.properties.hdi + '</span></div>';
         return description;
     },
     // CLUSTER
-    clusterPopup: function(data, g) {
-        var project = data.project,
-            title = data.title,
-            type = (g.type[data.type]) ? g.type[data.type].split(':')[0] : 'unknown',
-            scope = (g.scope[data.scope]) ? g.scope[data.scope].split(':')[0] : 'unknown',
-            precision = (g.precision[data.precision]) ? g.precision[data.precision].split(' ')[0] : 'unknown';
+    clusterPopup: function(feature, g) {
+        var project = feature.properties.project,
+            title = feature.properties.title,
+            type = (g.type[feature.properties.type]) ? g.type[feature.properties.type].split(':')[0] : 'unknown',
+            scope = (g.scope[feature.properties.scope]) ? g.scope[feature.properties.scope].split(':')[0] : 'unknown',
+            precision = (g.precision[feature.properties.precision]) ? g.precision[feature.properties.precision].split(' ')[0] : 'unknown';
 
         var description = '<div><b>Project: </b>' + project + '</div>'
                         + '<div><b>Name: </b>' + title + '</div>'
@@ -124,7 +124,7 @@ views.Map = Backbone.View.extend({
         var count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
             unit = view.collection;
 
-        country = new models.Nationals();
+        var country = new models.Nationals();
         country.fetch({
             url: 'api/operating-unit-index.json',
             success:function(){
@@ -251,8 +251,8 @@ views.Map = Backbone.View.extend({
                             
                         }
                     },
-                    pointToLayer: function(feature,latlon){
-                        return L.marker(latlon,{
+                    pointToLayer: function(feature,latlng){
+                        return L.marker(latlng,{
                             icon: L.mapbox.marker.icon(markerOptions) // use MapBox style markers
                         })
                     },
@@ -260,7 +260,7 @@ views.Map = Backbone.View.extend({
                         var clusterBrief = L.popup({
                                 closeButton:false,
                                 offset: new L.Point(0,-20)
-                            }).setContent(view.clusterPopup(feature.properties, subLocIndex));
+                            }).setContent(view.clusterPopup(feature, subLocIndex));
                         layer.on('mouseover',function(){
                             clusterBrief.setLatLng(this.getLatLng());
                             view.map.openPopup(clusterBrief);
