@@ -163,7 +163,7 @@ views.Map = Backbone.View.extend({
                         view.map.setView([parent.lat,parent.lon],3); //why is the lat and lon reversed here
 
                         //draw country outline with the topojson file
-                        $.getJSON('api/world-110m.json',function(world){
+                        $.getJSON('api/world-50m-s.json',function(world){
                             var topoFeatures = topojson.feature(world, world.objects.countries).features,
                             selectedFeature = _(topoFeatures).findWhere({id:iso});
 
