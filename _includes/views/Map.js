@@ -39,7 +39,7 @@ views.Map = Backbone.View.extend({
             maxZoom: TJ.maxzoom,
             scrollWheelZoom: wheelZoom
             }).setView([0,-15],2);
-
+        setTimeout(function(){view.map.invalidateSize({pan:false});}, 200)
         view.buildLayer(layer);//budget is the default layer
     },
     zoomToRegion: function(region){

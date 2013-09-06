@@ -35,7 +35,6 @@ views.ProjectMap = Backbone.View.extend({
             for (var i = 0; i < data.length; i++) {
                 var o = data[i];
                 if (o.id === unit) {
-                    console.log(o)
                 
                     view.getwebData(o);
                     $('#country-summary').html(templates.ctrySummary(o));
