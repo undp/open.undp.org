@@ -22,8 +22,6 @@ views.Map = Backbone.View.extend({
             wheelZoom = false;
         };
 
-        // destroy previous map, same as view.$el.empty() for updating
-        if (view.map){view.map.remove()};
         // create the map with mapbox.js 1.3.1
         view.map = L.mapbox.map(this.el,TJ.id,{
             minZoom: TJ.minzoom,
