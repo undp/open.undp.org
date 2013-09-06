@@ -81,11 +81,11 @@ routers.App = Backbone.Router.extend({
             $('#mainnav li').removeClass('active');
             $('#profile .summary').addClass('off');
             $('#browser, #mainnav .browser').show();
-            $('#mainnav li a[href="/"]').parent().addClass('active');
+            $('#mainnav li a[href="/undp-projects/"]').parent().addClass('active');
             $('#mainnav li.parent').removeClass('parent-active');
 
             // Set up breadcrumbs
-            $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li><li><a href="' + BASE_URL + '">Our Projects</a></li>');
+            $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li><li><a href="{{site.baseurl}}">Our Projects</a></li>');
 
             // Load the main app view
             this.app = this.app || new views.App({
@@ -101,17 +101,17 @@ routers.App = Backbone.Router.extend({
         }
 
         // Save default description
-        app.defaultDescription = app.defaultDescription || $('#description p').html();
+        app.defaultDescription = app.defaultDescription || $('#description p.intro').html();
         
         // Parse hash
         var parts = (route) ? route.split('/') : [];
         var filters = _(parts).map(function (part) {
             var filter = part.split('-');
             if (filter[0] === 'operating_unit') {
-                unit = filter[1];//"operating_unit-LBN" returns the unit name
+                unit = filter[1];
             }
             return {
-                collection: filter[0], //eg. for ["region","RBEC"], the collection will be region, and the id to look for is "RBEC"
+                collection: filter[0],
                 id: filter[1]
             };
         });
@@ -185,6 +185,7 @@ routers.App = Backbone.Router.extend({
 
             // Load projects
             if (!this.allProjects || app.fiscalYear != year) {
+                if (app.fiscalYear && app.fiscalYear != year){app.projects.map.map.remove();}
                 app.fiscalYear = year;
                 this.allProjects = new models.Projects(SUMMARY);
 
@@ -201,25 +202,24 @@ routers.App = Backbone.Router.extend({
                 this.projects.cb = updateDescription;
                 this.projects.reset(this.allProjects.filter(filter));
             }
+            
+            updateWhenOpUnit();
         }
-        // Check for operating_unit filter to shrink map
-        var opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
-        // if the operating unit filter exists, aka if it is an object
-        if(_.isObject(opUnitFilter)){
-            $('.map-btn').removeClass('active');
-            $('ul.layers li').addClass('no-hover');
-            $('ul.layers li a').css('cursor','default');
-            $('ul.layers').removeClass('layer-shadow');
-            $('li.hdi').addClass('layer-shadow');
-            $('li.hdi a').addClass('cursor');
-            $('span.graph').addClass('active');
-        } else {
-            $('ul.layers li').removeClass('no-hover');
-            $('ul.layers li a').css('cursor','auto');
-            $('ul.layers').addClass('layer-shadow');
-            $('li.hdi').removeClass('layer-shadow');
-            $('li.hdi a').removeClass('cursor');
-            $('span.graph').removeClass('active');
+
+        function updateWhenOpUnit(){
+            var opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
+            $('.map-filter').removeClass('active') // reset the subfilter look
+            $('#map-filters').find('#type-6').addClass('active');
+            if(_.isObject(opUnitFilter)){
+                $('#map-filters').removeClass('disabled');//shows type sub-filter
+                $('.map-btn').removeClass('active');
+                $('ul.layers li').addClass('no-hover');
+                $('ul.layers li.hdi .graph').addClass('active');
+            } else {
+                $('#map-filters').addClass('disabled'); //hides type sub-filter
+                $('ul.layers li').removeClass('no-hover');
+                $('ul.layers li.hdi .graph').removeClass('active');
+            }
         }
 
         function updateDescription() {
@@ -235,17 +235,43 @@ routers.App = Backbone.Router.extend({
                 } else {
                     $('#chart-focus_area').show();
                 }
-    
-                if (app.description && app.description.length > 1) {
-                    $('#applied-filters').html(app.projects.length + ' Projects Selected');
-                    $('#description p .desc').html(app.description.shift() + app.description.join(',') + '.');
-                } else {
-                    $('#applied-filters').html('All Projects');
-                    $('#description p .desc').html(app.defaultDescription);
+
+                // three kinds of descriptions
+                // 1. no filter --> defaultDescription
+                // 2. filter (no donor) --> start with "The above includes"
+                // 3. filter (with donor) --> start with "DONOR funds the above"
+                var counts = (app.projects.length === 1) ? 'project' : 'projects';
+                    projectCounts = 'There are <strong>' + app.projects.length +'</strong> ' + counts;
+
+                if (app.description && app.description.length === 0){
+                    if (app.donorDescription.length > 0) {
+                        $('#description p.desc').html(app.donorDescription + counts +' accoss the world.');
+                    } else {
+                        $('#description p.desc').html(app.defaultDescription);
+                    }
+                } else if (app.description && app.description.length > 0){
+                    if (app.donorDescription.length > 0) {
+                        $('#description p.desc').html(app.donorDescription + counts + ' ' + app.description.join(',') + '.');
+                    } else {
+                        $('#description p.desc').html(projectCounts + app.description.join(',') + '.');
+                    }
+                } else if (!app.description) {
+                    $('#description p.desc').html(app.defaultDescription);
                 }
+
+                // reset description
                 app.description = false;
-        
+                app.donorDescription = "";
+
                 $('#browser .summary').removeClass('off');
+
+                // defaultDescription is already populated
+                $('#description p.intro').empty();
+
+                // empty the sub loc content since
+                // on a DOM level since it is generated with the page/map
+                // instead of beforehdand
+                $('#description p.geography').empty();
 
             }, 0);
         }
@@ -261,6 +287,8 @@ routers.App = Backbone.Router.extend({
         } else {
             app.hdi = false;
             $('#chart-hdi').css('display','none');
+            $('ul.layers li.no-hover.hdi a').css('cursor','default');
+            $('ul.layers li.hdi .graph').removeClass('active');
             if (unit) {
                 $('#hdi').html('no data');
                 $('.map-btn[data-value="hdi"] .total-caption').html('HDI');
@@ -336,7 +364,7 @@ routers.App = Backbone.Router.extend({
             $('html, body').scrollTop(0);
         }, 0);
 
-        $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#about/' + route + '">About: ' + route.capitalize().replace('info','') + '</a></li>');
+        $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' + '<li><a href="{{site.baseurl}}">Our Projects</a></li>' + '<li><a href="#about/' + route + '">About: ' + route.capitalize().replace('info','') + '</a></li>');
 
         $('#app .view, #about .section, #mainnav .profile').hide();
         $('#aboutnav li, #mainnav li').removeClass('active');
@@ -350,7 +378,7 @@ routers.App = Backbone.Router.extend({
     topDonors: function (route) {
         var that = this;
 
-        $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#top-donors/regular">Top Donors</a></li>');
+        $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' + '<li><a href="site.baseurl">Our Projects</a></li>' + '<li><a href="#top-donors/regular">Top Donors</a></li>');
 
         $('#app .view').hide();
         $('#mainnav li').removeClass('active');

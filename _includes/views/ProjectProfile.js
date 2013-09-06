@@ -26,7 +26,7 @@ views.ProjectProfile = Backbone.View.extend({
     render: function() {
         $('#breadcrumbs ul').html(
             '<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' +
-            '<li><a href="' + BASE_URL + '">Our Projects</a></li>' +
+            '<li><a href="{{site.baseurl}}">Our Projects</a></li>' +
             '<li><a href="#filter/operating_unit-' + this.model.get('operating_unit_id') + '">' + this.model.get("operating_unit") + '</a></li>' +
             '<li><a href="#project/' + this.model.get('id') + '">' + this.model.get('id') + '</a></li>'
         );
@@ -131,6 +131,7 @@ views.ProjectProfile = Backbone.View.extend({
         this.map = new views.ProjectMap({
             el: '#profilemap',
             model: this.model,
+            embed: this.options.embed,
             render: true
         });
 
@@ -159,13 +160,23 @@ views.ProjectProfile = Backbone.View.extend({
 
     requestIframe: function() {
         var context = $('#widget');
+        widgetOpts = ['title','map','outputs'];
 
-        // Reset things each time the widget
-        // is requested to the page.
-        widgetOpts = []
-        $('.widget-preview', context).html('<h3 class="empty">To use this widget choose some options on the left.</h3>');
-        $('.widget-code', context).hide();
-        $('.widget-options a', context).removeClass('active');
+        $('.widget-options a',context).removeClass('active');
+        _(widgetOpts).each(function(widgetTitle){
+            var widgetEl =widgetTitle + '-opt';
+            $("." + widgetEl).find('a').addClass('active');
+        })
+
+        embedPath = location.hash.replace('project', 'widget/project');
+
+        defaultIframe = '<iframe src="{{site.baseurl}}/embed.html' + embedPath + '?' +
+        widgetOpts.join('&') +
+        '" width="680" height="500" frameborder="0"> </iframe>';
+        $('.widget-preview', context).html(defaultIframe);
+        $('.widget-code', context)
+            .val(defaultIframe)
+            .select();
     },
 
     loadMore: function(e) {

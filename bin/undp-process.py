@@ -1,5 +1,5 @@
 # ------------------
-# UNDP Import Script 
+# UNDP Import Script
 # ------------------
 
 # This script runs Python commands to create the JSON API. 
@@ -513,6 +513,8 @@ for opunit,summary in groupby(opUnitCount_sort, lambda x: x['operatingunit']):
                 budgetSum.append(float(s['budget']))
                 expendSum.append(float(s['expenditure']))
     opUnitDonor.append(len(donors))
+    print opUnitDonor
+    print sum(opUnitDonor)
     opUnitList.append(sum(projCount))
     opUnitList.append(sum(opUnitDonor))
     opUnitList.append(sum(budgetSum))
@@ -803,6 +805,7 @@ gross_list = []
 for g in donor_gross_sort:
     gross = {}
     gross['name'] = g['donor']
+    gross['country'] = g['abbrev']
     gross['regular'] = g['regular']
     gross['other'] = g['other']
     gross['total'] = g['total']
@@ -817,6 +820,7 @@ f_out.close()
 local_list = []
 for g in donor_local_sort:
     local = {}
+    local['country'] = g['abbrev']
     local['name'] = g['donor']
     local['amount'] = g['amount']
     local_list.append(local)

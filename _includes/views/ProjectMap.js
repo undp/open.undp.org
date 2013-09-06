@@ -2,11 +2,9 @@ views.ProjectMap = Backbone.View.extend({
     events: {
         'click .map-fullscreen': 'fullscreen',
     },
-
     initialize: function() {
         if (this.options.render) this.render();
     },
-  
     tooltip: function(data, g) {
         var scope = (g.scope[data.scope]) ? g.scope[data.scope].split(':')[0] : 'unknown',
             type = (g.type[data.type]) ? g.type[data.type].split(':')[0] : 'unknown',
@@ -24,22 +22,15 @@ views.ProjectMap = Backbone.View.extend({
             count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
             unit = this.model.get('operating_unit_id'),
             subLocations = this.model.get('subnational');
-        if(view.map){view.map.remove()}
-        view.map = L.mapbox.map(this.el,TJ.id,{
-            minZoom: TJ.minzoom,
-            maxZoom: TJ.maxzoom,
-            noWrap: true
-        });
-        view.map.on('ready',function(){ // once the map is loaded, append the fullscreen button to the control-zoom div
-            $('.leaflet-control-zoom','.leaflet-control-container').append('<a href="#" class="icon map-fullscreen"></a>')
-        });
-        // for countries with no subnational data
-        var star = L.icon({
-            iconUrl: 'img/star.png',
-            iconSize: [18, 18],
-            iconAnchor: [9, 9],
-            popupAnchor: [18, 18]
-        });
+
+            view.map = L.mapbox.map(this.el,TJ.id,{
+                minZoom: TJ.minzoom,
+                maxZoom: 10
+            });
+
+        // adding faux fullscreen control
+        if (!view.options.embed){$('#profilemap').append('<div class="full-control"><a href="#" class="icon map-fullscreen"></a></div>');}
+        
         $.getJSON('api/operating-unit-index.json', function(data) {
             for (var i = 0; i < data.length; i++) {
                 var o = data[i];
@@ -48,20 +39,30 @@ views.ProjectMap = Backbone.View.extend({
                     view.getwebData(o);
                     $('#country-summary').html(templates.ctrySummary(o));
 
-                    //no subLocation for the project
-                    if (subLocations.length <= 0) {
-                        $('#profilemap').hide();
-                        $('.label').hide();
-                        if (o.lon) {
-                            // if the unit has a centroid
-                            // give a star icon, but no need for any other info
-                            L.marker([o.lat,o.lon],{icon:star}).addTo(view.map);
-                            view.map.setView([o.lat,o.lon],2);
-                        }
+                    if (!o.lon) {// if the unit has no geography
+                        view.$el.prev().hide();
+                        view.$el.next().addClass('nogeo');
+                        view.$el.hide();
                     } else {
-                        $('#profilemap').show();
-                        $('.label').show();
-                        $.getJSON('api/subnational-locs-index.json', function(g) {
+                        var iso = parseInt(o.iso_num);
+
+                        $.getJSON('api/world-110m.json',function(world){
+                            var topoFeatures = topojson.feature(world, world.objects.countries).features,
+                            selectedFeature = _(topoFeatures).findWhere({id:iso});
+
+                            outline = L.geoJson(selectedFeature, {
+                                style: {
+                                    "color": "#b5b5b5",
+                                    "weight": 3,
+                                    clickable: false
+                                }
+                            }).addTo(view.map);
+                        });
+
+                        if (subLocations.length <= 0) {
+                            view.map.setView([o.lat,o.lon],3);
+                        } else {
+                            $.getJSON('api/subnational-locs-index.json', function(g) {
                             var count = 0;
                             _.each(subLocations, function (o) {
                                 locations.push({
@@ -84,17 +85,31 @@ views.ProjectMap = Backbone.View.extend({
                                         'marker-size': 'small'
                                     } 
                                 });
-
-                                if (o.type == 1){locations[count].properties['marker-color'] = '#049FD9';} // 1 - "Country level accuracy."
-                                else if (o.type == 2){locations[count].properties['marker-color'] = '#DD4B39';} // 2 - "ADM1 = Sub-region (administrative division, state, district, province) level accuracy.",
+                            
+                                if (o.type == 1){locations[count].properties['marker-color'] = '#049FD9';} //Activity
+                                else if (o.type == 2){locations[count].properties['marker-color'] = '#DD4B39';} //Intended Beneficiary
                                 count += 1;
                             });
-                            view.map.setView([locations[0].geometry.coordinates[1],locations[0].geometry.coordinates[0]],2);
-                            view.map.markerLayer.setGeoJSON({
-                                type:"FeatureCollection",
-                                features: locations
-                            });
+                            view.map.setView([locations[0].geometry.coordinates[1],locations[0].geometry.coordinates[0]],3);
+                            function onEachFeature(feature, layer) {
+                                var clusterBrief = L.popup({
+                                        closeButton:false,
+                                        offset: new L.Point(0,-20)
+                                    }).setContent(feature.properties.description);
+                                layer.on('mouseover',function(){
+                                    clusterBrief.setLatLng(this.getLatLng());
+                                    view.map.openPopup(clusterBrief);
+                                }).on('mouseout',function(){
+                                    view.map.closePopup(clusterBrief);
+                                })
+                            }
+                            L.geoJson(locations, {
+                                pointToLayer: L.mapbox.marker.style,
+                                onEachFeature: onEachFeature
+                            }).addTo(view.map);
                          });
+                            
+                        }
                     }
                 }
             }
@@ -103,11 +118,14 @@ views.ProjectMap = Backbone.View.extend({
 
     fullscreen: function(e) {
         e.preventDefault();
-        this.$el.toggleClass('full');
-        $('.map-fullscreen').toggleClass('full');
+        var view = this;
+
+        view.$el.toggleClass('full');
+        setTimeout(function(){view.map.invalidateSize({pan:false});}, 200)
+
+        $('a.map-fullscreen').toggleClass('full');
         $('.country-profile').toggleClass('full');
-        app.projects.map.map.requestRedraw();
-   },
+      },
 
     getwebData: function(data) {
         var view = this,
@@ -178,10 +196,11 @@ views.ProjectMap = Backbone.View.extend({
             });
             
             q.await(function() {
-               view.twitter(twitterAcct, function(tweets, twPhotos) {
-                    view.showTweets(tweets);
-                    view.flickr(flickrAccts,photos.concat(twPhotos));
-                });
+               //view.twitter(twitterAcct, function(tweets, twPhotos) {
+               //     view.showTweets(tweets);
+               //     view.flickr(flickrAccts,photos.concat(twPhotos));
+               //});
+               view.flickr(flickrAccts,photos);
             });
         });
 
@@ -273,10 +292,10 @@ views.ProjectMap = Backbone.View.extend({
         
         function getTweets(page) {
             var success = false;
-            $.getJSON('http://api.twitter.com/1/lists/statuses.json?slug=undp-tweets&owner_screen_name=openundp&include_entities=1&include_rts=0&since_id=274016103305461762&per_page=200&page=' + page + '&callback=?', function(globalTweets) {
+            $.getJSON('https://api.twitter.com/1.1/lists/statuses.json?slug=undp-tweets&owner_screen_name=openundp&include_rts=0&since_id=274016103305461762&count=200&page=' + page + '&callback=?', function(globalTweets) {
                 success = true;
                 if (username) {
-                    $.getJSON('http://api.twitter.com/1/user_timeline.json?screen_name=' + username + '&include_entities=1&include_rts=0&since_id=274016103305461762&count=200&page=' + page + '&callback=?', function(coTweets) {
+                    $.getJSON('https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=' + username + '&include_rts=0&since_id=274016103305461762&count=200&page=' + page + '&callback=?', function(coTweets) {
                         filterTweets(coTweets.concat(globalTweets));
                     });
                 } else {
