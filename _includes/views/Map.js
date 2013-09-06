@@ -208,10 +208,10 @@ views.Map = Backbone.View.extend({
             // append sub-national location paragraph
             if (projectWithNoGeo != 0 && !hasGeo){
                 $('#map-filters').addClass('disabled'); // no sub filter on page
-                $('#description p.geography').html("None of these projects have associated geography.");
+                $('#description p.geography').html("None of these projects have geographic information.");
             } else if (projectWithNoGeo != 0 && hasGeo){
                 var projectWithNoGeoParagraph = " <b>" + projectWithNoGeo
-                    + "</b> of them " + verbDo + " not " + verbHave + " associated geography; the remaining <b>"
+                    + "</b> of them " + verbDo + " not " + verbHave + " geographic information; the remaining <b>"
                     + (filteredSubs.length - projectWithNoGeo)
                     + "</b> have <b>"
                     + filteredMarkers.length
