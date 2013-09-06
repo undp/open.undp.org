@@ -46,7 +46,7 @@ views.ProjectMap = Backbone.View.extend({
                     } else {
                         var iso = parseInt(o.iso_num);
 
-                        $.getJSON('api/world-110m.json',function(world){
+                        $.getJSON('api/world-50m-s.json',function(world){
                             var topoFeatures = topojson.feature(world, world.objects.countries).features,
                             selectedFeature = _(topoFeatures).findWhere({id:iso});
 
