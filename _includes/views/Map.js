@@ -157,7 +157,7 @@ views.Map = Backbone.View.extend({
 
                     if (_.isNaN(iso)){
                         view.$el.prepend('<div class="inner-grey">'+
-                                         '<p>The seleted operating unit and its project(s) do not have associated geography.</p>'+
+                                         '<p>The seleted operating unit and its project(s) do not have geographic information.</p>'+
                                          '</div>');
                     } else {
 
@@ -182,7 +182,7 @@ views.Map = Backbone.View.extend({
                         //draw country outline with the topojson file
                         if (!IE || IE_VERSION > 8){
                             view.outline.clearLayers();
-                            $.getJSON('api/world-110m.json',function(world){
+                            $.getJSON('api/world-50m-s.json',function(world){
                             var topoFeatures = topojson.feature(world, world.objects.countries).features,
                                 selectedFeature = _(topoFeatures).findWhere({id:iso});
                             view.outline.addData(selectedFeature
@@ -225,10 +225,10 @@ views.Map = Backbone.View.extend({
             // append sub-national location paragraph
             if (projectWithNoGeo != 0 && !hasGeo){
                 $('#map-filters').addClass('disabled'); // no sub filter on page
-                $('#description p.geography').html("None of these projects have associated geography.");
+                $('#description p.geography').html("None of these projects have geographic information.");
             } else if (projectWithNoGeo != 0 && hasGeo){
                 var projectWithNoGeoParagraph = " <b>" + projectWithNoGeo
-                    + "</b> of them " + verbDo + " not " + verbHave + " associated geography; the remaining <b>"
+                    + "</b> of them " + verbDo + " not " + verbHave + " geographic information; the remaining <b>"
                     + (filteredSubs.length - projectWithNoGeo)
                     + "</b> have <b>"
                     + filteredMarkers.length
@@ -322,7 +322,7 @@ views.Map = Backbone.View.extend({
             };
             var circleLayer = L.geoJson({
                 "type":"FeatureCollection",
-                "features":circles
+                "features":_(circles).sortBy(function(f) { return -f.properties[layer]; })
             },{
                 pointToLayer:function(feature,latlng){
                     return L.circleMarker(latlng,defaultCircle).setRadius(feature.properties.radius);
