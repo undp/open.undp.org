@@ -472,7 +472,7 @@ input[readonly] {
   }
 #map-filters ul li {
   float:left;
-  margin:20px 20px 20px 0;
+  margin:20px 18px 20px 0;
   font-weight:700;
   }
 #map-filters ul li a.map-filter {
@@ -1324,6 +1324,12 @@ form {
 /* twitter feed */
 #content-right {
   position:absolute;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  
+  ::i-block-chrome,#content-right {
+  right: -50px;
+}
 }
 #twitter-block {
   display: none;

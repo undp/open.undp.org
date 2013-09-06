@@ -4,6 +4,8 @@ views.Map = Backbone.View.extend({
     },
     render: function() {
         var view = this;
+        if (view.map){view.map.remove();} // remove previous map, same concept as view.$el.empty() for updating, http://leafletjs.com/reference.html#map-remove
+        view.$el.empty();
         view.$el.append('<div class="inner-shadow"></div>');
         view.$el.find('.inner-grey').remove(); // remove 'operating unit has no geo' paragraph
 
@@ -117,7 +119,6 @@ views.Map = Backbone.View.extend({
     },
     buildLayer: function(layer,mapFilter){
         var view = this;
-
         view.map.removeLayer(view.markers); //remove the marker featureGroup from view.map
         view.markers.clearLayers(); // inside of marker group, clear the layers from the previous build
 
@@ -228,11 +229,12 @@ views.Map = Backbone.View.extend({
                     "features":filteredMarkers
                 }, {
                     filter: function(feature, layer, filter) { // only two cases for type, hard code is fine
-                        var subFilter = mapFilter || "0";
-                        if (subFilter === "0"){
+                        var subFilter = mapFilter || "6";
+                        if (subFilter === "6"){
                             return feature.properties
                         } else {
-                            return feature.properties['type'] === subFilter
+                            return feature.properties['precision'] === subFilter
+                            
                         }
                     },
                     pointToLayer: function(feature,latlon){
@@ -316,9 +318,9 @@ views.Map = Backbone.View.extend({
                         view.circleHighlight(circleMarker);
                     }).on('click',function(e){
                         if (app.app.filters.length === 0 ){
-                        path = '#filter/operating_unit-' + e.target.feature.properties.id;
+                            path = document.location.hash + '/filter/operating_unit-' + e.target.feature.properties.id;
                         } else {
-                        path = document.location.hash + '/operating_unit-' +  e.target.feature.properties.id;
+                            path = document.location.hash + '/operating_unit-' +  e.target.feature.properties.id;
                         }
                         if (!view.options.embed){view.goToLink(path)};
                     })
