@@ -3,10 +3,15 @@ views.Map = Backbone.View.extend({
         if (this.options.render) this.render();
     },
     render: function() {
-        var view = this;
+        var view = this,
+            category;
         if (view.map){view.map.remove();} // remove previous map, same concept as view.$el.empty() for updating, http://leafletjs.com/reference.html#map-remove
         view.$el.empty();
-        view.$el.append('<div class="inner-shadow"></div>');
+        if (IE) {
+            view.$el.css('border','1px solid #ddd');
+        } else {
+            view.$el.append('<div class="inner-shadow"></div>');
+        }
         view.$el.find('.inner-grey').remove(); // remove 'operating unit has no geo' paragraph
 
         view.regionFilter =_(app.app.filters).findWhere({collection:"region"});
@@ -24,11 +29,12 @@ views.Map = Backbone.View.extend({
 
         // create the map with mapbox.js 1.3.1
         view.map = L.mapbox.map(this.el,TJ.id,{
+            center: [0,-15],
+            zoom: 2,
             minZoom: TJ.minzoom,
             maxZoom: TJ.maxzoom,
             scrollWheelZoom: wheelZoom
-            }).setView([0,-15],2);
-        setTimeout(function(){view.map.invalidateSize({pan:false});}, 200)
+            });
 
         // create circle or cluster based on the operating unit filter
         if (_.isObject(view.opUnitFilter)){
@@ -45,17 +51,17 @@ views.Map = Backbone.View.extend({
     // define map center based on region filter
     zoomToRegion: function(region){
         if (region === "RBA"){
-            this.map.setView([0,20],3)
+            this.map.setView([0,20],3,{reset:true});
         } else if (region === "RBAP"){
-            this.map.setView([37,80],2)
+            this.map.setView([37,80],2,{reset:true});
         } else if (region === "RBAS" || region === "PAPP"){
-            this.map.setView([32,32],3)
+            this.map.setView([32,32],3,{reset:true});
         } else if (region === "RBEC"){
-            this.map.setView([50,55],3)
+            this.map.setView([50,55],3,{reset:true});
         } else if (region === "RBLAC"){
-            this.map.setView([-2,-67],2)
+            this.map.setView([-2,-67],2,{reset:true});
         } else if (region === "global"){
-            this.map.setView([0,0],2)
+            this.map.setView([0,0],2,{reset:true});
         }
     },
     // CIRCLE
@@ -150,9 +156,8 @@ views.Map = Backbone.View.extend({
                         iso = parseInt(parent.get('iso_num'));
 
                     if (_.isNaN(iso)){
-                        view.map.setView([0,-15],2);
                         view.$el.prepend('<div class="inner-grey">'+
-                                         '<p>The seleted operating unit and its project(s) do not have associated geography.</p>'+
+                                         '<p>The seleted operating unit and its project(s) do not have geographic information.</p>'+
                                          '</div>');
                     } else {
 
@@ -172,12 +177,12 @@ views.Map = Backbone.View.extend({
                         // set sub filter center zoom
                         var subCenter = mapCenter || [parent.lat,parent.lon],
                             subZoom = mapZoom || cntryZoom;
-                        view.map.setView(subCenter,subZoom);
+                        view.map.setView(subCenter,subZoom,{reset:true});
 
                         //draw country outline with the topojson file
                         if (!IE || IE_VERSION > 8){
                             view.outline.clearLayers();
-                            $.getJSON('api/world-110m.json',function(world){
+                            $.getJSON('api/world-50m-s.json',function(world){
                             var topoFeatures = topojson.feature(world, world.objects.countries).features,
                                 selectedFeature = _(topoFeatures).findWhere({id:iso});
                             view.outline.addData(selectedFeature
@@ -220,10 +225,10 @@ views.Map = Backbone.View.extend({
             // append sub-national location paragraph
             if (projectWithNoGeo != 0 && !hasGeo){
                 $('#map-filters').addClass('disabled'); // no sub filter on page
-                $('#description p.geography').html("None of these projects have associated geography.");
+                $('#description p.geography').html("None of these projects have geographic information.");
             } else if (projectWithNoGeo != 0 && hasGeo){
                 var projectWithNoGeoParagraph = " <b>" + projectWithNoGeo
-                    + "</b> of them " + verbDo + " not " + verbHave + " associated geography; the remaining <b>"
+                    + "</b> of them " + verbDo + " not " + verbHave + " geographic information; the remaining <b>"
                     + (filteredSubs.length - projectWithNoGeo)
                     + "</b> have <b>"
                     + filteredMarkers.length
@@ -273,6 +278,7 @@ views.Map = Backbone.View.extend({
                     }
                 });
                 view.markers.addLayer(filteredMarkersLayer);
+                view.map.addLayer(view.markers);
             });
         };
         var renderCircles = function(){
@@ -301,12 +307,12 @@ views.Map = Backbone.View.extend({
                     model.centroid.properties.budget = budget,
                     model.centroid.properties.expenditure = expenditure,
                     model.centroid.properties.hdi = hdi,
-                    model.centroid.properties.popup = view.circlePopup(category,model.centroid),
-                    model.centroid.properties.radius = view.radius(view.scale(category,model.centroid));
+                    model.centroid.properties.popup = view.circlePopup(layer,model.centroid),
+                    model.centroid.properties.radius = view.radius(view.scale(layer,model.centroid));
 
                     circles.push(model.centroid);
                 }
-            })
+            });
             var defaultCircle = {
                 color:"#fff",
                 weight:1,
@@ -316,14 +322,15 @@ views.Map = Backbone.View.extend({
             };
             var circleLayer = L.geoJson({
                 "type":"FeatureCollection",
-                "features":circles
+                "features":_(circles).sortBy(function(f) { return -f.properties[layer]; })
             },{
                 pointToLayer:function(feature,latlng){
-                    return L.circleMarker(latlng,defaultCircle).setRadius(feature.properties.radius)
+                    return L.circleMarker(latlng,defaultCircle).setRadius(feature.properties.radius);
                 },
                 onEachFeature:function(feature, layer){
                     var brief = L.popup({
                             closeButton:false,
+                            offset:[0, -feature.properties.radius+5]
                         }).setContent(feature.properties.popup);
                     layer.on('mouseover',function(e){
                         brief.setLatLng(this.getLatLng());
@@ -343,7 +350,7 @@ views.Map = Backbone.View.extend({
                 }
             });
             view.markers.addLayer(circleLayer);
+            view.map.addLayer(view.markers);
         }
-        view.map.addLayer(view.markers);
     }
 });
