@@ -24,7 +24,7 @@ outputsFull = []
 locationsFull = []
 
 # For donor JSONs
-cntry_donors = csv.DictReader(open('download/undp_export/country_donors_new2.csv','rb'), delimiter = ',', quotechar = '"')
+cntry_donors = csv.DictReader(open('download/undp_export/country_donors_updated.csv','rb'), delimiter = ',', quotechar = '"')
 cntry_donors_sort = sorted(cntry_donors, key = lambda x: x['id'])
 
 # Global Donors Arrays
