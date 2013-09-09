@@ -14,6 +14,7 @@ from sys import argv
 from sets import Set
 
 t0 = time.time()
+print "processing ..."
 
 # Global Output Arrays
 # ********************
@@ -332,7 +333,6 @@ def loopData(file_name, key):
 				projectList.append(operatingunit)						
 			except: 
 				region_unit = p.find("./recipient-region").attrib
-				print region_unit.get('code')
 				for r in units_sort:
 					if region_unit.get('code') == r['iati_operating_unit']:
 						operatingunit = r['operating_unit']
