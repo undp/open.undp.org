@@ -514,8 +514,6 @@ for opunit,summary in groupby(opUnitCount_sort, lambda x: x['operatingunit']):
                 budgetSum.append(float(s['budget']))
                 expendSum.append(float(s['expenditure']))
     opUnitDonor.append(len(donors))
-    print opUnitDonor
-    print sum(opUnitDonor)
     opUnitList.append(sum(projCount))
     opUnitList.append(sum(opUnitDonor))
     opUnitList.append(sum(budgetSum))
@@ -525,6 +523,7 @@ for opunit,summary in groupby(opUnitCount_sort, lambda x: x['operatingunit']):
 opUnitprint = []
 for o in opUnitCounts:
     opUnitprint.append(dict(zip(opUnitCountsHeader,o))) # this joins the project summary information
+
 
 # Process CRS Index
 # *****************
@@ -748,7 +747,7 @@ writeout = jsvalue + jsondump
 f_out = open('../api/hdi.js', 'wb')
 f_out.writelines(writeout)
 f_out.close()
-
+  
 # Process Operating Unit Index
 # ****************************
 unitsIndex = csv.DictReader(open('download/undp_export/report_units.csv', 'rb'), delimiter = ',', quotechar = '"')
