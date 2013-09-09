@@ -408,7 +408,8 @@ regionsList = ['PAPP','RBA','RBAP','RBAS','RBEC','RBLAC']
 row_count = 0
 yearJson = []
 yearList = []
-projectSumHeader = ['fiscal_year','id','name','operating_unit','region','budget','expenditure','crs','focus_area','donors','donor_types','donor_countries','donor_budget','donor_expend']
+projectSumHeaderReal = ['fiscal_year','id','name','operating_unit','region','budget','expenditure','crs','focus_area','donors','donor_types','donor_countries','donor_budget','donor_expend']
+projectSumHeader = ['fiscal_year','id','name','operating_unit','region','budget','expenditure','crs','focus_area']
 for year,projectYears in groupby(projectSum_sort, lambda x: x['fiscal_year']):
     projectSummary = []
     yearJson.append(year)
@@ -419,15 +420,15 @@ for year,projectYears in groupby(projectSum_sort, lambda x: x['fiscal_year']):
         summaryList.append(award)
         projectFY = []
         docTemp = []
-        for s in summary:
-            summaryList.append(s['award_title'])
-            summaryList.append(s['operatingunit'])
-            if s['bureau'] not in regionsList:
-                summaryList.append('global')
-            else:
-                summaryList.append(s['bureau'])
-            summaryList.append(float(s['budget']))
-            summaryList.append(float(s['expenditure']))
+        # for s in summary:
+        summaryList.append(row['project_title'])
+        summaryList.append(row['operating_unit'])
+        if row['region_id'] not in regionsList:
+            summaryList.append('global')
+        else:
+            summaryList.append(row['region_id'])
+        summaryList.append(float(row['budget']))
+        summaryList.append(float(s['expenditure']))
         crsTemp = []
         faTemp = []
         for out in outputsFull:
@@ -438,24 +439,24 @@ for year,projectYears in groupby(projectSum_sort, lambda x: x['fiscal_year']):
                     faTemp.append(out['focus_area'])
         summaryList.append(crsTemp)
         summaryList.append(faTemp)
-        dTemp = []
-        dtypeTemp = []
-        dCtyTemp = []
-        dBudget = []
-        dExpend = []
-        if year in donorYearList:
-            for dProj in donorYearList[year]:
-                if dProj['projectID'] == award:
-                    dTemp = dProj['donorID']
-                    dtypeTemp = dProj['donorTypeID']
-                    dCtyTemp = dProj['donorCtyID']
-                    dBudget = dProj['donorBudget']
-                    dExpend = dProj['donorExpend']
-        summaryList.append(dTemp)
-        summaryList.append(dtypeTemp)
-        summaryList.append(dCtyTemp)
-        summaryList.append(dBudget)
-        summaryList.append(dExpend)
+        # dTemp = []
+        # dtypeTemp = []
+        # dCtyTemp = []
+        # dBudget = []
+        # dExpend = []
+        # if year in donorYearList:
+        #     for dProj in donorYearList[year]:
+        #         if dProj['projectID'] == award:
+        #             dTemp = dProj['donorID']
+        #             dtypeTemp = dProj['donorTypeID']
+        #             dCtyTemp = dProj['donorCtyID']
+        #             dBudget = dProj['donorBudget']
+        #             dExpend = dProj['donorExpend']
+        # summaryList.append(dTemp)
+        # summaryList.append(dtypeTemp)
+        # summaryList.append(dCtyTemp)
+        # summaryList.append(dBudget)
+        # summaryList.append(dExpend)
         projectSummary.append(dict(zip(projectSumHeader,summaryList))) # this joins the project summary information 
     yearSummary['year'] = year
     yearSummary['summary'] = projectSummary 
@@ -467,10 +468,10 @@ for y in yearList:
     jsvalue = "var SUMMARY = "
     jsondump = json.dumps(y['summary'], sort_keys=True, separators=(',',':'))
     writeout = jsvalue + jsondump
-    f_out = open('../api/project_summary_%s.js' % y['year'], 'wb')
+    f_out = open('../api_new/project_summary_%s.js' % y['year'], 'wb')
     f_out.writelines(writeout)
     f_out.close()
-    f_out = open('../api/project_summary_%s.json' % y['year'], 'wb')
+    f_out = open('../api_new/project_summary_%s.json' % y['year'], 'wb')
     f_out.writelines(jsondump)
     f_out.close()
 print 'Project Summary json files generated...'
@@ -513,8 +514,6 @@ for opunit,summary in groupby(opUnitCount_sort, lambda x: x['operatingunit']):
                 budgetSum.append(float(s['budget']))
                 expendSum.append(float(s['expenditure']))
     opUnitDonor.append(len(donors))
-    print opUnitDonor
-    print sum(opUnitDonor)
     opUnitList.append(sum(projCount))
     opUnitList.append(sum(opUnitDonor))
     opUnitList.append(sum(budgetSum))
@@ -524,6 +523,7 @@ for opunit,summary in groupby(opUnitCount_sort, lambda x: x['operatingunit']):
 opUnitprint = []
 for o in opUnitCounts:
     opUnitprint.append(dict(zip(opUnitCountsHeader,o))) # this joins the project summary information
+
 
 # Process CRS Index
 # *****************
@@ -747,7 +747,7 @@ writeout = jsvalue + jsondump
 f_out = open('../api/hdi.js', 'wb')
 f_out.writelines(writeout)
 f_out.close()
-
+  
 # Process Operating Unit Index
 # ****************************
 unitsIndex = csv.DictReader(open('download/undp_export/report_units.csv', 'rb'), delimiter = ',', quotechar = '"')

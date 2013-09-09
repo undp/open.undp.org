@@ -174,9 +174,7 @@
           <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= year %> <b class="caret"></b></a>
           <ul class='dropdown-menu'>
       <% _.each(FISCALYEARS, function(y) { %>
-        <% if (y != '2010') { %>
         <li><a href="#" data-value='<%= y %>'<% if (y === year) { %> class='active'<% } %>><%= y %></a></li>
-        <% } %>
       <% }); %>
           </ul>
         </li>

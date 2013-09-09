@@ -161,23 +161,14 @@ views.Map = Backbone.View.extend({
                                          '</div>');
                     } else {
 
-                        var bigCntry = "CHN USA ARG﻿ BRA",
-                            smlCntry = "PHL SVK NPL BTN BLZ BLR LTU﻿ LIE LSO BRB";
-
-                        if (parent.id == 'RUS'){
-                            cntryZoom = 2
-                        } else if (bigCntry.indexOf(parent.id) > -1){
-                            cntryZoom = 3
-                        } else if (smlCntry.indexOf(parent.id) > -1){
-                            cntryZoom = 5
-                        } else {
-                            cntryZoom = 4
-                        }
-
-                        // set sub filter center zoom
-                        var subCenter = mapCenter || [parent.lat,parent.lon],
-                            subZoom = mapZoom || cntryZoom;
-                        view.map.setView(subCenter,subZoom,{reset:true});
+                        // Determine zoom level based on size of country
+                        var bigCntry = "CHN USA ARG﻿ BRA"
+                        var smlCntry = "PHL SVK NPL BTN BLZ BLR LTU﻿ LIE LSO BRB GUY﻿ AFG TJK SUR﻿ GUF ECU BOL PRY URY PAN CRI GTM HND NIC HTI DOM CUB SLV"
+                        if (parent.id == 'RUS'){cntryZoom = 2}
+                        else if (bigCntry.indexOf(parent.id) > -1){cntryZoom = 3}
+                        else if (smlCntry.indexOf(parent.id) > -1){cntryZoom = 5}
+                        else {cntryZoom = 4}
+                        view.map.setView([parent.lat,parent.lon],cntryZoom); //why is the lat and lon reversed here
 
                         //draw country outline with the topojson file
                         if (!IE || IE_VERSION > 8){
