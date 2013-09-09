@@ -232,7 +232,7 @@ views.Map = Backbone.View.extend({
                     + (filteredSubs.length - projectWithNoGeo)
                     + "</b> have <b>"
                     + filteredMarkers.length
-                    + "</b> sub-national locations in total."
+                    + "</b> subnational locations in total."
                 $('#description p.geography').html(projectWithNoGeoParagraph);
             }
 
