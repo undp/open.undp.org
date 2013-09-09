@@ -25,7 +25,7 @@ views.ProjectMap = Backbone.View.extend({
 
             view.map = L.mapbox.map(this.el,TJ.id,{
                 minZoom: TJ.minzoom,
-                maxZoom: 10
+                maxZoom: 15
             });
 
         // adding faux fullscreen control
@@ -60,7 +60,7 @@ views.ProjectMap = Backbone.View.extend({
                         });
 
                         if (subLocations.length <= 0) {
-                            view.map.setView([o.lat,o.lon],3);
+                            view.map.setView([o.lat,o.lon],10);
                         } else {
                             $.getJSON('api/subnational-locs-index.json', function(g) {
                             var count = 0;
@@ -90,7 +90,7 @@ views.ProjectMap = Backbone.View.extend({
                                 else if (o.type == 2){locations[count].properties['marker-color'] = '#DD4B39';} //Intended Beneficiary
                                 count += 1;
                             });
-                            view.map.setView([locations[0].geometry.coordinates[1],locations[0].geometry.coordinates[0]],3);
+                            view.map.setView([locations[0].geometry.coordinates[1],locations[0].geometry.coordinates[0]],10);
                             function onEachFeature(feature, layer) {
                                 var clusterBrief = L.popup({
                                         closeButton:false,
