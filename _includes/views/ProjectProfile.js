@@ -72,24 +72,29 @@ views.ProjectProfile = Backbone.View.extend({
         var start = new Date(s[0],s[1]-1,s[2]).format('M d, Y');
         var end = new Date(e[0],e[1]-1,e[2]).format('M d, Y');
 
-        // Filter out any image files from showing up
         var documents = [];
-
         if (this.model.get('document_name')) {
-            var filterDocuments = _(this.model.get('document_name')[1]).filter(function(d) {
+            
+            var filterDocNames = _(this.model.get('document_name')[0]).filter(function(n) {
+                return !(/\.(gif|jpg|jpeg|tiff|png)$/i).test(n);
+            });
+            var filterDocUrls = _(this.model.get('document_name')[1]).filter(function(d) {
                 return !(/\.(gif|jpg|jpeg|tiff|png)$/i).test(d);
             });
-
-            if (filterDocuments.length !== 0) {
-                _(filterDocuments).each(function(d, i) {
+            
+            
+             if (filterDocNames.length !== 0) {
+                _(filterDocNames).each(function(d, i) {
                     documents[i] = {};
-                    var title = (d.split('/').pop()).split(/(.)[^.]*$/)[0].replace('_', ' ');
+                    var title = d;
                     if (title.length > 38) {
                         documents[i].title = title.substring(0, 38) + '...';
                     } else {
                         documents[i].title = title;
                     }
                     documents[i].filetype = d.split('.').pop();
+                });
+                _(filterDocUrls).each(function(d, i) {
                     documents[i].src = d;
                 });
             }

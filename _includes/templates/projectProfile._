@@ -157,10 +157,10 @@
           <div id='documents' class='row-fluid'>
             <div class='span12'>
               <ul class='unstyled'>
-                <% _.each(documents, function(d) { %>
-                <li><a href='<%= d.src %>'>
-                  <span class='icon filetype filetype-<%= d.filetype %>'></span>
-                  <%= d.title %></a>
+                <% _.each(documents, function(doc) { %>
+                <li><a href='<%= doc.src %>'>
+                  <span class='icon filetype filetype-<%= doc.filetype %>'></span>
+                  <%= doc.title %></a>
                 </li>
                 <% }); %>
               </ul>
