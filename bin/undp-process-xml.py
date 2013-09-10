@@ -177,7 +177,7 @@ def outputsLoop(o, output_id):
 			if year not in outputFY:
 				# Append to output array
 				outputFY.append(year)	
-	
+
 	# Use transaction data to get expenditure and budget by donor
 	donorBudget = []
 	donorExpend = []
@@ -220,6 +220,13 @@ def outputsLoop(o, output_id):
 	# This adds up "commitment" <transactions> to get the same number as <budget>
 	# outputBudgetCheck = float(sum(b))
 
+	if len(outputExpend) != len(outputBudget):
+		diff = len(outputExpend) - len(outputBudget)
+		for x in range(0, diff):
+			outputBudget.append(0)
+	print "                      new", rltdProject
+	print len(outputBudget), "budget length"
+	print len(outputExpend), "expend length"
 	# Get subnational locations
 	locs = []
 	locHeader = ['awardID','lat','lon','precision','name','type']
