@@ -19,7 +19,6 @@ views.ProjectMap = Backbone.View.extend({
     render: function() {
         var view = this,
             locations = [],
-            count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
             unit = this.model.get('operating_unit_id'),
             subLocations = this.model.get('subnational');
 
@@ -59,11 +58,9 @@ views.ProjectMap = Backbone.View.extend({
                             }).addTo(view.map);
                         });
 
-                        if (subLocations.length <= 0) {
-                            view.map.setView([o.lat,o.lon],10);
-                        } else {
-                            $.getJSON('api/subnational-locs-index.json', function(g) {
-                            var count = 0;
+                        view.map.setView([o.lat,o.lon],zoomToCountry(unit));
+                        
+                        $.getJSON('api/subnational-locs-index.json', function(g) {
                             _.each(subLocations, function (o) {
                                 locations.push({
                                     type: "Feature",
@@ -82,15 +79,12 @@ views.ProjectMap = Backbone.View.extend({
                                         project: view.model.get('project_title'),
                                         name: o.name,
                                         description: view.tooltip(o, g),
-                                        'marker-size': 'small'
+                                        'marker-size': 'small',
+                                        'marker-color': '0055aa'
                                     } 
                                 });
-                            
-                                if (o.type == 1){locations[count].properties['marker-color'] = '#049FD9';} //Activity
-                                else if (o.type == 2){locations[count].properties['marker-color'] = '#DD4B39';} //Intended Beneficiary
-                                count += 1;
                             });
-                            view.map.setView([locations[0].geometry.coordinates[1],locations[0].geometry.coordinates[0]],10);
+                        
                             function onEachFeature(feature, layer) {
                                 var clusterBrief = L.popup({
                                         closeButton:false,
@@ -103,13 +97,12 @@ views.ProjectMap = Backbone.View.extend({
                                     view.map.closePopup(clusterBrief);
                                 })
                             }
+                            
                             L.geoJson(locations, {
                                 pointToLayer: L.mapbox.marker.style,
                                 onEachFeature: onEachFeature
-                            }).addTo(view.map);
-                         });
-                            
-                        }
+                                }).addTo(view.map);
+                        });
                     }
                 }
             }
