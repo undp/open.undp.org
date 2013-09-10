@@ -280,15 +280,14 @@ projects = []
 projectsFull = []
 projectsSmallFull = []
 # projectsHeader = ['project_id','project_title','project_descr','inst_id','inst_descr','inst_type_id','inst_type_descr','fiscal_year','start','end','operating_unit_id','operating_unit','region_id','region_name','outputs','document_name','subnational']
-projectsHeader = ['project_id','operating_unit','operating_unit_id','project_title','project_descr','start','end','inst_id','inst_descr','inst_type_id','document_name']
-projectsSmallHeader = ['project_id','title','subnational']
+projectsHeader = ['project_id','operating_unit','operating_unit_id','iati_op_id','project_title','project_descr','start','end','inst_id','inst_descr','inst_type_id','document_name']
 units = csv.DictReader(open('download/undp_export/report_units.csv', 'rb'), delimiter = ',', quotechar = '"')
 units_sort = sorted(units, key = lambda x: x['operating_unit'])
 
 def loopData(file_name, key):
 	# Get CSVs
-	bureau = csv.DictReader(open('download/undp_export/regions.csv', 'rb'), delimiter = ',', quotechar = '"')
-	bureau_sort = sorted(bureau, key = lambda x: x['bureau'])
+	# bureau = csv.DictReader(open('download/undp_export/iati_regions.csv', 'rb'), delimiter = ',', quotechar = '"')
+	# bureau_sort = sorted(bureau, key = lambda x: x['bureau'])
 	# Get IATI activities XML
 	context = iter(etree.iterparse(file_name,tag='iati-activity'))
 	# Loop through each IATI activity in the XML
@@ -338,7 +337,8 @@ def loopData(file_name, key):
 					if op_unit.get('code') == r['iati_operating_unit']:
 						operatingunit = r['operating_unit']
 				projectList.append(ou_descr)
-				projectList.append(operatingunit)						
+				projectList.append(operatingunit)
+				projectList.append(op_unit.get('code'))						
 			except: 
 				region_unit = p.find("./recipient-region").attrib
 				for r in units_sort:
@@ -346,8 +346,17 @@ def loopData(file_name, key):
 						operatingunit = r['operating_unit']
 						ou_descr = r['ou_descr']
 				projectList.append(ou_descr)
-				projectList.append(operatingunit)						
+				projectList.append(operatingunit)
+				projectList.append(r['iati_operating_unit'])
+			# Get regions
+			regionTemp = p.find("./recipient-region").attrib
+			region = p.find("./recipient-region").text
+			regionID = regionTemp.get('code') 
+
 			# Append the remaining items to the project Array
+			# **********************************************
+			# projectList.append(region)
+			# projectList.append(regionID)						
 			projectList.append(award_title)
 			projectList.append(award_description)
 			projectList.append(start_date)
@@ -489,12 +498,11 @@ for row in projectsFull:
 	# join region information
 	row['region_id'] = []
 	for r in units_sort:
-		try:
-			if row['iati_operating_unit_id'] == r['iati_operating_unit']:
+		if row['iati_op_id'] == r['iati_operating_unit']:
 				row['region_id'] = r['bureau']
 				#row['iati_operating_unit'] = r['operating_unit']
-		except: 
-			pass
+
+
 
 # 3. Run summary file function, on already joined project and output files
 # ***********************
