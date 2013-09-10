@@ -769,6 +769,7 @@ f_out.close()
 
 # Process Operating Unit Index
 # ****************************
+currentYear = fiscalYears[0]
 opIndex = []
 opIndexHeader =  ['id','name','project_count','funding_sources_count','budget_sum','expenditure_sum','lat','lon','iso_num']
 for unit in opUnits:
@@ -793,13 +794,15 @@ for unit in opUnits:
 	projectCount = 0
 	for row in projectsFull:
 		if row['operating_unit_id'] == unit:
-			budgetSum.append(float(row['budget'][0]))
-			expendSum.append(float(row['expenditure'][0]))
-			projectCount = projectCount + 1;
-			for out in row['outputs']:
-				for d in out['donor_id']:
-					if d not in donors:
-						donors.append(d)
+			for y in row['fiscal_year']:
+				if y == currentYear:
+					budgetSum.append(float(row['budget'][0]))
+					expendSum.append(float(row['expenditure'][0]))
+					projectCount = projectCount + 1;
+					for out in row['outputs']:
+						for d in out['donor_id']:
+							if d not in donors:
+								donors.append(d)
 	opTemp['funding_sources_count'] = len(donors)
 	opTemp['budget_sum'] = sum(budgetSum)
 	opTemp['expenditure_sum'] = sum(expendSum)
