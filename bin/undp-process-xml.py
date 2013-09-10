@@ -817,6 +817,40 @@ f_out.writelines(writeout)
 f_out.close()
 print "Operating Unit Index Process Count: %d" % row_count
 
+# Subnational Locations Index
+# ************************
+refType = csv.DictReader(open('download/undp_export/ref_typeofproject.csv', 'rb'), delimiter = ',', quotechar = '"')
+refType_sort = sorted(refType, key = lambda x: x['id'])
+refPrec = csv.DictReader(open('download/undp_export/ref_precisioncodes.csv', 'rb'), delimiter = ',', quotechar = '"')
+refPrec_sort = sorted(refPrec, key = lambda x: x['id'])
+refScope = csv.DictReader(open('download/undp_export/ref_scopeofproject.csv', 'rb'), delimiter = ',', quotechar = '"')
+refScope_sort = sorted(refScope, key = lambda x: x['id'])
+
+ref = {}
+ref['type'] = {}
+ref['precision'] = {}
+ref['scope'] = {}
+
+row_count = 0
+
+for x in refType_sort:
+    ref['type'][x['id']] = x['description']
+    row_count = row_count + 1
+ 
+for x in refScope_sort:
+    ref['scope'][x['id']] = x['description']
+    row_count = row_count + 1
+ 
+for x in refPrec_sort:
+    ref['precision'][x['id']] = x['description']
+    row_count = row_count + 1
+    
+print "Subnational Location Index Count: %d" % row_count
+writeout = json.dumps(ref, sort_keys=True, separators=(',',':'))
+f_out = open('../api/subnational-locs-index.json', 'wb')
+f_out.writelines(writeout)
+f_out.close()
+
 # Calculate the total time and print to console. 
 t1 = time.time()
 total_time = t1-t0

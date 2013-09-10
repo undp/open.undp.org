@@ -107,14 +107,14 @@ views.Map = Backbone.View.extend({
     clusterPopup: function(feature, g) {
         var project = feature.properties.project,
             title = feature.properties.title,
-            type = (g.type[feature.properties.type]) ? g.type[feature.properties.type].split(':')[0] : 'unknown',
-            scope = (g.scope[feature.properties.scope]) ? g.scope[feature.properties.scope].split(':')[0] : 'unknown',
-            precision = (g.precision[feature.properties.precision]) ? g.precision[feature.properties.precision].split(' ')[0] : 'unknown';
+            type = g.type[feature.properties.type],
+            // scope = (g.scope[feature.properties.scope]) ? g.scope[feature.properties.scope].split(':')[0] : 'unknown',
+            precision = g.precision[feature.properties.precision];
 
         var description = '<div><b>Project: </b>' + project + '</div>'
                         + '<div><b>Name: </b>' + title + '</div>'
                         + '<div><b>Location type: </b>' + type + '</div>'
-                        + '<div><b>Scope: </b>' + scope + '</div>'
+                        // + '<div><b>Scope: </b>' + scope + '</div>'
                         + '<div><b>Precision: </b>' + precision + '</div>';
         return description;
     },
@@ -239,8 +239,8 @@ views.Map = Backbone.View.extend({
                     "features":filteredMarkers
                 }, {
                     filter: function(feature, layer, filter) { // only two cases for type, hard code is fine
-                        var subFilter = mapFilter || "6";
-                        if (subFilter === "6"){
+                        var subFilter = mapFilter || "10";
+                        if (subFilter === "10"){
                             return feature.properties
                         } else {
                             return feature.properties['precision'] === subFilter
