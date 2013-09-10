@@ -23,7 +23,7 @@ views.ProjectMap = Backbone.View.extend({
             subLocations = this.model.get('subnational');
 
             view.map = L.mapbox.map(this.el,TJ.id,{
-                minZoom: TJ.minzoom,
+                minZoom: 1,
                 maxZoom: 15
             });
 
@@ -44,21 +44,30 @@ views.ProjectMap = Backbone.View.extend({
                         view.$el.hide();
                     } else {
                         var iso = parseInt(o.iso_num);
-
-                        $.getJSON('api/world-50m-s.json',function(world){
-                            var topoFeatures = topojson.feature(world, world.objects.countries).features,
-                            selectedFeature = _(topoFeatures).findWhere({id:iso});
-
-                            outline = L.geoJson(selectedFeature, {
-                                style: {
-                                    "color": "#b5b5b5",
-                                    "weight": 3,
-                                    clickable: false
+                        
+                        if (!IE || IE_VERSION > 8){
+                            $.getJSON('api/world-50m-s.json',function(world){
+                                var topoFeatures = topojson.feature(world, world.objects.countries).features,
+                                    selectedFeature = _(topoFeatures).findWhere({id:iso}),
+                                    coords = selectedFeature.geometry.coordinates;
+    
+                                outline = L.geoJson(selectedFeature, {
+                                    style: {
+                                        "color": "#b5b5b5",
+                                        "weight": 3,
+                                        clickable: false
+                                    }
+                                }).addTo(view.map);
+                                
+                                if (o.id === 'RUS') {
+                                    view.map.setView([o.lat,o.lon],1);
+                                } else {
+                                    view.map.fitBounds(ctyBounds(coords));
                                 }
-                            }).addTo(view.map);
-                        });
-
-                        view.map.setView([o.lat,o.lon],zoomToCountry(unit));
+                            });
+                        } else {
+                            view.map.setView([o.lat,o.lon],3);
+                        }
                         
                         $.getJSON('api/subnational-locs-index.json', function(g) {
                             _.each(subLocations, function (o) {
@@ -114,7 +123,14 @@ views.ProjectMap = Backbone.View.extend({
         var view = this;
 
         view.$el.toggleClass('full');
-        setTimeout(function(){view.map.invalidateSize({pan:false});}, 200)
+        setTimeout(function(){
+            view.map.invalidateSize();
+            if (view.$el.hasClass('full')) {
+                view.map.zoomIn(1,{animate:false});
+            } else {
+                view.map.zoomOut(1,{animate:false});
+            }
+        }, 250);
 
         $('a.map-fullscreen').toggleClass('full');
         $('.country-profile').toggleClass('full');
@@ -169,8 +185,13 @@ views.ProjectMap = Backbone.View.extend({
             q.defer(function(cb) {
                 if (that.model.get('document_name')) {
                     _.each(that.model.get('document_name')[0], function (photo, i) {
-                        var filetype = photo.split('.')[1].toLowerCase(),
-                            source = that.model.get('document_name')[1][i];
+                        try {
+                            var filetype = photo.split('.')[1].toLowerCase();
+                        }
+                        catch(err) {
+                            var filetype = '';
+                        }
+                        var source = that.model.get('document_name')[1][i];
                             
                         if (filetype === 'jpg' || filetype === 'jpeg' || filetype === 'png' || filetype === 'gif') {
                             var img = new Image();

@@ -2,16 +2,16 @@
 ---
 var CURRENT_YR = FISCALYEARS[0];
 
-// Countries that need custom zoom levels (used in Map.js and ProjectMap.js)
-var CTY_XL = "RUS",
-    CTY_LG = "CHN USA ARG﻿ BRA",
-    CTY_SM = "PHL SVK NPL BTN BLZ BLR LTU﻿ LIE LSO BRB GUY﻿ AFG TJK SUR﻿ GUF ECU BOL PRY URY PAN CRI GTM HND NIC HTI DOM CUB SLV";
-
-function zoomToCountry(id) {
-    if (CTY_XL.indexOf(id) > -1) return 2;
-    else if (CTY_LG.indexOf(id) > -1) return 3;
-    else if (CTY_SM.indexOf(id) > -1) return 5;
-    else return 4;
+function ctyBounds(coords) {
+    if (coords.length > 1) {
+        var polyline = L.polyline(_.flatten(_.flatten(coords,true),true));
+    } else {
+        var polyline = L.polyline(coords[0]);
+    }
+    var bbox = polyline.getBounds();
+    
+    return [[bbox.getSouthWest().lng, bbox.getSouthWest().lat],
+            [bbox.getNorthEast().lng, bbox.getNorthEast().lat]];
 }
 
 $(function() {
