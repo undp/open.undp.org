@@ -42,8 +42,6 @@ donorCtry_index = []
 donorCtry_header = ['id','name']
 donorCheck = []
 
-outputsFull = []
-
 # For CRS-index.json
 crs_index = []
 crsCheck = []
@@ -98,9 +96,6 @@ def outputsLoop(o, output_id):
 	outputList = [output_id]
 	outputAward = rltdProject
 	outputFY = []
-	outputBudget = []
-	outputExpend = []
-	
 	# Donors
 	donorIDCheck = []
 	donorIDs = []
@@ -160,7 +155,7 @@ def outputsLoop(o, output_id):
 	
 	# Find budget information to later append to projectFY array
 	zeroYears = []
-	outputBudget = []
+	outputBudgetTemp = {}
 	budgets = o.findall("./budget")
 	for budget in budgets: 
 		for b in budget.iterchildren(tag='value'):
@@ -170,29 +165,33 @@ def outputsLoop(o, output_id):
 			if amt == '0':
 				if year not in zeroYears:
 					zeroYears.append(year)
-			outputBudget.append(float(amt))
+			outputBudgetTemp[year] = float(amt)
+
 			if year not in fiscalYears:
 				# Append to global array for year-index.js
 				fiscalYears.append(year) 
 			if year not in outputFY:
 				# Append to output array
 				outputFY.append(year)	
-	
+
 	# Use transaction data to get expenditure and budget by donor
 	donorBudget = []
 	donorExpend = []
-	outputExpend = []
+	outputExpendTemp = {}
 	transactions = o.findall('transaction')
 	b = []
+	loop = 0
 	for tx in transactions:
 		for expen in tx.findall("./transaction-type[@code='E']"):
+			loop = loop + 1
 			eVal = []
 			for sib in expen.itersiblings():
 				if sib.tag == 'value':
 					date = sib.get('value-date').split('-', 3)
 					amt = sib.text
 					year = date[0]
-					outputExpend.append(float(sib.text))
+					outputExpendTemp[year] = []
+					outputExpendTemp[year] = float(sib.text)
 					eVal.append(float(sib.text))
 					donorExpend = donorExpend + eVal
 					if year not in outputFY:
@@ -206,7 +205,7 @@ def outputsLoop(o, output_id):
 				# 		if sib.get('ref') == d:
 				# 			print "through"
 				# 			donorExpend = donorExpend + val
-				
+
 		for cmt in tx.findall("./transaction-type[@code='C']"):
 			val = []
 			for sib in cmt.itersiblings():
@@ -217,8 +216,17 @@ def outputsLoop(o, output_id):
 					for d in donorIDs:
 						if sib.get('ref') == d:
 							donorBudget = donorBudget + val
-	# This adds up "commitment" <transactions> to get the same number as <budget>
-	# outputBudgetCheck = float(sum(b))
+	outputBudget = []
+	outputExpend = []
+	for y in outputFY:
+		try:
+			outputExpend.append(outputExpendTemp[y])
+		except KeyError:
+			outputExpend.append(None)
+		try:
+			outputBudget.append(outputBudgetTemp[y])
+		except KeyError:
+			outputBudget.append(None)
 
 	# Get subnational locations
 	locs = []
@@ -272,15 +280,14 @@ projects = []
 projectsFull = []
 projectsSmallFull = []
 # projectsHeader = ['project_id','project_title','project_descr','inst_id','inst_descr','inst_type_id','inst_type_descr','fiscal_year','start','end','operating_unit_id','operating_unit','region_id','region_name','outputs','document_name','subnational']
-projectsHeader = ['project_id','operating_unit','operating_unit_id','project_title','project_descr','start','end','inst_id','inst_descr','inst_type_id','document_name']
-projectsSmallHeader = ['project_id','title','subnational']
+projectsHeader = ['project_id','operating_unit','operating_unit_id','iati_op_id','project_title','project_descr','start','end','inst_id','inst_descr','inst_type_id','document_name']
 units = csv.DictReader(open('download/undp_export/report_units.csv', 'rb'), delimiter = ',', quotechar = '"')
 units_sort = sorted(units, key = lambda x: x['operating_unit'])
 
 def loopData(file_name, key):
 	# Get CSVs
-	bureau = csv.DictReader(open('download/undp_export/regions.csv', 'rb'), delimiter = ',', quotechar = '"')
-	bureau_sort = sorted(bureau, key = lambda x: x['bureau'])
+	# bureau = csv.DictReader(open('download/undp_export/iati_regions.csv', 'rb'), delimiter = ',', quotechar = '"')
+	# bureau_sort = sorted(bureau, key = lambda x: x['bureau'])
 	# Get IATI activities XML
 	context = iter(etree.iterparse(file_name,tag='iati-activity'))
 	# Loop through each IATI activity in the XML
@@ -330,7 +337,8 @@ def loopData(file_name, key):
 					if op_unit.get('code') == r['iati_operating_unit']:
 						operatingunit = r['operating_unit']
 				projectList.append(ou_descr)
-				projectList.append(operatingunit)						
+				projectList.append(operatingunit)
+				projectList.append(op_unit.get('code'))						
 			except: 
 				region_unit = p.find("./recipient-region").attrib
 				for r in units_sort:
@@ -338,8 +346,17 @@ def loopData(file_name, key):
 						operatingunit = r['operating_unit']
 						ou_descr = r['ou_descr']
 				projectList.append(ou_descr)
-				projectList.append(operatingunit)						
+				projectList.append(operatingunit)
+				projectList.append(r['iati_operating_unit'])
+			# Get regions
+			regionTemp = p.find("./recipient-region").attrib
+			region = p.find("./recipient-region").text
+			regionID = regionTemp.get('code') 
+
 			# Append the remaining items to the project Array
+			# **********************************************
+			# projectList.append(region)
+			# projectList.append(regionID)						
 			projectList.append(award_title)
 			projectList.append(award_description)
 			projectList.append(start_date)
@@ -462,8 +479,12 @@ for row in projectsFull:
 	for o in outputsFull:
 		if row['project_id'] == o['award_id']:
 			row['outputs'].append(o)
-			budget = budget + o['budget']
-			expen = expen + o['expenditure']
+			for b in o['budget']:
+				if b is not None:
+					budget.append(b)
+			for e in o['expenditure']:
+				if e is not None:
+					expen.append(e)
 			for y in o['fiscal_year']:
 				if y not in o['zero_years']:
 					if y not in row['fiscal_year']:
@@ -477,12 +498,11 @@ for row in projectsFull:
 	# join region information
 	row['region_id'] = []
 	for r in units_sort:
-		try:
-			if row['iati_operating_unit_id'] == r['iati_operating_unit']:
+		if row['iati_op_id'] == r['iati_operating_unit']:
 				row['region_id'] = r['bureau']
 				#row['iati_operating_unit'] = r['operating_unit']
-		except: 
-			pass
+
+
 
 # 3. Run summary file function, on already joined project and output files
 # ***********************
@@ -809,7 +829,6 @@ for unit in opUnits:
 	opTemp['id'] = unit
 	opTemp['project_count'] = projectCount
 	opIndex.append(opTemp)
-
 
 writeout = json.dumps(opIndex, sort_keys=True, separators=(',',':'))
 f_out = open('../api/operating-unit-index.json', 'wb')
