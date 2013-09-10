@@ -153,8 +153,7 @@ views.Map = Backbone.View.extend({
 
                     // find the iso number from the national models
                     var parent = _(country.models).findWhere({id:view.opUnitFilter.id}),
-                        iso = parseInt(parent.get('iso_num')),
-                        ctyZoom;
+                        iso = parseInt(parent.get('iso_num'));
 
                     if (_.isNaN(iso)){
                         view.$el.prepend('<div class="inner-grey">'+
