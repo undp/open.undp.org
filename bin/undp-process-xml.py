@@ -200,6 +200,7 @@ def outputsLoop(o, output_id):
 					if year not in outputFY:
 						# Append to output array
 						outputFY.append(year)	
+
 	outputBudget = []
 	outputExpend = []
 
@@ -458,6 +459,7 @@ loopData(projects_file,'document-link')
 
 # 2. Joing outputs to projects
 opUnits = []
+
 for row in projectsFull:
 	if row['operating_unit_id'] not in opUnits:
 		opUnits.append(row['operating_unit_id'])
@@ -478,10 +480,10 @@ for row in projectsFull:
 				if e is not None:
 					expen.append(e)
 			for y in o['fiscal_year']:
-				if y not in o['zero_years']:
-					if y not in row['fiscal_year']:
-						# Append to output array
-						row['fiscal_year'].append(y)
+				# if y not in o['zero_years']:
+				if y not in row['fiscal_year']:
+					# Append to output array
+					row['fiscal_year'].append(y)
 	row['budget'].append(sum(budget))
 	row['expenditure'].append(sum(expen))
 	for l in locationsFull:
