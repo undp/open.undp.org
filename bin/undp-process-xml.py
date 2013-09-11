@@ -1,8 +1,6 @@
-
 # ------------------
 # UNDP Import Script
 # ------------------
-
 # This script runs Python commands to create the JSON API. 
 # Requirements: Python 2.6 or greater 
 
@@ -10,8 +8,6 @@ import time, csv, json,  os, copy, re, sys, requests, chardet
 from lxml import etree
 from itertools import groupby
 from datetime import datetime
-from sys import argv
-from sets import Set
 
 t0 = time.time()
 print "processing ..."
@@ -199,7 +195,6 @@ def outputsLoop(o, output_id):
 
 	outputBudget = []
 	outputExpend = []
-
 	for y in outputFY:
 		try:
 			outputExpend.append(outputExpendTemp[y])
@@ -265,9 +260,6 @@ units = csv.DictReader(open('download/undp_export/report_units.csv', 'rb'), deli
 units_sort = sorted(units, key = lambda x: x['operating_unit'])
 
 def loopData(file_name, key):
-	# Get CSVs
-	# bureau = csv.DictReader(open('download/undp_export/iati_regions.csv', 'rb'), delimiter = ',', quotechar = '"')
-	# bureau_sort = sorted(bureau, key = lambda x: x['bureau'])
 	# Get IATI activities XML
 	context = iter(etree.iterparse(file_name,tag='iati-activity'))
 	# Loop through each IATI activity in the XML
@@ -333,10 +325,7 @@ def loopData(file_name, key):
 			region = p.find("./recipient-region").text
 			regionID = regionTemp.get('code') 
 
-			# Append the remaining items to the project Array
-			# **********************************************
-			# projectList.append(region)
-			# projectList.append(regionID)						
+			# Append the remaining items to the project Array				
 			projectList.append(award_title)
 			projectList.append(award_description)
 			projectList.append(start_date)
@@ -357,7 +346,7 @@ def loopData(file_name, key):
 			projectList.append(docTemp)
 			projectsFull.append(dict(zip(projectsHeader,projectList))) # this joins project information, output per project, and documents for each project
 
-# Function that creates project summary files
+# This is the function that creates project summary files
 # *******************************************
 def createSummary():
 	regionsList = ['PAPP','RBA','RBAP','RBAS','RBEC','RBLAC']
@@ -372,7 +361,6 @@ def createSummary():
 			for y in row['fiscal_year']:
 				if y == year:
 					row_count = row_count + 1
-					
 					summaryList = [year]
 					summaryList.append(row['project_id'] )
 					projectFY = []
@@ -429,7 +417,6 @@ def createSummary():
 
 		yearSummary['year'] = year
 		yearSummary['summary'] = projectSummary 
-
 		yearList.append(yearSummary)
 
 	print "Project Summary Process Count: %d" % row_count
@@ -454,7 +441,6 @@ loopData(projects_file,'document-link')
 
 # 2. Joing outputs to projects
 opUnits = []
-
 for row in projectsFull:
 	if row['operating_unit_id'] not in opUnits:
 		opUnits.append(row['operating_unit_id'])
@@ -539,7 +525,6 @@ for unit in opUnits:
 
 # Generate JSONs for each operating unit
 file_count = 0
-
 for u in unitFinal:
 	file_count = file_count + 1
 	writeout = json.dumps(u, sort_keys=True, separators=(',',':'))
@@ -710,7 +695,6 @@ for val in iter(hdi_sort):
 				change_year = float(val['hdi%d' % current_year]) - float(val['hdi%d' % y])
 				if len(change) == 0:
 					change.append(change_year)
-
 	if len(change) == 0:
 	    change.append("")
 	for ctry in country_sort:
@@ -756,9 +740,8 @@ for val in iter(hdi_sort):
 			hdi_dict[uid] = copy.deepcopy(g)
 			hdi_dict[uid].pop('id')
 			hdi_dict[uid].pop('name')
-            
-hdi_dict['total'] = rank
 
+hdi_dict['total'] = rank
 hdi_index_sort = sorted(hdi_index, key = lambda x: x['rank'])
 hdi_writeout = json.dumps(hdi_index_sort, sort_keys=True, separators=(',',':'))
 hdi_out = open('../api/hdi.json', 'wb')
@@ -834,9 +817,7 @@ ref = {}
 ref['type'] = {}
 ref['precision'] = {}
 ref['scope'] = {}
-
 row_count = 0
-
 for x in refType_sort:
     ref['type'][x['id']] = x['description']
     row_count = row_count + 1
