@@ -102,15 +102,15 @@ views.Filters = Backbone.View.extend({
                                 var mId = model.id;
         
                                 if (mId === 'MULTI_AGY') {
-                                    app.description.push(' with funding from  <strong>Multi-Lateral Agencies</strong>');
+                                    app.donorDescription = '<strong>Multi-Lateral Agencies</strong> fund <strong>' + app.projects.length +'</strong> ';
                                 } else if (mId === 'OTH') {
-                                    app.description.push(' with funding from  <strong>Uncategorized Organizations</strong>');
+                                    app.donorDescription = '<strong>Uncategorized Organizations</strong> fund <strong>' + app.projects.length +'</strong> ';
                                 } else {
-                                    app.description.push(' with funding from <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong>');
+                                    app.donorDescription = '<strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong> funds <strong>' + app.projects.length +'</strong> ';
                                 }
                             }
                             if (view.collection.id === 'donors') {
-                                app.donorDescription = '<strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong> funds <strong>' + app.projects.length +'</strong> ';
+                                app.description.push(' through <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong>');
                             }
                             if (view.collection.id === 'focus_area') {
                                 app.description.push(' with a focus on <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong>');
