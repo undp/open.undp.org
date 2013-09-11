@@ -1,6 +1,6 @@
 <div class='row-fluid separator' id='project-heading'>
   <div class='col col-700'>
-    <h3 class='heading-title'>&#9656; <%= model.get('project_title').toLowerCase().toTitleCase() %></h3>
+    <h3 class='heading-title'><%= model.get('project_title').toLowerCase().toTitleCase() %></h3>
     <div id='project-descr'>
       <p class='heading-desc'><%= model.get('project_descr') %></p>
     </div>
@@ -17,7 +17,7 @@
         <!-- Country at a Glance -->
         <div class='row-fluid country-profile'>
           <div class='inner'>
-            <h3><%= model.get('operating_unit') %> at a glance</h3>
+            <h3><%= model.get('operating_unit')%> at a glance in <%= model.get('fiscal_year')[0] %></h3>
             <div id='country-summary'></div>
           </div>
         </div>

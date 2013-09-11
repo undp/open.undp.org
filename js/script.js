@@ -1,6 +1,19 @@
 ---
 ---
 var CURRENT_YR = FISCALYEARS[0];
+
+function ctyBounds(coords) {
+    if (coords.length > 1) {
+        var polyline = L.polyline(_.flatten(_.flatten(coords,true),true));
+    } else {
+        var polyline = L.polyline(coords[0]);
+    }
+    var bbox = polyline.getBounds();
+    
+    return [[bbox.getSouthWest().lng, bbox.getSouthWest().lat],
+            [bbox.getNorthEast().lng, bbox.getNorthEast().lat]];
+}
+
 $(function() {
     var BASE_URL = 'http://open.undp.org/',
         widgetOts = [],

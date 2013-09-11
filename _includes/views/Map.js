@@ -26,22 +26,23 @@ views.Map = Backbone.View.extend({
             category = 'budget';
             wheelZoom = false;
         };
+        
+        // create circle or cluster based on the operating unit filter
+        if (_.isObject(view.opUnitFilter)){
+            view.markers = new L.MarkerClusterGroup({showCoverageOnHover:false});
+            var maxZoom = 10;
+        } else {
+            view.markers = new L.LayerGroup();
+        };
 
         // create the map with mapbox.js 1.3.1
         view.map = L.mapbox.map(this.el,TJ.id,{
             center: [0,-15],
             zoom: 2,
             minZoom: TJ.minzoom,
-            maxZoom: TJ.maxzoom,
+            maxZoom: maxZoom || TJ.maxzoom,
             scrollWheelZoom: wheelZoom
             });
-
-        // create circle or cluster based on the operating unit filter
-        if (_.isObject(view.opUnitFilter)){
-            view.markers = new L.MarkerClusterGroup({showCoverageOnHover:false});
-        } else {
-            view.markers = new L.LayerGroup();
-        };
 
         //for IE 8 and above add country outline
         if (!IE || IE_VERSION > 8){view.outline = new L.GeoJSON()};
@@ -67,7 +68,12 @@ views.Map = Backbone.View.extend({
     // CIRCLE
     scale: function(cat,feature) {
         if (cat == 'budget' || cat == 'expenditure') {
-            return Math.round(feature.properties[cat] / 100000);
+            var size = Math.round(feature.properties[cat] / 100000);
+            if (size < 10) {
+                return 10;
+            } else {
+                return size;
+            }
         } else if (cat == 'hdi') {
             return Math.round(Math.pow(feature.properties[cat],2) / 0.0008);
         } else {
@@ -107,14 +113,14 @@ views.Map = Backbone.View.extend({
     clusterPopup: function(feature, g) {
         var project = feature.properties.project,
             title = feature.properties.title,
-            type = (g.type[feature.properties.type]) ? g.type[feature.properties.type].split(':')[0] : 'unknown',
-            scope = (g.scope[feature.properties.scope]) ? g.scope[feature.properties.scope].split(':')[0] : 'unknown',
-            precision = (g.precision[feature.properties.precision]) ? g.precision[feature.properties.precision].split(' ')[0] : 'unknown';
+            type = g.type[feature.properties.type],
+            // scope = (g.scope[feature.properties.scope]) ? g.scope[feature.properties.scope].split(':')[0] : 'unknown',
+            precision = g.precision[feature.properties.precision];
 
         var description = '<div><b>Project: </b>' + project + '</div>'
                         + '<div><b>Name: </b>' + title + '</div>'
                         + '<div><b>Location type: </b>' + type + '</div>'
-                        + '<div><b>Scope: </b>' + scope + '</div>'
+                        // + '<div><b>Scope: </b>' + scope + '</div>'
                         + '<div><b>Precision: </b>' + precision + '</div>';
         return description;
     },
@@ -160,30 +166,32 @@ views.Map = Backbone.View.extend({
                                          '<p>The seleted operating unit and its project(s) do not have geographic information.</p>'+
                                          '</div>');
                     } else {
-
-                        // Determine zoom level based on size of country
-                        var bigCntry = "CHN USA ARG﻿ BRA"
-                        var smlCntry = "PHL SVK NPL BTN BLZ BLR LTU﻿ LIE LSO BRB GUY﻿ AFG TJK SUR﻿ GUF ECU BOL PRY URY PAN CRI GTM HND NIC HTI DOM CUB SLV"
-                        if (parent.id == 'RUS'){cntryZoom = 2}
-                        else if (bigCntry.indexOf(parent.id) > -1){cntryZoom = 3}
-                        else if (smlCntry.indexOf(parent.id) > -1){cntryZoom = 5}
-                        else {cntryZoom = 4}
-                        view.map.setView([parent.lat,parent.lon],cntryZoom); //why is the lat and lon reversed here
+                        //view.map.setView([parent.lat,parent.lon],zoomToCountry(parent.id,5));
 
                         //draw country outline with the topojson file
                         if (!IE || IE_VERSION > 8){
                             view.outline.clearLayers();
                             $.getJSON('api/world-50m-s.json',function(world){
                             var topoFeatures = topojson.feature(world, world.objects.countries).features,
-                                selectedFeature = _(topoFeatures).findWhere({id:iso});
-                            view.outline.addData(selectedFeature
-                                ).setStyle({
+                                selectedFeature = _(topoFeatures).findWhere({id:iso}),
+                                coords = selectedFeature.geometry.coordinates;
+                            view.outline.addData(selectedFeature)
+                                .setStyle({
                                     "color": "#b5b5b5",
                                     "weight": 3,
                                     clickable: false
                                 });
-                            view.outline.addTo(view.map);
+                                
+                                if (parent.get('id') === 'RUS') {
+                                    view.map.setView([parent.lat,parent.lon],2);
+                                } else {
+                                    view.map.fitBounds(ctyBounds(coords));
+                                }
+                                
+                                view.outline.addTo(view.map);
                             });
+                        } else {
+                            view.map.setView([parent.lat,parent.lon],4);
                         }
                     }
                 } else {
@@ -239,8 +247,8 @@ views.Map = Backbone.View.extend({
                     "features":filteredMarkers
                 }, {
                     filter: function(feature, layer, filter) { // only two cases for type, hard code is fine
-                        var subFilter = mapFilter || "6";
-                        if (subFilter === "6"){
+                        var subFilter = mapFilter || "10";
+                        if (subFilter === "10"){
                             return feature.properties
                         } else {
                             return feature.properties['precision'] === subFilter
