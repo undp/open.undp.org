@@ -26,22 +26,23 @@ views.Map = Backbone.View.extend({
             category = 'budget';
             wheelZoom = false;
         };
+        
+        // create circle or cluster based on the operating unit filter
+        if (_.isObject(view.opUnitFilter)){
+            view.markers = new L.MarkerClusterGroup({showCoverageOnHover:false});
+            var maxZoom = 10;
+        } else {
+            view.markers = new L.LayerGroup();
+        };
 
         // create the map with mapbox.js 1.3.1
         view.map = L.mapbox.map(this.el,TJ.id,{
             center: [0,-15],
             zoom: 2,
             minZoom: TJ.minzoom,
-            maxZoom: TJ.maxzoom,
+            maxZoom: maxZoom || TJ.maxzoom,
             scrollWheelZoom: wheelZoom
             });
-
-        // create circle or cluster based on the operating unit filter
-        if (_.isObject(view.opUnitFilter)){
-            view.markers = new L.MarkerClusterGroup({showCoverageOnHover:false});
-        } else {
-            view.markers = new L.LayerGroup();
-        };
 
         //for IE 8 and above add country outline
         if (!IE || IE_VERSION > 8){view.outline = new L.GeoJSON()};
@@ -67,7 +68,12 @@ views.Map = Backbone.View.extend({
     // CIRCLE
     scale: function(cat,feature) {
         if (cat == 'budget' || cat == 'expenditure') {
-            return Math.round(feature.properties[cat] / 100000);
+            var size = Math.round(feature.properties[cat] / 100000);
+            if (size < 10) {
+                return 10;
+            } else {
+                return size;
+            }
         } else if (cat == 'hdi') {
             return Math.round(Math.pow(feature.properties[cat],2) / 0.0008);
         } else {
@@ -160,22 +166,32 @@ views.Map = Backbone.View.extend({
                                          '<p>The seleted operating unit and its project(s) do not have geographic information.</p>'+
                                          '</div>');
                     } else {
-                        view.map.setView([parent.lat,parent.lon],zoomToCountry(parent.id));
+                        //view.map.setView([parent.lat,parent.lon],zoomToCountry(parent.id,5));
 
                         //draw country outline with the topojson file
                         if (!IE || IE_VERSION > 8){
                             view.outline.clearLayers();
                             $.getJSON('api/world-50m-s.json',function(world){
                             var topoFeatures = topojson.feature(world, world.objects.countries).features,
-                                selectedFeature = _(topoFeatures).findWhere({id:iso});
-                            view.outline.addData(selectedFeature
-                                ).setStyle({
+                                selectedFeature = _(topoFeatures).findWhere({id:iso}),
+                                coords = selectedFeature.geometry.coordinates;
+                            view.outline.addData(selectedFeature)
+                                .setStyle({
                                     "color": "#b5b5b5",
                                     "weight": 3,
                                     clickable: false
                                 });
-                            view.outline.addTo(view.map);
+                                
+                                if (parent.get('id') === 'RUS') {
+                                    view.map.setView([parent.lat,parent.lon],2);
+                                } else {
+                                    view.map.fitBounds(ctyBounds(coords));
+                                }
+                                
+                                view.outline.addTo(view.map);
                             });
+                        } else {
+                            view.map.setView([parent.lat,parent.lon],4);
                         }
                     }
                 } else {
