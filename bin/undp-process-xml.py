@@ -154,7 +154,6 @@ def outputsLoop(o, output_id):
 						dctry_index.append(dict(zip(donorCtry_header,donorCtryTemp)))
 	
 	# Find budget information to later append to projectFY array
-	zeroYears = []
 	outputBudgetTemp = {}
 	budgets = o.findall("./budget")
 	for budget in budgets: 
@@ -162,9 +161,6 @@ def outputsLoop(o, output_id):
 			date = b.get('value-date').split('-', 3)
 			amt = b.text
 			year = date[0]
-			if amt == '0':
-				if year not in zeroYears:
-					zeroYears.append(year)
 			outputBudgetTemp[year] = float(amt)
 
 			if year not in fiscalYears:
@@ -236,7 +232,7 @@ def outputsLoop(o, output_id):
 		locTemp.append(name)
 		locTemp.append(locType)
 		locationsFull.append(dict(zip(locHeader,locTemp)))
-	outputsHeader = ['output_id','award_id','output_title','output_descr','gender_id','gender_descr','focus_area','focus_area_descr','crs','crs_descr','fiscal_year','zero_years','donor_budget','donor_expend','budget','expenditure','donor_id','donor_short','donor_name','donor_type_id','donor_country_id','donor_country']
+	outputsHeader = ['output_id','award_id','output_title','output_descr','gender_id','gender_descr','focus_area','focus_area_descr','crs','crs_descr','fiscal_year','donor_budget','donor_expend','budget','expenditure','donor_id','donor_short','donor_name','donor_type_id','donor_country_id','donor_country']
 	outputList.append(outputAward)
 	outputList.append(outputTitle)
 	outputList.append(outputDescr)
@@ -247,7 +243,6 @@ def outputsLoop(o, output_id):
 	outputList.append(outputCRS)
 	outputList.append(outputCRSdescr)
 	outputList.append(outputFY)
-	outputList.append(zeroYears)
 	outputList.append(donorBudget)
 	outputList.append(donorExpend)
 	outputList.append(outputBudget)
@@ -480,7 +475,6 @@ for row in projectsFull:
 				if e is not None:
 					expen.append(e)
 			for y in o['fiscal_year']:
-				# if y not in o['zero_years']:
 				if y not in row['fiscal_year']:
 					# Append to output array
 					row['fiscal_year'].append(y)
