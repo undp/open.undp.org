@@ -257,14 +257,13 @@ projectsSmallFull = []
 projectsHeader = ['project_id','operating_unit','operating_unit_id','iati_op_id','project_title','project_descr','start','end','inst_id','inst_descr','inst_type_id','document_name']
 units = csv.DictReader(open('download/undp_export/report_units.csv', 'rb'), delimiter = ',', quotechar = '"')
 units_sort = sorted(units, key = lambda x: x['operating_unit'])
+iati_regions = csv.DictReader(open('download/undp_export/iati_regions.csv', 'rb'), delimiter = ',', quotechar = '"')
+iati_regions_sort = sorted(iati_regions, key = lambda x: x['code'])
 
 def loopData(file_name, key):
 	# Get IATI activities XML
 	context = iter(etree.iterparse(file_name,tag='iati-activity'))
 	# Loop through each IATI activity in the XML
-	row_count = 0
-	projectSmallList = {}
-	projects = []
 	for event, p in context:
 		docTemp = []
 		# IATI hierarchy used to determine if output or input1
@@ -273,15 +272,12 @@ def loopData(file_name, key):
 		awardArray = p[1].text.split('-', 2)
 		award = awardArray[2]
 		implement = p.find("./participating-org[@role='Implementing']")
-		if hierarchy == '2':	
-			# Send the outputs to a separate function, to be joined to their projects later.
+		if hierarchy == '2':
+			# Send the outputs to a separate function, to be joined to their projects later in step 2 below.
 			outputsLoop(p, award)
-
 		# Check for projects		
 		if hierarchy == '1':
-			row_count = row_count + 1
 			projectList = [award]
-			projectSmallList['id'] = award
 			docTemp = []
 			subnationalTemp = []
 			award_title = p.find("./title").text
@@ -319,6 +315,32 @@ def loopData(file_name, key):
 				projectList.append(ou_descr)
 				projectList.append(operatingunit)
 				projectList.append(r['iati_operating_unit'])
+			# try: 
+			# 	op_unit = p.find("./recipient-country").attrib
+			# 	ou_descr = p.find("./recipient-country").text
+			# 	for r in units_sort:
+			# 		if op_unit.get('code') == r['iati_operating_unit']:
+			# 			operatingunit = r['operating_unit']
+			# 	projectList.append(ou_descr)
+			# 	projectList.append(operatingunit)
+			# 	projectList.append(op_unit.get('code'))			
+			# except: 
+			# 	operatingunit = []
+			# 	ou_descr = []
+			# 	region_unit = p.find("./recipient-region").attrib
+			# 	op_unit = region_unit.get('code')
+			# 	for r in iati_regions_sort:
+			# 		if r['code'] == op_unit:
+			# 			print "         "
+			# 			print "this works"
+			# 			print "           "
+			# 			operatingunit = r['filter_unit']
+			# 			ou_descr = r['name']
+			# 	projectList.append(ou_descr)
+			# 	projectList.append(operatingunit)
+			# 	projectList.append('NA')
+			# 	if award == '00069400':
+			# 		print "first one", ou_descr, operatingunit, 	
 			# Get regions
 			regionTemp = p.find("./recipient-region").attrib
 			region = p.find("./recipient-region").text
@@ -762,8 +784,8 @@ opIndexHeader =  ['id','name','project_count','funding_sources_count','budget_su
 for unit in opUnits:
 	opTemp = {}
 	donors = []
-	budgetSum = []
-	expendSum = []
+	budgetT = []
+	expendT = []
 	for ctry in country_sort:
 		if ctry['iso3'] == unit:
 			opTemp['name'] = ctry['name']
@@ -781,18 +803,22 @@ for unit in opUnits:
 	projectCount = 0
 	for row in projectsFull:
 		if row['operating_unit_id'] == unit:
-			for y in row['fiscal_year']:
-				if y == currentYear:
-					budgetSum.append(float(row['budget'][0]))
-					expendSum.append(float(row['expenditure'][0]))
-					projectCount = projectCount + 1;
-					for out in row['outputs']:
-						for d in out['donor_id']:
-							if d not in donors:
-								donors.append(d)
+			projectCount = projectCount + 1;
+			for o in row['outputs']:
+				for d in o['donor_id']:
+					if d not in donors:
+						donors.append(d)
+				for idx, y in enumerate(o['fiscal_year']):
+					if y == currentYear:
+						b = o['budget'][idx]
+						e = o['expenditure'][idx]
+						if b is not None:
+							budgetT.append(b)
+						if e is not None:
+							expendT.append(e)
 	opTemp['funding_sources_count'] = len(donors)
-	opTemp['budget_sum'] = sum(budgetSum)
-	opTemp['expenditure_sum'] = sum(expendSum)
+	opTemp['budget_sum'] = sum(budgetT)
+	opTemp['expenditure_sum'] = sum(expendT)
 	opTemp['id'] = unit
 	opTemp['project_count'] = projectCount
 	opIndex.append(opTemp)
