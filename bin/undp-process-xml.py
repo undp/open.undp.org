@@ -194,30 +194,15 @@ def outputsLoop(o, output_id):
 					outputExpendTemp[year] = float(sib.text)
 					eVal.append(float(sib.text))
 					donorExpend = donorExpend + eVal
-					if year not in outputFY:
-						# Append to output array
-						outputFY.append(year)
 					if year not in fiscalYears:
 						# Append to global array for year-index.js
 						fiscalYears.append(year) 
-				# if sib.tag == 'provider-org':
-				# 	for d in donorIDs:
-				# 		if sib.get('ref') == d:
-				# 			print "through"
-				# 			donorExpend = donorExpend + val
-
-		for cmt in tx.findall("./transaction-type[@code='C']"):
-			val = []
-			for sib in cmt.itersiblings():
-				if sib.tag == 'value':
-					b.append(float(sib.text))
-					val.append(float(sib.text))
-				if sib.tag == 'provider-org':
-					for d in donorIDs:
-						if sib.get('ref') == d:
-							donorBudget = donorBudget + val
+					if year not in outputFY:
+						# Append to output array
+						outputFY.append(year)	
 	outputBudget = []
 	outputExpend = []
+
 	for y in outputFY:
 		try:
 			outputExpend.append(outputExpendTemp[y])
@@ -228,7 +213,6 @@ def outputsLoop(o, output_id):
 		except KeyError:
 			outputBudget.append(None)
 
-	# Get subnational locations
 	locs = []
 	locHeader = ['awardID','lat','lon','precision','name','type']
 	locations = o.findall('location')
@@ -382,13 +366,11 @@ def loopData(file_name, key):
 def createSummary():
 	regionsList = ['PAPP','RBA','RBAP','RBAS','RBEC','RBLAC']
 	row_count = 0
-	# yearJson = []
 	yearList = []
 	projectSumHeader = ['fiscal_year','id','name','operating_unit','region','budget','expenditure','crs','focus_area','donors','donor_types','donor_countries','donor_budget','donor_expend']
 
 	for year in fiscalYears:
 		projectSummary = []
-		# yearJson.append(year)
 		yearSummary = {'year':"",'summary':""} 
 		for row in projectsFull:
 			for y in row['fiscal_year']:
@@ -399,25 +381,30 @@ def createSummary():
 					summaryList.append(row['project_id'] )
 					projectFY = []
 					docTemp = []
-					# for s in summary:
 					summaryList.append(row['project_title'])
 					summaryList.append(row['operating_unit_id'])
 					if row['region_id'] not in regionsList:
 						summaryList.append('global')
 					else:
 						summaryList.append(row['region_id'])
-					b = row['budget'][0]
-					e = row['expenditure'][0]
-					summaryList.append(b)
-					summaryList.append(e)
 					crsTemp = []
 					faTemp = []
 					dTemp = []
 					dtypeTemp = []
 					dCtyTemp = []
+					budgetT = []
+					expendT = []
 					dBudget = []
 					dExpend = []
 					for out in row['outputs']:
+						for idx, yr in enumerate(out['fiscal_year']):
+							if  yr == year:
+								b = out['budget'][idx]
+								e = out['expenditure'][idx]
+								if b is not None:
+									budgetT.append(b)
+								if e is not None:
+									expendT.append(e)
 						if out['crs'] not in crsTemp:
 						    crsTemp.append(out['crs'])
 						if out['focus_area'] not in faTemp:
@@ -432,6 +419,9 @@ def createSummary():
 							dBudget.append(d)
 						for d in out['donor_expend']:
 							dExpend.append(d)
+
+					summaryList.append(sum(budgetT))
+					summaryList.append(sum(expendT))
 					summaryList.append(crsTemp)
 					summaryList.append(faTemp)
 					summaryList.append(dTemp)
@@ -440,8 +430,10 @@ def createSummary():
 					summaryList.append(dBudget)
 					summaryList.append(dExpend)
 					projectSummary.append(dict(zip(projectSumHeader,summaryList))) # this joins the project summary information 
+
 		yearSummary['year'] = year
 		yearSummary['summary'] = projectSummary 
+
 		yearList.append(yearSummary)
 
 	print "Project Summary Process Count: %d" % row_count
@@ -500,9 +492,6 @@ for row in projectsFull:
 	for r in units_sort:
 		if row['iati_op_id'] == r['iati_operating_unit']:
 				row['region_id'] = r['bureau']
-				#row['iati_operating_unit'] = r['operating_unit']
-
-
 
 # 3. Run summary file function, on already joined project and output files
 # ***********************
