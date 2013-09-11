@@ -254,7 +254,6 @@ def outputsLoop(o, output_id):
 projects = []
 projectsFull = []
 projectsSmallFull = []
-# projectsHeader = ['project_id','project_title','project_descr','inst_id','inst_descr','inst_type_id','inst_type_descr','fiscal_year','start','end','operating_unit_id','operating_unit','region_id','region_name','outputs','document_name','subnational']
 projectsHeader = ['project_id','operating_unit','operating_unit_id','iati_op_id','project_title','project_descr','start','end','inst_id','inst_descr','inst_type_id','document_name']
 units = csv.DictReader(open('download/undp_export/report_units.csv', 'rb'), delimiter = ',', quotechar = '"')
 units_sort = sorted(units, key = lambda x: x['operating_unit'])
