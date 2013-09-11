@@ -301,12 +301,12 @@ views.Map = Backbone.View.extend({
                     }
 
                     // populate the centroid geojson
-                    model.centroid.properties.count = count,
-                    model.centroid.properties.sources = sources,
-                    model.centroid.properties.budget = budget,
-                    model.centroid.properties.expenditure = expenditure,
-                    model.centroid.properties.hdi = hdi,
-                    model.centroid.properties.popup = view.circlePopup(layer,model.centroid),
+                    model.centroid.properties.count = count;
+                    model.centroid.properties.sources = sources;
+                    model.centroid.properties.budget = budget;
+                    model.centroid.properties.expenditure = expenditure;
+                    model.centroid.properties.hdi = hdi;
+                    model.centroid.properties.popup = view.circlePopup(layer,model.centroid);
                     model.centroid.properties.radius = view.radius(view.scale(layer,model.centroid));
 
                     circles.push(model.centroid);
@@ -317,7 +317,7 @@ views.Map = Backbone.View.extend({
                 weight:1,
                 opacity:1,
                 fillColor: "#0055aa",
-                fillOpacity: 0.6,
+                fillOpacity: 0.6
             };
             var circleLayer = L.geoJson({
                 "type":"FeatureCollection",
