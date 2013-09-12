@@ -421,20 +421,20 @@ def createSummary():
 									budgetT.append(b)
 								if e is not None:
 									expendT.append(e)
-						if out['crs'] not in crsTemp:
-						    crsTemp.append(out['crs'])
-						if out['focus_area'] not in faTemp:
-						    faTemp.append(out['focus_area'])
-						for d in out['donor_id']:
-							dTemp.append(d)
-						for d in out['donor_type_id']:
-							dtypeTemp.append(d)
-						for d in out['donor_country_id']:
-							dCtyTemp.append(d)
-						for d in out['donor_budget']:
-							dBudget.append(d)
-						for d in out['donor_expend']:
-							dExpend.append(d)
+								if out['crs'] not in crsTemp:
+								    crsTemp.append(out['crs'])
+								if out['focus_area'] not in faTemp:
+								    faTemp.append(out['focus_area'])
+								for d in out['donor_id']:
+									dTemp.append(d)
+								for d in out['donor_type_id']:
+									dtypeTemp.append(d)
+								for d in out['donor_country_id']:
+									dCtyTemp.append(d)
+								for d in out['donor_budget']:
+									dBudget.append(d)
+								for d in out['donor_expend']:
+									dExpend.append(d)
 
 					summaryList.append(sum(budgetT))
 					summaryList.append(sum(expendT))
