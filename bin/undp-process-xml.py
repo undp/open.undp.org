@@ -193,6 +193,17 @@ def outputsLoop(o, output_id):
 						# Append to output array
 						outputFY.append(year)	
 
+		# Get donor budget information
+		for cmt in tx.findall("./transaction-type[@code='C']"):
+			val = []
+			for sib in cmt.itersiblings():
+				if sib.tag == 'value':
+					b.append(float(sib.text))
+					val.append(float(sib.text))
+				if sib.tag == 'provider-org':
+					for d in donorIDs:
+						if sib.get('ref') == d:
+							donorBudget = donorBudget + val
 	outputBudget = []
 	outputExpend = []
 	for y in outputFY:
