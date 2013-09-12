@@ -777,13 +777,13 @@ for un,unit in groupby(unitsIndex_sort, lambda x: x['operating_unit']):
                     index.append(float(ctry['lat']))
                     index.append(float(ctry['lon']))
                 for c in iso_sort:
-					# Correct encoding for the match below
-					numTemp = c['iso_num'].decode('utf-8')
-					numDecode = numTemp.encode('ascii','ignore')
-					isoTemp = c['iso3'].decode('utf-8')
-					isoDecode = isoTemp.encode('ascii', 'ignore')
-					if isoDecode == ctry['iso3']:
-						index.append(numDecode)
+                    # Correct encoding for the match below
+                    numTemp = c['iso_num'].decode('utf-8')
+                    numDecode = numTemp.encode('ascii','ignore')
+                    isoTemp = c['iso3'].decode('utf-8')
+                    isoDecode = isoTemp.encode('ascii', 'ignore')
+                    if isoDecode == ctry['iso3']:
+                        index.append(numDecode)
                 # Join values to header and append to final object
                 opUnit_index.append(dict(zip(opUnitHeader, index)))
 writeout = json.dumps(opUnit_index, sort_keys=True, separators=(',',':'))
