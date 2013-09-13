@@ -163,7 +163,7 @@ views.Map = Backbone.View.extend({
 
                     if (_.isNaN(iso)){
                         view.$el.prepend('<div class="inner-grey">'+
-                                         '<p>The seleted operating unit and its project(s) do not have geographic information.</p>'+
+                                         '<p>The selected operating unit and its project(s) do not have geographic information.</p>'+
                                          '</div>');
                     } else {
                         //view.map.setView([parent.lat,parent.lon],zoomToCountry(parent.id,5));
