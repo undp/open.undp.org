@@ -126,7 +126,7 @@ routers.App = Backbone.Router.extend({
                     if (filter.collection === 'region') {
                         return memo && model.get(filter.collection) == filter.id;
                     } else {
-                        return memo && (model.get(filter.collection) && (model.get(filter.collection).toString()).indexOf(filter.id) >= 0);
+                        return memo && (model.get(filter.collection) && model.get(filter.collection).indexOf(filter.id) >= 0);
                     }
                 }, true);
             };
@@ -322,35 +322,7 @@ routers.App = Backbone.Router.extend({
             id: id
         });
 
-        var projectSuccess = function () {
-    		if (that.project.view) that.project.view.undelegateEvents();
-			that.project.view = new views.ProjectProfile({
-				el: (embed) ? '#embed' : '#profile',
-				model: that.project.model,
-				embed: embed || false,
-				gotoOutput: (output) ? output : false
-			});
-
-			if (!embed) {
-				that.project.widget = new views.Widget({
-					context: 'project'
-				});
-			}
-		};
-
         this.project.model.fetch({
-            success: projectSuccess,
-			error: function() {
-				that.project.model = new models.Project({
-					id: id.replace('000', '')
-				});
-				that.project.model.fetch({
-					success: projectSuccess
-				});
-			}
-        });
-
-        /*this.project.model.fetch({
             success: function () {
                 if (that.project.view) that.project.view.undelegateEvents();
                 that.project.view = new views.ProjectProfile({
@@ -366,7 +338,7 @@ routers.App = Backbone.Router.extend({
                     });
                 }
             }
-        });*/
+        });
     },
 
     widget: function (year, route) {
