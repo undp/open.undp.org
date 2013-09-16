@@ -20,15 +20,21 @@ views.ProjectMap = Backbone.View.extend({
         var view = this,
             locations = [],
             unit = this.model.get('operating_unit_id'),
-            subLocations = this.model.get('subnational');
+            subLocations = this.model.get('subnational'),
+            wheelZoom = true;
+            
+            // adding faux fullscreen control
+        if (!view.options.embed) {
+            $('#profilemap').append('<div class="full-control"><a href="#" class="icon map-fullscreen"></a></div>');
+        } else {
+            wheelZoom = false;
+        }
 
-            view.map = L.mapbox.map(this.el,TJ.id,{
-                minZoom: 1,
-                maxZoom: 15
-            });
-
-        // adding faux fullscreen control
-        if (!view.options.embed){$('#profilemap').append('<div class="full-control"><a href="#" class="icon map-fullscreen"></a></div>');}
+        view.map = L.mapbox.map(this.el,TJ.id,{
+            minZoom: 1,
+            maxZoom: 15,
+            scrollWheelZoom: wheelZoom
+        });
         
         $.getJSON('api/operating-unit-index.json', function(data) {
             for (var i = 0; i < data.length; i++) {

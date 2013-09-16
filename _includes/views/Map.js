@@ -4,6 +4,7 @@ views.Map = Backbone.View.extend({
     },
     render: function() {
         var view = this,
+            wheelZoom = true,
             category;
         if (view.map){view.map.remove();} // remove previous map, same concept as view.$el.empty() for updating, http://leafletjs.com/reference.html#map-remove
         view.$el.empty();
@@ -21,7 +22,6 @@ views.Map = Backbone.View.extend({
             category = $('.map-btn.active').attr('data-value') || 'budget';
             // when no operating unit is selected, reset to the global map
             if (category === 'budget' && _.isUndefined(view.opUnitFilter)){$('.map-btn.budget').addClass('active')};
-            wheelZoom = true;
         } else {
             category = 'budget';
             wheelZoom = false;
@@ -161,7 +161,7 @@ views.Map = Backbone.View.extend({
                     var parent = _(country.models).findWhere({id:view.opUnitFilter.id}),
                         iso = parseInt(parent.get('iso_num'));
 
-                    if (_.isNaN(iso)){
+                    if (_.isNaN(iso) && parent.get('id') != 'none'){
                         view.$el.prepend('<div class="inner-grey">'+
                                          '<p>The selected operating unit and its project(s) do not have geographic information.</p>'+
                                          '</div>');
