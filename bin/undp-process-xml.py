@@ -447,16 +447,16 @@ def loopData(file_name, key):
                     if iat_code == r['iati_operating_unit'] or iat_code == r['operating_unit']:
                         operatingunit = r['operating_unit']
             except:
-                ou_descr = 'Bilateral/Unspecified'
-                operatingunit = 'none'
+                region_unit = p.findall("./recipient-region")
+                for ru in region_unit:
+                    for r in units_sort:
+                        if ru.text == r['ou_descr']:
+                            operatingunit = r['operating_unit']
+                            ou_descr = r['ou_descr']
                 iat_code = '998'
             projectList.append(ou_descr)
             projectList.append(operatingunit)
             projectList.append(iat_code)    
-            # Get regions
-            regionTemp = p.find("./recipient-region").attrib
-            region = p.find("./recipient-region").text
-            regionID = regionTemp.get('code') 
 
             # Append the remaining items to the project Array               
             projectList.append(award_title)
