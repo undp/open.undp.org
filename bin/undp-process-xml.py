@@ -796,8 +796,8 @@ geo = csv.DictReader(open('process_files/country-centroids.csv', 'rb'), delimite
 hdi_sort = sorted(hdi, key = lambda x: x['hdi2011'], reverse = True)
 country_sort = sorted(geo, key = lambda x: x['iso3'])
 
-years = [1980,1985,1990,1995,2000,2005,2006,2007,2008,2011]
-current_year = 2011
+years = [1980,1985,1990,1995,2000,2005,2006,2007,2008,2011,2012]
+current_year = 2012
 
 row_count = 0
 rank = 0
