@@ -19,7 +19,7 @@ models.Projects = Backbone.Collection.extend({
     },
     update: function() {
         var collection = this,
-            processes = 3 + facets.length,
+            processes = 5 + facets.length,
             status = 0;
 
         if (!this.length) return false;
@@ -56,7 +56,7 @@ models.Projects = Backbone.Collection.extend({
                         collection[facet.id] = _(collection.pluck(facet.id))
                             .chain()
                             .map(function(v) {
-                                return _(v.sort()).uniq(true);
+                                return _(v).uniq(true);
                             })
                             .flatten()
                             .countBy(function(n) { return n; })
@@ -135,6 +135,22 @@ models.Projects = Backbone.Collection.extend({
                 status++;
             }
         }, 0);
+        
+        setTimeout(function() {
+            // Funding by Country budgets
+            collection.ctryBudget = collection.reduce(function(memo, project) {
+                _(project.get('donor_countries')).each(function(donor, i) {
+                    var budget = project.get('donor_budget')[i] || 0;
+                    memo[donor] = memo[donor] +  budget || budget;
+                });
+                return memo;
+            }, {});
+            if (status === processes) {
+                callback();
+            } else {
+                status++;
+            }
+        }, 0);
 
         setTimeout(function() {
             // Total expenditure
@@ -153,6 +169,23 @@ models.Projects = Backbone.Collection.extend({
             // Donor expenditure
             collection.donorExpenditure = collection.reduce(function(memo, project) {
                 _(project.get('donors')).each(function(donor, i) {
+                    var budget = project.get('donor_expend')[i] || 0;
+                    memo[donor] = memo[donor] +  budget || budget;
+                });
+                return memo;
+            }, {});
+            if (status === processes) {
+                callback();
+            } else {
+                status++;
+            }
+
+        }, 0);
+        
+        setTimeout(function() {
+            // Funding by Country expenditure
+            collection.ctryExpenditure = collection.reduce(function(memo, project) {
+                _(project.get('donor_countries')).each(function(donor, i) {
                     var budget = project.get('donor_expend')[i] || 0;
                     memo[donor] = memo[donor] +  budget || budget;
                 });
