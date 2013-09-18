@@ -221,7 +221,7 @@ views.App = Backbone.View.extend({
         '" width="680" height="500" frameborder="0"> </iframe>';
         $('.widget-preview', context).html(defaultIframe);
         $('.widget-code', context)
-            .val(defaultIframe)
+            .val(defaultIframe.replace('src="{{site.baseurl}}/','src="' + BASE_URL))
             .select();
     },
 
