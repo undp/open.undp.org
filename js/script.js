@@ -98,8 +98,9 @@ $(function() {
   
         //calling a function after the js is loaded (Chrome/Firefox)  
         fileref.onload = callback;
-        
-        document.getElementById('fiscalData').appendChild(fileref);
+    if(typeof(document.getElementById('fiscalData')) != 'undefined') {
+		document.getElementById('fiscalData').appendChild(fileref);
+	}
     }
 
     // Via https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/indexOf
