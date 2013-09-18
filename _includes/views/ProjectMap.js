@@ -41,7 +41,7 @@ views.ProjectMap = Backbone.View.extend({
                 var o = data[i];
                 if (o.id === unit) {
                 
-                    view.getwebData(o);
+                    if (!view.options.embed) view.getwebData(o);
                     $('#country-summary').html(templates.ctrySummary(o));
 
                     if (!o.lon) {// if the unit has no geography
