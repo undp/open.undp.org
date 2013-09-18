@@ -758,9 +758,10 @@ for r,region in groupby(units_sort, lambda x: x['bureau']):
                 region_i.append(reg['ou_descr'])
                 index.append(region_i)
             if reg['hq_co'] == 'HQ':
-                if reg['ou_descr'] not in region_i:
-                    region_i.append(reg['ou_descr'])
-                    index.append(region_i)
+                if reg['ou_descr'] != 'Regional Center - Addis Ababa':
+                    if reg['ou_descr'] not in region_i:
+                        region_i.append(reg['ou_descr'])
+                        index.append(region_i)
 
 index.append(global_i)
 index_print = []
