@@ -9,5 +9,5 @@ python undp-process-xml.py
 
 # Run a zip command to update the zipped download file with new data
 cd download/undp_export
-zip ../../../download/undp-project-data.zip atlas_projects.xml country_donors_updated.csv report_donors.csv report_units.csv donor_gross.csv donor_local.csv ../hdi/hdi-csv-clean.csv report_projects.csv report_units.csv donor_gross.csv donor_local.csv report_documents.csv report_donors.csv report_outputs.csv 
+zip ../../../download/undp-project-data.zip atlas_projects.xml country_donors_updated.csv report_donors.csv report_units.csv donor_gross.csv donor_local.csv ../../hdi/hdi-csv-clean.csv
 
