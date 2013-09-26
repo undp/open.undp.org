@@ -44,7 +44,7 @@ views.Map = Backbone.View.extend({
             scrollWheelZoom: wheelZoom
             });
             
-        view.map.legendControl.addLegend('last update');
+        //view.map.legendControl.addLegend('last update');
 
         //for IE 8 and above add country outline
         if (!IE || IE_VERSION > 8){view.outline = new L.GeoJSON()};
