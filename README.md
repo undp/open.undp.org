@@ -61,7 +61,7 @@ For instance, to edit the main site introduction, locate the file `_posts/0001-0
 
 ## Updating the Data
 
-Visit the wiki section titled [Data Update Process](https://github.com/undp/undp.github.com/wiki/Data-Update-Process).
+Visit the [wiki home page](https://github.com/undp/undp.github.com/wiki) for OSX and Windows OS update processes.
 
 ## Further reading
 

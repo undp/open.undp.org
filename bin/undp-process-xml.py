@@ -4,7 +4,7 @@
 # This script runs Python commands to create the JSON API. 
 # Requirements: Python 2.6 or greater 
 
-import time, csv, json,  os, copy, re, sys, requests, chardet, urllib
+import time, csv, json,  os, copy, re, sys, urllib
 from lxml import etree
 from itertools import groupby
 from datetime import datetime
