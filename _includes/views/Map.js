@@ -25,7 +25,9 @@ views.Map = Backbone.View.extend({
         // create marker or cluster layer based on the operating unit filter
         if (_.isObject(view.opUnitFilter)){
             view.markers = new L.MarkerClusterGroup({
-                showCoverageOnHover:false
+                showCoverageOnHover:false,
+                maxClusterRadius:40,
+                disableClusteringAtZoom:5
             });
         } else {
             view.markers = new L.FeatureGroup();
