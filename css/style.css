@@ -207,6 +207,15 @@ input[readonly] {
       color:#fff;
       text-decoration:none;
       }
+ 
+ #header .desc {
+    color: #fff;
+    line-height: 80px;
+    position: absolute;
+    left: 114px;
+    top: 64px;
+    font-size: 10px;
+}
 
 .widget-config {
   background:#F2FAFF;
@@ -398,6 +407,7 @@ input[readonly] {
   height: 26px;
   top: 64px;
   left:10px;
+  z-index: 1000;
   background:#fff;
   border: 1px solid #b5b5b5;
   -webkit-border-radius: 2px;
@@ -598,9 +608,9 @@ ul.layers {
   bottom:0;
   }
 .heading-title {
-  font-size:16px;
+  font-size:24px;
   line-height:32px;
-  margin:10px 0;
+  margin: 20px 0 0;
   font-weight:normal;
   color:#666;
   }
@@ -610,7 +620,6 @@ ul.layers {
   color: #333;
   font-weight:bold;
   letter-spacing:-1px;
-  font-size:18px;
   }
 p.heading-desc {
   color:#666;
@@ -679,7 +688,7 @@ h3#focus {
       }
     .chart-legend .thick-bar span {
       height:12px;
-      background:#c8dde4;
+      background:#1F3785;
       }
     .chart-legend .thin-bar span {
       height:5px;
@@ -1102,6 +1111,7 @@ form {
     .topics li a:hover,
     .topics li a:focus,
     #output-nav li a:hover {
+      background: rgb(223, 235, 238);
       background: rgba(171, 196, 191, 0.25);
       text-decoration: none;
       }
@@ -1277,7 +1287,7 @@ form {
   margin:10px 0;
   }
 .project .heading p {
-  padding-bottom:10px;
+  padding:0px 15px 10px 10px;
   }
 #timeline-comp {
   margin-top: 2em;
@@ -1530,6 +1540,9 @@ form {
 .required-asterisk {
   color:#c43b1d;
   margin-left:2px;
+}
+#download .modal-body {
+  max-height: 440px!important;
 }
 
 /* country summary */

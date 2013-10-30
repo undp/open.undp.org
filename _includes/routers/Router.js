@@ -81,11 +81,11 @@ routers.App = Backbone.Router.extend({
             $('#mainnav li').removeClass('active');
             $('#profile .summary').addClass('off');
             $('#browser, #mainnav .browser').show();
-            $('#mainnav li a[href="/undp-projects/"]').parent().addClass('active');
+            $('#mainnav li a[href="/"]').parent().addClass('active');
             $('#mainnav li.parent').removeClass('parent-active');
 
             // Set up breadcrumbs
-            $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li><li><a href="{{site.baseurl}}">Our Projects</a></li>');
+            $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li><li><a href="' + BASE_URL + '">Our Projects</a></li>');
 
             // Load the main app view
             this.app = this.app || new views.App({
@@ -209,7 +209,7 @@ routers.App = Backbone.Router.extend({
         function updateWhenOpUnit(){
             var opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
             $('.map-filter').removeClass('active') // reset the subfilter look
-            $('#map-filters').find('#type-6').addClass('active');
+            $('#map-filters').find('#type-10').addClass('active');
             if(_.isObject(opUnitFilter)){
                 $('#map-filters').removeClass('disabled');//shows type sub-filter
                 $('.map-btn').removeClass('active');
@@ -245,7 +245,7 @@ routers.App = Backbone.Router.extend({
 
                 if (app.description && app.description.length === 0){
                     if (app.donorDescription.length > 0) {
-                        $('#description p.desc').html(app.donorDescription + counts +' accoss the world.');
+                        $('#description p.desc').html(app.donorDescription + counts +' across the world.');
                     } else {
                         $('#description p.desc').html(app.defaultDescription);
                     }
@@ -364,7 +364,7 @@ routers.App = Backbone.Router.extend({
             $('html, body').scrollTop(0);
         }, 0);
 
-        $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' + '<li><a href="{{site.baseurl}}">Our Projects</a></li>' + '<li><a href="#about/' + route + '">About: ' + route.capitalize().replace('info','') + '</a></li>');
+        $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#about/' + route + '">About: ' + route.capitalize().replace('info','') + '</a></li>');
 
         $('#app .view, #about .section, #mainnav .profile').hide();
         $('#aboutnav li, #mainnav li').removeClass('active');
@@ -378,7 +378,7 @@ routers.App = Backbone.Router.extend({
     topDonors: function (route) {
         var that = this;
 
-        $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' + '<li><a href="site.baseurl">Our Projects</a></li>' + '<li><a href="#top-donors/regular">Top Donors</a></li>');
+        $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#top-donors/regular">Top Donors</a></li>');
 
         $('#app .view').hide();
         $('#mainnav li').removeClass('active');

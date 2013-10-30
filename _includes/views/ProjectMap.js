@@ -6,12 +6,12 @@ views.ProjectMap = Backbone.View.extend({
         if (this.options.render) this.render();
     },
     tooltip: function(data, g) {
-        var scope = (g.scope[data.scope]) ? g.scope[data.scope].split(':')[0] : 'unknown',
-            type = (g.type[data.type]) ? g.type[data.type].split(':')[0] : 'unknown',
-            precision = (g.precision[data.precision]) ? g.precision[data.precision].split(' ')[0] : 'unknown';
+        var //scope = g.scope[data.scope',
+            type = g.type[data.type],
+            precision = g.precision[data.precision];
 
         var description = '<div><b>Location type:</b> <span class="value">' + type + '</span></div>'
-                        + '<div><b>Scope:</b> <span class="value">' + scope + '</span></div>'
+                        //+ '<div><b>Scope:</b> <span class="value">' + scope + '</span></div>'
                         + '<div><b>Precision:</b> <span class="value">' + precision + '</span></div>';
        
         return description;
@@ -19,24 +19,29 @@ views.ProjectMap = Backbone.View.extend({
     render: function() {
         var view = this,
             locations = [],
-            count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
             unit = this.model.get('operating_unit_id'),
-            subLocations = this.model.get('subnational');
+            subLocations = this.model.get('subnational'),
+            wheelZoom = true;
+            
+            // adding faux fullscreen control
+        if (!view.options.embed) {
+            $('#profilemap').append('<div class="full-control"><a href="#" class="icon map-fullscreen"></a></div>');
+        } else {
+            wheelZoom = false;
+        }
 
-            view.map = L.mapbox.map(this.el,TJ.id,{
-                minZoom: TJ.minzoom,
-                maxZoom: TJ.maxzoom
-            });
-
-        // adding faux fullscreen control
-        if (!view.options.embed){$('#profilemap').append('<div class="full-control"><a href="#" class="icon map-fullscreen"></a></div>');}
-
+        view.map = L.mapbox.map(this.el,TJ.id,{
+            minZoom: 1,
+            maxZoom: 15,
+            scrollWheelZoom: wheelZoom
+        });
+        
         $.getJSON('api/operating-unit-index.json', function(data) {
             for (var i = 0; i < data.length; i++) {
                 var o = data[i];
                 if (o.id === unit) {
                 
-                    view.getwebData(o);
+                    if (!view.options.embed) view.getwebData(o);
                     $('#country-summary').html(templates.ctrySummary(o));
 
                     if (!o.lon) {// if the unit has no geography
@@ -45,25 +50,32 @@ views.ProjectMap = Backbone.View.extend({
                         view.$el.hide();
                     } else {
                         var iso = parseInt(o.iso_num);
-
-                        $.getJSON('api/world-110m.json',function(world){
-                            var topoFeatures = topojson.feature(world, world.objects.countries).features,
-                            selectedFeature = _(topoFeatures).findWhere({id:iso});
-
-                            outline = L.geoJson(selectedFeature, {
-                                style: {
-                                    "color": "#b5b5b5",
-                                    "weight": 3,
-                                    clickable: false
+                        
+                        if (!IE || IE_VERSION > 8){
+                            $.getJSON('api/world-50m-s.json',function(world){
+                                var topoFeatures = topojson.feature(world, world.objects.countries).features,
+                                    selectedFeature = _(topoFeatures).findWhere({id:iso}),
+                                    coords = selectedFeature.geometry.coordinates;
+    
+                                outline = L.geoJson(selectedFeature, {
+                                    style: {
+                                        "color": "#b5b5b5",
+                                        "weight": 3,
+                                        clickable: false
+                                    }
+                                }).addTo(view.map);
+                                
+                                if (o.id === 'RUS') {
+                                    view.map.setView([o.lat,o.lon],1);
+                                } else {
+                                    view.map.fitBounds(ctyBounds(coords));
                                 }
-                            }).addTo(view.map);
-                        });
-
-                        if (subLocations.length <= 0) {
-                            view.map.setView([o.lat,o.lon],3);
+                            });
                         } else {
-                            $.getJSON('api/subnational-locs-index.json', function(g) {
-                            var count = 0;
+                            view.map.setView([o.lat,o.lon],3);
+                        }
+                        
+                        $.getJSON('api/subnational-locs-index.json', function(g) {
                             _.each(subLocations, function (o) {
                                 locations.push({
                                     type: "Feature",
@@ -82,33 +94,49 @@ views.ProjectMap = Backbone.View.extend({
                                         project: view.model.get('project_title'),
                                         name: o.name,
                                         description: view.tooltip(o, g),
-                                        'marker-size': 'small'
+                                        'marker-size': 'small',
+                                        'marker-color': '0055aa'
                                     } 
                                 });
-
-                                if (o.type == 1){locations[count].properties['marker-color'] = '#049FD9';} //Activity
-                                else if (o.type == 2){locations[count].properties['marker-color'] = '#DD4B39';} //Intended Beneficiary
-                                count += 1;
                             });
-                            view.map.setView([locations[0].geometry.coordinates[1],locations[0].geometry.coordinates[0]],2);
-                            view.map.markerLayer.setGeoJSON({
-                                type:"FeatureCollection",
-                                features: locations
-                            });
-                         });
-
-                        }
+                        
+                            function onEachFeature(feature, layer) {
+                                var clusterBrief = L.popup({
+                                        closeButton:false,
+                                        offset: new L.Point(0,-20)
+                                    }).setContent(feature.properties.description);
+                                layer.on('mouseover',function(){
+                                    clusterBrief.setLatLng(this.getLatLng());
+                                    view.map.openPopup(clusterBrief);
+                                }).on('mouseout',function(){
+                                    view.map.closePopup(clusterBrief);
+                                })
+                            }
+                            
+                            L.geoJson(locations, {
+                                pointToLayer: L.mapbox.marker.style,
+                                onEachFeature: onEachFeature
+                                }).addTo(view.map);
+                        });
                     }
                 }
             }
         });
     },
+
     fullscreen: function(e) {
         e.preventDefault();
         var view = this;
 
         view.$el.toggleClass('full');
-        setTimeout(function(){view.map.invalidateSize({pan:false});}, 200)
+        setTimeout(function(){
+            view.map.invalidateSize();
+            if (view.$el.hasClass('full')) {
+                view.map.zoomIn(1,{animate:false});
+            } else {
+                view.map.zoomOut(1,{animate:false});
+            }
+        }, 250);
 
         $('a.map-fullscreen').toggleClass('full');
         $('.country-profile').toggleClass('full');
@@ -163,8 +191,13 @@ views.ProjectMap = Backbone.View.extend({
             q.defer(function(cb) {
                 if (that.model.get('document_name')) {
                     _.each(that.model.get('document_name')[0], function (photo, i) {
-                        var filetype = photo.split('.')[1].toLowerCase(),
-                            source = that.model.get('document_name')[1][i];
+                        try {
+                            var filetype = photo.split('.')[1].toLowerCase();
+                        }
+                        catch(err) {
+                            var filetype = '';
+                        }
+                        var source = that.model.get('document_name')[1][i];
                             
                         if (filetype === 'jpg' || filetype === 'jpeg' || filetype === 'png' || filetype === 'gif') {
                             var img = new Image();

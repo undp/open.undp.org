@@ -1,6 +1,6 @@
 <div class='row-fluid separator' id='project-heading'>
   <div class='col col-700'>
-    <h3 class='heading-title'>&#9656; <%= model.get('project_title').toLowerCase().toTitleCase() %></h3>
+    <h3 class='heading-title'><%= model.get('project_title').toLowerCase().toTitleCase() %></h3>
     <div id='project-descr'>
       <p class='heading-desc'><%= model.get('project_descr') %></p>
     </div>
@@ -17,7 +17,7 @@
         <!-- Country at a Glance -->
         <div class='row-fluid country-profile'>
           <div class='inner'>
-            <h3><%= model.get('operating_unit') %> at a glance</h3>
+            <h3><%= model.get('operating_unit')%> at a glance in <%= model.get('fiscal_year')[0] %></h3>
             <div id='country-summary'></div>
           </div>
         </div>
@@ -157,10 +157,10 @@
           <div id='documents' class='row-fluid'>
             <div class='span12'>
               <ul class='unstyled'>
-                <% _.each(documents, function(d) { %>
-                <li><a href='<%= d.src %>'>
-                  <span class='icon filetype filetype-<%= d.filetype %>'></span>
-                  <%= d.title %></a>
+                <% _.each(documents, function(doc) { %>
+                <li><a href='<%= doc.src %>'>
+                  <span class='icon filetype filetype-<%= doc.filetype %>'></span>
+                  <%= doc.title %></a>
                 </li>
                 <% }); %>
               </ul>
@@ -176,10 +176,10 @@
   <!--/ #top-stats -->
   <% if (model.get('outputs')) { %>
     <div class='separator' id='output-header'>
-      <h3 class='heading-title'>
+      <h2 class='heading-title'>
         <% if (model.get('outputs').length === 1) { %>
-        There is <span>1</span> output under this project.<% } else { %>
-        There are <span><%= model.get('outputs').length %></span> outputs under this project.
+        <span>1</span> output<% } else { %>
+        <span><%= model.get('outputs').length %></span> outputs
         <% } %>
       </h3>
     </div>

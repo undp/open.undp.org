@@ -17,7 +17,7 @@
 %>
 
 <div data-option='title' class='option'>
-  <h3 class='heading-title'><%= model.get('project_title').toLowerCase().toTitleCase() %></h3>
+  <a target='_blank' href='http://open.undp.org/#project/<%= model.get('id')%>'><h3 class='heading-title'><%= model.get('project_title').toLowerCase().toTitleCase() %></h3></a>
 </div>
 
 <div data-option='descr' class='option'>
@@ -48,7 +48,7 @@
         <% }); %>
         <% _.each(model.get('expendyears'), function(v,k) { %>
           <tr>
-            <td><strong>Expenditure</strong></td>
+            <td><strong><%= k %> Expenditure</strong></td>
             <td><%= accounting.formatMoney(v) %></td>
           </tr>
         <% }); %>

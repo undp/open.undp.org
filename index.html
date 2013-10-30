@@ -15,6 +15,7 @@
     <link href='{{base}}/css/global.css' rel='stylesheet'>
     <link href='{{base}}/ext/bootstrap/css/bootstrap.min.css' rel='stylesheet' />
     <link href='//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.css' rel='stylesheet' />
+    <!--[if lte IE 8]><link href='//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.ie.css' rel='stylesheet' /><![endif]-->
     <link href='{{base}}/css/MarkerCluster.css' rel='stylesheet'/>
     <link href='{{base}}/css/style.css' rel='stylesheet' />
 
@@ -31,7 +32,7 @@
     <script src='{{base}}/ext/queue.js'></script>
     <script src='//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.js'></script>
     <script src='{{base}}/ext/leaflet.markercluster.js'></script>
-    <script src="http://d3js.org/topojson.v1.min.js"></script>
+    <!--[if gte IE9]<!--><script src="http://d3js.org/topojson.v1.min.js"></script><!--<![endif]-->
     <script src='{{base}}/api/hdi.js'></script>
     <script src='{{base}}/api/year-index.js'></script>
     <script src='{{base}}/js/script.js'></script>
@@ -91,6 +92,7 @@
             <!-- end of #languages -->
             <!-- end of #main-navigation -->
             <h1 class='site-title'><a href='{{base}}/'>Our Projects</a></h1>
+            <span class="desc">Last Updated: 30-Sept-2013</span>
         </div>
         <!-- end of .content -->
     </div><!-- /#header -->
@@ -102,7 +104,7 @@
           <ul>
             <li><a href='#'>Home</a></li>
             <li><a href='{{base}}/'>Our Projects</a></li>
-          </ul>
+            </ul>
         </div>
         <div id='nav-side' class='col col-150'>
           <ul id='mainnav'>

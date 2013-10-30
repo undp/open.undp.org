@@ -1,6 +1,19 @@
 ---
 ---
 var CURRENT_YR = FISCALYEARS[0];
+
+function ctyBounds(coords) {
+    if (coords.length > 1) {
+        var polyline = L.polyline(_.flatten(_.flatten(coords,true),true));
+    } else {
+        var polyline = L.polyline(coords[0]);
+    }
+    var bbox = polyline.getBounds();
+    
+    return [[bbox.getSouthWest().lng, bbox.getSouthWest().lat],
+            [bbox.getNorthEast().lng, bbox.getNorthEast().lat]];
+}
+
 $(function() {
     var BASE_URL = 'http://open.undp.org/',
         widgetOts = [],
@@ -39,7 +52,8 @@ $(function() {
                 name: 'Budget Source'
             }
         ];
-
+    var IE = $.browser.msie;
+    if (IE) {var IE_VERSION = parseInt($.browser.version);} // should return 6, 7, 8, 9
     // Models
     {% include models/Filter.js %}
     {% include models/Project.js %}
@@ -84,8 +98,9 @@ $(function() {
   
         //calling a function after the js is loaded (Chrome/Firefox)  
         fileref.onload = callback;
-        
-        document.getElementById('fiscalData').appendChild(fileref);
+    if(typeof(document.getElementById('fiscalData')) != 'undefined') {
+		document.getElementById('fiscalData').appendChild(fileref);
+	}
     }
 
     // Via https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/indexOf

@@ -3,131 +3,146 @@ views.Map = Backbone.View.extend({
         if (this.options.render) this.render();
     },
     render: function() {
-        var view = this;
+        var view = this,
+            wheelZoom = true,
+            category;
         if (view.map){view.map.remove();} // remove previous map, same concept as view.$el.empty() for updating, http://leafletjs.com/reference.html#map-remove
         view.$el.empty();
-        view.$el.append('<div class="inner-shadow"></div>');
+        if (IE) {
+            view.$el.css('border','1px solid #ddd');
+        } else {
+            view.$el.append('<div class="inner-shadow"></div>');
+        }
         view.$el.find('.inner-grey').remove(); // remove 'operating unit has no geo' paragraph
 
         view.regionFilter =_(app.app.filters).findWhere({collection:"region"});
         view.opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
 
         if (!view.options.embed) {
-            layer = $('.map-btn.active').attr('data-value') || 'budget';
-            // when there is no layer switcher and no filter selected -- a reset to the global map
-            if (layer === 'budget' && _.isUndefined(view.opUnitFilter)){$('.map-btn.budget').addClass('active')};
-            wheelZoom = true;
+            category = $('.map-btn.active').attr('data-value') || 'budget';
+            // when no operating unit is selected, reset to the global map
+            if (category === 'budget' && _.isUndefined(view.opUnitFilter)){$('.map-btn.budget').addClass('active')};
         } else {
-            layer = 'budget';
+            category = 'budget';
             wheelZoom = false;
         };
-
-        // create marker or cluster layer based on the operating unit filter
+        
+        // create circle or cluster based on the operating unit filter
         if (_.isObject(view.opUnitFilter)){
             view.markers = new L.MarkerClusterGroup({
                 showCoverageOnHover:false,
                 maxClusterRadius:40,
                 disableClusteringAtZoom:5
             });
+            var maxZoom = 10;
         } else {
-            view.markers = new L.FeatureGroup();
+            view.markers = new L.LayerGroup();
         };
 
-        view.outline = new L.GeoJSON();
-
-        // Create the map with mapbox.js 1.3.1
+        // create the map with mapbox.js 1.3.1
         view.map = L.mapbox.map(this.el,TJ.id,{
+            center: [0,-15],
+            zoom: 2,
             minZoom: TJ.minzoom,
-            maxZoom: TJ.maxzoom,
+            maxZoom: maxZoom || TJ.maxzoom,
             scrollWheelZoom: wheelZoom
-            }).setView([0,-15],2);
+            });
+            
+        //view.map.legendControl.addLegend('last update');
 
-        view.buildLayer(layer);//budget is the default layer
+        //for IE 8 and above add country outline
+        if (!IE || IE_VERSION > 8){view.outline = new L.GeoJSON()};
+
+        view.buildLayer(category);
     },
+    // define map center based on region filter
     zoomToRegion: function(region){
         if (region === "RBA"){
-            this.map.setView([0,20],3)
+            this.map.setView([0,20],3,{reset:true});
         } else if (region === "RBAP"){
-            this.map.setView([37,80],2)
+            this.map.setView([37,80],2,{reset:true});
         } else if (region === "RBAS" || region === "PAPP"){
-            this.map.setView([32,32],3)
+            this.map.setView([32,32],3,{reset:true});
         } else if (region === "RBEC"){
-            this.map.setView([50,55],3)
+            this.map.setView([50,55],3,{reset:true});
         } else if (region === "RBLAC"){
-            this.map.setView([-2,-67],2)
+            this.map.setView([-2,-67],2,{reset:true});
         } else if (region === "global"){
-            this.map.setView([0,0],2)
+            this.map.setView([0,0],2,{reset:true});
         }
     },
-    // UTIL set marker scale depending on type of data
+    // CIRCLE
     scale: function(cat,feature) {
         if (cat == 'budget' || cat == 'expenditure') {
-            return Math.round(feature.properties[cat] / 100000);
+            var size = Math.round(feature.properties[cat] / 100000);
+            if (size < 10) {
+                return 10;
+            } else {
+                return size;
+            }
         } else if (cat == 'hdi') {
             return Math.round(Math.pow(feature.properties[cat],2) / 0.0008);
         } else {
             return Math.round(feature.properties[cat] / 0.05);
         }
     },
-    //UTIL calculate the radius
     radius: function(scaleResult){
         var r = Math.round(Math.sqrt(scaleResult/ Math.PI));
         return r
+    },
+    circleHighlight: function(e,options){
+        if (!options){options = {}}
+        $target = e.target;
+        $target.setStyle({
+            color: options.color || '#fff',
+            weight: options.weight || 1,
+            opacity: options.opacity || 1,
+            fillColor: options.fillColor || '#0055aa',
+            fillOpacity: options.fillOpacity || 0.6
+        })
+    },
+    circlePopup: function(cat,feature) {
+        var description = '<div class="title"><b>' + feature.properties.title + '</b></div>' +
+            '<div class="stat' + ((cat == 'count') ? ' active' : '') + '">Projects: <span class="value">' +
+            feature.properties.count + '</span></div>' +
+            ((feature.sources > 1) ? ('<div class="stat' + ((cat == 'sources') ? ' active' : '') + '">Budget Sources: <span class="value">' +
+            feature.properties.sources + '</span></div>') : '') +
+            '<div class="stat' + ((cat == 'budget') ? ' active' : '') + '">Budget: <span class="value">' +
+            accounting.formatMoney(feature.properties.budget) + '</span></div>' +
+            '<div class="stat' + ((cat == 'expenditure') ? ' active' : '') + '">Expenditure: <span class="value">' +
+            accounting.formatMoney(feature.properties.expenditure) + '</span></div>' +
+            '<div class="stat' + ((cat == 'hdi') ? ' active' : '') + '">HDI: <span class="value">' +
+            feature.properties.hdi + '</span></div>';
+        return description;
+    },
+    // CLUSTER
+    clusterPopup: function(feature, g) {
+        var project = feature.properties.project,
+            title = feature.properties.title,
+            type = g.type[feature.properties.type],
+            // scope = (g.scope[feature.properties.scope]) ? g.scope[feature.properties.scope].split(':')[0] : 'unknown',
+            precision = g.precision[feature.properties.precision];
+
+        var description = '<div><b>Project: </b>' + project + '</div>'
+                        + '<div><b>Name: </b>' + title + '</div>'
+                        + '<div><b>Location type: </b>' + type + '</div>'
+                        // + '<div><b>Scope: </b>' + scope + '</div>'
+                        + '<div><b>Precision: </b>' + precision + '</div>';
+        return description;
     },
     goToLink: function(path){
         app.navigate(path, { trigger: true });
         $('#browser .summary').removeClass('off');
     },
-    popup: function(layer, data) {
-        var description = '<div class="title"><b>' + data.properties.title + '</b></div>' +
-            '<div class="stat' + ((layer == 'count') ? ' active' : '') + '">Projects: <span class="value">' +
-            data.properties.count + '</span></div>' +
-            ((data.sources > 1) ? ('<div class="stat' + ((layer == 'sources') ? ' active' : '') + '">Budget Sources: <span class="value">' +
-            data.properties.sources + '</span></div>') : '') +
-            '<div class="stat' + ((layer == 'budget') ? ' active' : '') + '">Budget: <span class="value">' +
-            accounting.formatMoney(data.properties.budget) + '</span></div>' +
-            '<div class="stat' + ((layer == 'expenditure') ? ' active' : '') + '">Expenditure: <span class="value">' +
-            accounting.formatMoney(data.properties.expenditure) + '</span></div>' +
-            '<div class="stat' + ((layer == 'hdi') ? ' active' : '') + '">HDI: <span class="value">' +
-            data.properties.hdi + '</span></div>';
-        return description;
-    },
-    clusterPopup: function(data, g) {
-        var project = data.project,
-            title = data.title,
-            type = (g.type[data.type]) ? g.type[data.type].split(':')[0] : 'unknown',
-            scope = (g.scope[data.scope]) ? g.scope[data.scope].split(':')[0] : 'unknown',
-            precision = (g.precision[data.precision]) ? g.precision[data.precision].split(' ')[0] : 'unknown';
-
-        var description = '<div><b>Project: </b>' + project + '</div>'
-                        + '<div><b>Name: </b>' + title + '</div>'
-                        + '<div><b>Location type: </b>' + type + '</div>'
-                        + '<div><b>Scope: </b>' + scope + '</div>'
-                        + '<div><b>Precision: </b>' + precision + '</div>';
-        return description;
-    },
-    buildLayer: function(layer,mapFilter){
+    buildLayer: function(layer,mapFilter,mapCenter,mapZoom){
         var view = this;
         view.map.removeLayer(view.markers); //remove the marker featureGroup from view.map
-        view.markers.clearLayers(); // inside of marker featureGroup, clear the layers from the previous build
-        view.outline.clearLayers(); // clear the geoJSON group
+        view.markers.clearLayers(); // inside of marker group, clear the layers from the previous build
 
         var count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
-            unit = this.collection; //unit == app.projects
+            unit = view.collection;
 
-        var circleHighlight = function(e,options){
-            if (!options){options = {}}
-            $target = e.target;
-            $target.setStyle({
-                color: options.color || '#fff',
-                weight: options.weight || 1,
-                opacity: options.opacity || 1,
-                fillColor: options.fillColor || '#0055aa',
-                fillOpacity: options.fillOpacity || 0.6
-            })
-        };
-
-        country = new models.Nationals();
+        var country = new models.Nationals();
         country.fetch({
             url: 'api/operating-unit-index.json',
             success:function(){
@@ -136,50 +151,55 @@ views.Map = Backbone.View.extend({
                     subs.fetch({
                         url: 'api/units/' + view.opUnitFilter.id + '.json',
                         success:function(){
-                            if (subs.length <= unit.length){
-                            // there are fewer projects in the subnational collection than in the unit
-                            // then there's no need to filter these sub projects
-                                filteredSubs = subs;
-                            } else {
                             // the projects in subs need to be matched to the unit models
                             // matching subs.models and unit.models on id and set the visible ones
-                                _(unit.models).each(function(model){
-                                    if (subs.get(model.id) != undefined){
-                                        subs.get(model.id).set({visible:true}
-                                    )}
-                                })
-                                filteredSubs = subs.filtered(); //update is a method in the collection
-                            }
-                            // create the clusters
+                            _(unit.models).each(function(model){
+                                if (subs.get(model.id) != undefined){
+                                    subs.get(model.id).set({visible:true})
+                                }
+                            })
+                            filteredSubs = subs.filtered(); //filtered() is a method in the collection
                             renderClusters(filteredSubs);
                         }
                     });
 
+                    // find the iso number from the national models
                     var parent = _(country.models).findWhere({id:view.opUnitFilter.id}),
                         iso = parseInt(parent.get('iso_num'));
 
-                    if (_.isNaN(iso)){
-                        view.map.setView([0,-15],2);
-                        view.$el.prepend('<div class="inner-grey"><p>The seleted operating unit and its project(s) do not have associated geography.</p></div>');
+                    if (_.isNaN(iso) && parent.get('id') != 'none'){
+                        view.$el.prepend('<div class="inner-grey">'+
+                                         '<p>The selected operating unit and its project(s) do not have geographic information.</p>'+
+                                         '</div>');
                     } else {
-                        view.map.setView([parent.lat,parent.lon],3); //why is the lat and lon reversed here
+                        //view.map.setView([parent.lat,parent.lon],zoomToCountry(parent.id,5));
 
                         //draw country outline with the topojson file
-                        $.getJSON('api/world-110m.json',function(world){
+                        if (!IE || IE_VERSION > 8){
+                            view.outline.clearLayers();
+                            $.getJSON('api/world-50m-s.json',function(world){
                             var topoFeatures = topojson.feature(world, world.objects.countries).features,
-                            selectedFeature = _(topoFeatures).findWhere({id:iso});
-
-                            view.outline.addData(selectedFeature
-                                ).setStyle({
+                                selectedFeature = _(topoFeatures).findWhere({id:iso}),
+                                coords = selectedFeature.geometry.coordinates;
+                            view.outline.addData(selectedFeature)
+                                .setStyle({
                                     "color": "#b5b5b5",
                                     "weight": 3,
                                     clickable: false
                                 });
-
-                            view.outline.addTo(view.map);
-                        });
+                                
+                                if (parent.get('id') === 'RUS') {
+                                    view.map.setView([parent.lat,parent.lon],2);
+                                } else {
+                                    view.map.fitBounds(ctyBounds(coords));
+                                }
+                                
+                                view.outline.addTo(view.map);
+                            });
+                        } else {
+                            view.map.setView([parent.lat,parent.lon],4);
+                        }
                     }
-
                 } else {
                     renderCircles(country);
                     if(_.isObject(view.regionFilter)){
@@ -198,26 +218,26 @@ views.Map = Backbone.View.extend({
                 if (model.geojson){
                     hasGeo = true;
                     filteredMarkers.push(model.geojson);
+                    filteredMarkers = _(filteredMarkers).flatten(false);
                 } else {
                     projectWithNoGeo += 1;
                 }
             });
 
-            filteredMarkers = _(filteredMarkers).flatten(false).filter(function(o){return _.isObject(o)}); //filter out those null
             var verbDo = (projectWithNoGeo === 1) ? "does" : "do";
             var verbHave = (projectWithNoGeo === 1) ? "has" : "have";
 
             // append sub-national location paragraph
             if (projectWithNoGeo != 0 && !hasGeo){
                 $('#map-filters').addClass('disabled'); // no sub filter on page
-                $('#description p.geography').html("None of these projects have associated geography.");
+                $('#description p.geography').html("None of these projects have geographic information.");
             } else if (projectWithNoGeo != 0 && hasGeo){
                 var projectWithNoGeoParagraph = " <b>" + projectWithNoGeo
-                    + "</b> of them " + verbDo + " not " + verbHave + " associated geography; the remaining <b>"
+                    + "</b> of them " + verbDo + " not " + verbHave + " geographic information; the remaining <b>"
                     + (filteredSubs.length - projectWithNoGeo)
                     + "</b> have <b>"
                     + filteredMarkers.length
-                    + "</b> sub-national locations in total."
+                    + "</b> subnational locations in total."
                 $('#description p.geography').html(projectWithNoGeoParagraph);
             }
 
@@ -233,16 +253,16 @@ views.Map = Backbone.View.extend({
                     "features":filteredMarkers
                 }, {
                     filter: function(feature, layer, filter) { // only two cases for type, hard code is fine
-                        var subFilter = mapFilter || "6";
-                        if (subFilter === "6"){
+                        var subFilter = mapFilter || "10";
+                        if (subFilter === "10"){
                             return feature.properties
                         } else {
                             return feature.properties['precision'] === subFilter
                             
                         }
                     },
-                    pointToLayer: function(feature,latlon){
-                        return L.marker(latlon,{
+                    pointToLayer: function(feature,latlng){
+                        return L.marker(latlng,{
                             icon: L.mapbox.marker.icon(markerOptions) // use MapBox style markers
                         })
                     },
@@ -250,7 +270,7 @@ views.Map = Backbone.View.extend({
                         var clusterBrief = L.popup({
                                 closeButton:false,
                                 offset: new L.Point(0,-20)
-                            }).setContent(view.clusterPopup(feature.properties, subLocIndex));
+                            }).setContent(view.clusterPopup(feature, subLocIndex));
                         layer.on('mouseover',function(){
                             clusterBrief.setLatLng(this.getLatLng());
                             view.map.openPopup(clusterBrief);
@@ -263,9 +283,11 @@ views.Map = Backbone.View.extend({
                     }
                 });
                 view.markers.addLayer(filteredMarkersLayer);
+                view.map.addLayer(view.markers);
             });
         };
         var renderCircles = function(){
+            var circles = [];
             _(country.models).each(function(model){
                 if (unit.operating_unit[model.id] && model.lon){
                     count = unit.operating_unit[model.id];
@@ -285,40 +307,43 @@ views.Map = Backbone.View.extend({
                     }
 
                     // populate the centroid geojson
-                    model.centroid.properties.count = count,
-                    model.centroid.properties.sources = sources,
-                    model.centroid.properties.budget = budget,
-                    model.centroid.properties.expenditure = expenditure,
+                    model.centroid.properties.count = count;
+                    model.centroid.properties.sources = sources;
+                    model.centroid.properties.budget = budget;
+                    model.centroid.properties.expenditure = expenditure;
                     model.centroid.properties.hdi = hdi;
+                    model.centroid.properties.popup = view.circlePopup(layer,model.centroid);
+                    model.centroid.properties.radius = view.radius(view.scale(layer,model.centroid));
 
-                    var popupContent = view.popup(layer,model.centroid),
-
-                    circleOptions = {
-                        radius: view.radius(view.scale(layer,model.centroid)),
-                        color:"#fff",
-                        weight:1,
-                        opacity:1,
-                        fillColor: "#0055aa",
-                        fillOpacity: 0.6
-                    };
-                    createCircle(model.centroid,circleOptions,popupContent);
+                    circles.push(model.centroid);
                 }
-            })
-        }
-        var createCircle = function(geoJsonFeature,options,hoverPop){
-            var brief = L.popup({
-                    closeButton:false
-                }).setContent(hoverPop);
-            var circleLayer = L.geoJson(geoJsonFeature,{
+            });
+            var defaultCircle = {
+                color:"#fff",
+                weight:1,
+                opacity:1,
+                fillColor: "#0055aa",
+                fillOpacity: 0.6
+            };
+            var circleLayer = L.geoJson({
+                "type":"FeatureCollection",
+                "features":_(circles).sortBy(function(f) { return -f.properties[layer]; })
+            },{
                 pointToLayer:function(feature,latlng){
-                    return L.circleMarker(latlng,options
-                    ).on('mouseover',function(circleMarker){
-                        brief.setLatLng(latlng);
+                    return L.circleMarker(latlng,defaultCircle).setRadius(feature.properties.radius);
+                },
+                onEachFeature:function(feature, layer){
+                    var brief = L.popup({
+                            closeButton:false,
+                            offset:[0, -feature.properties.radius+5]
+                        }).setContent(feature.properties.popup);
+                    layer.on('mouseover',function(e){
+                        brief.setLatLng(this.getLatLng());
                         view.map.openPopup(brief);
-                        circleHighlight(circleMarker,{color:'#0055aa',weight:2});
-                    }).on('mouseout',function(circleMarker){
+                        view.circleHighlight(e,{color:'#0055aa',weight:2});
+                    }).on('mouseout',function(e){
                         view.map.closePopup(brief);
-                        circleHighlight(circleMarker);
+                        view.circleHighlight(e);
                     }).on('click',function(e){
                         if (app.app.filters.length === 0 ){
                             path = document.location.hash + '/filter/operating_unit-' + e.target.feature.properties.id;
@@ -330,7 +355,7 @@ views.Map = Backbone.View.extend({
                 }
             });
             view.markers.addLayer(circleLayer);
-        };
-        view.map.addLayer(view.markers);
+            view.map.addLayer(view.markers);
+        }
     }
 });

@@ -49,13 +49,16 @@
           <div id='map-filters' class='disabled'>
             <ul>
               <li>Filter on precision:</li>
-              <li><a id='type-6' class='map-filter active' href='#'>All</a></li>
-              <li><a id='type-1' class='map-filter' href='#'>Country</a></li>
-                    <!--<li><a id='type-2' class='map-filter' href='#'>ADM1</a></li>-->
-              <li><a id='type-3' class='map-filter' href='#'>ADM2</a></li>
-              <li><a id='type-4' class='map-filter' href='#'>Street</a></li>
-                    <!--<li><a id='type-5' class='map-filter' href='#'>Exact</a></li>-->
-                    <!--<li><a id='type-0' class='map-filter' href='#'>Unknown</a></li>-->
+              <li><a id='type-10' class='map-filter active' href='#'>All</a></li>
+              <li><a id='type-4' class='map-filter' href='#'>Country</a></li>
+              <li><a id='type-3' class='map-filter' href='#'>Subnational</a></li>
+              <li><a id='type-1' class='map-filter' href='#'>Street</a></li>
+          <!--<li><a id='type-2' class='map-filter' href='#'>Near exact location</a></li>-->
+          <!--<li><a id='type-5' class='map-filter' href='#'>Estimated coordinates</a></li>-->
+          <!--<li><a id='type-6' class='map-filter' href='#'>Independent political entity</a></li>-->
+          <!--<li><a id='type-7' class='map-filter' href='#'>Unclear - capital</a></li>-->
+          <!--<li><a id='type-8' class='map-filter' href='#'>Local or national capital</a></li>-->
+          <!--<li><a id='type-9' class='map-filter' href='#'>Unclear</a></li>-->
             </ul>
           </div>
           <div class='span12 chart' id='chart-hdi'>
@@ -174,9 +177,7 @@
           <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= year %> <b class="caret"></b></a>
           <ul class='dropdown-menu'>
       <% _.each(FISCALYEARS, function(y) { %>
-        <% if (y != '2010') { %>
         <li><a href="#" data-value='<%= y %>'<% if (y === year) { %> class='active'<% } %>><%= y %></a></li>
-        <% } %>
       <% }); %>
           </ul>
         </li>
