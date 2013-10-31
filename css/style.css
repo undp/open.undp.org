@@ -286,12 +286,6 @@ input[readonly] {
 
 .icon.open {
   background-color:#c8dde4;
-  float:left;
-  position:relative;
-  top:-3px;
-  margin-right:5px;
-  -webkit-border-radius:4px;
-          border-radius:4px;
   }
 
 /* areas color spans*/
@@ -333,14 +327,11 @@ input[readonly] {
   
 #app .view {
   float:left;
-  margin:50px 0 35px;
+  top:50px;
   }
-#nav-side {
-  margin-top:50px;
-  }
-  #nav-side ul {
-    margin:0;
-    }
+#nav-side ul {
+  margin:0;
+}
 #about, #top-donors {
   display: none;
   }
@@ -1016,24 +1007,11 @@ form {
   font-size:15px;
   line-height: 28px;
 }
-#yearselect {
-  padding: 0 10px;
-  text-align: right;
-}
-#yearselect .nav {
-  margin-left: 138px;
-}
 #yearselect .dropdown-menu {
   min-width: 0;
 }
 #yearselect .dropdown-menu a {
-  font-size: 14px;
-  line-height: inherit;
-}
-#yearselect .open .dropdown-toggle,
-#yearselect .dropdown-menu a:hover {
-  background: #eee;
-  color: inherit;
+  font-size: 10px;
 }
 #yearselect .caret {
   border-top-color: #036;
@@ -1043,7 +1021,7 @@ form {
   width: 100px;
   margin-left: 10px;
 }
-#filters .inner, #twitter-block.inner {
+#twitter-block.inner {
   background:#f2faff;
   border-top:1px solid #ddd;
   padding:5px 10px 50px 10px;
@@ -1066,6 +1044,10 @@ form {
 .form-search {
   position:relative;
   }
+.form-search input {
+  width:auto;
+  padding:4px 0 4px 4px;
+  }
 #projects .form-search {
   background:#f2faff;
   padding:10px;
@@ -1082,17 +1064,6 @@ form {
 #projects .icon.reset {
   top: 15px;
   left: 505px;
-  }
-#filters-search {
-  margin:10px 0 30px;
-  background:rgba(255, 255, 255, 0.6);
-  padding-right:30px;
-  width:180px;
-  }
-
-#filter-items {
-  margin:0 -10px;
-  width:240px;
   }
 .topics li {
   line-height: 18px;
@@ -1126,7 +1097,6 @@ form {
   font-size:10px;
   text-transform:uppercase;
   cursor: pointer;
-  padding: 10px;
   -webkit-touch-callout:none;
   -webkit-user-select:none;
    -khtml-user-select:none;
