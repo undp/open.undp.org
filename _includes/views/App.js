@@ -22,18 +22,18 @@ views.App = Backbone.View.extend({
 
         this.render();
 
-        if (!this.options.embed) {
-            // Filters follow scrolling
-            var top = $('#siderail').offset().top - 12;
-            $(window).on('scroll', function () {
-                var y = $(this).scrollTop();
-                if (y >= top) {
-                    $('#siderail').addClass('fixed');
-                } else {
-                    $('#siderail').removeClass('fixed');
-                }
-            });
-        }
+        // if (!this.options.embed) {
+        //     // Filters follow scrolling
+        //     var top = $('#siderail').offset().top - 12;
+        //     $(window).on('scroll', function () {
+        //         var y = $(this).scrollTop();
+        //         if (y >= top) {
+        //             $('#siderail').addClass('fixed');
+        //         } else {
+        //             $('#siderail').removeClass('fixed');
+        //         }
+        //     });
+        // }
     },
 
     render: function() {
