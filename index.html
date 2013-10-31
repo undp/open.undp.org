@@ -130,7 +130,7 @@
         <div id='browser' class='col-790 content view'></div>
         <div id='profile' class='col-790 content view'></div>
 
-        <div id='top-donors' class='col-540 content view chart'>
+        <div id='top-donors' class='col-790 content view chart'>
           {% for donor in site.categories['donors-gross'] %}
           <h1 class='title-story'>{{donor.title}}</h1>
           {{donor.content}}
@@ -148,7 +148,7 @@
           <table class='table table-unstyled donor-local-table'></table>
         </div>
 
-        <div id='about' class='col-540 content view'>
+        <div id='about' class='col-790 content view'>
           {% for subnav in site.categories.about %}
           <div class='section' id='{{subnav.tag}}'>
               <h1 class='title-story'>{{subnav.title}}</h1>
