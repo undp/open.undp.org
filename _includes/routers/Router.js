@@ -92,6 +92,7 @@ routers.App = Backbone.Router.extend({
                 el: '#browser',
                 year: year
             });
+            this.nav = new views.Nav();
         } else {
             this.app = this.app || new views.App({
                 el: '#embed',
