@@ -311,9 +311,6 @@ input[readonly] {
 #main-container {
   position: relative;
   margin: 0;
-  border-left:  1px solid #ddd;
-  border-right: 1px solid #ddd;
-  border-bottom:1px solid #ddd;
   }
   #main-container .span2 {
     padding-top: 20px;
@@ -329,9 +326,31 @@ input[readonly] {
   float:left;
   top:50px;
   }
+
+/* Side navigation */
+#nav-side{
+  width: 230px;
+  background:url("../img/global/bg-leftside-navigation-line.png") no-repeat 220px 100%;
+  margin-right: 15px;
+}
+
 #nav-side ul {
   margin:0;
 }
+
+#nav-side li{
+  width: 230px;
+}
+
+#nav-side li a,
+#nav-side li.active,
+#nav-side li ul li.active a{
+  display: block;
+  _height: 1%;
+  color: #0055AA;
+  padding: 10px 12px;
+}
+
 #about, #top-donors {
   display: none;
   }
@@ -459,6 +478,22 @@ input[readonly] {
   }
 #profilemap.full {
   height:300px;
+  }
+/* view switch */
+.view-switch {
+  height:40px;
+  display:block;
+  }
+.view-switch a {
+  float:left;
+  display:block;
+  margin-right:10px;
+  width:80px;
+  padding:6px 0;
+  font-size:11px;
+  text-align: center;
+  border:1px solid #ddd;
+  border-radius:4px;
   }
 /* sub filters */
 #map-filters {
