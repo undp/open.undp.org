@@ -8,7 +8,7 @@ views.App = Backbone.View.extend({
         'click .map-btn': 'mapLayerswitch',
         'click .widget-config': 'requestIframe',
         'submit .form-search': 'submitForm',
-        'click #yearselect .dropdown-menu a': 'yearChange',
+        'click #yearselect a': 'yearChange',
         'click .map-filter':'mapFilter',
         'click .nav.nav-tabs a': 'activeMap'
     },
@@ -21,19 +21,6 @@ views.App = Backbone.View.extend({
         $(window).on('click', '#country-list .close', _(this.hideCountries).bind(this));
 
         this.render();
-
-        // if (!this.options.embed) {
-        //     // Filters follow scrolling
-        //     var top = $('#siderail').offset().top - 12;
-        //     $(window).on('scroll', function () {
-        //         var y = $(this).scrollTop();
-        //         if (y >= top) {
-        //             $('#siderail').addClass('fixed');
-        //         } else {
-        //             $('#siderail').removeClass('fixed');
-        //         }
-        //     });
-        // }
     },
 
     render: function() {
