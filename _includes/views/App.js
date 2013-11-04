@@ -24,7 +24,6 @@ views.App = Backbone.View.extend({
     },
 
     render: function() {
-
         if (this.options.embed) {
             this.$el.empty().append(templates.embedProjects());
             // Depending on the options passed into the array add a fade

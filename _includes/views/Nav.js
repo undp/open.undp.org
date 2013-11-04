@@ -2,7 +2,6 @@ views.Nav = Backbone.View.extend({
     el: '#left-nav',
 
     initialize: function () {
-        console.log(this);
         this.render();
     },
 

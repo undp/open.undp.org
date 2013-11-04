@@ -92,7 +92,6 @@ routers.App = Backbone.Router.extend({
                 el: '#browser',
                 year: year
             });
-            this.nav = new views.Nav();
         } else {
             this.app = this.app || new views.App({
                 el: '#embed',
@@ -304,6 +303,9 @@ routers.App = Backbone.Router.extend({
     project: function (id, output, embed) {
         var that = this;
 
+        // Add nav
+        this.nav = new views.Nav();
+
         if (!embed) {
             // Load in feedbackform dets.
             this.mainApp();
@@ -379,6 +381,9 @@ routers.App = Backbone.Router.extend({
     topDonors: function (route) {
         var that = this;
 
+        // Add nav
+        this.nav = new views.Nav();
+
         $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#top-donors/regular">Top Donors</a></li>');
 
         $('#app .view').hide();
@@ -390,7 +395,7 @@ routers.App = Backbone.Router.extend({
         
         $('#donor-nav li a').removeClass('active');
         $('#donor-nav li a[href="#top-donors/' + route + '"]').addClass('active');
-        
+
         if (!that.donorsGross) {
             that.donorsGross = new models.TopDonors({type: route});
             that.donorsGross.url = 'api/top-donor-gross-index.json';
