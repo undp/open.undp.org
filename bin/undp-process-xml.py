@@ -353,7 +353,7 @@ def outputsLoop(o, output_id):
             outputBudget.append(None)
 
     locs = []
-    locHeader = ['awardID','lat','lon','precision','name','type']
+    locHeader = ['awardID','sector','lat','lon','precision','name','type']
     locations = o.findall('location')
     for location in locations:
         locTemp = []
@@ -368,6 +368,7 @@ def outputsLoop(o, output_id):
             if loc.tag == 'location-type':
                 locType = loc.get('code')
         locTemp.append(awardID)
+        locTemp.append(outputCRS)
         locTemp.append(lat)
         locTemp.append(lon)
         locTemp.append(precision)

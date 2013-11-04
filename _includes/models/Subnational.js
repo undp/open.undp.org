@@ -16,6 +16,7 @@ models.Subnational = Backbone.Model.extend({
                         title:model.get('title'),
                         precision: data.precision,
                         scope: data.scope,
+                        sector: data.sector,
                         type: data.type
                         },
                     "geometry": {

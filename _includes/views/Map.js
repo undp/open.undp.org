@@ -116,9 +116,10 @@ views.Map = Backbone.View.extend({
         return description;
     },
     // CLUSTER
-    clusterPopup: function(feature, g) {
+    clusterPopup: function(feature, g, s) {
         var project = feature.properties.project,
             title = feature.properties.title,
+            sector = feature.properties.sector,
             type = g.type[feature.properties.type],
             // scope = (g.scope[feature.properties.scope]) ? g.scope[feature.properties.scope].split(':')[0] : 'unknown',
             precision = g.precision[feature.properties.precision];
@@ -127,7 +128,8 @@ views.Map = Backbone.View.extend({
                         + '<div><b>Name: </b>' + title + '</div>'
                         + '<div><b>Location type: </b>' + type + '</div>'
                         // + '<div><b>Scope: </b>' + scope + '</div>'
-                        + '<div><b>Precision: </b>' + precision + '</div>';
+                        + '<div><b>Precision: </b>' + precision + '</div>'
+                        + '<div><b>Sector: </b>' + sector + '</div>';
         return description;
     },
     goToLink: function(path){
@@ -243,47 +245,50 @@ views.Map = Backbone.View.extend({
 
             // create clustered markers
             $.getJSON('api/subnational-locs-index.json', function(subLocIndex){
-                var markerOptions = {
-                    'marker-color': '0055aa',
-                    'marker-size': 'small'
-                    };
-
-                var filteredMarkersLayer = L.geoJson({
-                    "type":"FeatureCollection",
-                    "features":filteredMarkers
-                }, {
-                    filter: function(feature, layer, filter) { // only two cases for type, hard code is fine
-                        var subFilter = mapFilter || "10";
-                        if (subFilter === "10"){
-                            return feature.properties
-                        } else {
-                            return feature.properties['precision'] === subFilter
-                            
+                $.getJSON('api/crs-index.json', function(sectorIndex){
+                
+                    var markerOptions = {
+                        'marker-color': '0055aa',
+                        'marker-size': 'small'
+                        };
+    
+                    var filteredMarkersLayer = L.geoJson({
+                        "type":"FeatureCollection",
+                        "features":filteredMarkers
+                    }, {
+                        filter: function(feature, layer, filter) { // only two cases for type, hard code is fine
+                            var subFilter = mapFilter || "10";
+                            if (subFilter === "10"){
+                                return feature.properties
+                            } else {
+                                return feature.properties['precision'] === subFilter
+                                
+                            }
+                        },
+                        pointToLayer: function(feature,latlng){
+                            return L.marker(latlng,{
+                                icon: L.mapbox.marker.icon(markerOptions) // use MapBox style markers
+                            })
+                        },
+                        onEachFeature: function (feature, layer) {
+                            var clusterBrief = L.popup({
+                                    closeButton:false,
+                                    offset: new L.Point(0,-20)
+                                }).setContent(view.clusterPopup(feature, subLocIndex, sectorIndex));
+                            layer.on('mouseover',function(){
+                                clusterBrief.setLatLng(this.getLatLng());
+                                view.map.openPopup(clusterBrief);
+                            }).on('mouseout',function(){
+                                view.map.closePopup(clusterBrief);
+                            }).on('click',function(){
+                                path = '#project/'+ feature.properties.project;
+                                if (!view.options.embed){view.goToLink(path)};
+                            });
                         }
-                    },
-                    pointToLayer: function(feature,latlng){
-                        return L.marker(latlng,{
-                            icon: L.mapbox.marker.icon(markerOptions) // use MapBox style markers
-                        })
-                    },
-                    onEachFeature: function (feature, layer) {
-                        var clusterBrief = L.popup({
-                                closeButton:false,
-                                offset: new L.Point(0,-20)
-                            }).setContent(view.clusterPopup(feature, subLocIndex));
-                        layer.on('mouseover',function(){
-                            clusterBrief.setLatLng(this.getLatLng());
-                            view.map.openPopup(clusterBrief);
-                        }).on('mouseout',function(){
-                            view.map.closePopup(clusterBrief);
-                        }).on('click',function(){
-                            path = '#project/'+ feature.properties.project;
-                            if (!view.options.embed){view.goToLink(path)};
-                        });
-                    }
+                    });
+                    view.markers.addLayer(filteredMarkersLayer);
+                    view.map.addLayer(view.markers);
                 });
-                view.markers.addLayer(filteredMarkersLayer);
-                view.map.addLayer(view.markers);
             });
         };
         var renderCircles = function(){
