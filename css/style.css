@@ -348,11 +348,7 @@ input[readonly] {
   Maps
 -------------------------------------*/
 .map-container {
-  position:absolute;
-  top:0;
   width:100%;
-  margin:0px auto 20px;
-  z-index:-1;
   -moz-transition-duration:.5s;
   -webkit-transition-duration:.5s;
   -o-transition-duration:.5s;
@@ -516,16 +512,19 @@ input[readonly] {
   Summary above map
 -------------------------------------*/
 ul.layers {
-  margin:0;
+  position:absolute;
+  right:0;
   display:block;
+  margin:0;
   width:200px;
-  height:460px;
-  float:right;
+  height:458px;
+  border:1px solid #ddd;
+  background:#fff;
+  z-index:1;
   }
   .layers li {
     display:block;
     width:inherit;
-    background:#fff;
     }
   .layers li a {
     padding:10px 0 0 8px;

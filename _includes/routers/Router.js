@@ -76,13 +76,13 @@ routers.App = Backbone.Router.extend({
             this.mainApp();
             window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
 
-            // Set up menu
-            $('#app .view, #mainnav .profile').hide();
-            $('#mainnav li').removeClass('active');
-            $('#profile .summary').addClass('off');
-            $('#browser, #mainnav .browser').show();
-            $('#mainnav li a[href="/"]').parent().addClass('active');
-            $('#mainnav li.parent').removeClass('parent-active');
+            // Set up menu - not useful anymore
+            // $('#app .view, #mainnav .profile').hide();
+            // $('#mainnav li').removeClass('active');
+            // $('#profile .summary').addClass('off');
+            // $('#browser, #mainnav .browser').show();
+            // $('#mainnav li a[href="/"]').parent().addClass('active');
+            // $('#mainnav li.parent').removeClass('parent-active');
 
             // Set up breadcrumbs
             $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li><li><a href="' + BASE_URL + '">Our Projects</a></li>');
