@@ -455,19 +455,19 @@ input[readonly] {
 .view-switch a {
   float:left;
   display:block;
-  width:100px;
+  width:104px;
   padding:5px 0;
   font-size:11px;
   font-weight:bold;
   text-align: center;
   text-transform:uppercase;
   border:1px solid #ddd;
-  -webkit-border-top-left-radius:    5px;
-  -webkit-border-bottom-left-radius: 5px;
-  -moz-border-radius-topleft:        5px;
-  -moz-border-radius-bottomleft:     5px;
-  border-top-left-radius:            5px;
-  border-bottom-left-radius:         5px;
+  -webkit-border-top-left-radius:    3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft:        3px;
+  -moz-border-radius-bottomleft:     3px;
+  border-top-left-radius:            3px;
+  border-bottom-left-radius:         3px;
   }
 .view-switch a:last-child {
   border-left:0px;
@@ -477,12 +477,12 @@ input[readonly] {
   -moz-border-radius-bottomleft:     0px;
   border-top-left-radius:            0px;
   border-bottom-left-radius:         0px;
-  -webkit-border-top-right-radius:   5px;
-  -webkit-border-bottom-right-radius:5px;
-  -moz-border-radius-topright:       5px;
-  -moz-border-radius-bottomright:    5px;
-  border-top-right-radius:           5px;
-  border-bottom-right-radius:        5px;
+  -webkit-border-top-right-radius:   3px;
+  -webkit-border-bottom-right-radius:3px;
+  -moz-border-radius-topright:       3px;
+  -moz-border-radius-bottomright:    3px;
+  border-top-right-radius:           3px;
+  border-bottom-right-radius:        3px;
   }
 .view-switch a.active {
   background:#C8DDE4;
@@ -522,18 +522,26 @@ ul.layers {
   right:0;
   display:block;
   margin:0;
-  width:200px;
   height:458px;
   border:1px solid #ddd;
   background:#fff;
   z-index:1;
+  }
+ul.layers #layers-back {
+  position:absolute;
+  display:block;
+  margin:10px 0 0 -26px;
+  padding:4px 8px;
+  background:#fff;
+  color:#111;
+  border:1px solid #ddd;
   }
   .layers li {
     display:block;
     width:inherit;
     }
   .layers li a {
-    padding:10px 0 0 8px;
+    padding:10px;
     display:block;
     }
   .layers li:hover {
@@ -1070,13 +1078,11 @@ form {
   position:relative;
   }
 .form-search input {
-  width:auto;
   padding:4px 0 4px 4px;
   }
 #projects .form-search {
   background:#f2faff;
-  padding:10px;
-  margin-top:10px;
+  padding:4px;
   }
 .form-search strong {
   font-size: 14px;
@@ -1175,7 +1181,8 @@ form {
     }
 
 .tab-content {
-  overflow:visible;
+  /*overflow:visible;*/
+  overflow:hidden;
   }
 .nav {
   margin:0;
