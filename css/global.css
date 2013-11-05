@@ -911,6 +911,25 @@ span.int {
 	text-decoration:none;
 }
 
+
+#nav-side{
+  width: 221px;
+  background:url("../img/global/bg-leftside-navigation-line.png") no-repeat 220px 100%;
+  margin-right: 20px;
+}
+
+#nav-side ul {
+  margin:0;
+}
+
+#nav-side li a,
+#nav-side li.active a {
+  display: block;
+  _height: 1%;
+  color: #0055AA;
+  padding: 10px 12px;
+}
+
 /* Different arrow for li that contains child UL */
 #nav-side li.parent a{
 	background: url(../img/global/arrow-subnavigation-item.png) no-repeat 0 50%;
@@ -942,21 +961,25 @@ span.int {
 	color:#0a284b;
 }
 
-/*#nav-side li.active a,
-#nav-side li ul li.active a{
+#nav-side li.active {
+	background:#434C54;
+}
+
+#nav-side li.active a {
 	display: block;
 	_width: 1%;
-	color: #FFF;
-	width: 131px;
+	color: #fff;
+	width: 202px;
 	background: url(../img/global/arrow-grey-subnavigation.png) no-repeat 100% 50%;
 	text-decoration: none;
-}*/
+	font-weight:bold;
+}
 
-/*#nav-side li ul li.active a{
+#nav-side li ul li.active a{
 	color: #FFF;
 	padding-left: 20px;
 	width: 123px;
-}*/
+}
 
 /* IE6 fixes */
 .ie6 #nav-side li.active a,
