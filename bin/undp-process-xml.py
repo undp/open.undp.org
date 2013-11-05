@@ -353,7 +353,7 @@ def outputsLoop(o, output_id):
             outputBudget.append(None)
 
     locs = []
-    locHeader = ['awardID','sector','lat','lon','precision','name','type']
+    locHeader = ['awardID','focus_area','focus_area_descr','lat','lon','precision','name','type']
     locations = o.findall('location')
     for location in locations:
         locTemp = []
@@ -368,7 +368,8 @@ def outputsLoop(o, output_id):
             if loc.tag == 'location-type':
                 locType = loc.get('code')
         locTemp.append(awardID)
-        locTemp.append(outputCRS)
+        locTemp.append(outputFA)
+        locTemp.append(outputFAdescr)
         locTemp.append(lat)
         locTemp.append(lon)
         locTemp.append(precision)
@@ -666,6 +667,12 @@ print '%d operating unit files generated...' % file_count
 
 # Process CRS Index
 # *****************
+
+# (When we switch to sectors) add colors for each sector
+# markerColors = ['3966EB','D54A45','2C3B2C','62752E','1B2706','440BAF','774B19','1464F8','06B8BD','7D9959','0AD057','FCF481','D954E5','CFB887','5F4F8A']
+# for idx, e in enumerate(crs_index):
+#    crs_index[idx]['color'] = markerColors[idx]
+
 print "CRS Index Process Count: %d" % len(crs_index)
 writeout = json.dumps(crs_index, sort_keys=True, separators=(',',':'))
 f_out = open('../api/crs-index.json', 'wb')
@@ -779,8 +786,13 @@ f_out.close()
 # ************************
 row_count = 0
 index = []
-for focus in focusAreas:
+# Focus area colors: Green,  Red,  Yellow,   Blue
+markerColors = ['6ab139','ff5640','c8c605','049fd9']
+
+for idx, focus in enumerate(focusAreas):
+    #color['color'] = markerColors[idx]
     row_count = row_count + 1
+    focus['color'] = markerColors[idx]
     index.append(focus)
 
 print "Focus Area Index Process Count: %d" % row_count

@@ -116,10 +116,10 @@ views.Map = Backbone.View.extend({
         return description;
     },
     // CLUSTER
-    clusterPopup: function(feature, g, s) {
+    clusterPopup: function(feature, g) {
         var project = feature.properties.project,
             title = feature.properties.title,
-            sector = feature.properties.sector,
+            focus_area = feature.properties.focus_descr,
             type = g.type[feature.properties.type],
             // scope = (g.scope[feature.properties.scope]) ? g.scope[feature.properties.scope].split(':')[0] : 'unknown',
             precision = g.precision[feature.properties.precision];
@@ -129,7 +129,7 @@ views.Map = Backbone.View.extend({
                         + '<div><b>Location type: </b>' + type + '</div>'
                         // + '<div><b>Scope: </b>' + scope + '</div>'
                         + '<div><b>Precision: </b>' + precision + '</div>'
-                        + '<div><b>Sector: </b>' + sector + '</div>';
+                        + '<div><b>Focus Area: </b>' + focus_area + '</div>';
         return description;
     },
     goToLink: function(path){
@@ -245,13 +245,12 @@ views.Map = Backbone.View.extend({
 
             // create clustered markers
             $.getJSON('api/subnational-locs-index.json', function(subLocIndex){
-                $.getJSON('api/crs-index.json', function(sectorIndex){
-                
+                $.getJSON('api/focus-area-index.json', function(focusIndex){
+
                     var markerOptions = {
-                        'marker-color': '0055aa',
                         'marker-size': 'small'
-                        };
-    
+                    };
+
                     var filteredMarkersLayer = L.geoJson({
                         "type":"FeatureCollection",
                         "features":filteredMarkers
@@ -266,6 +265,11 @@ views.Map = Backbone.View.extend({
                             }
                         },
                         pointToLayer: function(feature,latlng){
+                            _(focusIndex).each(function(f){
+                                if (f.id == feature.properties.focus_area){
+                                    return markerOptions['marker-color'] = f.color;
+                                };
+                            });
                             return L.marker(latlng,{
                                 icon: L.mapbox.marker.icon(markerOptions) // use MapBox style markers
                             })
@@ -274,7 +278,7 @@ views.Map = Backbone.View.extend({
                             var clusterBrief = L.popup({
                                     closeButton:false,
                                     offset: new L.Point(0,-20)
-                                }).setContent(view.clusterPopup(feature, subLocIndex, sectorIndex));
+                                }).setContent(view.clusterPopup(feature, subLocIndex));
                             layer.on('mouseover',function(){
                                 clusterBrief.setLatLng(this.getLatLng());
                                 view.map.openPopup(clusterBrief);
