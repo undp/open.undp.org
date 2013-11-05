@@ -8,7 +8,7 @@ views.App = Backbone.View.extend({
         'click .map-btn': 'mapLayerswitch',
         'click .widget-config': 'requestIframe',
         'submit .form-search': 'submitForm',
-        'click #yearselect a': 'yearChange',
+        'click #year .filter-items a': 'yearChange',
         'click .map-filter':'mapFilter',
         'click .nav.nav-tabs a': 'activeMap'
     },
@@ -55,37 +55,40 @@ views.App = Backbone.View.extend({
             year = app.fiscalYear;
             shift = false;
 
-        this.clearFilter(e);
+        // treat year differently, see yearChange
+        if (parts[0] != 'year'){
+            this.clearFilter(e);
 
-        _(this.filters).each(function(filter) {
-            if (_.isEqual(filter, filters[0])) {
-                shift = true;
-            } else if (filter.collection !== filters[0].collection) {
-                filters.push(filter);
-            }
-        });
+            _(this.filters).each(function(filter) {
+                if (_.isEqual(filter, filters[0])) {
+                    shift = true;
+                } else if (filter.collection !== filters[0].collection) {
+                    filters.push(filter);
+                }
+            });
 
-        if (shift) filters.shift();
+            if (shift) filters.shift();
 
-        filters = _(filters).chain()
-            .compact()
-            .map(function(filter) {
-                return filter.collection + '-' + filter.id;
-            })
-            .value().join('/');
+            filters = _(filters).chain()
+                .compact()
+                .map(function(filter) {
+                    return filter.collection + '-' + filter.id;
+                })
+                .value().join('/');
 
-        path = (filters.length) ? year + '/filter/' + filters : year;
+            path = (filters.length) ? year + '/filter/' + filters : year;
 
-        e.preventDefault();
+            e.preventDefault();
 
-        // Close the state of menu items before
-        // we navigate and set things up again.
-        $('.topics').toggleClass('active', false);
-        $('.topics a').toggleClass('active', false);
-        $('.topics').toggleClass('filtered', false);
+            // Close the state of menu items before
+            // we navigate and set things up again.
+            $('.topics').toggleClass('active', false);
+            $('.topics a').toggleClass('active', false);
+            $('.topics').toggleClass('filtered', false);
 
-        $('#all-projects').attr('href', '#' + path);
-        app.navigate(path, { trigger: true });
+            $('#all-projects').attr('href', '#' + path);
+            app.navigate(path, { trigger: true });
+        }
     },
 
     searchFilter: function(e) {
@@ -227,7 +230,9 @@ views.App = Backbone.View.extend({
     
     yearChange: function(e) {
         e.preventDefault();
-        var year = $(e.target).attr('data-value');
+
+        var year = $(e.target).attr('id').split('-')[1]; // number of the year
+
         if (year != app.fiscalYear) {
             var filters = _(this.filters).chain()
                 .compact()
@@ -245,7 +250,6 @@ views.App = Backbone.View.extend({
     updateYear: function(year) {
         $('#total-budget').next('span').html(year + ' Budget');
         $('#total-expenditure').next('span').html(year + ' Expenditure');
-        $('#yearselect .dropdown-toggle').html(year + ' <b class="caret"></b>');
     },
 
     mapFilter: function(e){
