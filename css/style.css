@@ -276,17 +276,11 @@ input[readonly] {
 .icon.filetype                { background-position:0 -105px; }
 .icon.filetype.filetype-pdf   { background-position:-25px -105px; }
 .icon.embed                   { background-position:0 -130px; }
-.icon.open                    { background-position:-25px 0; }
-.active .icon.open            { background-position:-50px 0; }
 .icon.chevron                 { background-position:-60px 0; }
 .icon.forward                 { background-position:-75px 0; }
 .icon.back                    { background-position:-100px 0; }
 .icon.map-fullscreen          { background-position:-168px 4px;}
 .icon.map-fullscreen.full     { background-position:-192px 4px;}
-
-.icon.open {
-  background-color:#c8dde4;
-  }
 
 /* areas color spans*/
 .democratic {background: #049fd9;}
@@ -881,7 +875,7 @@ h3#focus {
   top: 0;
   left: -999px;
   margin: 0;
-  width:665px;
+  width:666px;
   height: 460px;
   background: white;
   padding: 10px;
@@ -1179,6 +1173,18 @@ form {
 .topics.active .label {
   color: #333;
   }
+/* plus sign of filters*/
+.open:before {
+  content:'✚';
+  color:#444;
+  padding:0 2px;
+  font-weight:bold;
+  }
+.topics.filtered .open:before {
+  content:'';
+  padding:0;
+}
+
 .topics.filtered li a.active,
 .topics.active li a.active {
   background:#434C54 url(../img/sprite.png) no-repeat 240px -150px;
@@ -1253,7 +1259,7 @@ form {
   .topics .label,
   #content-right .label {
     display:block;
-    border-bottom:1px solid #C8DDE4;
+    border-bottom:1px solid #ddd;
     }
     .topics .label:hover,
     .topics.active .label:hover {

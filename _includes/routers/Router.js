@@ -81,6 +81,7 @@ routers.App = Backbone.Router.extend({
 
             // Set up menu
             $('#mainnav li').removeClass('active');
+            $('#mainnav li').first().addClass('active'); //TODO need to get 'projects' highlighted when map/list view is switched
             $('#mainnav li.parent').removeClass('parent-active');
 
             // Load the main app view

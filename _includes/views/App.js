@@ -273,7 +273,6 @@ views.App = Backbone.View.extend({
         e.preventDefault();
         $('.view-switch a').removeClass('active');
         $(e.target).addClass('active');
-        $('#mainnav li').first().addClass('re-active'); // TODO see where the class 'active' is being canceled out
         setTimeout(function(){app.projects.map.map.invalidateSize({pan:true});}, 200);
     },
 
