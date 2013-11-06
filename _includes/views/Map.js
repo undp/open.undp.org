@@ -118,6 +118,7 @@ views.Map = Backbone.View.extend({
     // CLUSTER
     clusterPopup: function(feature, g) {
         var project = feature.properties.project,
+            output = feature.properties.output_id,
             title = feature.properties.title,
             focus_area = feature.properties.focus_descr,
             type = g.type[feature.properties.type],
@@ -125,6 +126,7 @@ views.Map = Backbone.View.extend({
             precision = g.precision[feature.properties.precision];
 
         var description = '<div><b>Project: </b>' + project + '</div>'
+                        + '<div><b>Output: </b>' + output + '</div>'
                         + '<div><b>Name: </b>' + title + '</div>'
                         + '<div><b>Location type: </b>' + type + '</div>'
                         // + '<div><b>Scope: </b>' + scope + '</div>'

@@ -8,11 +8,14 @@ models.Subnational = Backbone.Model.extend({
             model.geojson = null;
         } else {
             geojson = [];
+            console.log(sub)
             _(sub).each(function(data){
+                
                 var feature = {
                     "type":"Feature",
                     "properties":{
                         project:model.get('id'),
+                        output_id: data.outputID,
                         title:model.get('title'),
                         precision: data.precision,
                         scope: data.scope,
