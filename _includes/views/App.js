@@ -4,13 +4,12 @@ views.App = Backbone.View.extend({
         'keyup #filters-search': 'searchFilter',
         'click #filters .label': 'toggleFilter',
         'click #filters .reset': 'clearFilter',
-        'click #projects-tab .reset': 'clearSearch',
         'click .map-btn': 'mapLayerswitch',
         'click .widget-config': 'requestIframe',
         'submit .form-search': 'submitForm',
         'click #year .filter-items a': 'yearChange',
         'click .map-filter':'mapFilter',
-        'click .nav.nav-tabs a': 'activeMap',
+        'click .view-switch a': 'activeMap',
         'click a#layers-back': 'layersBack'
     },
     
@@ -270,7 +269,11 @@ views.App = Backbone.View.extend({
         app.projects.map.buildLayer(this.layer,subFilterValue,currentCenter,currentZoom); // see Map.js
     },
     
-    activeMap: function() {
+    activeMap: function(e) {
+        e.preventDefault();
+        $('.view-switch a').removeClass('active');
+        $(e.target).addClass('active');
+        $('#mainnav li').first().addClass('re-active'); // TODO see where the class 'active' is being canceled out
         setTimeout(function(){app.projects.map.map.invalidateSize({pan:true});}, 200);
     },
 

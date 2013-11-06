@@ -76,16 +76,12 @@ routers.App = Backbone.Router.extend({
             this.mainApp();
             window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
 
-            // Set up menu - not useful anymore
-            // $('#app .view, #mainnav .profile').hide();
-            // $('#mainnav li').removeClass('active');
-            // $('#profile .summary').addClass('off');
-            // $('#browser, #mainnav .browser').show();
-            // $('#mainnav li a[href="/"]').parent().addClass('active');
-            // $('#mainnav li.parent').removeClass('parent-active');
-
             // Set up breadcrumbs
             $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li><li><a href="' + BASE_URL + '">Our Projects</a></li>');
+
+            // Set up menu
+            $('#mainnav li').removeClass('active');
+            $('#mainnav li.parent').removeClass('parent-active');
 
             // Load the main app view
             this.app = this.app || new views.App({
@@ -315,8 +311,8 @@ routers.App = Backbone.Router.extend({
             // Set up menu
             $('#app .view, #mainnav .browser').hide();
             $('#mainnav li').removeClass('active');
-            $('#mainnav .profile').show();
-            $('#mainnav li a[href="/"]').parent().addClass('active');
+            $('#mainnav .profile').show(); // nav items related to project profile show
+            $('#mainnav li').first().addClass('active'); // making the first nav "projects" active
             $('#mainnav li.parent').removeClass('parent-active');
         }
 
@@ -387,6 +383,8 @@ routers.App = Backbone.Router.extend({
         $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#top-donors/regular">Top Donors</a></li>');
 
         $('#app .view').hide();
+        $('#mainnav li.profile').hide();
+        $('#mainnav li.browser').show();
         $('#mainnav li').removeClass('active');
         $('#mainnav li.parent').removeClass('parent-active');
 
