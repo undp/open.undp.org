@@ -282,11 +282,11 @@ routers.App = Backbone.Router.extend({
                 unit: unit
             });
             if ($('.map-btn[data-value="hdi"]').hasClass('active')) {
-                $('#chart-hdi').css('display','block');
+                $('#chart-hdi').addClass('active');
             }
         } else {
             app.hdi = false;
-            $('#chart-hdi').css('display','none');
+            $('#chart-hdi').removeClass('active');
             $('ul.layers li.no-hover.hdi a').css('cursor','default');
             $('ul.layers li.hdi .graph').removeClass('active');
             if (unit) {

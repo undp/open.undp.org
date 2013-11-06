@@ -162,7 +162,7 @@ views.App = Backbone.View.extend({
 
     mapLayerswitch: function(e) {
         e.preventDefault();
-        $('#chart-hdi').css('display','none');
+        $('#chart-hdi').removeClass('active');
         var $target = $(e.currentTarget);
         $('.map-btn').removeClass('active');
 
@@ -174,9 +174,9 @@ views.App = Backbone.View.extend({
                 if ($('li.hdi').hasClass('active')) {
                     $('li.hdi').removeClass('active')
                     $($target).removeClass('active');
-                    $('#chart-hdi').css('display','none');
+                    $('#chart-hdi').removeClass('active');
                 } else {
-                    $('#chart-hdi').css('display','block');
+                    $('#chart-hdi').addClass('active');
                     $($target).addClass('active');
                     $('li.hdi').addClass('active');
                 }
