@@ -517,24 +517,51 @@ input[readonly] {
 /*-----------------------------------
   Summary above map
 -------------------------------------*/
+#layers-back {
+  position:absolute;
+  right: 122px;
+  margin:10px 0 0 -26px;
+  padding:4px 8px;
+  background:#fff;
+  color:#888;
+  border:1px solid #ddd;
+  border-right:0px;
+  -webkit-border-top-left-radius:    3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft:        3px;
+  -moz-border-radius-bottomleft:     3px;
+  border-top-left-radius:            3px;
+  border-bottom-left-radius:         3px;
+  z-index: 1;
+  /* transition */
+  -webkit-transition: all 150ms linear;
+  -moz-transition:    all 150ms linear;
+  -o-transition:      all 150ms linear;
+  transition:         all 150ms linear;
+  }
+#layers-back:hover {
+  color:#111;
+}
+#layers-back.active {
+  right:0;
+}
 ul.layers {
   position:absolute;
-  right:0;
+  right:-123px;
   display:block;
   margin:0;
   height:458px;
   border:1px solid #ddd;
   background:#fff;
   z-index:1;
-  }
-ul.layers #layers-back {
-  position:absolute;
-  display:block;
-  margin:10px 0 0 -26px;
-  padding:4px 8px;
-  background:#fff;
-  color:#111;
-  border:1px solid #ddd;
+  /* transition */
+  -webkit-transition: right 150ms linear;
+  -moz-transition:    right 150ms linear;
+  -o-transition:      right 150ms linear;
+  transition:         right 150ms linear;
+}
+ul.layers.active {
+  right:0;
   }
   .layers li {
     display:block;

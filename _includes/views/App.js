@@ -10,7 +10,8 @@ views.App = Backbone.View.extend({
         'submit .form-search': 'submitForm',
         'click #year .filter-items a': 'yearChange',
         'click .map-filter':'mapFilter',
-        'click .nav.nav-tabs a': 'activeMap'
+        'click .nav.nav-tabs a': 'activeMap',
+        'click a#layers-back': 'layersBack'
     },
     
     initialize: function(options) {
@@ -271,5 +272,16 @@ views.App = Backbone.View.extend({
     
     activeMap: function() {
         setTimeout(function(){app.projects.map.map.invalidateSize({pan:true});}, 200);
+    },
+
+    layersBack: function(e) {
+        e.preventDefault();
+        $('a#layers-back').toggleClass('active');
+        $('ul.layers').toggleClass('active');
+        if ($('a#layers-back').hasClass('active')){
+            $('a#layers-back').html('❮')
+        } else {
+            $('a#layers-back').html('❯')
+        }
     }
 });
