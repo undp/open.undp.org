@@ -29,7 +29,12 @@ views.ProjectMap = Backbone.View.extend({
         } else {
             wheelZoom = false;
         }
-
+        // create a cluster
+        view.markers = new L.MarkerClusterGroup({
+                showCoverageOnHover:false,
+                maxClusterRadius:50
+        });
+        // create map
         view.map = L.mapbox.map(this.el,TJ.id,{
             minZoom: 1,
             maxZoom: 15,
@@ -112,11 +117,15 @@ views.ProjectMap = Backbone.View.extend({
                                     view.map.closePopup(clusterBrief);
                                 })
                             }
-                            
-                            L.geoJson(locations, {
+                            // Create a geoJSON with locations
+                            var markerLayer = L.geoJson(locations, {
                                 pointToLayer: L.mapbox.marker.style,
                                 onEachFeature: onEachFeature
-                                }).addTo(view.map);
+                            });
+                            // Add the geoJSON to the cluster layer
+                            view.markers.addLayer(markerLayer);
+                            // Add cluster layer to map
+                            view.map.addLayer(view.markers);
                         });
                     }
                 }
