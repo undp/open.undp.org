@@ -31,8 +31,7 @@ views.Map = Backbone.View.extend({
         if (_.isObject(view.opUnitFilter)){
             view.markers = new L.MarkerClusterGroup({
                 showCoverageOnHover:false,
-                maxClusterRadius:40,
-                disableClusteringAtZoom:5
+                maxClusterRadius:50
             });
             var maxZoom = 10;
         } else {

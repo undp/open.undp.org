@@ -791,9 +791,15 @@ index = []
 markerColors = ['6ab139','ff5640','c8c605','049fd9']
 
 for idx, focus in enumerate(focusAreas):
-    #color['color'] = markerColors[idx]
+    if focus['name'] == 'Environment & sustainable development':
+        focus['color'] = markerColors[0]
+    elif focus ['name'] == 'Crisis prevention & recovery':
+        focus['color'] = markerColors[1]
+    elif focus ['name'] == 'Poverty reduction & MDG achievement':
+        focus['color'] = markerColors[2]
+    elif focus ['name'] == 'Democratic governance':
+        focus['color'] = markerColors[3]
     row_count = row_count + 1
-    focus['color'] = markerColors[idx]
     index.append(focus)
 
 print "Focus Area Index Process Count: %d" % row_count
