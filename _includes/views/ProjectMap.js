@@ -116,6 +116,7 @@ views.ProjectMap = Backbone.View.extend({
                                             scope: o.scope,
                                             project: view.model.get('project_title'),
                                             name: o.name,
+                                            focus_area: o.focus_area,
                                             description: view.tooltip(o, g),
                                             'marker-size': 'small',
                                             'marker-color': markerColor
@@ -124,6 +125,25 @@ views.ProjectMap = Backbone.View.extend({
                                 });
                         
                                 function onEachFeature(feature, layer) {
+                                    var oldOptions = {
+                                        'marker-size':'small',
+                                        'marker-color':feature.properties['marker-color']
+                                    }
+                                    var newOptions = {
+                                        'marker-size':'small',
+                                    }
+                                    var newColors = [
+                                        {'color': '689A46', 'id': '4'},
+                                        {'color': '218DB6', 'id': '2'},
+                                        {'color': 'AAA922', 'id': '1'},
+                                        {'color': 'D15A4B', 'id': '3'}
+                                    ]
+                                    // Match focus area ID to newColors array
+                                    _(newColors).each(function(color){
+                                        if (color.id == feature.properties.focus_area){
+                                           return newOptions['marker-color'] = color.color;
+                                        };
+                                    })
                                     var clusterBrief = L.popup({
                                             closeButton:false,
                                             offset: new L.Point(0,-20)
@@ -131,8 +151,10 @@ views.ProjectMap = Backbone.View.extend({
                                     layer.on('mouseover',function(){
                                         clusterBrief.setLatLng(this.getLatLng());
                                         view.map.openPopup(clusterBrief);
+                                        layer.setIcon(L.mapbox.marker.icon(newOptions));
                                     }).on('mouseout',function(){
                                         view.map.closePopup(clusterBrief);
+                                        layer.setIcon(L.mapbox.marker.icon(oldOptions));
                                     })
                                 }
                                 
