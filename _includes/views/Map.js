@@ -247,51 +247,47 @@ views.Map = Backbone.View.extend({
             // create clustered markers
             $.getJSON('api/subnational-locs-index.json', function(subLocIndex){
                 $.getJSON('api/focus-area-index.json', function(focusIndex){
-
-                    var markerOptions = {
-                        'marker-size': 'small'
+                    // Match focus area to index to set marker color
+                    _(filteredMarkers).each(function(feature){
+                        _(focusIndex).each(function(f){
+                            if (f.id == feature.properties.focus_area){
+                               return feature.properties['marker-color'] = f.color;
+                            };
+                        });
+                    })
+                    // Set popups
+                    function onEachFeature(feature, layer) {
+                        var clusterBrief = L.popup({
+                                closeButton:false,
+                                offset: new L.Point(0,-20)
+                            }).setContent(view.clusterPopup(feature, subLocIndex));
+                        layer.on('mouseover',function(){
+                            clusterBrief.setLatLng(this.getLatLng());
+                            view.map.openPopup(clusterBrief);
+                        }).on('mouseout',function(){
+                            view.map.closePopup(clusterBrief);
+                        }).on('click',function(){
+                            path = '#project/'+ feature.properties.project;
+                            if (!view.options.embed){view.goToLink(path)};
+                        });
                     };
-
-                    var filteredMarkersLayer = L.geoJson({
-                        "type":"FeatureCollection",
-                        "features":filteredMarkers
-                    }, {
-                        filter: function(feature, layer, filter) { // only two cases for type, hard code is fine
-                            var subFilter = mapFilter || "10";
-                            if (subFilter === "10"){
-                                return feature.properties
-                            } else {
-                                return feature.properties['precision'] === subFilter
-                                
-                            }
-                        },
-                        pointToLayer: function(feature,latlng){
-                            _(focusIndex).each(function(f){
-                                if (f.id == feature.properties.focus_area){
-                                    return markerOptions['marker-color'] = f.color;
-                                };
-                            });
-                            return L.marker(latlng,{
-                                icon: L.mapbox.marker.icon(markerOptions) // use MapBox style markers
-                            })
-                        },
-                        onEachFeature: function (feature, layer) {
-                            var clusterBrief = L.popup({
-                                    closeButton:false,
-                                    offset: new L.Point(0,-20)
-                                }).setContent(view.clusterPopup(feature, subLocIndex));
-                            layer.on('mouseover',function(){
-                                clusterBrief.setLatLng(this.getLatLng());
-                                view.map.openPopup(clusterBrief);
-                            }).on('mouseout',function(){
-                                view.map.closePopup(clusterBrief);
-                            }).on('click',function(){
-                                path = '#project/'+ feature.properties.project;
-                                if (!view.options.embed){view.goToLink(path)};
-                            });
+                    function filter(feature, layer, filter){// only two cases for type, hard code is fine
+                        var subFilter = mapFilter || "10";
+                        if (subFilter === "10"){
+                            return feature.properties
+                        } else {
+                            return feature.properties['precision'] === subFilter
                         }
+                    };
+                    // Create a geoJSON with locations
+                    var filteredMarkersLayer = L.geoJson(filteredMarkers, {
+                        pointToLayer: L.mapbox.marker.style,
+                        onEachFeature: onEachFeature,
+                        filter: filter
                     });
+                    // Add markers layer to the layer group titled view.markers
                     view.markers.addLayer(filteredMarkersLayer);
+                    // Add view.markers to map
                     view.map.addLayer(view.markers);
                 });
             });

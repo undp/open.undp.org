@@ -20,7 +20,8 @@ models.Subnational = Backbone.Model.extend({
                         scope: data.scope,
                         focus_area: data.focus_area,
                         focus_descr: data.focus_area_descr,
-                        type: data.type
+                        type: data.type,
+                        'marker-size': 'small'
                         },
                     "geometry": {
                         "type": "Point",

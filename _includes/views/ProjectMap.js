@@ -35,9 +35,9 @@ views.ProjectMap = Backbone.View.extend({
         }
         // create a cluster
         view.markers = new L.MarkerClusterGroup({
-                showCoverageOnHover:false,
-                maxClusterRadius:40,
-                disableClusteringAtZoom:5
+            showCoverageOnHover:false,
+            maxClusterRadius:40,
+            disableClusteringAtZoom:6
         });
         // create map
         view.map = L.mapbox.map(this.el,TJ.id,{
@@ -90,7 +90,6 @@ views.ProjectMap = Backbone.View.extend({
                         
                         $.getJSON('api/subnational-locs-index.json', function(g) {
                             $.getJSON('api/focus-area-index.json', function(focusIndex){
-                                console.log(subLocations)
                                 _.each(subLocations, function (o) {
                                     
                                     var markerColor;
