@@ -132,7 +132,6 @@ views.App = Backbone.View.extend({
             $parent = $('#' + cat);
 
         e.preventDefault();
-
         // Bail on the this function if the user has selected
         // a label that has an active filtered selection.
         if ($parent.hasClass('filtered')) return false;

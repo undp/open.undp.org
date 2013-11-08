@@ -22,8 +22,8 @@ h2 {
   line-height:36px;
   }
 h3 {
-  font-size:18px;
-  line-height:24px;
+  font-size:14px;
+  line-height:22px;
   }
 li {
   line-height:18px;
@@ -248,8 +248,8 @@ input[readonly] {
   left: auto;
 }
 #about h3 {
-	font-size:24px;
-	margin-bottom: 20px;
+  font-size:24px;
+  margin-bottom: 20px;
 }
 #about .section ul {
   list-style-type: disc;
@@ -448,16 +448,25 @@ input[readonly] {
 .leaflet-bottom.leaflet-right {
   float:left;
   }
+/* main */
+#mainnav .main {
+  width: 85%;
+  margin:auto;
+  padding:10px;
+  border-left:1px solid #ddd;
+  border-right:1px solid #ddd;
+  border-bottom:1px solid #ddd;
+}
 /* view switch */
 .view-switch {
   height:25px;
-  margin:10px 0;
+  margin:10px 0 15px;
   }
 .view-switch a {
   float:left;
   display:block;
-  width:104px;
-  padding:5px 0;
+  width:103px;
+  padding:4px 0;
   font-size:11px;
   font-weight:bold;
   text-align: center;
@@ -648,14 +657,10 @@ ul.layers.active {
   line-height: 30px;
   margin:20px 0 0;
   }
-#description h3 {
-  margin:20px 0 10px;
-  }
 #description .geography {
   font-size:15px;
   color:#aaa;
   }
-#siderail.fixed,
 #content-right.fixed {
   position:fixed;
   width:240px;
@@ -691,14 +696,22 @@ p.heading-desc {
 /*-----------------------------------
   Charts and graphs
 -------------------------------------*/
-h3#focus {
+.summary h3 {
   display:block;
+  max-width:175px;
   margin:20px 0 10px;
+  padding:5px 0 5px 10px;
+  border-bottom:1px solid #ddd;
+  border-top:1px solid #ddd;
   }
-  h3#focus span {
-    font-size:10px;
-    font-weight:normal;
-    color:#666;
+.summary h3:before {
+  content:'•';
+  padding-right:10px;
+  }
+h3#focus span {
+  font-size:10px;
+  font-weight:normal;
+  color:#666;
   }
 .chart li.focus {
   padding: 20px 0;
@@ -716,12 +729,9 @@ h3#focus {
   .chart li.focus a {
     padding-left:65px;
     }
-.chart h3 {
-  display: inline-block;
-  margin-bottom: 15px;
-}
 .chart .chart-legend {
   float:right;
+  margin-top:-40px;
   font-size:10px;
   font-weight:normal;
   color:#666;
@@ -754,7 +764,6 @@ h3#focus {
   margin: 0;
   }
 #charts .span6.stat-chart {
-  margin-top: 20px;
   width: 100%;
   position: relative;
   -webkit-box-sizing:border-box;
@@ -1068,27 +1077,10 @@ form {
 #content-right .inner {
   margin-top:37px;
   }
-#siderail {
-  position: relative;
-}
 .col-filter h3{
   float: left;
   font-size:15px;
   line-height: 28px;
-}
-#yearselect .dropdown-menu {
-  min-width: 0;
-}
-#yearselect .dropdown-menu a {
-  font-size: 10px;
-}
-#yearselect .caret {
-  border-top-color: #036;
-}
-#yearselect select {
-  height: 28px;
-  width: 100px;
-  margin-left: 10px;
 }
 #twitter-block.inner {
   background:#f2faff;
@@ -1114,52 +1106,54 @@ form {
   position:relative;
   }
 .form-search input {
-  padding:4px 0 4px 4px;
+  width:82px;
+  margin-left:4px;
+  font-size: 12px;
+  font-style: italic;
   }
 #projects .form-search {
-  padding:4px;
+  margin:4px 0;
   }
+#projects .form-search input {
+  width:135px;
+}
 .form-search strong {
   font-size: 14px;
   position: relative;
   top: 2px;
   }
-#projects-search {
-  margin-left: 10px;
-  }
 #projects .icon.reset {
-  top: 15px;
-  left: 505px;
+  top: 5px;
+  left: 260px;
   }
-.topics li {
-  line-height: 18px;
-  font-size: 10px;
+.topics li a,
+#output-nav li a {
+  height:100%;
+  display:block;
+  color:#666;
+  font-size:13px;
+  line-height:18px;
+  padding:8px 10px;
   }
-  .topics li a,
-  #output-nav li a {
-    height:100%;
-    display:block;
-    color:#666;
-    font-size:13px;
-    line-height:18px;
-    padding:8px 10px;
-    }
-    .topics:hover .label,
+/*    .topics:hover .label,
     .topics li a:hover,
-    .topics li a:focus,
-    #output-nav li a:hover {
-      background: rgb(223, 235, 238);
-      background: rgba(171, 196, 191, 0.25);
-      text-decoration: none;
-      }
+    .topics li a:focus,*/
+#output-nav li a:hover {
+  background: rgb(223, 235, 238);
+  background: rgba(171, 196, 191, 0.25);
+  text-decoration: none;
+  }
 
 .icon.reset {
   position:absolute;
   top:14px;
   left:195px;
   }
-
+.topics {
+  padding:10px 0;
+  }
 .topics .label {
+  color:#888;
   font-size:10px;
   text-transform:uppercase;
   cursor: pointer;
@@ -1170,65 +1164,81 @@ form {
       -ms-user-select:none;
           user-select:none;
   }
-.topics.active .label {
-  color: #333;
-  }
 /* plus sign of filters*/
-.open:before {
+.topics .open:before {
   content:'✚';
-  color:#444;
+  color:#888;
   padding:0 2px;
   font-weight:bold;
   }
+.topics:hover .open:before,
+.topics.active .label {
+  color:#333;
+  }
+.topics.active .open:before {
+  color:#333;
+  content:'▼';
+}
 .topics.filtered .open:before {
   content:'';
   padding:0;
 }
 
-.topics.filtered li a.active,
-.topics.active li a.active {
-  background:#434C54 url(../img/sprite.png) no-repeat 240px -150px;
-  color:#fff;
+#nav-side .topics.filtered li a.active,
+#nav-side .topics.active li a.active {
   font-weight:bold;
   text-decoration:none;
-  padding-right:30px;
+  padding:10px 2px;
+  margin-left:14px;
   }
-  .topics.filtered li a.active:hover,
-  .topics.active li a.active:hover {
-    background-color:#000;
-    }
-
+/* Disable the state of a menu item that has
+ * an acvtive filter in it
+ */
+#nav-side .topics.filtered .label{
+  color:#333;
+  border-bottom:none;
+  cursor:default;
+  pointer-events:none;
+  -webkit-box-shadow:none;
+          box-shadow:none;
+  }
+#nav-side .topics li .count {
+  float:right;
+  font-size:11px;
+  font-weight:normal;
+  }
+#nav-side .topics.filtered li a.active:before{
+  content:'✖';
+  font-size:10px;
+  display: block;
+  position: absolute;
+  margin-left:-14px;
+  }
 .topics .filter-items {
   margin: 0;
   max-height:0;
   overflow:hidden;
-  -webkit-transition: all 0.3s;
-  -moz-transition:    all 0.3s;
-  -o-transition:      all 0.3s;
-  transition:         all 0.3s;
+  -webkit-transition: max-height 300ms;
+  -moz-transition:    max-height 300ms;
+  -o-transition:      max-height 300ms;
+  transition:         max-height 300ms;
   }
-  .topics .count {
-    float:right;
-    font-size:10px;
-    font-weight:bold;
-    margin-left:10px;
-    }
-  .topics.filtered .filter-items,
-  .topics.active .filter-items {
+
+  #nav-side .topics.filtered .filter-items,
+  #nav-side .topics.active .filter-items {
     max-height:460px;
-    margin:0;
+    margin:10px 0 0 0;
+    width:95%;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
-    box-shadow:
-      inset 0 10px 6px -10px rgba(0,0,0,0.25),
-      inset 0 -10px 10px -10px rgba(0,0,0,0.10);
     }
-  .topics.filtered .filter-items {
-    margin-right:-20px;
+
+  #nav-side .topics.active .filter-items {
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ddd;
     }
 
 .tab-content {
-  /*overflow:visible;*/
   overflow:hidden;
   }
 .nav {
@@ -1256,7 +1266,6 @@ form {
   font-size:inherit;
   padding:0 0 5px;
   }
-  .topics .label,
   #content-right .label {
     display:block;
     border-bottom:1px solid #ddd;
@@ -1265,18 +1274,7 @@ form {
     .topics.active .label:hover {
       color:#333;
       }
-  /* Disable the state of a menu item that has
-   * an acvtive filter in it
-   */
-  .topics.filtered .label {
-    color:#333;
-    border-bottom:none;
-    cursor:default;
-    pointer-events:none;
-    -webkit-box-shadow:none;
-            box-shadow:none;
-    }
-  .topics.filtered .label .icon  { display:none; }
+
 
 .table-unstyled,
 .table-unstyled td,
@@ -1409,10 +1407,10 @@ form {
 .tweet_list li {
   overflow:hidden;
   overflow-y:auto;
-	overflow-x:hidden;
-	list-style-type:none;
-	line-height:15px;
-	margin:10px 0;
+  overflow-x:hidden;
+  list-style-type:none;
+  line-height:15px;
+  margin:10px 0;
   }
 .tweet_list .actions {
   font-size:11px;
@@ -1426,7 +1424,7 @@ form {
   word-wrap: break-word;
   }
 .tweet_list .tweet_avatar {
-	float:left;
+  float:left;
   }
 
 #profile .glance {

@@ -2,46 +2,45 @@
 <div id='nav-side' class='col'>
   <ul id='mainnav'>
     <li class='browser profile active'><a href='{{base}}/'>Projects</a></li>
-    <!-- map/list -->
-    <div class='view-switch'>
-      <a data-toggle='tab' class='active' href='#summary-tab'>Map</a>
-      <a data-toggle='tab' href='#projects-tab'>List</a>
-    </div>
-    <!-- end map/list -->
+    <div class='main'>
+      <!-- map/list -->
+      <div class='view-switch'>
+        <a data-toggle='tab' class='active' href='#summary-tab'>Map</a>
+        <a data-toggle='tab' href='#projects-tab'>List</a>
+      </div>
+      <!-- end map/list -->
 
-    <!-- start filter-->
-    <div id='filters'>
-      <div class='row-fluid'>
-        <div class='span12'>
-          <form class='form-search'>
-            <input id='filters-search' type='search' id='filter-field' class='input' placeholder='Find a filter' />
-            <a href='#' class='icon reset hidden' title='Reset filter'>&times;</a>
-          </form>
-        </div>
-      </div>
-      <div class='row-fluid'>
-        <div id='filter-items' class='span12'>
-          <!--start of year-->
-          <div id='year' class='topics'>
-            <div class='row-fluid'>
-              <div class='span12'>
-                <a href='#' data-category='year' class='label'>
-                  <span class='open'></span>
-                  year
-                </a>
-                <ul class='filter-items'>
-                  <% _.each(FISCALYEARS, function(y) { %>
-                  <li><a id='year-<%= y %>' href="#" class='filter'><%= y %></a></li>
-                  <% }); %>
-                </ul>
-              </div>
-            </div>
+      <!-- start filter-->
+      <div id='filters'>
+        <div class='row-fluid'>
+          <div class='span12'>
+            <form class='form-search'>
+              <strong>Search in filters</strong>
+              <input id='filters-search' type='search' id='filter-field' class='input' placeholder='e.g. Norway' />
+              <a href='#' class='icon reset hidden' title='Reset filter'>&times;</a>
+            </form>
           </div>
-          <!--end of year-->
+        </div>
+        <div class='row-fluid'>
+          <div id='filter-items' class='span12'>
+            <!--start of year-->
+            <div id='year' class='topics'>
+              <a href='#' data-category='year' class='label'>
+                <span class='open'></span>
+                year
+              </a>
+              <ul class='filter-items'>
+                <% _.each(FISCALYEARS, function(y) { %>
+                <li><a id='year-<%= y %>' href="#" class='filter'><%= y %></a></li>
+                <% }); %>
+              </ul>
+            </div>
+            <!--end of year-->
+          </div>
         </div>
       </div>
+      <!-- end filter-->
     </div>
-    <!-- end filter-->
 
     <li class='browser profile'><a href='#top-donors/regular'>Top Donors</a></li>
     <li class='browser profile parent'>
@@ -205,8 +204,8 @@
         <div class='row-fluid'>
           <div class='span12'>
             <form class='form-search'>
-              <strong>Search for projects by title or ID:</strong>
-              <input id='projects-search' type='search' class='input-xlarge' placeholder='Search projects' />
+              <strong>Search in projects</strong>
+              <input id='projects-search' type='search' placeholder='Type in project title or ID' />
               <a href='#' class='icon reset hidden' title='Reset filter'>&times;</a>
             </form>
           </div>

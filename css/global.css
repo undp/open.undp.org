@@ -584,7 +584,7 @@ span.int {
 #footer {
 	position: relative;
 	clear: both;
-	margin-top: 20px;
+	margin-top: 80px;
 	background-color: #F2FAFF;
 	*height: 1%;
 	min-width: 960px;
@@ -911,11 +911,9 @@ span.int {
 	text-decoration:none;
 }
 
-
 #nav-side{
-  width: 221px;
-  background:url("../img/global/bg-leftside-navigation-line.png") no-repeat 220px 100%;
-  margin-right: 20px;
+	width: 248px;
+	border-right:1px solid #99D6FF;
 }
 
 #nav-side ul {
@@ -970,9 +968,20 @@ span.int {
 	_width: 1%;
 	color: #fff;
 	width: 202px;
-	background: url(../img/global/arrow-grey-subnavigation.png) no-repeat 100% 50%;
 	text-decoration: none;
 	font-weight:bold;
+}
+
+#nav-side li.active a:after {
+	content:'';
+	position:absolute;
+	right: -5px;
+	margin-top: 3px;
+	width: 0;
+	height: 0;
+	border-top: 6px solid transparent;
+	border-bottom: 6px solid transparent;
+	border-left: 6px solid #434C54;
 }
 
 #nav-side li ul li.active a{
