@@ -41,6 +41,9 @@ views.App = Backbone.View.extend({
             }));
         }
 
+        // highlight projects
+         $('#mainnav li').first().addClass('active');
+
         return this;
     },
 
@@ -229,8 +232,11 @@ views.App = Backbone.View.extend({
     
     yearChange: function(e) {
         e.preventDefault();
+        var $target = $(e.target),
+            year = $target.attr('id').split('-')[1]; // number of the year
 
-        var year = $(e.target).attr('id').split('-')[1]; // number of the year
+        $('#year').toggleClass('filtered');
+        $target.toggleClass('active');
 
         if (year != app.fiscalYear) {
             var filters = _(this.filters).chain()
@@ -272,6 +278,7 @@ views.App = Backbone.View.extend({
         e.preventDefault();
         $('.view-switch a').removeClass('active');
         $(e.target).addClass('active');
+        $('#mainnav li').first().addClass('re-active');
         setTimeout(function(){app.projects.map.map.invalidateSize({pan:true});}, 200);
     },
 

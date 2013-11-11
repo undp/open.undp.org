@@ -26,6 +26,19 @@ routers.App = Backbone.Router.extend({
     },
 
     mainApp: function () {
+
+        // About nav toggle
+        $('#mainnav a.parent-link').click(function(e) { //TODO avoid initial click which changes path
+            e.preventDefault();
+            var $target = $(e.target);
+
+            if ($target.parent().hasClass('parent-active')) {
+                $target.parent().removeClass('parent-active');
+            } else {
+                $target.parent().addClass('parent-active');
+            }
+        });
+
         // Handle feedback form submission
         $('#feedback-form').submit(function (e) {
             // Require 'Feedback' field to have content
@@ -79,11 +92,6 @@ routers.App = Backbone.Router.extend({
             // Set up breadcrumbs
             $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li><li><a href="' + BASE_URL + '">Our Projects</a></li>');
 
-            // Set up menu
-            $('#mainnav li').removeClass('active');
-            $('#mainnav li').first().addClass('active'); //TODO need to get 'projects' highlighted when map/list view is switched
-            $('#mainnav li.parent').removeClass('parent-active');
-
             // Load the main app view
             this.app = this.app || new views.App({
                 el: '#browser',
@@ -99,7 +107,7 @@ routers.App = Backbone.Router.extend({
 
         // Save default description
         app.defaultDescription = app.defaultDescription || $('#description p.intro').html();
-        
+
         // Parse hash
         var parts = (route) ? route.split('/') : [];
         var filters = _(parts).map(function (part) {
@@ -363,6 +371,8 @@ routers.App = Backbone.Router.extend({
         window.setTimeout(function () {
             $('html, body').scrollTop(0);
         }, 0);
+        // add Nav
+        this.nav = new views.Nav();
 
         $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#about/' + route + '">About: ' + route.capitalize().replace('info','') + '</a></li>');
 

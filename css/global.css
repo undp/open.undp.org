@@ -959,11 +959,13 @@ span.int {
 	color:#0a284b;
 }
 
-#nav-side li.active { /* TODO */
+#nav-side li.active,
+#nav-side li.re-active {
 	background:#434C54;
 }
 
-#nav-side li.active a {
+#nav-side li.active a,
+#nav-side li.re-active a {
 	display: block;
 	_width: 1%;
 	color: #fff;
@@ -972,7 +974,8 @@ span.int {
 	font-weight:bold;
 }
 
-#nav-side li.active a:after {
+#nav-side li.active a:after,
+#nav-side li.re-active a:after {
 	content:'';
 	position:absolute;
 	right: -5px;
