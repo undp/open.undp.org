@@ -27,18 +27,6 @@ routers.App = Backbone.Router.extend({
 
     mainApp: function () {
 
-        // About nav toggle
-        $('#mainnav a.parent-link').click(function(e) { //TODO avoid initial click which changes path
-            e.preventDefault();
-            var $target = $(e.target);
-
-            if ($target.parent().hasClass('parent-active')) {
-                $target.parent().removeClass('parent-active');
-            } else {
-                $target.parent().addClass('parent-active');
-            }
-        });
-
         // Handle feedback form submission
         $('#feedback-form').submit(function (e) {
             // Require 'Feedback' field to have content
@@ -66,7 +54,6 @@ routers.App = Backbone.Router.extend({
             return false;
         });
     },
-    
     fiscalyear: function (year, route, embed) {
         var that = this;
         if (!$('#y' + year).length) {
@@ -84,9 +71,11 @@ routers.App = Backbone.Router.extend({
         var that = this,
             unit = false;
 
+        this.aboutToggle();
+
         if (!embed) {
             // Load in the top donors info and feedbackform dets.
-            this.mainApp();
+            // this.mainApp();
             window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
 
             // Set up breadcrumbs
@@ -310,10 +299,9 @@ routers.App = Backbone.Router.extend({
 
         // Add nav
         this.nav = new views.Nav();
+        this.aboutToggle();
 
         if (!embed) {
-            // Load in feedbackform dets.
-            this.mainApp();
 
             window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
 
@@ -384,7 +372,18 @@ routers.App = Backbone.Router.extend({
         $('#about #' + route).show();
         $('#mainnav li.parent').addClass('parent-active');
     },
+    aboutToggle: function() {
+        $('#mainnav a.parent-link').click(function(e) { //TODO avoid initial click which changes path
+            e.preventDefault();
+            var $target = $(e.target);
 
+            if ($target.parent().hasClass('parent-active')) {
+                $target.parent().removeClass('parent-active');
+            } else {
+                $target.parent().addClass('parent-active');
+            }
+        });
+    },
     topDonors: function (route) {
         var that = this;
 

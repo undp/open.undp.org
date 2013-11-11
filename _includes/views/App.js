@@ -229,14 +229,23 @@ views.App = Backbone.View.extend({
         e.preventDefault();
         $('#country-list').css('display', 'none');
     },
-    
+
     yearChange: function(e) {
         e.preventDefault();
         var $target = $(e.target),
             year = $target.attr('id').split('-')[1]; // number of the year
 
-        $('#year').toggleClass('filtered');
+        $('#year').toggleClass('filtered',true);
+
         $target.toggleClass('active');
+
+        if($target.hasClass('active')){
+            $('#year .filter-items a').css('display','none');
+            $target.css('display','block');
+        } else {
+            $('#year .filter-items a').css('display','block');
+            $('#year').toggleClass('filtered',false)
+        }
 
         if (year != app.fiscalYear) {
             var filters = _(this.filters).chain()
