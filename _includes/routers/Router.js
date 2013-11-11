@@ -26,6 +26,19 @@ routers.App = Backbone.Router.extend({
     },
 
     mainApp: function () {
+
+        // About nav toggle
+        $('#mainnav a.parent-link').click(function(e) { //TODO avoid initial click which changes path
+            e.preventDefault();
+            var $target = $(e.target);
+
+            if ($target.parent().hasClass('parent-active')) {
+                $target.parent().removeClass('parent-active');
+            } else {
+                $target.parent().addClass('parent-active');
+            }
+        });
+
         // Handle feedback form submission
         $('#feedback-form').submit(function (e) {
             // Require 'Feedback' field to have content
@@ -76,14 +89,6 @@ routers.App = Backbone.Router.extend({
             this.mainApp();
             window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
 
-            // Set up menu
-            $('#app .view, #mainnav .profile').hide();
-            $('#mainnav li').removeClass('active');
-            $('#profile .summary').addClass('off');
-            $('#browser, #mainnav .browser').show();
-            $('#mainnav li a[href="/"]').parent().addClass('active');
-            $('#mainnav li.parent').removeClass('parent-active');
-
             // Set up breadcrumbs
             $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li><li><a href="' + BASE_URL + '">Our Projects</a></li>');
 
@@ -102,7 +107,7 @@ routers.App = Backbone.Router.extend({
 
         // Save default description
         app.defaultDescription = app.defaultDescription || $('#description p.intro').html();
-        
+
         // Parse hash
         var parts = (route) ? route.split('/') : [];
         var filters = _(parts).map(function (part) {
@@ -282,11 +287,11 @@ routers.App = Backbone.Router.extend({
                 unit: unit
             });
             if ($('.map-btn[data-value="hdi"]').hasClass('active')) {
-                $('#chart-hdi').css('display','block');
+                $('#chart-hdi').addClass('active');
             }
         } else {
             app.hdi = false;
-            $('#chart-hdi').css('display','none');
+            $('#chart-hdi').removeClass('active');
             $('ul.layers li.no-hover.hdi a').css('cursor','default');
             $('ul.layers li.hdi .graph').removeClass('active');
             if (unit) {
@@ -303,6 +308,9 @@ routers.App = Backbone.Router.extend({
     project: function (id, output, embed) {
         var that = this;
 
+        // Add nav
+        this.nav = new views.Nav();
+
         if (!embed) {
             // Load in feedbackform dets.
             this.mainApp();
@@ -312,8 +320,8 @@ routers.App = Backbone.Router.extend({
             // Set up menu
             $('#app .view, #mainnav .browser').hide();
             $('#mainnav li').removeClass('active');
-            $('#mainnav .profile').show();
-            $('#mainnav li a[href="/"]').parent().addClass('active');
+            $('#mainnav .profile').show(); // nav items related to project profile show
+            $('#mainnav li').first().addClass('active'); // making the first nav "projects" active
             $('#mainnav li.parent').removeClass('parent-active');
         }
 
@@ -363,6 +371,8 @@ routers.App = Backbone.Router.extend({
         window.setTimeout(function () {
             $('html, body').scrollTop(0);
         }, 0);
+        // add Nav
+        this.nav = new views.Nav();
 
         $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#about/' + route + '">About: ' + route.capitalize().replace('info','') + '</a></li>');
 
@@ -378,9 +388,14 @@ routers.App = Backbone.Router.extend({
     topDonors: function (route) {
         var that = this;
 
+        // Add nav
+        this.nav = new views.Nav();
+
         $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#top-donors/regular">Top Donors</a></li>');
 
         $('#app .view').hide();
+        $('#mainnav li.profile').hide();
+        $('#mainnav li.browser').show();
         $('#mainnav li').removeClass('active');
         $('#mainnav li.parent').removeClass('parent-active');
 
@@ -389,7 +404,7 @@ routers.App = Backbone.Router.extend({
         
         $('#donor-nav li a').removeClass('active');
         $('#donor-nav li a[href="#top-donors/' + route + '"]').addClass('active');
-        
+
         if (!that.donorsGross) {
             that.donorsGross = new models.TopDonors({type: route});
             that.donorsGross.url = 'api/top-donor-gross-index.json';

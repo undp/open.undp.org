@@ -64,6 +64,7 @@ $(function() {
     // Views
     {% include views/App.js %}
     {% include views/Filters.js %}
+    {% include views/Nav.js %}
     {% include views/Projects.js %}
     {% include views/ProjectProfile.js %}
     {% include views/Map.js %}

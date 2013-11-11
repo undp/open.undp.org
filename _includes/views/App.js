@@ -4,13 +4,13 @@ views.App = Backbone.View.extend({
         'keyup #filters-search': 'searchFilter',
         'click #filters .label': 'toggleFilter',
         'click #filters .reset': 'clearFilter',
-        'click #projects-tab .reset': 'clearSearch',
         'click .map-btn': 'mapLayerswitch',
         'click .widget-config': 'requestIframe',
         'submit .form-search': 'submitForm',
-        'click #yearselect .dropdown-menu a': 'yearChange',
+        'click #year .filter-items a': 'yearChange',
         'click .map-filter':'mapFilter',
-        'click .nav.nav-tabs a': 'activeMap'
+        'click .view-switch a': 'activeMap',
+        'click a#layers-back': 'layersBack'
     },
     
     initialize: function(options) {
@@ -21,23 +21,9 @@ views.App = Backbone.View.extend({
         $(window).on('click', '#country-list .close', _(this.hideCountries).bind(this));
 
         this.render();
-
-        if (!this.options.embed) {
-            // Filters follow scrolling
-            var top = $('#siderail').offset().top - 12;
-            $(window).on('scroll', function () {
-                var y = $(this).scrollTop();
-                if (y >= top) {
-                    $('#siderail').addClass('fixed');
-                } else {
-                    $('#siderail').removeClass('fixed');
-                }
-            });
-        }
     },
 
     render: function() {
-
         if (this.options.embed) {
             this.$el.empty().append(templates.embedProjects());
             // Depending on the options passed into the array add a fade
@@ -55,6 +41,9 @@ views.App = Backbone.View.extend({
             }));
         }
 
+        // highlight projects
+         $('#mainnav li').first().addClass('active');
+
         return this;
     },
 
@@ -69,37 +58,40 @@ views.App = Backbone.View.extend({
             year = app.fiscalYear;
             shift = false;
 
-        this.clearFilter(e);
+        // treat year differently, see yearChange
+        if (parts[0] != 'year'){
+            this.clearFilter(e);
 
-        _(this.filters).each(function(filter) {
-            if (_.isEqual(filter, filters[0])) {
-                shift = true;
-            } else if (filter.collection !== filters[0].collection) {
-                filters.push(filter);
-            }
-        });
+            _(this.filters).each(function(filter) {
+                if (_.isEqual(filter, filters[0])) {
+                    shift = true;
+                } else if (filter.collection !== filters[0].collection) {
+                    filters.push(filter);
+                }
+            });
 
-        if (shift) filters.shift();
+            if (shift) filters.shift();
 
-        filters = _(filters).chain()
-            .compact()
-            .map(function(filter) {
-                return filter.collection + '-' + filter.id;
-            })
-            .value().join('/');
+            filters = _(filters).chain()
+                .compact()
+                .map(function(filter) {
+                    return filter.collection + '-' + filter.id;
+                })
+                .value().join('/');
 
-        path = (filters.length) ? year + '/filter/' + filters : year;
+            path = (filters.length) ? year + '/filter/' + filters : year;
 
-        e.preventDefault();
+            e.preventDefault();
 
-        // Close the state of menu items before
-        // we navigate and set things up again.
-        $('.topics').toggleClass('active', false);
-        $('.topics a').toggleClass('active', false);
-        $('.topics').toggleClass('filtered', false);
+            // Close the state of menu items before
+            // we navigate and set things up again.
+            $('.topics').toggleClass('active', false);
+            $('.topics a').toggleClass('active', false);
+            $('.topics').toggleClass('filtered', false);
 
-        $('#all-projects').attr('href', '#' + path);
-        app.navigate(path, { trigger: true });
+            $('#all-projects').attr('href', '#' + path);
+            app.navigate(path, { trigger: true });
+        }
     },
 
     searchFilter: function(e) {
@@ -143,7 +135,6 @@ views.App = Backbone.View.extend({
             $parent = $('#' + cat);
 
         e.preventDefault();
-
         // Bail on the this function if the user has selected
         // a label that has an active filtered selection.
         if ($parent.hasClass('filtered')) return false;
@@ -172,7 +163,7 @@ views.App = Backbone.View.extend({
 
     mapLayerswitch: function(e) {
         e.preventDefault();
-        $('#chart-hdi').css('display','none');
+        $('#chart-hdi').removeClass('active');
         var $target = $(e.currentTarget);
         $('.map-btn').removeClass('active');
 
@@ -184,9 +175,9 @@ views.App = Backbone.View.extend({
                 if ($('li.hdi').hasClass('active')) {
                     $('li.hdi').removeClass('active')
                     $($target).removeClass('active');
-                    $('#chart-hdi').css('display','none');
+                    $('#chart-hdi').removeClass('active');
                 } else {
-                    $('#chart-hdi').css('display','block');
+                    $('#chart-hdi').addClass('active');
                     $($target).addClass('active');
                     $('li.hdi').addClass('active');
                 }
@@ -241,7 +232,12 @@ views.App = Backbone.View.extend({
     
     yearChange: function(e) {
         e.preventDefault();
-        var year = $(e.target).attr('data-value');
+        var $target = $(e.target),
+            year = $target.attr('id').split('-')[1]; // number of the year
+
+        $('#year').toggleClass('filtered');
+        $target.toggleClass('active');
+
         if (year != app.fiscalYear) {
             var filters = _(this.filters).chain()
                 .compact()
@@ -259,7 +255,6 @@ views.App = Backbone.View.extend({
     updateYear: function(year) {
         $('#total-budget').next('span').html(year + ' Budget');
         $('#total-expenditure').next('span').html(year + ' Expenditure');
-        $('#yearselect .dropdown-toggle').html(year + ' <b class="caret"></b>');
     },
 
     mapFilter: function(e){
@@ -279,7 +274,22 @@ views.App = Backbone.View.extend({
         app.projects.map.buildLayer(this.layer,subFilterValue,currentCenter,currentZoom); // see Map.js
     },
     
-    activeMap: function() {
+    activeMap: function(e) {
+        e.preventDefault();
+        $('.view-switch a').removeClass('active');
+        $(e.target).addClass('active');
+        $('#mainnav li').first().addClass('re-active');
         setTimeout(function(){app.projects.map.map.invalidateSize({pan:true});}, 200);
+    },
+
+    layersBack: function(e) {
+        e.preventDefault();
+        $('a#layers-back').toggleClass('active');
+        $('ul.layers').toggleClass('active');
+        if ($('a#layers-back').hasClass('active')){
+            $('a#layers-back').html('❮')
+        } else {
+            $('a#layers-back').html('❯')
+        }
     }
 });
