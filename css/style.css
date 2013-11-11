@@ -1283,6 +1283,7 @@ form {
 
 /* project.html */
 .project {
+  width:99.5%;
   margin:10px 0;
   }
 .project:last-child {
@@ -1310,6 +1311,7 @@ form {
   }
 .focus-title {
   font-weight:bold;
+  margin-left:28px;
   }
 .project .span4 .row-fluid,
 .project .span8 .row-fluid {
@@ -1319,8 +1321,12 @@ form {
   margin:10px 0;
   }
 .project .focus span{
-  padding:0 7px;
-  margin-right:10px;
+  display: block;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
   }
 .project h3,
 .project .span5 .row-fluid,
