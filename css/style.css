@@ -283,10 +283,10 @@ input[readonly] {
 .icon.map-fullscreen.full     { background-position:-192px 4px;}
 
 /* areas color spans*/
-.democratic {background: #049fd9;}
-.crisis {background:#ff5640;}
-.environment {background:#6ab139;}
-.poverty {background:#c8c605;}
+.democratic { border:2px solid #049fd9;color: #049fd9;}
+.crisis {     border:2px solid #ff5640;color: #ff5640;}
+.environment {border:2px solid #6ab139;color: #6ab139;}
+.poverty {    border:2px solid #9E9C0C;color: #9E9C0C;}
 
 /*-----------------------------------
   Global Layout
@@ -498,32 +498,6 @@ input[readonly] {
   background:#C8DDE4;
   border-color:#C8DDE4;
 }
-/* sub filters */
-#map-filters {
-  width:100%;
-  height:40px;
-  }
-#map-filters.disabled {
-  display:none;
-  }
-#map-filters ul {
-  margin:0;
-  }
-#map-filters ul li {
-  float:left;
-  margin:20px 18px 20px 0;
-  font-weight:700;
-  }
-#map-filters ul li a.map-filter {
-  padding:10px;
-  background: #F2FAFF;
-  font-size:10px;
-  text-transform:uppercase;
-  }
-#map-filters ul li a.map-filter.active {
-  color:#fff;
-  background:#434C54;
-  }
 /*-----------------------------------
   Summary above map
 -------------------------------------*/
@@ -578,7 +552,7 @@ ul.layers.active {
     width:inherit;
     }
   .layers li a {
-    padding:15px 10px;
+    padding:10px;
     display:block;
     }
   .layers li:hover {
@@ -586,9 +560,6 @@ ul.layers.active {
     }
   .layers li a.active {
     background:#05a;
-    }
-  .layers li.no-hover {
-    border-right:1px dotted #fff;
     }
   .layers li.no-hover:hover {
     background:#fff;
@@ -604,8 +575,8 @@ ul.layers.active {
     padding: 2px 10px;
     margin-top: 3px;
     width: 38px;
-    background:#dbe9ed;
-    color:#333;
+    background:#C8DDE4;
+    border:1px solid #ddd;
     text-transform:uppercase;
     font-size:10px;
     font-weight:700;
@@ -613,10 +584,32 @@ ul.layers.active {
         border-radius:4px;
     }
   .layers li.hdi .graph.active:hover {
-    background:#eee;
+    background:#ddd;
     }
   .layers li.hdi .graph.active {
     display:block;
+  }
+/* sub filters */
+#map-filters {
+  padding:10px;
+  }
+#map-filters.disabled {
+  display:none;
+  }
+#map-filters ul {
+  margin:0;
+  border:1px solid #ddd;
+  border-radius:3px;
+  }
+#map-filters ul li a.map-filter {
+  padding:3px 10px;
+  font-size:10px;
+  font-weight:bold;
+  text-transform:uppercase;
+  cursor:pointer;
+  }
+#map-filters ul li a.map-filter.active {
+  background:#C8DDE4;
   }
 .total {
   display:block;
@@ -721,10 +714,11 @@ h3#focus span {
   .chart li.focus span.pct {
     display: block;
     position: absolute;
-    width:32px;
-    padding: 10px 8px;
-    margin-top: -10px;
-    color:#fff;
+    margin-top: -15px;
+    padding: 12px 8px;
+    min-width:27px;
+    font-size:13px;
+    border-radius: 50%;
     }
   .chart li.focus a {
     padding-left:65px;
