@@ -1320,14 +1320,13 @@ form {
 .project .focus {
   margin:10px 0;
   }
-.project .focus span{
+.project .focus span, .leaflet-popup-content .focus span {
   display: block;
   position: absolute;
   width: 16px;
   height: 16px;
   border-radius: 50%;
 }
-  }
 .project h3,
 .project .span5 .row-fluid,
 .project .span7 .row-fluid {
@@ -1697,7 +1696,23 @@ form {
   border:#ddd;
   font:11px/15px 'Menlo Regular', Consolas, monospace;
   }
-
+/*-----------------------------------
+  Tooltips
+-------------------------------------*/
+.leaflet-popup-content,
+.leaflet-popup-content p {
+  margin: 0px;
+}
+.popup {
+  margin: 10px;
+}
+.popup.top {
+  border-bottom: 1px solid #ddd;
+}
+.popup .space {
+  margin-left: 28px;
+  margin-bottom: 10px;
+}
 /*-----------------------------------
   Widget Embed
 -------------------------------------*/
