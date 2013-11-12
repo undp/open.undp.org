@@ -71,8 +71,6 @@ routers.App = Backbone.Router.extend({
         var that = this,
             unit = false;
 
-        this.aboutToggle();
-
         if (!embed) {
             // Load in the top donors info and feedbackform dets.
             // this.mainApp();
@@ -299,7 +297,6 @@ routers.App = Backbone.Router.extend({
 
         // Add nav
         this.nav = new views.Nav();
-        this.aboutToggle();
 
         if (!embed) {
 
@@ -371,18 +368,6 @@ routers.App = Backbone.Router.extend({
         $('#aboutnav li a[href="#about/' + route + '"]').parent().addClass('active');
         $('#about #' + route).show();
         $('#mainnav li.parent').addClass('parent-active');
-    },
-    aboutToggle: function() {
-        $('#mainnav a.parent-link').click(function(e) { //TODO avoid initial click which changes path
-            e.preventDefault();
-            var $target = $(e.target);
-
-            if ($target.parent().hasClass('parent-active')) {
-                $target.parent().removeClass('parent-active');
-            } else {
-                $target.parent().addClass('parent-active');
-            }
-        });
     },
     topDonors: function (route) {
         var that = this;
