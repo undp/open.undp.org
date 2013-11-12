@@ -42,7 +42,19 @@ views.App = Backbone.View.extend({
         }
 
         // highlight projects
-         $('#mainnav li').first().addClass('active');
+        $('#mainnav li').first().addClass('active');
+
+        // about nav
+        $('#mainnav a.parent-link').click(function(e) { //TODO avoid initial click which changes path
+            e.preventDefault();
+            var $target = $(e.target);
+
+            if ($target.parent().hasClass('parent-active')) {
+                $target.parent().removeClass('parent-active');
+            } else {
+                $target.parent().addClass('parent-active');
+            }
+        });
 
         return this;
     },
