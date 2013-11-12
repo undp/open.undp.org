@@ -123,14 +123,16 @@ routers.App = Backbone.Router.extend({
                 }, true);
             };
             this.app.filters = filters;
-
-            var loadFilters = function() {
+            //TODO
+            var loadFilters = function() { //this is being loaded multiple times
                 var counter = 0;
                 that.app.views = {};
                 // Load filters
                 _(facets).each(function (facet) {
 
                     var collection = new models.Filters();
+
+                    $('#filter-items').find('#'+facet.id).remove();
                     $('#filter-items').append('<div id="' + facet.id + '" class="topics"></div>');
 
                     _(facet).each(function (v, k) {
