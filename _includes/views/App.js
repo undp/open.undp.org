@@ -56,6 +56,14 @@ views.App = Backbone.View.extend({
             }
         });
 
+        // set year as filtered
+        $('#year').addClass('filtered');
+        $('#year li a').addClass('inactive');
+
+        // set selected year as filtered
+        yearId = 'year-' + this.options.year;
+        $('#year .filter-items').find('a#'+yearId).removeClass('inactive').addClass('active');
+
         return this;
     },
 
@@ -71,6 +79,7 @@ views.App = Backbone.View.extend({
             shift = false;
 
         // treat year differently, see yearChange
+
         if (parts[0] != 'year'){
             this.clearFilter(e);
 
@@ -97,9 +106,10 @@ views.App = Backbone.View.extend({
 
             // Close the state of menu items before
             // we navigate and set things up again.
-            $('.topics').toggleClass('active', false);
-            $('.topics a').toggleClass('active', false);
-            $('.topics').toggleClass('filtered', false);
+            // excluding #year filter
+            $('.topics').not('#year').toggleClass('active', false);
+            $('.topics').not('#year').find('.filter-items a').toggleClass('active', false);
+            $('.topics').not('#year').toggleClass('filtered', false);
 
             $('#all-projects').attr('href', '#' + path);
             app.navigate(path, { trigger: true });
@@ -142,35 +152,38 @@ views.App = Backbone.View.extend({
     },
 
     toggleFilter: function (e) {
+
         var $target = $(e.target),
             cat = $target.attr('data-category'),
             $parent = $('#' + cat);
 
-        e.preventDefault();
-        // Bail on the this function if the user has selected
-        // a label that has an active filtered selection.
-        if ($parent.hasClass('filtered')) return false;
+        if (!$parent.is('#year')) {  //treat year differently,see year Change
+            e.preventDefault();
+            // Bail on the this function if the user has selected
+            // a label that has an active filtered selection.
+            if ($parent.hasClass('filtered')) return false;
 
-        if ($parent.hasClass('active')) {
-            $parent.toggleClass('active', false);
-            if (this.views[cat]) {
-                this.views[cat].active = false;
-            }
-        } else {
-            $('.topics').each(function () {
-                // Loop through all the filtered menus
-                // to close active menus providing they don't
-                // have an active filtered selection.
-                if (!$(this).hasClass('filtered')) {
-                    $(this).toggleClass('active', false);
+            if ($parent.hasClass('active')) {
+                $parent.toggleClass('active', false);
+                if (this.views[cat]) {
+                    this.views[cat].active = false;
                 }
-            });
-            $parent.toggleClass('active', true);
-            if (this.views[cat]) {
-                this.views[cat].active = true;
+            } else {
+                $('.topics').each(function () {
+                    // Loop through all the filtered menus
+                    // to close active menus providing they don't
+                    // have an active filtered selection.
+                    if (!$(this).hasClass('filtered')) {
+                        $(this).toggleClass('active', false);
+                    }
+                });
+                $parent.toggleClass('active', true);
+                if (this.views[cat]) {
+                    this.views[cat].active = true;
+                }
             }
+            return false;
         }
-        return false;
     },
 
     mapLayerswitch: function(e) {
@@ -247,16 +260,17 @@ views.App = Backbone.View.extend({
         var $target = $(e.target),
             year = $target.attr('id').split('-')[1]; // number of the year
 
-        $('#year').toggleClass('filtered',true);
-
         $target.toggleClass('active');
 
         if($target.hasClass('active')){
-            $('#year .filter-items a').css('display','none');
-            $target.css('display','block');
+            $('#year').toggleClass('filtered',true);
+            $('#year').toggleClass('active',false);
+            $('#year .filter-items a').addClass('inactive');
+            $target.removeClass('inactive').addClass('active');
         } else {
-            $('#year .filter-items a').css('display','block');
-            $('#year').toggleClass('filtered',false)
+            $('#year').toggleClass('filtered',false);
+            $('#year').toggleClass('active',true);
+            $('#year .filter-items a').removeClass('inactive');
         }
 
         if (year != app.fiscalYear) {
