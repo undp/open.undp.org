@@ -90,9 +90,8 @@ views.ProjectMap = Backbone.View.extend({
                         };
                         
                         $.getJSON('api/subnational-locs-index.json', function(g) {
-                            $.getJSON('api/focus-area-index.json', function(focusIndex){
-                                _.each(subLocations, function (o) {
-                                    
+                             $.getJSON('api/focus-area-index.json', function(focusIndex){
+                                _(subLocations).each(function(o) {
                                     var markerColor;
                                     _(focusIndex).each(function(f){
                                         if (f.id == o.focus_area){
@@ -212,7 +211,7 @@ views.ProjectMap = Backbone.View.extend({
                 q = queue(1);
 
             q.defer(function(cb) {
-                _.each(g.feed.entry, function(row) {
+                _(g.feed.entry).each(function(row) {
                     if (row.gsx$type.$t === 'Global' || (row.gsx$type.$t === 'HQ' && row.gsx$id.$t === view.model.get('region_id'))
                         ) {
                         //if (row.gsx$twitter.$t) twitterAccts.push(row.gsx$twitter.$t.replace('@',''));
@@ -242,7 +241,7 @@ views.ProjectMap = Backbone.View.extend({
             // Gather photos from documents, twitter, and flickr, in that order
             q.defer(function(cb) {
                 if (that.model.get('document_name')) {
-                    _.each(that.model.get('document_name')[0], function (photo, i) {
+                    _(that.model.get('document_name')[0]).each(function (photo, i) {
                         try {
                             var filetype = photo.split('.')[1].toLowerCase();
                         }
@@ -277,7 +276,7 @@ views.ProjectMap = Backbone.View.extend({
         });
 
         function contacts(social) {
-            _.each(['web','email','facebook','twitter','flickr'], function(v) {
+            _(['web','email','facebook','twitter','flickr']).each(function(v) {
                 var link = '',
                     i = 0;
 
@@ -287,7 +286,7 @@ views.ProjectMap = Backbone.View.extend({
                     if (v == 'flickr') baseUrl = 'http://flickr.com/photos/';
 
                     if (social[v]) {
-                        _.each(social[v], function(x) {
+                        _(social[v]).each(function(x) {
                             i += 1;
                             link += '<a href="' + baseUrl + social[v] + '">' +
                                     ((v == 'twitter') ? '@' + social[v] : social[v]) + '</a>';
@@ -324,7 +323,7 @@ views.ProjectMap = Backbone.View.extend({
         function filterTweets(t) {
             if (t.length) {
                 var i = 0;
-                _.each(t, function(x) {
+                _(t).each(function(x) {
                     i++;
                     if (x.entities.urls.length) {
                         _(x.entities.urls).each(function(url) {
@@ -412,7 +411,7 @@ views.ProjectMap = Backbone.View.extend({
             $el.show();
             loadPhoto(i);
         } else {
-            _.each(account, function(acct) {
+            _(account).each(function(acct) {
                 // Get user info based on flickr link
                 $.getJSON(apiBase + 'flickr.urls.lookupUser&api_key=' + apiKey + '&url=http://www.flickr.com/photos/' + acct, function(f) {
                     searchPhotos(f.user.id, search);
@@ -461,7 +460,7 @@ views.ProjectMap = Backbone.View.extend({
 
                         getSize('Medium 800');
                         function getSize(sizeName) {
-                            _.each(s.sizes.size, function(z) {
+                            _(s.sizes.size).each(function(z) {
                                 if (z.label == sizeName) {
                                     source = z.source;
                                     pHeight = z.height;
