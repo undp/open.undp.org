@@ -102,17 +102,16 @@ views.Map = Backbone.View.extend({
         })
     },
     circlePopup: function(cat,feature) {
-        var description = '<div class="title"><b>' + feature.properties.title + '</b></div>' +
-            '<div class="stat' + ((cat == 'count') ? ' active' : '') + '">Projects: <span class="value">' +
-            feature.properties.count + '</span></div>' +
-            ((feature.sources > 1) ? ('<div class="stat' + ((cat == 'sources') ? ' active' : '') + '">Budget Sources: <span class="value">' +
-            feature.properties.sources + '</span></div>') : '') +
-            '<div class="stat' + ((cat == 'budget') ? ' active' : '') + '">Budget: <span class="value">' +
-            accounting.formatMoney(feature.properties.budget) + '</span></div>' +
-            '<div class="stat' + ((cat == 'expenditure') ? ' active' : '') + '">Expenditure: <span class="value">' +
-            accounting.formatMoney(feature.properties.expenditure) + '</span></div>' +
-            '<div class="stat' + ((cat == 'hdi') ? ' active' : '') + '">HDI: <span class="value">' +
-            feature.properties.hdi + '</span></div>';
+        var description = '<div class="popup">' +
+                            '<div class="title">' +
+                                '<b>' + feature.properties.title + '</b>' + 
+                            '</div>' +
+                            '<table><tr><td>Projects</td><td>' + feature.properties.count + '</td></tr>' +
+                                '<tr><td>Budget</td><td>' +  accounting.formatMoney(feature.properties.budget) + '</td></tr>' + 
+                                '<tr><td>Expenditure</td><td>' + accounting.formatMoney(feature.properties.expenditure) + '</td></tr>' + 
+                                '<tr><td>HDI</td><td>' + feature.properties.hdi + '</td></tr>' + 
+                            '</table>' + 
+                         '</div>';
         return description;
     },
     // CLUSTER
