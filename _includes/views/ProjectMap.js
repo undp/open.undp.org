@@ -8,12 +8,17 @@ views.ProjectMap = Backbone.View.extend({
     tooltip: function(data, g) {
         var //scope = g.scope[data.scope',
             type = g.type[data.type],
-            precision = g.precision[data.precision];
+            precision = g.precision[data.precision],
+            output = data.outputID,
+            focus_clean = (data.focus_area_descr).replace(/\s+/g, '-').toLowerCase().split('-')[0],
+            focus_area = (data.focus_area_descr).toTitleCase();
 
-        var description = '<div><b>Location type:</b> <span class="value">' + type + '</span></div>'
+        var description =  '<div class="popup top">'
+                        + '<table><tr><td>Output</td><td>' + output + '</td></tr></table>'  
+                         + '<div class="focus"><span class="'+focus_clean+'"></span><p class="space">' + focus_area + '<p></div></div>'
                         //+ '<div><b>Scope:</b> <span class="value">' + scope + '</span></div>'
-                        + '<div><b>Precision:</b> <span class="value">' + precision + '</span></div>';
-       
+                        + '<div class="popup bottom"><div><b>Location type:</b> <span class="value">' + type + '</span></div>'
+                        + '<div><b>Precision:</b> <span class="value">' + precision + '</span></div></div>';
         return description;
     },
     render: function() {
@@ -29,7 +34,13 @@ views.ProjectMap = Backbone.View.extend({
         } else {
             wheelZoom = false;
         }
-
+        // create a cluster
+        view.markers = new L.MarkerClusterGroup({
+            showCoverageOnHover:false,
+            maxClusterRadius:40,
+            disableClusteringAtZoom:6
+        });
+        // create map
         view.map = L.mapbox.map(this.el,TJ.id,{
             minZoom: 1,
             maxZoom: 15,
@@ -74,49 +85,89 @@ views.ProjectMap = Backbone.View.extend({
                         } else {
                             view.map.setView([o.lat,o.lon],3);
                         }
+                        var markerOptions = {
+                            'marker-size': 'small'
+                        };
                         
                         $.getJSON('api/subnational-locs-index.json', function(g) {
-                            _.each(subLocations, function (o) {
-                                locations.push({
-                                    type: "Feature",
-                                    geometry: {
-                                        type: "Point",
-                                        coordinates: [
-                                            o.lon,
-                                            o.lat
-                                        ]
-                                    },
-                                    properties: {
-                                        id: o.awardID,
-                                        precision: o.precision,
-                                        type: o.type,
-                                        scope: o.scope,
-                                        project: view.model.get('project_title'),
-                                        name: o.name,
-                                        description: view.tooltip(o, g),
-                                        'marker-size': 'small',
-                                        'marker-color': '0055aa'
-                                    } 
+                             $.getJSON('api/focus-area-index.json', function(focusIndex){
+                                _(subLocations).each(function(o) {
+                                    var markerColor;
+                                    _(focusIndex).each(function(f){
+                                        if (f.id == o.focus_area){
+                                            return markerColor = f.color;
+                                        };
+                                    });
+ 
+                                    locations.push({
+                                        type: "Feature",
+                                        geometry: {
+                                            type: "Point",
+                                            coordinates: [
+                                                o.lon,
+                                                o.lat
+                                            ]
+                                        },
+                                        properties: {
+                                            id: o.awardID,
+                                            outputID: o.outputID,
+                                            precision: o.precision,
+                                            type: o.type,
+                                            scope: o.scope,
+                                            project: view.model.get('project_title'),
+                                            name: o.name,
+                                            focus_area: o.focus_area,
+                                            description: view.tooltip(o, g),
+                                            'marker-size': 'small',
+                                            'marker-color': markerColor
+                                        } 
+                                    });
                                 });
-                            });
                         
-                            function onEachFeature(feature, layer) {
-                                var clusterBrief = L.popup({
-                                        closeButton:false,
-                                        offset: new L.Point(0,-20)
-                                    }).setContent(feature.properties.description);
-                                layer.on('mouseover',function(){
-                                    clusterBrief.setLatLng(this.getLatLng());
-                                    view.map.openPopup(clusterBrief);
-                                }).on('mouseout',function(){
-                                    view.map.closePopup(clusterBrief);
-                                })
-                            }
-                            
-                            L.geoJson(locations, {
-                                pointToLayer: L.mapbox.marker.style,
-                                onEachFeature: onEachFeature
-                                }).addTo(view.map);
+                                function onEachFeature(feature, layer) {
+                                    var oldOptions = {
+                                        'marker-size':'small',
+                                        'marker-color':feature.properties['marker-color']
+                                    }
+                                    var newOptions = {
+                                        'marker-size':'small',
+                                    }
+                                    var newColors = [
+                                        {'color': '689A46', 'id': '4'},
+                                        {'color': '218DB6', 'id': '2'},
+                                        {'color': 'AAA922', 'id': '1'},
+                                        {'color': 'D15A4B', 'id': '3'}
+                                    ]
+                                    // Match focus area ID to newColors array
+                                    _(newColors).each(function(color){
+                                        if (color.id == feature.properties.focus_area){
+                                           return newOptions['marker-color'] = color.color;
+                                        };
+                                    })
+                                    var clusterBrief = L.popup({
+                                            closeButton:false,
+                                            offset: new L.Point(0,-20)
+                                        }).setContent(feature.properties.description);
+                                    layer.on('mouseover',function(){
+                                        clusterBrief.setLatLng(this.getLatLng());
+                                        view.map.openPopup(clusterBrief);
+                                        layer.setIcon(L.mapbox.marker.icon(newOptions));
+                                    }).on('mouseout',function(){
+                                        view.map.closePopup(clusterBrief);
+                                        layer.setIcon(L.mapbox.marker.icon(oldOptions));
+                                    })
+                                }
+                                
+                                // Create a geoJSON with locations
+                                var markerLayer = L.geoJson(locations, {
+                                    pointToLayer: L.mapbox.marker.style,
+                                    onEachFeature: onEachFeature
+                                });
+                                // Add the geoJSON to the cluster layer
+                                view.markers.addLayer(markerLayer);
+                                // Add cluster layer to map
+                                view.map.addLayer(view.markers);
+                            });
                         });
                     }
                 }
@@ -160,7 +211,7 @@ views.ProjectMap = Backbone.View.extend({
                 q = queue(1);
 
             q.defer(function(cb) {
-                _.each(g.feed.entry, function(row) {
+                _(g.feed.entry).each(function(row) {
                     if (row.gsx$type.$t === 'Global' || (row.gsx$type.$t === 'HQ' && row.gsx$id.$t === view.model.get('region_id'))
                         ) {
                         //if (row.gsx$twitter.$t) twitterAccts.push(row.gsx$twitter.$t.replace('@',''));
@@ -190,7 +241,7 @@ views.ProjectMap = Backbone.View.extend({
             // Gather photos from documents, twitter, and flickr, in that order
             q.defer(function(cb) {
                 if (that.model.get('document_name')) {
-                    _.each(that.model.get('document_name')[0], function (photo, i) {
+                    _(that.model.get('document_name')[0]).each(function (photo, i) {
                         try {
                             var filetype = photo.split('.')[1].toLowerCase();
                         }
@@ -225,7 +276,7 @@ views.ProjectMap = Backbone.View.extend({
         });
 
         function contacts(social) {
-            _.each(['web','email','facebook','twitter','flickr'], function(v) {
+            _(['web','email','facebook','twitter','flickr']).each(function(v) {
                 var link = '',
                     i = 0;
 
@@ -235,7 +286,7 @@ views.ProjectMap = Backbone.View.extend({
                     if (v == 'flickr') baseUrl = 'http://flickr.com/photos/';
 
                     if (social[v]) {
-                        _.each(social[v], function(x) {
+                        _(social[v]).each(function(x) {
                             i += 1;
                             link += '<a href="' + baseUrl + social[v] + '">' +
                                     ((v == 'twitter') ? '@' + social[v] : social[v]) + '</a>';
@@ -272,7 +323,7 @@ views.ProjectMap = Backbone.View.extend({
         function filterTweets(t) {
             if (t.length) {
                 var i = 0;
-                _.each(t, function(x) {
+                _(t).each(function(x) {
                     i++;
                     if (x.entities.urls.length) {
                         _(x.entities.urls).each(function(url) {
@@ -360,7 +411,7 @@ views.ProjectMap = Backbone.View.extend({
             $el.show();
             loadPhoto(i);
         } else {
-            _.each(account, function(acct) {
+            _(account).each(function(acct) {
                 // Get user info based on flickr link
                 $.getJSON(apiBase + 'flickr.urls.lookupUser&api_key=' + apiKey + '&url=http://www.flickr.com/photos/' + acct, function(f) {
                     searchPhotos(f.user.id, search);
@@ -409,7 +460,7 @@ views.ProjectMap = Backbone.View.extend({
 
                         getSize('Medium 800');
                         function getSize(sizeName) {
-                            _.each(s.sizes.size, function(z) {
+                            _(s.sizes.size).each(function(z) {
                                 if (z.label == sizeName) {
                                     source = z.source;
                                     pHeight = z.height;

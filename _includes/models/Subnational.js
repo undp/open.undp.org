@@ -9,14 +9,19 @@ models.Subnational = Backbone.Model.extend({
         } else {
             geojson = [];
             _(sub).each(function(data){
+                
                 var feature = {
                     "type":"Feature",
                     "properties":{
                         project:model.get('id'),
+                        output_id: data.outputID,
                         title:model.get('title'),
                         precision: data.precision,
                         scope: data.scope,
-                        type: data.type
+                        focus_area: data.focus_area,
+                        focus_descr: data.focus_area_descr,
+                        type: data.type,
+                        'marker-size': 'small'
                         },
                     "geometry": {
                         "type": "Point",
