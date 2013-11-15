@@ -180,24 +180,39 @@ views.Map = Backbone.View.extend({
                         //draw country outline with the topojson file
                         if (!IE || IE_VERSION > 8){
                             view.outline.clearLayers();
+
                             $.getJSON('api/world-50m-s.json',function(world){
-                            var topoFeatures = topojson.feature(world, world.objects.countries).features,
-                                selectedFeature = _(topoFeatures).findWhere({id:iso}),
-                                coords = selectedFeature.geometry.coordinates;
-                            view.outline.addData(selectedFeature)
-                                .setStyle({
-                                    "color": "#b5b5b5",
-                                    "weight": 3,
-                                    clickable: false
-                                });
+                                var topoFeatures = topojson.feature(world, world.objects.countries).features,
+                                    selectedFeature = _(topoFeatures).findWhere({id:iso}),
+                                    coords = selectedFeature.geometry.coordinates;
                                 
                                 if (parent.get('id') === 'RUS') {
                                     view.map.setView([parent.lat,parent.lon],2);
+                                } else if (parent.get('id') === 'IND') {
+                                    $.getJSON('api/india_admin0.json',function(disputes){
+                                        var topoFeatures = topojson.feature(disputes, disputes.objects.india_admin0).features;
+
+                                        _(topoFeatures).each(function(f){
+                                             view.outline.addData(f)
+                                                    .setStyle({
+                                                        "color": "#b5b5b5",
+                                                        "weight": 0,
+                                                        clickable: false
+                                                    });
+                                        });
+                                    });
+                                view.outline.addTo(view.map); 
+                                view.map.fitBounds(ctyBounds(coords));
                                 } else {
                                     view.map.fitBounds(ctyBounds(coords));
+                                    view.outline.addData(selectedFeature)
+                                        .setStyle({
+                                            "color": "#b5b5b5",
+                                            "weight": 0,
+                                            clickable: false
+                                    });
+                                    view.outline.addTo(view.map);
                                 }
-                                
-                                view.outline.addTo(view.map);
                             });
                         } else {
                             view.map.setView([parent.lat,parent.lon],4);
