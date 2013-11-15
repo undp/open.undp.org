@@ -51,6 +51,7 @@ views.ProjectMap = Backbone.View.extend({
             for (var i = 0; i < data.length; i++) {
                 var o = data[i];
                 if (o.id === unit) {
+
                 
                     if (!view.options.embed) view.getwebData(o);
                     $('#country-summary').html(templates.ctrySummary(o));
@@ -61,25 +62,46 @@ views.ProjectMap = Backbone.View.extend({
                         view.$el.hide();
                     } else {
                         var iso = parseInt(o.iso_num);
-                        
-                        if (!IE || IE_VERSION > 8){
+                            // second try
+                            if (!IE || IE_VERSION > 8){
+                            view.outline = new L.GeoJSON();
                             $.getJSON('api/world-50m-s.json',function(world){
                                 var topoFeatures = topojson.feature(world, world.objects.countries).features,
                                     selectedFeature = _(topoFeatures).findWhere({id:iso}),
                                     coords = selectedFeature.geometry.coordinates;
-    
-                                outline = L.geoJson(selectedFeature, {
-                                    style: {
-                                        "color": "#b5b5b5",
-                                        "weight": 3,
-                                        clickable: false
-                                    }
-                                }).addTo(view.map);
-                                
-                                if (o.id === 'RUS') {
-                                    view.map.setView([o.lat,o.lon],1);
+                                if (iso == 643) {
+                                    view.map.setView([55,65],2);
+                                    view.outline.addData(selectedFeature)
+                                        .setStyle({
+                                            "color": "#b5b5b5",
+                                            "weight": 0,
+                                            clickable: false
+                                    });
+                                    view.outline.addTo(view.map);
+                                    
+                                } else if (iso == 356) {
+                                   $.getJSON('api/india_admin0.json',function(india){
+                                        var topoFeatures = topojson.feature(india, india.objects.india_admin0).features;
+                                        _(topoFeatures).each(function(f){
+                                            view.outline.addData(f)
+                                                .setStyle({
+                                                    "color": "#b5b5b5",
+                                                    "weight": 0,
+                                                    clickable: false
+                                            });
+                                        });
+                                    });
+                                    view.outline.addTo(view.map); 
+                                    view.map.fitBounds(ctyBounds(coords));
                                 } else {
                                     view.map.fitBounds(ctyBounds(coords));
+                                    view.outline.addData(selectedFeature)
+                                        .setStyle({
+                                            "color": "#b5b5b5",
+                                            "weight": 0,
+                                            clickable: false
+                                    });
+                                    view.outline.addTo(view.map);
                                 }
                             });
                         } else {

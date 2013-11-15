@@ -188,9 +188,16 @@ views.Map = Backbone.View.extend({
                                 
                                 if (parent.get('id') === 'RUS') {
                                     view.map.setView([parent.lat,parent.lon],2);
+                                    view.outline.addData(selectedFeature)
+                                        .setStyle({
+                                            "color": "#b5b5b5",
+                                            "weight": 0,
+                                            clickable: false
+                                    });
+                                    view.outline.addTo(view.map);
                                 } else if (parent.get('id') === 'IND') {
-                                    $.getJSON('api/india_admin0.json',function(disputes){
-                                        var topoFeatures = topojson.feature(disputes, disputes.objects.india_admin0).features;
+                                    $.getJSON('api/india_admin0.json',function(india){
+                                        var topoFeatures = topojson.feature(india, india.objects.india_admin0).features;
 
                                         _(topoFeatures).each(function(f){
                                              view.outline.addData(f)
