@@ -20,7 +20,6 @@ routers.App = Backbone.Router.extend({
             this.navigate(CURRENT_YR, {trigger: true});
         }
     },
-    
     widgetRedirect: function(route) {
         this.navigate(CURRENT_YR + '/widget/' + route, {trigger: true});
     },
@@ -56,21 +55,23 @@ routers.App = Backbone.Router.extend({
     
     fiscalyear: function (year, route, embed) {
         var that = this;
+        
         if (!$('#y' + year).length) {
              //passing in year index js (json)
             loadjsFile('api/project_summary_' + year + '.js', year, function() {
                 that.browser(year, route, embed);
             });
         } else {
+
             that.browser(year, route, embed);
         }
+
     },
 
     browser: function (year, route, embed) {
 
         var that = this,
             unit = false;
-
         if (!embed) {
             // Load in the top donors info and feedbackform dets.
             this.mainApp();
@@ -120,6 +121,7 @@ routers.App = Backbone.Router.extend({
             $('html, body').scrollTop(0);
         } else {
             // slicing the selected facets and getting the json items
+
             var filter = function (model) {
                 if (!filters.length) return true;
                 return _(filters).reduce(function (memo, filter) {
@@ -226,6 +228,7 @@ routers.App = Backbone.Router.extend({
             setTimeout(function() {
 
                 // Clear search values on refresh
+
                 $('#filters-search, #projects-search').val('');
     
                 if (_(filters).find(function(f) {
@@ -300,7 +303,7 @@ routers.App = Backbone.Router.extend({
         
     },
 
-    project: function (id, output, embed) {
+    project: function (id, output, embed,collection) {
         var that = this;
 
         if (!embed) {
@@ -321,7 +324,7 @@ routers.App = Backbone.Router.extend({
         this.project.model = new models.Project({
             id: id
         });
-
+        
         this.project.model.fetch({
             success: function () {
                 if (that.project.view) that.project.view.undelegateEvents();
@@ -351,7 +354,9 @@ routers.App = Backbone.Router.extend({
         options = (options) ? options.split('&') : [];
 
         if (path[0] === 'project') {
-            that.project(parts[0].split('/')[1], false, options);
+             loadjsFile('api/project_summary_' + year + '.js', year, function() {
+                   that.project(parts[0].split('/')[1], false, options);
+                });
         } else {
             var route = parts[0];
             if (route === '') route = undefined;

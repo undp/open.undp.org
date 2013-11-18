@@ -17,6 +17,7 @@ views.ProjectMap = Backbone.View.extend({
         return description;
     },
     render: function() {
+//        debugger;
         var view = this,
             locations = [],
             unit = this.model.get('operating_unit_id'),
@@ -40,7 +41,7 @@ views.ProjectMap = Backbone.View.extend({
             for (var i = 0; i < data.length; i++) {
                 var o = data[i];
                 if (o.id === unit) {
-                
+            //debugger;    
                     if (!view.options.embed) view.getwebData(o);
                     $('#country-summary').html(templates.ctrySummary(o));
 
