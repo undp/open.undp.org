@@ -15,7 +15,7 @@ function ctyBounds(coords) {
 }
 
 $(function() {
-    var BASE_URL = 'http://open.undp.org/',
+    var BASE_URL = 'http://localhost/',
         widgetOts = [],
         models = {},
         views = {},
@@ -226,3 +226,12 @@ $(function() {
         Backbone.history.start();
     });
 });
+
+window.closeModal = function(){
+    $('#widget').modal('hide');
+};
+function redirect(project_id){
+    var path = window.location.protocol +"//"+window.location.host + '/#project/' + String(project_id);
+    window.parent.closeModal();
+    parent.window.location.href = path;
+}
