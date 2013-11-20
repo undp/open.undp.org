@@ -27,18 +27,6 @@ routers.App = Backbone.Router.extend({
 
     mainApp: function () {
 
-        // About nav toggle
-        $('#mainnav a.parent-link').click(function(e) { //TODO avoid initial click which changes path
-            e.preventDefault();
-            var $target = $(e.target);
-
-            if ($target.parent().hasClass('parent-active')) {
-                $target.parent().removeClass('parent-active');
-            } else {
-                $target.parent().addClass('parent-active');
-            }
-        });
-
         // Handle feedback form submission
         $('#feedback-form').submit(function (e) {
             // Require 'Feedback' field to have content
@@ -66,7 +54,6 @@ routers.App = Backbone.Router.extend({
             return false;
         });
     },
-    
     fiscalyear: function (year, route, embed) {
         var that = this;
         if (!$('#y' + year).length) {
@@ -86,7 +73,7 @@ routers.App = Backbone.Router.extend({
 
         if (!embed) {
             // Load in the top donors info and feedbackform dets.
-            this.mainApp();
+            // this.mainApp();
             window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
 
             // Set up breadcrumbs
@@ -136,14 +123,16 @@ routers.App = Backbone.Router.extend({
                 }, true);
             };
             this.app.filters = filters;
-
-            var loadFilters = function() {
+            //TODO
+            var loadFilters = function() { //this is being loaded multiple times
                 var counter = 0;
                 that.app.views = {};
                 // Load filters
                 _(facets).each(function (facet) {
 
                     var collection = new models.Filters();
+
+                    $('#filter-items').find('#'+facet.id).remove();
                     $('#filter-items').append('<div id="' + facet.id + '" class="topics"></div>');
 
                     _(facet).each(function (v, k) {
@@ -312,8 +301,6 @@ routers.App = Backbone.Router.extend({
         this.nav = new views.Nav();
 
         if (!embed) {
-            // Load in feedbackform dets.
-            this.mainApp();
 
             window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
 
@@ -384,7 +371,6 @@ routers.App = Backbone.Router.extend({
         $('#about #' + route).show();
         $('#mainnav li.parent').addClass('parent-active');
     },
-
     topDonors: function (route) {
         var that = this;
 

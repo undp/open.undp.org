@@ -1231,7 +1231,14 @@ form {
     border-top:1px solid #ddd;
     border-bottom:1px solid #ddd;
     }
-
+/* year toggle */
+#year .filter-items a.inactive {
+  display:none;
+  }
+#year .filter-items a,
+#year .filter-items a.active {
+  display:block;
+  }
 .tab-content {
   overflow:hidden;
   }
@@ -1246,9 +1253,6 @@ form {
     .nav a:focus {
       color:#333;
       }
-.nav .projects-tab {
-  background: #dbe9ed;
-}
 
 .label {
   background:none;
