@@ -231,7 +231,12 @@ window.closeModal = function(){
     $('#widget').modal('hide');
 };
 function redirect(project_id){
-    var path = window.location.protocol +"//"+window.location.host + '/#project/' + String(project_id);
-    window.parent.closeModal();
+    var path = window.location.origin + '/#project/' + String(project_id);
+    try{
+        window.parent.closeModal();
+    }
+    catch(e){
+
+    }
     parent.window.location.href = path;
 }
