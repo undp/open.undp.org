@@ -275,7 +275,6 @@ views.Map = Backbone.View.extend({
                             view.map.closePopup(clusterBrief);
                         }).on('click',function(){
                             path = '#project/'+ feature.properties.project;
-                            //debugger;
                             if (!view.options.embed){view.goToLink(path)}else{
 
                                var curr = window.location.host;
@@ -283,7 +282,7 @@ views.Map = Backbone.View.extend({
                                 window.parent.closeModal();
                                }
                                catch(e){
-                                
+
                                }
                                 window.location.href = window.location.origin +
                                         "/" + path;
