@@ -1,0 +1,6 @@
+
+  <tr id="#project/<%= model.id %>">
+      <td><a href="#project/<%= model.id %>" onclick="redirect('<%= model.id %>')"><%= model.name %></a></td>
+      <td><%=accounting.formatMoney(model.budget)%></td>
+      <td><%=model.expenditure%></td>
+  </tr>
