@@ -238,5 +238,5 @@ function redirect(project_id){
     catch(e){
 
     }
-    parent.window.location.href = path;
+    window.location.href = path;
 }
