@@ -15,7 +15,7 @@ function ctyBounds(coords) {
 }
 
 $(function() {
-    var BASE_URL = 'http://localhost/',
+    var BASE_URL = 'http://open.undp.org/',
         widgetOts = [],
         models = {},
         views = {},
