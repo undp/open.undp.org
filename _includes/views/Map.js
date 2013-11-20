@@ -285,7 +285,7 @@ views.Map = Backbone.View.extend({
                                catch(e){
                                 
                                }
-                                parent.window.location.href = window.location.origin +
+                                window.location.href = window.location.origin +
                                         "/" + path;
                                
                             };
