@@ -284,12 +284,14 @@ views.Map = Backbone.View.extend({
 
                                }
                                if(parent.window.location.host ==window.location.host){
-                                parent.window.location.href = window.location.host +
+                                parent.window.location.href = window.location.protocol + "//" +
+                                                window.location.host  +
                                         "/" + path;
                                }
                                else
                                {
-                                window.location.href = window.location.host +
+                                window.location.href = window.location.protocol + "//" +
+                                                        window.location.host +
                                         "/" + path;
                                }
                                 
