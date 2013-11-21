@@ -275,17 +275,24 @@ views.Map = Backbone.View.extend({
                             view.map.closePopup(clusterBrief);
                         }).on('click',function(){
                             path = '#project/'+ feature.properties.project;
-                            if (!view.options.embed){view.goToLink(path)}else{
 
-                               var curr = window.location.host;
+                            if (!view.options.embed){view.goToLink(path)}else{
                                try{
                                 window.parent.closeModal();
                                }
                                catch(e){
 
                                }
-                                window.location.href = window.location.origin +
+                               if(parent.window.location.host ==window.location.host){
+                                parent.window.location.href = window.location.host +
                                         "/" + path;
+                               }
+                               else
+                               {
+                                window.location.href = window.location.host +
+                                        "/" + path;
+                               }
+                                
                                
                             };
                         });
