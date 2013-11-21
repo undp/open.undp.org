@@ -1,250 +1,242 @@
-<div class='row-fluid separator' id='project-heading'>
-  <div class='col col-700'>
-    <h3 class='heading-title'><%= model.get('project_title').toLowerCase().toTitleCase() %></h3>
-    <div id='project-descr'>
-      <p class='heading-desc'><%= model.get('project_descr') %></p>
-    </div>
-  </div>
-</div>
+views.ProjectProfile = Backbone.View.extend({
+    events: {
+        'click .widget-config': 'requestIframe',
+        'click .load a': 'loadMore'
+    },
 
-<div class='col col-700 col-mar-10 projects summary'>
-  <div id='top-stats' class='row-fluid'>
+    initialize: function() {
+        this.render();
 
-    <div class='span5'>
-      <div class='row-fluid'>
-        <div class='label visible-phone'>Location</div>
-        <div id='profilemap' class='map'></div>
-        <!-- Country at a Glance -->
-        <div class='row-fluid country-profile'>
-          <div class='inner'>
-            <h3><%= model.get('operating_unit')%> at a glance in <%= model.get('fiscal_year')[0] %></h3>
-            <div id='country-summary'></div>
-          </div>
-        </div>
-      </div>
-    </div>
+        //console.dir(this);
+        var outputID = this.options.gotoOutput;
+        if (outputID) {
+            window.setTimeout(function() { window.scrollTo(0, $('#output-' + outputID).offset().top); }, 0);
+        }
 
-    <!-- Project Progress Bar -->
-    <div class='span7'>
-      <div class='row-fluid'>
-        <div class='span12 dates'>
-          <div class='label'>Project Timeline
-              <a data-toggle='modal' class='about-data pull-right' href='#about-data'>
-                  <i class='icon-exclamation-sign icon-dark'></i> About the data
-              </a>
-          </div>
-          <div class='dates-label'>
-            <span class='start'><%= start %></span>
-            <span class='end'><%= end %></span>
-          </div>
-          <div id='progress' class='progress'>
-            <div class='bar'></div>
-          </div>
-        </div>
-      </div>
-      <div class='row-fluid stat finance'>
-        <div>
-          <div class='span2'>
-          </div>
-          <div class='span5'>
-            <div class='label'>Budget</div>
-          </div>
-          <div class='span5'>
-            <div class='label'>Expenditure</div>
-          </div>
-        </div>
-        <% var prevBudget = null,
-               prevExpend = null,
-               fYears = FISCALYEARS.slice().reverse();
-           _.each(fYears, function(y,i) { 
-             if (model.get('budgetyears')[y] != undefined) { %>
-           <div>
-             <div class='span2'>
-               <div class='fiscalyear'><%= y %></div>
-             </div>
-             <div class='span5'>
-               <% if (y === '2010') { %>
-                 <div><em>no data</em>
-               <% } else { %>
-                 <div><%= accounting.formatMoney(model.get('budgetyears')[y]) %>
-               <% } %>
-                 <% if (prevBudget != null && prevBudget > 0) { 
-                      var change = (((model.get('budgetyears')[y] - prevBudget)/prevBudget)*100),
-                          changeSign = (change > 0) ? '+' : '';
-                 %>
-                      <span class='fiscalchange'><%= changeSign %><%= (change >= 100) ? change.toFixed(0) : change.toFixed(1) %>%</span>
-                 <% } %>
-               </div>
-             </div>
-             <div class='span5'>
-               <div><%= accounting.formatMoney(model.get('expendyears')[y]) %>
-                 <% if (prevExpend != null) { 
-                      var change = (((model.get('expendyears')[y] - prevExpend)/prevExpend)*100),
-                          changeSign = (change > 0) ? '+' : '';
-                 %>
-                      <span class='fiscalchange'><%= changeSign %><%= (change >= 100) ? change.toFixed(0) : change.toFixed(1) %>%</span>
-                 <% } %>
-               </div>
-             </div>
-           </div>
-           <%
-           if (y != '2010') prevBudget = model.get('budgetyears')[y];
-           prevExpend = model.get('expendyears')[y];
-           } %>
-        <% }); %>
-      </div>
-      <% if (model.get('inst_descr')) { %>
-      <div class='row-fluid stat'>
-        <div class='span12'>
-          <div class='label'>Implementing Organization</div>
-          <p><%= model.get('inst_descr') %></p>
-        </div>
-      </div>
-      <% } %>
-      <div class='row-fluid stat'>
-        <div class='span12'>
-          <div class='label'>Budget Sources</div>
-          <%
-          var donors_id, donors_short, donors_long,
-              q = queue();
-          
-          q.defer(function(cb) {
-              donors_id = _.chain(model.get('outputs'))
-                  .map(function (o) { return o.donor_id })
-                  .flatten()
-                  .union()
-                  .value();
-              cb();
-          });
-          q.defer(function(cb) {
-              donors_short = _.chain(model.get('outputs'))
-                  .map(function (o) { return o.donor_short })
-                  .flatten()
-                  .union()
-                  .value();
-              cb();
-          });
-          q.defer(function(cb) {
-              donors_long = _.chain(model.get('outputs'))
-                  .map(function (o) { return o.donor_name })
-                  .flatten()
-                  .union()
-                  .value();
-              cb();
-          });
-          %>
-          <p>
-            <%
-            q.await(function() {
-                if (donors_long.length < 5) {
-                    _.each(donors_id, function(o,i) { %>
-                <a href='#filter/donors-<%= o %>'><%= donors_long[i] %></a><% if (i != donors_id.length -1) { %>, <% } %>
-                <% });
-                } else {
-                    _.each(donors_id, function(o,i) { %>
-                <a href='#filter/donors-<%= o %>'><%= donors_short[i] %></a><% if (i != donors_id.length -1) { %>, <% } %>
-                <% });
-                }
+        $('#all-projects').on('click', function(e) {
+            if (app.app) {
+                e.preventDefault();
+                window.history.back();
+            }
+        });
+
+        $('#profile .summary').removeClass('off');
+        this.low = 10,
+        this.high = 10;
+    },
+
+    render: function() {
+        $('#breadcrumbs ul').html(
+            '<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' +
+            '<li><a href="' + BASE_URL + '">Our Projects</a></li>' +
+            '<li><a href="#' + CURRENT_YR + '/filter/operating_unit-' + this.model.get('operating_unit_id') + '">' + this.model.get("operating_unit") + '</a></li>' +
+            '<li><a href="#project/' + this.model.get('id') + '">' + this.model.get('id') + '</a></li>'
+        );
+
+
+        var start = this.model.get('start').split('-');
+        var end = this.model.get('end').split('-');
+
+        var startDate = new Date(start[0],start[1]-1,start[2]),
+            endDate = new Date(end[0],end[1]-1,end[2]),
+            curDate = new Date(),
+            progress = ((curDate - startDate) / (endDate - startDate)) * 100;
+            that = this;
+
+        this.model.attributes.budget = _.chain(this.model.attributes.outputs)
+            .map(function (o) { return o.budget; })
+            .flatten()
+            .reduce(function(memo, num){ return memo + num; }, 0)
+            .value();
+
+        this.model.attributes.expenditure = _.chain(this.model.attributes.outputs)
+            .map(function (o) { return o.expenditure; })
+            .flatten()
+            .reduce(function(memo, num){ return memo + num; }, 0)
+            .value();
+
+        this.model.attributes.budgetyears = _.reduce(this.model.attributes.outputs, function (res, obj) {
+            _.each(obj.fiscal_year, function(o,i) {
+                res[o] = (res[o] || 0) + obj.budget[i];
             });
-            %>
-          </p>
-        </div>
-      </div>
-      <% if (!_.isEmpty(documents)) { %>
-      <div class='row-fluid documents'>
-        <div class='span12'>
-          <div class='label'>Documents</div>
-          <div id='documents' class='row-fluid'>
-            <div class='span12'>
-              <ul class='unstyled'>
-                <% _.each(documents, function(doc) { %>
-                <li><a href='<%= doc.src %>'>
-                  <span class='icon filetype filetype-<%= doc.filetype %>'></span>
-                  <%= doc.title %></a>
-                </li>
-                <% }); %>
-              </ul>
-            </div>
-          </div>
-          <!--/ #documents -->
-        </div>
-      </div>
-      <% } %>
-    </div>
-  </div>
+            return res;
+            },{});
 
-  <!--/ #top-stats -->
-  <% if (model.get('outputs')) { %>
-    <div class='separator' id='output-header'>
-      <h2 class='heading-title'>
-        <% if (model.get('outputs').length === 1) { %>
-        <span>1</span> Project<% } else { %>
-        <span><%= model.get('outputs').length %></span> Projects
-        <% } %>
-      </h3>
-    </div>
-    <div id='outputs'></div>
-    <div class='load'>
-      <a href='#' class='button'>Load More</a>
-    </div>
-  <% } %>
-</div>
-<!--/ #summary -->
+        this.model.attributes.expendyears = _.reduce(this.model.attributes.outputs, function (res, obj) {
+            _.each(obj.fiscal_year, function(o,i) {
+                res[o] = (res[o] || 0) + obj.expenditure[i];
+            });
+            return res;
+            },{});
 
-<div id='content-right' class='col col-150 col-end hidden-phone'>
+        var s = this.model.get('start').split('-');
+        var e = this.model.get('end').split('-');
 
-  <div id='flickr' class='row-fluid'>
-    <div class='spin'></div>
-    <img class='fade' src='' alt='' />
-    <div class='resize' title='Resize'>
-      <div class='icon fullscreen'></div>
-      <span class='text'>Details</span>
-    </div>
-    <div class='control prev' title='Previous'>
-      <div class='icon back'></div>
-    </div>
-    <div class='control next' title='Next'>
-      <div class='icon forward'></div>
-    </div>
-    <!-- Captions -->
-    <div class='meta'></div>
-  </div>
-  <div id='twitter-block' class='inner'>
-    <div class='row-fluid'>
-      <div class='span12'>
-        <div class='tweet fade'></div>
-        <div id='twitter'></div>
-      </div>
-    </div>
-  </div>
-  <% if (window.self === window.top) {  %>
-  
-  <a href='#widget' class='widget-config' data-toggle='modal'>Embed<span class='icon embed'></span></a>
-  <% } %>
-</div>
-<!--/ #content-right -->
+        var start = new Date(s[0],s[1]-1,s[2]).format('M d, Y');
+        var end = new Date(e[0],e[1]-1,e[2]).format('M d, Y');
 
-<!-- Modals -->
-<div class='modal hide fade' id='unit-contact'>
-  <div class='modal-header'>
-    <button type='button' class='close' data-dismiss='modal'>&times;</button>
-    <h3>UNDP <%= model.get('operating_unit') %> on the Web</h3>
-  </div>
-  <div class='modal-body'>
-  </div>
-</div>
+        var documents = [];
+        if (this.model.get('document_name')) {
+            
+            var filterDocNames = _(this.model.get('document_name')[0]).filter(function(n) {
+                return !(/\.(gif|jpg|jpeg|tiff|png)$/i).test(n);
+            });
+            var filterDocUrls = _(this.model.get('document_name')[1]).filter(function(d) {
+                return !(/\.(gif|jpg|jpeg|tiff|png)$/i).test(d);
+            });
+            
+            
+             if (filterDocNames.length !== 0) {
+                _(filterDocNames).each(function(d, i) {
+                    documents[i] = {};
+                    var title = d;
+                    if (title.length > 38) {
+                        documents[i].title = title.substring(0, 38) + '...';
+                    } else {
+                        documents[i].title = title;
+                    }
+                    documents[i].filetype = d.split('.').pop();
+                });
+                _(filterDocUrls).each(function(d, i) {
+                    documents[i].src = d;
+                });
+            }
+        }
 
-{% for data in site.categories.aboutdata %}
-<div class='modal hide fade' id='about-data'>
-  <div class='modal-header'>
-    <button type='button' class='close' data-dismiss='modal'>&times;</button>
-    <h3>{{data.title}}</h3>
-  </div>
+        window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
 
-  <div class='modal-body'>
-  {{data.content}} 
+        if (this.options.embed) {
+            this.$el.empty().append(templates.embedProjectProfile({
+                start: start,
+                end: end,
+                documents: documents,
+                model: this.model
+            }));
 
-  </div>
-</div>
-{% endfor %}
+            // Depending on the options passed into the array add a fade
+            // in class to all elements containing a data-option attribute
+            if (this.options.embed) {
+                _(this.options.embed).each(function (o) {
+                    $('[data-option="' + o + '"]').show();
+                });
+            }
 
+        } else {
+            this.$el.empty().append(templates.projectProfile({
+                start: start,
+                end: end,
+                base: BASE_URL,
+                documents: documents,
+                model: this.model
+            })).show();
+        }
+
+        // If first load is a project page or output, don't animate
+        if (app.app && this.options.gotoOutput === false) {
+            $('#profile .summary').addClass('off');
+        }
+
+        this.map = new views.ProjectMap({
+            el: '#profilemap',
+            model: this.model,
+            embed: this.options.embed,
+            render: true
+        });
+
+        
+
+        $('#progress').find('.bar').css('width', progress + '%');
+
+        this.$('#outputs').empty();
+        
+//            alert(window.location.href);
+        if (this.model.attributes.outputs) {
+            var outputs = this.model.attributes.outputs.slice(0, 9);
+            
+            var location = window.location.href;
+                if(location.indexOf("embed")>=0)
+                {
+                    this.$('#outputs').append(templates.projects())
+                }
+            _(outputs).each(function(model) {
+                if(location.indexOf("embed")<0)
+                {
+                    this.$('#outputs').append(templates.projectOutputs({ model: model }));
+                }   
+            });
+    
+            // Project Outputs
+            
+             if(location.indexOf("embed")>=0)
+            {
+               var curr_p_id = outputs[0].award_id;
+               
+               var item_seed = _(SUMMARY).find(function(item){
+                    return item.id == curr_p_id;
+               });
+
+               var operating_unit = item_seed.operating_unit;
+                var all_project_currents = _(SUMMARY).filter(function(item){
+                    return item.operating_unit == operating_unit;
+               });
+                this.$('#outputs #project-table tbody').empty();
+                _(all_project_currents).each(function(model) {
+                     this.$('#outputs #project-table tbody').append(templates.projectOutputs2({ model: model }));
+                });
+                $('#output-header').empty();
+                $('#output-header').append('<h2 class="heading-title"> <span>'+
+                                            all_project_currents.length+'</span> Projects</h2>');
+            }
+
+            if (this.model.attributes.outputs.length < 10) {
+                $('.load').hide();
+            } else {
+                $('.load').show();
+            }
+        }
+
+        // Append menu items to the breadcrumb
+        $('breadcrumbs').find('ul').remove();
+
+        return this;
+    },
+
+    requestIframe: function() {
+        var context = $('#widget');
+        widgetOpts = ['title','map','outputs'];
+
+        $('.widget-options a',context).removeClass('active');
+        _(widgetOpts).each(function(widgetTitle){
+            var widgetEl =widgetTitle + '-opt';
+            $("." + widgetEl).find('a').addClass('active');
+        })
+
+        embedPath = location.hash.replace('project', 'widget/project');
+
+        defaultIframe = '<iframe src="{{site.baseurl}}/embed.html' + embedPath + '?' +
+        widgetOpts.join('&') +
+        '" width="680" height="500" frameborder="0"> </iframe>';
+        $('.widget-preview', context).html(defaultIframe);
+        $('.widget-code', context)
+            .val(defaultIframe.replace('src="{{site.baseurl}}/','src="' + BASE_URL))
+            .select();
+    },
+
+    loadMore: function(e) {
+        this.low = this.high;
+        this.high += 10;
+
+        var outputs = this.model.attributes.outputs.slice(this.low, this.high);
+
+        if (outputs.length) {
+            _(outputs).each(function(model) {
+                this.$('#outputs').append(templates.projectOutputs({ model: model }));
+            });
+        } else {
+            $(e.target).text('All Projects Loaded').addClass('disabled');
+        }
+
+        return false;
+    }
+
+});
