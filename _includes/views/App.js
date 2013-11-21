@@ -1,207 +1,285 @@
-<div class='tab-content col col-540 col-mar-10'>
-  <ul class='nav nav-tabs'>
-    <li class='active'><a data-toggle='tab' href='#summary-tab'>Summary</a></li>
-    <li><a data-toggle='tab' class='projects-tab' href='#projects-tab'>Project Listing</a></li>
-  </ul>
-  <div id='summary-tab' class='summary tab-pane active'>
-    <div class='clearfix row-fluid' id='main-container'>
-      <!--beigin of upper-->
-      <div id='map-view'>
-        <!--Layer Switcher on the Map-->
-        <ul class='layers clearfix'>
-          <li>
-            <a href='#' class='map-btn budget active' data-value='budget'>
-              <span id='total-budget' class='total'></span>
-              <span class='total-caption'><%= year %> Budget</span>
-            </a>
-          </li>
-          <li>
-            <a href='#' class='map-btn' data-value='expenditure'>
-              <span id='total-expenditure' class='total'></span>
-              <span class='total-caption'><%= year %> Expenditure</span>
-            </a>
-          </li>
-          <li>
-            <a href='#' class='map-btn' data-value='count'>
-              <span id='total-count' class='total'></span>
-              <span class='total-caption'>Projects</span>
-            </a>
-          </li>
-          <li>
-            <a href='#' class='map-btn' data-value='sources'>
-              <span id='total-donors' class='total'></span>
-              <span class='total-caption'>Budget Sources</span>
-            </a>
-          </li>
-          <li class='hdi'>
-            <a href='#' class='map-btn' data-value='hdi'>
-              <span id='hdi' class='total'>0.682</span>
-              <span class='total-caption'>HDI Global</span>
-              <span class='graph'>Graph</span>
-            </a>
-          </li>
-        </ul>
-        <!--/ .layers -->
+views.App = Backbone.View.extend({
+    events: {
+        'click a.filter': 'setFilter',
+        'keyup #filters-search': 'searchFilter',
+        'click #filters .label': 'toggleFilter',
+        'click #filters .reset': 'clearFilter',
+        'click #projects-tab .reset': 'clearSearch',
+        'click .map-btn': 'mapLayerswitch',
+        'click .widget-config': 'requestIframe',
+        'submit .form-search': 'submitForm',
+        'click #yearselect .dropdown-menu a': 'yearChange',
+        'click .map-filter':'mapFilter',
+        'click .nav.nav-tabs a': 'activeMap'
+    },
+    
+    initialize: function(options) {
+        var view = this;
 
-        <!--The Map-->
-        <div class='map-container'>
-          <div id='homemap' class='map inner-shadow'></div>
-          <div id='map-filters' class='disabled'>
-            <ul>
-              <li>Filter on precision:</li>
-              <li><a id='type-10' class='map-filter active' href='#'>All</a></li>
-              <li><a id='type-4' class='map-filter' href='#'>Country</a></li>
-              <li><a id='type-3' class='map-filter' href='#'>Subnational</a></li>
-              <li><a id='type-1' class='map-filter' href='#'>Street</a></li>
-          <!--<li><a id='type-2' class='map-filter' href='#'>Near exact location</a></li>-->
-          <!--<li><a id='type-5' class='map-filter' href='#'>Estimated coordinates</a></li>-->
-          <!--<li><a id='type-6' class='map-filter' href='#'>Independent political entity</a></li>-->
-          <!--<li><a id='type-7' class='map-filter' href='#'>Unclear - capital</a></li>-->
-          <!--<li><a id='type-8' class='map-filter' href='#'>Local or national capital</a></li>-->
-          <!--<li><a id='type-9' class='map-filter' href='#'>Unclear</a></li>-->
-            </ul>
-          </div>
-          <div class='span12 chart' id='chart-hdi'>
-            <div class='label'>
-              <h3>Human Development Index</h3>
-              <span class='chart-legend'>
-                <div class='thick-bar clearfix'><span></span>Country</div>
-                <div class='thin-bar'><span></span>Global Avg</div>
-              </span>
-            </div>
-            <div class='hdic'>
-              <div class='caption'>
-                <div>HDI</div>
-                <div>Health</div>
-                <div>Education</div>
-                <div>Income</div>
-              </div>
-              <div class='data'> </div>
-              <div class='details'>
-                <div class='clearfix rankchange'>
-                  <div class='ranking'></div>
-                  <div class='change'></div>
-                </div>
-                <div id='sparkline'></div>
-                <div id='xlabel' style='font-size:9px;'>
-                  <span class='beginyear'>1980</span>
-                  <span class='endyear' style='float:right;'>2011</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--Description-->
-      <div class='row-fluid separator'>
-        <div class='span12'>
-          <div id='description'>
-            {% for intro in site.categories.intro %}
-            {{intro.content}}
-            {% endfor %}
-            <p class='desc'></p>
-            <p class='geography'></p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--end of main-container-->
-    <!--Chart View-->
-    <div class='row-fluid' id='charts'>
-      <div class='span12'>
-        <!--Chart Three-->
-        <div class='row-fluid'>
-          <ul id='chart-focus_area' class='chart stat-chart clearfix'></ul>
-        </div>
-        <div class='row-fluid'>
-          <!--Chart Four -->
-          <div class='span6 chart stat-chart' id='chart-operating_unit'>
-            <h3>Top Recipient Offices</h3>
-            <span class='chart-legend'>
-              <div class='thick-bar clearfix'><span></span>Budget</div>
-              <div class='thin-bar'><span></span>Expenditure</div>
-            </span>
-            <table class='table table-unstyled'>
-              <tbody class='rows'></tbody>
-            </table>
-          </div>
-          <div class='span6 chart stat-chart' id='chart-donors'>
-            <h3>Top Budget Sources</h3>
-            <span class='chart-legend'>
-              <div class='thick-bar clearfix'><span></span>Budget</div>
-              <div class='thin-bar'><span></span>Expenditure</div>
-            </span>
-            <table class='table table-unstyled'>
-              <tbody class='rows'></tbody>
-            </table>
-          </div>
-          <!--/ #chart-operating_unit -->
-        </div>
-      </div>
-      <!--/ .span12 -->
-    </div>
-    <!--/ #charts -->
-  </div>
-  <!--/ #summary-tab -->
-  <div class='tab-pane' id='projects-tab'>
-    <div class='row-fluid'>
-      <div id='projects' class='span12'>
-        <div class='row-fluid'>
-          <div class='span12'>
-            <form class='form-search'>
-              <strong>Search for projects by title or ID:</strong>
-              <input id='projects-search' type='search' class='input-xlarge' placeholder='Search projects' />
-              <a href='#' class='icon reset hidden' title='Reset filter'>&times;</a>
-            </form>
-          </div>
-        </div>
-        <div class='row-fluid'>
-          <div class='span12'>
-            <div id='project-items'></div>
-          </div>
-        </div>
-      </div>
-      <!--/ #projects -->
-    </div>
-    <!--/ .row-fluid -->
-  </div>
-  <!--/ #projects-tab -->
-</div>
-<!-- / .tab-content -->
-<div class='col col-240 col-end col-filter hidden-phone'>
-  <div id='siderail'>
-    <div id='yearselect'>
-      <h3>Fiscal Year</h3>
-      <ul class='nav nav-pills'>
-        <li class='dropdown'>
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= year %> <b class="caret"></b></a>
-          <ul class='dropdown-menu'>
-      <% _.each(FISCALYEARS, function(y) { %>
-        <li><a href="#" data-value='<%= y %>'<% if (y === year) { %> class='active'<% } %>><%= y %></a></li>
-      <% }); %>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <div id='filters'>
-      <div class='inner'>
-        <div class='row-fluid'>
-          <div class='span12'>
-            <form class='form-search'>
-              <input id='filters-search' type='search' id='filter-field' class='input' placeholder='Find a filter' />
-              <a href='#' class='icon reset hidden' title='Reset filter'>&times;</a>
-            </form>
-          </div>
-        </div>
-        <div class='row-fluid'>
-          <div id='filter-items' class='span12'> </div>
-        </div>
-      </div>
-      <% if (window.self === window.top) {  %>   
-      <a href='#widget' class='widget-config' data-toggle='modal'>Embed<span class='icon embed'></span></a>
-      <% } %>
-    </div>
-  </div>
-  <!--/ #filters -->
-</div>
-<!-- / .col-240 -->
+        // Toggle country selector
+        $(window).on('click', '#country-selector', _(this.showCountries).bind(this));
+        $(window).on('click', '#country-list .close', _(this.hideCountries).bind(this));
+
+        this.render();
+
+        if (!this.options.embed) {
+            // Filters follow scrolling
+            var top = $('#siderail').offset().top - 12;
+            $(window).on('scroll', function () {
+                var y = $(this).scrollTop();
+                if (y >= top) {
+                    $('#siderail').addClass('fixed');
+                } else {
+                    $('#siderail').removeClass('fixed');
+                }
+            });
+        }
+    },
+
+    render: function() {
+
+        if (this.options.embed) {
+            this.$el.empty().append(templates.embedProjects());
+            // Depending on the options passed into the array add a fade
+            // in class to all elements containing a data-iotion attribute
+            if (this.options.embed) {
+                _(this.options.embed).each(function (o) {
+                    $('[data-option="' + o + '"]').show();
+                });
+            }
+
+        } else {
+            this.$el.empty().append(templates.app({
+                base: BASE_URL,
+                year: this.options.year
+            }));
+        }
+
+        return this;
+    },
+
+    setFilter: function(e) {
+        var $target = $(e.target),
+            path = '',
+            parts = ($target.attr('id')) ? $target.attr('id').split('-') : '',
+            filters = [{
+                collection: parts[0],
+                id: parts[1]
+            }],
+            year = app.fiscalYear;
+            shift = false;
+
+        this.clearFilter(e);
+
+        _(this.filters).each(function(filter) {
+            if (_.isEqual(filter, filters[0])) {
+                shift = true;
+            } else if (filter.collection !== filters[0].collection) {
+                filters.push(filter);
+            }
+        });
+
+        if (shift) filters.shift();
+
+        filters = _(filters).chain()
+            .compact()
+            .map(function(filter) {
+                return filter.collection + '-' + filter.id;
+            })
+            .value().join('/');
+
+        path = (filters.length) ? year + '/filter/' + filters : year;
+
+        e.preventDefault();
+
+        // Close the state of menu items before
+        // we navigate and set things up again.
+        $('.topics').toggleClass('active', false);
+        $('.topics a').toggleClass('active', false);
+        $('.topics').toggleClass('filtered', false);
+
+        $('#all-projects').attr('href', '#' + path);
+        app.navigate(path, { trigger: true });
+    },
+
+    searchFilter: function(e) {
+        var $target = $(e.target),
+                val = $target.val().toLowerCase();
+
+        $target.parent().find('.reset').toggleClass('hidden', (val === ''));
+
+        _(this.views).each(function(view) {
+            view.collection.each(function(model) {
+                var name = model.get('name').toLowerCase();
+
+                if (val === '' || name.indexOf(val) >= 0) {
+                    model.set('visible', true);
+                } else {
+                    model.set('visible', false);
+                }
+            });
+
+            view.render(true);
+        });
+
+        // Open all filter facets on search
+        if (val === '') {
+            $('.topics').toggleClass('active', false);
+        } else {
+            $('.topics').toggleClass('active', true);
+        }
+    },
+
+    clearFilter: function(e) {
+        e.preventDefault();
+        $(e.target).parent().find('input').val('');
+        this.searchFilter(e);
+        return false;
+    },
+
+    toggleFilter: function (e) {
+        var $target = $(e.target),
+            cat = $target.attr('data-category'),
+            $parent = $('#' + cat);
+
+        e.preventDefault();
+
+        // Bail on the this function if the user has selected
+        // a label that has an active filtered selection.
+        if ($parent.hasClass('filtered')) return false;
+
+        if ($parent.hasClass('active')) {
+            $parent.toggleClass('active', false);
+            if (this.views[cat]) {
+                this.views[cat].active = false;
+            }
+        } else {
+            $('.topics').each(function () {
+                // Loop through all the filtered menus
+                // to close active menus providing they don't
+                // have an active filtered selection.
+                if (!$(this).hasClass('filtered')) {
+                    $(this).toggleClass('active', false);
+                }
+            });
+            $parent.toggleClass('active', true);
+            if (this.views[cat]) {
+                this.views[cat].active = true;
+            }
+        }
+        return false;
+    },
+
+    mapLayerswitch: function(e) {
+        e.preventDefault();
+        $('#chart-hdi').css('display','none');
+        var $target = $(e.currentTarget);
+        $('.map-btn').removeClass('active');
+
+        this.layer = $target.attr('data-value') || 'budget';
+
+        // When on operating unit, turn on/off the HDI graph
+        if ($('ul.layers li').hasClass('no-hover')){
+            if ($target.attr('data-value') === 'hdi' && app.hdi) {
+                if ($('li.hdi').hasClass('active')) {
+                    $('li.hdi').removeClass('active')
+                    $($target).removeClass('active');
+                    $('#chart-hdi').css('display','none');
+                } else {
+                    $('#chart-hdi').css('display','block');
+                    $($target).addClass('active');
+                    $('li.hdi').addClass('active');
+                }
+            } 
+        } else {
+            $target.addClass('active');
+        }
+
+        app.projects.map.buildLayer(this.layer); // see Map.js
+        return false;
+    },
+
+    requestIframe: function() {
+        var context = $('#widget');
+        widgetOpts = ["title", "map", "projects"]; //default layers for main map
+
+        $('.widget-options a',context).removeClass('active');
+        _(widgetOpts).each(function(widgetTitle){
+            var widgetEl =widgetTitle + '-opt';
+            $("." + widgetEl).find('a').addClass('active');
+        })
+
+        if (location.hash.split('/').length === 1) {
+            embedPath = location.hash + '/widget/';
+        } else {
+            embedPath = location.hash
+                .replace('filter', 'widget')
+        }
+
+        defaultIframe = '<iframe src="{{site.baseurl}}/embed.html' + embedPath + '?' +
+        widgetOpts.join('&') +
+        '" width="680" height="500" frameborder="0"> </iframe>';
+        $('.widget-preview', context).html(defaultIframe);
+        $('.widget-code', context)
+            .val(defaultIframe.replace('src="{{site.baseurl}}/','src="' + BASE_URL))
+            .select();
+    },
+
+    submitForm: function(e) {
+        return false;
+    },
+
+    showCountries: function(e) {
+        e.preventDefault();
+        $('#country-list').css('display', 'block');
+    },
+
+    hideCountries: function(e) {
+        e.preventDefault();
+        $('#country-list').css('display', 'none');
+    },
+    
+    yearChange: function(e) {
+        e.preventDefault();
+        var year = $(e.target).attr('data-value');
+        if (year != app.fiscalYear) {
+            var filters = _(this.filters).chain()
+                .compact()
+                .map(function(filter) {
+                    return filter.collection + '-' + filter.id;
+                })
+                .value().join('/');
+
+            var path = (filters.length) ? year + '/filter/' + filters : year;
+            
+            app.navigate(path, { trigger: true });
+        }
+    },
+
+    updateYear: function(year) {
+        $('#total-budget').next('span').html(year + ' Budget');
+        $('#total-expenditure').next('span').html(year + ' Expenditure');
+        $('#yearselect .dropdown-toggle').html(year + ' <b class="caret"></b>');
+    },
+
+    mapFilter: function(e){
+        e.preventDefault();
+        $target = e.target;
+        
+        var subFilter = $target.id.split('-'), // ['type','1']
+            subFilterValue = subFilter[subFilter.length-1] + "";
+        var anchor = $('#'+$target.id);
+
+        if ($('.map-filter').hasClass('active')){
+            $('.map-filter').removeClass('active');
+            anchor.addClass('active');
+        }
+        var currentCenter = app.projects.map.map.getCenter(),
+            currentZoom = app.projects.map.map.getZoom();
+        app.projects.map.buildLayer(this.layer,subFilterValue,currentCenter,currentZoom); // see Map.js
+    },
+    
+    activeMap: function() {
+        setTimeout(function(){app.projects.map.map.invalidateSize({pan:true});}, 200);
+    }
+});
