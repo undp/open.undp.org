@@ -41,6 +41,7 @@ models.Filters = Backbone.Collection.extend({
 
         } else {
             collection.each(function(model) {
+               // debugger;
                 var count = app.projects[collection.id][model.id];
                 var budget = app.projects[collection.id + 'Budget'][model.id];
                 var expenditure = app.projects[collection.id + 'Expenditure'][model.id];
@@ -55,6 +56,6 @@ models.Filters = Backbone.Collection.extend({
     },
     model: models.Filter,
     comparator: function(model) {
-        return -1 * model.get('count') || 0;
+        return -1 * model.get('budget') || 0;
     }
 });
