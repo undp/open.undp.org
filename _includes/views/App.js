@@ -45,7 +45,7 @@ views.App = Backbone.View.extend({
         $('#mainnav li').first().addClass('active');
 
         // about nav
-        $('#mainnav a.parent-link').click(function(e) { //TODO avoid initial click which changes path
+        $('#mainnav a.parent-link').click(function(e) {
             e.preventDefault();
             var $target = $(e.target);
 
