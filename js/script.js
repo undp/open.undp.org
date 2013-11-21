@@ -240,12 +240,16 @@ function redirect(project_id){
     catch(e){
 
     }
-     if(parent.window.location.host ==window.location.host){
+    try{
+     if(parent.window.location.host == window.location.host){
         parent.window.location.href = path;
        }
        else
        {
         window.location.href = path;
-       }
-    
+       }   
+   }catch(e){
+    console.log("loi error");
+        window.location.href = path;
+   }
 }
