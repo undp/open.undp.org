@@ -314,10 +314,5 @@ views.App = Backbone.View.extend({
         e.preventDefault();
         $('a#layers-back').toggleClass('active');
         $('ul.layers').toggleClass('active');
-        if ($('a#layers-back').hasClass('active')){
-            $('a#layers-back').html('❮')
-        } else {
-            $('a#layers-back').html('❯')
-        }
     }
 });
