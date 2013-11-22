@@ -24,6 +24,7 @@ views.App = Backbone.View.extend({
     },
 
     render: function() {
+
         if (this.options.embed) {
             this.$el.empty().append(templates.embedProjects());
             // Depending on the options passed into the array add a fade
@@ -45,7 +46,7 @@ views.App = Backbone.View.extend({
         $('#mainnav li').first().addClass('active');
 
         // about nav
-        $('#mainnav a.parent-link').click(function(e) { //TODO avoid initial click which changes path
+        $('#mainnav a.parent-link').click(function(e) {
             e.preventDefault();
             var $target = $(e.target);
 
@@ -56,14 +57,14 @@ views.App = Backbone.View.extend({
             }
         });
 
-        this.selectYear();
+        this.selectYear(this.options.year);
 
         return this;
     },
 
-    selectYear: function() {
-        // set selected year as filtered
+    selectYear: function(year) {
         var yearId = 'year-' + this.options.year;
+        // set selected year as filtered
         $('#year .filter-items').find('a#'+yearId).removeClass('inactive').addClass('active');
 
         // set year as filtered
@@ -83,7 +84,6 @@ views.App = Backbone.View.extend({
 
         if (parts[0] != 'year'){ // treat year differently, see yearChange
 
-            this.selectYear();
             this.clearFilter(e);
 
             _(this.filters).each(function(filter) {
@@ -251,7 +251,7 @@ views.App = Backbone.View.extend({
     yearChange: function(e) {
         e.preventDefault();
         var $target = $(e.target),
-            year = $target.attr('id').split('-')[1]; // number of the year
+            selectedYear = $target.attr('id').split('-')[1]; // number of the year
 
         $target.toggleClass('active');
 
@@ -265,8 +265,7 @@ views.App = Backbone.View.extend({
             $('#year').toggleClass('active',true);
             $('#year .filter-items a').removeClass('inactive');
         }
-
-        if (year != app.fiscalYear) {
+        if (selectedYear != app.fiscalYear) {
             var filters = _(this.filters).chain()
                 .compact()
                 .map(function(filter) {
@@ -274,7 +273,7 @@ views.App = Backbone.View.extend({
                 })
                 .value().join('/');
 
-            var path = (filters.length) ? year + '/filter/' + filters : year;
+            var path = (filters.length) ? selectedYear + '/filter/' + filters : selectedYear;
             
             app.navigate(path, { trigger: true });
         }
@@ -314,10 +313,5 @@ views.App = Backbone.View.extend({
         e.preventDefault();
         $('a#layers-back').toggleClass('active');
         $('ul.layers').toggleClass('active');
-        if ($('a#layers-back').hasClass('active')){
-            $('a#layers-back').html('❮')
-        } else {
-            $('a#layers-back').html('❯')
-        }
     }
 });

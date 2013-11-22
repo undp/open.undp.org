@@ -15,7 +15,8 @@ function ctyBounds(coords) {
 }
 
 $(function() {
-    var BASE_URL = 'http://open.undp.org/',
+    // var BASE_URL = 'http://open.undp.org/',
+        var BASE_URL = '{{site.baseurl}}/', //allows breadcrumbs to work properly on ds gh-pages
         widgetOts = [],
         models = {},
         views = {},
