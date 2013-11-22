@@ -309,11 +309,9 @@ input[readonly] {
   #main-container .span2 {
     padding-top: 20px;
     }
-  
-#app .view {
+#profile {
   float:left;
-  top:20px;
-  }
+}
 
 #about, #top-donors {
   display: none;
@@ -435,7 +433,7 @@ input[readonly] {
     }
 #profilemap.full,
 .country-profile.full  {
-  width:700px;
+  width:790px;
   z-index:5;
   }
 #profilemap.full {
@@ -516,7 +514,7 @@ input[readonly] {
   -moz-border-radius-bottomleft:     3px;
   border-top-left-radius:            3px;
   border-bottom-left-radius:         3px;
-  z-index: 1;
+  z-index: 10;
   /* transition */
   -webkit-transition: all 150ms linear;
   -moz-transition:    all 150ms linear;
@@ -531,13 +529,14 @@ input[readonly] {
 }
 ul.layers {
   position:absolute;
+  top:0;
   right:-123px;
   display:block;
   margin:0;
   height:460px;
   border-left:1px solid #ddd;
   background:#fff;
-  z-index:1;
+  z-index:10;
   /* transition */
   -webkit-transition: right 150ms linear;
   -moz-transition:    right 150ms linear;
@@ -1231,7 +1230,14 @@ form {
     border-top:1px solid #ddd;
     border-bottom:1px solid #ddd;
     }
-
+/* year toggle */
+#year .filter-items a.inactive {
+  display:none;
+  }
+#year .filter-items a,
+#year .filter-items a.active {
+  display:block;
+  }
 .tab-content {
   overflow:hidden;
   }
@@ -1246,9 +1252,6 @@ form {
     .nav a:focus {
       color:#333;
       }
-.nav .projects-tab {
-  background: #dbe9ed;
-}
 
 .label {
   background:none;

@@ -42,12 +42,12 @@ views.Filters = Backbone.View.extend({
                 setTimeout(function() {
                     filterModels = view.collection.chain().filter(function(model) {
                     
-                            // Filter donors on active donor country
-                            var donorCountryFilter = (donorCountry) ? (model.get('country') === donorCountry) : true;
+                        // Filter donors on active donor country
+                        var donorCountryFilter = (donorCountry) ? (model.get('country') === donorCountry) : true;
 
-                            return (model.get('visible') && model.get('count') > 0 && donorCountryFilter);
+                        return (model.get('visible') && model.get('count') > 0 && donorCountryFilter);
 
-                        }).value();
+                    }).value();
                     filterCallback();
 
                 }, 0);
@@ -79,8 +79,8 @@ views.Filters = Backbone.View.extend({
 
                 if (filterModels.length) {
                     view.$el.html(templates.filters(view));
-                        app.description = app.description || [];
-                        app.donorDescription = app.donorDescription || [];
+                    app.description = app.description || [];
+                    app.donorDescription = app.donorDescription || [];
         
                     _(filterModels).each(function(model) {
         
