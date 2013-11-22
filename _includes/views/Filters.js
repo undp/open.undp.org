@@ -51,21 +51,36 @@ views.Filters = Backbone.View.extend({
                     filterCallback();
 
                 }, 0);
-                
+
                 if (donorCountry) {
                     chartModels = view.collection.chain()
                         .filter(function(model) {
                             return (model.get('country') === donorCountry);
                         }).value();
-                } else {
+                } else if (view.collection.id == 'donors'){
+                    // Creating chartModels array for top budget sources, filter through 
+                    // more countries since the budget sources are calculated below, 
+                    // resulting in a different number than budget
                     chartModels = view.collection.chain()
                         .sortBy(function(model) {
-                            return -1 * model.get(chartType) || 0;
+                            return -1 * model.get('expenditure') || 0;
                         })
                         .filter(function(model) {
-                            return (model.get(chartType) > 0);
+                            return (model.get('expenditure') > 0);
                         })
-                        .first(20).value(); // Top 20
+                        .first(75)
+                        .value(); // Top 20
+                } else {
+                    // Top 20 donors, donor_countries, and operating_unit
+                    chartModels = view.collection.chain()
+                        .sortBy(function(model) {
+                            return -1 * model.get('expenditure') || 0;
+                        })
+                        .filter(function(model) {
+                            return (model.get('expenditure') > 0);
+                        })
+                        .first(20)
+                        .value(); // Top 20
                 }
                 if (view.collection.id === 'operating_unit') {
                     $('#applied-filters').addClass('no-country');

@@ -31,8 +31,13 @@ views.Map = Backbone.View.extend({
         if (_.isObject(view.opUnitFilter)){
             view.markers = new L.MarkerClusterGroup({
                 showCoverageOnHover:false,
+<<<<<<< HEAD
+                maxClusterRadius:30
+                //disableClusteringAtZoom: 6
+=======
                 maxClusterRadius:40,
                 disableClusteringAtZoom: 6
+>>>>>>> new-ui
             });
             var maxZoom = 10;
         } else {
@@ -124,13 +129,18 @@ views.Map = Backbone.View.extend({
             type = g.type[feature.properties.type],
             // scope = (g.scope[feature.properties.scope]) ? g.scope[feature.properties.scope].split(':')[0] : 'unknown',
             precision = g.precision[feature.properties.precision];
-
-        var description = '<div class="popup top"><div><b>' + title + '</b></div>'
-                        + '<div><table><tr><td>Project</td><td>' + project + '</td></tr><tr><td>Output</td><td>' + output + '</td></tr></table></div>'
-                        + '<div class="focus"><span class="'+focus_clean+'"></span><p class="space">' + focus_area + '<p></div></div>'
-                        + '<div class="popup bottom"><div><b>Location type: </b>' + type + '</div>'
-                        // + '<div><b>Scope: </b>' + scope + '</div>'
-                        + '<div><b>Precision: </b>' + precision + '</div></div>';
+        if (focus_clean){
+            var description = '<div class="popup top"><div><b>' + title + '</b></div>'
+                + '<div><table><tr><td>Project</td><td>' + project + '</td></tr><tr><td>Output</td><td>' + output + '</td></tr></table></div>'
+                + '<div class="focus"><span class="'+focus_clean+'"></span><p class="space">' + focus_area + '<p></div></div>'
+                + '<div class="popup bottom"><div><b>Location type: </b>' + type + '</div>'
+                + '<div><b>Precision: </b>' + precision + '</div></div>';
+        } else {
+            var description = '<div class="popup top"><div><b>' + title + '</b></div>'
+                + '<div><table><tr><td>Project</td><td>' + project + '</td></tr><tr><td>Output</td><td>' + output + '</td></tr></table></div></div>'
+                + '<div class="popup bottom"><div><b>Location type: </b>' + type + '</div>'
+                + '<div><b>Precision: </b>' + precision + '</div></div>';
+        }
         return description;
     },
     goToLink: function(path){
@@ -180,24 +190,46 @@ views.Map = Backbone.View.extend({
                         //draw country outline with the topojson file
                         if (!IE || IE_VERSION > 8){
                             view.outline.clearLayers();
+
                             $.getJSON('api/world-50m-s.json',function(world){
-                            var topoFeatures = topojson.feature(world, world.objects.countries).features,
-                                selectedFeature = _(topoFeatures).findWhere({id:iso}),
-                                coords = selectedFeature.geometry.coordinates;
-                            view.outline.addData(selectedFeature)
-                                .setStyle({
-                                    "color": "#b5b5b5",
-                                    "weight": 3,
-                                    clickable: false
-                                });
+                                var topoFeatures = topojson.feature(world, world.objects.countries).features,
+                                    selectedFeature = _(topoFeatures).findWhere({id:iso}),
+                                    coords = selectedFeature.geometry.coordinates;
                                 
                                 if (parent.get('id') === 'RUS') {
                                     view.map.setView([parent.lat,parent.lon],2);
+                                    view.outline.addData(selectedFeature)
+                                        .setStyle({
+                                            "color": "#b5b5b5",
+                                            "weight": 0,
+                                            clickable: false
+                                    });
+                                    view.outline.addTo(view.map);
+                                } else if (parent.get('id') === 'IND') {
+                                    $.getJSON('api/india_admin0.json',function(india){
+                                        var topoFeatures = topojson.feature(india, india.objects.india_admin0).features;
+
+                                        _(topoFeatures).each(function(f){
+                                             view.outline.addData(f)
+                                                    .setStyle({
+                                                        "color": "#b5b5b5",
+                                                        "weight": 0,
+                                                        clickable: false
+                                                    });
+                                        });
+                                    });
+                                view.outline.addTo(view.map); 
+                                view.map.fitBounds(ctyBounds(coords));
                                 } else {
                                     view.map.fitBounds(ctyBounds(coords));
+                                    view.outline.addData(selectedFeature)
+                                        .setStyle({
+                                            "color": "#b5b5b5",
+                                            "weight": 0,
+                                            clickable: false
+                                    });
+                                    view.outline.addTo(view.map);
                                 }
-                                
-                                view.outline.addTo(view.map);
                             });
                         } else {
                             view.map.setView([parent.lat,parent.lon],4);
