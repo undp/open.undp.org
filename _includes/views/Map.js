@@ -297,7 +297,7 @@ views.Map = Backbone.View.extend({
                                }
                                 }catch(e)
                                 {
-                                    console.log("loi error");
+//                                    console.log("loi error");
                                 window.location.href = window.location.protocol + "//" +
                                                         window.location.host +
                                         "/" + path;    
