@@ -312,21 +312,23 @@ routers.App = Backbone.Router.extend({
         
     },
 
-    project: function (id, output, embed) {
+ project: function (id, output, embed, route) {
         var that = this;
 
-        // Add nav
-        this.nav = new views.Nav();
-
         if (!embed) {
+            // Load in feedbackform dets.
+            this.mainApp();
+
+            this.nav = new views.Nav();
 
             window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
 
             // Set up menu
             $('#app .view, #mainnav .browser').hide();
             $('#mainnav li').removeClass('active');
-            $('#mainnav .profile').show(); // nav items related to project profile show
-            $('#mainnav li').first().addClass('active'); // making the first nav "projects" active
+            $('#browser .summary').addClass('off');
+            $('#mainnav .profile').show();
+            $('#mainnav li').first().addClass('active');
             $('#mainnav li.parent').removeClass('parent-active');
         }
 
