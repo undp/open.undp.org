@@ -278,7 +278,7 @@ views.Map = Backbone.View.extend({
 
                             if (!view.options.embed){view.goToLink(path)}else{
                                try{
-                                window.parent.closeModal();
+                             //   window.parent.closeModal();
                                }
                                catch(e){
 
