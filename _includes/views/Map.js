@@ -31,8 +31,8 @@ views.Map = Backbone.View.extend({
         if (_.isObject(view.opUnitFilter)){
             view.markers = new L.MarkerClusterGroup({
                 showCoverageOnHover:false,
-                maxClusterRadius:40,
-                disableClusteringAtZoom: 6
+                maxClusterRadius:30
+                //disableClusteringAtZoom: 6
             });
             var maxZoom = 10;
         } else {
@@ -124,13 +124,18 @@ views.Map = Backbone.View.extend({
             type = g.type[feature.properties.type],
             // scope = (g.scope[feature.properties.scope]) ? g.scope[feature.properties.scope].split(':')[0] : 'unknown',
             precision = g.precision[feature.properties.precision];
-
-        var description = '<div class="popup top"><div><b>' + title + '</b></div>'
-                        + '<div><table><tr><td>Project</td><td>' + project + '</td></tr><tr><td>Output</td><td>' + output + '</td></tr></table></div>'
-                        + '<div class="focus"><span class="'+focus_clean+'"></span><p class="space">' + focus_area + '<p></div></div>'
-                        + '<div class="popup bottom"><div><b>Location type: </b>' + type + '</div>'
-                        // + '<div><b>Scope: </b>' + scope + '</div>'
-                        + '<div><b>Precision: </b>' + precision + '</div></div>';
+        if (focus_clean){
+            var description = '<div class="popup top"><div><b>' + title + '</b></div>'
+                + '<div><table><tr><td>Project</td><td>' + project + '</td></tr><tr><td>Output</td><td>' + output + '</td></tr></table></div>'
+                + '<div class="focus"><span class="'+focus_clean+'"></span><p class="space">' + focus_area + '<p></div></div>'
+                + '<div class="popup bottom"><div><b>Location type: </b>' + type + '</div>'
+                + '<div><b>Precision: </b>' + precision + '</div></div>';
+        } else {
+            var description = '<div class="popup top"><div><b>' + title + '</b></div>'
+                + '<div><table><tr><td>Project</td><td>' + project + '</td></tr><tr><td>Output</td><td>' + output + '</td></tr></table></div></div>'
+                + '<div class="popup bottom"><div><b>Location type: </b>' + type + '</div>'
+                + '<div><b>Precision: </b>' + precision + '</div></div>';
+        }
         return description;
     },
     goToLink: function(path){
