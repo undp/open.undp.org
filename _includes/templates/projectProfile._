@@ -1,15 +1,13 @@
-<div class='row-fluid separator' id='project-heading'>
-  <div class='col col-700'>
-    <h3 class='heading-title'><%= model.get('project_title').toLowerCase().toTitleCase() %></h3>
-    <div id='project-descr'>
-      <p class='heading-desc'><%= model.get('project_descr') %></p>
+<div class='tab-content col col-790'>
+  <div class='separator' id='project-heading'>
+    <div class='col col-700'>
+      <h3 class='heading-title'><%= model.get('project_title').toLowerCase().toTitleCase() %></h3>
+      <div id='project-descr'>
+        <p class='heading-desc'><%= model.get('project_descr') %></p>
+      </div>
     </div>
   </div>
-</div>
-
-<div class='col col-700 col-mar-10 projects summary'>
   <div id='top-stats' class='row-fluid'>
-
     <div class='span5'>
       <div class='row-fluid'>
         <div class='label visible-phone'>Location</div>
@@ -217,7 +215,8 @@
       </div>
     </div>
   </div>
-  <a href='#widget' class='widget-config' data-toggle='modal'>Embed<span class='icon embed'></span></a>
+  <!-- no need for embed on project page-->
+  <!--a href='#widget' class='widget-config' data-toggle='modal'>Embed<span class='icon embed'></span></a-->
 </div>
 <!--/ #content-right -->
 

@@ -42,30 +42,45 @@ views.Filters = Backbone.View.extend({
                 setTimeout(function() {
                     filterModels = view.collection.chain().filter(function(model) {
                     
-                            // Filter donors on active donor country
-                            var donorCountryFilter = (donorCountry) ? (model.get('country') === donorCountry) : true;
+                        // Filter donors on active donor country
+                        var donorCountryFilter = (donorCountry) ? (model.get('country') === donorCountry) : true;
 
-                            return (model.get('visible') && model.get('count') > 0 && donorCountryFilter);
+                        return (model.get('visible') && model.get('count') > 0 && donorCountryFilter);
 
-                        }).value();
+                    }).value();
                     filterCallback();
 
                 }, 0);
-                
+
                 if (donorCountry) {
                     chartModels = view.collection.chain()
                         .filter(function(model) {
                             return (model.get('country') === donorCountry);
                         }).value();
-                } else {
+                } else if (view.collection.id == 'donors'){
+                    // Creating chartModels array for top budget sources, filter through 
+                    // more countries since the budget sources are calculated below, 
+                    // resulting in a different number than budget
                     chartModels = view.collection.chain()
                         .sortBy(function(model) {
-                            return -1 * model.get(chartType) || 0;
+                            return -1 * model.get('expenditure') || 0;
                         })
                         .filter(function(model) {
-                            return (model.get(chartType) > 0);
+                            return (model.get('expenditure') > 0);
                         })
-                        .first(20).value(); // Top 20
+                        .first(75)
+                        .value(); // Top 20
+                } else {
+                    // Top 20 donors, donor_countries, and operating_unit
+                    chartModels = view.collection.chain()
+                        .sortBy(function(model) {
+                            return -1 * model.get('expenditure') || 0;
+                        })
+                        .filter(function(model) {
+                            return (model.get('expenditure') > 0);
+                        })
+                        .first(20)
+                        .value(); // Top 20
                 }
                 if (view.collection.id === 'operating_unit') {
                     $('#applied-filters').addClass('no-country');
@@ -79,8 +94,8 @@ views.Filters = Backbone.View.extend({
 
                 if (filterModels.length) {
                     view.$el.html(templates.filters(view));
-                        app.description = app.description || [];
-                        app.donorDescription = app.donorDescription || [];
+                    app.description = app.description || [];
+                    app.donorDescription = app.donorDescription || [];
         
                     _(filterModels).each(function(model) {
         
