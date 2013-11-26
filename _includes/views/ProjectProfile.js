@@ -6,6 +6,8 @@ views.ProjectProfile = Backbone.View.extend({
 
     initialize: function() {
         this.render();
+
+        //console.dir(this);
         var outputID = this.options.gotoOutput;
         if (outputID) {
             window.setTimeout(function() { window.scrollTo(0, $('#output-' + outputID).offset().top); }, 0);
@@ -30,6 +32,7 @@ views.ProjectProfile = Backbone.View.extend({
             '<li><a href="#' + CURRENT_YR + '/filter/operating_unit-' + this.model.get('operating_unit_id') + '">' + this.model.get("operating_unit") + '</a></li>' +
             '<li><a href="#project/' + this.model.get('id') + '">' + this.model.get('id') + '</a></li>'
         );
+
 
         var start = this.model.get('start').split('-');
         var end = this.model.get('end').split('-');
@@ -140,16 +143,51 @@ views.ProjectProfile = Backbone.View.extend({
             render: true
         });
 
+        
+
         $('#progress').find('.bar').css('width', progress + '%');
 
         this.$('#outputs').empty();
+        
+//            alert(window.location.href);
         if (this.model.attributes.outputs) {
             var outputs = this.model.attributes.outputs.slice(0, 9);
+            
+            var location = window.location.href;
+                if(location.indexOf("embed")>=0)
+                {
+                    this.$('#outputs').append(templates.projects())
+                }
             _(outputs).each(function(model) {
-                this.$('#outputs').append(templates.projectOutputs({ model: model }));
+                if(location.indexOf("embed")<0)
+                {
+                    this.$('#outputs').append(templates.projectOutputs({ model: model }));
+                }   
             });
     
             // Project Outputs
+            
+             if(location.indexOf("embed")>=0)
+            {
+               var curr_p_id = outputs[0].award_id;
+               
+               var item_seed = _(SUMMARY).find(function(item){
+                    return item.id == curr_p_id;
+               });
+
+               var operating_unit = item_seed.operating_unit;
+                var all_project_currents = _(SUMMARY).filter(function(item){
+                    return item.operating_unit == operating_unit;
+               });
+                this.$('#outputs #project-table tbody').empty();
+                _(all_project_currents).each(function(model) {
+                     this.$('#outputs #project-table tbody').append(templates.projectOutputs2({ model: model }));
+                });
+                $('#output-header').empty();
+                $('#output-header').append('<h2 class="heading-title"> <span>'+
+                                            all_project_currents.length+'</span> Projects</h2>');
+            }
+
             if (this.model.attributes.outputs.length < 10) {
                 $('.load').hide();
             } else {

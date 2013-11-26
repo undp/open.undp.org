@@ -107,10 +107,11 @@
       <% if (model.get('outputs').length > 1) { %>
         <span><%= model.get('outputs').length %></span>
       <% } %>
-      <% if (model.get('outputs').length === 1) { %>Output<% } else { %>Outputs<% } %>
+      <% if (model.get('outputs').length === 1) { %>Project<% } else { %>Projects<% } %>
     </h2>
   </div>
   <div id='outputs'></div>
+  
   <% if (model.get('outputs').length > 1) { %>
     <div class='load'>
       <a href='#' class='button'>Load More</a>
