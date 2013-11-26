@@ -176,8 +176,8 @@
     <div class='separator' id='output-header'>
       <h2 class='heading-title'>
         <% if (model.get('outputs').length === 1) { %>
-        <span>1</span> output<% } else { %>
-        <span><%= model.get('outputs').length %></span> outputs
+        <span>1</span> Project<% } else { %>
+        <span><%= model.get('outputs').length %></span> Projects
         <% } %>
       </h3>
     </div>
@@ -215,8 +215,11 @@
       </div>
     </div>
   </div>
-  <!-- no need for embed on project page-->
-  <!--a href='#widget' class='widget-config' data-toggle='modal'>Embed<span class='icon embed'></span></a-->
+
+  <% if (window.self === window.top) {  %>
+  <a href='#widget' class='widget-config' data-toggle='modal'>Embed<span class='icon embed'></span></a>
+  <% } %>
+
 </div>
 <!--/ #content-right -->
 
