@@ -11,7 +11,7 @@ views.Filters = Backbone.View.extend({
                 active = view.collection.where({ active: true }),
                 chartType = 'budget',
                 donor = '';
-                
+                console.log("collection.id" + view.collection.id);
             $('#' + view.collection.id).toggleClass('filtered', false);
 
             if (active.length) {
@@ -37,6 +37,7 @@ views.Filters = Backbone.View.extend({
                 if (view.collection.id === 'donors') {
                     var donorCountry = _(app.app.filters).where({ collection: 'donor_countries' });
                     donorCountry = (donorCountry.length) ? donorCountry[0].id : false;
+                    //debugger;
                 }
     
                 setTimeout(function() {
@@ -52,7 +53,7 @@ views.Filters = Backbone.View.extend({
 
                 }, 0);
                 
-                if (donorCountry) {
+               /* if (donorCountry) {
                     chartModels = view.collection.chain()
                         .filter(function(model) {
                             return (model.get('country') === donorCountry);
@@ -61,12 +62,43 @@ views.Filters = Backbone.View.extend({
                     chartModels = view.collection.chain()
                         .sortBy(function(model) {
                             return -1 * model.get(chartType) || 0;
+
                         })
                         .filter(function(model) {
                             return (model.get(chartType) > 0);
                         })
-                        .first(20).value(); // Top 20
-                }
+                        .first(1000).value(); // Top 20
+                }*/
+                if (donorCountry) {
+                    chartModels = view.collection.chain()
+                    .filter(function(model) {
+                        return (model.get('country') === donorCountry);
+                    }).value();
+                } else if (view.collection.id == 'donors'){
+                    // Creating chartModels array for top budget sources, filter through
+                    // more countries since the budget sources are calculated below,
+                    // resulting in a different number than budget
+                    chartModels = view.collection.chain()
+                    .sortBy(function(model) {
+                        return -1 * model.get('expenditure') || 0;
+                    })
+                    .filter(function(model) {
+                        return (model.get('expenditure') > 0);
+                    })
+                    .first(75)
+                    .value(); // Top 20
+                } else {
+                    // Top 20 donors, donor_countries, and operating_unit
+                    chartModels = view.collection.chain()
+                    .sortBy(function(model) {
+                        return -1 * model.get('expenditure') || 0;
+                    })
+                    .filter(function(model) {
+                        return (model.get('expenditure') > 0);
+                    })
+                    .first(20)
+                    .value(); // Top 20
+                } 
                 if (view.collection.id === 'operating_unit') {
                     $('#applied-filters').addClass('no-country');
                 }
@@ -76,7 +108,7 @@ views.Filters = Backbone.View.extend({
             }
 
             function filterCallback() {
-
+//debugger;
                 if (filterModels.length) {
                     view.$el.html(templates.filters(view));
                         app.description = app.description || [];
@@ -206,10 +238,8 @@ views.Filters = Backbone.View.extend({
                     _(chartModels).each(function(model) {
 
                         setTimeout(function() {
-
                             if (view.collection.id === 'donors') {
                                 donor = model.id;
-                                
                                 var donorProjects = (donor) ? app.projects.chain()
                                     .map(function(project) {
                                         var donorIndex = _(project.get('donors')).indexOf(donor);
@@ -234,6 +264,7 @@ views.Filters = Backbone.View.extend({
 
                             } else {
                                 if (donor_ctry) {
+
                                     var donorBudget = app.projects.chain()
                                         .filter(function(project) {
                                             return project.get('operating_unit') === model.id;
@@ -288,6 +319,7 @@ views.Filters = Backbone.View.extend({
                             var budget = accounting.formatMoney(
                                         ((donor || donor_ctry) ? donorBudget : model.get('budget')) / 1000000
                                     ) + 'M';
+                            //debugger;
         
                             var budgetWidth = (donor || donor_ctry) ? (donorBudget) : (model.get('budget'));
                             var expenditureWidth = (donor || donor_ctry) ? (donorExpenditure) : (model.get('expenditure'));
