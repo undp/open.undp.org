@@ -319,15 +319,13 @@ routers.App = Backbone.Router.extend({
         
     },
 
-    project: function (id, output, embed,collection) {
+    project: function (id, output, embed) {
         var that = this;
 
         if (!embed) {
             // Load in feedbackform dets.
-            this.mainApp();
-
-            this.nav = new views.Nav();
-
+            that.mainApp();
+            that.nav = new views.Nav();
             window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
 
             // Set up menu
@@ -373,9 +371,9 @@ routers.App = Backbone.Router.extend({
         options = (options) ? options.split('&') : [];
 
         if (path[0] === 'project') {
-             loadjsFile('api/project_summary_' + year + '.js', year, function() {
-                   that.project(parts[0].split('/')[1], false, options);
-                });
+            loadjsFile('api/project_summary_' + year + '.js', year, function() {
+                that.project(parts[0].split('/')[1], false, options);
+            });
         } else {
             var route = parts[0];
             if (route === '') route = undefined;
