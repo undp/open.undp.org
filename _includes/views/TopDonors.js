@@ -4,12 +4,13 @@ views.TopDonors = Backbone.View.extend({
         this.render();
     },
     render: function () {
+        //debugger;
         var that = this,
             cat = that.collection.type,
             chartModels = that.collection.models,
             max = chartModels[0].get(cat);
         _(chartModels).each(function(model) {
-            if (model.get(cat) != '') {
+            if (model.get(cat) != '' && model.get(cat)!=0) {
                 $('tbody', that.el).append(templates.topDonor({
                     name: model.get('name'),
                     id: model.get('donor_id'),
