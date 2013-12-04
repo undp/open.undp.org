@@ -22,6 +22,7 @@ views.TopDonors = Backbone.View.extend({
         });
     },
     update: function(cat) {
+        //debugger;
         var that = this;
         
         that.collection.comparator = function(model) {
@@ -33,7 +34,7 @@ views.TopDonors = Backbone.View.extend({
         
         $('tbody', that.el).empty();
         _(that.collection.models).each(function(model) {
-            if (model.get(cat) != '') {
+            if (model.get(cat) != '' && model.get(cat)!=0) {
                 $('tbody', that.el).append(templates.topDonor({
                     name: model.get('name'),
                     id: model.get('donor_id'),
