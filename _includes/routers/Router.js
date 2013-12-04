@@ -20,6 +20,7 @@ routers.App = Backbone.Router.extend({
             this.navigate(CURRENT_YR, {trigger: true});
         }
     },
+
     widgetRedirect: function(route) {
         this.navigate(CURRENT_YR + '/widget/' + route, {trigger: true});
     },
@@ -53,6 +54,7 @@ routers.App = Backbone.Router.extend({
             return false;
         });
     },
+
     fiscalyear: function (year, route, embed) {
         var that = this;
         
@@ -62,7 +64,6 @@ routers.App = Backbone.Router.extend({
                 that.browser(year, route, embed);
             });
         } else {
-
             that.browser(year, route, embed);
         }
 
@@ -189,6 +190,8 @@ routers.App = Backbone.Router.extend({
                     that.projects.widget = new views.Widget({
                         context: 'projects'
                     });
+
+                    that.requestIframe("projects");
                 } else {
                     that.projects.map = new views.Map({
                         el: '#homemap',
@@ -337,12 +340,12 @@ routers.App = Backbone.Router.extend({
         }
 
         // Set up this route
-        this.project.model = new models.Project({
+        that.project.model = new models.Project({
             id: id
         });
         
-        this.project.model.fetch({
-            success: function () {
+        that.project.model.fetch({
+            success: function (data) {
                 if (that.project.view) that.project.view.undelegateEvents();
                 that.project.view = new views.ProjectProfile({
                     el: (embed) ? '#embed' : '#profile',
@@ -350,11 +353,11 @@ routers.App = Backbone.Router.extend({
                     embed: embed || false,
                     gotoOutput: (output) ? output : false
                 });
-
                 if (!embed) {
                     that.project.widget = new views.Widget({
                         context: 'project'
                     });
+                    that.requestIframe("project"); // problem is in this line of code, where json will be requested
                 }
             }
         });
@@ -378,6 +381,45 @@ routers.App = Backbone.Router.extend({
             if (route === '') route = undefined;
             that.fiscalyear(year, route, options);
         }
+    },
+
+    requestIframe: function(context) {
+        // correct URL should look like:
+        // http://localhost:4000/undp-projects/embed.html#2013/widget/project/00049410?title&descr&map&documents&stats&outputs&hdi&charts
+        var el = $('#widget'),
+            widgetOpts,
+            widgetEl,
+            embedPath;
+
+        if (context === 'projects'){
+            widgetOpts = ["title", "map", "projects"];
+        } else {
+            widgetOpts = ['title','map','outputs'];
+        }
+
+        $('.widget-options a',el).removeClass('active');
+
+        _(widgetOpts).each(function(widgetTitle){
+            widgetEl =widgetTitle + '-opt';
+            $("." + widgetEl).find('a').addClass('active');
+        })
+
+
+        if (location.hash.split('/')[0] === 'project'){
+            embedPath = location.hash.replace('project', 'widget/project');
+        } else if (location.hash.split('/').length === 1) {
+            embedPath = location.hash + '/widget/';
+        } else {
+            embedPath = location.hash.replace('filter', 'widget')
+        }
+
+        var defaultIframe = '<iframe src="{{site.baseurl}}/embed.html' + embedPath + '?' +
+                        widgetOpts.join('&') + '" width="100%" height="100%" frameborder="0"> </iframe>';
+
+        $('.widget-preview', el).html(defaultIframe);
+        $('.widget-code', el)
+            .val(defaultIframe.replace('src="{{site.baseurl}}/','src="' + BASE_URL))
+            .select();
     },
 
     about: function (route) {

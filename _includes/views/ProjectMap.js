@@ -22,7 +22,6 @@ views.ProjectMap = Backbone.View.extend({
         return description;
     },
     render: function() {
-//        debugger;
         var view = this,
             locations = [],
             unit = this.model.get('operating_unit_id'),

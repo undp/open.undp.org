@@ -43,9 +43,11 @@ views.Widget = Backbone.View.extend({
                 .replace('filter', 'widget')
                 .replace('project', 'widget/project');
         }
+
         var $el = $(e.target);
         var opt = $el.attr('data-value');
 
+        // widgetOpts not defined
         if ($el.hasClass('active')) {
             $el.removeClass('active');
             widgetOpts.splice(widgetOpts.indexOf(opt), 1);

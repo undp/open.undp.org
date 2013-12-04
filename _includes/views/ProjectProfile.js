@@ -1,6 +1,5 @@
 views.ProjectProfile = Backbone.View.extend({
     events: {
-        'click .widget-config': 'requestIframe',
         'click .load a': 'loadMore'
     },
 
@@ -199,27 +198,6 @@ views.ProjectProfile = Backbone.View.extend({
         $('breadcrumbs').find('ul').remove();
 
         return this;
-    },
-
-    requestIframe: function() {
-        var context = $('#widget');
-        widgetOpts = ['title','map','outputs'];
-
-        $('.widget-options a',context).removeClass('active');
-        _(widgetOpts).each(function(widgetTitle){
-            var widgetEl =widgetTitle + '-opt';
-            $("." + widgetEl).find('a').addClass('active');
-        })
-
-        embedPath = location.hash.replace('project', 'widget/project');
-
-        defaultIframe = '<iframe src="{{site.baseurl}}/embed.html' + embedPath + '?' +
-        widgetOpts.join('&') +
-        '" width="680" height="500" frameborder="0"> </iframe>';
-        $('.widget-preview', context).html(defaultIframe);
-        $('.widget-code', context)
-            .val(defaultIframe.replace('src="{{site.baseurl}}/','src="' + BASE_URL))
-            .select();
     },
 
     loadMore: function(e) {

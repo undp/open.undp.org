@@ -23,6 +23,7 @@ views.Map = Backbone.View.extend({
             // when no operating unit is selected, reset to the global map
             if (category === 'budget' && _.isUndefined(view.opUnitFilter)){$('.map-btn.budget').addClass('active')};
         } else {
+            // if it's embed mode, set the circles to the budget layer, disable zoom wheel
             category = 'budget';
             wheelZoom = false;
         };

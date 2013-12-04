@@ -208,32 +208,6 @@ views.App = Backbone.View.extend({
         return false;
     },
 
-    requestIframe: function() {
-        var context = $('#widget');
-        widgetOpts = ["title", "map", "projects"]; //default layers for main map
-
-        $('.widget-options a',context).removeClass('active');
-        _(widgetOpts).each(function(widgetTitle){
-            var widgetEl =widgetTitle + '-opt';
-            $("." + widgetEl).find('a').addClass('active');
-        })
-
-        if (location.hash.split('/').length === 1) {
-            embedPath = location.hash + '/widget/';
-        } else {
-            embedPath = location.hash
-                .replace('filter', 'widget')
-        }
-
-        defaultIframe = '<iframe src="{{site.baseurl}}/embed.html' + embedPath + '?' +
-        widgetOpts.join('&') +
-        '" width="680" height="500" frameborder="0"> </iframe>';
-        $('.widget-preview', context).html(defaultIframe);
-        $('.widget-code', context)
-            .val(defaultIframe.replace('src="{{site.baseurl}}/','src="' + BASE_URL))
-            .select();
-    },
-
     submitForm: function(e) {
         return false;
     },
@@ -300,7 +274,7 @@ views.App = Backbone.View.extend({
             currentZoom = app.projects.map.map.getZoom();
         app.projects.map.buildLayer(this.layer,subFilterValue,currentCenter,currentZoom); // see Map.js
     },
-    
+
     activeMap: function(e) {
         e.preventDefault();
         $('.view-switch a').removeClass('active');
