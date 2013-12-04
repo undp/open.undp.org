@@ -148,7 +148,6 @@ views.ProjectProfile = Backbone.View.extend({
 
         this.$('#outputs').empty();
         
-//            alert(window.location.href);
         if (this.model.attributes.outputs) {
             var outputs = this.model.attributes.outputs.slice(0, 9);
             

@@ -56,13 +56,16 @@
             <li><a href='#'>Home</a></li>
             <li><a href='{{base}}/'>Our Projects</a></li>
           </ul>
+          <div class='browser profile'>
+            <a href='#widget' class='widget-config' data-toggle='modal'>Embed<span class='icon embed'></span></a>
+            <!--position here doesn't allow the generation of widgetOps-->
+          </div>
         </div>
         <!-- left nav for all but the main browser -->
         <div id='left-nav'></div>
         <!-- main browser, including nav in template -->
         <div id='browser' class='content view'></div>
         <div id='profile' class='col-790 content view'></div>
-
         <div id='top-donors' class='col-790 content view chart'>
           {% for donor in site.categories['donors-gross'] %}
           <h1 class='title-story'>{{donor.title}}</h1>
