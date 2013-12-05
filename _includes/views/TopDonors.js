@@ -4,20 +4,23 @@ views.TopDonors = Backbone.View.extend({
         this.render();
     },
     render: function () {
-        //debugger;
+        var count = 0;
         var that = this,
             cat = that.collection.type,
-            chartModels = that.collection.models,
+            chartModels = that.collection.models.slice(0,20),
             max = chartModels[0].get(cat);
         _(chartModels).each(function(model) {
+            
             if (model.get(cat) != '' && model.get(cat)!=0) {
-                $('tbody', that.el).append(templates.topDonor({
+               $('tbody', that.el).append(templates.topDonor({
                     name: model.get('name'),
                     id: model.get('donor_id'),
                     country: model.get('country'),
                     number: model.get(cat),
                     barWidth: model.get(cat)/max*100
                 }));
+                count++;
+               
             }
         });
     },
@@ -29,11 +32,11 @@ views.TopDonors = Backbone.View.extend({
             return -1 * model.get(cat);
         };
         that.collection.sort();
-        
+        var chartModels = that.collection.models.slice(0,20);
         var max = that.collection.models[0].get(cat);
         
         $('tbody', that.el).empty();
-        _(that.collection.models).each(function(model) {
+        _(chartModels).each(function(model) {
             if (model.get(cat) != '' && model.get(cat)!=0) {
                 $('tbody', that.el).append(templates.topDonor({
                     name: model.get('name'),
