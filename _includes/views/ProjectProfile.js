@@ -1,12 +1,12 @@
 views.ProjectProfile = Backbone.View.extend({
     events: {
-        'click .load a': 'loadMore'
+        'click .load a': 'loadMore',
+        'click .widget-config': 'requestIframe'
     },
 
     initialize: function() {
         this.render();
 
-        //console.dir(this);
         var outputID = this.options.gotoOutput;
         if (outputID) {
             window.setTimeout(function() { window.scrollTo(0, $('#output-' + outputID).offset().top); }, 0);
@@ -28,10 +28,9 @@ views.ProjectProfile = Backbone.View.extend({
         $('#breadcrumbs ul').html(
             '<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' +
             '<li><a href="' + BASE_URL + '">Our Projects</a></li>' +
-            '<li><a href="#' + CURRENT_YR + '/filter/operating_unit-' + this.model.get('operating_unit_id') + '">' + this.model.get("operating_unit") + '</a></li>' +
+            '<li><a href="/filter/operating_unit-' + this.model.get('operating_unit_id') + '">' + this.model.get("operating_unit") + '</a></li>' +
             '<li><a href="#project/' + this.model.get('id') + '">' + this.model.get('id') + '</a></li>'
         );
-
 
         var start = this.model.get('start').split('-');
         var end = this.model.get('end').split('-');
@@ -111,15 +110,11 @@ views.ProjectProfile = Backbone.View.extend({
                 documents: documents,
                 model: this.model
             }));
-
             // Depending on the options passed into the array add a fade
             // in class to all elements containing a data-option attribute
-            if (this.options.embed) {
-                _(this.options.embed).each(function (o) {
-                    $('[data-option="' + o + '"]').show();
-                });
-            }
-
+            _(this.options.embed).each(function (o) {
+                $('[data-option="' + o + '"]').show();
+            });
         } else {
             this.$el.empty().append(templates.projectProfile({
                 start: start,
@@ -214,6 +209,29 @@ views.ProjectProfile = Backbone.View.extend({
         }
 
         return false;
-    }
+    },
 
+    requestIframe: function() {
+        var el = $('#widget'),
+            widgetEl;
+
+        var widgetOpts = ['title','map','outputs'];
+
+        $('.widget-options a',el).removeClass('active');
+
+        _(widgetOpts).each(function(widgetTitle){
+            widgetEl =widgetTitle + '-opt';
+            $("." + widgetEl).find('a').addClass('active');
+        })
+
+        var embedPath = location.hash.replace('project', 'widget/project');
+
+        var defaultIframe = '<iframe src="{{site.baseurl}}/embed.html' + embedPath + '?' +
+                        widgetOpts.join('&') + '" width="100%" height="100%" frameborder="0"> </iframe>';
+
+        $('.widget-preview', el).html(defaultIframe); // this is where the json is getting called
+        $('.widget-code', el)
+            .val(defaultIframe.replace('src="{{site.baseurl}}/','src="' + BASE_URL))
+            .select();
+    }
 });

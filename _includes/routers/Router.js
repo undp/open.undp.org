@@ -25,36 +25,6 @@ routers.App = Backbone.Router.extend({
         this.navigate(CURRENT_YR + '/widget/' + route, {trigger: true});
     },
 
-    mainApp: function () {
-
-        // Handle feedback form submission
-        $('#feedback-form').submit(function (e) {
-            // Require 'Feedback' field to have content
-            if ($('#entry_2').val() === '') {
-                alert('Please fill in the required fields before submitting.');
-                return false;
-            }
-        
-            // Set URL for feedback form
-            $('#entry_3').val(window.location);
-
-            var button = $('input[type=submit]', this),
-                data = $(this).serialize(),
-                form = this;
-
-            $.ajax({
-                type: 'POST',
-                url: 'https://docs.google.com/spreadsheet/formResponse?formkey=dFRTYXNUMWIzbXRhVF94YW9rVmlZNVE6MQ&amp;ifq',
-                data: data,
-                complete: function () {
-                    $('#feedback').modal('hide');
-                    $('input[type=text], textarea', form).val('');
-                }
-            });
-            return false;
-        });
-    },
-
     fiscalyear: function (year, route, embed) {
         var that = this;
         
@@ -70,7 +40,6 @@ routers.App = Backbone.Router.extend({
     },
 
     browser: function (year, route, embed) {
-
         var that = this,
             unit = false;
 
@@ -80,11 +49,11 @@ routers.App = Backbone.Router.extend({
         $('#browser, #mainnav .browser').show();
         $('#nav-side.not-filter').remove();
         $('#mainnav li').first().addClass('active');
+
         // Set up about
         $('#mainnav a.parent-link').click(function(e) {
             e.preventDefault();
             var $target = $(e.target);
-
             if ($target.parent().hasClass('parent-active')) {
                 $target.parent().removeClass('parent-active');
             } else {
@@ -94,19 +63,18 @@ routers.App = Backbone.Router.extend({
 
         if (!embed) {
             // Load in the top donors info and feedbackform dets.
-            // this.mainApp();
             window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
 
             // Set up breadcrumbs
             $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li><li><a href="' + BASE_URL + '">Our Projects</a></li>');
 
             // Load the main app view
-            this.app = this.app || new views.App({
+            that.app = that.app || new views.App({
                 el: '#browser',
                 year: year
             });
         } else {
-            this.app = this.app || new views.App({
+            that.app = that.app || new views.App({
                 el: '#embed',
                 embed: embed,
                 year: year
@@ -144,9 +112,10 @@ routers.App = Backbone.Router.extend({
                     }
                 }, true);
             };
-            this.app.filters = filters;
-            //TODO
-            var loadFilters = function() { //this is being loaded multiple times
+
+            that.app.filters = filters;
+
+            var loadFilters = function() {
                 var counter = 0;
                 that.app.views = {};
                 // Load filters
@@ -162,7 +131,7 @@ routers.App = Backbone.Router.extend({
                     });
                    
                     collection.fetch({
-                        success: function () {
+                        success: function (data) {
                             that.app.views[facet.id] = new views.Filters({
                                 el: '#' + facet.id,
                                 collection: collection
@@ -190,8 +159,6 @@ routers.App = Backbone.Router.extend({
                     that.projects.widget = new views.Widget({
                         context: 'projects'
                     });
-
-                    that.requestIframe("projects");
                 } else {
                     that.projects.map = new views.Map({
                         el: '#homemap',
@@ -202,10 +169,10 @@ routers.App = Backbone.Router.extend({
             };
 
             // Load projects
-            if (!this.allProjects || app.fiscalYear != year) {
+            if (!that.allProjects || app.fiscalYear != year) {
                 if (app.fiscalYear && app.fiscalYear != year){app.projects.map.map.remove();}
                 app.fiscalYear = year;
-                this.allProjects = new models.Projects(SUMMARY);
+                that.allProjects = new models.Projects(SUMMARY);
 
                 that.projects = new models.Projects(that.allProjects.filter(filter));
                 that.projects.view = new views.Projects({ collection: that.projects });
@@ -217,8 +184,8 @@ routers.App = Backbone.Router.extend({
 
             } else {
                 // if projects are already present
-                this.projects.cb = updateDescription;
-                this.projects.reset(this.allProjects.filter(filter));
+                that.projects.cb = updateDescription;
+                that.projects.reset(this.allProjects.filter(filter));
             }
             
             updateWhenOpUnit();
@@ -323,10 +290,12 @@ routers.App = Backbone.Router.extend({
         var that = this;
 
         if (!embed) {
-            // Load in feedbackform dets.
-            that.mainApp();
+            // Load in feedbackform deats
+            that.feedback();
+
             that.nav = new views.Nav();
-            window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
+            
+            // window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
 
             // Set up menu
             $('#app .view, #mainnav .browser').hide();
@@ -335,13 +304,18 @@ routers.App = Backbone.Router.extend({
             $('#mainnav .profile').show();
             $('#mainnav li').first().addClass('active');
             $('#mainnav li.parent').removeClass('parent-active');
+
+            that.project.widget = new views.Widget({
+                context: 'project'
+            });
         }
 
         // Set up this route
+
         that.project.model = new models.Project({
             id: id
         });
-        
+
         that.project.model.fetch({
             success: function (data) {
                 if (that.project.view) that.project.view.undelegateEvents();
@@ -351,12 +325,7 @@ routers.App = Backbone.Router.extend({
                     embed: embed || false,
                     gotoOutput: (output) ? output : false
                 });
-                if (!embed) {
-                    that.project.widget = new views.Widget({
-                        context: 'project'
-                    });
-                    that.requestIframe("project"); // problem is in this line of code, where json will be requested
-                }
+
             }
         });
     },
@@ -380,46 +349,6 @@ routers.App = Backbone.Router.extend({
             that.fiscalyear(year, route, options);
         }
     },
-
-    requestIframe: function(context) {
-        // correct URL should look like:
-        // http://localhost:4000/undp-projects/embed.html#2013/widget/project/00049410?title&descr&map&documents&stats&outputs&hdi&charts
-        var el = $('#widget'),
-            widgetOpts,
-            widgetEl,
-            embedPath;
-
-        if (context === 'projects'){
-            widgetOpts = ["title", "map", "projects"];
-        } else {
-            widgetOpts = ['title','map','outputs'];
-        }
-
-        $('.widget-options a',el).removeClass('active');
-
-        _(widgetOpts).each(function(widgetTitle){
-            widgetEl =widgetTitle + '-opt';
-            $("." + widgetEl).find('a').addClass('active');
-        })
-
-
-        if (location.hash.split('/')[0] === 'project'){
-            embedPath = location.hash.replace('project', 'widget/project');
-        } else if (location.hash.split('/').length === 1) {
-            embedPath = location.hash + '/widget/';
-        } else {
-            embedPath = location.hash.replace('filter', 'widget')
-        }
-
-        var defaultIframe = '<iframe src="{{site.baseurl}}/embed.html' + embedPath + '?' +
-                        widgetOpts.join('&') + '" width="100%" height="100%" frameborder="0"> </iframe>';
-
-        $('.widget-preview', el).html(defaultIframe);
-        $('.widget-code', el)
-            .val(defaultIframe.replace('src="{{site.baseurl}}/','src="' + BASE_URL))
-            .select();
-    },
-
     about: function (route) {
         window.setTimeout(function () {
             $('html, body').scrollTop(0);
@@ -488,5 +417,35 @@ routers.App = Backbone.Router.extend({
         } else {
             that.topDonorsGross.update(route);
         }
+    },
+
+    feedback: function () {
+
+        // Handle feedback form submission
+        $('#feedback-form').submit(function (e) {
+            // Require 'Feedback' field to have content
+            if ($('#entry_2').val() === '') {
+                alert('Please fill in the required fields before submitting.');
+                return false;
+            }
+        
+            // Set URL for feedback form
+            $('#entry_3').val(window.location);
+
+            var button = $('input[type=submit]', this),
+                data = $(this).serialize(),
+                form = this;
+
+            $.ajax({
+                type: 'POST',
+                url: 'https://docs.google.com/spreadsheet/formResponse?formkey=dFRTYXNUMWIzbXRhVF94YW9rVmlZNVE6MQ&amp;ifq',
+                data: data,
+                complete: function () {
+                    $('#feedback').modal('hide');
+                    $('input[type=text], textarea', form).val('');
+                }
+            });
+            return false;
+        });
     }
 });

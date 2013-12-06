@@ -251,7 +251,6 @@ function redirect(project_id){
         window.location.href = path;
        }   
    }catch(e){
-//    console.log("loi error");
         window.location.href = path;
    }
 }

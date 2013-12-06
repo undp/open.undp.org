@@ -34,7 +34,7 @@ views.Widget = Backbone.View.extend({
 
     widgetOptions: function(e) {
         var view = this;
-        view.path = '#widget/';
+            view.path = '#widget/';
 
         if (location.hash.split('/').length === 1) {
             view.path = location.hash + '/widget/';
@@ -44,10 +44,17 @@ views.Widget = Backbone.View.extend({
                 .replace('project', 'widget/project');
         }
 
-        var $el = $(e.target);
-        var opt = $el.attr('data-value');
 
-        // widgetOpts not defined
+        var widgetAnchors = $('.widget-options').find('a.active'),
+            widgetOpts = [],
+            $el = $(e.target),
+            opt = $el.attr('data-value');
+
+        _(widgetAnchors).each(function(anchor){
+            var widgetTitle = $(anchor).attr('data-value');
+            widgetOpts.push(widgetTitle);
+        })
+
         if ($el.hasClass('active')) {
             $el.removeClass('active');
             widgetOpts.splice(widgetOpts.indexOf(opt), 1);
