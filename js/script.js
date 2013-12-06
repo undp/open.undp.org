@@ -55,6 +55,7 @@ $(function() {
         ];
     var IE = $.browser.msie;
     if (IE) {var IE_VERSION = parseInt($.browser.version);} // should return 6, 7, 8, 9
+
     // Models
     {% include models/Filter.js %}
     {% include models/Project.js %}
@@ -100,9 +101,9 @@ $(function() {
   
         //calling a function after the js is loaded (Chrome/Firefox)  
         fileref.onload = callback;
-    if(typeof(document.getElementById('fiscalData')) != 'undefined') {
-		document.getElementById('fiscalData').appendChild(fileref);
-	}
+        if(typeof(document.getElementById('fiscalData')) != 'undefined') {
+		  document.getElementById('fiscalData').appendChild(fileref);
+	    }
     }
 
     // Via https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/indexOf
@@ -232,8 +233,8 @@ $(function() {
 window.closeModal = function(){
     $('#widget').modal('hide');
 };
-function redirect(project_id){
 
+function redirect(project_id){
     var path = window.location.protocol + "//" +
              window.location.host + '/#project/' + String(project_id);
     try{
