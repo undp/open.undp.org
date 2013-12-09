@@ -42,9 +42,11 @@ views.Map = Backbone.View.extend({
             zoom: 2,
             minZoom: TJ.minzoom,
             maxZoom: maxZoom || TJ.maxzoom,
-            scrollWheelZoom: wheelZoom
+            scrollWheelZoom: wheelZoom,
+            fullscreenControl: true
             });
-            
+         
+
         //view.map.legendControl.addLegend('last update');
 
         //for IE 8 and above add country outline
@@ -384,3 +386,9 @@ views.Map = Backbone.View.extend({
         }
     }
 });
+/*
+view.map = L.mapbox.map(this.el,TJ.id,{
+  fullscreenControl: true
+            });    
+
+*/
