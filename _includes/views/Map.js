@@ -430,12 +430,36 @@ views.Map = Backbone.View.extend({
                         view.map.closePopup(brief);
                         view.circleHighlight(e);
                     }).on('click',function(e){
-                        if (app.app.filters.length === 0 ){
-                            path = document.location.hash + '/filter/operating_unit-' + e.target.feature.properties.id;
+                         if (!view.options.embed){
+                            var prevPath = location.hash;
                         } else {
-                            path = document.location.hash + '/operating_unit-' +  e.target.feature.properties.id;
+                            prevPath = location.hash.split('?')[0];
+                            prevWidgetOpts = location.hash.split('?')[1]; // used when constructing the route with $('#widget-world')
+
+                            $('#widget-world')
+                            .removeClass('active')
+                            .addClass('enabled')
+                            .attr('href',location.origin + location.pathname + prevPath + "?"+ prevWidgetOpts)
+                            .on('click',function(e){
+                                $('#widget-country').removeClass('active');
+                                $(e.target).addClass('active').removeClass('enabled');
+                            })
+
+                            $('#widget-country').addClass('active');
                         }
-                        if (!view.options.embed){view.goToLink(path)};
+
+                        if (app.app.filters.length === 0){
+                            if (!view.options.embed) {
+                                path = prevPath + '/filter/operating_unit-' + e.target.feature.properties.id;
+                            } else {
+                                // if there's no filter location hash is "#2013/widget/" which duplicates the "/"
+                                path = prevPath = 'filter/operating_unit-' + e.target.feature.properties.id;
+                            }
+                        } else {
+                            path = prevPath + '/operating_unit-' +  e.target.feature.properties.id;
+                        }
+
+                        view.goToLink(path);
                     })
                 }
             });
