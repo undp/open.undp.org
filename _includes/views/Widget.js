@@ -72,7 +72,7 @@ views.Widget = Backbone.View.extend({
                 .val(view.widgetCode.replace('src="{{site.baseurl}}/','src="' + BASE_URL))
                 .select();
         } else {
-            $('.widget-preview', view.$el).html('<h3 class="empty">To use this widget choose some options on the left.</h3>');
+            $('.widget-preview', view.$el).html('<h3 class="empty">To use this widget choose options from above.</h3>');
         }
 
         return false;

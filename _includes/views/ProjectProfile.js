@@ -112,6 +112,7 @@ views.ProjectProfile = Backbone.View.extend({
             }));
             // Depending on the options passed into the array add a fade
             // in class to all elements containing a data-option attribute
+            this.$el.find('.option').hide();
             _(this.options.embed).each(function (o) {
                 $('[data-option="' + o + '"]').show();
             });

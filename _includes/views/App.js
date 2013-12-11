@@ -24,13 +24,14 @@ views.App = Backbone.View.extend({
     },
 
     render: function() {
+
         if (this.options.embed) {
             this.$el.empty().append(templates.embedProjects());
-            if (this.options.embed) {
-                _(this.options.embed).each(function (o) {
-                    $('[data-option="' + o + '"]').show();
-                });
-            }
+
+            this.$el.find('.option').hide();
+            _(this.options.embed).each(function (o) {
+                $('[data-option="' + o + '"]').show();
+            });
         } else {
             this.$el.empty().append(templates.app({
                 base: BASE_URL,
