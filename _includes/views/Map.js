@@ -318,36 +318,15 @@ views.Map = Backbone.View.extend({
                             layer.setIcon(L.mapbox.marker.icon(oldOptions));
                             view.map.closePopup(clusterBrief);
                         }).on('click',function(){
-                            path = '#project/'+ feature.properties.project;
-
-                            if (!view.options.embed){view.goToLink(path)}else{
-                               try{
-                             //   window.parent.closeModal();
-                               }
-                               catch(e){
-
-                               }
-                               try{
-                               if(parent.window.location.host ==window.location.host){
-                                parent.window.location.href = window.location.protocol + "//" +
-                                                window.location.host  +
-                                        "/" + path;
-                               }
-                               else
-                               {
-                                window.location.href = window.location.protocol + "//" +
-                                                        window.location.host +
-                                        "/" + path;
-                               }
-                                }catch(e)
-                                {
-//                                    console.log("loi error");
-                                window.location.href = window.location.protocol + "//" +
-                                                        window.location.host +
-                                        "/" + path;    
-                                }
-                               
-                            };
+                            if (!view.options.embed){
+                                path = '#project/'+ feature.properties.project;
+                                view.goToLink(path);
+                            } else {
+                                $('#embed')
+                                .empty()
+                                .css('height','10px')
+                                .html('<h3 class="empty">To embed a specific project, please exist the embed window and re-open it on the desired project page.</h3>')
+                            }
                         });
                     };
                     function filter(feature, layer, filter){// only two cases for type, hard code is fine
