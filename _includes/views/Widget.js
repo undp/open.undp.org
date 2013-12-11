@@ -44,7 +44,6 @@ views.Widget = Backbone.View.extend({
                 .replace('project', 'widget/project');
         }
 
-
         var widgetAnchors = $('.widget-options').find('a.active'),
             widgetOpts = [],
             $el = $(e.target),
