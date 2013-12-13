@@ -682,6 +682,10 @@ f_out.close()
 
 # Process Donor Index
 # *****************
+for d in donor_index:
+    if d['name'] == None:
+        print "this is null"
+        d['name'] = 'Others'
 print "Donor Index Process Count: %d" % len(donor_index)
 writeout = json.dumps(donor_index, sort_keys=True, separators=(',',':'))
 f_out = open('../api/donor-index.json', 'wb')
