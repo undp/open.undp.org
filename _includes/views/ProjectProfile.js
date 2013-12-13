@@ -146,41 +146,10 @@ views.ProjectProfile = Backbone.View.extend({
         
         if (this.model.attributes.outputs) {
             var outputs = this.model.attributes.outputs.slice(0, 9);
-            
-            var location = window.location.href;
-                if(location.indexOf("embed")>=0)
-                {
-                    this.$('#outputs').append(templates.projects())
-                }
-            _(outputs).each(function(model) {
-                if(location.indexOf("embed")<0)
-                {
-                    this.$('#outputs').append(templates.projectOutputs({ model: model }));
-                }   
-            });
-    
-            // Project Outputs
-            
-             if(location.indexOf("embed")>=0)
-            {
-               var curr_p_id = outputs[0].award_id;
-               
-               var item_seed = _(SUMMARY).find(function(item){
-                    return item.id == curr_p_id;
-               });
 
-               var operating_unit = item_seed.operating_unit;
-                var all_project_currents = _(SUMMARY).filter(function(item){
-                    return item.operating_unit == operating_unit;
-               });
-                this.$('#outputs #project-table tbody').empty();
-                _(all_project_currents).each(function(model) {
-                     this.$('#outputs #project-table tbody').append(templates.projectOutputs2({ model: model }));
-                });
-                $('#output-header').empty();
-                $('#output-header').append('<h2 class="heading-title"> <span>'+
-                                            all_project_currents.length+'</span> Projects</h2>');
-            }
+            _(outputs).each(function(model) {
+                this.$('#outputs').append(templates.projectOutputs({ model: model }));
+            });
 
             if (this.model.attributes.outputs.length < 10) {
                 $('.load').hide();

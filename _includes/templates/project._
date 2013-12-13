@@ -1,4 +1,4 @@
-<tr id="#project/<%= model.get('id') %>">
+<tr id="project-<%= model.get('id') %>">
     <td><a href="#project/<%= model.get('id') %>"><%= model.get('name').toLowerCase().toTitleCase() %></a></td>
     <td><%= model.get('budget') %></td>
     <td><%= model.get('expenditure') %></td>

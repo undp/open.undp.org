@@ -383,7 +383,8 @@ input[readonly] {
   -webkit-border-radius: 2px;
           border-radius: 2px;
 }
-#homemap {
+#homemap,
+#embed #profilemap {
   width:100%;
   height:460px;
   position:relative;
@@ -409,8 +410,11 @@ input[readonly] {
   -moz-transition:    all 0.3s;
   -o-transition:      all 0.3s;
   transition:         all 0.3s;
-}
+  }
 #profilemap {
+  position:relative;
+  bottom:0;
+  left:0;
   margin-top:5px;
   height:210px;
   border-left:  1px solid #ddd;
