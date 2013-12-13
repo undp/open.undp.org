@@ -114,6 +114,8 @@ routers.App = Backbone.Router.extend({
             };
 
             that.app.filters = filters;
+            // country filter
+            var opUnitFilter = _(app.app.filters).findWhere({collection:"operating_unit"});
 
             var loadFilters = function() {
                 var counter = 0;
@@ -188,13 +190,10 @@ routers.App = Backbone.Router.extend({
                 that.projects.reset(this.allProjects.filter(filter));
             }
             
-            updateWhenOpUnit();
-        }
-
-        function updateWhenOpUnit(){
-            var opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
+            // change summary look when on individual country
             $('.map-filter').removeClass('active') // reset the subfilter look
             $('#map-filters').find('#type-10').addClass('active');
+
             if(_.isObject(opUnitFilter)){
                 $('#map-filters').removeClass('disabled');//shows type sub-filter
                 $('.map-btn').removeClass('active');
