@@ -24,7 +24,6 @@ views.App = Backbone.View.extend({
     },
 
     render: function() {
-
         if (this.options.embed) {
             this.$el.empty().append(templates.embedProjects());
 
