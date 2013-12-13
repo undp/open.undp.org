@@ -68,10 +68,9 @@ views.Projects = Backbone.View.extend({
             
             this.$('#project-table tbody').empty();
 
-
             if (pageType === 'widget') {
                 _(models).each(function(model) {
-                    this.$('#project-table tbody').append(templates.projectWidget({ model: model }));
+                    this.$('#project-table tbody').append(templates.embedProject({ model: model }));
                 });
                 if (models.length < 10) {
                     $('.load').hide();

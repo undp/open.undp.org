@@ -149,9 +149,16 @@ views.ProjectProfile = Backbone.View.extend({
         if (this.model.attributes.outputs) {
             var outputs = this.model.attributes.outputs.slice(0, 9);
 
-            _(outputs).each(function(model) {
-                this.$('#outputs').append(templates.projectOutputs({ model: model }));
-            });
+            if (this.options.embed) {
+                _(outputs).each(function(model) {
+                    this.$('#outputs').append(templates.embedProjectOutputs({ model: model }));
+                });
+            } else {
+                _(outputs).each(function(model) {
+                    this.$('#outputs').append(templates.projectOutputs({ model: model }));
+                });
+            }
+
 
             if (this.model.attributes.outputs.length < 10) {
                 $('.load').hide();
