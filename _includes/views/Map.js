@@ -318,14 +318,13 @@ views.Map = Backbone.View.extend({
                             layer.setIcon(L.mapbox.marker.icon(oldOptions));
                             view.map.closePopup(clusterBrief);
                         }).on('click',function(){
-
                             if (!view.options.embed){
                                 var path = '#project/'+ feature.properties.project;
+                                view.goToLink(path);
                             } else {
-                                path = '#widget/project/' + feature.properties.project + '?title&descr&map&stats&outputs&documents' // select all widget options
+                                // open project page in a new tab/window
+                                window.open(BASE_URL + '#project/'+ feature.properties.project)
                             }
-
-                            view.goToLink(path);
                         });
                     };
 

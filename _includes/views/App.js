@@ -288,9 +288,8 @@ views.App = Backbone.View.extend({
 
     requestIframe: function() {
         var el = $('#widget'),
-            embedPath;
-
-        var widgetOpts = ['title', 'map', 'projects'];
+            embedPath,
+            widgetOpts = ['title', 'map', 'projects'];
 
         $('.widget-options a',el).removeClass('active');
 

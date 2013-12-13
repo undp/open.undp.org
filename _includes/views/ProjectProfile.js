@@ -104,6 +104,7 @@ views.ProjectProfile = Backbone.View.extend({
         window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
 
         if (this.options.embed) {
+
             this.$el.empty().append(templates.embedProjectProfile({
                 start: start,
                 end: end,
@@ -116,6 +117,7 @@ views.ProjectProfile = Backbone.View.extend({
             _(this.options.embed).each(function (o) {
                 $('[data-option="' + o + '"]').show();
             });
+
         } else {
             this.$el.empty().append(templates.projectProfile({
                 start: start,
