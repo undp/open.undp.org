@@ -435,13 +435,16 @@ input[readonly] {
     display:block;
     margin-bottom:10px;
     }
-#profilemap.full,
-.country-profile.full  {
+#profilemap.full{
   width:790px;
   z-index:5;
   }
+.country-profile.full  {
+  display:none;
+  }
 #profilemap.full {
-  height:300px;
+  height:460px;
+  border-bottom:1px solid #ddd;
   }
 /* keep the map attribution on left */
 .leaflet-right {
@@ -537,8 +540,8 @@ ul.layers {
   right:-123px;
   display:block;
   margin:0;
-  height:460px;
-  border-left:1px solid #ddd;
+  height:458px;
+  border:1px solid #ddd;
   background:#fff;
   z-index:10;
   /* transition */
