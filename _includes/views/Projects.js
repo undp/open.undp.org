@@ -18,7 +18,7 @@ views.Projects = Backbone.View.extend({
 
     render: function() {
 
-        var pageType = Backbone.history.fragment.split('/')[0];
+        var pageType = Backbone.history.fragment.split('/')[1];
 
         var donor = _(app.app.filters).find(function(filter) {
                 return filter.collection === 'donors';
