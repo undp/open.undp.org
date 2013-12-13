@@ -43,7 +43,7 @@ views.ProjectMap = Backbone.View.extend({
         // create map
         view.map = L.mapbox.map(this.el,TJ.id,{
             minZoom: 1,
-            maxZoom: 15,
+            maxZoom: 10,
             scrollWheelZoom: wheelZoom
         });
         
