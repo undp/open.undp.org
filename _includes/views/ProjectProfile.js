@@ -12,12 +12,12 @@ views.ProjectProfile = Backbone.View.extend({
             window.setTimeout(function() { window.scrollTo(0, $('#output-' + outputID).offset().top); }, 0);
         }
 
-        $('#all-projects').on('click', function(e) {
-            if (app.app) {
-                e.preventDefault();
-                window.history.back();
-            }
-        });
+        // $('#all-projects').on('click', function(e) {
+        //     if (app.app) {
+        //         e.preventDefault();
+        //         window.history.back();
+        //     }
+        // });
 
         $('#profile .summary').removeClass('off');
         this.low = 10,

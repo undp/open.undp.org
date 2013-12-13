@@ -104,7 +104,7 @@ views.App = Backbone.View.extend({
 
             e.preventDefault();
 
-            $('#all-projects').attr('href', '#' + path);
+            // $('#all-projects').attr('href', '#' + path);
             app.navigate(path, { trigger: true });
         }
     },

@@ -318,17 +318,17 @@ views.Map = Backbone.View.extend({
                             layer.setIcon(L.mapbox.marker.icon(oldOptions));
                             view.map.closePopup(clusterBrief);
                         }).on('click',function(){
+
                             if (!view.options.embed){
-                                path = '#project/'+ feature.properties.project;
-                                view.goToLink(path);
+                                var path = '#project/'+ feature.properties.project;
                             } else {
-                                $('#embed')
-                                .empty()
-                                .css('height','10px')
-                                .html('<h3 class="empty">To embed a specific project, please exist the embed window and re-open it on the desired project page.</h3>')
+                                path = '#widget/project/' + feature.properties.project + '?title&descr&map&stats&outputs&documents' // select all widget options
                             }
+
+                            view.goToLink(path);
                         });
                     };
+
                     function filter(feature, layer, filter){// only two cases for type, hard code is fine
                         var subFilter = mapFilter || "10";
                         if (subFilter === "10"){
