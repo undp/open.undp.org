@@ -36,6 +36,7 @@ views.Map = Backbone.View.extend({
                 //disableClusteringAtZoom: 6
             });
             var maxZoom = 10;
+            $('.widget-nav').hide();
         } else {
             view.markers = new L.LayerGroup();
         };
