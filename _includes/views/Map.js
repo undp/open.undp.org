@@ -36,7 +36,13 @@ views.Map = Backbone.View.extend({
                 //disableClusteringAtZoom: 6
             });
             var maxZoom = 10;
-            $('.widget-nav').hide();
+
+            // in embed if selected from a circle view (where widget-world has a link), keep the widget-nav
+            if ($('#widget-world').attr('href')) {
+                $('.widget-nav').show()
+            } else {
+                $('.widget-nav').hide()
+            }
         } else {
             view.markers = new L.LayerGroup();
         };

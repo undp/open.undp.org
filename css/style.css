@@ -383,8 +383,7 @@ input[readonly] {
   -webkit-border-radius: 2px;
           border-radius: 2px;
 }
-#homemap,
-#embed #profilemap {
+#homemap {
   width:100%;
   height:460px;
   position:relative;
@@ -401,7 +400,11 @@ input[readonly] {
   -webkit-transition-duration:.5s;
   -o-transition-duration:.5s;
   transition-duration:.5s;
-}
+  }
+#embed #profilemap,
+#embed #homemap {
+  height:320px;
+  }
 #profilemap,
 .country-profile {
   width:98%;
@@ -1655,6 +1658,9 @@ form {
   margin:10px 0;
   width:100%;
   }
+.widget-nav {
+  margin:-10px 0 10px;
+  }
 .widget-options li,
 .widget-nav li  {
   float:left;
@@ -1738,24 +1744,34 @@ form {
 /*-----------------------------------
   Widget Embed
 -------------------------------------*/
-#embed h2 {
-  font-size:24px;
+
+#embed .option {
+  margin:25px 0;
   }
-#embed .heading-title {
-  margin:0;
-  font-size:16px;
-  line-height:24px;
+#embed #homemap,
+#embed #profilemap,
+#embed .chart:last-child {
+  margin:25px 0 0;
   }
 #embed .stats .total {
   font-weight:normal;
   font-size:13px;
   }
+#embed .heading-title {
+  font-weight:bold;
+  }
 #embed .stats td {
   border-bottom:1px solid #ddd;
   }
+#embed .chart {
+  margin
+}
 #embed #chart-hdi {
   position:static;
   display:block;
+  }
+#embed #chart-hdi .chart-legend {
+  margin-top:-20px;
   }
 #embed #sparkline {
   width:417px;
