@@ -1,7 +1,6 @@
 # ------------------------------------------
 # This script organizes donor data for donor visualizations, to be added to undp-xml-process.py
 # ------------------------------------------
-
 # This script runs Python commands to create the JSON API. 
 # Requirements: Python 2.6 or greater 
  
@@ -10,7 +9,7 @@ from itertools import groupby
 
 t0 = time.time()
 
-#Process document file by Projects
+# CSVs
 #********************************* 
 
 # # Contributions cost sharing
@@ -34,95 +33,49 @@ fund_modalities_sort = sorted(fund_modalities, key = lambda x: x['key'])
 # cost_sharing_region_sort = sorted(cost_sharing_region, key = lambda x: x['awardid'])
 
 # Process contributions by fund modalities
-
 row_count = 0
-donor_index = []
-types = {}
-donors = {}
 donorList = {}
-types['Special Activities'] = []
-types['Cost Sharing'] = []
-types['UNV'] = []
-types['Thematic Trust Funds'] = []
-types['Trust Funds'] = []
-donorIndexHeader = ['id','name','country']
-contribs = {}
-contribsTemp = {}
-for don,donor in groupby(fund_modalities_sort, lambda x: x['Donor']): 
-	row_count = row_count + 1
+totals = {
+            "Special Activities": [], 
+            "Cost Sharing": [], 
+            "UNV": [],
+            "Thematic Trust Funds": [],
+            "Trust Funds": []
+        }
 
+for don,donor in groupby(fund_modalities_sort, lambda x: x['Donor']): 
 	for d in donor:
 		# organize donors by type
-		type = d['Fund Rollup Level 3']
 		donorID = str(d['Donor'])
-		donorList[donorID] = {}
-		contribsTemp[type] = []
-		donorList[donorID] = contribsTemp
+		donorList[donorID] = []
 
-		# organize donors by type
-		# type = k['Fund Rollup Level 3']
-		# types[type].append(k['Donor Description'])
-		# #organize contributions by type
-
-
-for key, keys in groupby(fund_modalities_sort, lambda x: x['key']):
-	for d in donorList:
+for d in donorList:
+	for key, keys in groupby(fund_modalities_sort, lambda x: x['key']):
 		for k in keys:
-			if int(d) == int(k['Donor']):
-				print 'success', d	
-				donorList[d][type] = k['Contribution Revenue']
-		# contribs[type] = []
-		# contribs[type].append(d)
-		# contribsTemp = contribs
-		# donors[donorID].append(contribsTemp)
-		
-		
+			if k['Donor'] == d:
+				row_count = row_count +1
+				val = k['Contribution Revenue'].replace("$","").replace("(","-").replace(")","").replace(",","")
+				newVal = int(val)
+				types = {k['Fund Rollup Level 3']: newVal}
+				totals[k['Fund Rollup Level 3']].append(newVal)
+				donorList[d].append(types)
 
-	# donors_index.append(dict(zip(donorIndexHeader, index)))
-print row_count, 'row count'
+print row_count, 'successful matches'
 
-writeout = json.dumps(types, sort_keys=True, separators=(',',':'))
-f_out = open('donor_data/types_donors.json', 'wb')
+totals['UNV'] = sum(totals['UNV'])
+totals['Thematic Trust Funds'] = sum(totals['Thematic Trust Funds'])
+totals['Trust Funds'] = sum(totals['Trust Funds'])
+totals['Cost Sharing'] = sum(totals['Cost Sharing'])
+totals['Special Activities'] = sum(totals['Special Activities'])
+
+writeout = json.dumps(totals, sort_keys=True, separators=(',',':'))
+f_out = open('../api/donors/total-modality.json', 'wb')
+print "total modality JSON generated"
 f_out.writelines(writeout)
 f_out.close()
 
 writeout = json.dumps(donorList, sort_keys=True, separators=(',',':'))
-f_out = open('donor_data/test_donors.json', 'wb')
+f_out = open('../api/donors/donor-modality.json', 'wb')
 f_out.writelines(writeout)
+print "donor modality JSON generated"
 f_out.close()
-
-# print donor_index
-
-# for row in projectsFull:  
-#     if row['operating_unit_id'] not in opUnits:
-#         opUnits.append(row['operating_unit_id'])
-#     row['outputs'] = []
-#     row['budget'] = []
-#     row['expenditure'] = []
-#     row['subnational'] = []
-#     row['fiscal_year'] = []
-#     budget = []
-#     expen = []
-#     for o in outputsFull:
-#         if row['project_id'] == o['award_id']:
-#             row['outputs'].append(o)
-#             for b in o['budget']:
-#                 if b is not None:
-#                     budget.append(b)
-#             for e in o['expenditure']:
-#                 if e is not None:
-#                     expen.append(e)
-#             for y in o['fiscal_year']:
-#                 if y not in row['fiscal_year']:
-#                     # Append to output array
-#                     row['fiscal_year'].append(y)
-#     row['budget'].append(sum(budget))
-#     row['expenditure'].append(sum(expen))
-#     for l in locationsFull:
-#         if row['project_id'] == l['awardID']:
-#             row['subnational'].append(l)
-#     # join region information
-#     row['region_id'] = 'global'
-#     for r in units_sort:
-#         if row['iati_op_id'] == r['iati_operating_unit'] or row['iati_op_id'] == r['operating_unit']:
-#             row['region_id'] = r['bureau']
