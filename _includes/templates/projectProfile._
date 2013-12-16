@@ -1,3 +1,6 @@
+<div>
+  <a href='#widget' class='widget-config' data-toggle='modal'>Embed<span class='icon embed'></span></a>
+</div>
 <div class='tab-content col col-790'>
   <div class='separator' id='project-heading'>
     <div class='col col-700'>
@@ -176,8 +179,8 @@
     <div class='separator' id='output-header'>
       <h2 class='heading-title'>
         <% if (model.get('outputs').length === 1) { %>
-        <span>1</span> Project<% } else { %>
-        <span><%= model.get('outputs').length %></span> Projects
+        <span>1</span> Output<% } else { %>
+        <span><%= model.get('outputs').length %></span> Outputs
         <% } %>
       </h3>
     </div>
@@ -189,7 +192,7 @@
 </div>
 <!--/ #summary -->
 
-<div id='content-right' class='col col-150 col-end hidden-phone'>
+<div id='content-right' class='col col-150 col-end hidden-phone'> <!--TODO adjust twitter block style-->
 
   <div id='flickr' class='row-fluid'>
     <div class='spin'></div>
@@ -215,11 +218,6 @@
       </div>
     </div>
   </div>
-
-  <% if (window.self === window.top) {  %>
-  <a href='#widget' class='widget-config' data-toggle='modal'>Embed<span class='icon embed'></span></a>
-  <% } %>
-
 </div>
 <!--/ #content-right -->
 

@@ -22,7 +22,6 @@ views.ProjectMap = Backbone.View.extend({
         return description;
     },
     render: function() {
-//        debugger;
         var view = this,
             locations = [],
             unit = this.model.get('operating_unit_id'),
@@ -44,7 +43,7 @@ views.ProjectMap = Backbone.View.extend({
         // create map
         view.map = L.mapbox.map(this.el,TJ.id,{
             minZoom: 1,
-            maxZoom: 15,
+            maxZoom: 10,
             scrollWheelZoom: wheelZoom
         });
         

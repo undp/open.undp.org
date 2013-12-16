@@ -1,24 +1,23 @@
 views.ProjectProfile = Backbone.View.extend({
     events: {
-        'click .widget-config': 'requestIframe',
-        'click .load a': 'loadMore'
+        'click .load a': 'loadMore',
+        'click .widget-config': 'requestIframe'
     },
 
     initialize: function() {
         this.render();
 
-        //console.dir(this);
         var outputID = this.options.gotoOutput;
         if (outputID) {
             window.setTimeout(function() { window.scrollTo(0, $('#output-' + outputID).offset().top); }, 0);
         }
 
-        $('#all-projects').on('click', function(e) {
-            if (app.app) {
-                e.preventDefault();
-                window.history.back();
-            }
-        });
+        // $('#all-projects').on('click', function(e) {
+        //     if (app.app) {
+        //         e.preventDefault();
+        //         window.history.back();
+        //     }
+        // });
 
         $('#profile .summary').removeClass('off');
         this.low = 10,
@@ -29,10 +28,9 @@ views.ProjectProfile = Backbone.View.extend({
         $('#breadcrumbs ul').html(
             '<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' +
             '<li><a href="' + BASE_URL + '">Our Projects</a></li>' +
-            '<li><a href="#' + CURRENT_YR + '/filter/operating_unit-' + this.model.get('operating_unit_id') + '">' + this.model.get("operating_unit") + '</a></li>' +
-            '<li><a href="#project/' + this.model.get('id') + '">' + this.model.get('id') + '</a></li>'
+            '<li><a href="' + BASE_URL + '#'+ CURRENT_YR +'/filter/operating_unit-' + this.model.get('operating_unit_id') + '">' + this.model.get("operating_unit") + '</a></li>' +
+            '<li><a href="' + BASE_URL + '#project/' + this.model.get('id') + '">' + this.model.get('id') + '</a></li>'
         );
-
 
         var start = this.model.get('start').split('-');
         var end = this.model.get('end').split('-');
@@ -106,20 +104,19 @@ views.ProjectProfile = Backbone.View.extend({
         window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
 
         if (this.options.embed) {
+
             this.$el.empty().append(templates.embedProjectProfile({
                 start: start,
                 end: end,
                 documents: documents,
                 model: this.model
             }));
-
             // Depending on the options passed into the array add a fade
             // in class to all elements containing a data-option attribute
-            if (this.options.embed) {
-                _(this.options.embed).each(function (o) {
-                    $('[data-option="' + o + '"]').show();
-                });
-            }
+            this.$el.find('.option').hide();
+            _(this.options.embed).each(function (o) {
+                $('[data-option="' + o + '"]').show();
+            });
 
         } else {
             this.$el.empty().append(templates.projectProfile({
@@ -149,44 +146,19 @@ views.ProjectProfile = Backbone.View.extend({
 
         this.$('#outputs').empty();
         
-//            alert(window.location.href);
         if (this.model.attributes.outputs) {
             var outputs = this.model.attributes.outputs.slice(0, 9);
-            
-            var location = window.location.href;
-                if(location.indexOf("embed")>=0)
-                {
-                    this.$('#outputs').append(templates.projects())
-                }
-            _(outputs).each(function(model) {
-                if(location.indexOf("embed")<0)
-                {
-                    this.$('#outputs').append(templates.projectOutputs({ model: model }));
-                }   
-            });
-    
-            // Project Outputs
-            
-             if(location.indexOf("embed")>=0)
-            {
-               var curr_p_id = outputs[0].award_id;
-               
-               var item_seed = _(SUMMARY).find(function(item){
-                    return item.id == curr_p_id;
-               });
 
-               var operating_unit = item_seed.operating_unit;
-                var all_project_currents = _(SUMMARY).filter(function(item){
-                    return item.operating_unit == operating_unit;
-               });
-                this.$('#outputs #project-table tbody').empty();
-                _(all_project_currents).each(function(model) {
-                     this.$('#outputs #project-table tbody').append(templates.projectOutputs2({ model: model }));
+            if (this.options.embed) {
+                _(outputs).each(function(model) {
+                    this.$('#outputs').append(templates.embedProjectOutputs({ model: model }));
                 });
-                $('#output-header').empty();
-                $('#output-header').append('<h2 class="heading-title"> <span>'+
-                                            all_project_currents.length+'</span> Projects</h2>');
+            } else {
+                _(outputs).each(function(model) {
+                    this.$('#outputs').append(templates.projectOutputs({ model: model }));
+                });
             }
+
 
             if (this.model.attributes.outputs.length < 10) {
                 $('.load').hide();
@@ -199,27 +171,6 @@ views.ProjectProfile = Backbone.View.extend({
         $('breadcrumbs').find('ul').remove();
 
         return this;
-    },
-
-    requestIframe: function() {
-        var context = $('#widget');
-        widgetOpts = ['title','map','outputs'];
-
-        $('.widget-options a',context).removeClass('active');
-        _(widgetOpts).each(function(widgetTitle){
-            var widgetEl =widgetTitle + '-opt';
-            $("." + widgetEl).find('a').addClass('active');
-        })
-
-        embedPath = location.hash.replace('project', 'widget/project');
-
-        defaultIframe = '<iframe src="{{site.baseurl}}/embed.html' + embedPath + '?' +
-        widgetOpts.join('&') +
-        '" width="680" height="500" frameborder="0"> </iframe>';
-        $('.widget-preview', context).html(defaultIframe);
-        $('.widget-code', context)
-            .val(defaultIframe.replace('src="{{site.baseurl}}/','src="' + BASE_URL))
-            .select();
     },
 
     loadMore: function(e) {
@@ -237,6 +188,29 @@ views.ProjectProfile = Backbone.View.extend({
         }
 
         return false;
-    }
+    },
 
+    requestIframe: function() {
+        var el = $('#widget'),
+            widgetEl;
+
+        var widgetOpts = ['title','map','outputs'];
+
+        $('.widget-options a',el).removeClass('active');
+
+        _(widgetOpts).each(function(widgetTitle){
+            widgetEl =widgetTitle + '-opt';
+            $("." + widgetEl).find('a').addClass('active');
+        })
+
+        var embedPath = location.hash.replace('project', 'widget/project');
+
+        var defaultIframe = '<iframe src="{{site.baseurl}}/embed.html' + embedPath + '?' +
+                        widgetOpts.join('&') + '" width="100%" height="100%" frameborder="0"> </iframe>';
+
+        $('.widget-preview', el).html(defaultIframe); // this is where the json is getting called
+        $('.widget-code', el)
+            .val(defaultIframe.replace('src="{{site.baseurl}}/','src="' + BASE_URL))
+            .select();
+    }
 });

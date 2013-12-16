@@ -34,7 +34,7 @@ views.Widget = Backbone.View.extend({
 
     widgetOptions: function(e) {
         var view = this;
-        view.path = '#widget/';
+            view.path = '#widget/';
 
         if (location.hash.split('/').length === 1) {
             view.path = location.hash + '/widget/';
@@ -43,8 +43,16 @@ views.Widget = Backbone.View.extend({
                 .replace('filter', 'widget')
                 .replace('project', 'widget/project');
         }
-        var $el = $(e.target);
-        var opt = $el.attr('data-value');
+
+        var widgetAnchors = $('.widget-options').find('a.active'),
+            widgetOpts = [],
+            $el = $(e.target),
+            opt = $el.attr('data-value');
+
+        _(widgetAnchors).each(function(anchor){
+            var widgetTitle = $(anchor).attr('data-value');
+            widgetOpts.push(widgetTitle);
+        })
 
         if ($el.hasClass('active')) {
             $el.removeClass('active');
@@ -57,14 +65,14 @@ views.Widget = Backbone.View.extend({
         if (widgetOpts.length !== 0) {
             view.widgetCode = '<iframe src="{{site.baseurl}}/' +
                 'embed.html' + view.path + '?' + widgetOpts.join('&') +
-                '" width="640" height="500" frameborder="0"> </iframe>';
+                '" width="100%" height="100%" frameborder="0"> </iframe>';
 
             $('.widget-preview', view.$el).html(view.widgetCode);
             $('.widget-code', view.$el)
                 .val(view.widgetCode.replace('src="{{site.baseurl}}/','src="' + BASE_URL))
                 .select();
         } else {
-            $('.widget-preview', view.$el).html('<h3 class="empty">To use this widget choose some options on the left.</h3>');
+            $('.widget-preview', view.$el).html('<h3 class="empty">To use this widget choose options from above.</h3>');
         }
 
         return false;
