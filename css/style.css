@@ -654,10 +654,19 @@ ul.layers.active {
 /*-----------------------------------
   Description below Map
 -------------------------------------*/
-#description {
+#description,
+#donor-specific {
   font-size: 18px;
   line-height: 30px;
   margin:20px 0 0;
+  }
+#donor-specific .donor-specific-content.has-photo {
+  margin-bottom:10px;
+  }
+#donor-specific .donor-specific-photo.has-photo img {
+  border:1px solid #ddd;
+  padding:5px;
+  max-height:200px;
   }
 #description .geography {
   font-size:15px;

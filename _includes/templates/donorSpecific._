@@ -1,0 +1,34 @@
+<!-- From the post -->
+{% for post in site.categories.donor %}
+	{% assign donorIdPost = post.id | split: '/' | last | upcase %}
+	{% assign donorContent = post.content | markdownify %}
+	{% capture donorPhotos %}
+		{% for photo in post.photos %}
+			{% assign photoCount = forloop.length %}
+			{% if photoCount == 0 %}
+				{% assign photoLayout = "no-photo" %}
+				#
+			{% else %}
+				{% assign photoLayout = "has-photo" %}
+				<img src='{{photo}}'>
+			{% endif %}
+		{% endfor %}
+	{% endcapture %}
+{% endfor %}
+
+<!-- From the app -->
+<%
+	var donorIdApp = _(app.filters).findWhere({collection:"donor_countries"}).id;
+%>
+
+<!-- Using conditions from the app and vairables defined from the post -->
+<% if (donorIdApp == "{{donorIdPost}}"){ %>
+<div class='donor-specific-content {{photoLayout}}'>
+	{{donorContent}}
+</div>
+<div class='donor-specific-photo {{photoLayout}}'>
+	<% if ({{photoCount}} > 1) { %>
+		{{donorPhotos}}
+	<% } %> 
+</div>
+<%} %>
