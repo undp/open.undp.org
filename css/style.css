@@ -218,13 +218,13 @@ input[readonly] {
 }
 
 .widget-config {
-  background:#F2FAFF;
+  position:absolute;
+  top:-50px;
+  right:10px;
   color:#003366;
   font-weight:bold;
   display:inline-block;
   padding:1px 15px 5px 10px;
-  margin:10px 0;
-  float:right;
   }
   .icon.embed {
     position:relative;
@@ -400,7 +400,11 @@ input[readonly] {
   -webkit-transition-duration:.5s;
   -o-transition-duration:.5s;
   transition-duration:.5s;
-}
+  }
+#embed #profilemap,
+#embed #homemap {
+  height:320px;
+  }
 #profilemap,
 .country-profile {
   width:98%;
@@ -409,8 +413,11 @@ input[readonly] {
   -moz-transition:    all 0.3s;
   -o-transition:      all 0.3s;
   transition:         all 0.3s;
-}
+  }
 #profilemap {
+  position:relative;
+  bottom:0;
+  left:0;
   margin-top:5px;
   height:210px;
   border-left:  1px solid #ddd;
@@ -431,13 +438,16 @@ input[readonly] {
     display:block;
     margin-bottom:10px;
     }
-#profilemap.full,
-.country-profile.full  {
+#profilemap.full{
   width:790px;
   z-index:5;
   }
+.country-profile.full  {
+  display:none;
+  }
 #profilemap.full {
-  height:300px;
+  height:460px;
+  border-bottom:1px solid #ddd;
   }
 /* keep the map attribution on left */
 .leaflet-right {
@@ -533,8 +543,8 @@ ul.layers {
   right:-123px;
   display:block;
   margin:0;
-  height:460px;
-  border-left:1px solid #ddd;
+  height:458px;
+  border:1px solid #ddd;
   background:#fff;
   z-index:10;
   /* transition */
@@ -1617,83 +1627,98 @@ form {
 #widget {
   width:820px;
   margin:-320px 0 0 -430px;
-  border
+  overflow:hidden;
   }
-#widget .modal-header,
-#widget .modal-footer {
-  background:#f6f6f6;
-  border:0;
-  height:30px;
-}
+#modal-close {
+  display:block;
+  position:absolute;
+  top:10px;
+  right:20px;
+  }
 #widget .modal-body {
   max-height:600px;
-  padding:0 10px;
+  padding:0 20px;
   }
+#widget .modal-footer {
+  background:#C8DDE4;
+  border:0;
+  height:30px;
+  padding:0 20px 20px;
+  text-align:left;
+}
 #widget .instruction {
+  display:inline-block;
   margin-top:4px;
   font-weight:bold;
+  padding:10px 5px 0;
 }
-#widget .modal-footer .instruction {
+.widget-options,
+.widget-nav {
   float:left;
-}
-.widget-options {
-  float:left;
-  width:110px;
-  height:400px;
-  list-style:none;
-  margin:25px 0 0 5px;
+  margin:10px 0;
+  width:100%;
   }
-  .widget-options li {
-    margin-bottom:10px;
-    }
-  .widget-options li a {
-    display:block;
-    width: 68px;
-    height: 34px;
-    line-height:30px;
-    font-weight:700;
-    padding: 2px 10px 0 12px;
-    }
-    .widget-options li a:hover {
-      background:#fff;
-      }
-    .widget-options li a.active:hover,
-    .widget-options li a.active {
-      background:#434c54;
-      color:#fff;
-      font-weight:bold;
-      }
-.widget-options input {
-  vertical-align:middle;
-  margin:0 0 3px;
+.widget-nav {
+  margin:-10px 0 10px;
+  }
+.widget-options li,
+.widget-nav li  {
+  float:left;
+  font-weight:700;
+  }
+.widget-options li a,
+.widget-nav li a  {
+  line-height:30px;
+  font-weight:700;
+  padding: 4px 14px;
+  margin:10px 10px 30px 0;
+  }
+.widget-options li a.active {
+  background:#C8DDE4;
+  }
+.widget-nav {
+  float:left;
+  }
+.widget-nav li a {
+  color:#888;
+  border:1px solid #ddd;
+  }
+.widget-nav li a.enabled {
+  color:#333;
+  }
+.widget-nav li a.enabled:hover,
+.widget-nav li a.active {
+  color:#333;
+  background:#ddd;
   }
 .widget-preview {
   float:left;
-  background:#fff;
-  border-left:1px solid #ddd;
-  padding:15px 10px 20px;
-  position:relative;
   z-index:10;
-  width:660px;
-  height:500px;
+  margin:10px auto;
+  width:94%;
+  height:400px;
+  padding:0 3%;
+  background:#fff;
+  border:1px solid #ddd;
+  }
+.widget-options input {
+  vertical-align:middle;
+  margin:0 0 3px;
   }
   .widget-preview iframe {
     overflow: -moz-scrollbars-vertical;
     overflow-y: scroll;
     }
   .widget-preview .empty {
-    color:#ddd;
+    color:#888;
     text-align:center;
+    margin:40px 0;
     display:block;
-    padding:0 20px;
-    margin-top:150px;
-    font-weight:normal;
     }
 .widget-code {
-  margin:0 0 0 20px;
-  width:619px;
-  float:left;
   overflow:hidden;
+  width:595px;
+  margin:10px 0 0 20px;
   cursor:auto;
   background:#fff;
   border:#ddd;
@@ -1719,31 +1744,34 @@ form {
 /*-----------------------------------
   Widget Embed
 -------------------------------------*/
-.embed-container {
-  margin:10px;
-  }
+
 #embed .option {
-  display:none;
-  margin-bottom:10px;
+  margin:25px 0;
   }
-#embed h2 {
-  font-size:24px;
-  }
-#embed .heading-title {
-  margin:0;
-  font-size:16px;
-  line-height:24px;
+#embed #homemap,
+#embed #profilemap,
+#embed .chart:last-child {
+  margin:25px 0 0;
   }
 #embed .stats .total {
   font-weight:normal;
   font-size:13px;
   }
+#embed .heading-title {
+  font-weight:bold;
+  }
 #embed .stats td {
   border-bottom:1px solid #ddd;
   }
+#embed .chart {
+  margin
+}
 #embed #chart-hdi {
   position:static;
   display:block;
+  }
+#embed #chart-hdi .chart-legend {
+  margin-top:-20px;
   }
 #embed #sparkline {
   width:417px;
@@ -1755,6 +1783,11 @@ form {
     margin-left:317px;
     float:left;
     }
+#embed .empty {
+  color:#888;
+  margin:40px 0;
+  text-align:center;
+  }
 
 /*-----------------------------------
   Clearfix

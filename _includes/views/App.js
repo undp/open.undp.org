@@ -5,8 +5,8 @@ views.App = Backbone.View.extend({
         'click #filters .label': 'toggleFilter',
         'click #filters .reset': 'clearFilter',
         'click .map-btn': 'mapLayerswitch',
-        'click .widget-config': 'requestIframe',
         'submit .form-search': 'submitForm',
+        'click .widget-config': 'requestIframe',
         'click #year .filter-items a': 'yearChange',
         'click .map-filter':'mapFilter',
         'click .view-switch a': 'activeMap',
@@ -24,17 +24,13 @@ views.App = Backbone.View.extend({
     },
 
     render: function() {
-
         if (this.options.embed) {
             this.$el.empty().append(templates.embedProjects());
-            // Depending on the options passed into the array add a fade
-            // in class to all elements containing a data-iotion attribute
-            if (this.options.embed) {
-                _(this.options.embed).each(function (o) {
-                    $('[data-option="' + o + '"]').show();
-                });
-            }
 
+            this.$el.find('.option').hide();
+            _(this.options.embed).each(function (o) {
+                $('[data-option="' + o + '"]').show();
+            });
         } else {
             this.$el.empty().append(templates.app({
                 base: BASE_URL,
@@ -107,7 +103,7 @@ views.App = Backbone.View.extend({
 
             e.preventDefault();
 
-            $('#all-projects').attr('href', '#' + path);
+            // $('#all-projects').attr('href', '#' + path);
             app.navigate(path, { trigger: true });
         }
     },
@@ -208,32 +204,6 @@ views.App = Backbone.View.extend({
         return false;
     },
 
-    requestIframe: function() {
-        var context = $('#widget');
-        widgetOpts = ["title", "map", "projects"]; //default layers for main map
-
-        $('.widget-options a',context).removeClass('active');
-        _(widgetOpts).each(function(widgetTitle){
-            var widgetEl =widgetTitle + '-opt';
-            $("." + widgetEl).find('a').addClass('active');
-        })
-
-        if (location.hash.split('/').length === 1) {
-            embedPath = location.hash + '/widget/';
-        } else {
-            embedPath = location.hash
-                .replace('filter', 'widget')
-        }
-
-        defaultIframe = '<iframe src="{{site.baseurl}}/embed.html' + embedPath + '?' +
-        widgetOpts.join('&') +
-        '" width="680" height="500" frameborder="0"> </iframe>';
-        $('.widget-preview', context).html(defaultIframe);
-        $('.widget-code', context)
-            .val(defaultIframe.replace('src="{{site.baseurl}}/','src="' + BASE_URL))
-            .select();
-    },
-
     submitForm: function(e) {
         return false;
     },
@@ -300,7 +270,7 @@ views.App = Backbone.View.extend({
             currentZoom = app.projects.map.map.getZoom();
         app.projects.map.buildLayer(this.layer,subFilterValue,currentCenter,currentZoom); // see Map.js
     },
-    
+
     activeMap: function(e) {
         e.preventDefault();
         $('.view-switch a').removeClass('active');
@@ -313,5 +283,32 @@ views.App = Backbone.View.extend({
         e.preventDefault();
         $('a#layers-back').toggleClass('active');
         $('ul.layers').toggleClass('active');
+    },
+
+    requestIframe: function() {
+        var el = $('#widget'),
+            embedPath,
+            widgetOpts = ['title', 'map', 'projects'];
+
+        $('.widget-options a',el).removeClass('active');
+
+        _(widgetOpts).each(function(widgetTitle){
+            widgetEl =widgetTitle + '-opt';
+            $("." + widgetEl).find('a').addClass('active');
+        })
+
+        if (location.hash.split('/').length === 1) {
+            embedPath = location.hash + '/widget/';
+        } else {
+            embedPath = location.hash.replace('filter', 'widget')
+        }
+
+        var defaultIframe = '<iframe src="{{site.baseurl}}/embed.html' + embedPath + '?' +
+                        widgetOpts.join('&') + '" width="100%" height="100%" frameborder="0"> </iframe>';
+
+        $('.widget-preview', el).html(defaultIframe);
+        $('.widget-code', el)
+            .val(defaultIframe.replace('src="{{site.baseurl}}/','src="' + BASE_URL))
+            .select();
     }
 });
