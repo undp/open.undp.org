@@ -61,7 +61,7 @@ For instance, to edit the main site introduction, locate the file `_posts/0001-0
 
 ### Editing donor posts in Prose
 
-Custom donor posts can be created for any donor countries with the abbreviation of the country id, and stored under `_posts/donors/`. For example, a post for the donor country Norway will be `_posts/donors/0001-01-01-NOR.md`.
+Custom donor posts can be created for any donor countries with the _the country id_, and stored under `_posts/donors/`. For example, a post for the donor country Norway will be `_posts/donors/0001-01-01-NOR.md`.
 
 Photos can be edited by using the markdown `![]()`. The caption of the photo will be in the `[]` and the url will be in the `()`. The url can point to any source on the web (eg. `![This is an 640px image from flickr.](http://farm3.staticflickr.com/2521/4080560617_f220de276d_z.jpg)`) or to the local folder, named `media` (eg. `![This is an image from the media folder](/media/example.jpg)`). 
 
