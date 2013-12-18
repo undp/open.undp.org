@@ -24,6 +24,10 @@ t0 = time.time()
 # cost_sharing_expenses = csv.DictReader(open('donor_data/expenses_cost_sharing.csv', 'rb'), delimiter = ',', quotechar = '"')
 # cost_sharing_expenses_sort = sorted(cost_sharing_expenses, key = lambda x: x['awardid'])
 
+# For donor names and IDs
+cntry_donors = csv.DictReader(open('download/undp_export/country_donors_updated.csv','rb'), delimiter = ',', quotechar = '"')
+cntry_donors_sort = sorted(cntry_donors, key = lambda x: x['id'])
+
 # Donors by fund modalities
 fund_modalities = csv.DictReader(open('donor_data/fund_modalities.csv', 'rb'), delimiter = ',', quotechar = '"')
 fund_modalities_sort = sorted(fund_modalities, key = lambda x: x['key'])
@@ -43,30 +47,58 @@ totals = {
             "Trust Funds": []
         }
 
-for don,donor in groupby(fund_modalities_sort, lambda x: x['Donor']): 
-	for d in donor:
-		# organize donors by type
-		donorID = str(d['Donor'])
-		donorList[donorID] = []
+count = 0
+for d in fund_modalities_sort:
+	# Fix names from CSV to match UN_AGY and MULTI_AGY used elsewhere in the site. 
+	if d['Donor Rollup Level 3'] == 'UN_AGY 1':
+		donorID = 'UN_AGY'
+	elif d['Donor Rollup Level 3'] == 'MUTLI_AGY2':
+		donorID = 'MUTLI_AGY'
+	else: 
+		donorID = d['Donor Rollup Level 3']
+	donorList[donorID] = []
+	# donorList[donorID].append(totals)
 
 for d in donorList:
-	for key, keys in groupby(fund_modalities_sort, lambda x: x['key']):
-		for k in keys:
-			if k['Donor'] == d:
-				row_count = row_count +1
-				val = k['Contribution Revenue'].replace("$","").replace("(","-").replace(")","").replace(",","")
-				newVal = int(val)
-				types = {k['Fund Rollup Level 3']: newVal}
-				totals[k['Fund Rollup Level 3']].append(newVal)
-				donorList[d].append(types)
+	temp = {
+            "Special Activities": [], 
+            "Cost Sharing": [], 
+            "UNV": [],
+            "Thematic Trust Funds": [],
+            "Trust Funds": []
+     }
+	for k in fund_modalities_sort:
+		if k['Donor Rollup Level 3'] == 'UN_AGY 1':
+			donorID = 'UN_AGY'
+		elif k['Donor Rollup Level 3'] == 'MUTLI_AGY2':
+			donorID = 'MUTLI_AGY'
+		else: 
+			donorID = k['Donor Rollup Level 3']
+
+		if donorID == d:
+			row_count = row_count +1
+			val = k['Contribution Revenue'].replace("$","").replace("(","-").replace(")","").replace(",","")
+			newVal = int(val)
+			type = k['Fund Rollup Level 3']
+			temp[type].append(newVal)
+			totals[k['Fund Rollup Level 3']].append(newVal)
+
+	donorList[d].append(temp)
+
+for k, v in donorList.items():
+	for x in v:
+		for typ, values in x.items():
+			donorList[k][0][typ] = sum(values)
 
 print row_count, 'successful matches'
 
+# Get sums of all numbers appended to totals arrays
 totals['UNV'] = sum(totals['UNV'])
 totals['Thematic Trust Funds'] = sum(totals['Thematic Trust Funds'])
 totals['Trust Funds'] = sum(totals['Trust Funds'])
 totals['Cost Sharing'] = sum(totals['Cost Sharing'])
 totals['Special Activities'] = sum(totals['Special Activities'])
+
 
 writeout = json.dumps(totals, sort_keys=True, separators=(',',':'))
 f_out = open('../api/donors/total-modality.json', 'wb')
