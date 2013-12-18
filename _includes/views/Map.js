@@ -42,8 +42,7 @@ views.Map = Backbone.View.extend({
             zoom: 2,
             minZoom: TJ.minzoom,
             maxZoom: maxZoom || TJ.maxzoom,
-            scrollWheelZoom: wheelZoom,
-            fullscreenControl: true
+            scrollWheelZoom: wheelZoom
             });
          
 
@@ -386,9 +385,3 @@ views.Map = Backbone.View.extend({
         }
     }
 });
-/*
-view.map = L.mapbox.map(this.el,TJ.id,{
-  fullscreenControl: true
-            });    
-
-*/
