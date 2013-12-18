@@ -673,13 +673,27 @@ ul.layers.active {
   line-height: 30px;
   margin:20px 0 0;
   }
+#donor-specific #slides {
+  padding:5px;
+  border:1px solid #ddd;
+  }
 #donor-specific .donor-specific-content.has-photo {
   margin-bottom:10px;
   }
-#donor-specific .donor-specific-photo.has-photo img {
-  border:1px solid #ddd;
-  padding:5px;
-  max-height:200px;
+#donor-specific .donor-specific-photo img {
+  width: 100%;
+  }
+#donor-specific .photo-caption {
+  position: absolute;
+  display: block;
+  top:0;
+  right:0;
+  font-size:13px;
+  font-weight:bold;
+  padding:10px;
+  color:#fff;
+  background:#000;
+  background:rgba(0,0,0,0.25);
   }
 #description .geography {
   font-size:15px;

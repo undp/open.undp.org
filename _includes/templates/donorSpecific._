@@ -7,10 +7,13 @@
 			{% assign photoCount = forloop.length %}
 			{% if photoCount == 0 %}
 				{% assign photoLayout = "no-photo" %}
-				#
+				no photos available
 			{% else %}
 				{% assign photoLayout = "has-photo" %}
-				<img src='{{photo}}'>
+				<div class='slide'>
+					<img src='{{photo.url}}'>
+					<p class='photo-caption'>{{photo.caption}}</p>
+				</div>
 			{% endif %}
 		{% endfor %}
 	{% endcapture %}
