@@ -26,7 +26,7 @@ views.ProjectMap = Backbone.View.extend({
             
             // adding faux fullscreen control
          if (!view.options.embed) {
-          //  $('#profilemap').append('<div class="full-control"><a href="#" class="icon map-fullscreen"></a></div>');
+           $('#profilemap').append('<div class="full-control"><a href="#" class="icon map-fullscreen"></a></div>');
         } else {
             wheelZoom = false;
         }
@@ -34,9 +34,8 @@ views.ProjectMap = Backbone.View.extend({
         view.map = L.mapbox.map(this.el,TJ.id,{
             minZoom: 1,
             maxZoom: 15,
-            scrollWheelZoom: wheelZoom,
-            fullscreenControl: true
-        });
+            scrollWheelZoom: wheelZoom
+            });
 
         
         $.getJSON('api/operating-unit-index.json', function(data) {
