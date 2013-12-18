@@ -228,14 +228,22 @@ routers.App = Backbone.Router.extend({
                 var counts = (app.projects.length === 1) ? 'project' : 'projects';
                     projectCounts = 'There are <strong>' + app.projects.length +'</strong> ' + counts;
 
-                function renderDonor(){
-                    $('#donor-specific').append(templates.donorSpecific(app));
-                    $('#donor-specific').find('.spin').spin({ color:'#000' });
-                    $('#donor-specific #slides').slidesjs({
+                function renderDonorContent(){
+                    var $el = $('#donor-specific');
+                    $el.append(templates.donorSpecific(app));
+                    $el.find('.spin').spin({ color:'#000' });
+
+                    _($el.find('img')).each(function(img){
+                        var caption = $('<p class="photo-caption">'+img.alt+'</p>')
+                        caption.insertAfter(img);
+                        caption.prev().andSelf().wrapAll('<div class="slide" />');
+                    });
+                    $('.slide').wrapAll('<div id="slides" />');
+                    $('#slides', $el).slidesjs({
                         pagination:{active:false},
                         callback: {
                             loaded: function(number) {
-                                $('#donor-specific').find('.spin').spin(false);
+                                $el.find('.spin').spin(false);
                             }
                         }
                     });
@@ -244,7 +252,7 @@ routers.App = Backbone.Router.extend({
                 if (app.description && app.description.length === 0){
                     if (app.donorDescription.length > 0) {
                         // custom donor text
-                        renderDonor();
+                        renderDonorContent();
                         // default donor text
                         $('#description').find('p.desc').html(app.donorDescription + counts +' across the world.');
                     } else {
@@ -253,7 +261,7 @@ routers.App = Backbone.Router.extend({
                 } else if (app.description && app.description.length > 0){
                     if (app.donorDescription.length > 0) {
                         // custom donor text
-                        renderDonor();
+                        renderDonorContent();
                         // default donor text
                         $('#description').find('p.desc').html(app.donorDescription + counts + ' ' + app.description.join(',') + '.');
                     } else {

@@ -2,21 +2,6 @@
 {% for post in site.categories.donor %}
 	{% assign donorIdPost = post.id | split: '/' | last | upcase %}
 	{% assign donorContent = post.content | markdownify %}
-	{% capture donorPhotos %}
-		{% for photo in post.photos %}
-			{% assign photoCount = forloop.length %}
-			{% if photoCount == 0 %}
-				{% assign photoLayout = "no-photo" %}
-				no photos available
-			{% else %}
-				{% assign photoLayout = "has-photo" %}
-				<div class='slide'>
-					<img src='{{photo.url}}'>
-					<p class='photo-caption'>{{photo.caption}}</p>
-				</div>
-			{% endif %}
-		{% endfor %}
-	{% endcapture %}
 {% endfor %}
 
 <!-- From the app -->
@@ -26,16 +11,8 @@
 
 <!-- Using conditions from the app and vairables defined from the post -->
 <% if (donorIdApp == "{{donorIdPost}}"){ %>
-<div class='donor-specific-content {{photoLayout}}'>
+<div class='donor-specific-content'>
+	<div class='spin'></div>
 	{{donorContent}}
-</div>
-<div class='donor-specific-photo {{photoLayout}}'>
-	<!-- Spin graph -->
-    <div class='spin'></div>
-    <div id='slides'> <!--using slides lib -->
-    <% if ({{photoCount}} > 1) { %>
-		{{donorPhotos}}
-	<% } %>
-	</div>
 </div>
 <%} %>
