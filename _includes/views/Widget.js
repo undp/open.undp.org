@@ -24,13 +24,16 @@ views.Widget = Backbone.View.extend({
             $('.proj-opt', view.$el).show();
         }
         // add custom donor content option when a donor country is filtered
-        var donorCountryFilter = _(app.app.filters).findWhere({collection:"donor_countries"}),
-            donorCountryOption = "<li class='main-opt donor-specific-opt'>"
-            + "<a href='#' data-value='donor-specific'>Custom Donor Content</a>"
-            + "</li>";
-        if (_.isObject(donorCountryFilter)){
-            $('.widget-options').prepend(donorCountryOption)
+        if (app.app) {
+            var donorCountryFilter = _(app.app.filters).findWhere({collection:"donor_countries"}),
+                donorCountryOption = "<li class='main-opt donor-specific-opt'>"
+                + "<a href='#' data-value='donor-specific'>Custom Donor Content</a>"
+                + "</li>";
+            if (_.isObject(donorCountryFilter)){
+                $('.widget-options').prepend(donorCountryOption)
+            }
         }
+
         return this;
     },
 
