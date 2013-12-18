@@ -64,7 +64,7 @@
         <div id='browser' class='content view'></div>
         <div id='profile' class='col-790 content view'></div>
         <div id='top-donors' class='col-790 content view chart'>
-          {% for donor in site.categories['donors-gross'] %}
+          {% for donor in site.tags['donors-gross'] %}
           <h1 class='title-story'>{{donor.title}}</h1>
           {{donor.content}}
           {% endfor %}
@@ -74,7 +74,7 @@
             <li><a href='#top-donors/total'>Total</a></li>
           </ul>
           <table class='table table-unstyled donor-gross-table'></table>
-          {% for donor in site.categories['donors-local'] %}
+          {% for donor in site.tags['donors-local'] %}
           <h3>{{donor.title}}</h3>
           {{donor.content}}
           {% endfor %}
@@ -93,8 +93,8 @@
       </div>
     </div>
 
-    <!-- Modals -->
-    {% for modal in site.categories.modal %}
+    <!-- Download Modal -->
+    {% for modal in site.tags.download %}
     <div class='modal hide fade' id='{{modal.tag}}'>
         <div class='modal-header'>
             <button type='button' class='close' data-dismiss='modal'>&times;</button>
