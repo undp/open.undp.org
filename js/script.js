@@ -222,14 +222,20 @@ $(function() {
         }
     });
 
+    // About nav toggle
+    $('#mainnav a.parent-link').click(function(e) {
+        e.preventDefault();
+        var $target = $(e.target);
+        if ($target.parent().hasClass('parent-active')) {
+            $target.parent().removeClass('parent-active');
+        } else {
+            $target.parent().addClass('parent-active');
+        }
+    });
+
     // Start the application
     $(function() {
         app = new routers.App();
         Backbone.history.start();
     });
 });
-
-window.closeModal = function(){
-    $('#widget').modal('hide');
-};
-
