@@ -260,27 +260,40 @@ input[readonly] {
 /*-----------------------------------
   Icons
 -------------------------------------*/
-.icon {
+.icon,
+.slidesjs-navigation {
   background:transparent url(../img/sprite.png) no-repeat 0 0;
   display:inline-block;
   width:20px;
   height:20px;
   text-indent:-999em;
   }
+.slidesjs-navigation {
+  position:absolute;
+  right:0;
+  margin-top:10px;
+  }
 .icon-thumbnail {
   width:40px;
   height:40px;
   }
-
 .icon.reset                   { background-position:0 0; }
 .icon.filetype                { background-position:0 -105px; }
 .icon.filetype.filetype-pdf   { background-position:-25px -105px; }
 .icon.embed                   { background-position:0 -130px; }
 .icon.chevron                 { background-position:-60px 0; }
-.icon.forward                 { background-position:-75px 0; }
-.icon.back                    { background-position:-100px 0; }
 .icon.map-fullscreen          { background-position:-168px 4px;}
 .icon.map-fullscreen.full     { background-position:-192px 4px;}
+
+.icon.forward,
+.slidesjs-next.slidesjs-navigation {
+  background-position:-75px 0;
+  }
+.icon.back,
+.slidesjs-previous.slidesjs-navigation {
+  background-position:-100px 0;
+  right:20px;
+  }
 
 /* areas color spans*/
 .democratic { border:2px solid #049fd9;color: #049fd9;}
@@ -1458,7 +1471,6 @@ form {
 
 /* flickr gallery */
 #flickr {
-  background-color:#000;
   position:relative;
   margin-bottom:10px;
   height:240px;
@@ -1513,7 +1525,6 @@ form {
     }
   #flickr .resize,
   #flickr .control {
-    background-color:rgb(0,0,0);
     position:absolute;
     top:50%;
     margin-top:-15px;
@@ -1521,7 +1532,6 @@ form {
     height:30px;
     cursor:pointer;
     z-index:100;
-    opacity:0.8;
     -webkit-transition:opacity 250ms linear;
        -moz-transition:opacity 250ms linear;
          -o-transition:opacity 250ms linear;

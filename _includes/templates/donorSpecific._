@@ -27,8 +27,12 @@
 	{{donorContent}}
 </div>
 <div class='donor-specific-photo {{photoLayout}}'>
-	<% if ({{photoCount}} > 1) { %>
+	<!-- Spin graph -->
+    <div class='spin'></div>
+    <div id='slides'> <!--using slides lib -->
+    <% if ({{photoCount}} > 1) { %>
 		{{donorPhotos}}
-	<% } %> 
+	<% } %>
+	</div>
 </div>
 <%} %>
