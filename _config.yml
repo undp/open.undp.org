@@ -1,3 +1,15 @@
 baseurl: /undp-projects
 prose:
   rooturl: "_posts"
+  media: "media"
+  metadata:
+    _posts/donors:
+      - name: "category"
+        field:
+          element: "hidden"
+          value: "donor"
+    _posts/about:
+      - name: "category"
+        field:
+          element: "hidden"
+          value: "about"
