@@ -1,5 +1,5 @@
 ---
-category: "donors-gross"
+tag: "donors-gross"
 title: "Top Contributing Donors"
 ---
 
