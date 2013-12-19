@@ -25,7 +25,6 @@ views.ProjectProfile = Backbone.View.extend({
             '<li><a href="' + BASE_URL + '#project/' + this.model.get('id') + '">' + this.model.get('id') + '</a></li>'
         );
 
-        // TODO IE could not get model when project url is loaded directly
         var start = this.model.get('start').split('-');
         var end = this.model.get('end').split('-');
 
