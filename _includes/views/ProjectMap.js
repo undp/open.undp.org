@@ -461,9 +461,10 @@ views.ProjectMap = Backbone.View.extend({
 
         // Load single photo from array
         function loadPhoto(x) {
-            $el.find('.spin').spin({ color:'#fff' });
-            if (x === 0) $('.prev', $el).addClass('inactive');
-            if (x === photos.length - 1) $('.next', $el).addClass('inactive');
+            $el.find('.meta').hide();
+            $el.find('.spin').spin({ color:'#000' });
+            if (x === 0) $('.control.prev', $el).addClass('inactive');
+            if (x === photos.length - 1) $('.control.next', $el).addClass('inactive');
 
             if (photos[x].id) {
                 var photoid = photos[x].id,
@@ -479,7 +480,6 @@ views.ProjectMap = Backbone.View.extend({
 
                     // Get available sizes
                     $.getJSON(apiBase + 'flickr.photos.getSizes&api_key=' + apiKey + '&photo_id=' + photoid, function(s) {
-
                         getSize('Medium 800');
                         function getSize(sizeName) {
                             _(s.sizes.size).each(function(z) {
@@ -507,7 +507,7 @@ views.ProjectMap = Backbone.View.extend({
                         }
 
                         // Fill in date & description
-                        $('.meta', $el).html('<div class="meta-inner"><span class="date">' + date + '</span>' +
+                        $('.meta', $el).show().html('<div class="meta-inner"><span class="date">' + date + '</span>' +
                             '<p>' + description +
                             '<a href="' + url + 'in/photostream/" title="See our photos on Flickr"> Source</a></p></div>');
 
@@ -516,7 +516,7 @@ views.ProjectMap = Backbone.View.extend({
                 });
 
             } else if (photos[x].date) {
-                $('.meta', $el).html('<div class="meta-inner"><span class="date">' + photos[x].date.toLocaleDateString() + '</span>' +
+                $('.meta', $el).show().html('<div class="meta-inner"><span class="date">' + photos[x].date.toLocaleDateString() + '</span>' +
                     '<p>' + photos[x].description +
                     '<a href="' + photos[x].link + '/in/photostream/" title="See our photos on Flickr"> Source</a></p></div>');
 
@@ -534,39 +534,30 @@ views.ProjectMap = Backbone.View.extend({
         }
 
         // Cycle through photo array
-        $('.next', $el).click(function() {
+        $('.control.next', $el).click(function(e) {
+            e.preventDefault();
             if (!$('.next', $el).hasClass('inactive')) {
                 if (i === 0) {
-                    $('.prev', $el).removeClass('inactive');
+                    $('.control.prev', $el).removeClass('inactive');
                 }
                 i += 1;
                 if (i == photos.length - 1) {
-                    $('.next', $el).addClass('inactive');
+                    $('.control.next', $el).addClass('inactive');
                 }
                 loadPhoto(i);
             }
         });
-        $('.prev', $el).click(function() {
-            if (!$('.prev', $el).hasClass('inactive')) {
+        $('.control.prev', $el).click(function(e) {
+            e.preventDefault();
+            if (!$('.control.prev', $el).hasClass('inactive')) {
                 if (i === photos.length - 1) {
-                    $('.next', $el).removeClass('inactive');
+                    $('.control.next', $el).removeClass('inactive');
                 }
                 i -= 1;
                 if (i === 0) {
-                    $('.prev', $el).addClass('inactive');
+                    $('.control.prev', $el).addClass('inactive');
                 }
                 loadPhoto(i);
-            }
-        });
-
-        // Toggle resizing of photo to fit container
-        $('.resize', $el).click(function() {
-            if ($('body').hasClass('fullscreen')) {
-                $('body').removeClass('fullscreen');
-                $(this).find('.text').text('Details');
-            } else {
-                $('body').addClass('fullscreen');
-                $(this).find('.text').text('Hide Details');
             }
         });
     }
