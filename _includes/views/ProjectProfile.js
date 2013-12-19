@@ -12,13 +12,6 @@ views.ProjectProfile = Backbone.View.extend({
             window.setTimeout(function() { window.scrollTo(0, $('#output-' + outputID).offset().top); }, 0);
         }
 
-        // $('#all-projects').on('click', function(e) {
-        //     if (app.app) {
-        //         e.preventDefault();
-        //         window.history.back();
-        //     }
-        // });
-
         $('#profile .summary').removeClass('off');
         this.low = 10,
         this.high = 10;
@@ -32,6 +25,7 @@ views.ProjectProfile = Backbone.View.extend({
             '<li><a href="' + BASE_URL + '#project/' + this.model.get('id') + '">' + this.model.get('id') + '</a></li>'
         );
 
+        // TODO IE could not get model when project url is loaded directly
         var start = this.model.get('start').split('-');
         var end = this.model.get('end').split('-');
 

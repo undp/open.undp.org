@@ -422,7 +422,6 @@ views.ProjectMap = Backbone.View.extend({
         var apiBase = 'http://api.flickr.com/services/rest/?format=json&jsoncallback=?&method=',
             apiKey = '1da8476bfea197f692c2334997c10c87', //from UNDP's main account (unitednationsdevelopmentprogramme)
             search = this.model.get('project_id'),
-            //search = 'africa' //for testing
             attempt = 0,
             i = 0,
             $el = $('#flickr');
