@@ -299,6 +299,8 @@ views.ProjectMap = Backbone.View.extend({
             _(['web','email','facebook','twitter','flickr']).each(function(v) {
                 var link = '',
                     i = 0;
+                // hide unit contact if there's no social contact available
+                $('#unit-contact').hide();
 
                 if (data[v] || (social[v] && social[v].length)) {
                     if (v == 'twitter') baseUrl = 'http://twitter.com/';
@@ -316,8 +318,9 @@ views.ProjectMap = Backbone.View.extend({
                         link += '<a href="' + baseUrl + data[v] + '">' + data[v] + '</a>';
                     }
 
-                    // Fill contact modal
-                    $('#unit-contact .modal-body').append(
+                    // Fill contact info below the title
+                    $('#unit-contact').show();
+                    $('#unit-contact .contact-info').append(
                         '<div class="row-fluid">' +
                             '<div class="contacts span2">' +
                                 '<p>' + ((v == 'web') ? 'Homepage' : v.capitalize()) +'</p>' +
