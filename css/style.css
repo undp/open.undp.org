@@ -260,27 +260,40 @@ input[readonly] {
 /*-----------------------------------
   Icons
 -------------------------------------*/
-.icon {
+.icon,
+.slidesjs-navigation {
   background:transparent url(../img/sprite.png) no-repeat 0 0;
   display:inline-block;
   width:20px;
   height:20px;
   text-indent:-999em;
   }
+.slidesjs-navigation {
+  position:absolute;
+  right:0;
+  margin-top:10px;
+  }
 .icon-thumbnail {
   width:40px;
   height:40px;
   }
-
 .icon.reset                   { background-position:0 0; }
 .icon.filetype                { background-position:0 -105px; }
 .icon.filetype.filetype-pdf   { background-position:-25px -105px; }
 .icon.embed                   { background-position:0 -130px; }
 .icon.chevron                 { background-position:-60px 0; }
-.icon.forward                 { background-position:-75px 0; }
-.icon.back                    { background-position:-100px 0; }
 .icon.map-fullscreen          { background-position:-168px 4px;}
 .icon.map-fullscreen.full     { background-position:-192px 4px;}
+
+.icon.forward,
+.slidesjs-next.slidesjs-navigation {
+  background-position:-75px 0;
+  }
+.icon.back,
+.slidesjs-previous.slidesjs-navigation {
+  background-position:-100px 0;
+  right:20px;
+  }
 
 /* areas color spans*/
 .democratic { border:2px solid #049fd9;color: #049fd9;}
@@ -654,10 +667,34 @@ ul.layers.active {
 /*-----------------------------------
   Description below Map
 -------------------------------------*/
-#description {
+#description,
+#donor-specific {
   font-size: 18px;
   line-height: 30px;
   margin:20px 0 0;
+  }
+#donor-specific .donor-specific-content .spin {
+  margin:25% 0;
+  }
+#donor-specific .donor-specific-content img {
+  width: 100%;
+  }
+#donor-specific #slides {
+  padding:5px;
+  border:1px solid #ddd;
+  margin:20px 0;
+  }
+#donor-specific .photo-caption {
+  position: absolute;
+  display: block;
+  top:0;
+  right:0;
+  font-size:13px;
+  font-weight:bold;
+  padding:10px;
+  color:#fff;
+  background:#000;
+  background:rgba(0,0,0,0.25);
   }
 #description .geography {
   font-size:15px;
@@ -1513,7 +1550,6 @@ form {
 
 /* flickr gallery */
 #flickr {
-  background-color:#000;
   position:relative;
   margin-bottom:10px;
   height:240px;
@@ -1568,7 +1604,6 @@ form {
     }
   #flickr .resize,
   #flickr .control {
-    background-color:rgb(0,0,0);
     position:absolute;
     top:50%;
     margin-top:-15px;
@@ -1576,7 +1611,6 @@ form {
     height:30px;
     cursor:pointer;
     z-index:100;
-    opacity:0.8;
     -webkit-transition:opacity 250ms linear;
        -moz-transition:opacity 250ms linear;
          -o-transition:opacity 250ms linear;

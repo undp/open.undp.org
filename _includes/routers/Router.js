@@ -240,24 +240,50 @@ routers.App = Backbone.Router.extend({
                 var counts = (app.projects.length === 1) ? 'project' : 'projects';
                     projectCounts = 'There are <strong>' + app.projects.length +'</strong> ' + counts;
 
+                function renderDonorContent(){
+                    var $el = $('#donor-specific');
+                    $el.append(templates.donorSpecific(app));
+                    $el.find('.spin').spin({ color:'#000' });
+
+                    _($el.find('img')).each(function(img){
+                        var caption = $('<p class="photo-caption">'+img.alt+'</p>')
+                        caption.insertAfter(img);
+                        caption.prev().andSelf().wrapAll('<div class="slide" />');
+                    });
+                    $('.slide').wrapAll('<div id="slides" />');
+                    $('#slides', $el).slidesjs({
+                        pagination:{active:false},
+                        callback: {
+                            loaded: function(number) {
+                                $el.find('.spin').spin(false);
+                            }
+                        }
+                    });
+                }
 
                 if (app.description && app.description.length === 0){
                     if (app.donorDescription.length > 0) {
                         $('#donor-title').html(app.shortDesc);
-                        $('#description p.desc').html(app.donorDescription + counts +' across the world.');
+                        // custom donor text
+                        renderDonorContent();
+                        // default donor text
+                        $('#description').find('p.desc').html(app.donorDescription + counts +' across the world.');
                     } else {
-                        $('#description p.desc').html(app.defaultDescription);
+                        $('#description').find('p.desc').html(app.defaultDescription);
                     }
                 } else if (app.description && app.description.length > 0){
                     if (app.donorDescription.length > 0) {
+                        // custom donor text
+                        renderDonorContent();
+                        // default donor text
                         $('#donor-title').html(app.shortDesc);
-                        $('#description p.desc').html(app.donorDescription + counts + ' ' + app.description.join(',') + '.');
+                        $('#description').find('p.desc').html(app.donorDescription + counts + ' ' + app.description.join(',') + '.');
                     } else {
                         $('#donor-title').html(app.shortDesc);
-                        $('#description p.desc').html(projectCounts + app.description.join(',') + '.');
+                        $('#description').find('p.desc').html(projectCounts + app.description.join(',') + '.');
                     }
                 } else if (!app.description) {
-                    $('#description p.desc').html(app.defaultDescription);
+                    $('#description').find('p.desc').html(app.defaultDescription);
                 }
 
                 // reset description
@@ -268,12 +294,10 @@ routers.App = Backbone.Router.extend({
                 $('#browser .summary').removeClass('off');
 
                 // defaultDescription is already populated
-                $('#description p.intro').empty();
+                $('#description').find('p.intro').empty();
 
                 // empty the sub loc content since
-                // on a DOM level since it is generated with the page/map
-                // instead of beforehdand
-                $('#description p.geography').empty();
+                $('#description').find('p.geography').empty();
 
             }, 0);
         }

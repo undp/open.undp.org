@@ -223,35 +223,20 @@ $(function() {
         }
     });
 
+    // About nav toggle
+    $('#mainnav a.parent-link').click(function(e) {
+        e.preventDefault();
+        var $target = $(e.target);
+        if ($target.parent().hasClass('parent-active')) {
+            $target.parent().removeClass('parent-active');
+        } else {
+            $target.parent().addClass('parent-active');
+        }
+    });
+
     // Start the application
     $(function() {
         app = new routers.App();
         Backbone.history.start();
     });
 });
-
-window.closeModal = function(){
-    $('#widget').modal('hide');
-};
-
-function redirect(project_id){
-    var path = window.location.protocol + "//" +
-             window.location.host + '/#project/' + String(project_id);
-    try{
-        window.parent.closeModal();
-    }
-    catch(e){
-
-    }
-    try{
-     if(parent.window.location.host == window.location.host){
-        parent.window.location.href = path;
-       }
-       else
-       {
-        window.location.href = path;
-       }   
-   }catch(e){
-        window.location.href = path;
-   }
-}
