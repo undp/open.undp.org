@@ -53,7 +53,9 @@ for d in fund_modalities_sort:
 	if d['Donor Rollup Level 3'] == 'UN_AGY 1':
 		donorID = 'UN_AGY'
 	elif d['Donor Rollup Level 3'] == 'MUTLI_AGY2':
-		donorID = 'MUTLI_AGY'
+		donorID = 'MULTI_AGY'
+	elif d['Donor Rollup Level 3'] == 'OTH_CDF1' or d['Donor Rollup Level 3'] == 'OTH_2' or d['Donor Rollup Level 3'] == 'OTH_UND1':
+		donorID = 'OTH'
 	else: 
 		donorID = d['Donor Rollup Level 3']
 	donorList[donorID] = []
@@ -61,17 +63,19 @@ for d in fund_modalities_sort:
 
 for d in donorList:
 	temp = {
-            "Special Activities": [], 
-            "Cost Sharing": [], 
-            "UNV": [],
-            "Thematic Trust Funds": [],
-            "Trust Funds": []
-     }
+		"Special Activities": [], 
+		"Cost Sharing": [], 
+		"UNV": [],
+		"Thematic Trust Funds": [],
+		"Trust Funds": []
+	}
 	for k in fund_modalities_sort:
 		if k['Donor Rollup Level 3'] == 'UN_AGY 1':
 			donorID = 'UN_AGY'
 		elif k['Donor Rollup Level 3'] == 'MUTLI_AGY2':
-			donorID = 'MUTLI_AGY'
+			donorID = 'MULTI_AGY'
+		elif k['Donor Rollup Level 3'] == 'OTH_CDF1' or k['Donor Rollup Level 3'] == 'OTH_2' or k['Donor Rollup Level 3'] == 'OTH_UND1':
+			donorID = 'OTH'
 		else: 
 			donorID = k['Donor Rollup Level 3']
 

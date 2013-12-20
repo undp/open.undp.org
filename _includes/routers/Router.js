@@ -168,8 +168,20 @@ routers.App = Backbone.Router.extend({
                         embed: embed
                     });
                 }
-            };
 
+            };
+               // Check for funding countries to show donor visualization
+                var donors = _.where(filters, {collection: 'donor_countries'});
+
+                // If empty hide the div
+                if (_.isEmpty(donors)){
+                    $('#donor-pie').hide();
+                    app.donor = false;
+                } else {
+                    app.donor = new views.Donor ({
+                    });
+                    $('#donor-pie').show();
+                }
             // Load projects
             if (!that.allProjects || app.fiscalYear != year) {
                 if (app.fiscalYear && app.fiscalYear != year){app.projects.map.map.remove();}
@@ -228,16 +240,20 @@ routers.App = Backbone.Router.extend({
                 var counts = (app.projects.length === 1) ? 'project' : 'projects';
                     projectCounts = 'There are <strong>' + app.projects.length +'</strong> ' + counts;
 
+
                 if (app.description && app.description.length === 0){
                     if (app.donorDescription.length > 0) {
+                        $('#donor-title').html(app.shortDesc);
                         $('#description p.desc').html(app.donorDescription + counts +' across the world.');
                     } else {
                         $('#description p.desc').html(app.defaultDescription);
                     }
                 } else if (app.description && app.description.length > 0){
                     if (app.donorDescription.length > 0) {
+                        $('#donor-title').html(app.shortDesc);
                         $('#description p.desc').html(app.donorDescription + counts + ' ' + app.description.join(',') + '.');
                     } else {
+                        $('#donor-title').html(app.shortDesc);
                         $('#description p.desc').html(projectCounts + app.description.join(',') + '.');
                     }
                 } else if (!app.description) {
@@ -246,6 +262,7 @@ routers.App = Backbone.Router.extend({
 
                 // reset description
                 app.description = false;
+                app.shortDesc = "";
                 app.donorDescription = "";
 
                 $('#browser .summary').removeClass('off');

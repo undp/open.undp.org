@@ -35,6 +35,7 @@ views.HDI = Backbone.View.extend({
 
     // Builds HDI historical graph, uses flot.js
     hdiDetails: function(data) {
+
         var beginYr = _.first(data.hdi)[0],
             endYr = _.last(data.hdi)[0],
             ctry = data.hdi,
