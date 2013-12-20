@@ -71,13 +71,13 @@ views.Donor = Backbone.View.extend({
                             show: true,
                             radius: 2/3,
                             formatter: function(label, series){
-                                return '<div style="font-size:8pt;text-align:center;font-weight: 600;margin:-10px;color:white;">'+label+'</div>';
+                                return '<div style="font-size:8pt;text-align:center;color:#555;">'+label+'</div>';
                             },
                             threshold: 0.2
                         }
                     }
                 },
-                colors: ["#FFE491", "#a1cbe8",'#FFD066','#7686B2','#EF876F'],
+                colors: ["#FFE491", "#a1cbe8",'#FFD066','#7686B2','#92ccee'],
                 legend: {
                     show: false
                 },
