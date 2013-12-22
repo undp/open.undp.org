@@ -29,7 +29,6 @@ routers.App = Backbone.Router.extend({
         var that = this;
         
         if (!$('#y' + year).length) {
-            // passing in year index js (json)
             if (location.hash.split('-')[0] !='#project'){
                 loadjsFile('api/project_summary_' + year + '.js', year, function() {
                     that.browser(year, route, embed);
