@@ -8,11 +8,6 @@
       <div id='project-descr'>
         <p class='heading-desc'><%= model.get('project_descr') %></p>
       </div>
-      <!--Contact-->
-      <div id='unit-contact'>
-        <h3>UNDP <%= model.get('operating_unit') %> on the Web</h3>
-        <div class='contact-info'></div>
-      </div>
     </div>
   </div>
   <div id='top-stats' class='row-fluid'>
@@ -205,10 +200,9 @@
       </div>
     </div>
   </div>
-
   <!--/ #top-stats -->
   <% if (model.get('outputs')) { %>
-    <h2 class='heading-title'>
+  <h2 class='heading-title'>
       <% if (model.get('outputs').length === 1) { %>
       <span>1</span> Output<% } else { %>
       <span><%= model.get('outputs').length %></span> Outputs
@@ -221,6 +215,11 @@
   <% } %>
 </div>
 <!--/ #summary -->
+<div id='unit-contact' class='col col-790'>
+  <h2 class='heading-title'>UNDP <%= model.get('operating_unit') %> on the Web</h2>
+  <ul class='contact-info'></ul>
+</div>
+<!--/ #Contact-->
 
 <!--Modal-->
 {% for data in site.categories.aboutdata %}
