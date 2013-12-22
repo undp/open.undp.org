@@ -25,47 +25,49 @@ views.ProjectProfile = Backbone.View.extend({
             '<li><a href="' + BASE_URL + '#project/' + this.model.get('id') + '">' + this.model.get('id') + '</a></li>'
         );
 
-        // TODO IE could not get model when project url is loaded directly
-        var start = this.model.get('start').split('-');
-        var end = this.model.get('end').split('-');
+        // sometimes the model doesn't get the attributes
+        if (this.model.get('start') != undefined) {
+            var start = this.model.get('start').split('-');
+            var end = this.model.get('end').split('-');
 
-        var startDate = new Date(start[0],start[1]-1,start[2]),
-            endDate = new Date(end[0],end[1]-1,end[2]),
-            curDate = new Date(),
-            progress = ((curDate - startDate) / (endDate - startDate)) * 100;
-            that = this;
+            var startDate = new Date(start[0],start[1]-1,start[2]),
+                endDate = new Date(end[0],end[1]-1,end[2]),
+                curDate = new Date(),
+                progress = ((curDate - startDate) / (endDate - startDate)) * 100;
+                that = this;
 
-        this.model.attributes.budget = _.chain(this.model.attributes.outputs)
-            .map(function (o) { return o.budget; })
-            .flatten()
-            .reduce(function(memo, num){ return memo + num; }, 0)
-            .value();
+            this.model.attributes.budget = _.chain(this.model.attributes.outputs)
+                .map(function (o) { return o.budget; })
+                .flatten()
+                .reduce(function(memo, num){ return memo + num; }, 0)
+                .value();
 
-        this.model.attributes.expenditure = _.chain(this.model.attributes.outputs)
-            .map(function (o) { return o.expenditure; })
-            .flatten()
-            .reduce(function(memo, num){ return memo + num; }, 0)
-            .value();
+            this.model.attributes.expenditure = _.chain(this.model.attributes.outputs)
+                .map(function (o) { return o.expenditure; })
+                .flatten()
+                .reduce(function(memo, num){ return memo + num; }, 0)
+                .value();
 
-        this.model.attributes.budgetyears = _.reduce(this.model.attributes.outputs, function (res, obj) {
-            _.each(obj.fiscal_year, function(o,i) {
-                res[o] = (res[o] || 0) + obj.budget[i];
-            });
-            return res;
-            },{});
+            this.model.attributes.budgetyears = _.reduce(this.model.attributes.outputs, function (res, obj) {
+                _.each(obj.fiscal_year, function(o,i) {
+                    res[o] = (res[o] || 0) + obj.budget[i];
+                });
+                return res;
+                },{});
 
-        this.model.attributes.expendyears = _.reduce(this.model.attributes.outputs, function (res, obj) {
-            _.each(obj.fiscal_year, function(o,i) {
-                res[o] = (res[o] || 0) + obj.expenditure[i];
-            });
-            return res;
-            },{});
+            this.model.attributes.expendyears = _.reduce(this.model.attributes.outputs, function (res, obj) {
+                _.each(obj.fiscal_year, function(o,i) {
+                    res[o] = (res[o] || 0) + obj.expenditure[i];
+                });
+                return res;
+                },{});
 
-        var s = this.model.get('start').split('-');
-        var e = this.model.get('end').split('-');
+            var s = this.model.get('start').split('-');
+            var e = this.model.get('end').split('-');
 
-        var start = new Date(s[0],s[1]-1,s[2]).format('M d, Y');
-        var end = new Date(e[0],e[1]-1,e[2]).format('M d, Y');
+            var start = new Date(s[0],s[1]-1,s[2]).format('M d, Y');
+            var end = new Date(e[0],e[1]-1,e[2]).format('M d, Y');
+        }
 
         var documents = [];
         if (this.model.get('document_name')) {
