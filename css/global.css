@@ -170,13 +170,6 @@ span.int {
 .bg-white {
 	background-color:#fff !important;
 }
-/*
-.first {
-	margin-top:0 !important;
-	padding-top:0 !important;
-	border-top:none !important;
-}
-*/
 
 .hide{
 	position: absolute;
@@ -185,13 +178,13 @@ span.int {
 }
 
 #main{
-    width:960px;
+    width:1080px;
     margin:0 auto;
     margin-top:35px;
 }
 
 .content{
-    width:960px;
+    width:1080px;
     margin:0 auto;
     position:relative;  
 }
@@ -273,6 +266,7 @@ span.int {
 	margin-right: 20px;
 	position: relative;
 }
+
 .col-140{ width: 140px; }
 .col-150{ width: 150px; }
 .col-240{ width: 240px; }
@@ -557,11 +551,12 @@ span.int {
 }
 
 #breadcrumbs {
-	margin-top:30px;
+	position:relative;
+	margin:10px 0 30px;
 }
 
 #breadcrumbs ul {
-	margin: 0 auto;
+	margin: 0;
 	width: 960px;
 }
 
@@ -589,7 +584,7 @@ span.int {
 #footer {
 	position: relative;
 	clear: both;
-	margin-top: 20px;
+	margin-top: 80px;
 	background-color: #F2FAFF;
 	*height: 1%;
 	min-width: 960px;
@@ -916,31 +911,21 @@ span.int {
 	text-decoration:none;
 }
 
-
-/* Side navigation */
 #nav-side{
-	width: 155px;
-	background:url("../img/global/bg-leftside-navigation-line.png") no-repeat 150px 100%;
-	padding-bottom: 60px;
-	margin-right: 14px;
+	width: 248px;
+	border-right:1px solid #99D6FF;
 }
 
-#nav-side li{
-	width: 150px;
-}
-
-#nav-side li.active{
-	width: 150px;
-	background: #434C54;
-	font-weight: bold;
+#nav-side ul {
+  margin:0;
 }
 
 #nav-side li a,
-#nav-side li ul li.active a{
-	display: block;
-	_height: 1%;
-	color: #0055AA;
-	padding: 10px 12px;
+#nav-side li.active a {
+  display: block;
+  _height: 1%;
+  color: #0055AA;
+  padding: 10px 12px;
 }
 
 /* Different arrow for li that contains child UL */
@@ -974,14 +959,32 @@ span.int {
 	color:#0a284b;
 }
 
+#nav-side li.active,
+#nav-side li.re-active {
+	background:#434C54;
+}
+
 #nav-side li.active a,
-#nav-side li ul li.active a{
+#nav-side li.re-active a {
 	display: block;
 	_width: 1%;
-	color: #FFF;
-	width: 131px;
-	background: url(../img/global/arrow-grey-subnavigation.png) no-repeat 100% 50%;
+	color: #fff;
+	width: 202px;
 	text-decoration: none;
+	font-weight:bold;
+}
+
+#nav-side li.active a:after,
+#nav-side li.re-active a:after {
+	content:'';
+	position:absolute;
+	right: -5px;
+	margin-top: 3px;
+	width: 0;
+	height: 0;
+	border-top: 6px solid transparent;
+	border-bottom: 6px solid transparent;
+	border-left: 6px solid #434C54;
 }
 
 #nav-side li ul li.active a{

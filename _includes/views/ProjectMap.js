@@ -8,12 +8,17 @@ views.ProjectMap = Backbone.View.extend({
     tooltip: function(data, g) {
         var //scope = g.scope[data.scope',
             type = g.type[data.type],
-            precision = g.precision[data.precision];
+            precision = g.precision[data.precision],
+            output = data.outputID,
+            focus_clean = (data.focus_area_descr).replace(/\s+/g, '-').toLowerCase().split('-')[0],
+            focus_area = (data.focus_area_descr).toTitleCase();
 
-        var description = '<div><b>Location type:</b> <span class="value">' + type + '</span></div>'
+        var description =  '<div class="popup top">'
+                        + '<table><tr><td>Output</td><td>' + output + '</td></tr></table>'  
+                         + '<div class="focus"><span class="'+focus_clean+'"></span><p class="space">' + focus_area + '<p></div></div>'
                         //+ '<div><b>Scope:</b> <span class="value">' + scope + '</span></div>'
-                        + '<div><b>Precision:</b> <span class="value">' + precision + '</span></div>';
-       
+                        + '<div class="popup bottom"><div><b>Location type:</b> <span class="value">' + type + '</span></div>'
+                        + '<div><b>Precision:</b> <span class="value">' + precision + '</span></div></div>';
         return description;
     },
     render: function() {
@@ -29,10 +34,16 @@ views.ProjectMap = Backbone.View.extend({
         } else {
             wheelZoom = false;
         }
-
+        // create a cluster
+        view.markers = new L.MarkerClusterGroup({
+            showCoverageOnHover:false,
+            maxClusterRadius:40,
+            disableClusteringAtZoom:6
+        });
+        // create map
         view.map = L.mapbox.map(this.el,TJ.id,{
             minZoom: 1,
-            maxZoom: 15,
+            maxZoom: 10,
             scrollWheelZoom: wheelZoom
         });
         
@@ -40,8 +51,7 @@ views.ProjectMap = Backbone.View.extend({
             for (var i = 0; i < data.length; i++) {
                 var o = data[i];
                 if (o.id === unit) {
-                
-                    view.getwebData(o);
+                    if (!view.options.embed) view.getwebData(o);
                     $('#country-summary').html(templates.ctrySummary(o));
 
                     if (!o.lon) {// if the unit has no geography
@@ -50,73 +60,134 @@ views.ProjectMap = Backbone.View.extend({
                         view.$el.hide();
                     } else {
                         var iso = parseInt(o.iso_num);
-                        
-                        if (!IE || IE_VERSION > 8){
+                            // second try
+                            if (!IE || IE_VERSION > 8){
+                            view.outline = new L.GeoJSON();
                             $.getJSON('api/world-50m-s.json',function(world){
                                 var topoFeatures = topojson.feature(world, world.objects.countries).features,
                                     selectedFeature = _(topoFeatures).findWhere({id:iso}),
                                     coords = selectedFeature.geometry.coordinates;
-    
-                                outline = L.geoJson(selectedFeature, {
-                                    style: {
-                                        "color": "#b5b5b5",
-                                        "weight": 3,
-                                        clickable: false
-                                    }
-                                }).addTo(view.map);
-                                
-                                if (o.id === 'RUS') {
-                                    view.map.setView([o.lat,o.lon],1);
+                                if (iso == 643) {
+                                    view.map.setView([55,65],2);
+                                    view.outline.addData(selectedFeature)
+                                        .setStyle({
+                                            "color": "#b5b5b5",
+                                            "weight": 0,
+                                            clickable: false
+                                    });
+                                    view.outline.addTo(view.map);
+                                    
+                                } else if (iso == 356) {
+                                   $.getJSON('api/india_admin0.json',function(india){
+                                        var topoFeatures = topojson.feature(india, india.objects.india_admin0).features;
+                                        _(topoFeatures).each(function(f){
+                                            view.outline.addData(f)
+                                                .setStyle({
+                                                    "color": "#b5b5b5",
+                                                    "weight": 0,
+                                                    clickable: false
+                                            });
+                                        });
+                                    });
+                                    view.outline.addTo(view.map); 
+                                    view.map.fitBounds(ctyBounds(coords));
                                 } else {
                                     view.map.fitBounds(ctyBounds(coords));
+                                    view.outline.addData(selectedFeature)
+                                        .setStyle({
+                                            "color": "#b5b5b5",
+                                            "weight": 0,
+                                            clickable: false
+                                    });
+                                    view.outline.addTo(view.map);
                                 }
                             });
                         } else {
                             view.map.setView([o.lat,o.lon],3);
                         }
+                        var markerOptions = {
+                            'marker-size': 'small'
+                        };
                         
                         $.getJSON('api/subnational-locs-index.json', function(g) {
-                            _.each(subLocations, function (o) {
-                                locations.push({
-                                    type: "Feature",
-                                    geometry: {
-                                        type: "Point",
-                                        coordinates: [
-                                            o.lon,
-                                            o.lat
-                                        ]
-                                    },
-                                    properties: {
-                                        id: o.awardID,
-                                        precision: o.precision,
-                                        type: o.type,
-                                        scope: o.scope,
-                                        project: view.model.get('project_title'),
-                                        name: o.name,
-                                        description: view.tooltip(o, g),
-                                        'marker-size': 'small',
-                                        'marker-color': '0055aa'
-                                    } 
+                             $.getJSON('api/focus-area-index.json', function(focusIndex){
+                                _(subLocations).each(function(o) {
+                                    var markerColor;
+                                    _(focusIndex).each(function(f){
+                                        if (f.id == o.focus_area){
+                                            return markerColor = f.color;
+                                        };
+                                    });
+ 
+                                    locations.push({
+                                        type: "Feature",
+                                        geometry: {
+                                            type: "Point",
+                                            coordinates: [
+                                                o.lon,
+                                                o.lat
+                                            ]
+                                        },
+                                        properties: {
+                                            id: o.awardID,
+                                            outputID: o.outputID,
+                                            precision: o.precision,
+                                            type: o.type,
+                                            scope: o.scope,
+                                            project: view.model.get('project_title'),
+                                            name: o.name,
+                                            focus_area: o.focus_area,
+                                            description: view.tooltip(o, g),
+                                            'marker-size': 'small',
+                                            'marker-color': markerColor
+                                        } 
+                                    });
                                 });
-                            });
                         
-                            function onEachFeature(feature, layer) {
-                                var clusterBrief = L.popup({
-                                        closeButton:false,
-                                        offset: new L.Point(0,-20)
-                                    }).setContent(feature.properties.description);
-                                layer.on('mouseover',function(){
-                                    clusterBrief.setLatLng(this.getLatLng());
-                                    view.map.openPopup(clusterBrief);
-                                }).on('mouseout',function(){
-                                    view.map.closePopup(clusterBrief);
-                                })
-                            }
-                            
-                            L.geoJson(locations, {
-                                pointToLayer: L.mapbox.marker.style,
-                                onEachFeature: onEachFeature
-                                }).addTo(view.map);
+                                function onEachFeature(feature, layer) {
+                                    var oldOptions = {
+                                        'marker-size':'small',
+                                        'marker-color':feature.properties['marker-color']
+                                    }
+                                    var newOptions = {
+                                        'marker-size':'small',
+                                    }
+                                    var newColors = [
+                                        {'color': '689A46', 'id': '4'},
+                                        {'color': '218DB6', 'id': '2'},
+                                        {'color': 'AAA922', 'id': '1'},
+                                        {'color': 'D15A4B', 'id': '3'}
+                                    ]
+                                    // Match focus area ID to newColors array
+                                    _(newColors).each(function(color){
+                                        if (color.id == feature.properties.focus_area){
+                                           return newOptions['marker-color'] = color.color;
+                                        };
+                                    })
+                                    var clusterBrief = L.popup({
+                                            closeButton:false,
+                                            offset: new L.Point(0,-20)
+                                        }).setContent(feature.properties.description);
+                                    layer.on('mouseover',function(){
+                                        clusterBrief.setLatLng(this.getLatLng());
+                                        view.map.openPopup(clusterBrief);
+                                        layer.setIcon(L.mapbox.marker.icon(newOptions));
+                                    }).on('mouseout',function(){
+                                        view.map.closePopup(clusterBrief);
+                                        layer.setIcon(L.mapbox.marker.icon(oldOptions));
+                                    })
+                                }
+                                
+                                // Create a geoJSON with locations
+                                var markerLayer = L.geoJson(locations, {
+                                    pointToLayer: L.mapbox.marker.style,
+                                    onEachFeature: onEachFeature
+                                });
+                                // Add the geoJSON to the cluster layer
+                                view.markers.addLayer(markerLayer);
+                                // Add cluster layer to map
+                                view.map.addLayer(view.markers);
+                            });
                         });
                     }
                 }
@@ -141,7 +212,6 @@ views.ProjectMap = Backbone.View.extend({
         $('a.map-fullscreen').toggleClass('full');
         $('.country-profile').toggleClass('full');
       },
-
     getwebData: function(data) {
         var view = this,
             photos = [],
@@ -154,35 +224,39 @@ views.ProjectMap = Backbone.View.extend({
 
         // Get social media accounts from UNDP-maintained spreadsheet
         $.getJSON('//spreadsheets.google.com/feeds/list/0Airl6dsmcbKodHB4SlVfeVRHeWoyWTdKcDY5UW1xaEE/1/public/values?alt=json-in-script&callback=?', function(g) {
-            var flickrAccts = [],
-                twitterAcct,
+            var twitterAcct,
+                flickrAccts = [],
                 fbAccts = [],
                 q = queue(1);
 
             q.defer(function(cb) {
-                _.each(g.feed.entry, function(row) {
-                    if (row.gsx$type.$t === 'Global' || (row.gsx$type.$t === 'HQ' && row.gsx$id.$t === view.model.get('region_id'))
-                        ) {
-                        //if (row.gsx$twitter.$t) twitterAccts.push(row.gsx$twitter.$t.replace('@',''));
-                        if (row.gsx$flickr.$t) flickrAccts.push(row.gsx$flickr.$t);
-                        if (row.gsx$facebook.$t) fbAccts.push(row.gsx$facebook.$t);
-                    }
-                    if (row.gsx$type.$t === 'CO' && row.gsx$id.$t === data.id) {
-                        if (row.gsx$twitter.$t) {
-                            twitterAcct = row.gsx$twitter.$t.replace('@','');
-                            coContact.twitter.push(row.gsx$twitter.$t.replace('@',''));
+                _(g.feed.entry).each(function(row) {
+                    var acctType = row.gsx$type.$t,
+                        acctId = row.gsx$id.$t,
+                        twitterAcct = row.gsx$twitter.$t,
+                        flickrAcct = row.gsx$flickr.$t,
+                        fbAcct = row.gsx$facebook.$t;
+
+                    if (acctType === 'Global' || (acctType === 'HQ' && acctId === view.model.get('region_id'))) {
+                        if (flickrAcct) flickrAccts.push(flickrAcct);
+                        if (fbAcct) fbAccts.push(fbAcct);
                         }
-                        if (row.gsx$flickr.$t) {
-                            flickrAccts.unshift(row.gsx$flickr.$t);
-                            coContact.flickr.push(row.gsx$flickr.$t);
+                    if (acctType === 'CO' && acctId === data.id) {
+                        if (twitterAcct) {
+                            coContact.twitter.push(twitterAcct.replace('@',''));
                         }
-                        if (row.gsx$facebook.$t) {
-                            fbAccts.unshift(row.gsx$facebook.$t);
-                            coContact.facebook.push(row.gsx$facebook.$t);
+                        if (flickrAcct) {
+                            // flickrAccts.unshift(flickrAcct);
+                            // coContact.flickr.push(flickrAccts);
+                            coContact.flickr.push(flickrAcct);
+                        }
+                        if (fbAcct) {
+                            // fbAccts.unshift(fbAcct);
+                            // coContact.facebook.push(fbAccts);
+                            coContact.facebook.push(fbAcct);
                         }
                     }
                 });
-                
                 contacts(coContact);
                 cb();
             });
@@ -190,7 +264,7 @@ views.ProjectMap = Backbone.View.extend({
             // Gather photos from documents, twitter, and flickr, in that order
             q.defer(function(cb) {
                 if (that.model.get('document_name')) {
-                    _.each(that.model.get('document_name')[0], function (photo, i) {
+                    _(that.model.get('document_name')[0]).each(function (photo, i) {
                         try {
                             var filetype = photo.split('.')[1].toLowerCase();
                         }
@@ -214,47 +288,46 @@ views.ProjectMap = Backbone.View.extend({
                 
                 cb();
             });
-            
             q.await(function() {
-               //view.twitter(twitterAcct, function(tweets, twPhotos) {
-               //     view.showTweets(tweets);
-               //     view.flickr(flickrAccts,photos.concat(twPhotos));
-               //});
+               view.twitter(twitterAcct, function(tweets, twPhotos) {
+                   view.showTweets(tweets);
+                   // view.flickr(flickrAccts,photos.concat(twPhotos));
+               });
                view.flickr(flickrAccts,photos);
             });
         });
 
-        function contacts(social) {
-            _.each(['web','email','facebook','twitter','flickr'], function(v) {
+        function contacts(allSocialAccts) {
+            _(['web','email','twitter','flickr','facebook']).each(function(acct) {
                 var link = '',
                     i = 0;
+                // hide unit contact if there's no social media accounts available
+                if (data[acct] || (allSocialAccts[acct] && allSocialAccts[acct].length)) {
+                    if (acct == 'twitter') socialBaseUrl = 'http://twitter.com/';
+                    if (acct == 'email') socialBaseUrl = 'mailto:';
+                    if (acct == 'flickr') socialBaseUrl = 'http://flickr.com/photos/';
 
-                if (data[v] || (social[v] && social[v].length)) {
-                    if (v == 'twitter') baseUrl = 'http://twitter.com/';
-                    if (v == 'email') baseUrl = 'mailto:';
-                    if (v == 'flickr') baseUrl = 'http://flickr.com/photos/';
-
-                    if (social[v]) {
-                        _.each(social[v], function(x) {
+                    if (allSocialAccts[acct]) {
+                        _(allSocialAccts[acct]).each(function() {
                             i += 1;
-                            link += '<a href="' + baseUrl + social[v] + '">' +
-                                    ((v == 'twitter') ? '@' + social[v] : social[v]) + '</a>';
-                            if (i < social[v].length) link += ', ';
+                            link += '<a target="_blank" href="' + socialBaseUrl + allSocialAccts[acct] + '">' +
+                                    ((acct == 'twitter') ? '@' + allSocialAccts[acct] : allSocialAccts[acct]) + '</a>';
+                            if (i < allSocialAccts[acct].length) link += ', ';
                         });
                     } else {
-                        link += '<a href="' + baseUrl + data[v] + '">' + data[v] + '</a>';
+                        link += '<a target="_blank" href="' + baseUrl + data[acct] + '">' + data[acct] + '</a>';
                     }
 
-                    // Fill contact modal
-                    $('#unit-contact .modal-body').append(
-                        '<div class="row-fluid">' +
-                            '<div class="contacts span2">' +
-                                '<p>' + ((v == 'web') ? 'Homepage' : v.capitalize()) +'</p>' +
+                    // Fill contact info below the title
+                    $('#unit-contact .contact-info').append(
+                        '<li class="row-fluid">' +
+                            '<div class="label">' +
+                                '<p>' + ((acct == 'web') ? 'Homepage' : acct.capitalize()) +'</p>' +
                             '</div>' +
-                            '<div class="span10">' +
+                            '<div>' +
                                 '<p>' + link + '</p>' +
                             '</div>' +
-                        '</div>'
+                        '</li>'
                     );
                 }
             });
@@ -272,7 +345,7 @@ views.ProjectMap = Backbone.View.extend({
         function filterTweets(t) {
             if (t.length) {
                 var i = 0;
-                _.each(t, function(x) {
+                _(t).each(function(x) {
                     i++;
                     if (x.entities.urls.length) {
                         _(x.entities.urls).each(function(url) {
@@ -351,7 +424,6 @@ views.ProjectMap = Backbone.View.extend({
         var apiBase = 'http://api.flickr.com/services/rest/?format=json&jsoncallback=?&method=',
             apiKey = '1da8476bfea197f692c2334997c10c87', //from UNDP's main account (unitednationsdevelopmentprogramme)
             search = this.model.get('project_id'),
-            //search = 'africa' //for testing
             attempt = 0,
             i = 0,
             $el = $('#flickr');
@@ -360,7 +432,7 @@ views.ProjectMap = Backbone.View.extend({
             $el.show();
             loadPhoto(i);
         } else {
-            _.each(account, function(acct) {
+            _(account).each(function(acct) {
                 // Get user info based on flickr link
                 $.getJSON(apiBase + 'flickr.urls.lookupUser&api_key=' + apiKey + '&url=http://www.flickr.com/photos/' + acct, function(f) {
                     searchPhotos(f.user.id, search);
@@ -388,9 +460,10 @@ views.ProjectMap = Backbone.View.extend({
 
         // Load single photo from array
         function loadPhoto(x) {
-            $el.find('.spin').spin({ color:'#fff' });
-            if (x === 0) $('.prev', $el).addClass('inactive');
-            if (x === photos.length - 1) $('.next', $el).addClass('inactive');
+            $el.find('.meta').hide();
+            $el.find('.spin').spin({ color:'#000' });
+            if (x === 0) $('.control.prev', $el).addClass('inactive');
+            if (x === photos.length - 1) $('.control.next', $el).addClass('inactive');
 
             if (photos[x].id) {
                 var photoid = photos[x].id,
@@ -406,10 +479,9 @@ views.ProjectMap = Backbone.View.extend({
 
                     // Get available sizes
                     $.getJSON(apiBase + 'flickr.photos.getSizes&api_key=' + apiKey + '&photo_id=' + photoid, function(s) {
-
                         getSize('Medium 800');
                         function getSize(sizeName) {
-                            _.each(s.sizes.size, function(z) {
+                            _(s.sizes.size).each(function(z) {
                                 if (z.label == sizeName) {
                                     source = z.source;
                                     pHeight = z.height;
@@ -434,7 +506,7 @@ views.ProjectMap = Backbone.View.extend({
                         }
 
                         // Fill in date & description
-                        $('.meta', $el).html('<div class="meta-inner"><span class="date">' + date + '</span>' +
+                        $('.meta', $el).show().html('<div class="meta-inner"><span class="date">' + date + '</span>' +
                             '<p>' + description +
                             '<a href="' + url + 'in/photostream/" title="See our photos on Flickr"> Source</a></p></div>');
 
@@ -443,7 +515,7 @@ views.ProjectMap = Backbone.View.extend({
                 });
 
             } else if (photos[x].date) {
-                $('.meta', $el).html('<div class="meta-inner"><span class="date">' + photos[x].date.toLocaleDateString() + '</span>' +
+                $('.meta', $el).show().html('<div class="meta-inner"><span class="date">' + photos[x].date.toLocaleDateString() + '</span>' +
                     '<p>' + photos[x].description +
                     '<a href="' + photos[x].link + '/in/photostream/" title="See our photos on Flickr"> Source</a></p></div>');
 
@@ -461,39 +533,30 @@ views.ProjectMap = Backbone.View.extend({
         }
 
         // Cycle through photo array
-        $('.next', $el).click(function() {
+        $('.control.next', $el).click(function(e) {
+            e.preventDefault();
             if (!$('.next', $el).hasClass('inactive')) {
                 if (i === 0) {
-                    $('.prev', $el).removeClass('inactive');
+                    $('.control.prev', $el).removeClass('inactive');
                 }
                 i += 1;
                 if (i == photos.length - 1) {
-                    $('.next', $el).addClass('inactive');
+                    $('.control.next', $el).addClass('inactive');
                 }
                 loadPhoto(i);
             }
         });
-        $('.prev', $el).click(function() {
-            if (!$('.prev', $el).hasClass('inactive')) {
+        $('.control.prev', $el).click(function(e) {
+            e.preventDefault();
+            if (!$('.control.prev', $el).hasClass('inactive')) {
                 if (i === photos.length - 1) {
-                    $('.next', $el).removeClass('inactive');
+                    $('.control.next', $el).removeClass('inactive');
                 }
                 i -= 1;
                 if (i === 0) {
-                    $('.prev', $el).addClass('inactive');
+                    $('.control.prev', $el).addClass('inactive');
                 }
                 loadPhoto(i);
-            }
-        });
-
-        // Toggle resizing of photo to fit container
-        $('.resize', $el).click(function() {
-            if ($('body').hasClass('fullscreen')) {
-                $('body').removeClass('fullscreen');
-                $(this).find('.text').text('Details');
-            } else {
-                $('body').addClass('fullscreen');
-                $(this).find('.text').text('Hide Details');
             }
         });
     }

@@ -23,26 +23,41 @@ views.Map = Backbone.View.extend({
             // when no operating unit is selected, reset to the global map
             if (category === 'budget' && _.isUndefined(view.opUnitFilter)){$('.map-btn.budget').addClass('active')};
         } else {
+            // if it's embed mode, set the circles to the budget layer, disable zoom wheel
             category = 'budget';
             wheelZoom = false;
         };
         
         // create circle or cluster based on the operating unit filter
         if (_.isObject(view.opUnitFilter)){
-            view.markers = new L.MarkerClusterGroup({showCoverageOnHover:false});
+            view.markers = new L.MarkerClusterGroup({
+                showCoverageOnHover:false,
+                maxClusterRadius:30
+                //disableClusteringAtZoom: 6
+            });
             var maxZoom = 10;
+
+            // in embed if selected from a circle view (where widget-world has a link), keep the widget-nav
+            if ($('#widget-world').attr('href')) {
+                $('.widget-nav').show()
+            } else {
+                $('.widget-nav').hide()
+            }
         } else {
             view.markers = new L.LayerGroup();
         };
 
         // create the map with mapbox.js 1.3.1
+	// here center means default location :)
         view.map = L.mapbox.map(this.el,TJ.id,{
-            center: [0,-15],
+            center: [20,20],
             zoom: 2,
             minZoom: TJ.minzoom,
             maxZoom: maxZoom || TJ.maxzoom,
             scrollWheelZoom: wheelZoom
             });
+            
+        //view.map.legendControl.addLegend('last update');
 
         //for IE 8 and above add country outline
         if (!IE || IE_VERSION > 8){view.outline = new L.GeoJSON()};
@@ -96,32 +111,40 @@ views.Map = Backbone.View.extend({
         })
     },
     circlePopup: function(cat,feature) {
-        var description = '<div class="title"><b>' + feature.properties.title + '</b></div>' +
-            '<div class="stat' + ((cat == 'count') ? ' active' : '') + '">Projects: <span class="value">' +
-            feature.properties.count + '</span></div>' +
-            ((feature.sources > 1) ? ('<div class="stat' + ((cat == 'sources') ? ' active' : '') + '">Budget Sources: <span class="value">' +
-            feature.properties.sources + '</span></div>') : '') +
-            '<div class="stat' + ((cat == 'budget') ? ' active' : '') + '">Budget: <span class="value">' +
-            accounting.formatMoney(feature.properties.budget) + '</span></div>' +
-            '<div class="stat' + ((cat == 'expenditure') ? ' active' : '') + '">Expenditure: <span class="value">' +
-            accounting.formatMoney(feature.properties.expenditure) + '</span></div>' +
-            '<div class="stat' + ((cat == 'hdi') ? ' active' : '') + '">HDI: <span class="value">' +
-            feature.properties.hdi + '</span></div>';
+        var description = '<div class="popup">' +
+                            '<div class="title">' +
+                                '<b>' + feature.properties.title + '</b>' + 
+                            '</div>' +
+                            '<table><tr><td>Projects</td><td>' + feature.properties.count + '</td></tr>' +
+                                '<tr><td>Budget</td><td>' +  accounting.formatMoney(feature.properties.budget) + '</td></tr>' + 
+                                '<tr><td>Expenditure</td><td>' + accounting.formatMoney(feature.properties.expenditure) + '</td></tr>' + 
+                                '<tr><td>HDI</td><td>' + feature.properties.hdi + '</td></tr>' + 
+                            '</table>' + 
+                         '</div>';
         return description;
     },
     // CLUSTER
     clusterPopup: function(feature, g) {
         var project = feature.properties.project,
+            output = feature.properties.output_id,
             title = feature.properties.title,
+            focus_clean = (feature.properties.focus_descr).replace(/\s+/g, '-').toLowerCase().split('-')[0],
+            focus_area = (feature.properties.focus_descr).toTitleCase(),
             type = g.type[feature.properties.type],
             // scope = (g.scope[feature.properties.scope]) ? g.scope[feature.properties.scope].split(':')[0] : 'unknown',
             precision = g.precision[feature.properties.precision];
-
-        var description = '<div><b>Project: </b>' + project + '</div>'
-                        + '<div><b>Name: </b>' + title + '</div>'
-                        + '<div><b>Location type: </b>' + type + '</div>'
-                        // + '<div><b>Scope: </b>' + scope + '</div>'
-                        + '<div><b>Precision: </b>' + precision + '</div>';
+        if (focus_clean){
+            var description = '<div class="popup top"><div><b>' + title + '</b></div>'
+                + '<div><table><tr><td>Project</td><td>' + project + '</td></tr><tr><td>Output</td><td>' + output + '</td></tr></table></div>'
+                + '<div class="focus"><span class="'+focus_clean+'"></span><p class="space">' + focus_area + '<p></div></div>'
+                + '<div class="popup bottom"><div><b>Location type: </b>' + type + '</div>'
+                + '<div><b>Precision: </b>' + precision + '</div></div>';
+        } else {
+            var description = '<div class="popup top"><div><b>' + title + '</b></div>'
+                + '<div><table><tr><td>Project</td><td>' + project + '</td></tr><tr><td>Output</td><td>' + output + '</td></tr></table></div></div>'
+                + '<div class="popup bottom"><div><b>Location type: </b>' + type + '</div>'
+                + '<div><b>Precision: </b>' + precision + '</div></div>';
+        }
         return description;
     },
     goToLink: function(path){
@@ -171,24 +194,46 @@ views.Map = Backbone.View.extend({
                         //draw country outline with the topojson file
                         if (!IE || IE_VERSION > 8){
                             view.outline.clearLayers();
+
                             $.getJSON('api/world-50m-s.json',function(world){
-                            var topoFeatures = topojson.feature(world, world.objects.countries).features,
-                                selectedFeature = _(topoFeatures).findWhere({id:iso}),
-                                coords = selectedFeature.geometry.coordinates;
-                            view.outline.addData(selectedFeature)
-                                .setStyle({
-                                    "color": "#b5b5b5",
-                                    "weight": 3,
-                                    clickable: false
-                                });
+                                var topoFeatures = topojson.feature(world, world.objects.countries).features,
+                                    selectedFeature = _(topoFeatures).findWhere({id:iso}),
+                                    coords = selectedFeature.geometry.coordinates;
                                 
                                 if (parent.get('id') === 'RUS') {
                                     view.map.setView([parent.lat,parent.lon],2);
+                                    view.outline.addData(selectedFeature)
+                                        .setStyle({
+                                            "color": "#b5b5b5",
+                                            "weight": 0,
+                                            clickable: false
+                                    });
+                                    view.outline.addTo(view.map);
+                                } else if (parent.get('id') === 'IND') {
+                                    $.getJSON('api/india_admin0.json',function(india){
+                                        var topoFeatures = topojson.feature(india, india.objects.india_admin0).features;
+
+                                        _(topoFeatures).each(function(f){
+                                             view.outline.addData(f)
+                                                    .setStyle({
+                                                        "color": "#b5b5b5",
+                                                        "weight": 0,
+                                                        clickable: false
+                                                    });
+                                        });
+                                    });
+                                view.outline.addTo(view.map); 
+                                view.map.fitBounds(ctyBounds(coords));
                                 } else {
                                     view.map.fitBounds(ctyBounds(coords));
+                                    view.outline.addData(selectedFeature)
+                                        .setStyle({
+                                            "color": "#b5b5b5",
+                                            "weight": 0,
+                                            clickable: false
+                                    });
+                                    view.outline.addTo(view.map);
                                 }
-                                
-                                view.outline.addTo(view.map);
                             });
                         } else {
                             view.map.setView([parent.lat,parent.lon],4);
@@ -237,30 +282,37 @@ views.Map = Backbone.View.extend({
 
             // create clustered markers
             $.getJSON('api/subnational-locs-index.json', function(subLocIndex){
-                var markerOptions = {
-                    'marker-color': '0055aa',
-                    'marker-size': 'small'
-                    };
-
-                var filteredMarkersLayer = L.geoJson({
-                    "type":"FeatureCollection",
-                    "features":filteredMarkers
-                }, {
-                    filter: function(feature, layer, filter) { // only two cases for type, hard code is fine
-                        var subFilter = mapFilter || "10";
-                        if (subFilter === "10"){
-                            return feature.properties
-                        } else {
-                            return feature.properties['precision'] === subFilter
-                            
+                $.getJSON('api/focus-area-index.json', function(focusIndex){
+                    // Match focus area to index to set marker color
+                    _(filteredMarkers).each(function(feature){
+                        _(focusIndex).each(function(f){
+                            if (f.id == feature.properties.focus_area){
+                               return feature.properties['marker-color'] = f.color;
+                            };
+                        });
+                    })
+                    // Set popups and color changes on hover
+                    function onEachFeature(feature, layer) {
+                        var oldOptions = {
+                            'marker-size':'small',
+                            'marker-color':feature.properties['marker-color']
                         }
-                    },
-                    pointToLayer: function(feature,latlng){
-                        return L.marker(latlng,{
-                            icon: L.mapbox.marker.icon(markerOptions) // use MapBox style markers
+                        var newOptions = {
+                            'marker-size':'small',
+                        }
+                        var newColors = [
+                            {'color': '689A46', 'id': '4'},
+                            {'color': '218DB6', 'id': '2'},
+                            {'color': 'AAA922', 'id': '1'},
+                            {'color': 'D15A4B', 'id': '3'}
+                        ]
+                        // Match focus area ID to newColors array
+                        _(newColors).each(function(color){
+                            if (color.id == feature.properties.focus_area){
+                               return newOptions['marker-color'] = color.color;
+                            };
                         })
-                    },
-                    onEachFeature: function (feature, layer) {
+                        // Popup
                         var clusterBrief = L.popup({
                                 closeButton:false,
                                 offset: new L.Point(0,-20)
@@ -268,16 +320,40 @@ views.Map = Backbone.View.extend({
                         layer.on('mouseover',function(){
                             clusterBrief.setLatLng(this.getLatLng());
                             view.map.openPopup(clusterBrief);
+                            layer.setIcon(L.mapbox.marker.icon(newOptions));
                         }).on('mouseout',function(){
+                            layer.setIcon(L.mapbox.marker.icon(oldOptions));
                             view.map.closePopup(clusterBrief);
                         }).on('click',function(){
-                            path = '#project/'+ feature.properties.project;
-                            if (!view.options.embed){view.goToLink(path)};
+                            if (!view.options.embed){
+                                var path = '#project/'+ feature.properties.project;
+                                view.goToLink(path);
+                            } else {
+                                // open project page in a new tab/window
+                                window.open(BASE_URL + '#project/'+ feature.properties.project)
+                            }
                         });
-                    }
+                    };
+
+                    function filter(feature, layer, filter){// only two cases for type, hard code is fine
+                        var subFilter = mapFilter || "10";
+                        if (subFilter === "10"){
+                            return feature.properties
+                        } else {
+                            return feature.properties['precision'] === subFilter
+                        }
+                    };
+                    // Create a geoJSON with locations
+                    var filteredMarkersLayer = L.geoJson(filteredMarkers, {
+                        pointToLayer: L.mapbox.marker.style,
+                        onEachFeature: onEachFeature,
+                        filter: filter
+                    });
+                    // Add markers layer to the layer group titled view.markers
+                    view.markers.addLayer(filteredMarkersLayer);
+                    // Add view.markers to map
+                    view.map.addLayer(view.markers);
                 });
-                view.markers.addLayer(filteredMarkersLayer);
-                view.map.addLayer(view.markers);
             });
         };
         var renderCircles = function(){
@@ -339,12 +415,36 @@ views.Map = Backbone.View.extend({
                         view.map.closePopup(brief);
                         view.circleHighlight(e);
                     }).on('click',function(e){
-                        if (app.app.filters.length === 0 ){
-                            path = document.location.hash + '/filter/operating_unit-' + e.target.feature.properties.id;
+                         if (!view.options.embed){
+                            var prevPath = location.hash;
                         } else {
-                            path = document.location.hash + '/operating_unit-' +  e.target.feature.properties.id;
+                            prevPath = location.hash.split('?')[0];
+                            prevWidgetOpts = location.hash.split('?')[1]; // used when constructing the route with $('#widget-world')
+
+                            $('#widget-world')
+                            .removeClass('active')
+                            .addClass('enabled')
+                            .attr('href',location.origin + location.pathname + prevPath + "?"+ prevWidgetOpts)
+                            .on('click',function(e){
+                                $('#widget-country').removeClass('active');
+                                $(e.target).addClass('active').removeClass('enabled');
+                            })
+
+                            $('#widget-country').addClass('active');
                         }
-                        if (!view.options.embed){view.goToLink(path)};
+
+                        if (app.app.filters.length === 0){
+                            if (!view.options.embed) {
+                                path = prevPath + '/filter/operating_unit-' + e.target.feature.properties.id;
+                            } else {
+                                // if there's no filter location hash is "#2013/widget/" which duplicates the "/"
+                                path = prevPath = 'filter/operating_unit-' + e.target.feature.properties.id;
+                            }
+                        } else {
+                            path = prevPath + '/operating_unit-' +  e.target.feature.properties.id;
+                        }
+
+                        view.goToLink(path);
                     })
                 }
             });

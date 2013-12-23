@@ -4,13 +4,13 @@ views.App = Backbone.View.extend({
         'keyup #filters-search': 'searchFilter',
         'click #filters .label': 'toggleFilter',
         'click #filters .reset': 'clearFilter',
-        'click #projects-tab .reset': 'clearSearch',
         'click .map-btn': 'mapLayerswitch',
-        'click .widget-config': 'requestIframe',
         'submit .form-search': 'submitForm',
-        'click #yearselect .dropdown-menu a': 'yearChange',
+        'click .widget-config': 'requestIframe',
+        'click #year .filter-items a': 'yearChange',
         'click .map-filter':'mapFilter',
-        'click .nav.nav-tabs a': 'activeMap'
+        'click .view-switch a': 'activeMap',
+        'click a#layers-back': 'layersBack'
     },
     
     initialize: function(options) {
@@ -21,33 +21,16 @@ views.App = Backbone.View.extend({
         $(window).on('click', '#country-list .close', _(this.hideCountries).bind(this));
 
         this.render();
-
-        if (!this.options.embed) {
-            // Filters follow scrolling
-            var top = $('#siderail').offset().top - 12;
-            $(window).on('scroll', function () {
-                var y = $(this).scrollTop();
-                if (y >= top) {
-                    $('#siderail').addClass('fixed');
-                } else {
-                    $('#siderail').removeClass('fixed');
-                }
-            });
-        }
     },
 
     render: function() {
-
         if (this.options.embed) {
             this.$el.empty().append(templates.embedProjects());
-            // Depending on the options passed into the array add a fade
-            // in class to all elements containing a data-iotion attribute
-            if (this.options.embed) {
-                _(this.options.embed).each(function (o) {
-                    $('[data-option="' + o + '"]').show();
-                });
-            }
 
+            this.$el.find('.option').hide();
+            _(this.options.embed).each(function (o) {
+                $('[data-option="' + o + '"]').show();
+            });
         } else {
             this.$el.empty().append(templates.app({
                 base: BASE_URL,
@@ -55,9 +38,35 @@ views.App = Backbone.View.extend({
             }));
         }
 
+        // highlight projects
+        $('#mainnav li').first().addClass('active');
+
+        // about nav
+        $('#mainnav a.parent-link').click(function(e) {
+            e.preventDefault();
+            var $target = $(e.target);
+
+            if ($target.parent().hasClass('parent-active')) {
+                $target.parent().removeClass('parent-active');
+            } else {
+                $target.parent().addClass('parent-active');
+            }
+        });
+
+        this.selectYear(this.options.year);
+
         return this;
     },
 
+    selectYear: function(year) {
+        var yearId = 'year-' + this.options.year;
+        // set selected year as filtered
+        $('#year .filter-items').find('a#'+yearId).removeClass('inactive').addClass('active');
+
+        // set year as filtered
+        $('#year').addClass('filtered');
+        $('#year li a').addClass('inactive');
+    },
     setFilter: function(e) {
         var $target = $(e.target),
             path = '',
@@ -69,37 +78,34 @@ views.App = Backbone.View.extend({
             year = app.fiscalYear;
             shift = false;
 
-        this.clearFilter(e);
+        if (parts[0] != 'year'){ // treat year differently, see yearChange
 
-        _(this.filters).each(function(filter) {
-            if (_.isEqual(filter, filters[0])) {
-                shift = true;
-            } else if (filter.collection !== filters[0].collection) {
-                filters.push(filter);
-            }
-        });
+            this.clearFilter(e);
 
-        if (shift) filters.shift();
+            _(this.filters).each(function(filter) {
+                if (_.isEqual(filter, filters[0])) {
+                    shift = true;
+                } else if (filter.collection !== filters[0].collection) {
+                    filters.push(filter);
+                }
+            });
 
-        filters = _(filters).chain()
-            .compact()
-            .map(function(filter) {
-                return filter.collection + '-' + filter.id;
-            })
-            .value().join('/');
+            if (shift) filters.shift();
 
-        path = (filters.length) ? year + '/filter/' + filters : year;
+            filters = _(filters).chain()
+                .compact()
+                .map(function(filter) {
+                    return filter.collection + '-' + filter.id;
+                })
+                .value().join('/');
 
-        e.preventDefault();
+            path = (filters.length) ? year + '/filter/' + filters : year;
 
-        // Close the state of menu items before
-        // we navigate and set things up again.
-        $('.topics').toggleClass('active', false);
-        $('.topics a').toggleClass('active', false);
-        $('.topics').toggleClass('filtered', false);
+            e.preventDefault();
 
-        $('#all-projects').attr('href', '#' + path);
-        app.navigate(path, { trigger: true });
+            // $('#all-projects').attr('href', '#' + path);
+            app.navigate(path, { trigger: true });
+        }
     },
 
     searchFilter: function(e) {
@@ -138,41 +144,40 @@ views.App = Backbone.View.extend({
     },
 
     toggleFilter: function (e) {
+
         var $target = $(e.target),
             cat = $target.attr('data-category'),
             $parent = $('#' + cat);
+            e.preventDefault();
+            // Bail on the this function if the user has selected
+            // a label that has an active filtered selection.
+            if ($parent.hasClass('filtered')) return false;
 
-        e.preventDefault();
-
-        // Bail on the this function if the user has selected
-        // a label that has an active filtered selection.
-        if ($parent.hasClass('filtered')) return false;
-
-        if ($parent.hasClass('active')) {
-            $parent.toggleClass('active', false);
-            if (this.views[cat]) {
-                this.views[cat].active = false;
-            }
-        } else {
-            $('.topics').each(function () {
-                // Loop through all the filtered menus
-                // to close active menus providing they don't
-                // have an active filtered selection.
-                if (!$(this).hasClass('filtered')) {
-                    $(this).toggleClass('active', false);
+            if ($parent.hasClass('active')) {
+                $parent.toggleClass('active', false);
+                if (this.views[cat]) {
+                    this.views[cat].active = false;
                 }
-            });
-            $parent.toggleClass('active', true);
-            if (this.views[cat]) {
-                this.views[cat].active = true;
+            } else {
+                $('.topics').each(function () {
+                    // Loop through all the filtered menus
+                    // to close active menus providing they don't
+                    // have an active filtered selection.
+                    if (!$(this).hasClass('filtered') && !$(this).is('#year')) {
+                        $(this).toggleClass('active', false);
+                    }
+                });
+                $parent.toggleClass('active', true);
+                if (this.views[cat]) {
+                    this.views[cat].active = true;
+                }
             }
-        }
-        return false;
+            return false;
     },
 
     mapLayerswitch: function(e) {
         e.preventDefault();
-        $('#chart-hdi').css('display','none');
+        $('#chart-hdi').removeClass('active');
         var $target = $(e.currentTarget);
         $('.map-btn').removeClass('active');
 
@@ -184,9 +189,9 @@ views.App = Backbone.View.extend({
                 if ($('li.hdi').hasClass('active')) {
                     $('li.hdi').removeClass('active')
                     $($target).removeClass('active');
-                    $('#chart-hdi').css('display','none');
+                    $('#chart-hdi').removeClass('active');
                 } else {
-                    $('#chart-hdi').css('display','block');
+                    $('#chart-hdi').addClass('active');
                     $($target).addClass('active');
                     $('li.hdi').addClass('active');
                 }
@@ -197,32 +202,6 @@ views.App = Backbone.View.extend({
 
         app.projects.map.buildLayer(this.layer); // see Map.js
         return false;
-    },
-
-    requestIframe: function() {
-        var context = $('#widget');
-        widgetOpts = ["title", "map", "projects"]; //default layers for main map
-
-        $('.widget-options a',context).removeClass('active');
-        _(widgetOpts).each(function(widgetTitle){
-            var widgetEl =widgetTitle + '-opt';
-            $("." + widgetEl).find('a').addClass('active');
-        })
-
-        if (location.hash.split('/').length === 1) {
-            embedPath = location.hash + '/widget/';
-        } else {
-            embedPath = location.hash
-                .replace('filter', 'widget')
-        }
-
-        defaultIframe = '<iframe src="{{site.baseurl}}/embed.html' + embedPath + '?' +
-        widgetOpts.join('&') +
-        '" width="680" height="500" frameborder="0"> </iframe>';
-        $('.widget-preview', context).html(defaultIframe);
-        $('.widget-code', context)
-            .val(defaultIframe)
-            .select();
     },
 
     submitForm: function(e) {
@@ -238,11 +217,25 @@ views.App = Backbone.View.extend({
         e.preventDefault();
         $('#country-list').css('display', 'none');
     },
-    
+
     yearChange: function(e) {
         e.preventDefault();
-        var year = $(e.target).attr('data-value');
-        if (year != app.fiscalYear) {
+        var $target = $(e.target),
+            selectedYear = $target.attr('id').split('-')[1]; // number of the year
+
+        $target.toggleClass('active');
+
+        if($target.hasClass('active')){
+            $('#year').toggleClass('filtered',true);
+            $('#year').toggleClass('active',false);
+            $('#year .filter-items a').addClass('inactive');
+            $target.removeClass('inactive').addClass('active');
+        } else {
+            $('#year').toggleClass('filtered',false);
+            $('#year').toggleClass('active',true);
+            $('#year .filter-items a').removeClass('inactive');
+        }
+        if (selectedYear != app.fiscalYear) {
             var filters = _(this.filters).chain()
                 .compact()
                 .map(function(filter) {
@@ -250,7 +243,7 @@ views.App = Backbone.View.extend({
                 })
                 .value().join('/');
 
-            var path = (filters.length) ? year + '/filter/' + filters : year;
+            var path = (filters.length) ? selectedYear + '/filter/' + filters : selectedYear;
             
             app.navigate(path, { trigger: true });
         }
@@ -259,7 +252,6 @@ views.App = Backbone.View.extend({
     updateYear: function(year) {
         $('#total-budget').next('span').html(year + ' Budget');
         $('#total-expenditure').next('span').html(year + ' Expenditure');
-        $('#yearselect .dropdown-toggle').html(year + ' <b class="caret"></b>');
     },
 
     mapFilter: function(e){
@@ -278,8 +270,45 @@ views.App = Backbone.View.extend({
             currentZoom = app.projects.map.map.getZoom();
         app.projects.map.buildLayer(this.layer,subFilterValue,currentCenter,currentZoom); // see Map.js
     },
-    
-    activeMap: function() {
+
+    activeMap: function(e) {
+        e.preventDefault();
+        $('.view-switch a').removeClass('active');
+        $(e.target).addClass('active');
+        $('#mainnav li').first().addClass('re-active');
         setTimeout(function(){app.projects.map.map.invalidateSize({pan:true});}, 200);
+    },
+
+    layersBack: function(e) {
+        e.preventDefault();
+        $('a#layers-back').toggleClass('active');
+        $('ul.layers').toggleClass('active');
+    },
+
+    requestIframe: function() {
+        var el = $('#widget'),
+            embedPath,
+            widgetOpts = ['title', 'map', 'projects'];
+
+        $('.widget-options a',el).removeClass('active');
+
+        _(widgetOpts).each(function(widgetTitle){
+            widgetEl =widgetTitle + '-opt';
+            $("." + widgetEl).find('a').addClass('active');
+        })
+
+        if (location.hash.split('/').length === 1) {
+            embedPath = location.hash + '/widget/';
+        } else {
+            embedPath = location.hash.replace('filter', 'widget')
+        }
+
+        var defaultIframe = '<iframe src="{{site.baseurl}}/embed.html' + embedPath + '?' +
+                        widgetOpts.join('&') + '" width="100%" height="100%" frameborder="0"> </iframe>';
+
+        $('.widget-preview', el).html(defaultIframe);
+        $('.widget-code', el)
+            .val(defaultIframe.replace('src="{{site.baseurl}}/','src="' + BASE_URL))
+            .select();
     }
 });

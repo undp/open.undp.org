@@ -59,9 +59,34 @@ Site copy is contained in *posts*. Each post is a file in the `_posts` directory
 
 For instance, to edit the main site introduction, locate the file `_posts/0001-01-01-intro.md`, make the proper edits to the text, and save the changes to the repository in one of the manners mentioned above.
 
+### Accessing posts in Prose
+
+TODO
+
+- intro to Prose
+- annotated edits
+
+![](http://f.cl.ly/items/2O000t1G13383J1v2W3t/Screen%20Shot%202013-12-18%20at%202.53.27%20PM.png)
+
+![](http://f.cl.ly/items/0K0F2t1m0b1i0M0R0q2A/Screen%20Shot%202013-12-18%20at%202.54.58%20PM.png)
+
+### Editing donor posts in Prose
+
+Custom donor posts can be created for any donor countries with the _the country id_, and stored under `_posts/donors/`. For example, a post for the donor country Norway will be `_posts/donors/0001-01-01-NOR.md`.
+
+Photos can be edited by using the markdown `![]()`. The caption of the photo will be in the `[]` and the url will be in the `()`. The url can point to any source on the web (eg. `![This is an 640px image from flickr.](http://farm3.staticflickr.com/2521/4080560617_f220de276d_z.jpg)`) or to the local folder, named `media` (eg. `![This is an image from the media folder](/media/example.jpg)`).
+
+Images can be added by drag-and-drop into the text field in prose. If prose upload does not work, add the images in the media folder manually, and edit the post accordingly.
+
+Photos are implemented as a photo slide, so there is no limit of the photos associated with a post. However, to ensure that the slides work, the markup for images should look like the following, with no space or other characters in between each image:
+
+    ![image1](image1/url)
+    ![image2](image2/url)
+    ![image3](image3/url)
+
 ## Updating the Data
 
-Visit the wiki section titled [Data Update Process](https://github.com/undp/undp.github.com/wiki/Data-Update-Process).
+Visit the [wiki home page](https://github.com/undp/undp.github.com/wiki) for OSX and Windows OS update processes.
 
 ## Further reading
 

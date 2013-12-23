@@ -7,6 +7,7 @@ views.Projects = Backbone.View.extend({
     },
 
     initialize: function() {
+        
         this.$el.html(templates.projects(this));
         this.collection.on('update', this.render, this);
         $('#projects input[type="search"]').on('keyup', _.bind(this.search, this));
@@ -17,10 +18,13 @@ views.Projects = Backbone.View.extend({
 
     render: function() {
 
-        var pageType = Backbone.history.fragment.split('/')[0];
+        var pageType = Backbone.history.fragment.split('/')[1];
 
         var donor = _(app.app.filters).find(function(filter) {
                 return filter.collection === 'donors';
+            }),
+            donor_ctry = _(app.app.filters).find(function(filter) {
+                return filter.collection === 'donor_countries';
             }),
             models = _(this.collection.filter(function(model) {
                 return model.get('visible');
@@ -43,28 +47,40 @@ views.Projects = Backbone.View.extend({
             $('#total-donors').parent().show();
             $('#total-donors').html(accounting.formatNumber(_(this.collection.donors).size()));
         }
-        $('#total-budget').html(
-            (donor) ?  accounting.formatMoney(this.collection.donorBudget[donor.id] / 1000000) + 'M' :
-            accounting.formatMoney(this.collection.budget / 1000000) + 'M'
-        );
+        
+        if (donor) {
+            $('#total-budget').html(accounting.formatMoney(this.collection.donorBudget[donor.id] / 1000000) + 'M');
+        } else if (donor_ctry) {
+            $('#total-budget').html(accounting.formatMoney(this.collection.ctryBudget[donor_ctry.id] / 1000000) + 'M');
+        } else {
+            $('#total-budget').html(accounting.formatMoney(this.collection.budget / 1000000) + 'M');
+        }
 
-        $('#total-expenditure').html(
-            (donor) ?  accounting.formatMoney(this.collection.donorExpenditure[donor.id] / 1000000) + 'M' :
-            accounting.formatMoney(this.collection.expenditure / 1000000) + 'M'
-        );
+        if (donor) {
+            $('#total-expenditure').html(accounting.formatMoney(this.collection.donorExpenditure[donor.id] / 1000000) + 'M');
+        } else if (donor_ctry) {
+            $('#total-expenditure').html(accounting.formatMoney(this.collection.ctryExpenditure[donor_ctry.id] / 1000000) + 'M');
+        } else {
+            $('#total-expenditure').html(accounting.formatMoney(this.collection.expenditure / 1000000) + 'M');
+        }
 
         if (models.length) {
+            
             this.$('#project-table tbody').empty();
-            _(models).each(function(model) {
-                this.$('#project-table tbody').append(templates.project({ model: model }));
-            });
+
             if (pageType === 'widget') {
+                _(models).each(function(model) {
+                    this.$('#project-table tbody').append(templates.embedProject({ model: model }));
+                });
                 if (models.length < 10) {
                     $('.load').hide();
                 } else {
                     $('.load').show();
                 }
             } else {
+                _(models).each(function(model) {
+                    this.$('#project-table tbody').append(templates.project({ model: model }));
+                });
                if (models.length < 50) {
                     $('.load').hide();
                 } else {

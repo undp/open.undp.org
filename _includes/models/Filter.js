@@ -55,6 +55,6 @@ models.Filters = Backbone.Collection.extend({
     },
     model: models.Filter,
     comparator: function(model) {
-        return -1 * model.get('count') || 0;
+        return -1 * model.get('budget') || 0;
     }
 });

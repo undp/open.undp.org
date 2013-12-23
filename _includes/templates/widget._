@@ -1,21 +1,21 @@
-<div class='modal-header'>
-  <button type='button' class='close' data-dismiss='modal'>&times;</button>
-  <p class='instruction'>Select the sections you would like to include in your website</p>
-</div>
 <div class='modal-body'>
+  <button type='button' id='modal-close' class='close' data-dismiss='modal'>&times;</button>
+  <p class='instruction'>Select the sections you would like to include in your website. Scroll down to preview the embed. </p>
   <ul class='widget-options'>
-    <li class='proj-opt main-opt title-opt'><a href='#' data-value='title'>Title</a></li>
-    <li class='proj-opt descr-opt'><a href='#' data-value='descr'>Description</a></li>
-    <li class='proj-opt main-opt map-opt'><a href='#' data-value='map'>Map</a></li>
-    <li class='proj-opt main-opt stats-opt'><a href='#' data-value='stats'>Stats</a></li>
-    <li class='proj-opt documents-opt'><a href='#' data-value='documents'>Documents</a></li>
-    <li class='proj-opt outputs-opt'><a href='#' data-value='outputs'>Outputs</a></li>
-    <li class='main-opt hdi-opt'><a href='#' data-value='hdi'>HDI</a></li>
-    <li class='main-opt charts-opt'><a href='#' data-value='charts'>Charts</a></li>
-    <li class='main-opt projects-opt'><a href='#' data-value='projects'>Projects</a></li>
+    <!-- proj-opt: button items in the widget interface -->
+    <!-- title-opt: operates in the widgetOptions       -->
+    <li class='main-opt proj-opt title-opt'>    <a href='#' data-value='title'>Title</a>        </li>
+    <li class='         proj-opt descr-opt'>    <a href='#' data-value='descr'>Description</a>  </li>
+    <li class='main-opt proj-opt map-opt'>      <a href='#' data-value='map'>Map</a>            </li>
+    <li class='main-opt proj-opt stats-opt'>    <a href='#' data-value='stats'>Stats</a>        </li>
+    <li class='         proj-opt documents-opt'><a href='#' data-value='documents'>Documents</a></li>
+    <li class='         proj-opt outputs-opt'>  <a href='#' data-value='outputs'>Outputs</a>    </li>
+    <li class='main-opt          hdi-opt'>      <a href='#' data-value='hdi'>HDI</a>            </li>
+    <li class='main-opt          charts-opt'>   <a href='#' data-value='charts'>Charts</a>      </li>
+    <li class='main-opt          projects-opt'> <a href='#' data-value='projects'>Projects</a>  </li>
   </ul>
   <div class='widget-preview'>
-    <h3 class="empty">To use this widget choose some options on the left.</h3>
+    <h3 class="empty">To use this widget choose some options from above.</h3>
   </div>
 </div>
 <div class='modal-footer'>

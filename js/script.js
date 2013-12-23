@@ -15,8 +15,8 @@ function ctyBounds(coords) {
 }
 
 $(function() {
-    var BASE_URL = 'http://open.undp.org/',
-        widgetOts = [],
+    // var BASE_URL = 'http://open.undp.org/',
+        var BASE_URL = '{{site.baseurl}}/', //allows breadcrumbs to work properly on ds gh-pages
         models = {},
         views = {},
         routers = {},
@@ -54,6 +54,7 @@ $(function() {
         ];
     var IE = $.browser.msie;
     if (IE) {var IE_VERSION = parseInt($.browser.version);} // should return 6, 7, 8, 9
+
     // Models
     {% include models/Filter.js %}
     {% include models/Project.js %}
@@ -64,6 +65,7 @@ $(function() {
     // Views
     {% include views/App.js %}
     {% include views/Filters.js %}
+    {% include views/Nav.js %}
     {% include views/Projects.js %}
     {% include views/ProjectProfile.js %}
     {% include views/Map.js %}
@@ -98,8 +100,9 @@ $(function() {
   
         //calling a function after the js is loaded (Chrome/Firefox)  
         fileref.onload = callback;
-        
-        document.getElementById('fiscalData').appendChild(fileref);
+        if(typeof(document.getElementById('fiscalData')) != 'undefined') {
+		  document.getElementById('fiscalData').appendChild(fileref);
+	    }
     }
 
     // Via https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/indexOf
@@ -208,6 +211,17 @@ $(function() {
         webpage: "http://tiles.mapbox.com/undp/map/map-6grwd0n3"
     };
     
+    // About nav toggle
+    $('#mainnav a.parent-link').click(function(e) {
+        e.preventDefault();
+        var $target = $(e.target);
+        if ($target.parent().hasClass('parent-active')) {
+            $target.parent().removeClass('parent-active');
+        } else {
+            $target.parent().addClass('parent-active');
+        }
+    });
+
     // About nav toggle
     $('#mainnav a.parent-link').click(function(e) {
         e.preventDefault();

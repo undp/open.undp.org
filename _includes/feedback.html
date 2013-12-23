@@ -1,0 +1,35 @@
+{% for feedback in site.tags.feedback %}
+<div class='modal hide fade' id='feedback'>
+  <form class='form-horizontal' id='feedback-form'>
+    <div class='modal-header'>
+      <button type='button' class='close' data-dismiss='modal'>&times;</button>
+       <h3>{{feedback.title}}</h3>
+    </div>
+    <div class='modal-body'>
+      {{feedback.content}}
+      <div class='control-group'>
+        <label class='control-label' for='entry_0'>Name</label>
+        <div class='controls'>
+          <input type='text' id='entry_0' name='entry.0.single' class='input-xlarge'>
+        </div>
+      </div>
+      <div class='control-group'>
+        <label class='control-label' for='entry_0'>Email</label>
+        <div class='controls'>
+          <input type='text' id='entry_1' name='entry.1.single' class='input-xlarge'>
+        </div>
+      </div>
+      <div class='control-group'>
+        <label class='control-label' for='entry_2'>Feedback<span style='color:red;'>*</span></label>
+        <div class='controls'>
+          <textarea id='entry_2' name='entry.2.single' class='input-xlarge'></textarea>
+        </div>
+      </div>
+      <div class='submit'>
+        <input type='submit' class='button' name='submit' value='Submit' id='feeback-submit'>
+      </div>
+      <input type='hidden' id='entry_3' name='entry.3.single'>
+    </div>
+  </form>
+</div>
+{% endfor %}
