@@ -319,6 +319,7 @@ views.ProjectMap = Backbone.View.extend({
                     }
 
                     // Fill contact info below the title
+                    $('#unit-contact .heading-title').html('UNDP ' + data.name + ' on the web');
                     $('#unit-contact .contact-info').append(
                         '<li class="row-fluid">' +
                             '<div class="label">' +
