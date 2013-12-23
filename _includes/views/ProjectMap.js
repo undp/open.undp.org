@@ -212,7 +212,6 @@ views.ProjectMap = Backbone.View.extend({
         $('a.map-fullscreen').toggleClass('full');
         $('.country-profile').toggleClass('full');
       },
-
     getwebData: function(data) {
         var view = this,
             photos = [],
@@ -225,35 +224,39 @@ views.ProjectMap = Backbone.View.extend({
 
         // Get social media accounts from UNDP-maintained spreadsheet
         $.getJSON('//spreadsheets.google.com/feeds/list/0Airl6dsmcbKodHB4SlVfeVRHeWoyWTdKcDY5UW1xaEE/1/public/values?alt=json-in-script&callback=?', function(g) {
-            var flickrAccts = [],
-                twitterAcct,
+            var twitterAcct,
+                flickrAccts = [],
                 fbAccts = [],
                 q = queue(1);
 
             q.defer(function(cb) {
                 _(g.feed.entry).each(function(row) {
-                    if (row.gsx$type.$t === 'Global' || (row.gsx$type.$t === 'HQ' && row.gsx$id.$t === view.model.get('region_id'))
-                        ) {
-                        //if (row.gsx$twitter.$t) twitterAccts.push(row.gsx$twitter.$t.replace('@',''));
-                        if (row.gsx$flickr.$t) flickrAccts.push(row.gsx$flickr.$t);
-                        if (row.gsx$facebook.$t) fbAccts.push(row.gsx$facebook.$t);
-                    }
-                    if (row.gsx$type.$t === 'CO' && row.gsx$id.$t === data.id) {
-                        if (row.gsx$twitter.$t) {
-                            twitterAcct = row.gsx$twitter.$t.replace('@','');
-                            coContact.twitter.push(row.gsx$twitter.$t.replace('@',''));
+                    var acctType = row.gsx$type.$t,
+                        acctId = row.gsx$id.$t,
+                        twitterAcct = row.gsx$twitter.$t,
+                        flickrAcct = row.gsx$flickr.$t,
+                        fbAcct = row.gsx$facebook.$t;
+
+                    if (acctType === 'Global' || (acctType === 'HQ' && acctId === view.model.get('region_id'))) {
+                        if (flickrAcct) flickrAccts.push(flickrAcct);
+                        if (fbAcct) fbAccts.push(fbAcct);
                         }
-                        if (row.gsx$flickr.$t) {
-                            flickrAccts.unshift(row.gsx$flickr.$t);
-                            coContact.flickr.push(row.gsx$flickr.$t);
+                    if (acctType === 'CO' && acctId === data.id) {
+                        if (twitterAcct) {
+                            coContact.twitter.push(twitterAcct.replace('@',''));
                         }
-                        if (row.gsx$facebook.$t) {
-                            fbAccts.unshift(row.gsx$facebook.$t);
-                            coContact.facebook.push(row.gsx$facebook.$t);
+                        if (flickrAcct) {
+                            // flickrAccts.unshift(flickrAcct);
+                            // coContact.flickr.push(flickrAccts);
+                            coContact.flickr.push(flickrAcct);
+                        }
+                        if (fbAcct) {
+                            // fbAccts.unshift(fbAcct);
+                            // coContact.facebook.push(fbAccts);
+                            coContact.facebook.push(fbAcct);
                         }
                     }
                 });
-                
                 contacts(coContact);
                 cb();
             });
@@ -285,47 +288,46 @@ views.ProjectMap = Backbone.View.extend({
                 
                 cb();
             });
-            
             q.await(function() {
-               //view.twitter(twitterAcct, function(tweets, twPhotos) {
-               //     view.showTweets(tweets);
-               //     view.flickr(flickrAccts,photos.concat(twPhotos));
-               //});
+               view.twitter(twitterAcct, function(tweets, twPhotos) {
+                   view.showTweets(tweets);
+                   // view.flickr(flickrAccts,photos.concat(twPhotos));
+               });
                view.flickr(flickrAccts,photos);
             });
         });
 
-        function contacts(social) {
-            _(['web','email','facebook','twitter','flickr']).each(function(v) {
+        function contacts(allSocialAccts) {
+            _(['web','email','twitter','flickr','facebook']).each(function(acct) {
                 var link = '',
                     i = 0;
+                // hide unit contact if there's no social media accounts available
+                if (data[acct] || (allSocialAccts[acct] && allSocialAccts[acct].length)) {
+                    if (acct == 'twitter') socialBaseUrl = 'http://twitter.com/';
+                    if (acct == 'email') socialBaseUrl = 'mailto:';
+                    if (acct == 'flickr') socialBaseUrl = 'http://flickr.com/photos/';
 
-                if (data[v] || (social[v] && social[v].length)) {
-                    if (v == 'twitter') baseUrl = 'http://twitter.com/';
-                    if (v == 'email') baseUrl = 'mailto:';
-                    if (v == 'flickr') baseUrl = 'http://flickr.com/photos/';
-
-                    if (social[v]) {
-                        _(social[v]).each(function(x) {
+                    if (allSocialAccts[acct]) {
+                        _(allSocialAccts[acct]).each(function() {
                             i += 1;
-                            link += '<a href="' + baseUrl + social[v] + '">' +
-                                    ((v == 'twitter') ? '@' + social[v] : social[v]) + '</a>';
-                            if (i < social[v].length) link += ', ';
+                            link += '<a target="_blank" href="' + socialBaseUrl + allSocialAccts[acct] + '">' +
+                                    ((acct == 'twitter') ? '@' + allSocialAccts[acct] : allSocialAccts[acct]) + '</a>';
+                            if (i < allSocialAccts[acct].length) link += ', ';
                         });
                     } else {
-                        link += '<a href="' + baseUrl + data[v] + '">' + data[v] + '</a>';
+                        link += '<a target="_blank" href="' + baseUrl + data[acct] + '">' + data[acct] + '</a>';
                     }
 
-                    // Fill contact modal
-                    $('#unit-contact .modal-body').append(
-                        '<div class="row-fluid">' +
-                            '<div class="contacts span2">' +
-                                '<p>' + ((v == 'web') ? 'Homepage' : v.capitalize()) +'</p>' +
+                    // Fill contact info below the title
+                    $('#unit-contact .contact-info').append(
+                        '<li class="row-fluid">' +
+                            '<div class="label">' +
+                                '<p>' + ((acct == 'web') ? 'Homepage' : acct.capitalize()) +'</p>' +
                             '</div>' +
-                            '<div class="span10">' +
+                            '<div>' +
                                 '<p>' + link + '</p>' +
                             '</div>' +
-                        '</div>'
+                        '</li>'
                     );
                 }
             });
@@ -422,7 +424,6 @@ views.ProjectMap = Backbone.View.extend({
         var apiBase = 'http://api.flickr.com/services/rest/?format=json&jsoncallback=?&method=',
             apiKey = '1da8476bfea197f692c2334997c10c87', //from UNDP's main account (unitednationsdevelopmentprogramme)
             search = this.model.get('project_id'),
-            //search = 'africa' //for testing
             attempt = 0,
             i = 0,
             $el = $('#flickr');
@@ -459,9 +460,10 @@ views.ProjectMap = Backbone.View.extend({
 
         // Load single photo from array
         function loadPhoto(x) {
-            $el.find('.spin').spin({ color:'#fff' });
-            if (x === 0) $('.prev', $el).addClass('inactive');
-            if (x === photos.length - 1) $('.next', $el).addClass('inactive');
+            $el.find('.meta').hide();
+            $el.find('.spin').spin({ color:'#000' });
+            if (x === 0) $('.control.prev', $el).addClass('inactive');
+            if (x === photos.length - 1) $('.control.next', $el).addClass('inactive');
 
             if (photos[x].id) {
                 var photoid = photos[x].id,
@@ -477,7 +479,6 @@ views.ProjectMap = Backbone.View.extend({
 
                     // Get available sizes
                     $.getJSON(apiBase + 'flickr.photos.getSizes&api_key=' + apiKey + '&photo_id=' + photoid, function(s) {
-
                         getSize('Medium 800');
                         function getSize(sizeName) {
                             _(s.sizes.size).each(function(z) {
@@ -505,7 +506,7 @@ views.ProjectMap = Backbone.View.extend({
                         }
 
                         // Fill in date & description
-                        $('.meta', $el).html('<div class="meta-inner"><span class="date">' + date + '</span>' +
+                        $('.meta', $el).show().html('<div class="meta-inner"><span class="date">' + date + '</span>' +
                             '<p>' + description +
                             '<a href="' + url + 'in/photostream/" title="See our photos on Flickr"> Source</a></p></div>');
 
@@ -514,7 +515,7 @@ views.ProjectMap = Backbone.View.extend({
                 });
 
             } else if (photos[x].date) {
-                $('.meta', $el).html('<div class="meta-inner"><span class="date">' + photos[x].date.toLocaleDateString() + '</span>' +
+                $('.meta', $el).show().html('<div class="meta-inner"><span class="date">' + photos[x].date.toLocaleDateString() + '</span>' +
                     '<p>' + photos[x].description +
                     '<a href="' + photos[x].link + '/in/photostream/" title="See our photos on Flickr"> Source</a></p></div>');
 
@@ -532,39 +533,30 @@ views.ProjectMap = Backbone.View.extend({
         }
 
         // Cycle through photo array
-        $('.next', $el).click(function() {
+        $('.control.next', $el).click(function(e) {
+            e.preventDefault();
             if (!$('.next', $el).hasClass('inactive')) {
                 if (i === 0) {
-                    $('.prev', $el).removeClass('inactive');
+                    $('.control.prev', $el).removeClass('inactive');
                 }
                 i += 1;
                 if (i == photos.length - 1) {
-                    $('.next', $el).addClass('inactive');
+                    $('.control.next', $el).addClass('inactive');
                 }
                 loadPhoto(i);
             }
         });
-        $('.prev', $el).click(function() {
-            if (!$('.prev', $el).hasClass('inactive')) {
+        $('.control.prev', $el).click(function(e) {
+            e.preventDefault();
+            if (!$('.control.prev', $el).hasClass('inactive')) {
                 if (i === photos.length - 1) {
-                    $('.next', $el).removeClass('inactive');
+                    $('.control.next', $el).removeClass('inactive');
                 }
                 i -= 1;
                 if (i === 0) {
-                    $('.prev', $el).addClass('inactive');
+                    $('.control.prev', $el).addClass('inactive');
                 }
                 loadPhoto(i);
-            }
-        });
-
-        // Toggle resizing of photo to fit container
-        $('.resize', $el).click(function() {
-            if ($('body').hasClass('fullscreen')) {
-                $('body').removeClass('fullscreen');
-                $(this).find('.text').text('Details');
-            } else {
-                $('body').addClass('fullscreen');
-                $(this).find('.text').text('Hide Details');
             }
         });
     }

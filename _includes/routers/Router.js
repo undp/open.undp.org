@@ -29,10 +29,13 @@ routers.App = Backbone.Router.extend({
         var that = this;
         
         if (!$('#y' + year).length) {
-             //passing in year index js (json)
-            loadjsFile('api/project_summary_' + year + '.js', year, function() {
-                that.browser(year, route, embed);
-            });
+            if (location.hash.split('-')[0] !='#project'){
+                loadjsFile('api/project_summary_' + year + '.js', year, function() {
+                    that.browser(year, route, embed);
+                });
+            } else { // when projects are loaded from the list view
+                that.project(location.hash.split('-')[1], false,false);
+            }
         } else {
             that.browser(year, route, embed);
         }
@@ -319,7 +322,7 @@ routers.App = Backbone.Router.extend({
 
             that.nav = new views.Nav();
             
-            // window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
+            window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
 
             // Set up menu
             $('#app .view, #mainnav .browser').hide();
