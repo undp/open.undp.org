@@ -25,6 +25,8 @@ for fn in os.listdir('.'):
 os.chdir("../../../")
 tmpYears.sort(reverse=True)
 
+locsID = []
+
 # Global Output Arrays
 # ********************
 fiscalYears = []
@@ -379,7 +381,6 @@ def outputsLoop(o, output_id, fileyear):
         except KeyError:
             outputBudget.append(None)
 
-    locs = []
     locHeader = ['awardID','outputID','focus_area','focus_area_descr','lat','lon','precision','name','type']
     locations = o.findall('location')
     for location in locations:
@@ -403,7 +404,9 @@ def outputsLoop(o, output_id, fileyear):
         locTemp.append(precision)
         locTemp.append(name)
         locTemp.append(locType)
-        locationsFull.append(dict(zip(locHeader,locTemp)))
+        if output_id not in locsID:
+            locsID.append(output_id)        
+            locationsFull.append(dict(zip(locHeader,locTemp)))
     outputsHeader = ['output_id','award_id','output_title','output_descr','gender_id','gender_descr','focus_area','focus_area_descr','crs','crs_descr','fiscal_year','budget','expenditure','donor_id','donor_short','donor_name']
     outputList.append(outputAward)
     outputList.append(outputTitle)
