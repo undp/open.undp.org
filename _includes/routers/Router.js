@@ -172,15 +172,28 @@ routers.App = Backbone.Router.extend({
             };
                // Check for funding countries to show donor visualization
                 var donors = _.where(filters, {collection: 'donor_countries'});
+                var regions = _.where(filters, {collection: 'region'});
 
-                // If empty hide the div
                 if (_.isEmpty(donors)){
-                    $('#donor-pie').hide();
+                    // If no donor selected, hide the div
+                    $('#donor-graphs').hide();
                     app.donor = false;
                 } else {
-                    app.donor = new views.Donor ({
+                    app.donor = new views.Donors ({
                     });
-                    $('#donor-pie').show();
+                    // Otherwise show donor graphs
+                    $('#donor-graphs').show();
+                }
+
+                if (_.isEmpty(regions)){
+                    // If no region selected, hide the div
+                    $('#region-graphs').hide();
+                    app.donor = false;
+                } else {
+                    app.donor = new views.Regions ({
+                    });
+                    // Otherwise show region graphs
+                    $('#region-graphs').show();
                 }
             // Load projects
             if (!that.allProjects || app.fiscalYear != year) {

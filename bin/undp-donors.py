@@ -24,9 +24,14 @@ t0 = time.time()
 # cost_sharing_expenses = csv.DictReader(open('donor_data/expenses_cost_sharing.csv', 'rb'), delimiter = ',', quotechar = '"')
 # cost_sharing_expenses_sort = sorted(cost_sharing_expenses, key = lambda x: x['awardid'])
 
-# For donor names and IDs
-cntry_donors = csv.DictReader(open('download/undp_export/country_donors_updated.csv','rb'), delimiter = ',', quotechar = '"')
-cntry_donors_sort = sorted(cntry_donors, key = lambda x: x['id'])
+# # For donor names and IDs
+# cntry_donors = csv.DictReader(open('download/undp_export/country_donors_updated.csv','rb'), delimiter = ',', quotechar = '"')
+# cntry_donors_sort = sorted(cntry_donors, key = lambda x: x['id'])
+
+# Expenses by region
+region_expenses = csv.DictReader(open('donor_data/region_expenses.csv', 'rb'), delimiter = ',', quotechar = '"')
+region_expenses_sort = sorted(region_expenses, key = lambda x: x['id'])
+
 
 # Donors by fund modalities
 fund_modalities = csv.DictReader(open('donor_data/fund_modalities.csv', 'rb'), delimiter = ',', quotechar = '"')
@@ -37,6 +42,17 @@ fund_modalities_sort = sorted(fund_modalities, key = lambda x: x['key'])
 # cost_sharing_region_sort = sorted(cost_sharing_region, key = lambda x: x['awardid'])
 
 # Process contributions by fund modalities
+
+regions = []
+for iden in region_expenses_sort:
+	regTemp = {}
+	regTemp['id'] = iden['id']
+	regTemp['region'] = iden['region']
+	regTemp['percent'] = iden['percent']
+	regTemp['expense'] = int(iden['expenses_int'])
+	regTemp['format_expense'] = iden['expenses']
+	regions.append(regTemp)
+
 row_count = 0
 donorList = {}
 totals = {
@@ -106,6 +122,12 @@ totals['Special Activities'] = sum(totals['Special Activities'])
 
 writeout = json.dumps(totals, sort_keys=True, separators=(',',':'))
 f_out = open('../api/donors/total-modality.json', 'wb')
+print "total modality JSON generated"
+f_out.writelines(writeout)
+f_out.close()
+
+writeout = json.dumps(regions, sort_keys=True, separators=(',',':'))
+f_out = open('../api/donors/region-expenses.json', 'wb')
 print "total modality JSON generated"
 f_out.writelines(writeout)
 f_out.close()

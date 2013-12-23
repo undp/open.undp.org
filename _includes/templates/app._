@@ -174,21 +174,36 @@
         </div>
         <div class='row-fluid'>
           <!--Donor viz charts -->
-          <div class='span6 stat-chart' id='donor-pie'>
-            <h3 style='max-width: 430px;'><span id='donor-title'></span> contributions by Fund Modality</h3>
-              <div class='charts-padding'>
-              <div class='span3'>
-                <h5>Modality by Percent</h5>
-                <div class='pie-padding'>
-                  <div id ='pie-placeholder' class='pie'>
+            <div class='span6 stat-chart' id='donor-graphs'>
+              <h3 style='max-width: 430px;'><span id='donor-title'></span> Contributions by Fund Modality</h3>
+                <div class='charts-padding'>
+                <div class='span3'>
+                  <h5>Modality by Percent</h5>
+                  <div class='pie-padding'>
+                    <div id ='pie-placeholder' class='pie'>
+                    </div>
                   </div>
                 </div>
-              </div>
-               <div class='span4' style='margin-left: 50px;'>
-                <table id='totals-table' class='modality'></table>
-               </div> 
-              </div>
-          </div>
+                 <div class='span4' style='margin-left: 50px;'>
+                  <table id='totals-table' class='modality'></table>
+                 </div>
+                </div>
+            </div>
+            <div class='span6 stat-chart' style='margin-left: 0px' id='region-graphs'>
+              <h3 style='max-width: 430px;'>Regional Expenses (M)</h3>
+                <div class='span8'>
+                  <div class='bar-padding'>
+                    <div id='region-bar' class='bar'></div>
+                  </div>
+                </div>
+                 <div class='span3' style='margin-left: 50px;'>
+                    <h5>By Percent</h5>
+                    <div class='pie-padding'>
+                      <div id ='region-pie' class='pie'></div>
+                    </div>
+                 </div>
+            </div>
+
           <!--/ #chart-operating_unit -->
           <!--Chart Four -->
           <div class='span6 chart stat-chart' id='chart-operating_unit'>
