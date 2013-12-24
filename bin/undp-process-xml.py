@@ -19,8 +19,8 @@ xmlFiles = []
 os.chdir("download/undp_export/iati-xml-annual/")
 for fn in os.listdir('.'):
     if fn.endswith(".xml"):
-        fileYear = fn[-8:-4]
-        tmpYears.append(fileYear)
+        fileY = fn[-8:-4]
+        tmpYears.append(int(fileY))
         xmlFiles.append(fn)
 os.chdir("../../../")
 tmpYears.sort(reverse=True)
@@ -315,7 +315,10 @@ def outputsLoop(o, output_id, fileyear):
                     donorCtryTemp = []
                     donorCheck.append(ref)
                     donorTemp.append(ref)
-                    donorTemp.append(donor.text)
+                    if not donor.text:
+                        donorTemp.append("Unknown")
+                    else:
+                        donorTemp.append(donor.text)
                     if d['donor_type_lvl1'] == 'PROG CTY' or d['donor_type_lvl1'] == 'NON_PROG CTY':
                         donorTemp.append(d['donor_type_lvl3'].replace(" ",""))
                     elif d['donor_type_lvl1'] == 'MULTI_AGY':
@@ -427,16 +430,18 @@ def outputsLoop(o, output_id, fileyear):
 
 # Global project arrays
 projects = []
-projectsAnnual = {}
 projectsHeader = ['project_id','operating_unit','operating_unit_id','iati_op_id','project_title','project_descr','start','end','inst_id','inst_descr','inst_type_id','document_name']
 units = csv.DictReader(open('download/undp_export/report_units.csv', 'rb'), delimiter = ',', quotechar = '"')
 units_sort = sorted(units, key = lambda x: x['operating_unit'])
 iati_regions = csv.DictReader(open('download/undp_export/iati_regions.csv', 'rb'), delimiter = ',', quotechar = '"')
 iati_regions_sort = sorted(iati_regions, key = lambda x: x['code'])
 
+projectsAnnual = {}
+for year in tmpYears:
+    projectsAnnual[year] = []
+
 def loopData(file_name, key, fileYear):
     # Get IATI activities XML
-    projectsAnnual[fileYear] = []
     context = iter(etree.iterparse(file_name,tag='iati-activity'))
     # Loop through each IATI activity in the XML
     for event, p in context:
@@ -456,6 +461,7 @@ def loopData(file_name, key, fileYear):
             docTemp = []
             subnationalTemp = []
             award_title = p.find("./title").text
+            award_title.lower()
             award_description = p.find("./description").text
             # Get document-links
             documents = p.findall("./document-link")
@@ -602,7 +608,7 @@ def collectProjects():
     projectsFullid = []
     projectsDup = []
     for year,proj in projectsAnnual.iteritems():
-        if year == '2013':
+        if year == 2013:
             for p in proj:
                 projectsFull.append(p)
                 if p['project_id'] not in projectsFullid:
@@ -621,7 +627,7 @@ def collectOutputs():
     outputsFullid = []
     outputsDup = []
     for year,out in outputsAnnual.iteritems():
-        if year == '2013':
+        if year == 2013:
             for o in out:
                 outputsFull.append(o)
                 if o['output_id'] not in outputsFullid:
@@ -679,7 +685,7 @@ def joinOutputs():
 os.chdir("download/undp_export/iati-xml-annual/")
 for fn in xmlFiles:
     fileYear = fn[-8:-4]
-    loopData(fn,'document-link',fileYear)
+    loopData(fn,'document-link',int(fileYear))
 os.chdir("../../../")
 
 # 2. Assemble a projectsFull array 
