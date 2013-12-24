@@ -460,7 +460,7 @@ views.ProjectMap = Backbone.View.extend({
         // Load single photo from array
         function loadPhoto(x) {
             $el.find('.meta').hide();
-            $el.find('.spin').spin({ color:'#000' });
+            $el.find('.spin').spin({ color:'#ddd' });
             if (x === 0) $('.control.prev', $el).addClass('inactive');
             if (x === photos.length - 1) $('.control.next', $el).addClass('inactive');
 
