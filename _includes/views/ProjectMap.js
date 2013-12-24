@@ -246,13 +246,11 @@ views.ProjectMap = Backbone.View.extend({
                             coContact.twitter.push(twitterAcct.replace('@',''));
                         }
                         if (flickrAcct) {
-                            // flickrAccts.unshift(flickrAcct);
-                            // coContact.flickr.push(flickrAccts);
+                            flickrAccts.unshift(flickrAcct);
                             coContact.flickr.push(flickrAcct);
                         }
                         if (fbAcct) {
-                            // fbAccts.unshift(fbAcct);
-                            // coContact.facebook.push(fbAccts);
+                            fbAccts.unshift(fbAcct);
                             coContact.facebook.push(fbAcct);
                         }
                     }
