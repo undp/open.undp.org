@@ -23,7 +23,9 @@ for fn in os.listdir('.'):
         tmpYears.append(int(fileY))
         xmlFiles.append(fn)
 os.chdir("../../../")
+# Sort most recent year first
 tmpYears.sort(reverse=True)
+xmlFiles.sort(reverse=True)
 
 locsID = []
 
@@ -608,7 +610,7 @@ def collectProjects():
     projectsFullid = []
     projectsDup = []
     for year,proj in projectsAnnual.iteritems():
-        if year == 2013:
+        if year == tmpYears[0]:
             for p in proj:
                 projectsFull.append(p)
                 if p['project_id'] not in projectsFullid:
@@ -627,7 +629,7 @@ def collectOutputs():
     outputsFullid = []
     outputsDup = []
     for year,out in outputsAnnual.iteritems():
-        if year == 2013:
+        if year == tmpYears[0]:
             for o in out:
                 outputsFull.append(o)
                 if o['output_id'] not in outputsFullid:
