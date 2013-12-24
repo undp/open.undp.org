@@ -3,7 +3,7 @@
     id='<%= model.collection.id %>-<%= model.get("id") %>'
     class='filter'
     href='#'>
-        <div class='filter-name'><%= model.get("name").toLowerCase().toTitleCase() %></div>
+        <%= model.get("name").toLowerCase().toTitleCase() %>
         <div class='count'><%= accounting.formatNumber(model.get("count")) %></div>
   </a>
 </li>
