@@ -74,7 +74,6 @@ $(function() {
     {% include views/TopDonors.js %}
     {% include views/Widget.js %}
     {% include views/Donors.js %}
-    {% include views/Regions.js %}
 
     // Router
     {% include routers/Router.js %}
