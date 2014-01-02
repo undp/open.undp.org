@@ -306,6 +306,9 @@ input[readonly] {
 /*-----------------------------------
   Global Layout
 -------------------------------------*/
+#container {
+  overflow:hidden;
+  }
 #main {
   position:relative;
   min-height:800px;
@@ -1319,10 +1322,16 @@ form {
   -webkit-box-shadow:none;
           box-shadow:none;
   }
+#nav-side .topics li .filter-name {
+  float:left;
+  width:110px;
+  margin-bottom:20px;
+  }
 #nav-side .topics li .count {
+  display: block;
   float:right;
-  font-size:11px;
   font-weight:normal;
+  font-size:11px;
   }
 #nav-side .topics.filtered li a.active:before{
   content:'✖';
