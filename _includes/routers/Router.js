@@ -188,16 +188,6 @@ routers.App = Backbone.Router.extend({
                     $('#donor-graphs').show();
                 }
 
-                if (_.isEmpty(regions)){
-                    // If no region selected, hide the div
-                    $('#region-graphs').hide();
-                    app.donor = false;
-                } else {
-                    app.donor = new views.Regions ({
-                    });
-                    // Otherwise show region graphs
-                    $('#region-graphs').show();
-                }
             // Load projects
             if (!that.allProjects || app.fiscalYear != year) {
                 if (app.fiscalYear && app.fiscalYear != year){app.projects.map.map.remove();}
