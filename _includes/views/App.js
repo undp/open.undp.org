@@ -26,7 +26,6 @@ views.App = Backbone.View.extend({
     render: function() {
         if (this.options.embed) {
             this.$el.empty().append(templates.embedProjects());
-
             this.$el.find('.option').hide();
             _(this.options.embed).each(function (o) {
                 $('[data-option="' + o + '"]').show();
@@ -303,7 +302,7 @@ views.App = Backbone.View.extend({
             embedPath = location.hash.replace('filter', 'widget')
         }
 
-        var defaultIframe = '<iframe src="{{site.baseurl}}/embed.html' + embedPath + '?' +
+        var defaultIframe = '<iframe src="'+ BASE_URL + 'embed.html' + embedPath + '?' +
                         widgetOpts.join('&') + '" width="100%" height="100%" frameborder="0"> </iframe>';
 
         $('.widget-preview', el).html(defaultIframe);

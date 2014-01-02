@@ -1,6 +1,7 @@
 ---
 ---
 var CURRENT_YR = FISCALYEARS[0];
+    BASE_URL = '{{site.baseurl}}/';
 
 function ctyBounds(coords) {
     if (coords.length > 1) {
@@ -15,8 +16,6 @@ function ctyBounds(coords) {
 }
 
 $(function() {
-    // var BASE_URL = 'http://open.undp.org/',
-        var BASE_URL = '{{site.baseurl}}/', //allows breadcrumbs to work properly on ds gh-pages
         models = {},
         views = {},
         routers = {},
