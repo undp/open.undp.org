@@ -175,7 +175,6 @@ routers.App = Backbone.Router.extend({
             };
                // Check for funding countries to show donor visualization
                 var donors = _.where(filters, {collection: 'donor_countries'});
-                var regions = _.where(filters, {collection: 'region'});
 
                 if (_.isEmpty(donors)){
                     // If no donor selected, hide the div

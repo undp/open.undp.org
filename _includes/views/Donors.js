@@ -33,7 +33,7 @@ views.Donors = Backbone.View.extend({
                 var index = 0;
                 var rows = []
                 var sum = []
-                rows.push('<tr><td><b>Modality</b></td><td><b>Country Total</b></td><td><b>All Donors Total</b></td><td><b>Country as percent of all donations</b></td></tr>')
+                rows.push('<tr><td><b>Modality</b></td><td><b>Country Total</b></td><td><b>Country as percent of all donations</b></td></tr>')
                 var dtotals = _(donorData[donor][0]).map(function(val, label){
                     // Format data for pie chart
                     var dataPiece = {};
@@ -43,7 +43,7 @@ views.Donors = Backbone.View.extend({
                     var mil = '$' + (val/1000000).toFixed(2);
                     var tMil = '$' + (totals[index][1]/1000000).toFixed(2);
                     var cleanLabel = label.replace(' ','').toLowerCase();
-                    rows.push('<tr class="'+cleanLabel+'"><td>'+ label +'</td><td>' + mil + 'M</td><td>' + tMil + 'M</td><td>' + perc +'% </td></tr>')
+                    rows.push('<tr class="'+cleanLabel+'"><td>'+ label +'</td><td>' + mil + 'M</td><td>' + perc +'% </td></tr>')
                     country.push(dataPiece);
                     // Format data for totals
                     var tempData = []
