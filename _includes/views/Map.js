@@ -23,6 +23,7 @@ views.Map = Backbone.View.extend({
             // when no operating unit is selected, reset to the global map
             if (category === 'budget' && _.isUndefined(view.opUnitFilter)){$('.map-btn.budget').addClass('active')};
         } else {
+            // if it's embed mode, set the circles to the budget layer, disable zoom wheel
             category = 'budget';
             wheelZoom = false;
         };
@@ -35,6 +36,13 @@ views.Map = Backbone.View.extend({
                 //disableClusteringAtZoom: 6
             });
             var maxZoom = 10;
+
+            // in embed if selected from a circle view (where widget-world has a link), keep the widget-nav
+            if ($('#widget-world').attr('href')) {
+                $('.widget-nav').show()
+            } else {
+                $('.widget-nav').hide()
+            }
         } else {
             view.markers = new L.LayerGroup();
         };
@@ -317,38 +325,16 @@ views.Map = Backbone.View.extend({
                             layer.setIcon(L.mapbox.marker.icon(oldOptions));
                             view.map.closePopup(clusterBrief);
                         }).on('click',function(){
-                            path = '#project/'+ feature.properties.project;
-
-                            if (!view.options.embed){view.goToLink(path)}else{
-                               try{
-                             //   window.parent.closeModal();
-                               }
-                               catch(e){
-
-                               }
-                               try{
-                               if(parent.window.location.host ==window.location.host){
-                                parent.window.location.href = window.location.protocol + "//" +
-                                                window.location.host  +
-                                        "/" + path;
-                               }
-                               else
-                               {
-                                window.location.href = window.location.protocol + "//" +
-                                                        window.location.host +
-                                        "/" + path;
-                               }
-                                }catch(e)
-                                {
-//                                    console.log("loi error");
-                                window.location.href = window.location.protocol + "//" +
-                                                        window.location.host +
-                                        "/" + path;    
-                                }
-                               
-                            };
+                            if (!view.options.embed){
+                                var path = '#project/'+ feature.properties.project;
+                                view.goToLink(path);
+                            } else {
+                                // open project page in a new tab/window
+                                window.open(BASE_URL + '#project/'+ feature.properties.project)
+                            }
                         });
                     };
+
                     function filter(feature, layer, filter){// only two cases for type, hard code is fine
                         var subFilter = mapFilter || "10";
                         if (subFilter === "10"){
@@ -429,12 +415,36 @@ views.Map = Backbone.View.extend({
                         view.map.closePopup(brief);
                         view.circleHighlight(e);
                     }).on('click',function(e){
-                        if (app.app.filters.length === 0 ){
-                            path = document.location.hash + '/filter/operating_unit-' + e.target.feature.properties.id;
+                         if (!view.options.embed){
+                            var prevPath = location.hash;
                         } else {
-                            path = document.location.hash + '/operating_unit-' +  e.target.feature.properties.id;
+                            prevPath = location.hash.split('?')[0];
+                            prevWidgetOpts = location.hash.split('?')[1]; // used when constructing the route with $('#widget-world')
+
+                            $('#widget-world')
+                            .removeClass('active')
+                            .addClass('enabled')
+                            .attr('href',location.origin + location.pathname + prevPath + "?"+ prevWidgetOpts)
+                            .on('click',function(e){
+                                $('#widget-country').removeClass('active');
+                                $(e.target).addClass('active').removeClass('enabled');
+                            })
+
+                            $('#widget-country').addClass('active');
                         }
-                        if (!view.options.embed){view.goToLink(path)};
+
+                        if (app.app.filters.length === 0){
+                            if (!view.options.embed) {
+                                path = prevPath + '/filter/operating_unit-' + e.target.feature.properties.id;
+                            } else {
+                                // if there's no filter location hash is "#2013/widget/" which duplicates the "/"
+                                path = prevPath = 'filter/operating_unit-' + e.target.feature.properties.id;
+                            }
+                        } else {
+                            path = prevPath + '/operating_unit-' +  e.target.feature.properties.id;
+                        }
+
+                        view.goToLink(path);
                     })
                 }
             });

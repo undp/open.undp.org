@@ -18,8 +18,6 @@ views.Projects = Backbone.View.extend({
 
     render: function() {
 
-        var pageType = Backbone.history.fragment.split('/')[0];
-
         var donor = _(app.app.filters).find(function(filter) {
                 return filter.collection === 'donors';
             }),
@@ -30,7 +28,7 @@ views.Projects = Backbone.View.extend({
                 return model.get('visible');
             }));
 
-        models = (pageType === 'widget') ? models.first(10) : models.first(50);
+            models = models.first(50);
 
         $('#total-count').html(accounting.formatNumber(this.collection.length));
 
@@ -67,21 +65,14 @@ views.Projects = Backbone.View.extend({
         if (models.length) {
             
             this.$('#project-table tbody').empty();
+
             _(models).each(function(model) {
                 this.$('#project-table tbody').append(templates.project({ model: model }));
             });
-            if (pageType === 'widget') {
-                if (models.length < 10) {
-                    $('.load').hide();
-                } else {
-                    $('.load').show();
-                }
+           if (models.length < 50) {
+                $('.load').hide();
             } else {
-               if (models.length < 50) {
-                    $('.load').hide();
-                } else {
-                    $('.load').show();
-                }
+                $('.load').show();
             }
         } else {
             this.$('.load').hide();

@@ -16,15 +16,17 @@
       .value();
 %>
 
+<div data-option='map' id='profilemap' class='map option'></div>
+
 <div data-option='title' class='option'>
-  <a target='_blank' href='http://open.undp.org/#project/<%= model.get('id')%>'><h3 class='heading-title'><%= model.get('project_title').toLowerCase().toTitleCase() %></h3></a>
+  <a target='_blank' href='http://open.undp.org/#project/<%= model.get('id')%>'>
+    <h3 class='heading-title'><%= model.get('project_title').toLowerCase().toTitleCase() %></h3>
+  </a>
 </div>
 
 <div data-option='descr' class='option'>
   <p class='heading-desc'><%= model.get('project_descr') %></p>
 </div>
-
-<div data-option='map' id='profilemap' class='map option'></div>
 
 <div data-option='stats' class='option'>
   <div class='label'>Project Timeline</div>
@@ -102,14 +104,14 @@
 <% } %>
 
 <div data-option='outputs' class='option'>
-  <div class='separator' id='output-header'>
-    <h2 class='heading-title'>
-      <% if (model.get('outputs').length > 1) { %>
-        <span><%= model.get('outputs').length %></span>
-      <% } %>
-      <% if (model.get('outputs').length === 1) { %>Project<% } else { %>Projects<% } %>
-    </h2>
-  </div>
+
+  <h2 class='heading-title'>
+    <% if (model.get('outputs').length > 1) { %>
+      <span><%= model.get('outputs').length %></span>
+    <% } %>
+    <% if (model.get('outputs').length === 1) { %>Output<% } else { %>Outputs<% } %>
+  </h2>
+
   <div id='outputs'></div>
   
   <% if (model.get('outputs').length > 1) { %>
