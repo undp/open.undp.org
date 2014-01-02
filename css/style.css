@@ -741,6 +741,75 @@ p.heading-desc {
 /*-----------------------------------
   Charts and graphs
 -------------------------------------*/
+.pie-padding {
+  padding: 26px 0px;
+}
+.pie {
+  width:185px; 
+  height:185px;
+}
+.bar-padding{
+  padding: 16px 0px;
+}
+.bar {
+  margin: 20px 0px !important;
+  width:525px;
+  height:237px;
+}
+
+#flotTip {
+  padding: 5px;
+  background: #fff;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  pointer-events: all;
+}
+#legendholder table {
+  position: absolute;
+  right: 5px;
+  width: 160px;
+  border-spacing:0;
+  margin:44px 0;
+  border: none;
+  border-collapse:separate;
+  *border-collapse:collapsed;
+}
+#legendholder table td, 
+#legendholder table th {
+  border: none;
+}
+.modality {
+  border: 1px solid #f1f1f1;
+  width: 553px;
+  margin-top: 0px;
+}
+.modality td {
+  width: 95px;
+  line-height: 17px;
+  border-top: 1px solid #f1f1f1;
+  border-left: 1px solid #f1f1f1;
+}
+.modality .costsharing {
+  background-color: #00397E;
+  opacity: .9;
+}
+.modality .trustfunds {
+  background-color: #6cB02d;
+  opacity: .9;
+}
+.modality .specialactivities {
+  background-color: #a1cbe8;
+  opacity: .9;
+}
+.modality .thematictrust {
+  background-color: #FFF0C2;
+  opacity: .9;
+}
+.modality .unv {
+  background-color: #FFD066;
+  opacity: .9;
+}
 .summary h3 {
   display:block;
   max-width:175px;
@@ -758,8 +827,13 @@ h3#focus span {
   font-weight:normal;
   color:#666;
   }
+.charts-padding {
+  padding: 30px 0px;
+}
 .chart li.focus {
   padding: 20px 0;
+  width: 395px;
+  float: left;
   font-size: 15px;
   font-weight:bold;
   }
@@ -773,7 +847,7 @@ h3#focus span {
     border-radius: 50%;
     }
   .chart li.focus a {
-    padding-left:65px;
+    padding-left:30px;
     }
 .chart .chart-legend {
   float:right;

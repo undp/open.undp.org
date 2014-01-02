@@ -171,7 +171,22 @@ routers.App = Backbone.Router.extend({
                         embed: embed
                     });
                 }
+
             };
+               // Check for funding countries to show donor visualization
+                var donors = _.where(filters, {collection: 'donor_countries'});
+                var regions = _.where(filters, {collection: 'region'});
+
+                if (_.isEmpty(donors)){
+                    // If no donor selected, hide the div
+                    $('#donor-graphs').hide();
+                    app.donor = false;
+                } else {
+                    app.donor = new views.Donors ({
+                    });
+                    // Otherwise show donor graphs
+                    $('#donor-graphs').show();
+                }
 
             // Load projects
             if (!that.allProjects || app.fiscalYear != year) {
@@ -254,6 +269,7 @@ routers.App = Backbone.Router.extend({
 
                 if (app.description && app.description.length === 0){
                     if (app.donorDescription.length > 0) {
+                        $('#donor-title').html(app.shortDesc);
                         // custom donor text
                         renderDonorContent();
                         // default donor text
@@ -266,8 +282,10 @@ routers.App = Backbone.Router.extend({
                         // custom donor text
                         renderDonorContent();
                         // default donor text
+                        $('#donor-title').html(app.shortDesc);
                         $('#description').find('p.desc').html(app.donorDescription + counts + ' ' + app.description.join(',') + '.');
                     } else {
+                        $('#donor-title').html(app.shortDesc);
                         $('#description').find('p.desc').html(projectCounts + app.description.join(',') + '.');
                     }
                 } else if (!app.description) {
@@ -276,6 +294,7 @@ routers.App = Backbone.Router.extend({
 
                 // reset description
                 app.description = false;
+                app.shortDesc = "";
                 app.donorDescription = "";
 
                 $('#browser .summary').removeClass('off');

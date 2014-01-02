@@ -73,6 +73,7 @@ $(function() {
     {% include views/HDI.js %}
     {% include views/TopDonors.js %}
     {% include views/Widget.js %}
+    {% include views/Donors.js %}
 
     // Router
     {% include routers/Router.js %}
