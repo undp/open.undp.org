@@ -4,6 +4,6 @@
     class='filter'
     href='#'>
         <%= model.get("name").toLowerCase().toTitleCase() %>
-        <div class='count'><%= accounting.formatNumber(model.get("count")) %></div>
   </a>
+  <div class='count'><%= accounting.formatNumber(model.get("count")) %></div>
 </li>

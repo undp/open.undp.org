@@ -1230,16 +1230,6 @@ form {
   padding:0;
 }
 
-#nav-side .topics.filtered li a.active,
-#nav-side .topics.active li a.active {
-  font-weight:bold;
-  text-decoration:none;
-  padding:10px 2px;
-  margin-left:14px;
-  }
-/* Disable the state of a menu item that has
- * an acvtive filter in it
- */
 #nav-side .topics.filtered .label{
   color:#333;
   border-bottom:none;
@@ -1248,16 +1238,26 @@ form {
   -webkit-box-shadow:none;
           box-shadow:none;
   }
-#nav-side .topics li .filter-name {
+#nav-side .topics li a {
+  display:block;
   float:left;
-  width:110px;
-  margin-bottom:20px;
+  width:120px;
+  }
+#nav-side .topics.filtered li a.active,
+#nav-side .topics.active li a.active {
+  font-weight:bold;
+  text-decoration:none;
+  padding:10px 2px;
+  margin-left:14px;
   }
 #nav-side .topics li .count {
   display: block;
   float:right;
+  width:30px;
+  margin-top:10px;
   font-weight:normal;
   font-size:11px;
+  color:#888;
   }
 #nav-side .topics.filtered li a.active:before{
   content:'✖';
