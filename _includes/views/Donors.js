@@ -101,7 +101,7 @@ views.Donors = Backbone.View.extend({
                 // Sort rows by sort value
                 rows.push({
                     sort: -100000000000,
-                    content: '<tr><td><b>Modality</b></td><td><b>Country Contribution</b></td><td class="block"><b>Allocation of Contribution (%)</b><td class="medium"><b>All Contributions</b></td><td class="block"><b>Country Share of All Contributions (%)</b></td></tr>'
+                    content: '<tr><td><b>Modality</b></td><td><b>Country Contribution</b></td><td class="block"><b>Allocation of Contribution (%)</b><td class="medium"><b>Contributions from All Donors</b></td><td class="block"><b>Country Share of All Contributions (%)</b></td></tr>'
                 });
                 rows = _(rows).sortBy('sort');
                 max = rows[0].sort * -1;
