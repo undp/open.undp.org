@@ -29,21 +29,52 @@ views.Donors = Backbone.View.extend({
             });
             
             $.getJSON( "api/donors/donor-modality.json", function(donorData) {
-                var country = []
+                var country = [];
                 var index = 0;
-                var rows = []
-                var sum = []
-                rows.push('<tr><td><b>Modality</b></td><td><b>Country Total</b></td><td><b>Country as percent of all donations</b></td></tr>')
+                var rows = [];
+                var sum = [];
+                var countryTotal = donorData[donor][1];
+                
                 var dtotals = _(donorData[donor][0]).map(function(val, label){
                     // Format data for pie chart
                     var dataPiece = {};
                     dataPiece.label = label;
                     val < 0 ? dataPiece.data = 0 : dataPiece.data = val;
-                    var perc = ((val/totals[index][1]) * 100).toFixed(1);
+                    var fundPerc = ((val/countryTotal) * 100).toFixed(2);
+                    var totalsPerc = ((val/totals[index][1]) * 100).toFixed(2);
                     var mil = '$' + (val/1000000).toFixed(2);
                     var tMil = '$' + (totals[index][1]/1000000).toFixed(2);
                     var cleanLabel = label.replace(' ','').toLowerCase();
-                    rows.push('<tr class="'+cleanLabel+'"><td>'+ label +'</td><td>' + mil + 'M</td><td>' + perc +'% </td></tr>')
+                    var fundBar,
+                        totalsBar;
+
+                    if (fundPerc == 0) {
+                        fundBar = '<div class="subdata"></div><div class="fund zero" fund-percent="' + fundPerc + '"></div>';
+                    } else {
+                        fundBar = '<div class="subdata"></div><div class="fund" fund-percent="' + fundPerc + '"></div>';
+                    } 
+                    if (totalsPerc == 0) {
+                        totalsBar = '<div class="subdata" data-expenditure="' + totals[index][1] + '"></div><div class="budgetdata zero" data-budget="' + totalsPerc + '"></div>';
+                    } else {
+                        totalsBar = '<div class="subdata" data-expenditure="' + totals[index][1] + '"></div><div class="budgetdata" data-budget="' + totalsPerc + '"></div>';
+                    } 
+
+                    rows.push({
+                        sort: -1 * ((val) ? val : 0),
+                        content: '<tr class="'+cleanLabel+'">' +
+                                 ' <td class="wide">' + label +'</td>' +
+                                 ' <td>' + mil + 'M</td>' +
+                                 ' <td class="block">' +
+                                 '      <div class="left" >' + fundPerc +'</div>' +
+                                 '      <div class="right data wide">'+ fundBar + '</div>' +
+                                 ' </td>' +
+                                 ' <td class="block">' +
+                                 '      <div class="left" >' + totalsPerc +'</div>' +
+                                 '      <div class="right data wide">'+ totalsBar + '</div>' +
+                                 ' </td>' +
+                                 '</tr>'
+                    });
+
                     country.push(dataPiece);
                     // Format data for totals
                     var tempData = []
@@ -52,56 +83,26 @@ views.Donors = Backbone.View.extend({
                     index = index + 1;
                     return tempData;
                 });
+                
+                // Sort rows by sort value
+                rows.push({
+                    sort: -100000000000,
+                    content: '<tr><td><b>Modality</b></td><td><b>Fund Total ($)</b></td><td><b> Fund Allocation(%)</b></td><td><b>Share of All Donations (%)</b></td></tr>'
+                });
+                rows = _(rows).sortBy('sort');
+                max = rows[0].sort * -1;
+                rows = rows.slice(0,7);
+
                 _(rows).each(function(row){
-                    $('#totals-table').append(row)
+                    $('#totals-table').append(row.content)
                 })
-            renderPie(country, donor, sum);
+
+                $('#totals-table tr').each(function(d, e) {
+                    $('.budgetdata', this).width(($(' .budgetdata', this).attr('data-budget')) + '%');
+                    $('.fund', this).width(($(' .fund', this).attr('fund-percent')) + '%');
+                    $('.subdata', this).width('100%');
+                });
             });
         });
-
-        function renderPie(data, donor, sum) {
-
-            var pieOptions = {
-                series: {
-                    pie: { 
-                        show: true,
-                        radius: 1,
-                        label: {
-                            show: true,
-                            radius: 2/3,
-                            formatter: function(label, series){
-                                return '<div style="font-size:8pt;text-align:center;color:#555;">'+label+'</div>';
-                            },
-                            threshold: 0.2
-                        }
-                    }
-                },
-                colors: ["#FFF0C2", "#a1cbe8",'#FFD066','#7686B2','#92ccee'],
-                legend: {
-                    show: false
-                },
-                grid: {
-                    hoverable: true 
-                },
-                tooltip: true,
-                tooltipOpts: {
-                    content: "%p.1%, %s", // show percentages, rounding to 2 decimal places
-                    shifts: {
-                        x: 0,
-                        y: -35
-                    },
-                    defaultTheme: false
-                }
-            };
-            var total=0;
-            for(var i in sum) { total += sum[i]; }
-            if (total == 0){
-                // Send chart to the DOM
-                $('#pie-placeholder').text('No contributions from this donor.')
-            } else {
-                // Send chart to the DOM
-                $.plot($('#pie-placeholder'), data, pieOptions);
-            }
-        };
     },
 });

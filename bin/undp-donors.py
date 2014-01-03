@@ -106,9 +106,12 @@ for d in donorList:
 	donorList[d].append(temp)
 
 for k, v in donorList.items():
+	dtotal = 0
 	for x in v:
 		for typ, values in x.items():
 			donorList[k][0][typ] = sum(values)
+			dtotal = dtotal + sum(values)
+	donorList[k].append(dtotal)
 
 print row_count, 'successful matches'
 
