@@ -259,7 +259,7 @@ views.ProjectMap = Backbone.View.extend({
                 cb();
             });
             
-            // Gather photos from documents, twitter, and flickr, in that order
+            // Gather photos from documents and flickr, in that order
             q.defer(function(cb) {
                 if (that.model.get('document_name')) {
                     _(that.model.get('document_name')[0]).each(function (photo, i) {
@@ -278,20 +278,19 @@ views.ProjectMap = Backbone.View.extend({
                                 'source': source,
                                 'image': img
                             });
-                            
                             img.src = source;
                         }
                     });
                 }
-                
+
                 cb();
             });
             q.await(function() {
+                view.flickr(flickrAccts,photos);
                // view.twitter(twitterAcct, function(tweets, twPhotos) {
                //     view.showTweets(tweets);
                //     view.flickr(flickrAccts,photos.concat(twPhotos));
                // });
-               view.flickr(flickrAccts,photos);
             });
         });
 
@@ -427,7 +426,7 @@ views.ProjectMap = Backbone.View.extend({
             i = 0,
             $el = $('#flickr');
 
-        if (!account.length && photos.length) {
+        if (!account.length && photos.length) { // show photos from the document
             $el.show();
             loadPhoto(i);
         } else {
@@ -460,15 +459,14 @@ views.ProjectMap = Backbone.View.extend({
         // Load single photo from array
         function loadPhoto(x) {
             $el.find('.meta').hide();
-            $el.find('.spin').spin({ color:'#ddd' });
+
             if (x === 0) $('.control.prev', $el).addClass('inactive');
             if (x === photos.length - 1) $('.control.next', $el).addClass('inactive');
 
             if (photos[x].id) {
                 var photoid = photos[x].id,
-                    source, pHeight, pWidth,
+                    source,
                     attempt = 0;
-
                 // Get photo info based on id
                 $.getJSON(apiBase + 'flickr.photos.getInfo&api_key=' + apiKey + '&photo_id=' + photoid, function(info) {
 
@@ -483,8 +481,6 @@ views.ProjectMap = Backbone.View.extend({
                             _(s.sizes.size).each(function(z) {
                                 if (z.label == sizeName) {
                                     source = z.source;
-                                    pHeight = z.height;
-                                    pWidth = z.width;
                                 }
                             });
 
@@ -509,7 +505,7 @@ views.ProjectMap = Backbone.View.extend({
                             '<p>' + description +
                             '<a href="' + url + 'in/photostream/" title="See our photos on Flickr"> Source</a></p></div>');
 
-                        insertPhoto(pHeight, pWidth, source);
+                        insertPhoto(source);
                     });
                 });
 
@@ -518,17 +514,22 @@ views.ProjectMap = Backbone.View.extend({
                     '<p>' + photos[x].description +
                     '<a href="' + photos[x].link + '/in/photostream/" title="See our photos on Flickr"> Source</a></p></div>');
 
-                insertPhoto(photos[x].height, photos[x].width, photos[x].source);
-
+                insertPhoto(photos[x].source);
             } else {
-                insertPhoto(photos[x].image.height, photos[x].image.width, photos[x].source);
                 $('.meta-inner', $el).empty();
+                insertPhoto(photos[x].source);
             }
 
-            function insertPhoto(height, width, src) {
-                $el.find('img').attr('src', src).addClass('in');
-                $el.find('.spin').spin(false);
-            }
+        }
+        function insertPhoto(src){
+            $el.find('.spin').spin({ color:'#000' });
+            $el.find('img')
+                .attr('src',src)
+                .addClass('in')
+                .on('load',function(){
+                    console.log('loaded')
+                    $el.find('.spin').remove();
+                })
         }
 
         // Cycle through photo array

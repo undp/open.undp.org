@@ -260,7 +260,7 @@ routers.App = Backbone.Router.extend({
                         pagination:{active:false},
                         callback: {
                             loaded: function(number) {
-                                $el.find('.spin').spin(false);
+                                $el.find('.spin').remove();
                             }
                         }
                     });
