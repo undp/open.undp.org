@@ -758,8 +758,11 @@ h3#focus span {
   font-weight:normal;
   color:#666;
   }
+
 .chart li.focus {
   padding: 20px 0;
+  width: 395px;
+  float: left;
   font-size: 15px;
   font-weight:bold;
   }
@@ -773,7 +776,7 @@ h3#focus span {
     border-radius: 50%;
     }
   .chart li.focus a {
-    padding-left:65px;
+    padding-left:30px;
     }
 .chart .chart-legend {
   float:right;
@@ -834,6 +837,7 @@ h3#focus span {
 .chart td.right {
   text-align: right;
   float: none;
+  width: 150px;
   }
 .chart .caption {
   text-align:left;
@@ -871,7 +875,73 @@ h3#focus span {
   background: #96CCE6;
   margin-bottom: 0.25em;
   margin-top: 0;
-  }
+}
+/*----------------------------------------------------------
+  Modality table and modifications to bar chart styles for modality bar charts
+----------------------------------------------------------*/
+#totals-table .data > div {
+  padding-right: 0px;
+  background: #ddd;
+  clear: both;
+  text-align: right;
+  line-height: 12px;
+  color: #EDF4FE;
+  border: 1px solid #adadad;
+}
+
+#donor-graphs  .chart .data > .subdata {
+  height: 12px;
+  background: #fff;
+  margin-top: 2px;
+}
+#donor-graphs  .chart .data > .budgetdata,
+#donor-graphs  .chart .data > .fund {
+  height: 12px;
+  margin-top: -15px;
+}
+#donor-graphs .chart .data > .fund.zero,
+#donor-graphs .chart .data > .budgetdata.zero {
+  border: none;
+}
+#donor-graphs {
+  margin:20px 0;
+  padding: 30px;
+  border: 1px solid #ddd;
+  background:#f2f2f2;
+}
+.modality {
+  background: none;
+  border: none;
+  margin-top: 0px;
+}
+.modality td {
+  line-height: 17px;
+  border-left: none;
+}
+td.medium {
+  width:108px;
+  padding-left: 25px;
+  padding-right: 20px;
+}
+td.block {
+  max-width: none;
+  width:132px;
+}
+td.block .right {
+  float: right;
+  width: 80px;
+  padding-right: 6px;
+}
+td.block .left {
+  float: left;
+}
+td.wide {
+  width: 120px;
+}
+/*---------------------------------------------------------
+  ^ end of modifacations for fund modality ^
+----------------------------------------------------------*/
+
 .chart .caption .counts {
   margin: 3px 0 2px 0;
 }

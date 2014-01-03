@@ -115,7 +115,7 @@ views.Map = Backbone.View.extend({
                             '<div class="title">' +
                                 '<b>' + feature.properties.title + '</b>' + 
                             '</div>' +
-                            '<table><tr><td>Projects</td><td>' + feature.properties.count + '</td></tr>' +
+                            '<table class="pop"><tr><td>Projects</td><td>' + feature.properties.count + '</td></tr>' +
                                 '<tr><td>Budget</td><td>' +  accounting.formatMoney(feature.properties.budget) + '</td></tr>' + 
                                 '<tr><td>Expenditure</td><td>' + accounting.formatMoney(feature.properties.expenditure) + '</td></tr>' + 
                                 '<tr><td>HDI</td><td>' + feature.properties.hdi + '</td></tr>' + 
@@ -135,13 +135,13 @@ views.Map = Backbone.View.extend({
             precision = g.precision[feature.properties.precision];
         if (focus_clean){
             var description = '<div class="popup top"><div><b>' + title + '</b></div>'
-                + '<div><table><tr><td>Project</td><td>' + project + '</td></tr><tr><td>Output</td><td>' + output + '</td></tr></table></div>'
+                + '<div><table class="pop"><tr><td>Project</td><td>' + project + '</td></tr><tr><td>Output</td><td>' + output + '</td></tr></table></div>'
                 + '<div class="focus"><span class="'+focus_clean+'"></span><p class="space">' + focus_area + '<p></div></div>'
                 + '<div class="popup bottom"><div><b>Location type: </b>' + type + '</div>'
                 + '<div><b>Precision: </b>' + precision + '</div></div>';
         } else {
             var description = '<div class="popup top"><div><b>' + title + '</b></div>'
-                + '<div><table><tr><td>Project</td><td>' + project + '</td></tr><tr><td>Output</td><td>' + output + '</td></tr></table></div></div>'
+                + '<div><table class="pop"><tr><td>Project</td><td>' + project + '</td></tr><tr><td>Output</td><td>' + output + '</td></tr></table></div></div>'
                 + '<div class="popup bottom"><div><b>Location type: </b>' + type + '</div>'
                 + '<div><b>Precision: </b>' + precision + '</div></div>';
         }
