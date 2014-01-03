@@ -178,13 +178,13 @@ routers.App = Backbone.Router.extend({
 
                 if (_.isEmpty(donors)){
                     // If no donor selected, hide the div
-                    $('#donor-graphs').hide();
+                    $('#donor-view').hide();
                     app.donor = false;
                 } else {
                     app.donor = new views.Donors ({
                     });
                     // Otherwise show donor graphs
-                    $('#donor-graphs').show();
+                    $('#donor-view').show();
                 }
 
             // Load projects
