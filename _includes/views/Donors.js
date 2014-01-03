@@ -27,6 +27,15 @@ views.Donors = Backbone.View.extend({
                 c = c + 1;
                 return tempData;
             });
+            function addCommas(n){
+                var rx=  /(\d+)(\d{3})/;
+                return String(n).replace(/^\d+/, function(w){
+                    while(rx.test(w)){
+                        w= w.replace(rx, '$1,$2');
+                    }
+                    return w;
+                });
+            }
             
             $.getJSON( "api/donors/donor-modality.json", function(donorData) {
                 var country = [];
@@ -38,22 +47,26 @@ views.Donors = Backbone.View.extend({
                 var dtotals = _(donorData[donor][0]).map(function(val, label){
                     // Format data for pie chart
                     var dataPiece = {};
+                    var mil;
                     dataPiece.label = label;
+                    val == 0 ? mil = 0 : mil = (val/1000000).toFixed(1); 
                     val < 0 ? dataPiece.data = 0 : dataPiece.data = val;
-                    var fundPerc = ((val/countryTotal) * 100).toFixed(2);
-                    var totalsPerc = ((val/totals[index][1]) * 100).toFixed(2);
-                    var mil = '$' + (val/1000000).toFixed(2);
-                    var tMil = '$' + (totals[index][1]/1000000).toFixed(2);
+                    var fundPerc = ((val/countryTotal) * 100).toFixed(1);
+                    var totalsPerc = ((val/totals[index][1]) * 100).toFixed(1);
+                    var tMil = addCommas((totals[index][1]/1000000).toFixed(1));
                     var cleanLabel = label.replace(' ','').toLowerCase();
                     var fundBar,
                         totalsBar;
 
                     if (fundPerc == 0) {
+                        fundPerc = 0;
                         fundBar = '<div class="subdata"></div><div class="fund zero" fund-percent="' + fundPerc + '"></div>';
                     } else {
                         fundBar = '<div class="subdata"></div><div class="fund" fund-percent="' + fundPerc + '"></div>';
                     } 
+
                     if (totalsPerc == 0) {
+                        totalsPerc = 0;
                         totalsBar = '<div class="subdata" data-expenditure="' + totals[index][1] + '"></div><div class="budgetdata zero" data-budget="' + totalsPerc + '"></div>';
                     } else {
                         totalsBar = '<div class="subdata" data-expenditure="' + totals[index][1] + '"></div><div class="budgetdata" data-budget="' + totalsPerc + '"></div>';
@@ -63,13 +76,14 @@ views.Donors = Backbone.View.extend({
                         sort: -1 * ((val) ? val : 0),
                         content: '<tr class="'+cleanLabel+'">' +
                                  ' <td class="wide">' + label +'</td>' +
-                                 ' <td>' + mil + 'M</td>' +
+                                 ' <td>$' + mil + 'M</td>' +
                                  ' <td class="block">' +
-                                 '      <div class="left" >' + fundPerc +'</div>' +
+                                 '      <div class="left" >' + fundPerc +'%</div>' +
                                  '      <div class="right data wide">'+ fundBar + '</div>' +
                                  ' </td>' +
+                                 ' <td class="medium">$' + tMil + 'M</td>' +
                                  ' <td class="block">' +
-                                 '      <div class="left" >' + totalsPerc +'</div>' +
+                                 '      <div class="left" >' + totalsPerc +'%</div>' +
                                  '      <div class="right data wide">'+ totalsBar + '</div>' +
                                  ' </td>' +
                                  '</tr>'
@@ -87,7 +101,7 @@ views.Donors = Backbone.View.extend({
                 // Sort rows by sort value
                 rows.push({
                     sort: -100000000000,
-                    content: '<tr><td><b>Modality</b></td><td><b>Fund Total ($)</b></td><td><b> Fund Allocation(%)</b></td><td><b>Share of All Donations (%)</b></td></tr>'
+                    content: '<tr><td><b>Modality</b></td><td><b>Country Contribution</b></td><td class="block"><b>Allocation of Contribution (%)</b><td class="medium"><b>All Contributions</b></td><td class="block"><b>Country Share of All Contributions (%)</b></td></tr>'
                 });
                 rows = _(rows).sortBy('sort');
                 max = rows[0].sort * -1;
