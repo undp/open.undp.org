@@ -152,22 +152,31 @@ views.Map = Backbone.View.extend({
         app.navigate(path, { trigger: true });
         $('#browser .summary').removeClass('off');
     },
+    ctyBounds: function(coords) {
+        var polyline;
+
+        if (coords.length > 1) {
+            polyline = L.polyline(_.flatten(_.flatten(coords,true),true));
+        } else {
+            polyline = L.polyline(coords[0]);
+        }
+        var bbox = polyline.getBounds();
+        
+        return [[bbox.getSouthWest().lng, bbox.getSouthWest().lat],
+                [bbox.getNorthEast().lng, bbox.getNorthEast().lat]];
+    },
     buildLayer: function(layer,mapFilter,mapCenter,mapZoom){
         var view = this;
         view.map.removeLayer(view.markers); //remove the marker featureGroup from view.map
         view.markers.clearLayers(); // inside of marker group, clear the layers from the previous build
 
         var count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
-            unit = view.collection,
-            country = new models.Nationals();
+            unit = view.collection;
 
+        var country = new models.Nationals();
         country.fetch({
             url: 'api/operating-unit-index.json',
             success:function(){
-                var filteredSubs,
-                    parent = _(country.models).findWhere({id:view.opUnitFilter.id}), // find the iso number from the national models
-                    iso = parseInt(parent.get('iso_num'));
-
                 if(_.isObject(view.opUnitFilter)){
                     subs = new models.Subnationals();
                     subs.fetch({
@@ -185,46 +194,17 @@ views.Map = Backbone.View.extend({
                         }
                     });
 
+                    var parent = _(country.models).findWhere({id:view.opUnitFilter.id}),
+                        iso = parseInt(parent.get('iso_num'));
+
+                    // find the iso number from the national models
                     if (_.isNaN(iso) && parent.get('id') != 'none'){
                         view.$el.prepend('<div class="inner-grey">'+
                                          '<p>The selected operating unit and its project(s) do not have geographic information.</p>'+
                                          '</div>');
                     } else {
-                        //draw country outline with the topojson file
-                        if (!IE || IE_VERSION > 8){
-                            view.outline.clearLayers();
-
-                            $.getJSON('api/world-50m-s.json',function(world){
-                                var topoFeatures = topojson.feature(world, world.objects.countries).features,
-                                    selectedFeature = _(topoFeatures).findWhere({id:iso}),
-                                    coords = selectedFeature.geometry.coordinates,
-                                    outlineStyle = {
-                                        "color":"#b5b5b5",
-                                        "weight":0,
-                                        clickable: false
-                                    };
-                                
-                                if (parent.get('id') === 'RUS') {
-                                    view.map.setView([parent.lat,parent.lon],2);
-                                    view.outline.addData(selectedFeature)
-                                        .setStyle(outlineStyle);
-                                } else if (parent.get('id') === 'IND') {
-                                    view.map.fitBounds(ctyBounds(coords));
-                                    $.getJSON('api/india_admin0.json',function(india){
-                                        var indiaFeatures = topojson.feature(india, india.objects.india_admin0).features;
-                                        _(indiaFeatures).each(function(f){
-                                            view.outline.addData(f)
-                                              .setStyle(outlineStyle);
-                                        })
-                                    })
-                                } else {
-                                    setTimeout(function(){view.map.fitBounds(ctyBounds(coords));},0)
-                                    view.outline.addData(selectedFeature)
-                                      .setStyle(outlineStyle);
-                                }
-
-                                view.outline.addTo(view.map); 
-                            });
+                        if (!IE || IE_VERSION > 8) {
+                            addCountryOutline(parent,iso);
                         } else {
                             view.map.setView([parent.lat,parent.lon],4);
                         }
@@ -237,6 +217,41 @@ views.Map = Backbone.View.extend({
                 }
             }
         });
+
+        var addCountryOutline = function(parent, iso) {
+            view.outline.clearLayers();
+            $.getJSON('api/world-50m-s.json',function(world){
+                var topoFeatures = topojson.feature(world, world.objects.countries).features,
+                    selectedFeature = _(topoFeatures).findWhere({id:iso}),
+                    coords = selectedFeature.geometry.coordinates,
+                    outlineStyle ={
+                        "color":"#b5b5b5",
+                        "weight":0,
+                        clickable: false
+                    };
+                
+                if (parent.get('id') === 'RUS') {
+                    view.outline.addData(selectedFeature)
+                        .setStyle(outlineStyle);
+                    view.map.setView([parent.lat,parent.lon],2);
+                } else if (parent.get('id') === 'IND') {
+                    $.getJSON('api/india_admin0.json',function(india){
+                        var indiaFeatures = topojson.feature(india, india.objects.india_admin0).features;
+                        _(indiaFeatures).each(function(f){
+                            view.outline.addData(f)
+                              .setStyle(outlineStyle);
+                        })
+                    })
+                    view.map.fitBounds(view.ctyBounds(coords));
+                } else {
+                    view.outline.addData(selectedFeature)
+                      .setStyle(outlineStyle);
+                    view.map.fitBounds(view.ctyBounds(coords));
+                }
+
+                view.outline.addTo(view.map);
+            });
+        };
 
         var renderClusters = function(collection){
             var filteredMarkers = [],
@@ -251,7 +266,7 @@ views.Map = Backbone.View.extend({
                 } else {
                     projectWithNoGeo += 1;
                 }
-            });
+            })
 
             var verbDo = (projectWithNoGeo === 1) ? "does" : "do";
             var verbHave = (projectWithNoGeo === 1) ? "has" : "have";
@@ -268,7 +283,7 @@ views.Map = Backbone.View.extend({
                     + filteredMarkers.length
                     + "</b> subnational locations in total."
                 $('#description p.geography').html(projectWithNoGeoParagraph);
-            }
+            };
 
             // create clustered markers
             $.getJSON('api/subnational-locs-index.json', function(subLocIndex){
