@@ -104,7 +104,6 @@ routers.App = Backbone.Router.extend({
             $('html, body').scrollTop(0);
         } else {
             // slicing the selected facets and getting the json items
-
             var filter = function (model) {
                 if (!filters.length) return true;
                 return _(filters).reduce(function (memo, filter) {
@@ -240,11 +239,13 @@ routers.App = Backbone.Router.extend({
                 // 1. no filter --> defaultDescription
                 // 2. filter (no donor) --> start with "The above includes"
                 // 3. filter (with donor) --> start with "DONOR funds the above"
+
                 var counts = (app.projects.length === 1) ? 'project' : 'projects';
                     projectCounts = 'There are <strong>' + app.projects.length +'</strong> ' + counts;
 
                 function renderDonorContent(){
                     var $el = $('#donor-specific');
+                    $el.empty();
                     $el.append(templates.donorSpecific(app));
                     $el.find('.spin').spin({ color:'#000' });
 
@@ -266,12 +267,14 @@ routers.App = Backbone.Router.extend({
 
                 if (app.description && app.description.length === 0){
                     if (app.donorDescription.length > 0) {
-                        $('#donor-title').html(app.shortDesc);
                         // custom donor text
                         renderDonorContent();
                         // default donor text
                         $('#description').find('p.desc').html(app.donorDescription + counts +' across the world.');
+                        // donor viz h3
+                        $('#donor-title').html(app.donorTitle);
                     } else {
+                        $('#donor-specific').empty();
                         $('#description').find('p.desc').html(app.defaultDescription);
                     }
                 } else if (app.description && app.description.length > 0){
@@ -279,16 +282,17 @@ routers.App = Backbone.Router.extend({
                         // custom donor text
                         renderDonorContent();
                         // default donor text
-                        $('#donor-title').html(app.shortDesc);
                         $('#description').find('p.desc').html(app.donorDescription + counts + ' ' + app.description.join(',') + '.');
+                        // donor viz h3
+                        $('#donor-title').html(app.donorTitle);
                     } else {
-                        $('#donor-title').html(app.shortDesc);
+                        $('#donor-specific').empty();
                         $('#description').find('p.desc').html(projectCounts + app.description.join(',') + '.');
                     }
                 } else if (!app.description) {
+                    $('#donor-specific').empty();
                     $('#description').find('p.desc').html(app.defaultDescription);
                 }
-
                 // reset description
                 app.description = false;
                 app.shortDesc = "";
@@ -304,7 +308,6 @@ routers.App = Backbone.Router.extend({
 
             }, 0);
         }
-        
         // Show proper HDI data
         if (unit && ((HDI[unit]) ? HDI[unit].hdi != '' : HDI[unit])) {
             app.hdi = new views.HDI({

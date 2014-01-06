@@ -38,10 +38,9 @@ views.Filters = Backbone.View.extend({
                     var donorCountry = _(app.app.filters).where({ collection: 'donor_countries' });
                     donorCountry = (donorCountry.length) ? donorCountry[0].id : false;
                 }
-    
+
                 setTimeout(function() {
                     filterModels = view.collection.chain().filter(function(model) {
-                    
                         // Filter donors on active donor country
                         var donorCountryFilter = (donorCountry) ? (model.get('country') === donorCountry) : true;
 
@@ -49,7 +48,6 @@ views.Filters = Backbone.View.extend({
 
                     }).value();
                     filterCallback();
-
                 }, 0);
 
                 if (donorCountry) {
