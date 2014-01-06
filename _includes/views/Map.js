@@ -6,8 +6,9 @@ views.Map = Backbone.View.extend({
         var view = this,
             wheelZoom = true,
             category;
+
         if (view.map){view.map.remove();} // remove previous map, same concept as view.$el.empty() for updating, http://leafletjs.com/reference.html#map-remove
-        view.$el.empty();
+
         if (IE) {
             view.$el.css('border','1px solid #ddd');
         } else {
@@ -33,7 +34,6 @@ views.Map = Backbone.View.extend({
             view.markers = new L.MarkerClusterGroup({
                 showCoverageOnHover:false,
                 maxClusterRadius:30
-                //disableClusteringAtZoom: 6
             });
             var maxZoom = 10;
 
@@ -48,7 +48,6 @@ views.Map = Backbone.View.extend({
         };
 
         // create the map with mapbox.js 1.3.1
-	// here center means default location :)
         view.map = L.mapbox.map(this.el,TJ.id,{
             center: [20,20],
             zoom: 2,
@@ -60,7 +59,9 @@ views.Map = Backbone.View.extend({
         //view.map.legendControl.addLegend('last update');
 
         //for IE 8 and above add country outline
-        if (!IE || IE_VERSION > 8){view.outline = new L.GeoJSON()};
+        if (!IE || IE_VERSION > 8){
+            view.outline = new L.GeoJSON()
+        }
 
         view.buildLayer(category);
     },
@@ -157,12 +158,16 @@ views.Map = Backbone.View.extend({
         view.markers.clearLayers(); // inside of marker group, clear the layers from the previous build
 
         var count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
-            unit = view.collection;
+            unit = view.collection,
+            country = new models.Nationals();
 
-        var country = new models.Nationals();
         country.fetch({
             url: 'api/operating-unit-index.json',
             success:function(){
+                var filteredSubs,
+                    parent = _(country.models).findWhere({id:view.opUnitFilter.id}), // find the iso number from the national models
+                    iso = parseInt(parent.get('iso_num'));
+
                 if(_.isObject(view.opUnitFilter)){
                     subs = new models.Subnationals();
                     subs.fetch({
@@ -180,17 +185,11 @@ views.Map = Backbone.View.extend({
                         }
                     });
 
-                    // find the iso number from the national models
-                    var parent = _(country.models).findWhere({id:view.opUnitFilter.id}),
-                        iso = parseInt(parent.get('iso_num'));
-
                     if (_.isNaN(iso) && parent.get('id') != 'none'){
                         view.$el.prepend('<div class="inner-grey">'+
                                          '<p>The selected operating unit and its project(s) do not have geographic information.</p>'+
                                          '</div>');
                     } else {
-                        //view.map.setView([parent.lat,parent.lon],zoomToCountry(parent.id,5));
-
                         //draw country outline with the topojson file
                         if (!IE || IE_VERSION > 8){
                             view.outline.clearLayers();
@@ -198,42 +197,33 @@ views.Map = Backbone.View.extend({
                             $.getJSON('api/world-50m-s.json',function(world){
                                 var topoFeatures = topojson.feature(world, world.objects.countries).features,
                                     selectedFeature = _(topoFeatures).findWhere({id:iso}),
-                                    coords = selectedFeature.geometry.coordinates;
+                                    coords = selectedFeature.geometry.coordinates,
+                                    outlineStyle = {
+                                        "color":"#b5b5b5",
+                                        "weight":0,
+                                        clickable: false
+                                    };
                                 
                                 if (parent.get('id') === 'RUS') {
                                     view.map.setView([parent.lat,parent.lon],2);
                                     view.outline.addData(selectedFeature)
-                                        .setStyle({
-                                            "color": "#b5b5b5",
-                                            "weight": 0,
-                                            clickable: false
-                                    });
-                                    view.outline.addTo(view.map);
+                                        .setStyle(outlineStyle);
                                 } else if (parent.get('id') === 'IND') {
-                                    $.getJSON('api/india_admin0.json',function(india){
-                                        var topoFeatures = topojson.feature(india, india.objects.india_admin0).features;
-
-                                        _(topoFeatures).each(function(f){
-                                             view.outline.addData(f)
-                                                    .setStyle({
-                                                        "color": "#b5b5b5",
-                                                        "weight": 0,
-                                                        clickable: false
-                                                    });
-                                        });
-                                    });
-                                view.outline.addTo(view.map); 
-                                view.map.fitBounds(ctyBounds(coords));
-                                } else {
                                     view.map.fitBounds(ctyBounds(coords));
+                                    $.getJSON('api/india_admin0.json',function(india){
+                                        var indiaFeatures = topojson.feature(india, india.objects.india_admin0).features;
+                                        _(indiaFeatures).each(function(f){
+                                            view.outline.addData(f)
+                                              .setStyle(outlineStyle);
+                                        })
+                                    })
+                                } else {
+                                    setTimeout(function(){view.map.fitBounds(ctyBounds(coords));},0)
                                     view.outline.addData(selectedFeature)
-                                        .setStyle({
-                                            "color": "#b5b5b5",
-                                            "weight": 0,
-                                            clickable: false
-                                    });
-                                    view.outline.addTo(view.map);
+                                      .setStyle(outlineStyle);
                                 }
+
+                                view.outline.addTo(view.map); 
                             });
                         } else {
                             view.map.setView([parent.lat,parent.lon],4);
@@ -358,6 +348,7 @@ views.Map = Backbone.View.extend({
         };
         var renderCircles = function(){
             var circles = [];
+            // render HDI
             _(country.models).each(function(model){
                 if (unit.operating_unit[model.id] && model.lon){
                     count = unit.operating_unit[model.id];
