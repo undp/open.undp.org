@@ -47,13 +47,23 @@ views.Donors = Backbone.View.extend({
                 var dtotals = _(donorData[donor][0]).map(function(val, label){
                     // Format data for pie chart
                     var dataPiece = {};
-                    var mil;
                     dataPiece.label = label;
-                    val == 0 ? mil = 0 : mil = (val/1000000).toFixed(1); 
+                    var mil;
+                    // Set formatting for values
+                    if (val == 0) { 
+                        mil = 0;
+                    } else if (val < 1000000 &&  val > 0) {
+                        mil = (val/1000).toFixed(1) + 'K'; 
+                    } else if (val < -1000) {
+                        mil = addCommas((val/1000).toFixed(1)) + 'K'; 
+                    } else {
+                        mil = (val/1000000).toFixed(1)+ 'M'; 
+                    }
                     val < 0 ? dataPiece.data = 0 : dataPiece.data = val;
-                    var fundPerc = ((val/countryTotal) * 100).toFixed(1);
+                    var fundPerc;
+                    val == 0 ? fundPerc = 0 : fundPerc = ((val/countryTotal) * 100).toFixed(1);
                     var totalsPerc = ((val/totals[index][1]) * 100).toFixed(1);
-                    var tMil = addCommas((totals[index][1]/1000000).toFixed(1));
+                    var tMil = addCommas((totals[index][1]/1000000).toFixed(1)) + 'M';
                     var cleanLabel = label.replace(' ','').toLowerCase();
                     var fundBar,
                         totalsBar;
@@ -76,12 +86,12 @@ views.Donors = Backbone.View.extend({
                         sort: -1 * ((val) ? val : 0),
                         content: '<tr class="'+cleanLabel+'">' +
                                  ' <td class="wide">' + label +'</td>' +
-                                 ' <td>$' + mil + 'M</td>' +
+                                 ' <td>$' + mil + '</td>' +
                                  ' <td class="block">' +
                                  '      <div class="left" >' + fundPerc +'%</div>' +
                                  '      <div class="right data wide">'+ fundBar + '</div>' +
                                  ' </td>' +
-                                 ' <td class="medium">$' + tMil + 'M</td>' +
+                                 ' <td class="medium">$' + tMil + '</td>' +
                                  ' <td class="block">' +
                                  '      <div class="left" >' + totalsPerc +'%</div>' +
                                  '      <div class="right data wide">'+ totalsBar + '</div>' +

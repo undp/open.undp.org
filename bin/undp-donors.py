@@ -110,6 +110,10 @@ for k, v in donorList.items():
 	for x in v:
 		for typ, values in x.items():
 			donorList[k][0][typ] = sum(values)
+			# To remove negative values from total to change percent calculation in site
+			#if donorList[k][0][typ] > -1:
+				#dtotal = dtotal + sum(values)
+			# else just use this:
 			dtotal = dtotal + sum(values)
 	donorList[k].append(dtotal)
 
