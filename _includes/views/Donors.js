@@ -28,12 +28,24 @@ views.Donors = Backbone.View.extend({
                 return tempData;
             });
             function addCommas(n){
+                var negative = false;
+                // check for negative vales, which need to be made positive to work
+                if (n < 0){
+                    negative = true;
+                    n = n * -1;
+                }
                 var rx=  /(\d+)(\d{3})/;
                 return String(n).replace(/^\d+/, function(w){
                     while(rx.test(w)){
                         w= w.replace(rx, '$1,$2');
                     }
-                    return w;
+                    // check for negative vales, which need "-" added
+                    if (negative){
+                        w = '-' + w;
+                        return w;
+                    } else {
+                        return w;
+                    }
                 });
             }
             
