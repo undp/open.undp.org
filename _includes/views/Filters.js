@@ -93,8 +93,8 @@ views.Filters = Backbone.View.extend({
                 if (filterModels.length) {
                     view.$el.html(templates.filters(view));
                     app.description = app.description || [];
-                    app.shortDesc = app.shortDesc || [];
                     app.donorDescription = app.donorDescription || [];
+                    app.donorTitle;
         
                     _(filterModels).each(function(model) {
         
@@ -118,16 +118,14 @@ views.Filters = Backbone.View.extend({
                                 app.description.push(' in the <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong> region');
                             }
                             if (view.collection.id === 'donor_countries') {
-                                var mId = model.id;
-
-                                if (mId === 'MULTI_AGY') {
-                                    app.shortDesc = '<strong>Multi-Lateral Agencies</strong>';
+                                if (donorCountry === 'MULTI_AGY') {
+                                    app.donorTitle = '<strong>Multi-Lateral Agencies</strong>';
                                     app.donorDescription = '<strong>Multi-Lateral Agencies</strong> fund <strong>' + app.projects.length +'</strong> ';
-                                } else if (mId === 'OTH') {
-                                    app.shortDesc = '<strong>Uncategorized Organizations</strong>';
+                                } else if (donorCountry === 'OTH') {
+                                    app.donorTitle = '<strong>Uncategorized Organizations</strong>';
                                     app.donorDescription = '<strong>Uncategorized Organizations</strong> fund <strong>' + app.projects.length +'</strong> ';
                                 } else {
-                                    app.shortDesc = '<strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong>';
+                                    app.donorTitle = '<strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong>';
                                     app.donorDescription = '<strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong> funds <strong>' + app.projects.length +'</strong> ';
                                 }
                             }
@@ -140,7 +138,6 @@ views.Filters = Backbone.View.extend({
                             }
                         }
                     });
-
                 } else {
                     view.$el.empty();
                 }

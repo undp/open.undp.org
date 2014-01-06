@@ -7,9 +7,9 @@ views.Donors = Backbone.View.extend({
 
     render: function() {
         var view = this;
-        view.donorFilter =_(app.app.filters).findWhere({collection:"donor_countries"});
-        donor = view.donorFilter.id;
-        view.donorGraphs(donor);
+            view.donorFilter =_(app.app.filters).findWhere({collection:"donor_countries"});
+            donor = view.donorFilter.id;
+            view.donorGraphs(donor);
         app.donor = true;
     },
     // Builds donor modality bar chart
