@@ -1,7 +1,7 @@
 ---
 ---
 var CURRENT_YR = FISCALYEARS[0];
-    BASE_URL = '{{site.baseurl}}/';
+    BASE_URL = 'http://open.undp.org/';
 
 function ctyBounds(coords) {
     if (coords.length > 1) {
