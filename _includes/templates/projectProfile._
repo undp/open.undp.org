@@ -3,9 +3,11 @@
 </div>
 <div class='tab-content col col-790'>
   <div class='separator' id='project-heading'>
-    <div class='col col-700'>
-      <h3 class='heading-title'><%= model.get('project_title').toLowerCase().toTitleCase() %></h3>
-      <div id='project-descr'>
+    <div class='col col-790'>
+      <h3 class='heading-title'><%= model.get('project_title').toLowerCase().toTitleCase() %>
+        <span id='tweet-button'></span>
+      </h3>
+      <div id='project-descr' class='col col-700'>
         <p class='heading-desc'><%= model.get('project_descr') %></p>
       </div>
     </div>
