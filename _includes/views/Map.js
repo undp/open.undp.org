@@ -152,19 +152,6 @@ views.Map = Backbone.View.extend({
         app.navigate(path, { trigger: true });
         $('#browser .summary').removeClass('off');
     },
-    ctyBounds: function(coords) {
-        var polyline;
-
-        if (coords.length > 1) {
-            polyline = L.polyline(_.flatten(_.flatten(coords,true),true));
-        } else {
-            polyline = L.polyline(coords[0]);
-        }
-        var bbox = polyline.getBounds();
-        
-        return [[bbox.getSouthWest().lng, bbox.getSouthWest().lat],
-                [bbox.getNorthEast().lng, bbox.getNorthEast().lat]];
-    },
     buildLayer: function(layer,mapFilter,mapCenter,mapZoom){
         var view = this;
         view.map.removeLayer(view.markers); //remove the marker featureGroup from view.map
@@ -242,11 +229,11 @@ views.Map = Backbone.View.extend({
                               .setStyle(outlineStyle);
                         })
                     })
-                    view.map.fitBounds(view.ctyBounds(coords));
+                    view.map.fitBounds(ctyBounds(coords));
                 } else {
                     view.outline.addData(selectedFeature)
                       .setStyle(outlineStyle);
-                    view.map.fitBounds(view.ctyBounds(coords));
+                    view.map.fitBounds(ctyBounds(coords));
                 }
 
                 view.outline.addTo(view.map);

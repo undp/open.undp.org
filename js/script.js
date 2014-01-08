@@ -4,12 +4,10 @@ var CURRENT_YR = FISCALYEARS[0];
     BASE_URL = '{{site.baseurl}}/';
 
 function ctyBounds(coords) {
-    var polyline;
-
     if (coords.length > 1) {
-        polyline = L.polyline(_.flatten(_.flatten(coords,true),true));
+        var polyline = L.polyline(_.flatten(_.flatten(coords,true),true));
     } else {
-        polyline = L.polyline(coords[0]);
+        var polyline = L.polyline(coords[0]);
     }
     var bbox = polyline.getBounds();
     
@@ -186,6 +184,17 @@ $(function() {
     
     //localize map tilejson
     var TJ = {
+        bounds: [
+            -180,
+            -85,
+            180,
+            85
+        ],
+        center: [
+            0,
+            0,
+            2
+        ],
         id: "undp.map-6grwd0n3",
         maxzoom: 7, //set to 7 to avoid zooming too much in order to get the granular markers on cluster markers
         minzoom: 2,
