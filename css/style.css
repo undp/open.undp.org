@@ -719,21 +719,22 @@ ul.layers.active {
   font-weight:normal;
   color:#666;
   }
-#project-heading .heading-title,
-.heading-title span {
+#project-heading .heading-title {
   margin: 0;
+  width:600px;
   color: #333;
   font-weight:bold;
   letter-spacing:-1px;
   }
-p.heading-desc {
+#project-heading p {
+  margin:10px 0 15px;
+  }
+#project-heading .heading-desc {
   color:#666;
   font-size:16px;
-  line-height:24px;
+  line-height:22px;
   font-weight:normal;
-  margin-bottom:20px;
-}
-
+  }
 .modal.fade {
   top: 50%;
   }
@@ -952,7 +953,7 @@ td.wide {
   }
 .details #sparkline {
   width:640px;
-  height: 220px;
+  height: 200px;
   background:#fff;
   border:1px solid #ddd;
   }
@@ -1000,7 +1001,7 @@ td.wide {
   top: 0;
   left: -999px;
   margin: 0;
-  width:667px;
+  width:666px;
   height: 460px;
   background: white;
   padding: 10px;
@@ -1098,7 +1099,7 @@ td.wide {
   margin:0;
   float:none;
   position:absolute;
-  top:140px;
+  top:130px;
   left:0;
   width:100%;
   }
@@ -1651,29 +1652,31 @@ form {
           box-shadow:0 0 8px rgba(0,0,0,0.25);
   }
 
-/* modals */
+/* unit contact  */
 #unit-contact {
-  margin:10px 0;
+  margin:10px 10px 0 0;
+  border:1px solid #ddd;
   }
-#unit-contact ul.contact-info {
-  margin:10px 0 5px;
+#unit-contact .contact-title {
+  font-size:12px;
+  padding:10px;
+  background:#f6f6f6;
   }
-#unit-contact ul.contact-info li {
+#unit-contact .contact-info li {
+  display:block;
+  padding:10px 0 0 10px;
+  }
+#unit-contact .contact-info li > div {
   float:left;
-  padding:0 40px 0 0;
-  width:80px;
-  margin-right:20px;
-  border-right:1px solid #ddd;
   }
-#unit-contact ul.contact-info li:last-child {
-  margin-right:0;
-  border-right:0;
+#unit-contact .contact-info li .label {
+  width:50px;
   }
-#unit-contact .contacts {
-  font-size: 11px;
-  font-weight: bold;
-  color: #333;
+#unit-contact .contact-info li a {
+  padding:0;
+  margin-left:20px;
   }
+/* modals*/
 .donor-gross-table {
   margin-bottom: 20px;
   }
