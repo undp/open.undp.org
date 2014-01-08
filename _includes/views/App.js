@@ -35,6 +35,10 @@ views.App = Backbone.View.extend({
                 base: BASE_URL,
                 year: this.options.year
             }));
+
+            if (IE) {
+                $('#ie-banner').show();
+            }
         }
 
         // highlight projects
