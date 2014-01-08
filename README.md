@@ -75,6 +75,18 @@ Photos are implemented as a photo slide, so there is no limit of the photos asso
 
 ![](http://f.cl.ly/items/0K0F2t1m0b1i0M0R0q2A/Screen%20Shot%202013-12-18%20at%202.54.58%20PM.png)
 
+### Publish/unpublish in Prose
+
+Posts can be published/unpublished with one click in prose. An unpublished post will not show up on the website even if it is complete.
+
+An unpublished post:
+
+![](http://f.cl.ly/items/0Y443n1N0q0v1p1E0944/Screen%20Shot%202014-01-08%20at%204.03.35%20PM.png)
+
+To publish, click the `unpublish` and the icon will change to `publish`:
+
+![](http://f.cl.ly/items/132M3I2V3J1b1k3q3D2G/Screen%20Shot%202014-01-08%20at%204.02.45%20PM.png)
+
 ## Updating the Data
 
 Visit the [wiki home page](https://github.com/undp/undp.github.com/wiki) for OSX and Windows OS update processes.
