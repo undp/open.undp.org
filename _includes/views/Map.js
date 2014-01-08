@@ -214,12 +214,9 @@ views.Map = Backbone.View.extend({
                         "weight":0,
                         clickable: false
                     };
-                
-                if (parent.get('id') === 'RUS') {
-                    view.outline.addData(selectedFeature)
-                        .setStyle(outlineStyle);
-                    view.map.setView([parent.lat,parent.lon],2);
-                } else if (parent.get('id') === 'IND') {
+
+                // get outline
+                if (parent.get('id') === 'IND') {
                     $.getJSON('api/india_admin0.json',function(india){
                         var indiaFeatures = topojson.feature(india, india.objects.india_admin0).features;
                         _(indiaFeatures).each(function(f){
@@ -227,12 +224,20 @@ views.Map = Backbone.View.extend({
                               .setStyle(outlineStyle);
                         })
                     })
-                    view.map.fitBounds(view.ctyBounds(coords));
                 } else {
                     view.outline.addData(selectedFeature)
                       .setStyle(outlineStyle);
-                    view.map.fitBounds(view.ctyBounds(coords));
                 }
+
+                // zoom into the specific country
+                if (IE_VERSION != 10) { //IE10 does not handle any map zoom/pan
+                    if (parent.get('id') === 'RUS') {
+                        view.map.setView([parent.lat,parent.lon],2);
+                    } else {
+                        view.map.fitBounds(ctyBounds(coords));
+                    }
+                }
+
 
                 view.outline.addTo(view.map);
             });
