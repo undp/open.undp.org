@@ -211,26 +211,10 @@ $(function() {
         webpage: "http://tiles.mapbox.com/undp/map/map-6grwd0n3"
     };
     
-    // About nav toggle
-    $('#mainnav a.parent-link').click(function(e) {
+    // ie-banner close
+    $('#banner-close').on('click',function(e){
         e.preventDefault();
-        var $target = $(e.target);
-        if ($target.parent().hasClass('parent-active')) {
-            $target.parent().removeClass('parent-active');
-        } else {
-            $target.parent().addClass('parent-active');
-        }
-    });
-
-    // About nav toggle
-    $('#mainnav a.parent-link').click(function(e) {
-        e.preventDefault();
-        var $target = $(e.target);
-        if ($target.parent().hasClass('parent-active')) {
-            $target.parent().removeClass('parent-active');
-        } else {
-            $target.parent().addClass('parent-active');
-        }
+        $('#ie-banner').hide();
     });
 
     // Start the application

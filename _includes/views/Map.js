@@ -8,7 +8,6 @@ views.Map = Backbone.View.extend({
             category;
 
         if (view.map){view.map.remove();} // remove previous map, same concept as view.$el.empty() for updating, http://leafletjs.com/reference.html#map-remove
-
         if (IE) {
             view.$el.css('border','1px solid #ddd');
         } else {
@@ -204,7 +203,6 @@ views.Map = Backbone.View.extend({
                 }
             }
         });
-
         var addCountryOutline = function(parent, iso) {
             view.outline.clearLayers();
             $.getJSON('api/world-50m-s.json',function(world){
@@ -216,12 +214,9 @@ views.Map = Backbone.View.extend({
                         "weight":0,
                         clickable: false
                     };
-                
-                if (parent.get('id') === 'RUS') {
-                    view.outline.addData(selectedFeature)
-                        .setStyle(outlineStyle);
-                    view.map.setView([parent.lat,parent.lon],2);
-                } else if (parent.get('id') === 'IND') {
+
+                // get outline
+                if (parent.get('id') === 'IND') {
                     $.getJSON('api/india_admin0.json',function(india){
                         var indiaFeatures = topojson.feature(india, india.objects.india_admin0).features;
                         _(indiaFeatures).each(function(f){
@@ -229,12 +224,20 @@ views.Map = Backbone.View.extend({
                               .setStyle(outlineStyle);
                         })
                     })
-                    view.map.fitBounds(ctyBounds(coords));
                 } else {
                     view.outline.addData(selectedFeature)
                       .setStyle(outlineStyle);
-                    view.map.fitBounds(ctyBounds(coords));
                 }
+
+                // zoom into the specific country
+                if (IE_VERSION != 10) { //IE10 does not handle any map zoom/pan
+                    if (parent.get('id') === 'RUS') {
+                        view.map.setView([parent.lat,parent.lon],2);
+                    } else {
+                        view.map.fitBounds(ctyBounds(coords));
+                    }
+                }
+
 
                 view.outline.addTo(view.map);
             });
