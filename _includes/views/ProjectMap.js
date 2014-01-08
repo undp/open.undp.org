@@ -342,15 +342,17 @@ views.ProjectMap = Backbone.View.extend({
                 }
             });
 
-            $('#unit-contact h3').html('UNDP ' + data.name + ' on the web');
-            $('#tweet-button').append(
-                '<a href="https://twitter.come/share" class="twitter-share-button" '+
-                'data-via="'+ tweetButton["data-via"] + '" ' +
-                'data-hashtags="'+ tweetButton["data-hashtags"] +
-                'data-text=' + tweetButton["data-text"] + '"></a>'+
-                followButton +
-                tweetScript
-            );
+            if (data[acct] || (allSocialAccts[acct] && allSocialAccts[acct].length)) {
+                $('#unit-contact h3').html('UNDP ' + data.name + ' on the web');
+                $('#tweet-button').append(
+                    '<a href="https://twitter.come/share" class="twitter-share-button" '+
+                    'data-via="'+ tweetButton["data-via"] + '" ' +
+                    'data-hashtags="'+ tweetButton["data-hashtags"] +
+                    'data-text=' + tweetButton["data-text"] + '"></a>'+
+                    followButton +
+                    tweetScript
+                );
+            };
 
         }
     },
