@@ -293,7 +293,8 @@ views.ProjectMap = Backbone.View.extend({
         function contacts(allSocialAccts) {
             var tweetButton = {
                     "data-hashtags":"project," + view.model.get('project_id') + '"',
-                    "data-text":'"' + view.model.get('project_title').toLowerCase().toTitleCase() + '"'
+                    "data-text":'"' + view.model.get('project_title').toLowerCase().toTitleCase() + '"',
+                    "data-via":""
                 },
                 followButton = '';
                 tweetScript = '<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>';
