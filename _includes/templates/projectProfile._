@@ -2,13 +2,10 @@
   <a href='#widget' class='widget-config' data-toggle='modal'>Embed<span class='icon embed'></span></a>
 </div>
 <div class='tab-content col col-790'>
-  <div class='separator' id='project-heading'>
-    <div class='col col-700'>
+  <div id='project-heading'>
       <h3 class='heading-title'><%= model.get('project_title').toLowerCase().toTitleCase() %></h3>
-      <div id='project-descr'>
-        <p class='heading-desc'><%= model.get('project_descr') %></p>
-      </div>
-    </div>
+      <p id='project-descr' class='heading-desc'><%= model.get('project_descr') %></p>
+      <p id='tweet-button'></p>
   </div>
   <div id='top-stats' class='row-fluid'>
     <div class='span5'>
@@ -207,21 +204,8 @@
     <!-- Captions -->
     <div class='meta'></div>
   </div>
-  <!--div id='twitter-block' class='inner'>
-    <div class='row-fluid'>
-      <div class='span12'>
-        <div class='tweet fade'></div>
-        <div id='twitter'></div>
-      </div>
-    </div>
-  </div-->
 </div>
 <!--/ #flickr -->
-<div id='unit-contact' class='col col-790'>
-  <h2 class='heading-title'></h2>
-  <ul class='contact-info'></ul>
-</div>
-<!--/ #unit contact-->
 
 {% for data in site.categories.aboutdata %}
 <div class='modal hide fade' id='about-data'>

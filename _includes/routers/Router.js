@@ -52,6 +52,7 @@ routers.App = Backbone.Router.extend({
         $('#profile .summary').addClass('off');
         $('#browser, #mainnav .browser').show();
         $('#nav-side.not-filter').remove();
+        $('#mainnav li').removeClass('active');
         $('#mainnav li').first().addClass('active');
 
         // Set up about
