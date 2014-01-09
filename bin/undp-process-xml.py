@@ -27,8 +27,6 @@ os.chdir("../../../")
 tmpYears.sort(reverse=True)
 xmlFiles.sort(reverse=True)
 
-locsID = []
-
 # Global Output Arrays
 # ********************
 fiscalYears = []
@@ -219,6 +217,7 @@ for l in donorOutput:
 # Outputs function
 # ****************
 outputsAnnual = {}
+locsID = []
 for year in tmpYears:
     outputsAnnual[year] = []
 
@@ -386,8 +385,9 @@ def outputsLoop(o, output_id, fileyear):
         except KeyError:
             outputBudget.append(None)
 
-    locHeader = ['awardID','outputID','focus_area','focus_area_descr','lat','lon','precision','name','type']
+    locHeader = ['awardID','outputID','output_locID','focus_area','focus_area_descr','lat','lon','precision','name','type']
     locations = o.findall('location')
+    locID = 0
     for location in locations:
         locTemp = []
         awardID = rltdProject
@@ -402,6 +402,9 @@ def outputsLoop(o, output_id, fileyear):
                 locType = loc.get('code')
         locTemp.append(awardID)
         locTemp.append(output_id)
+        locID = locID + 1
+        output_locID = "%s-%d" % (output_id, locID)
+        locTemp.append(output_locID)
         locTemp.append(outputFA)
         locTemp.append(outputFAdescr)
         locTemp.append(lat)
@@ -409,8 +412,8 @@ def outputsLoop(o, output_id, fileyear):
         locTemp.append(precision)
         locTemp.append(name)
         locTemp.append(locType)
-        if output_id not in locsID:
-            locsID.append(output_id)        
+        if output_locID not in locsID:
+            locsID.append(output_locID)        
             locationsFull.append(dict(zip(locHeader,locTemp)))
     outputsHeader = ['output_id','award_id','output_title','output_descr','gender_id','gender_descr','focus_area','focus_area_descr','crs','crs_descr','fiscal_year','budget','expenditure','donor_id','donor_short','donor_name']
     outputList.append(outputAward)
@@ -432,7 +435,11 @@ def outputsLoop(o, output_id, fileyear):
 
 # Global project arrays
 projects = []
-projectsHeader = ['project_id','operating_unit','operating_unit_id','iati_op_id','project_title','project_descr','start','end','inst_id','inst_descr','inst_type_id','document_name']
+projectsHeader = [
+        'project_id','operating_unit','operating_unit_id','iati_op_id','operating_unit_email',
+        'operating_unit_website','project_title','project_descr','start','end','inst_id',
+        'inst_descr','inst_type_id','document_name'
+        ]
 units = csv.DictReader(open('download/undp_export/report_units.csv', 'rb'), delimiter = ',', quotechar = '"')
 units_sort = sorted(units, key = lambda x: x['operating_unit'])
 iati_regions = csv.DictReader(open('download/undp_export/iati_regions.csv', 'rb'), delimiter = ',', quotechar = '"')
@@ -497,8 +504,21 @@ def loopData(file_name, key, fileYear):
                 iat_code = '998'
             projectList.append(ou_descr)
             projectList.append(operatingunit)
-            projectList.append(iat_code)    
+            projectList.append(iat_code)
 
+            # find contact info
+            try:
+                op_contact = p.findall("./contact-info")
+                for email in op_contact:
+                    for e in email.iterchildren(tag='email'):
+                        op_email = e.text
+                op_website = p.find("./activity-website").text
+                projectList.append(op_email)
+                projectList.append(op_website)
+            except:
+                # append empty email and website if not found
+                projectList.append("")
+                projectList.append("")
             # Append the remaining items to the project Array               
             projectList.append(award_title)
             projectList.append(award_description)
@@ -526,7 +546,11 @@ def createSummary():
     regionsList = ['PAPP','RBA','RBAP','RBAS','RBEC','RBLAC']
     row_count = 0
     yearList = []
-    projectSumHeader = ['fiscal_year','id','name','operating_unit','region','budget','expenditure','crs','focus_area','donors','donor_types','donor_countries','donor_budget','donor_expend']
+    projectSumHeader = [
+            'fiscal_year','id','name','operating_unit','region',
+            'budget','expenditure','crs','focus_area','donors','donor_types',
+            'donor_countries','donor_budget','donor_expend'
+            ]
 
     for year in fiscalYears:
         projectSummary = []
@@ -674,8 +698,7 @@ def joinOutputs():
         row['expenditure'].append(sum(expen))
         for l in locationsFull:
             if row['project_id'] == l['awardID']:
-                row['subnational'].append(l)
-        # join region information
+                row['subnational'].append(l)        
         row['region_id'] = 'global'
         for r in units_sort:
             if row['iati_op_id'] == r['iati_operating_unit'] or row['iati_op_id'] == r['operating_unit']:
@@ -696,14 +719,14 @@ collectProjects()
 # 3. Assemble a outputsFull array 
 collectOutputs()
 
-# 2. Joing outputs to projects
+# 4. Joing outputs to projects
 joinOutputs()
 
-# 3. Run summary file function, on already joined project and output files
+# 5. Run summary file function, on already joined project and output files
 # ***********************
 createSummary()
 
-# 4. Generate JSONs
+# 6. Generate JSONs
 # ****************
 
 # Generate JSONs for each project
@@ -1005,7 +1028,10 @@ f_out.close()
 # ****************************
 currentYear = fiscalYears[0]
 opIndex = []
-opIndexHeader =  ['id','name','project_count','funding_sources_count','budget_sum','expenditure_sum','lat','lon','iso_num']
+opIndexHeader =  [
+        'id','name','project_count','funding_sources_count',
+        'budget_sum','expenditure_sum','lat','lon','iso_num'
+        ]
 for unit in opUnits:
     opTemp = {}
     donors = []
@@ -1029,6 +1055,8 @@ for unit in opUnits:
     for row in projectsFull:
         if row['operating_unit_id'] == unit:
             opTemp['name'] = row['operating_unit']
+            opTemp['email'] = row['operating_unit_email']
+            opTemp['web'] = row['operating_unit_website']
             projectCount = projectCount + 1
             for o in row['outputs']:
                 for d in o['donor_id']:
