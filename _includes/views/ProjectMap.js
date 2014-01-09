@@ -349,7 +349,7 @@ views.ProjectMap = Backbone.View.extend({
 
             if (data['email'] || data['web'] || (_.flatten(_.values(allSocialAccts)).length)) {
                 $('#unit-contact').show();
-                $('#unit-contact h3').html('UNDP ' + data.name + ' on the web');
+                $('#unit-contact h3').html('Contact UNDP ' + data.name);
             } else {
                 $('#unit-contact').hide();
             }
