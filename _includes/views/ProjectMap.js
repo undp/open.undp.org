@@ -281,7 +281,7 @@ views.ProjectMap = Backbone.View.extend({
 
         function contacts(allSocialAccts) {
             var accts = ['web','email','twitter','flickr','facebook'],
-                pageUrl = BASE_URL + "#project/" + view.model.get('project_id'),
+                pageUrl = BASE_URL + "%23project/" + view.model.get('project_id'), //encode # with %23 so that tweet count shows up correctly
                 socialBaseUrl = '';
                 tweetButton = {
                     "data-url": '"' + pageUrl + '"',
