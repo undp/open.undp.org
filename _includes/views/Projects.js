@@ -14,6 +14,8 @@ views.Projects = Backbone.View.extend({
 
         this.low = 50,
         this.high = 100;
+
+        this.pageType = Backbone.history.location.hash.split('/')[1];
     },
 
     render: function() {
@@ -61,14 +63,19 @@ views.Projects = Backbone.View.extend({
         } else {
             $('#total-expenditure').html(accounting.formatMoney(this.collection.expenditure / 1000000) + 'M');
         }
-
         if (models.length) {
-            
-            this.$('#project-table tbody').empty();
 
-            _(models).each(function(model) {
-                this.$('#project-table tbody').append(templates.project({ model: model }));
-            });
+            this.$('#project-table tbody').empty();
+            if (this.pageType == 'widget'){
+                _(models).each(function(model) {
+                    this.$('#project-table tbody').append(templates.embedProject({ model: model }));
+                })
+            } else {
+                _(models).each(function(model) {
+                    this.$('#project-table tbody').append(templates.project({ model: model }));
+                })
+            }
+
            if (models.length < 50) {
                 $('.load').hide();
             } else {
@@ -93,9 +100,15 @@ views.Projects = Backbone.View.extend({
             })).slice(self.low,self.high);
 
         if (models.length) {
-            _(models).each(function(model) {
-                this.$('#project-table tbody').append(templates.project({ model: model }));
-            });
+            if (this.pageType == 'widget'){
+                _(models).each(function(model) {
+                    this.$('#project-table tbody').append(templates.embedProject({ model: model }));
+                })
+            } else {
+                _(models).each(function(model) {
+                    this.$('#project-table tbody').append(templates.project({ model: model }));
+                })
+            }
         } else {
             $(e.target).text('All Projects Loaded').addClass('disabled');
         }

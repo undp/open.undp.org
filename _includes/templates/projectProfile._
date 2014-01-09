@@ -2,13 +2,10 @@
   <a href='#widget' class='widget-config' data-toggle='modal'>Embed<span class='icon embed'></span></a>
 </div>
 <div class='tab-content col col-790'>
-  <div class='separator' id='project-heading'>
-    <div class='col col-700'>
+  <div id='project-heading'>
       <h3 class='heading-title'><%= model.get('project_title').toLowerCase().toTitleCase() %></h3>
-      <div id='project-descr'>
-        <p class='heading-desc'><%= model.get('project_descr') %></p>
-      </div>
-    </div>
+      <p id='project-descr' class='heading-desc'><%= model.get('project_descr') %></p>
+      <p id='tweet-button'></p>
   </div>
   <div id='top-stats' class='row-fluid'>
     <div class='span5'>
@@ -174,32 +171,7 @@
     </div>
   </div>
 
-  <!--/ #flickr -->
-  <div class='col col-790'>
-    <div id='flickr' class='row-fluid'>
-      <h2 class='heading-title'>Project Photos</h2>
-      <div class='spin'></div>
-      <div class='img-wrapper'>
-        <img class='fade' src='' alt='' />
-      </div>
-      <div class='control prev' title='Previous'>
-        <a href='#' class='icon prev'></a>
-      </div>
-      <div class='control next' title='Next'>
-        <a href='#' class='icon next'></a>
-      </div>
-      <!-- Captions -->
-      <div class='meta'></div>
-    </div>
-    <div id='twitter-block' class='inner'>
-      <div class='row-fluid'>
-        <div class='span12'>
-          <div class='tweet fade'></div>
-          <div id='twitter'></div>
-        </div>
-      </div>
-    </div>
-  </div>
+
   <!--/ #top-stats -->
   <% if (model.get('outputs')) { %>
   <h2 class='heading-title'>
@@ -215,13 +187,26 @@
   <% } %>
 </div>
 <!--/ #summary -->
-<div id='unit-contact' class='col col-790'>
-  <h2 class='heading-title'></h2>
-  <ul class='contact-info'></ul>
+<div class='col col-790 flickr-wrapper'>
+  <div id='flickr' class='row-fluid'>
+    <h2 class='heading-title'>Project Photos</h2>
+    <div class='spin'></div>
+    <div class='img-wrapper'>
+      <!--img class='fade' src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' alt=''/-->
+      <img class='fade' src='' alt=''/>
+    </div>
+    <div class='control prev' title='Previous'>
+      <a href='#' class='icon prev'></a>
+    </div>
+    <div class='control next' title='Next'>
+      <a href='#' class='icon next'></a>
+    </div>
+    <!-- Captions -->
+    <div class='meta'></div>
+  </div>
 </div>
-<!--/ #Contact-->
+<!--/ #flickr -->
 
-<!--Modal-->
 {% for data in site.categories.aboutdata %}
 <div class='modal hide fade' id='about-data'>
   <div class='modal-header'>
@@ -235,4 +220,4 @@
   </div>
 </div>
 {% endfor %}
-
+<!--/ #about-data -->

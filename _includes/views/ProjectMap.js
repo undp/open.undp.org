@@ -259,7 +259,7 @@ views.ProjectMap = Backbone.View.extend({
                 cb();
             });
             
-            // Gather photos from documents, twitter, and flickr, in that order
+            // Gather photos from documents and flickr, in that order
             q.defer(function(cb) {
                 if (that.model.get('document_name')) {
                     _(that.model.get('document_name')[0]).each(function (photo, i) {
@@ -278,46 +278,57 @@ views.ProjectMap = Backbone.View.extend({
                                 'source': source,
                                 'image': img
                             });
-                            
                             img.src = source;
                         }
                     });
                 }
-                
+
                 cb();
             });
             q.await(function() {
-               // view.twitter(twitterAcct, function(tweets, twPhotos) {
-               //     view.showTweets(tweets);
-               //     view.flickr(flickrAccts,photos.concat(twPhotos));
-               // });
-               view.flickr(flickrAccts,photos);
+                view.flickr(flickrAccts,photos);
             });
         });
 
         function contacts(allSocialAccts) {
+            var tweetButton = {
+                    "data-hashtags":"project," + view.model.get('project_id') + '"',
+                    "data-text":'"' + view.model.get('project_title').toLowerCase().toTitleCase() + '"',
+                    "data-via":""
+                },
+                followButton = '';
+                tweetScript = '<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>';
+
+            // looping through all five possible social accounts
             _(['web','email','twitter','flickr','facebook']).each(function(acct) {
                 var link = '',
                     i = 0;
 
                 // hide unit contact if there's no social media accounts available
                 if (data[acct] || (allSocialAccts[acct] && allSocialAccts[acct].length)) {
+
                     if (acct == 'twitter') socialBaseUrl = 'http://twitter.com/';
                     if (acct == 'email') socialBaseUrl = 'mailto:';
                     if (acct == 'flickr') socialBaseUrl = 'http://flickr.com/photos/';
+
                     if (allSocialAccts[acct]) {
                         _(allSocialAccts[acct]).each(function() {
                             i += 1;
                             link += '<a target="_blank" href="' + socialBaseUrl + allSocialAccts[acct] + '">' +
                                     ((acct == 'twitter') ? '@' + allSocialAccts[acct] : allSocialAccts[acct]) + '</a>';
                             if (i < allSocialAccts[acct].length) link += ', ';
-                        });
+
+                            // populate: via @country-office to tweet button
+                            // and follow button
+                            if (acct=='twitter'){
+                                tweetButton["data-via"] = allSocialAccts[acct][0];
+                                followButton = '<a href="https://twitter.com/'+ allSocialAccts[acct][0] + '" class="twitter-follow-button" data-show-count="true">Follow @' + allSocialAccts[acct][0] + '</a>'
+                            }
+                        })
                     } else {
                         link += '<a target="_blank" href="' + baseUrl + data[acct] + '">' + data[acct] + '</a>';
                     }
-
-                    // Fill contact info below the title
-                    $('#unit-contact .heading-title').html('UNDP ' + data.name + ' on the web');
+                    // populate unit contact info
                     $('#unit-contact .contact-info').append(
                         '<li class="row-fluid">' +
                             '<div class="label">' +
@@ -330,94 +341,21 @@ views.ProjectMap = Backbone.View.extend({
                     );
                 }
             });
+
+            if (data[acct] || (allSocialAccts[acct] && allSocialAccts[acct].length)) {
+                $('#unit-contact h3').html('UNDP ' + data.name + ' on the web');
+                $('#tweet-button').append(
+                    '<a href="https://twitter.come/share" class="twitter-share-button" '+
+                    'data-via="'+ tweetButton["data-via"] + '" ' +
+                    'data-hashtags="'+ tweetButton["data-hashtags"] +
+                    'data-text=' + tweetButton["data-text"] + '"></a>'+
+                    followButton +
+                    tweetScript
+                );
+            };
+
         }
     },
-
-    // twitter: function(username, callback) {
-    //     var id = this.model.get('project_id'),
-    //         goodTweets = [],
-    //         twPhotos = [],
-    //         twPage = 1;
-            
-    //     getTweets(twPage);
-            
-    //     function filterTweets(t) {
-    //         if (t.length) {
-    //             var i = 0;
-    //             _(t).each(function(x) {
-    //                 i++;
-    //                 if (x.entities.urls.length) {
-    //                     _(x.entities.urls).each(function(url) {
-    //                         if (url.expanded_url.indexOf(id) !== -1) {
-    //                             if ((x.entities.media) ? x.entities.media[0].type == 'photo' : x.entities.media) {
-    //                                 twPhotos.push({
-    //                                     'source': x.entities.media[0].media_url,
-    //                                     'date': new Date(x.created_at),
-    //                                     'description': x.text,
-    //                                     'link': x.entities.media[0].expanded_url,
-    //                                     'height': x.entities.media[0].sizes.medium.h,
-    //                                     'width': x.entities.media[0].sizes.medium.w
-    //                                 });
-    //                             }
-                                
-    //                             goodTweets.push(x);
-    //                             return;
-    //                         }
-    //                     });
-                        
-    //                 }
-    //                 if (goodTweets.length === 3) {
-    //                     callback(goodTweets, twPhotos);
-    //                 } else if (i == t.length) {
-    //                     if (twPage < 4) {
-    //                         twPage++;
-    //                         getTweets(twPage);
-    //                     } else {
-    //                         callback(goodTweets, twPhotos);
-    //                     }
-    //                 }
-    //             });
-    //         } else {
-    //             callback(goodTweets, twPhotos);
-    //         }
-    //     }
-        
-    //     function getTweets(page) {
-    //         var success = false;
-    //         $.getJSON('https://api.twitter.com/1.1/lists/statuses.json?slug=undp-tweets&owner_screen_name=openundp&include_rts=0&since_id=274016103305461762&count=200&page=' + page + '&callback=?', function(globalTweets) {
-    //             success = true;
-    //             if (username) {
-    //                 $.getJSON('https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=' + username + '&include_rts=0&since_id=274016103305461762&count=200&page=' + page + '&callback=?', function(coTweets) {
-    //                     filterTweets(coTweets.concat(globalTweets));
-    //                 });
-    //             } else {
-    //                 filterTweets(globalTweets);
-    //             }
-    //         });
-    //         setTimeout(function() {
-    //             if (!success)
-    //             {
-    //                 callback([], []);
-    //             }
-    //         }, 3000);
-    //     }
-    // },
-    
-    // showTweets: function(tweets) {
-    //     if (tweets.length) {
-    //         $('#twitter-block').show();
-            
-    //         $('.tweet').tweet({
-    //             tweets: tweets,
-    //             avatar_size: 40,
-    //             count: 3,
-    //             template: "{avatar}<div class='actions'>{time}</div><div>{text}</div>",
-    //             loading_text: "Loading Tweets"
-    //         });
-
-    //         $('#twitter-block').find('.fade').addClass('in');
-    //     }
-    // },
 
     flickr: function(account, photos) {
         var apiBase = 'http://api.flickr.com/services/rest/?format=json&jsoncallback=?&method=',
@@ -427,7 +365,7 @@ views.ProjectMap = Backbone.View.extend({
             i = 0,
             $el = $('#flickr');
 
-        if (!account.length && photos.length) {
+        if (!account.length && photos.length) { // show photos from the document
             $el.show();
             loadPhoto(i);
         } else {
@@ -460,15 +398,14 @@ views.ProjectMap = Backbone.View.extend({
         // Load single photo from array
         function loadPhoto(x) {
             $el.find('.meta').hide();
-            $el.find('.spin').spin({ color:'#ddd' });
+
             if (x === 0) $('.control.prev', $el).addClass('inactive');
             if (x === photos.length - 1) $('.control.next', $el).addClass('inactive');
 
             if (photos[x].id) {
                 var photoid = photos[x].id,
-                    source, pHeight, pWidth,
+                    source,
                     attempt = 0;
-
                 // Get photo info based on id
                 $.getJSON(apiBase + 'flickr.photos.getInfo&api_key=' + apiKey + '&photo_id=' + photoid, function(info) {
 
@@ -483,8 +420,6 @@ views.ProjectMap = Backbone.View.extend({
                             _(s.sizes.size).each(function(z) {
                                 if (z.label == sizeName) {
                                     source = z.source;
-                                    pHeight = z.height;
-                                    pWidth = z.width;
                                 }
                             });
 
@@ -509,7 +444,7 @@ views.ProjectMap = Backbone.View.extend({
                             '<p>' + description +
                             '<a href="' + url + 'in/photostream/" title="See our photos on Flickr"> Source</a></p></div>');
 
-                        insertPhoto(pHeight, pWidth, source);
+                        insertPhoto(source);
                     });
                 });
 
@@ -518,17 +453,22 @@ views.ProjectMap = Backbone.View.extend({
                     '<p>' + photos[x].description +
                     '<a href="' + photos[x].link + '/in/photostream/" title="See our photos on Flickr"> Source</a></p></div>');
 
-                insertPhoto(photos[x].height, photos[x].width, photos[x].source);
-
+                insertPhoto(photos[x].source);
             } else {
-                insertPhoto(photos[x].image.height, photos[x].image.width, photos[x].source);
                 $('.meta-inner', $el).empty();
+                insertPhoto(photos[x].source);
             }
 
-            function insertPhoto(height, width, src) {
-                $el.find('img').attr('src', src).addClass('in');
-                $el.find('.spin').spin(false);
-            }
+        }
+        function insertPhoto(src){
+            $el.find('.spin').spin({ color:'#000' });
+            $el.find('img')
+                .attr('src',src)
+                .addClass('in')
+                .on('load',function(){
+                    console.log('loaded')
+                    $el.find('.spin').remove();
+                })
         }
 
         // Cycle through photo array

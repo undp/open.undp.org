@@ -44,13 +44,15 @@ routers.App = Backbone.Router.extend({
 
     browser: function (year, route, embed) {
         var that = this,
-            unit = false;
+            unit = false,
+            donor = false;
 
         // Set up menu
         $('#app .view, #mainnav .profile').hide();
         $('#profile .summary').addClass('off');
         $('#browser, #mainnav .browser').show();
         $('#nav-side.not-filter').remove();
+        $('#mainnav li').removeClass('active');
         $('#mainnav li').first().addClass('active');
 
         // Set up about
@@ -84,15 +86,14 @@ routers.App = Backbone.Router.extend({
             });
         }
 
-        // Save default description
-        app.defaultDescription = app.defaultDescription || $('#description p.intro').html();
-
         // Parse hash
         var parts = (route) ? route.split('/') : [];
         var filters = _(parts).map(function (part) {
             var filter = part.split('-');
             if (filter[0] === 'operating_unit') {
                 unit = filter[1];
+            } else if (filter[0] === 'donor_countries') {
+                donor = filter[1]
             }
             return {
                 collection: filter[0],
@@ -104,7 +105,6 @@ routers.App = Backbone.Router.extend({
             $('html, body').scrollTop(0);
         } else {
             // slicing the selected facets and getting the json items
-
             var filter = function (model) {
                 if (!filters.length) return true;
                 return _(filters).reduce(function (memo, filter) {
@@ -117,8 +117,6 @@ routers.App = Backbone.Router.extend({
             };
 
             that.app.filters = filters;
-            // country filter
-            var opUnitFilter = _(app.app.filters).findWhere({collection:"operating_unit"});
 
             var loadFilters = function() {
                 var counter = 0;
@@ -173,20 +171,6 @@ routers.App = Backbone.Router.extend({
                 }
 
             };
-               // Check for funding countries to show donor visualization
-                var donors = _.where(filters, {collection: 'donor_countries'});
-                var regions = _.where(filters, {collection: 'region'});
-
-                if (_.isEmpty(donors)){
-                    // If no donor selected, hide the div
-                    $('#donor-graphs').hide();
-                    app.donor = false;
-                } else {
-                    app.donor = new views.Donors ({
-                    });
-                    // Otherwise show donor graphs
-                    $('#donor-graphs').show();
-                }
 
             // Load projects
             if (!that.allProjects || app.fiscalYear != year) {
@@ -209,10 +193,11 @@ routers.App = Backbone.Router.extend({
             }
             
             // change summary look when on individual country
+
             $('.map-filter').removeClass('active') // reset the subfilter look
             $('#map-filters').find('#type-10').addClass('active');
 
-            if(_.isObject(opUnitFilter)){
+            if(unit){
                 $('#map-filters').removeClass('disabled');//shows type sub-filter
                 $('.map-btn').removeClass('active');
                 $('ul.layers li').addClass('no-hover');
@@ -222,8 +207,20 @@ routers.App = Backbone.Router.extend({
                 $('ul.layers li').removeClass('no-hover');
                 $('ul.layers li.hdi .graph').removeClass('active');
             }
+
+            // Check for funding countries to show donor visualization
+            if (donor){
+                app.donor = new views.Donors ();
+                $('#donor-view').show();
+            } else {
+                app.donor = false;
+                $('#donor-view').hide();
+            }
         }
 
+
+        // Save default description
+        app.defaultDescription = app.defaultDescription || $('#description p.intro').html();
         function updateDescription() {
             setTimeout(function() {
 
@@ -243,11 +240,13 @@ routers.App = Backbone.Router.extend({
                 // 1. no filter --> defaultDescription
                 // 2. filter (no donor) --> start with "The above includes"
                 // 3. filter (with donor) --> start with "DONOR funds the above"
+
                 var counts = (app.projects.length === 1) ? 'project' : 'projects';
                     projectCounts = 'There are <strong>' + app.projects.length +'</strong> ' + counts;
 
                 function renderDonorContent(){
                     var $el = $('#donor-specific');
+                    $el.empty();
                     $el.append(templates.donorSpecific(app));
                     $el.find('.spin').spin({ color:'#000' });
 
@@ -261,7 +260,7 @@ routers.App = Backbone.Router.extend({
                         pagination:{active:false},
                         callback: {
                             loaded: function(number) {
-                                $el.find('.spin').spin(false);
+                                $el.find('.spin').remove();
                             }
                         }
                     });
@@ -269,12 +268,14 @@ routers.App = Backbone.Router.extend({
 
                 if (app.description && app.description.length === 0){
                     if (app.donorDescription.length > 0) {
-                        $('#donor-title').html(app.shortDesc);
                         // custom donor text
                         renderDonorContent();
                         // default donor text
                         $('#description').find('p.desc').html(app.donorDescription + counts +' across the world.');
+                        // donor viz h3
+                        $('#donor-title').html(app.donorTitle);
                     } else {
+                        $('#donor-specific').empty();
                         $('#description').find('p.desc').html(app.defaultDescription);
                     }
                 } else if (app.description && app.description.length > 0){
@@ -282,16 +283,17 @@ routers.App = Backbone.Router.extend({
                         // custom donor text
                         renderDonorContent();
                         // default donor text
-                        $('#donor-title').html(app.shortDesc);
                         $('#description').find('p.desc').html(app.donorDescription + counts + ' ' + app.description.join(',') + '.');
+                        // donor viz h3
+                        $('#donor-title').html(app.donorTitle);
                     } else {
-                        $('#donor-title').html(app.shortDesc);
+                        $('#donor-specific').empty();
                         $('#description').find('p.desc').html(projectCounts + app.description.join(',') + '.');
                     }
                 } else if (!app.description) {
+                    $('#donor-specific').empty();
                     $('#description').find('p.desc').html(app.defaultDescription);
                 }
-
                 // reset description
                 app.description = false;
                 app.shortDesc = "";
@@ -307,7 +309,6 @@ routers.App = Backbone.Router.extend({
 
             }, 0);
         }
-        
         // Show proper HDI data
         if (unit && ((HDI[unit]) ? HDI[unit].hdi != '' : HDI[unit])) {
             app.hdi = new views.HDI({

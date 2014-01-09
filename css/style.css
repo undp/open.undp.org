@@ -273,7 +273,7 @@ input[readonly] {
 .slidesjs-navigation {
   position:absolute;
   right:0;
-  margin-top:10px;
+  margin-top:2px;
   }
 .icon-thumbnail {
   width:40px;
@@ -335,7 +335,23 @@ input[readonly] {
   display: none;
   overflow: hidden;
   }
-
+#ie-banner {
+  display:none;
+  position:relative;
+  padding:15px 0 8px;
+  background:#F2F0E2;
+  text-align: center;
+  font-weight:bold;
+  -webkit-border-top-left-radius:    3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft:        3px;
+  -moz-border-radius-bottomleft:     3px;
+  border-top-left-radius:            3px;
+  border-bottom-left-radius:         3px;
+  }
+#banner-close {
+  padding-left:20px;
+  }
 /*-----------------------------------
   Maps
 -------------------------------------*/
@@ -726,14 +742,15 @@ ul.layers.active {
   font-weight:bold;
   letter-spacing:-1px;
   }
-p.heading-desc {
+#project-heading p {
+  margin:10px 0 15px;
+  }
+#project-heading .heading-desc {
   color:#666;
   font-size:16px;
-  line-height:24px;
+  line-height:22px;
   font-weight:normal;
-  margin-bottom:20px;
-}
-
+  }
 .modal.fade {
   top: 50%;
   }
@@ -741,75 +758,6 @@ p.heading-desc {
 /*-----------------------------------
   Charts and graphs
 -------------------------------------*/
-.pie-padding {
-  padding: 26px 0px;
-}
-.pie {
-  width:185px; 
-  height:185px;
-}
-.bar-padding{
-  padding: 16px 0px;
-}
-.bar {
-  margin: 20px 0px !important;
-  width:525px;
-  height:237px;
-}
-
-#flotTip {
-  padding: 5px;
-  background: #fff;
-  border-radius: 2px;
-  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.15);
-  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
-  pointer-events: all;
-}
-#legendholder table {
-  position: absolute;
-  right: 5px;
-  width: 160px;
-  border-spacing:0;
-  margin:44px 0;
-  border: none;
-  border-collapse:separate;
-  *border-collapse:collapsed;
-}
-#legendholder table td, 
-#legendholder table th {
-  border: none;
-}
-.modality {
-  border: 1px solid #f1f1f1;
-  width: 553px;
-  margin-top: 0px;
-}
-.modality td {
-  width: 95px;
-  line-height: 17px;
-  border-top: 1px solid #f1f1f1;
-  border-left: 1px solid #f1f1f1;
-}
-.modality .costsharing {
-  background-color: #00397E;
-  opacity: .9;
-}
-.modality .trustfunds {
-  background-color: #6cB02d;
-  opacity: .9;
-}
-.modality .specialactivities {
-  background-color: #a1cbe8;
-  opacity: .9;
-}
-.modality .thematictrust {
-  background-color: #FFF0C2;
-  opacity: .9;
-}
-.modality .unv {
-  background-color: #FFD066;
-  opacity: .9;
-}
 .summary h3 {
   display:block;
   max-width:175px;
@@ -827,9 +775,7 @@ h3#focus span {
   font-weight:normal;
   color:#666;
   }
-.charts-padding {
-  padding: 30px 0px;
-}
+
 .chart li.focus {
   padding: 20px 0;
   width: 395px;
@@ -908,6 +854,7 @@ h3#focus span {
 .chart td.right {
   text-align: right;
   float: none;
+  width: 150px;
   }
 .chart .caption {
   text-align:left;
@@ -945,7 +892,73 @@ h3#focus span {
   background: #96CCE6;
   margin-bottom: 0.25em;
   margin-top: 0;
-  }
+}
+/*----------------------------------------------------------
+  Modality table and modifications to bar chart styles for modality bar charts
+----------------------------------------------------------*/
+#totals-table .data > div {
+  padding-right: 0px;
+  background: #ddd;
+  clear: both;
+  text-align: right;
+  line-height: 12px;
+  color: #EDF4FE;
+  border: 1px solid #adadad;
+}
+
+#donor-graphs  .chart .data > .subdata {
+  height: 12px;
+  background: #fff;
+  margin-top: 2px;
+}
+#donor-graphs  .chart .data > .budgetdata,
+#donor-graphs  .chart .data > .fund {
+  height: 12px;
+  margin-top: -15px;
+}
+#donor-graphs .chart .data > .fund.zero,
+#donor-graphs .chart .data > .budgetdata.zero {
+  border: none;
+}
+#donor-graphs {
+  margin:20px 0;
+  padding: 30px;
+  border: 1px solid #ddd;
+  background:#f2f2f2;
+}
+.modality {
+  background: none;
+  border: none;
+  margin-top: 0px;
+}
+.modality td {
+  line-height: 17px;
+  border-left: none;
+}
+td.medium {
+  width:108px;
+  padding-left: 25px;
+  padding-right: 20px;
+}
+td.block {
+  max-width: none;
+  width:132px;
+}
+td.block .right {
+  float: right;
+  width: 80px;
+  padding-right: 6px;
+}
+td.block .left {
+  float: left;
+}
+td.wide {
+  width: 120px;
+}
+/*---------------------------------------------------------
+  ^ end of modifacations for fund modality ^
+----------------------------------------------------------*/
+
 .chart .caption .counts {
   margin: 3px 0 2px 0;
 }
@@ -956,7 +969,7 @@ h3#focus span {
   }
 .details #sparkline {
   width:640px;
-  height: 220px;
+  height: 200px;
   background:#fff;
   border:1px solid #ddd;
   }
@@ -1004,7 +1017,7 @@ h3#focus span {
   top: 0;
   left: -999px;
   margin: 0;
-  width:667px;
+  width:666px;
   height: 460px;
   background: white;
   padding: 10px;
@@ -1102,7 +1115,7 @@ h3#focus span {
   margin:0;
   float:none;
   position:absolute;
-  top:140px;
+  top:130px;
   left:0;
   width:100%;
   }
@@ -1304,16 +1317,6 @@ form {
   padding:0;
 }
 
-#nav-side .topics.filtered li a.active,
-#nav-side .topics.active li a.active {
-  font-weight:bold;
-  text-decoration:none;
-  padding:10px 2px;
-  margin-left:14px;
-  }
-/* Disable the state of a menu item that has
- * an acvtive filter in it
- */
 #nav-side .topics.filtered .label{
   color:#333;
   border-bottom:none;
@@ -1322,16 +1325,26 @@ form {
   -webkit-box-shadow:none;
           box-shadow:none;
   }
-#nav-side .topics li .filter-name {
+#nav-side .topics li a {
+  display:block;
   float:left;
-  width:110px;
-  margin-bottom:20px;
+  width:120px;
+  }
+#nav-side .topics.filtered li a.active,
+#nav-side .topics.active li a.active {
+  font-weight:bold;
+  text-decoration:none;
+  padding:10px 2px;
+  margin-left:14px;
   }
 #nav-side .topics li .count {
   display: block;
   float:right;
+  width:30px;
+  margin-top:10px;
   font-weight:normal;
   font-size:11px;
+  color:#888;
   }
 #nav-side .topics.filtered li a.active:before{
   content:'✖';
@@ -1655,29 +1668,31 @@ form {
           box-shadow:0 0 8px rgba(0,0,0,0.25);
   }
 
-/* modals */
+/* unit contact  */
 #unit-contact {
-  margin:10px 0;
+  margin:10px 10px 0 0;
+  border:1px solid #ddd;
   }
-#unit-contact ul.contact-info {
-  margin:10px 0 5px;
+#unit-contact .contact-title {
+  font-size:12px;
+  padding:10px;
+  background:#f6f6f6;
   }
-#unit-contact ul.contact-info li {
+#unit-contact .contact-info li {
+  display:block;
+  padding:10px 0 0 10px;
+  }
+#unit-contact .contact-info li > div {
   float:left;
-  padding:0 40px 0 0;
-  width:80px;
-  margin-right:20px;
-  border-right:1px solid #ddd;
   }
-#unit-contact ul.contact-info li:last-child {
-  margin-right:0;
-  border-right:0;
+#unit-contact .contact-info li .label {
+  width:50px;
   }
-#unit-contact .contacts {
-  font-size: 11px;
-  font-weight: bold;
-  color: #333;
+#unit-contact .contact-info li a {
+  padding:0;
+  margin-left:20px;
   }
+/* modals*/
 .donor-gross-table {
   margin-bottom: 20px;
   }
@@ -1794,6 +1809,7 @@ form {
   padding:0 3%;
   background:#fff;
   border:1px solid #ddd;
+  overflow-y:hidden;
   }
 .widget-options input {
   vertical-align:middle;
@@ -1803,6 +1819,31 @@ form {
     overflow: -moz-scrollbars-vertical;
     overflow-y: scroll;
     }
+
+  /* in case scrollbar is hidden */
+  .widget-preview iframe::-webkit-scrollbar {
+    -webkit-appearance: none;
+  }
+
+  .widget-preview iframe::-webkit-scrollbar:vertical {
+      width: 11px;
+  }
+
+  .widget-preview iframe::-webkit-scrollbar:horizontal {
+      height: 11px;
+  }
+
+  .widget-preview iframe::-webkit-scrollbar-thumb {
+      border-radius: 8px;
+      border: 2px solid white; /* should match background, can't be transparent */
+      background-color: rgba(0, 0, 0, .5);
+  }
+
+  .widget-preview iframe::-webkit-scrollbar-track {
+      background-color: #fff;
+      border-radius: 8px;
+  }
+
   .widget-preview .empty {
     color:#888;
     text-align:center;
