@@ -65,41 +65,32 @@ views.ProjectMap = Backbone.View.extend({
                             $.getJSON('api/world-50m-s.json',function(world){
                                 var topoFeatures = topojson.feature(world, world.objects.countries).features,
                                     selectedFeature = _(topoFeatures).findWhere({id:iso}),
-                                    coords = selectedFeature.geometry.coordinates;
-                                if (iso == 643) {
-                                    view.map.setView([55,65],2);
-                                    view.outline.addData(selectedFeature)
-                                        .setStyle({
+                                    coords = selectedFeature.geometry.coordinates,
+                                    outlineStyle = {
                                             "color": "#b5b5b5",
                                             "weight": 0,
                                             clickable: false
-                                    });
-                                    view.outline.addTo(view.map);
-                                    
-                                } else if (iso == 356) {
+                                    };
+                                if (iso == 356) {
                                    $.getJSON('api/india_admin0.json',function(india){
                                         var topoFeatures = topojson.feature(india, india.objects.india_admin0).features;
                                         _(topoFeatures).each(function(f){
                                             view.outline.addData(f)
-                                                .setStyle({
-                                                    "color": "#b5b5b5",
-                                                    "weight": 0,
-                                                    clickable: false
-                                            });
+                                                .setStyle(outlineStyle);
                                         });
                                     });
-                                    view.outline.addTo(view.map); 
-                                    view.map.fitBounds(ctyBounds(coords));
+                                } else {
+                                    view.outline.addData(selectedFeature)
+                                        .setStyle(outlineStyle);
+                                }
+
+                                if (iso == 643) {
+                                    view.map.setView([55,65],2);
                                 } else {
                                     view.map.fitBounds(ctyBounds(coords));
-                                    view.outline.addData(selectedFeature)
-                                        .setStyle({
-                                            "color": "#b5b5b5",
-                                            "weight": 0,
-                                            clickable: false
-                                    });
-                                    view.outline.addTo(view.map);
                                 }
+
+                                view.outline.addTo(view.map);
                             });
                         } else {
                             view.map.setView([o.lat,o.lon],3);
@@ -290,25 +281,27 @@ views.ProjectMap = Backbone.View.extend({
         });
 
         function contacts(allSocialAccts) {
-            var tweetButton = {
+            var accts = ['web','email','twitter','flickr','facebook'],
+                socialBaseUrl = '';
+                tweetButton = {
                     "data-hashtags":"project," + view.model.get('project_id') + '"',
                     "data-text":'"' + view.model.get('project_title').toLowerCase().toTitleCase() + '"',
                     "data-via":""
                 },
-                followButton = '';
+                followButton = '',
                 tweetScript = '<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>';
 
             // looping through all five possible social accounts
-            _(['web','email','twitter','flickr','facebook']).each(function(acct) {
+            _(accts).each(function(acct) {
                 var link = '',
                     i = 0;
 
-                // hide unit contact if there's no social media accounts available
-                if (data[acct] || (allSocialAccts[acct] && allSocialAccts[acct].length)) {
+                if (acct == 'twitter') socialBaseUrl = 'http://twitter.com/';
+                if (acct == 'email') socialBaseUrl = 'mailto:';
+                if (acct == 'flickr') socialBaseUrl = 'http://flickr.com/photos/';
 
-                    if (acct == 'twitter') socialBaseUrl = 'http://twitter.com/';
-                    if (acct == 'email') socialBaseUrl = 'mailto:';
-                    if (acct == 'flickr') socialBaseUrl = 'http://flickr.com/photos/';
+                // hide unit contact if there's no social media accounts available
+                if (data[acct] || (_.flatten(_.values(allSocialAccts)).length)) {
 
                     if (allSocialAccts[acct]) {
                         _(allSocialAccts[acct]).each(function() {
@@ -341,18 +334,21 @@ views.ProjectMap = Backbone.View.extend({
                 }
             });
 
-            if (data[acct] || (allSocialAccts[acct] && allSocialAccts[acct].length)) {
+            if (data['email'] || data['web'] || (_.flatten(_.values(allSocialAccts)).length)) {
+                $('#unit-contact').show();
                 $('#unit-contact h3').html('UNDP ' + data.name + ' on the web');
-                $('#tweet-button').append(
-                    '<a href="https://twitter.come/share" class="twitter-share-button" '+
-                    'data-via="'+ tweetButton["data-via"] + '" ' +
-                    'data-hashtags="'+ tweetButton["data-hashtags"] +
-                    'data-text=' + tweetButton["data-text"] + '"></a>'+
-                    followButton +
-                    tweetScript
-                );
-            };
+            } else {
+                $('#unit-contact').hide();
+            }
 
+            $('#tweet-button').append(
+                '<a href="https://twitter.come/share" class="twitter-share-button" '+
+                'data-via="'+ tweetButton["data-via"] + '" ' +
+                'data-hashtags="'+ tweetButton["data-hashtags"] +
+                'data-text=' + tweetButton["data-text"] + '"></a>'+
+                followButton +
+                tweetScript
+            );
         }
     },
 
