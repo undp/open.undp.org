@@ -37,8 +37,7 @@ views.ProjectMap = Backbone.View.extend({
         // create a cluster
         view.markers = new L.MarkerClusterGroup({
             showCoverageOnHover:false,
-            maxClusterRadius:40,
-            disableClusteringAtZoom:6
+            maxClusterRadius:40
         });
         // create map
         view.map = L.mapbox.map(this.el,TJ.id,{
