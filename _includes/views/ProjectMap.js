@@ -205,7 +205,6 @@ views.ProjectMap = Backbone.View.extend({
     getwebData: function(data) {
         var view = this,
             photos = [],
-            baseUrl = '',
             coContact = {
                 twitter: [],
                 flickr: [],
@@ -282,11 +281,14 @@ views.ProjectMap = Backbone.View.extend({
 
         function contacts(allSocialAccts) {
             var accts = ['web','email','twitter','flickr','facebook'],
+                pageUrl = BASE_URL + "#project/" + view.model.get('project_id'),
                 socialBaseUrl = '';
                 tweetButton = {
-                    "data-hashtags":"project," + view.model.get('project_id') + '"',
-                    "data-text":'"' + view.model.get('project_title').toLowerCase().toTitleCase() + '"',
-                    "data-via":""
+                    "data-url": '"' + pageUrl + '"',
+                    "data-hashtags": '"project' + view.model.get('project_id') + '"',
+                    "data-text": '"' + view.model.get('project_title').toLowerCase().toTitleCase() + '"',
+                    "data-via":"",
+                    "data-counturl": '"' + pageUrl + '"'
                 },
                 followButton = '',
                 tweetScript = '<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>';
@@ -301,30 +303,29 @@ views.ProjectMap = Backbone.View.extend({
                 if (acct == 'flickr') socialBaseUrl = 'http://flickr.com/photos/';
 
                 // hide unit contact if there's no social media accounts available
-                if (data[acct] || (_.flatten(_.values(allSocialAccts)).length)) {
+                if ((_.flatten(_.values(allSocialAccts)).length)) {
+                    _(allSocialAccts[acct]).each(function() {
+                        i += 1;
+                        link += '<a target="_blank" href="' + socialBaseUrl + allSocialAccts[acct] + '">' +
+                                ((acct == 'twitter') ? '@' + allSocialAccts[acct] : allSocialAccts[acct]) + '</a>';
+                        if (i < allSocialAccts[acct].length) link += ', ';
 
-                    if (allSocialAccts[acct]) {
-                        _(allSocialAccts[acct]).each(function() {
-                            i += 1;
-                            link += '<a target="_blank" href="' + socialBaseUrl + allSocialAccts[acct] + '">' +
-                                    ((acct == 'twitter') ? '@' + allSocialAccts[acct] : allSocialAccts[acct]) + '</a>';
-                            if (i < allSocialAccts[acct].length) link += ', ';
+                        // populate: via @country-office to tweet button
+                        // and follow button
+                        if (acct=='twitter'){
+                            tweetButton["data-via"] = allSocialAccts[acct][0];
+                            followButton = '<a href="https://twitter.com/'+ allSocialAccts[acct][0] + '" class="twitter-follow-button" data-show-count="true">Follow @' + allSocialAccts[acct][0] + '</a>'
+                        }
+                    })
+                } else if (data[acct]) {
+                    link += '<a target="_blank" href="' + data[acct] + '">' + data[acct] + '</a>';
+                }
 
-                            // populate: via @country-office to tweet button
-                            // and follow button
-                            if (acct=='twitter'){
-                                tweetButton["data-via"] = allSocialAccts[acct][0];
-                                followButton = '<a href="https://twitter.com/'+ allSocialAccts[acct][0] + '" class="twitter-follow-button" data-show-count="true">Follow @' + allSocialAccts[acct][0] + '</a>'
-                            }
-                        })
-                    } else {
-                        link += '<a target="_blank" href="' + baseUrl + data[acct] + '">' + data[acct] + '</a>';
-                    }
-                    // populate unit contact info
+                if (link.length > 0) {
                     $('#unit-contact .contact-info').append(
                         '<li class="row-fluid">' +
                             '<div class="label">' +
-                                '<p>' + ((acct == 'web') ? 'Homepage' : acct.capitalize()) +'</p>' +
+                                '<p>' + ((acct == 'web') ? 'Website' : acct.capitalize()) +'</p>' +
                             '</div>' +
                             '<div>' +
                                 '<p>' + link + '</p>' +
@@ -334,21 +335,24 @@ views.ProjectMap = Backbone.View.extend({
                 }
             });
 
+            $('#tweet-button').append(
+                '<a href="https://twitter.come/share" class="twitter-share-button" '+
+                'data-url='      + tweetButton["data-url"]       + ' ' +
+                'data-hashtags=' + tweetButton["data-hashtags"]  + ' ' +
+                'data-text='     + tweetButton["data-text"]      + ' ' +
+                'data-counturl=' + tweetButton["data-counturl"]  + ' ' +
+                'data-via='      + ((tweetButton["data-via"].length) ? tweetButton["data-via"] : "OpenUNDP") + ' ' +
+                '></a>' +
+                followButton +
+                tweetScript
+            );
+
             if (data['email'] || data['web'] || (_.flatten(_.values(allSocialAccts)).length)) {
                 $('#unit-contact').show();
                 $('#unit-contact h3').html('UNDP ' + data.name + ' on the web');
             } else {
                 $('#unit-contact').hide();
             }
-
-            $('#tweet-button').append(
-                '<a href="https://twitter.come/share" class="twitter-share-button" '+
-                'data-via="'+ tweetButton["data-via"] + '" ' +
-                'data-hashtags="'+ tweetButton["data-hashtags"] +
-                'data-text=' + tweetButton["data-text"] + '"></a>'+
-                followButton +
-                tweetScript
-            );
         }
     },
 
