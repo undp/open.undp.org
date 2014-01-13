@@ -261,8 +261,8 @@ views.App = Backbone.View.extend({
         e.preventDefault();
         $target = e.target;
         
-        var subFilter = $target.id.split('-'), // ['type','1']
-            subFilterValue = subFilter[subFilter.length-1] + "";
+        var subFilter = $target.id.split('-'),
+            subFilterValue = subFilter[subFilter.length-1];
         var anchor = $('#'+$target.id);
 
         if ($('.map-filter').hasClass('active')){

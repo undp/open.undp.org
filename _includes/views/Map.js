@@ -331,11 +331,17 @@ views.Map = Backbone.View.extend({
                     };
 
                     function filter(feature, layer, filter){// only two cases for type, hard code is fine
-                        var subFilter = mapFilter || "10";
-                        if (subFilter === "10"){
+                        var subFilter = mapFilter || "all",
+                            precision = parseInt(feature.properties['precision']);
+
+                        if (subFilter === "all"){
                             return feature.properties
-                        } else {
-                            return feature.properties['precision'] === subFilter
+                        } else if (subFilter === "country" ){
+                            return precision === 6 || precision === 9
+                        } else if (subFilter === "subnational") {
+                            return precision === 3 || precision === 4 || precision === 7 || precision === 8
+                        } else if (subFilter === "street"){
+                            return precision === 1 || precision === 2 || precision === 5
                         }
                     };
                     // Create a geoJSON with locations
