@@ -281,14 +281,15 @@ views.ProjectMap = Backbone.View.extend({
 
         function contacts(allSocialAccts) {
             var accts = ['web','email','twitter','flickr','facebook'],
-                pageUrl = BASE_URL + "%23project/" + view.model.get('project_id'), //encode # with %23 so that tweet count shows up correctly
+                pageUrl = BASE_URL + "#project/" + view.model.get('project_id'),
+                countUrl = BASE_URL + "#project/" + view.model.get('project_id'), //encode # with %23 so that tweet count shows up correctly
                 socialBaseUrl = '';
                 tweetButton = {
                     "data-url": '"' + pageUrl + '"',
                     "data-hashtags": '"project' + view.model.get('project_id') + '"',
                     "data-text": '"' + view.model.get('project_title').toLowerCase().toTitleCase() + '"',
                     "data-via":"",
-                    "data-counturl": '"' + pageUrl + '"'
+                    "data-counturl": '"' + countUrl + '"'
                 },
                 followButton = '',
                 tweetScript = '<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>';
