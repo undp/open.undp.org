@@ -281,15 +281,15 @@ views.ProjectMap = Backbone.View.extend({
 
         function contacts(allSocialAccts) {
             var accts = ['web','email','twitter','flickr','facebook'],
+                pageUrl = "http%3A%2F%2Fopen.undp.org%2F%23project/"+view.model.get('project_id'),
                 pageUrl = BASE_URL + "#project/" + view.model.get('project_id'),
-                countUrl = BASE_URL + "#project/" + view.model.get('project_id'), //encode # with %23 so that tweet count shows up correctly
                 socialBaseUrl = '';
                 tweetButton = {
                     "data-url": '"' + pageUrl + '"',
                     "data-hashtags": '"project' + view.model.get('project_id') + '"',
                     "data-text": '"' + view.model.get('project_title').toLowerCase().toTitleCase() + '"',
                     "data-via":"",
-                    "data-counturl": '"' + countUrl + '"'
+                    "data-counturl": '"' + pageUrl + '"'
                 },
                 followButton = '',
                 tweetScript = '<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>';
@@ -337,7 +337,7 @@ views.ProjectMap = Backbone.View.extend({
             });
 
             $('#tweet-button').append(
-                '<a href="https://twitter.come/share" class="twitter-share-button" '+
+                '<a href="https://twitter.com/share" class="twitter-share-button" ' +
                 'data-url='      + tweetButton["data-url"]       + ' ' +
                 'data-hashtags=' + tweetButton["data-hashtags"]  + ' ' +
                 'data-text='     + tweetButton["data-text"]      + ' ' +
