@@ -195,7 +195,7 @@ routers.App = Backbone.Router.extend({
             // change summary look when on individual country
 
             $('.map-filter').removeClass('active') // reset the subfilter look
-            $('#map-filters').find('#type-10').addClass('active');
+            $('#map-filters').find('#loc-all').addClass('active');
 
             if(unit){
                 $('#map-filters').removeClass('disabled');//shows type sub-filter

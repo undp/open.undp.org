@@ -261,17 +261,15 @@ views.App = Backbone.View.extend({
         e.preventDefault();
         $target = e.target;
         
-        var subFilter = $target.id.split('-'),
-            subFilterValue = subFilter[subFilter.length-1];
-        var anchor = $('#'+$target.id);
+        var subFilter = $target.id.split('-')[1];
 
-        if ($('.map-filter').hasClass('active')){
-            $('.map-filter').removeClass('active');
-            anchor.addClass('active');
-        }
+        $('.map-filter').removeClass('active');
+        $('#'+$target.id).addClass('active');
+
         var currentCenter = app.projects.map.map.getCenter(),
             currentZoom = app.projects.map.map.getZoom();
-        app.projects.map.buildLayer(this.layer,subFilterValue,currentCenter,currentZoom); // see Map.js
+
+        app.projects.map.buildLayer(this.layer,subFilter,currentCenter,currentZoom); // see Map.js
     },
 
     activeMap: function(e) {
