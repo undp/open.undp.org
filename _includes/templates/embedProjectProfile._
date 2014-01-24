@@ -50,7 +50,7 @@
         <% }); %>
         <% _.each(model.get('expendyears'), function(v,k) { %>
           <tr>
-            <td><strong><%= k %> Expenditure</strong></td>
+            <td><strong><%= k %> Expense</strong></td>
             <td><%= accounting.formatMoney(v) %></td>
           </tr>
         <% }); %>

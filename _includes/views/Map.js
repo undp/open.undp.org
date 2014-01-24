@@ -117,7 +117,7 @@ views.Map = Backbone.View.extend({
                             '</div>' +
                             '<table class="pop"><tr><td>Projects</td><td>' + feature.properties.count + '</td></tr>' +
                                 '<tr><td>Budget</td><td>' +  accounting.formatMoney(feature.properties.budget) + '</td></tr>' + 
-                                '<tr><td>Expenditure</td><td>' + accounting.formatMoney(feature.properties.expenditure) + '</td></tr>' + 
+                                '<tr><td>Expense</td><td>' + accounting.formatMoney(feature.properties.expenditure) + '</td></tr>' + 
                                 '<tr><td>HDI</td><td>' + feature.properties.hdi + '</td></tr>' + 
                             '</table>' + 
                          '</div>';
