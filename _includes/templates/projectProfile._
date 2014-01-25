@@ -1,15 +1,13 @@
-<div class='row-fluid separator' id='project-heading'>
-  <div class='col col-700'>
-    <h3 class='heading-title'><%= model.get('project_title').toLowerCase().toTitleCase() %></h3>
-    <div id='project-descr'>
-      <p class='heading-desc'><%= model.get('project_descr') %></p>
-    </div>
-  </div>
+<div>
+  <a href='#widget' class='widget-config' data-toggle='modal'>Embed<span class='icon embed'></span></a>
 </div>
-
-<div class='col col-700 col-mar-10 projects summary'>
+<div class='tab-content col col-790'>
+  <div id='project-heading'>
+      <h3 class='heading-title'><%= model.get('project_title').toLowerCase().toTitleCase() %></h3>
+      <p id='project-descr' class='heading-desc'><%= model.get('project_descr') %></p>
+      <p id='tweet-button'></p>
+  </div>
   <div id='top-stats' class='row-fluid'>
-
     <div class='span5'>
       <div class='row-fluid'>
         <div class='label visible-phone'>Location</div>
@@ -50,7 +48,7 @@
             <div class='label'>Budget</div>
           </div>
           <div class='span5'>
-            <div class='label'>Expenditure</div>
+            <div class='label'>Expense</div>
           </div>
         </div>
         <% var prevBudget = null,
@@ -173,16 +171,15 @@
     </div>
   </div>
 
+
   <!--/ #top-stats -->
   <% if (model.get('outputs')) { %>
-    <div class='separator' id='output-header'>
-      <h2 class='heading-title'>
-        <% if (model.get('outputs').length === 1) { %>
-        <span>1</span> Project<% } else { %>
-        <span><%= model.get('outputs').length %></span> Projects
-        <% } %>
-      </h3>
-    </div>
+  <h2 class='heading-title'>
+      <% if (model.get('outputs').length === 1) { %>
+      <span>1</span> Output<% } else { %>
+      <span><%= model.get('outputs').length %></span> Outputs
+      <% } %>
+    </h2>
     <div id='outputs'></div>
     <div class='load'>
       <a href='#' class='button'>Load More</a>
@@ -190,49 +187,25 @@
   <% } %>
 </div>
 <!--/ #summary -->
-
-<div id='content-right' class='col col-150 col-end hidden-phone'>
-
+<div class='col col-790 flickr-wrapper'>
   <div id='flickr' class='row-fluid'>
+    <h2 class='heading-title'>Project Photos</h2>
     <div class='spin'></div>
-    <img class='fade' src='' alt='' />
-    <div class='resize' title='Resize'>
-      <div class='icon fullscreen'></div>
-      <span class='text'>Details</span>
+    <div class='img-wrapper'>
+      <!--img class='fade' src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' alt=''/-->
+      <img class='fade' src='' alt=''/>
     </div>
     <div class='control prev' title='Previous'>
-      <div class='icon back'></div>
+      <a href='#' class='icon prev'></a>
     </div>
     <div class='control next' title='Next'>
-      <div class='icon forward'></div>
+      <a href='#' class='icon next'></a>
     </div>
     <!-- Captions -->
     <div class='meta'></div>
   </div>
-  <div id='twitter-block' class='inner'>
-    <div class='row-fluid'>
-      <div class='span12'>
-        <div class='tweet fade'></div>
-        <div id='twitter'></div>
-      </div>
-    </div>
-  </div>
-  <% if (window.self === window.top) {  %>
-  
-  <a href='#widget' class='widget-config' data-toggle='modal'>Embed<span class='icon embed'></span></a>
-  <% } %>
 </div>
-<!--/ #content-right -->
-
-<!-- Modals -->
-<div class='modal hide fade' id='unit-contact'>
-  <div class='modal-header'>
-    <button type='button' class='close' data-dismiss='modal'>&times;</button>
-    <h3>UNDP <%= model.get('operating_unit') %> on the Web</h3>
-  </div>
-  <div class='modal-body'>
-  </div>
-</div>
+<!--/ #flickr -->
 
 {% for data in site.categories.aboutdata %}
 <div class='modal hide fade' id='about-data'>
@@ -247,4 +220,4 @@
   </div>
 </div>
 {% endfor %}
-
+<!--/ #about-data -->

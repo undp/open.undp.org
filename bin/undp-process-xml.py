@@ -12,13 +12,29 @@ from datetime import datetime
 t0 = time.time()
 print "processing ..."
 
+# Global Processing Arrays 
+# ********************
+tmpYears = []
+xmlFiles = []
+os.chdir("download/undp_export/iati-xml-annual/")
+for fn in os.listdir('.'):
+    if fn.endswith(".xml"):
+        fileY = fn[-8:-4]
+        tmpYears.append(int(fileY))
+        xmlFiles.append(fn)
+os.chdir("../../../")
+# Sort most recent year first
+tmpYears.sort(reverse=True)
+xmlFiles.sort(reverse=True)
+
 # Global Output Arrays
 # ********************
 fiscalYears = []
 row_count = 0
 outputs = []
-outputsFull = []
 locationsFull = []
+projectsFull = []
+outputsFull = []
 
 # For donor JSONs
 cntry_donors = csv.DictReader(open('download/undp_export/country_donors_updated.csv','rb'), delimiter = ',', quotechar = '"')
@@ -115,7 +131,6 @@ for year,donorYears in groupby(donor_projects_sort, lambda x: x['fiscal_year']):
         donorList.append(donorCty)
         donorList.append(donorBudget)
         donorList.append(donorExpend)
-        
         donorProject.append(donorList)
 
     donorProjects = []
@@ -200,15 +215,29 @@ for l in donorOutput:
 
 # Outputs function
 # ****************
-def outputsLoop(o, output_id):
-    related = o.find("./related-activity[@type='1']")
-    relatedArray = related.get('ref').split('-', 2)
+outputsAnnual = {}
+locsID = []
+for year in tmpYears:
+    outputsAnnual[year] = []
+
+def outputsLoop(o, output_id, fileyear):
+    try:
+        related = o.find("./related-activity[@type='1']")
+        relatedArray = related.get('ref').split('-', 2)
+    except:         
+        related = o.find("./related-activity[@type='2']")
+        relatedArray = related.get('ref').split('-', 2)
+
     rltdProject = relatedArray[2]
     outputTitle = o.find("./title").text
     outputDescr = o.find("./description").text
-    gen = o.find(".policy-marker").attrib
-    outputGenID = gen.get('code')
-    outputGenDescr = o.find(".policy-marker").text
+    try:
+        gen = o.find(".policy-marker").attrib
+        outputGenID = gen.get('code')
+        outputGenDescr = o.find(".policy-marker").text
+    except:
+        outputGenID = "0"
+        outputGenDescr = "None"
     
     # Find sectors for crs-index.json
     outputCRSdescr = []
@@ -286,7 +315,10 @@ def outputsLoop(o, output_id):
                     donorCtryTemp = []
                     donorCheck.append(ref)
                     donorTemp.append(ref)
-                    donorTemp.append(donor.text)
+                    if not donor.text:
+                        donorTemp.append("Unknown")
+                    else:
+                        donorTemp.append(donor.text)
                     if d['donor_type_lvl1'] == 'PROG CTY' or d['donor_type_lvl1'] == 'NON_PROG CTY':
                         donorTemp.append(d['donor_type_lvl3'].replace(" ",""))
                     elif d['donor_type_lvl1'] == 'MULTI_AGY':
@@ -352,9 +384,9 @@ def outputsLoop(o, output_id):
         except KeyError:
             outputBudget.append(None)
 
-    locs = []
-    locHeader = ['awardID','lat','lon','precision','name','type']
+    locHeader = ['awardID','outputID','output_locID','focus_area','focus_area_descr','lat','lon','precision','name','type']
     locations = o.findall('location')
+    locID = 0
     for location in locations:
         locTemp = []
         awardID = rltdProject
@@ -368,12 +400,20 @@ def outputsLoop(o, output_id):
             if loc.tag == 'location-type':
                 locType = loc.get('code')
         locTemp.append(awardID)
+        locTemp.append(output_id)
+        locID = locID + 1
+        output_locID = "%s-%d" % (output_id, locID)
+        locTemp.append(output_locID)
+        locTemp.append(outputFA)
+        locTemp.append(outputFAdescr)
         locTemp.append(lat)
         locTemp.append(lon)
         locTemp.append(precision)
         locTemp.append(name)
         locTemp.append(locType)
-        locationsFull.append(dict(zip(locHeader,locTemp)))
+        if output_locID not in locsID:
+            locsID.append(output_locID)        
+            locationsFull.append(dict(zip(locHeader,locTemp)))
     outputsHeader = ['output_id','award_id','output_title','output_descr','gender_id','gender_descr','focus_area','focus_area_descr','crs','crs_descr','fiscal_year','budget','expenditure','donor_id','donor_short','donor_name']
     outputList.append(outputAward)
     outputList.append(outputTitle)
@@ -390,19 +430,25 @@ def outputsLoop(o, output_id):
     outputList.append(donorIDs)
     outputList.append(donorShort)
     outputList.append(donorNames)
-    outputsFull.append(dict(zip(outputsHeader,outputList))) # this returns a list of dicts of output informaiton for each output
+    outputsAnnual[fileyear].append(dict(zip(outputsHeader,outputList))) # this returns a list of dicts of output informaiton for each output
 
 # Global project arrays
 projects = []
-projectsFull = []
-projectsSmallFull = []
-projectsHeader = ['project_id','operating_unit','operating_unit_id','iati_op_id','project_title','project_descr','start','end','inst_id','inst_descr','inst_type_id','document_name']
+projectsHeader = [
+        'project_id','operating_unit','operating_unit_id','iati_op_id','operating_unit_email',
+        'operating_unit_website','project_title','project_descr','start','end','inst_id',
+        'inst_descr','inst_type_id','document_name'
+        ]
 units = csv.DictReader(open('download/undp_export/report_units.csv', 'rb'), delimiter = ',', quotechar = '"')
 units_sort = sorted(units, key = lambda x: x['operating_unit'])
 iati_regions = csv.DictReader(open('download/undp_export/iati_regions.csv', 'rb'), delimiter = ',', quotechar = '"')
 iati_regions_sort = sorted(iati_regions, key = lambda x: x['code'])
 
-def loopData(file_name, key):
+projectsAnnual = {}
+for year in tmpYears:
+    projectsAnnual[year] = []
+
+def loopData(file_name, key, fileYear):
     # Get IATI activities XML
     context = iter(etree.iterparse(file_name,tag='iati-activity'))
     # Loop through each IATI activity in the XML
@@ -416,13 +462,14 @@ def loopData(file_name, key):
         implement = p.find("./participating-org[@role='Implementing']")
         if hierarchy == '2':
             # Send the outputs to a separate function, to be joined to their projects later in step 2 below.
-            outputsLoop(p, award)
+            outputsLoop(p, award, fileYear)
         # Check for projects        
         if hierarchy == '1':
             projectList = [award]
             docTemp = []
             subnationalTemp = []
             award_title = p.find("./title").text
+            award_title.lower()
             award_description = p.find("./description").text
             # Get document-links
             documents = p.findall("./document-link")
@@ -436,7 +483,7 @@ def loopData(file_name, key):
                 docTemp.append(docNames)
                 docTemp.append(docLinks)
             # Find start and end dates
-            start_date = p.find("./activity-date[@type='start-planned']").text
+            start_date = p.find("./activity-date[@type='start-actual']").text
             end_date = p.find("./activity-date[@type='end-planned']").text
             # Find operatingunit
             try:
@@ -456,8 +503,21 @@ def loopData(file_name, key):
                 iat_code = '998'
             projectList.append(ou_descr)
             projectList.append(operatingunit)
-            projectList.append(iat_code)    
+            projectList.append(iat_code)
 
+            # find contact info
+            try:
+                op_contact = p.findall("./contact-info")
+                for email in op_contact:
+                    for e in email.iterchildren(tag='email'):
+                        op_email = e.text
+                op_website = p.find("./activity-website").text
+                projectList.append(op_email)
+                projectList.append(op_website)
+            except:
+                # append empty email and website if not found
+                projectList.append("")
+                projectList.append("")
             # Append the remaining items to the project Array               
             projectList.append(award_title)
             projectList.append(award_description)
@@ -477,7 +537,7 @@ def loopData(file_name, key):
                 projectList.append("")
                 projectList.append("")
             projectList.append(docTemp)
-            projectsFull.append(dict(zip(projectsHeader,projectList))) # this joins project information, output per project, and documents for each project
+            projectsAnnual[fileYear].append(dict(zip(projectsHeader,projectList))) # this joins project information, output per project, and documents for each project
 
 # This is the function that creates project summary files
 # *******************************************
@@ -485,7 +545,11 @@ def createSummary():
     regionsList = ['PAPP','RBA','RBAP','RBAS','RBEC','RBLAC']
     row_count = 0
     yearList = []
-    projectSumHeader = ['fiscal_year','id','name','operating_unit','region','budget','expenditure','crs','focus_area','donors','donor_types','donor_countries','donor_budget','donor_expend']
+    projectSumHeader = [
+            'fiscal_year','id','name','operating_unit','region',
+            'budget','expenditure','crs','focus_area','donors','donor_types',
+            'donor_countries','donor_budget','donor_expend'
+            ]
 
     for year in fiscalYears:
         projectSummary = []
@@ -563,53 +627,105 @@ def createSummary():
         f_out.close()
     print 'Project Summary json files generated...'
 
+# This is the function that collects and creates projectsFull
+# *******************************************
+def collectProjects():
+    projectsFullid = []
+    projectsDup = []
+    for year,proj in projectsAnnual.iteritems():
+        if year == tmpYears[0]:
+            for p in proj:
+                projectsFull.append(p)
+                if p['project_id'] not in projectsFullid:
+                    # create array to use to check if project is listed in current year
+                    projectsFullid.append(p['project_id'])
+        else:
+            for p in proj:
+                projectsDup.append(p)                
+    for d in projectsDup:
+        if d['project_id'] not in projectsFullid:
+            projectsFull.append(d)
+
+# This is the function that collects and creates outputsFull
+# *******************************************
+def collectOutputs():
+    outputsFullid = []
+    outputsDup = []
+    for year,out in outputsAnnual.iteritems():
+        if year == tmpYears[0]:
+            for o in out:
+                outputsFull.append(o)
+                if o['output_id'] not in outputsFullid:
+                    # create array to use to check if project is listed in current year
+                    outputsFullid.append(o['output_id'])
+        else:
+            for o in out:
+                outputsDup.append(o)
+
+    for d in outputsDup: 
+        if d['output_id'] not in outputsFullid:
+            outputsFull.append(d)
+
+# This is the function that joins master outputs with master projects list
+# ***********************************************************************
+opUnits = [] # defined outside of function to declare globally
+def joinOutputs():
+    for row in projectsFull:
+        if row['operating_unit_id'] not in opUnits:
+            opUnits.append(row['operating_unit_id'])
+        row['outputs'] = []
+        row['budget'] = []
+        row['expenditure'] = []
+        row['subnational'] = []
+        row['fiscal_year'] = []
+        budget = []
+        expen = []
+        for o in outputsFull:
+            if row['project_id'] == o['award_id']:
+                row['outputs'].append(o)
+                for b in o['budget']:
+                    if b is not None:
+                        budget.append(b)
+                for e in o['expenditure']:
+                    if e is not None:
+                        expen.append(e)
+                for y in o['fiscal_year']:
+                    if y not in row['fiscal_year']:
+                        # Append to output array
+                        row['fiscal_year'].append(y)
+        row['budget'].append(sum(budget))
+        row['expenditure'].append(sum(expen))
+        for l in locationsFull:
+            if row['project_id'] == l['awardID']:
+                row['subnational'].append(l)        
+        row['region_id'] = 'global'
+        for r in units_sort:
+            if row['iati_op_id'] == r['iati_operating_unit'] or row['iati_op_id'] == r['operating_unit']:
+                row['region_id'] = r['bureau']
+
 # 1. Scipt starts here
 # *****************
 # Specify XML project file location
-projects_file = 'download/undp_export/atlas_projects.xml'
-loopData(projects_file,'document-link')
+os.chdir("download/undp_export/iati-xml-annual/")
+for fn in xmlFiles:
+    fileYear = fn[-8:-4]
+    loopData(fn,'document-link',int(fileYear))
+os.chdir("../../../")
 
-# 2. Joing outputs to projects
-opUnits = []
-for row in projectsFull:
-    if row['operating_unit_id'] not in opUnits:
-        opUnits.append(row['operating_unit_id'])
-    row['outputs'] = []
-    row['budget'] = []
-    row['expenditure'] = []
-    row['subnational'] = []
-    row['fiscal_year'] = []
-    budget = []
-    expen = []
-    for o in outputsFull:
-        if row['project_id'] == o['award_id']:
-            row['outputs'].append(o)
-            for b in o['budget']:
-                if b is not None:
-                    budget.append(b)
-            for e in o['expenditure']:
-                if e is not None:
-                    expen.append(e)
-            for y in o['fiscal_year']:
-                if y not in row['fiscal_year']:
-                    # Append to output array
-                    row['fiscal_year'].append(y)
-    row['budget'].append(sum(budget))
-    row['expenditure'].append(sum(expen))
-    for l in locationsFull:
-        if row['project_id'] == l['awardID']:
-            row['subnational'].append(l)
-    # join region information
-    row['region_id'] = 'global'
-    for r in units_sort:
-        if row['iati_op_id'] == r['iati_operating_unit'] or row['iati_op_id'] == r['operating_unit']:
-            row['region_id'] = r['bureau']
+# 2. Assemble a projectsFull array 
+collectProjects()
 
-# 3. Run summary file function, on already joined project and output files
+# 3. Assemble a outputsFull array 
+collectOutputs()
+
+# 4. Joing outputs to projects
+joinOutputs()
+
+# 5. Run summary file function, on already joined project and output files
 # ***********************
 createSummary()
 
-# 4. Generate JSONs
+# 6. Generate JSONs
 # ****************
 
 # Generate JSONs for each project
@@ -665,6 +781,12 @@ print '%d operating unit files generated...' % file_count
 
 # Process CRS Index
 # *****************
+
+# (When we switch to sectors) add colors for each sector
+# markerColors = ['3966EB','D54A45','2C3B2C','62752E','1B2706','440BAF','774B19','1464F8','06B8BD','7D9959','0AD057','FCF481','D954E5','CFB887','5F4F8A']
+# for idx, e in enumerate(crs_index):
+#    crs_index[idx]['color'] = markerColors[idx]
+
 print "CRS Index Process Count: %d" % len(crs_index)
 writeout = json.dumps(crs_index, sort_keys=True, separators=(',',':'))
 f_out = open('../api/crs-index.json', 'wb')
@@ -673,6 +795,10 @@ f_out.close()
 
 # Process Donor Index
 # *****************
+for d in donor_index:
+    if d['name'] == None:
+        print "this is null"
+        d['name'] = 'Others'
 print "Donor Index Process Count: %d" % len(donor_index)
 writeout = json.dumps(donor_index, sort_keys=True, separators=(',',':'))
 f_out = open('../api/donor-index.json', 'wb')
@@ -690,6 +816,7 @@ f_out.close()
 # Make year index 
 # ***************
 yearJSvalue = "var FISCALYEARS ="
+fiscalYears.sort(reverse=True)
 writeout = "%s %s" % (yearJSvalue, fiscalYears) 
 f_out = open('../api/year-index.js', 'wb')
 f_out.writelines(writeout)
@@ -778,7 +905,18 @@ f_out.close()
 # ************************
 row_count = 0
 index = []
-for focus in focusAreas:
+# Focus area colors: Green,  Red,  Yellow,   Blue
+markerColors = ['6ab139','ff5640','c8c605','049fd9']
+
+for idx, focus in enumerate(focusAreas):
+    if focus['name'] == 'Environment & sustainable development':
+        focus['color'] = markerColors[0]
+    elif focus ['name'] == 'Crisis prevention & recovery':
+        focus['color'] = markerColors[1]
+    elif focus ['name'] == 'Poverty reduction & MDG achievement':
+        focus['color'] = markerColors[2]
+    elif focus ['name'] == 'Democratic governance':
+        focus['color'] = markerColors[3]
     row_count = row_count + 1
     index.append(focus)
 
@@ -889,7 +1027,10 @@ f_out.close()
 # ****************************
 currentYear = fiscalYears[0]
 opIndex = []
-opIndexHeader =  ['id','name','project_count','funding_sources_count','budget_sum','expenditure_sum','lat','lon','iso_num']
+opIndexHeader =  [
+        'id','name','project_count','funding_sources_count',
+        'budget_sum','expenditure_sum','lat','lon','iso_num'
+        ]
 for unit in opUnits:
     opTemp = {}
     donors = []
@@ -911,21 +1052,24 @@ for unit in opUnits:
                     opTemp['iso_num'] = numDecode
     projectCount = 0
     for row in projectsFull:
-        if row['operating_unit_id'] == unit:
-            opTemp['name'] = row['operating_unit']
-            projectCount = projectCount + 1
-            for o in row['outputs']:
-                for d in o['donor_id']:
-                    if d not in donors:
-                        donors.append(d)
-                for idx, y in enumerate(o['fiscal_year']):
-                    if y == currentYear:
-                        b = o['budget'][idx]
-                        e = o['expenditure'][idx]
-                        if b is not None:
-                            budgetT.append(b)
-                        if e is not None:
-                            expendT.append(e)
+        if row['fiscal_year'][0] == currentYear:
+            if row['operating_unit_id'] == unit:
+                opTemp['name'] = row['operating_unit']
+                opTemp['email'] = row['operating_unit_email']
+                opTemp['web'] = row['operating_unit_website']
+                projectCount = projectCount + 1
+                for o in row['outputs']:
+                    for d in o['donor_id']:
+                        if d not in donors and d != "":
+                            donors.append(d)
+                    for idx, y in enumerate(o['fiscal_year']):
+                        if y == currentYear:
+                            b = o['budget'][idx]
+                            e = o['expenditure'][idx]
+                            if b is not None:
+                                budgetT.append(b)
+                            if e is not None:
+                                expendT.append(e)
     opTemp['funding_sources_count'] = len(donors)
     opTemp['budget_sum'] = sum(budgetT)
     opTemp['expenditure_sum'] = sum(expendT)

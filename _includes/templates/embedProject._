@@ -1,0 +1,5 @@
+<tr id="project-<%= model.get('id') %>">
+    <td><a target='_blank' href="<%= BASE_URL %>#project/<%= model.get('id') %>"><%= model.get('name').toLowerCase().toTitleCase() %></a></td>
+    <td><%= model.get('budget') %></td>
+    <td><%= model.get('expenditure') %></td>
+</tr>

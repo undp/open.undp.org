@@ -9,6 +9,7 @@ views.TopDonors = Backbone.View.extend({
             cat = that.collection.type,
             chartModels = that.collection.models.slice(0,20),
             max = chartModels[0].get(cat);
+
         _(chartModels).each(function(model) {
             
             if (model.get(cat) != '' && model.get(cat)!=0) {
