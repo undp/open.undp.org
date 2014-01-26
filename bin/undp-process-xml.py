@@ -1039,7 +1039,7 @@ for unit in opUnits:
     expendT = []
     for ctry in country_sort:
         if ctry['iso3'] == unit:
-            #opTemp['name'] = ctry['name']
+            opTemp['name'] = ctry['name']
             if ctry['lat'] != "":
                 opTemp['lat'] = float(ctry['lat'])
                 opTemp['lon'] = float(ctry['lon'])
@@ -1061,7 +1061,7 @@ for unit in opUnits:
                 projectCount = projectCount + 1
                 for o in row['outputs']:
                     for d in o['donor_id']:
-                        if d not in donors:
+                        if d not in donors and d != "":
                             donors.append(d)
                     for idx, y in enumerate(o['fiscal_year']):
                         if y == currentYear:
@@ -1071,10 +1071,6 @@ for unit in opUnits:
                                 budgetT.append(b)
                             if e is not None:
                                 expendT.append(e)
-            else:
-                opTemp['name'] = ""
-                opTemp['email'] = None
-                opTemp['web'] = None
 
     opTemp['funding_sources_count'] = len(donors)
     opTemp['budget_sum'] = sum(budgetT)
