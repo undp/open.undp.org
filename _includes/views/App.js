@@ -254,7 +254,7 @@ views.App = Backbone.View.extend({
 
     updateYear: function(year) {
         $('#total-budget').next('span').html(year + ' Budget');
-        $('#total-expenditure').next('span').html(year + ' Expenditure');
+        $('#total-expenditure').next('span').html(year + ' Expense');
     },
 
     mapFilter: function(e){
