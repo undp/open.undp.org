@@ -131,6 +131,7 @@ for year,donorYears in groupby(donor_projects_sort, lambda x: x['fiscal_year']):
         donorList.append(donorCty)
         donorList.append(donorBudget)
         donorList.append(donorExpend)
+        
         donorProject.append(donorList)
 
     donorProjects = []
@@ -1038,7 +1039,7 @@ for unit in opUnits:
     expendT = []
     for ctry in country_sort:
         if ctry['iso3'] == unit:
-            #opTemp['name'] = ctry['name']
+            opTemp['name'] = ctry['name']
             if ctry['lat'] != "":
                 opTemp['lat'] = float(ctry['lat'])
                 opTemp['lon'] = float(ctry['lon'])
@@ -1052,7 +1053,7 @@ for unit in opUnits:
                     opTemp['iso_num'] = numDecode
     projectCount = 0
     for row in projectsFull:
-        if row['fiscal_year'][0] == currentYear:
+        if currentYear in row['fiscal_year']:
             if row['operating_unit_id'] == unit:
                 opTemp['name'] = row['operating_unit']
                 opTemp['email'] = row['operating_unit_email']
@@ -1070,6 +1071,7 @@ for unit in opUnits:
                                 budgetT.append(b)
                             if e is not None:
                                 expendT.append(e)
+
     opTemp['funding_sources_count'] = len(donors)
     opTemp['budget_sum'] = sum(budgetT)
     opTemp['expenditure_sum'] = sum(expendT)
