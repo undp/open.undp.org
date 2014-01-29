@@ -339,10 +339,11 @@ views.ProjectMap = Backbone.View.extend({
 
             $('#tweet-button').append(
                 '<a href="https://twitter.com/share" class="twitter-share-button" ' +
+                'data-count="none"' +
                 'data-url='      + tweetButton["data-url"]       + ' ' +
                 'data-hashtags=' + tweetButton["data-hashtags"]  + ' ' +
                 'data-text='     + tweetButton["data-text"]      + ' ' +
-                'data-counturl=' + tweetButton["data-counturl"]  + ' ' +
+                //'data-counturl=' + tweetButton["data-counturl"]  + ' ' +
                 'data-via='      + ((tweetButton["data-via"].length) ? tweetButton["data-via"] : "OpenUNDP") + ' ' +
                 '></a>' +
                 followButton +
