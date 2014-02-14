@@ -371,7 +371,11 @@ views.ProjectMap = Backbone.View.extend({
         tagCollection.push(this.model.get('project_id'));
         _.each(this.model.get('outputs'),function(output){
             tagCollection.push(output["output_id"]);
-        })
+        });
+        _.each(tagCollection, function(tag){
+            var noZero = parseInt(tag);
+            tagCollection.push(noZero);
+        });
 
         search = tagCollection.join(',');
 
