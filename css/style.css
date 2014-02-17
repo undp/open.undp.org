@@ -436,11 +436,6 @@ input[readonly] {
   -o-transition-duration:.5s;
   transition-duration:.5s;
   }
-#embed #profilemap,
-#embed #homemap {
-  height:320px;
-  float:left;
-  }
 #profilemap,
 .country-profile {
   width:98%;
@@ -1896,6 +1891,11 @@ form {
 #embed .chart:last-child {
   margin:25px 0 0;
   }
+#embed #profilemap,
+#embed #homemap {
+  float:left;
+  height:320px;
+  }
 #embed .stats .total {
   font-weight:normal;
   font-size:13px;
@@ -1906,9 +1906,6 @@ form {
 #embed .stats td {
   border-bottom:1px solid #ddd;
   }
-#embed .chart {
-  margin
-}
 #embed #chart-hdi {
   position:static;
   display:block;
