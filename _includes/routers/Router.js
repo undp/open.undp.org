@@ -27,7 +27,6 @@ routers.App = Backbone.Router.extend({
 
     fiscalyear: function (year, route, embed) {
         var that = this;
-        
         if (!$('#y' + year).length) {
             if (location.hash.split('-')[0] !='#project'){
                 loadjsFile('api/project_summary_' + year + '.js', year, function() {
@@ -43,10 +42,10 @@ routers.App = Backbone.Router.extend({
     },
 
     browser: function (year, route, embed) {
+
         var that = this,
             unit = false,
             donor = false;
-
         // Set up menu
         $('#app .view, #mainnav .profile').hide();
         $('#profile .summary').addClass('off');
@@ -101,123 +100,116 @@ routers.App = Backbone.Router.extend({
             };
         });
 
-        if (_.isEqual(this.app.filters, filters) && app.fiscalYear === year) {
-            $('html, body').scrollTop(0);
-        } else {
-            // slicing the selected facets and getting the json items
-            var filter = function (model) {
-                if (!filters.length) return true;
-                return _(filters).reduce(function (memo, filter) {
-                    if (filter.collection === 'region') {
-                        return memo && model.get(filter.collection) == filter.id;
-                    } else {
-                        return memo && (model.get(filter.collection) && model.get(filter.collection).indexOf(filter.id) >= 0);
-                    }
-                }, true);
-            };
-
-            that.app.filters = filters;
-
-            var loadFilters = function() {
-                var counter = 0;
-                that.app.views = {};
-                // Load filters
-                _(facets).each(function (facet) {
-
-                    var collection = new models.Filters();
-
-                    $('#filter-items').find('#'+facet.id).remove();
-                    $('#filter-items').append('<div id="' + facet.id + '" class="topics"></div>');
-
-                    _(facet).each(function (v, k) {
-                        collection[k] = v;
-                    });
-                   
-                    collection.fetch({
-                        success: function (data) {
-                            that.app.views[facet.id] = new views.Filters({
-                                el: '#' + facet.id,
-                                collection: collection
-                            });
-
-                            _.each(filters, function (obj) {
-                                if (obj.collection === facet.id) {
-                                    that.app.views[facet.id].active = true;
-                                }
-                            });
-                            collection.watch();
-
-                            counter++;
-                            if (counter === facets.length) updateDescription();
-
-                        }
-                    });
-                });
-                // Create summary map view
-                if (!embed){
-                    that.projects.map = new views.Map({
-                        el: '#homemap',
-                        collection: that.projects
-                    });
-                    that.projects.widget = new views.Widget({
-                        context: 'projects'
-                    });
+        var filter = function (model) {
+            if (!filters.length) return true;
+            return _(filters).reduce(function (memo, filter) {
+                if (filter.collection === 'region') {
+                    return memo && model.get(filter.collection) == filter.id;
                 } else {
-                    that.projects.map = new views.Map({
-                        el: '#homemap',
-                        collection: that.projects,
-                        embed: embed
-                    });
+                    return memo && (model.get(filter.collection) && model.get(filter.collection).indexOf(filter.id) >= 0);
                 }
+            }, true);
+        };
 
-            };
+        that.app.filters = filters;
 
-            // Load projects
-            if (!that.allProjects || app.fiscalYear != year) {
-                if (app.fiscalYear && app.fiscalYear != year){app.projects.map.map.remove();}
-                app.fiscalYear = year;
-                that.allProjects = new models.Projects(SUMMARY);
+        var loadFilters = function() {
+            var counter = 0;
+            that.app.views = {};
+            // Load filters
+            _(facets).each(function (facet) {
+                var collection = new models.Filters();
 
-                that.projects = new models.Projects(that.allProjects.filter(filter));
-                that.projects.view = new views.Projects({ collection: that.projects });
-                that.projects.cb = _(loadFilters).bind(that);
+                $('#filter-items').find('#'+facet.id).remove();
+                $('#filter-items').append('<div id="' + facet.id + '" class="topics"></div>');
 
-                that.projects.watch();
-                
-                that.app.updateYear(year);
+                _(facet).each(function (v, k) {
+                    collection[k] = v;
+                });
+               
+                collection.fetch({
+                    success: function (data) {
+                        that.app.views[facet.id] = new views.Filters({
+                            el: '#' + facet.id,
+                            collection: collection
+                        });
 
+                        _.each(filters, function (obj) {
+                            if (obj.collection === facet.id) {
+                                that.app.views[facet.id].active = true;
+                            }
+                        });
+                        collection.watch();
+
+                        counter++;
+                        if (counter === facets.length) updateDescription();
+
+                    }
+                });
+            });
+            // Create summary map view
+            if (!embed){
+                that.projects.map = new views.Map({
+                    el: '#homemap',
+                    collection: that.projects
+                });
+                that.projects.widget = new views.Widget({
+                    context: 'projects'
+                });
             } else {
-                // if projects are already present
-                that.projects.cb = updateDescription;
-                that.projects.reset(this.allProjects.filter(filter));
+                that.projects.map = new views.Map({
+                    el: '#homemap',
+                    collection: that.projects,
+                    embed: embed
+                });
             }
+
+        };
+
+        // Load projects
+        if (!that.allProjects || app.fiscalYear != year) {
+            if (app.fiscalYear && app.fiscalYear != year){app.projects.map.map.remove();}
+            app.fiscalYear = year;
+            that.allProjects = new models.Projects(SUMMARY);
+
+            that.projects = new models.Projects(that.allProjects.filter(filter));
+            that.projects.view = new views.Projects({ collection: that.projects });
+            that.projects.cb = _(loadFilters).bind(that);
+
+            that.projects.watch();
             
-            // change summary look when on individual country
+            that.app.updateYear(year);
 
-            $('.map-filter').removeClass('active') // reset the subfilter look
-            $('#map-filters').find('#loc-all').addClass('active');
+        } else {
+            // if projects are already present
+            that.projects.cb = updateDescription;
+            that.projects.reset(this.allProjects.filter(filter));
+        }
+        
+        // change summary look when on individual country
 
-            if(unit){
-                $('#map-filters').removeClass('disabled');//shows type sub-filter
-                $('.map-btn').removeClass('active');
-                $('ul.layers li').addClass('no-hover');
-                $('ul.layers li.hdi .graph').addClass('active');
-            } else {
-                $('#map-filters').addClass('disabled'); //hides type sub-filter
-                $('ul.layers li').removeClass('no-hover');
-                $('ul.layers li.hdi .graph').removeClass('active');
-            }
+        $('.map-filter').removeClass('active') // reset the subfilter look
+        $('#map-filters').find('#loc-all').addClass('active');
 
-            // Check for funding countries to show donor visualization
-            if (donor){
-                app.donor = new views.Donors ();
-                $('#donor-view').show();
-            } else {
-                app.donor = false;
-                $('#donor-view').hide();
-            }
+        if(unit){
+            $('#map-filters').removeClass('disabled');//shows type sub-filter
+            $('.map-btn').removeClass('active');
+            $('ul.layers li').addClass('no-hover');
+            $('ul.layers li.hdi .graph').addClass('active');
+        } else {
+            $('#map-filters').addClass('disabled'); //hides type sub-filter
+            $('ul.layers li').removeClass('no-hover');
+            $('ul.layers li.hdi .graph').removeClass('active');
         }
 
+        // Check for funding countries to show donor visualization
+        if (donor){
+            app.donor = new views.Donors ();
+            $('#donor-view').show();
+        } else {
+            app.donor = false;
+            $('#donor-view').hide();
+        }
 
         // Save default description
         app.defaultDescription = app.defaultDescription || $('#description p.intro').html();
