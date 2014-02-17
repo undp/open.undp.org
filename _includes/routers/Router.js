@@ -432,6 +432,7 @@ routers.App = Backbone.Router.extend({
         
         $('#donor-nav li a').removeClass('active');
         $('#donor-nav li a[href="#top-donors/' + route + '"]').addClass('active');
+        $('#unit-contact').hide();
 
         if (!that.donorsGross) {
             that.donorsGross = new models.TopDonors({type: route});
