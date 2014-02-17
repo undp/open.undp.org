@@ -44,7 +44,7 @@ views.ProjectMap = Backbone.View.extend({
             minZoom: 1,
             maxZoom: 10,
             scrollWheelZoom: wheelZoom
-            });
+        });
 
         
         $.getJSON('api/operating-unit-index.json', function(data) {
@@ -156,15 +156,14 @@ views.ProjectMap = Backbone.View.extend({
                                         };
                                     })
                                     var clusterBrief = L.popup({
-                                            closeButton:false,
+                                            closeButton:true,
                                             offset: new L.Point(0,-20)
                                         }).setContent(feature.properties.description);
-                                    layer.on('mouseover',function(){
+                                    layer.on('click',function(){
                                         clusterBrief.setLatLng(this.getLatLng());
                                         view.map.openPopup(clusterBrief);
                                         layer.setIcon(L.mapbox.marker.icon(newOptions));
                                     }).on('mouseout',function(){
-                                        view.map.closePopup(clusterBrief);
                                         layer.setIcon(L.mapbox.marker.icon(oldOptions));
                                     })
                                 }
