@@ -44,7 +44,7 @@ views.ProjectMap = Backbone.View.extend({
             minZoom: 1,
             maxZoom: 10,
             scrollWheelZoom: wheelZoom
-            });
+        });
 
         
         $.getJSON('api/operating-unit-index.json', function(data) {
@@ -156,15 +156,14 @@ views.ProjectMap = Backbone.View.extend({
                                         };
                                     })
                                     var clusterBrief = L.popup({
-                                            closeButton:false,
+                                            closeButton:true,
                                             offset: new L.Point(0,-20)
                                         }).setContent(feature.properties.description);
-                                    layer.on('mouseover',function(){
+                                    layer.on('click',function(){
                                         clusterBrief.setLatLng(this.getLatLng());
                                         view.map.openPopup(clusterBrief);
                                         layer.setIcon(L.mapbox.marker.icon(newOptions));
                                     }).on('mouseout',function(){
-                                        view.map.closePopup(clusterBrief);
                                         layer.setIcon(L.mapbox.marker.icon(oldOptions));
                                     })
                                 }
@@ -362,10 +361,22 @@ views.ProjectMap = Backbone.View.extend({
     flickr: function(account, photos) {
         var apiBase = 'http://api.flickr.com/services/rest/?format=json&jsoncallback=?&method=',
             apiKey = '1da8476bfea197f692c2334997c10c87', //from UNDP's main account (unitednationsdevelopmentprogramme)
-            search = this.model.get('project_id'),
             attempt = 0,
             i = 0,
-            $el = $('#flickr');
+            $el = $('#flickr'),
+            tagCollection = [],
+            search;
+
+        tagCollection.push(this.model.get('project_id'));
+        _.each(this.model.get('outputs'),function(output){
+            tagCollection.push(output["output_id"]);
+        });
+        _.each(tagCollection, function(tag){
+            var noZero = parseInt(tag);
+            tagCollection.push(noZero);
+        });
+
+        search = tagCollection.join(',');
 
         if (!account.length && photos.length) { // show photos from the document
             $el.show();

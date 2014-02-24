@@ -383,7 +383,7 @@ input[readonly] {
           box-sizing:border-box;
   }
 .map.border {
-  border:1px #solid #ddd;
+  border:1px solid #ddd;
   }
 .map .inner-shadow,
 .map .inner-grey {
@@ -435,10 +435,6 @@ input[readonly] {
   -webkit-transition-duration:.5s;
   -o-transition-duration:.5s;
   transition-duration:.5s;
-  }
-#embed #profilemap,
-#embed #homemap {
-  height:320px;
   }
 #profilemap,
 .country-profile {
@@ -925,6 +921,10 @@ h3#focus span {
   padding: 30px;
   border: 1px solid #ddd;
   background:#f2f2f2;
+}
+#donor-graphs small {
+  display:block;
+  margin-top:20px;
 }
 .modality {
   background: none;
@@ -1819,10 +1819,13 @@ form {
   margin-left: 28px;
   margin-bottom: 10px;
 }
+.leaflet-container a.leaflet-popup-close-button {
+  top:-5px;
+  right:-5px;
+}
 /*-----------------------------------
   Widget Embed
 -------------------------------------*/
-
 #embed .option {
   margin:25px 0;
   }
@@ -1830,6 +1833,11 @@ form {
 #embed #profilemap,
 #embed .chart:last-child {
   margin:25px 0 0;
+  }
+#embed #profilemap,
+#embed #homemap {
+  float:left;
+  height:320px;
   }
 #embed .stats .total {
   font-weight:normal;
@@ -1841,9 +1849,6 @@ form {
 #embed .stats td {
   border-bottom:1px solid #ddd;
   }
-#embed .chart {
-  margin
-}
 #embed #chart-hdi {
   position:static;
   display:block;
