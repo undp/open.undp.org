@@ -551,14 +551,20 @@ def createSummary():
             'budget','expenditure','crs','focus_area','donors','donor_types',
             'donor_countries','donor_budget','donor_expend'
             ]
+    projectCount = {}
+    projectBudget = {}
+    projectExpend = {}
 
     for year in fiscalYears:
+        projectCount[year] = 0
+        budgetSum = []
+        expendSum = []
         projectSummary = []
         yearSummary = {'year':"",'summary':""}
         for row in projectsFull:
             for y in row['fiscal_year']:
                 if y == year:
-                    row_count = row_count + 1
+                    projectCount[year] += 1
                     summaryList = [year]
                     summaryList.append(row['project_id'])
                     projectFY = []
@@ -600,7 +606,9 @@ def createSummary():
                                 if out['focus_area'] not in faTemp:
                                     faTemp.append(out['focus_area'])
                     summaryList.append(sum(budgetT))
+                    budgetSum.append(sum(budgetT))
                     summaryList.append(sum(expendT))
+                    expendSum.append(sum(expendT))
                     summaryList.append(crsTemp)
                     summaryList.append(faTemp)
                     summaryList.append(dTemp)
@@ -609,12 +617,15 @@ def createSummary():
                     summaryList.append(dBudget)
                     summaryList.append(dExpend)
                     projectSummary.append(dict(zip(projectSumHeader,summaryList))) # this joins the project summary information
-
+        projectBudget[year] = sum(budgetSum)
+        projectExpend[year] = sum(expendSum)
         yearSummary['year'] = year
         yearSummary['summary'] = projectSummary
         yearList.append(yearSummary)
 
-    print "Project Summary Process Count: %d" % row_count
+    print "Project Summary Process Count by Budget Year: %s" % projectCount
+    print "Project Summary Process Total Budget by Year: %s" % projectBudget
+    print "Project Summary Process Total Expend by Year: %s" % projectExpend
 
     for y in yearList:
         jsvalue = "var SUMMARY = "
@@ -633,18 +644,22 @@ def createSummary():
 def collectProjects():
     projectsFullid = []
     projectsDup = {}
+    projectCount = {}
     for y in tmpYears:
         projectsDup[y] = []
+        projectCount[y] = 0
 
     for year,proj in projectsAnnual.iteritems():
         for p in proj:
             if year == tmpYears[0]:
-                projectsFull.append(p)
                 if p['project_id'] not in projectsFullid:
+                    projectsFull.append(p)
                     # create array to use to check if project is listed in current year
                     projectsFullid.append(p['project_id'])
+                    projectCount[year] += 1
             else:
                 projectsDup[year].append(p)
+                projectCount[year] += 1
 
     for y in tmpYears[1:]:
         for d in projectsDup[y]:
@@ -652,29 +667,37 @@ def collectProjects():
                 projectsFull.append(d)
                 projectsFullid.append(d['project_id'])
 
+    print "Total Project Count by file year: %s " % projectCount
+
 # This is the function that collects and creates outputsFull
 # *******************************************
 def collectOutputs():
     outputsFullid = []
     outputsDup = {}
+    outputCount = {}
     for y in tmpYears:
         outputsDup[y] = []
+        outputCount[y] = 0
 
     for year,out in outputsAnnual.iteritems():
         for o in out:
             if year == tmpYears[0]:
-                outputsFull.append(o)
                 if o['output_id'] not in outputsFullid:
+                    outputsFull.append(o)
                     # create array to use to check if project is listed in current year
                     outputsFullid.append(o['output_id'])
+                    outputCount[year] += 1
             else:
                 outputsDup[year].append(o)
+                outputCount[year] += 1
 
     for y in tmpYears[1:]:
         for d in outputsDup[y]:
             if d['output_id'] not in outputsFullid:
                 outputsFull.append(d)
                 outputsFullid.append(d['output_id'])
+
+    print "Total Output Count by file year: %s " % outputCount
 
 # This is the function that joins master outputs with master projects list
 # ***********************************************************************
