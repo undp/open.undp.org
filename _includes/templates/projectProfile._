@@ -173,21 +173,6 @@
 
 
   <!--/ #top-stats -->
-  <% if (model.get('outputs')) { %>
-  <h2 class='heading-title'>
-      <% if (model.get('outputs').length === 1) { %>
-      <span>1</span> Output<% } else { %>
-      <span><%= model.get('outputs').length %></span> Outputs
-      <% } %>
-    </h2>
-    <div id='outputs'></div>
-    <div class='load'>
-      <a href='#' class='button'>Load More</a>
-    </div>
-  <% } %>
-</div>
-<!--/ #summary -->
-<div class='col col-790 flickr-wrapper'>
   <div id='flickr' class='row-fluid'>
     <h2 class='heading-title'>Project Photos</h2>
     <div class='spin'></div>
@@ -204,8 +189,22 @@
     <!-- Captions -->
     <div class='meta'></div>
   </div>
+  <!--/ #flickr -->
+
+  <% if (model.get('outputs')) { %>
+  <h2 class='heading-title'>
+      <% if (model.get('outputs').length === 1) { %>
+      <span>1</span> Output<% } else { %>
+      <span><%= model.get('outputs').length %></span> Outputs
+      <% } %>
+    </h2>
+    <div id='outputs'></div>
+    <div class='load'>
+      <a href='#' class='button'>Load More</a>
+    </div>
+  <% } %>
 </div>
-<!--/ #flickr -->
+<!--/ #summary -->
 
 {% for data in site.categories.aboutdata %}
 <div class='modal hide fade' id='about-data'>
