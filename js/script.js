@@ -177,7 +177,7 @@ $(function() {
         .replace(/geneva/g, 'Geneva')
         .replace(/copenhagen/g, 'Copenhagen')
         .replace(/tokyo/g, 'Tokyo')
-        .replace(/liason/g, 'Liason')
+        .replace(/liaison/g, 'Liaison')
         .replace(/Mdtfo/g, 'MDTFO')
         .replace(/Aa for Jp/g, 'AA for JP')
         .replace(/Gtz\b/g, 'GTZ')
