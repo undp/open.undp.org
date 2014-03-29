@@ -186,7 +186,7 @@ $(function() {
         .replace(/Hiv\b/g, 'HIV')
         .replace(/Bra\b/g, 'BRA')
         .replace(/BCPR/g, 'Bureau for Crisis Prevention and Recovery')
-  	.replace(/Belarus"," Republic of/g, 'Belarus')
+  	.replace(/"Belarus, Republic of"/g, 'Belarus')
   	.replace(/Bolivia/g, 'Bolivia (Plurinational State of)')
   	.replace(/Bom ofc of Asst Administrator \b/g, 'Bureau of Management')
   	.replace(/Bratislava Regional Center/g, 'Regional Centre in Bratislava')
