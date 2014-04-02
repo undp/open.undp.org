@@ -299,10 +299,15 @@ views.Filters = Backbone.View.extend({
                                     app.projects.map.collection.operating_unitExpenditure[model.get('id')] = donorExpenditure;
                                 }
                             }
-
+                            /* Akshay- before was M now so commenting out to show all figures ange getting rid of M.
                             var budget = accounting.formatMoney(
                                         ((donor || donor_ctry) ? donorBudget : model.get('budget')) / 1000000
                                     ) + 'M';
+                            */
+
+                            var budget = accounting.formatMoney(
+                                        ((donor || donor_ctry) ? donorBudget : model.get('budget'))
+                                    );
         
                             var budgetWidth = (donor || donor_ctry) ? (donorBudget) : (model.get('budget'));
                             var expenditureWidth = (donor || donor_ctry) ? (donorExpenditure) : (model.get('expenditure'));
