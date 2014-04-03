@@ -299,14 +299,14 @@ views.Filters = Backbone.View.extend({
                                     app.projects.map.collection.operating_unitExpenditure[model.get('id')] = donorExpenditure;
                                 }
                             }
-                            /* Akshay- before was M now so commenting out to show all figures ange getting rid of M.
+                            /* Akshay- before was M now so commenting out to show all figures ange getting rid of M.                        was
                             var budget = accounting.formatMoney(
                                         ((donor || donor_ctry) ? donorBudget : model.get('budget')) / 1000000
                                     ) + 'M';
                             */
 
                             var budget = accounting.formatMoney(
-                                        ((donor || donor_ctry) ? donorBudget : model.get('budget'))
+                                        ((donor || donor_ctry) ? donorBudget : model.get('budget')),"$", 0, ",", "."
                                     );
         
                             var budgetWidth = (donor || donor_ctry) ? (donorBudget) : (model.get('budget'));
@@ -315,15 +315,16 @@ views.Filters = Backbone.View.extend({
                             var caption = '<a href="' + pathTo + model.collection.id + '-' + model.get('id') +
                                 '">' + model.get('name').toLowerCase().toTitleCase() + '</a>';
                             var bar = '<div class="budgetdata" data-budget="' + budgetWidth + '"></div>' + '<div class="subdata" data-expenditure="' + expenditureWidth + '"></div>';
-
-                            rows.push({
-                                sort: -1 * ((donor || donor_ctry) ? donorBudget : model.get('budget')),
-                                content: '<tr>' +
-                                    '    <td>' + caption + '</td>' +
-                                    '    <td class="right">' + budget + '</td>' +
-                                    '    <td class="data">' + bar + '</td>' +
-                                    '</tr>'
-                            });
+                            if (budget!='$0'){
+                                rows.push({
+                                    sort: -1 * ((donor || donor_ctry) ? donorBudget : model.get('budget')),
+                                    content: '<tr>' +
+                                        '    <td>' + caption + '</td>' +
+                                        '    <td class="right">' + budget + '</td>' +
+                                        '    <td class="data">' + bar + '</td>' +
+                                        '</tr>'
+                                });
+                            }
 
                             if (status === processes) {
                                 callback();
@@ -355,3 +356,6 @@ views.Filters = Backbone.View.extend({
         }, 0);
     }
 });
+
+
+
