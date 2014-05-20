@@ -11,7 +11,7 @@ routers.App = Backbone.Router.extend({
         'about/*subnav': 'about',
         'top-donors/*cat': 'topDonors'
     },
-    
+
     redirect: function(route) {
         //if url lacks a year, default to most recent
         if (route) {
@@ -126,7 +126,7 @@ routers.App = Backbone.Router.extend({
                 _(facet).each(function (v, k) {
                     collection[k] = v;
                 });
-               
+
                 collection.fetch({
                     success: function (data) {
                         that.app.views[facet.id] = new views.Filters({
@@ -177,7 +177,7 @@ routers.App = Backbone.Router.extend({
             that.projects.cb = _(loadFilters).bind(that);
 
             that.projects.watch();
-            
+
             that.app.updateYear(year);
 
         } else {
@@ -185,7 +185,7 @@ routers.App = Backbone.Router.extend({
             that.projects.cb = updateDescription;
             that.projects.reset(this.allProjects.filter(filter));
         }
-        
+
         // change summary look when on individual country
 
         $('.map-filter').removeClass('active') // reset the subfilter look
@@ -219,7 +219,7 @@ routers.App = Backbone.Router.extend({
                 // Clear search values on refresh
 
                 $('#filters-search, #projects-search').val('');
-    
+
                 if (_(filters).find(function(f) {
                     return f.collection === 'focus_area';
                 })) {
@@ -322,7 +322,7 @@ routers.App = Backbone.Router.extend({
                 $('.map-btn[data-value="hdi"] .total-caption').html('HDI Global');
             }
         }
-        
+
     },
 
     project: function (id, output, embed) {
@@ -333,7 +333,7 @@ routers.App = Backbone.Router.extend({
             that.feedback();
 
             that.nav = new views.Nav();
-            
+
             window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
 
             // Set up menu
@@ -421,7 +421,7 @@ routers.App = Backbone.Router.extend({
 
         $('#top-donors').show();
         $('#mainnav li a[href="#top-donors/regular"]').parent().addClass('active');
-        
+
         $('#donor-nav li a').removeClass('active');
         $('#donor-nav li a[href="#top-donors/' + route + '"]').addClass('active');
         $('#unit-contact').hide();
@@ -429,10 +429,10 @@ routers.App = Backbone.Router.extend({
         if (!that.donorsGross) {
             that.donorsGross = new models.TopDonors({type: route});
             that.donorsGross.url = 'api/top-donor-gross-index.json';
-    
+
             that.donorsLocal = new models.TopDonors({type: 'amount'});
             that.donorsLocal.url = 'api/top-donor-local-index.json';
-            
+
             that.donorsGross.fetch({
                 success: function () {
                     that.topDonorsGross = new views.TopDonors({
@@ -449,11 +449,11 @@ routers.App = Backbone.Router.extend({
                     });
                 }
             });
-            
+
             window.setTimeout(function () {
                 $('html, body').scrollTop(0);
             }, 0);
-            
+
         } else {
             that.topDonorsGross.update(route);
         }
@@ -468,7 +468,7 @@ routers.App = Backbone.Router.extend({
                 alert('Please fill in the required fields before submitting.');
                 return false;
             }
-        
+
             // Set URL for feedback form
             $('#entry_3').val(window.location);
 

@@ -10,13 +10,13 @@ function ctyBounds(coords) {
         var polyline = L.polyline(coords[0]);
     }
     var bbox = polyline.getBounds();
-    
+
     return [[bbox.getSouthWest().lng, bbox.getSouthWest().lat],
             [bbox.getNorthEast().lng, bbox.getNorthEast().lat]];
 }
 
-$(function() {
-        models = {},
+$(document).ready(function() {
+    var models = {},
         views = {},
         routers = {},
         templates = _($('script[name]')).reduce(function(memo, el) {
@@ -81,28 +81,47 @@ $(function() {
     String.prototype.capitalize = function() {
         return this.charAt(0).toUpperCase() + this.slice(1);
     };
-    
+
     // Script loader
     function loadjsFile(filename, year, callback) {
+
         $('#fiscalData').empty();
         var fileref = document.createElement('script');
-        fileref.setAttribute('type', 'text/javascript');
-        fileref.setAttribute('id', 'y' + year);
-        fileref.setAttribute('src', filename);
-        
-        //calling a function after the js is loaded (IE)
-        var loadFunction = function() {  
-            if (this.readyState == 'complete' || this.readyState == 'loaded') {  
-                callback();
-            }  
-        };
-        fileref.onreadystatechange = loadFunction;  
-  
-        //calling a function after the js is loaded (Chrome/Firefox)  
-        fileref.onload = callback;
-        if(typeof(document.getElementById('fiscalData')) != 'undefined') {
-		  document.getElementById('fiscalData').appendChild(fileref);
-	    }
+
+        fileref.type = 'text/javascript';
+        // fileref.setAttribute('type', 'text/javascript');
+        fileref.id = 'y' + year;
+        // fileref.setAttribute('id', 'y' + year);
+        fileref.src = filename;
+        // fileref.setAttribute('src', filename);
+
+        // IE BUG FIX REPORT
+        // IE8 does not fire a .load() callback, but IE9 and above fires it twice
+        // Use jQuery.load for IE versions above 8, and onReadyStateChange for >= 8
+        if (IE_VERSION <= 8) {
+            fileref.onreadystatechange = function() {
+                var readyState = this.readyState;
+                console.log(readyState);
+                if (this.readyState === 'complete' || this.readyState === 'loaded') {
+                   callback();
+                }
+                else {
+                    return
+                }
+            };
+        }
+
+        else {
+            $(fileref).load(callback)
+        }
+
+        //fileref.onreadystatechange = loadFunction;
+        //calling a function after the js is loaded (Chrome/Firefox)
+        //fileref.onload = callback;
+
+        //if(typeof(document.getElementById('fiscalData')) != 'undefined') {
+        document.getElementById('fiscalData').appendChild(fileref);
+	//}
     }
 
     // Via https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/indexOf
@@ -199,7 +218,7 @@ $(function() {
 	.replace(/Lao Peoples Democratic Republ/g, 'Lao Peoples Democratic Republic')
 	.replace(/Latvia, Republic of/g, 'Latvia')
 	.replace(/Libya/g, 'Libyan Arab Jamahiriya')
-	.replace(/Democratic Republic of Republic of Congo/g, 'Democratic Republic of Congo')	
+	.replace(/Democratic Republic of Republic of Congo/g, 'Democratic Republic of Congo')
 	.replace(/Lithuania, Republic of/g, 'Lithuania')
 	.replace(/Macedonia, former Yugoslav Rep/g, 'The former Yugoslav Republic of Macedonia')
 	.replace(/Micronesia, Federated Statesof/g, 'Micronesia')
@@ -210,7 +229,7 @@ $(function() {
         .replace(/Vi\b/g, 'VI')
         .replace(/Vii\b/g, 'VII');
     };
-    
+
     //localize map tilejson
     var TJ = {
         bounds: [
@@ -239,7 +258,7 @@ $(function() {
         ],
         webpage: "http://tiles.mapbox.com/undp/map/map-6grwd0n3"
     };
-    
+
     // ie-banner close
     $('#banner-close').on('click',function(e){
         e.preventDefault();
@@ -247,8 +266,6 @@ $(function() {
     });
 
     // Start the application
-    $(function() {
-        app = new routers.App();
-        Backbone.history.start();
-    });
+    app = new routers.App();
+    Backbone.history.start();
 });
