@@ -98,10 +98,9 @@ $(document).ready(function() {
         // IE BUG FIX REPORT
         // IE8 does not fire a .load() callback, but IE9 and above fires it twice
         // Use jQuery.load for IE versions above 8, and onReadyStateChange for >= 8
-        if (IE_VERSION <= 8) {
+        if (IE_VERSION && IE_VERSION <= 8) {
             fileref.onreadystatechange = function() {
                 var readyState = this.readyState;
-                console.log(readyState);
                 if (this.readyState === 'complete' || this.readyState === 'loaded') {
                    callback();
                 }
