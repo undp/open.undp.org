@@ -298,10 +298,10 @@ input[readonly] {
   }
 
 /* areas color spans*/
-.democratic { border:2px solid #049fd9;color: #049fd9;}
-.crisis {     border:2px solid #ff5640;color: #ff5640;}
-.environment {border:2px solid #6ab139;color: #6ab139;}
-.poverty {    border:2px solid #9E9C0C;color: #9E9C0C;}
+.democratic { background: #049fd9;color: #fff;}
+.crisis {     background: #ff5640;color: #fff;}
+.environment {background: #6ab139;color: #fff;}
+.poverty {    background: #9E9C0C;color: #fff;}
 
 /*-----------------------------------
   Global Layout
@@ -773,23 +773,25 @@ h3#focus span {
   }
 
 .chart li.focus {
-  padding: 20px 0;
-  width: 395px;
-  float: left;
-  font-size: 15px;
-  font-weight:bold;
+      padding:10px 0;
   }
-  .chart li.focus span.pct {
-    display: block;
-    position: absolute;
-    margin-top: -15px;
-    padding: 12px 8px;
-    min-width:27px;
-    font-size:13px;
-    border-radius: 50%;
-    }
   .chart li.focus a {
-    padding-left:30px;
+      display:inline-block;
+      width:375px;
+      margin:0;
+      font-size:15px;
+  }
+  .chart li.focus .pct {
+      display: inline-block;
+      width: 200px;
+      margin: 0;
+      padding: 0;
+      border:none;
+      border-bottom:2px solid #ddd;
+  }
+  .chart li.focus .pct span{
+      display:inline-block;
+      padding:5px 10px;
     }
 .chart .chart-legend {
   float:right;
@@ -1485,7 +1487,6 @@ form {
   position: absolute;
   width: 16px;
   height: 16px;
-  border-radius: 50%;
 }
 .project h3,
 .project .span5 .row-fluid,

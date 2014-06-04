@@ -192,12 +192,15 @@ views.Filters = Backbone.View.extend({
                                 ((model.get('budget') || 0) / total * 100).toFixed(0);
 
                         $el.append(
-
                             '<li class="focus fa' + model.id + '">' +
-                            '  <span class="pct ' + focusIconClass + '"></span><a href="'+ pathTo + view.collection.id + '-' + model.id + '" class="focus-title">' + focusName + '</a>' +
-                            '</li>');
+                            '  <a href="'+ pathTo + view.collection.id + '-' + model.id + '" class="focus-title">' + focusName + '</a>' +
+                            '  <p class="pct"><span class="' + focusIconClass + '"></span></p>' +
+                            '</li>'
+                        );
 
-                        $('.fa' + (model.id) + ' .pct').text(value + '%');
+                        $('.fa' + (model.id) + ' .pct span')
+                            .css('width',value * 2) // the width of the percentage block corresponds to the value visually, times 2 to make it legible
+                            .text(value + '%');
                     });
 
                     $el.prepend('<h3 id="focus">Focus Areas <span>% of budget</span></h3>');
