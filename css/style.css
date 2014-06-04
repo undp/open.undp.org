@@ -1198,8 +1198,16 @@ td.wide {
   color: #666;
 }
 #documents {
-  margin-top:-10px;
-}
+  max-height: 130px;
+  overflow-y: scroll;
+  border: 1px solid #ddd;
+  }
+#documents .label {
+  margin-bottom:10px;
+  }
+#documents .span12 {
+  padding-left:10px;
+  }
 .project .projid {
   min-width: 45px;
   margin-top: 5px;
