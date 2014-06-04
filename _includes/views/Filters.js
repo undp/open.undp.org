@@ -200,10 +200,10 @@ views.Filters = Backbone.View.extend({
 
                         $('.fa' + (model.id) + ' .pct span')
                             .css('width',value * 2) // the width of the percentage block corresponds to the value visually, times 2 to make it legible
-                            .text(value + '%');
+                            .text(value === '0' ? value : value + '%');
                     });
 
-                    $el.prepend('<h3 id="focus">Focus Areas <span>% of budget</span></h3>');
+                    $el.prepend('<h3 id="focus">Themes <span>% of budget</span></h3>');
                 } else if (view.collection.id === 'operating_unit' || view.collection.id === 'donors' || view.collection.id === 'donor_countries') {
 
                     donor = (_(app.app.filters).find(function(filter) {
