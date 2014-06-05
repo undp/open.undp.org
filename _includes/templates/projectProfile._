@@ -151,7 +151,9 @@
       <% if (!_.isEmpty(documents)) { %>
       <div class='row-fluid documents'>
         <div class='span12'>
-          <div class='label'>Documents</div>
+          <div class='label'>
+            Total Documents: <%= documents.length %>
+          </div>
           <div id='documents' class='row-fluid'>
             <div class='span12'>
               <ul class='unstyled'>
