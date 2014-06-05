@@ -61,6 +61,7 @@ crsHeader = ['id','name']
 # For focus-areas.json
 focusAreasCheck = []
 focusAreas = [{'id':'5','name':'South-South'}]
+    # pre-filled focus areas with South-South
 
 # Read in South-South Projects
 # **************************
@@ -270,6 +271,7 @@ def outputsLoop(o, output_id, fileyear):
         if rltdProject in ss_list:
             outputFA = '5'
             outputFAdescr = 'South-South'
+            # if South-South, mark it, if not then grab the code
         else:
             outputFA = outputAll.get('code')
             outputFAdescr = outputAll.text
@@ -949,20 +951,8 @@ f_out.close()
 # ************************
 row_count = 0
 index = []
-# Focus area colors: Green,  Red,  Yellow,   Blue
-markerColors = ['6ab139','ff5640','c8c605','049fd9']
 
 for idx, focus in enumerate(focusAreas):
-    if focus['name'] == 'Environment & sustainable development':
-        focus['color'] = markerColors[0]
-    elif focus ['name'] == 'Crisis prevention & recovery':
-        focus['color'] = markerColors[1]
-    elif focus ['name'] == 'Poverty reduction & MDG achievement':
-        focus['color'] = markerColors[2]
-    elif focus ['name'] == 'Democratic governance':
-        focus['color'] = markerColors[3]
-    elif focus ['name'] == 'South-South':
-        focus['color'] = markerColors[3]
     row_count = row_count + 1
     index.append(focus)
 
