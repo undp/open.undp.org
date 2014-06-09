@@ -60,8 +60,7 @@ crsCheck = []
 crsHeader = ['id','name']
 # For focus-areas.json
 focusAreasCheck = []
-focusAreas = [{'id':'5','name':'South-South'}]
-    # pre-filled focus areas with South-South
+focusAreas = []
 
 # Read in South-South Projects
 # **************************
