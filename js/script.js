@@ -38,7 +38,7 @@ $(document).ready(function() {
             {
                 id: 'focus_area',
                 url: 'api/focus-area-index.json',
-                name: 'UNDP Focus Area'
+                name: 'Themes'
             },
             {
                 id: 'donor_countries',

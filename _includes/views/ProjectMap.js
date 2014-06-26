@@ -359,7 +359,7 @@ views.ProjectMap = Backbone.View.extend({
     },
 
     flickr: function(account, photos) {
-        var apiBase = 'http://api.flickr.com/services/rest/?format=json&jsoncallback=?&method=',
+        var apiBase = 'https://api.flickr.com/services/rest/?format=json&jsoncallback=?&method=',
             apiKey = '1da8476bfea197f692c2334997c10c87', //from UNDP's main account (unitednationsdevelopmentprogramme)
             attempt = 0,
             i = 0,

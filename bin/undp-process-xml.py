@@ -62,6 +62,13 @@ crsHeader = ['id','name']
 focusAreasCheck = []
 focusAreas = []
 
+# Read in South-South Projects
+# **************************
+ss_list = []
+ss_projects = csv.DictReader(open('download/undp_export/SSCprojects_IDlist.csv', 'rU'), delimiter = ',', quotechar = '"')
+for s in ss_projects:
+    ss_list.append(s['projectid'])
+
 # Process donors by Projects
 # **************************
 donor_projects = csv.DictReader(open('download/undp_export/report_donors.csv', 'rU'), delimiter = ',', quotechar = '"')
@@ -260,8 +267,13 @@ def outputsLoop(o, output_id, fileyear):
     try:
         focusTemp = {}
         outputAll = o.find("./sector[@vocabulary='RO']")
-        outputFA = outputAll.get('code')
-        outputFAdescr = outputAll.text
+        if rltdProject in ss_list:
+            outputFA = '5'
+            outputFAdescr = 'South-South'
+            # if South-South, mark it, if not then grab the code
+        else:
+            outputFA = outputAll.get('code')
+            outputFAdescr = outputAll.text
         # For focus-areas.json
         if outputFA not in focusAreasCheck:
             focusAreasCheck.append(outputFA)
@@ -938,8 +950,9 @@ f_out.close()
 # ************************
 row_count = 0
 index = []
+
 # Focus area colors: Green,  Red,  Yellow,   Blue
-markerColors = ['6ab139','ff5640','c8c605','049fd9']
+markerColors = ['6ab139','ff5640','c8c605','049fd9', '0066a0']
 
 for idx, focus in enumerate(focusAreas):
     if focus['name'] == 'Environment & sustainable development':
@@ -950,6 +963,8 @@ for idx, focus in enumerate(focusAreas):
         focus['color'] = markerColors[2]
     elif focus ['name'] == 'Democratic governance':
         focus['color'] = markerColors[3]
+    elif focus ['name'] == 'South-South':
+        focus['color'] = markerColors[4]
     row_count = row_count + 1
     index.append(focus)
 
