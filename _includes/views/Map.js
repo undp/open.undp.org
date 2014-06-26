@@ -206,7 +206,7 @@ views.Map = Backbone.View.extend({
         });
         var addCountryOutline = function(parent, iso) {
             view.outline.clearLayers();
-            $.getJSON('api/world-50m-s.json',function(world){
+            $.getJSON('api/world.json',function(world){
                 var topoFeatures = topojson.feature(world, world.objects.countries).features,
                     selectedFeature = _(topoFeatures).findWhere({id:iso}),
                     coords = selectedFeature.geometry.coordinates,
