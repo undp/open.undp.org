@@ -160,12 +160,12 @@ views.Map = Backbone.View.extend({
         var count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
             unit = view.collection;
 
-        var country = new models.Nationals();
+        var country = new Nationals();
         country.fetch({
             url: 'api/operating-unit-index.json',
             success:function(){
                 if(_.isObject(view.opUnitFilter)){
-                    subs = new models.Subnationals();
+                    subs = new Subnationals();
                     subs.fetch({
                         url: 'api/units/' + view.opUnitFilter.id + '.json',
                         success:function(){

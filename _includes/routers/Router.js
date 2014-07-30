@@ -118,7 +118,7 @@ routers.App = Backbone.Router.extend({
             that.app.views = {};
             // Load filters
             _(facets).each(function (facet) {
-                var collection = new models.Filters();
+                var collection = new Filters();
 
                 $('#filter-items').find('#'+facet.id).remove();
                 $('#filter-items').append('<div id="' + facet.id + '" class="topics"></div>');
@@ -170,9 +170,9 @@ routers.App = Backbone.Router.extend({
         if (!that.allProjects || app.fiscalYear != year) {
             if (app.fiscalYear && app.fiscalYear != year){app.projects.map.map.remove();}
             app.fiscalYear = year;
-            that.allProjects = new models.Projects(SUMMARY);
+            that.allProjects = new Projects(SUMMARY);
 
-            that.projects = new models.Projects(that.allProjects.filter(filter));
+            that.projects = new Projects(that.allProjects.filter(filter));
             that.projects.view = new views.Projects({ collection: that.projects });
             that.projects.cb = _(loadFilters).bind(that);
 
@@ -351,7 +351,7 @@ routers.App = Backbone.Router.extend({
 
         // Set up this route
 
-        that.project.model = new models.Project({
+        that.project.model = new Project({
             id: id
         });
 
@@ -427,10 +427,10 @@ routers.App = Backbone.Router.extend({
         $('#unit-contact').hide();
 
         if (!that.donorsGross) {
-            that.donorsGross = new models.TopDonors({type: route});
+            that.donorsGross = new TopDonors({type: route});
             that.donorsGross.url = 'api/top-donor-gross-index.json';
 
-            that.donorsLocal = new models.TopDonors({type: 'amount'});
+            that.donorsLocal = new TopDonors({type: 'amount'});
             that.donorsLocal.url = 'api/top-donor-local-index.json';
 
             that.donorsGross.fetch({

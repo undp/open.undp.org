@@ -1,5 +1,22 @@
-// Model
-models.Subnational = Backbone.Model.extend({
+National = Backbone.Model.extend({
+    initialize:function(){
+        this.lon = this.get('lon'),
+        this.lat = this.get('lat');
+        this.centroid = {
+            "type":"Feature",
+            "properties":{
+                "id":this.get('id'),
+                "title":this.get('name')
+            },
+            "geometry":{
+                "type":"Point",
+                "coordinates":[parseFloat(this.lon),parseFloat(this.lat)]
+            }
+        };
+    }
+});
+
+Subnational = Backbone.Model.extend({
     defaults: {visible:false},
     initialize:function(){ // can this happen on a collection level?
         model = this;
@@ -35,16 +52,23 @@ models.Subnational = Backbone.Model.extend({
     }
 });
 
-// Collection
-models.Subnationals = Backbone.Collection.extend({
-    model: models.Subnational,
-    parse: function(response){
-        return response.projects
+Filter = Backbone.Model.extend({
+    defaults: {
+        active: false,
+        visible: true
     },
-    filtered: function() {
-        visible = this.filter(function(model) {
-          return model.get("visible") === true;
-        });
-        return new models.Subnationals(visible);
+    initialize: function() {
+        if (this.collection.id === 'donors' && this.id === '00012') {
+            this.set({ name: 'UNDP Regular Resources' }, { silent: true });
+        }
     }
 });
+
+Project = Backbone.Model.extend({
+    defaults: { visible: true },
+    url: function() {
+        return 'api/projects/' + this.get('id') + '.json';
+    }
+});
+
+TopDonor = Backbone.Model.extend({});

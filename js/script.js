@@ -54,12 +54,8 @@ $(document).ready(function() {
     var IE = $.browser.msie;
     if (IE) {var IE_VERSION = parseInt($.browser.version);} // should return 6, 7, 8, 9
 
-    // Models
-    {% include models/Filter.js %}
-    {% include models/Project.js %}
-    {% include models/TopDonor.js %}
-    {% include models/Subnational.js %}
-    {% include models/National.js %}
+    {% include models.js %}
+    {% include collections.js %}
 
     // Views
     {% include views/App.js %}
@@ -73,6 +69,7 @@ $(document).ready(function() {
     {% include views/TopDonors.js %}
     {% include views/Widget.js %}
     {% include views/Donors.js %}
+
 
     // Router
     {% include routers/Router.js %}
