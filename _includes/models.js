@@ -73,3 +73,7 @@ Project = Backbone.Model.extend({
 
 TopDonor = Backbone.Model.extend({});
 Country = Backbone.Model.extend({});
+
+OperatingUnit = Backbone.Model.extend({});
+SubnationalIndex = Backbone.Model.extend({});
+FocusAreaIndex = Backbone.Model.extend({});

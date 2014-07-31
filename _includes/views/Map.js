@@ -3,8 +3,13 @@ views.Map = Backbone.View.extend({
         // world topojson and UN-approved Indian border json
         this.topo = new Countries();
         this.india = new India();
+        this.subnationalIndex = new SubnationalIndices();
+        this.focusAreaIndex = new FocusAreaIndices();
+
         this.topo.fetch();
         this.india.fetch();
+        this.subnationalIndex.fetch();
+        this.focusAreaIndex.fetch();
 
         if (this.options.render) this.render();
     },

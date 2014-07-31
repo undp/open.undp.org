@@ -297,3 +297,17 @@ India = Backbone.Collection.extend({
     model: Country,
     url: '../api/india_admin0.json'
 });
+
+OperatingUnits = Backbone.Model.extend({
+    model:OperatingUnit,
+    url: '../api/operating-unit-index.json'
+});
+
+SubnationalIndices = Backbone.Model.extend({
+    model:SubnationalIndex,
+    url: '../api/subnational-locs-index.json'
+});
+FocusAreaIndices = Backbone.Model.extend({
+    model:FocusAreaIndex,
+    url: '../api/focus-area-index.json'
+});
