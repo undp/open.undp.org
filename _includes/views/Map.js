@@ -1,13 +1,20 @@
 views.Map = Backbone.View.extend({
     initialize: function() {
+        // detect filters
+        this.regionFilter =_(app.app.filters).findWhere({collection:"region"});
+        this.opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
+
         // world topojson and UN-approved Indian border json
         this.topo = new Countries();
         this.india = new India();
+        this.country = new Nationals();
         this.subnationalIndex = new SubnationalIndices();
         this.focusAreaIndex = new FocusAreaIndices();
 
+
         this.topo.fetch();
         this.india.fetch();
+        this.country.fetch();
         this.subnationalIndex.fetch();
         this.focusAreaIndex.fetch();
 
@@ -25,9 +32,6 @@ views.Map = Backbone.View.extend({
             view.$el.append('<div class="inner-shadow"></div>');
         }
         view.$el.find('.inner-grey').remove(); // remove 'operating unit has no geo' paragraph
-
-        view.regionFilter =_(app.app.filters).findWhere({collection:"region"});
-        view.opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
 
         if (!view.options.embed) {
             category = $('.map-btn.active').attr('data-value') || 'budget';
@@ -66,7 +70,6 @@ views.Map = Backbone.View.extend({
             scrollWheelZoom: wheelZoom
             });
          
-
         //view.map.legendControl.addLegend('last update');
 
         //for IE 8 and above add country outline
