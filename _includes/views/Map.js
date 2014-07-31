@@ -174,51 +174,45 @@ views.Map = Backbone.View.extend({
         var count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
             unit = view.collection;
 
-        var country = new Nationals();
-        country.fetch({
-            url: 'api/operating-unit-index.json',
-            success:function(){
-                if(_.isObject(view.opUnitFilter)){
-                    subs = new Subnationals();
-                    subs.fetch({
-                        url: 'api/units/' + view.opUnitFilter.id + '.json',
-                        success:function(){
-                            // the projects in subs need to be matched to the unit models
-                            // matching subs.models and unit.models on id and set the visible ones
-                            _(unit.models).each(function(model){
-                                if (subs.get(model.id) != undefined){
-                                    subs.get(model.id).set({visible:true})
-                                }
-                            })
-                            filteredSubs = subs.filtered(); //filtered() is a method in the collection
-                            renderClusters(filteredSubs);
+        if(_.isObject(view.opUnitFilter)){
+            subs = new Subnationals();
+            subs.fetch({
+                url: 'api/units/' + view.opUnitFilter.id + '.json',
+                success:function(){
+                    // the projects in subs need to be matched to the unit models
+                    // matching subs.models and unit.models on id and set the visible ones
+                    _(unit.models).each(function(model){
+                        if (subs.get(model.id) != undefined){
+                            subs.get(model.id).set({visible:true})
                         }
-                    });
+                    })
+                    filteredSubs = subs.filtered(); //filtered() is a method in the collection
+                    renderClusters(filteredSubs);
+                }
+            });
 
-                    var parent = _(country.models).findWhere({id:view.opUnitFilter.id}),
-                        iso = parseInt(parent.get('iso_num'));
-
-                    // find the iso number from the national models
-                    if (_.isNaN(iso) && parent.get('id') != 'none'){
-                        view.$el.prepend('<div class="inner-grey">'+
-                                         '<p>The selected operating unit and its project(s) do not have geographic information.</p>'+
-                                         '</div>');
-                    } else {
-                        if (!IE || IE_VERSION > 8) {
-                            addCountryOutline(parent,iso);
-                        } else {
-                            view.map.setView([parent.lat,parent.lon],4);
-                        }
-                    }
+            var parent = _(view.country.models).findWhere({id:view.opUnitFilter.id}),
+                iso = parseInt(parent.get('iso_num'));
+            // find the iso number from the national models
+            if (_.isNaN(iso) && parent.get('id') != 'none'){
+                view.$el.prepend('<div class="inner-grey">'+
+                                 '<p>The selected operating unit and its project(s) do not have geographic information.</p>'+
+                                 '</div>');
+            } else {
+                if (!IE || IE_VERSION > 8) {
+                    addCountryOutline(parent,iso);
                 } else {
-                    renderCircles(country);
-                    if(_.isObject(view.regionFilter)){
-                        view.zoomToRegion(view.regionFilter.id);
-                    }
+                    view.map.setView([parent.lat,parent.lon],4);
                 }
             }
-        });
-        var addCountryOutline = function(parent, iso) {
+        } else {
+            renderCircles(view.country);
+            if(_.isObject(view.regionFilter)){
+                view.zoomToRegion(view.regionFilter.id);
+            }
+        }
+
+       function addCountryOutline(parent, iso) {
             view.outline.clearLayers();
 
             var world = view.topo.toJSON()[0],
@@ -257,7 +251,7 @@ views.Map = Backbone.View.extend({
             view.outline.addTo(view.map);
         };
 
-        var renderClusters = function(collection){
+        function renderClusters(collection){
             var filteredMarkers = [],
                 projectWithNoGeo = 0;
                 hasGeo = false;
@@ -374,7 +368,7 @@ views.Map = Backbone.View.extend({
 
 
         };
-        var renderCircles = function(){
+        function renderCircles(country){
             var circles = [];
             // render HDI
             _(country.models).each(function(model){
