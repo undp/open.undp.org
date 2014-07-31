@@ -3,6 +3,19 @@ views.ProjectMap = Backbone.View.extend({
         'click .map-fullscreen': 'fullscreen',
     },
     initialize: function() {
+        // world topojson and UN-approved Indian border json
+        this.topo = new Countries();
+        this.india = new India();
+        this.subnationalIndex = new SubnationalIndices();
+        this.focusAreaIndex = new FocusAreaIndices();
+        this.unitIndex = new OperatingUnits();
+
+        this.topo.fetch();
+        this.india.fetch();
+        this.subnationalIndex.fetch();
+        this.focusAreaIndex.fetch();
+        this.unitIndex.fetch();
+
         if (this.options.render) this.render();
     },
     tooltip: function(data, g) {
@@ -46,19 +59,13 @@ views.ProjectMap = Backbone.View.extend({
             scrollWheelZoom: wheelZoom
         });
 
-        
-        queue()
-            .defer($.getJSON,'api/operating-unit-index.json') //data
-            .defer($.getJSON,'api/subnational-locs-index.json') //g
-            .defer($.getJSON,'api/focus-area-index.json') //focusIndex
-            .defer($.getJSON,'api/world.json') //world
-            .defer($.getJSON,'api/india_admin0.json') //india
-            .await(view.ready);
+        // TODO collection not fetching
+        var world = view.topo.toJSON()[0],
+            india = view.india.toJSON()[0],
+            subLocIndex = view.subnationalIndex.toJSON(),
+            focusIndex = view.focusAreaIndex.toJSON(),
+            data = view.unitIndex.toJSON();
 
-    },
-
-    ready: function(data,g,focusIndex,world,india){
-        // TODO this needs major refactor
         for (var i = 0; i < data.length; i++) {
             var o = data[i];
             if (o.id === unit) {
@@ -219,7 +226,7 @@ views.ProjectMap = Backbone.View.extend({
 
         queue()
             .defer($.getJSON,spreadsheet)
-            .await(view.socialReady;
+            .await(view.socialReady);
 
         function contacts(allSocialAccts) {
             var accts = ['web','email','twitter','flickr','facebook'],
