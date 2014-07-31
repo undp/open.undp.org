@@ -72,6 +72,8 @@ Project = Backbone.Model.extend({
 });
 
 TopDonor = Backbone.Model.extend({});
+Modality = Backbone.Model.extend({});
+
 Country = Backbone.Model.extend({});
 
 OperatingUnit = Backbone.Model.extend({});

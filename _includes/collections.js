@@ -288,6 +288,16 @@ TopDonors = Backbone.Collection.extend({
     }
 });
 
+TotalModalities = Backbone.Collection.extend({
+    model: Modality,
+    url: '../api/donors/total-modality.json'
+})
+
+DonorModalities = Backbone.Collection.extend({
+    model: Modality,
+    url: '../api/donors/donor-modality.json'
+})
+
 Countries = Backbone.Collection.extend({
     model: Country,
     url: '../api/world.json'
