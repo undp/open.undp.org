@@ -72,3 +72,4 @@ Project = Backbone.Model.extend({
 });
 
 TopDonor = Backbone.Model.extend({});
+Country = Backbone.Model.extend({});

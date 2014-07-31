@@ -287,3 +287,13 @@ TopDonors = Backbone.Collection.extend({
         return -1 * model.get(this.type);
     }
 });
+
+Countries = Backbone.Collection.extend({
+    model: Country,
+    url: '../api/world.json'
+});
+
+India = Backbone.Collection.extend({
+    model: Country,
+    url: '../api/india_admin0.json'
+});

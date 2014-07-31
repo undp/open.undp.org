@@ -1,5 +1,11 @@
 views.Map = Backbone.View.extend({
     initialize: function() {
+        // world topojson and UN-approved Indian border json
+        this.topo = new Countries();
+        this.india = new India();
+        this.topo.fetch();
+        this.india.fetch();
+
         if (this.options.render) this.render();
     },
     render: function() {
@@ -206,42 +212,41 @@ views.Map = Backbone.View.extend({
         });
         var addCountryOutline = function(parent, iso) {
             view.outline.clearLayers();
-            $.getJSON('api/world.json',function(world){
-                var topoFeatures = topojson.feature(world, world.objects.countries).features,
-                    selectedFeature = _(topoFeatures).findWhere({id:iso}),
-                    coords = selectedFeature.geometry.coordinates,
-                    outlineStyle ={
-                        "color":"#b5b5b5",
-                        "weight":0,
-                        clickable: false
-                    };
 
-                // get outline
-                if (parent.get('id') === 'IND') {
-                    $.getJSON('api/india_admin0.json',function(india){
-                        var indiaFeatures = topojson.feature(india, india.objects.india_admin0).features;
-                        _(indiaFeatures).each(function(f){
-                            view.outline.addData(f)
-                              .setStyle(outlineStyle);
-                        })
-                    })
-                } else {
-                    view.outline.addData(selectedFeature)
+            var world = view.topo.toJSON()[0],
+                india = view.india.toJSON()[0];
+
+            var topoFeatures = topojson.feature(world, world.objects.countries).features,
+                selectedFeature = _(topoFeatures).findWhere({id:iso}),
+                coords = selectedFeature.geometry.coordinates,
+                outlineStyle ={
+                    "color":"#b5b5b5",
+                    "weight":0,
+                    clickable: false
+                };
+
+            // get outline
+            if (parent.get('id') === 'IND') {                
+                var indiaFeatures = topojson.feature(india, india.objects.india_admin0).features;
+                _(indiaFeatures).each(function(f){
+                    view.outline.addData(f)
                       .setStyle(outlineStyle);
+                })
+            } else {
+                view.outline.addData(selectedFeature)
+                  .setStyle(outlineStyle);
+            }
+
+            // zoom into the specific country
+            if (IE_VERSION != 10) { //IE10 does not handle any map zoom/pan
+                if (parent.get('id') === 'RUS') {
+                    view.map.setView([parent.lat,parent.lon],2);
+                } else {
+                    view.map.fitBounds(ctyBounds(coords));
                 }
+            }
 
-                // zoom into the specific country
-                if (IE_VERSION != 10) { //IE10 does not handle any map zoom/pan
-                    if (parent.get('id') === 'RUS') {
-                        view.map.setView([parent.lat,parent.lon],2);
-                    } else {
-                        view.map.fitBounds(ctyBounds(coords));
-                    }
-                }
-
-
-                view.outline.addTo(view.map);
-            });
+            view.outline.addTo(view.map);
         };
 
         var renderClusters = function(collection){
@@ -277,6 +282,7 @@ views.Map = Backbone.View.extend({
             };
 
             // create clustered markers
+            // TODO this cross-lookup needs to be revamped
             $.getJSON('api/subnational-locs-index.json', function(subLocIndex){
                 $.getJSON('api/focus-area-index.json', function(focusIndex){
                     // Match focus area to index to set marker color
