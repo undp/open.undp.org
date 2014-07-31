@@ -53,7 +53,7 @@ views.ProjectMap = Backbone.View.extend({
             .defer($.getJSON,'api/focus-area-index.json') //focusIndex
             .defer($.getJSON,'api/world.json') //world
             .defer($.getJSON,'api/india_admin0.json') //india
-            .await(view.ready());
+            .await(view.ready);
 
     },
 
@@ -215,72 +215,11 @@ views.ProjectMap = Backbone.View.extend({
             };
 
         // Get social media accounts from UNDP-maintained spreadsheet
-        $.getJSON('//spreadsheets.google.com/feeds/list/0Airl6dsmcbKodHB4SlVfeVRHeWoyWTdKcDY5UW1xaEE/1/public/values?alt=json-in-script&callback=?', function(g) {
-            var twitterAcct,
-                flickrAccts = [],
-                fbAccts = [],
-                q = queue(1);
+        var spreadsheet = '//spreadsheets.google.com/feeds/list/0Airl6dsmcbKodHB4SlVfeVRHeWoyWTdKcDY5UW1xaEE/1/public/values?alt=json-in-script&callback=?';
 
-            q.defer(function(cb) {
-                _(g.feed.entry).each(function(row) {
-                    var acctType = row.gsx$type.$t,
-                        acctId = row.gsx$id.$t,
-                        twitterAcct = row.gsx$twitter.$t,
-                        flickrAcct = row.gsx$flickr.$t,
-                        fbAcct = row.gsx$facebook.$t;
-
-                    if (acctType === 'Global' || (acctType === 'HQ' && acctId === view.model.get('region_id'))) {
-                        if (flickrAcct) flickrAccts.push(flickrAcct);
-                        if (fbAcct) fbAccts.push(fbAcct);
-                        }
-                    if (acctType === 'CO' && acctId === data.id) {
-                        if (twitterAcct) {
-                            coContact.twitter.push(twitterAcct.replace('@',''));
-                        }
-                        if (flickrAcct) {
-                            flickrAccts.unshift(flickrAcct);
-                            coContact.flickr.push(flickrAcct);
-                        }
-                        if (fbAcct) {
-                            fbAccts.unshift(fbAcct);
-                            coContact.facebook.push(fbAcct);
-                        }
-                    }
-                });
-                contacts(coContact);
-                cb();
-            });
-            
-            // Gather photos from documents and flickr, in that order
-            q.defer(function(cb) {
-                if (that.model.get('document_name')) {
-                    _(that.model.get('document_name')[0]).each(function (photo, i) {
-                        try {
-                            var filetype = photo.split('.')[1].toLowerCase();
-                        }
-                        catch(err) {
-                            var filetype = '';
-                        }
-                        var source = that.model.get('document_name')[1][i];
-                            
-                        if (filetype === 'jpg' || filetype === 'jpeg' || filetype === 'png' || filetype === 'gif') {
-                            var img = new Image();
-                            photos.push({
-                                'title': photo.split('.')[0],
-                                'source': source,
-                                'image': img
-                            });
-                            img.src = source;
-                        }
-                    });
-                }
-
-                cb();
-            });
-            q.await(function() {
-                view.flickr(flickrAccts,photos);
-            });
-        });
+        queue()
+            .defer($.getJSON,spreadsheet)
+            .await(view.socialReady;
 
         function contacts(allSocialAccts) {
             var accts = ['web','email','twitter','flickr','facebook'],
@@ -359,6 +298,73 @@ views.ProjectMap = Backbone.View.extend({
                 $('#unit-contact').hide();
             }
         }
+    },
+
+    socialReady: function(g){
+        var twitterAcct,
+            flickrAccts = [],
+            fbAccts = [],
+            q = queue(1);
+
+        q.defer(function(cb) {
+            _(g.feed.entry).each(function(row) {
+                var acctType = row.gsx$type.$t,
+                    acctId = row.gsx$id.$t,
+                    twitterAcct = row.gsx$twitter.$t,
+                    flickrAcct = row.gsx$flickr.$t,
+                    fbAcct = row.gsx$facebook.$t;
+
+                if (acctType === 'Global' || (acctType === 'HQ' && acctId === view.model.get('region_id'))) {
+                    if (flickrAcct) flickrAccts.push(flickrAcct);
+                    if (fbAcct) fbAccts.push(fbAcct);
+                    }
+                if (acctType === 'CO' && acctId === data.id) {
+                    if (twitterAcct) {
+                        coContact.twitter.push(twitterAcct.replace('@',''));
+                    }
+                    if (flickrAcct) {
+                        flickrAccts.unshift(flickrAcct);
+                        coContact.flickr.push(flickrAcct);
+                    }
+                    if (fbAcct) {
+                        fbAccts.unshift(fbAcct);
+                        coContact.facebook.push(fbAcct);
+                    }
+                }
+            });
+            contacts(coContact);
+            cb();
+        });
+        
+        // Gather photos from documents and flickr, in that order
+        q.defer(function(cb) {
+            if (that.model.get('document_name')) {
+                _(that.model.get('document_name')[0]).each(function (photo, i) {
+                    try {
+                        var filetype = photo.split('.')[1].toLowerCase();
+                    }
+                    catch(err) {
+                        var filetype = '';
+                    }
+                    var source = that.model.get('document_name')[1][i];
+                        
+                    if (filetype === 'jpg' || filetype === 'jpeg' || filetype === 'png' || filetype === 'gif') {
+                        var img = new Image();
+                        photos.push({
+                            'title': photo.split('.')[0],
+                            'source': source,
+                            'image': img
+                        });
+                        img.src = source;
+                    }
+                });
+            }
+
+            cb();
+        });
+        q.await(function() {
+            view.flickr(flickrAccts,photos);
+        }); 
     },
 
     flickr: function(account, photos) {

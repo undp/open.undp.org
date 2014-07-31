@@ -283,87 +283,10 @@ views.Map = Backbone.View.extend({
 
             // create clustered markers
             // TODO this cross-lookup needs to be revamped
-            $.getJSON('api/subnational-locs-index.json', function(subLocIndex){
-                $.getJSON('api/focus-area-index.json', function(focusIndex){
-                    // Match focus area to index to set marker color
-                    _(filteredMarkers).each(function(feature){
-                        _(focusIndex).each(function(f){
-                            if (f.id == feature.properties.focus_area){
-                               return feature.properties['marker-color'] = f.color;
-                            };
-                        });
-                    })
-                    // Set popups and color changes on hover
-                    function onEachFeature(feature, layer) {
-                        var oldOptions = {
-                            'marker-size':'small',
-                            'marker-color':feature.properties['marker-color']
-                        }
-                        var newOptions = {
-                            'marker-size':'small',
-                        }
-                        var newColors = [
-                            {'color': 'AAA922', 'id': '1'},
-                            {'color': '218DB6', 'id': '2'},
-                            {'color': 'D15A4B', 'id': '3'},
-                            {'color': '689A46', 'id': '4'},
-                            {'color': '0066a0', 'id': '5'}
-                        ]
-                        // Match focus area ID to newColors array
-                        _(newColors).each(function(color){
-                            if (color.id == feature.properties.focus_area){
-                               return newOptions['marker-color'] = color.color;
-                            };
-                        })
-                        // Popup
-                        var clusterBrief = L.popup({
-                                closeButton:false,
-                                offset: new L.Point(0,-20)
-                            }).setContent(view.clusterPopup(feature, subLocIndex));
-                        layer.on('mouseover',function(){
-                            clusterBrief.setLatLng(this.getLatLng());
-                            view.map.openPopup(clusterBrief);
-                            layer.setIcon(L.mapbox.marker.icon(newOptions));
-                        }).on('mouseout',function(){
-                            layer.setIcon(L.mapbox.marker.icon(oldOptions));
-                            view.map.closePopup(clusterBrief);
-                        }).on('click',function(){
-                            if (!view.options.embed){
-                                var path = '#project/'+ feature.properties.project;
-                                view.goToLink(path);
-                            } else {
-                                // open project page in a new tab/window
-                                window.open(BASE_URL + '#project/'+ feature.properties.project)
-                            }
-                        });
-                    };
-
-                    function filter(feature, layer, filter){// only two cases for type, hard code is fine
-                        var subFilter = mapFilter || "all",
-                            precision = parseInt(feature.properties['precision']);
-
-                        if (subFilter === "all"){
-                            return feature.properties
-                        } else if (subFilter === "country" ){
-                            return precision === 6 || precision === 9
-                        } else if (subFilter === "subnational") {
-                            return precision === 3 || precision === 4 || precision === 7 || precision === 8
-                        } else if (subFilter === "street"){
-                            return precision === 1 || precision === 2 || precision === 5
-                        }
-                    };
-                    // Create a geoJSON with locations
-                    var filteredMarkersLayer = L.geoJson(filteredMarkers, {
-                        pointToLayer: L.mapbox.marker.style,
-                        onEachFeature: onEachFeature,
-                        filter: filter
-                    });
-                    // Add markers layer to the layer group titled view.markers
-                    view.markers.addLayer(filteredMarkersLayer);
-                    // Add view.markers to map
-                    view.map.addLayer(view.markers);
-                });
-            });
+            queue()
+                .defer($.getJSON,'api/subnational-locs-index.json')
+                .defer($.getJSON,'api/focus-area-index.json')
+                .await(view.ready);
         };
         var renderCircles = function(){
             var circles = [];
@@ -461,5 +384,84 @@ views.Map = Backbone.View.extend({
             view.markers.addLayer(circleLayer);
             view.map.addLayer(view.markers);
         }
+    },
+    ready: function(subLocIndex,focusIndex){
+          // Match focus area to index to set marker color
+        _(filteredMarkers).each(function(feature){
+            _(focusIndex).each(function(f){
+                if (f.id == feature.properties.focus_area){
+                   return feature.properties['marker-color'] = f.color;
+                };
+            });
+        })
+        // Set popups and color changes on hover
+        function onEachFeature(feature, layer) {
+            var oldOptions = {
+                'marker-size':'small',
+                'marker-color':feature.properties['marker-color']
+            }
+            var newOptions = {
+                'marker-size':'small',
+            }
+            var newColors = [
+                {'color': 'AAA922', 'id': '1'},
+                {'color': '218DB6', 'id': '2'},
+                {'color': 'D15A4B', 'id': '3'},
+                {'color': '689A46', 'id': '4'},
+                {'color': '0066a0', 'id': '5'}
+            ]
+            // Match focus area ID to newColors array
+            _(newColors).each(function(color){
+                if (color.id == feature.properties.focus_area){
+                   return newOptions['marker-color'] = color.color;
+                };
+            })
+            // Popup
+            var clusterBrief = L.popup({
+                    closeButton:false,
+                    offset: new L.Point(0,-20)
+                }).setContent(view.clusterPopup(feature, subLocIndex));
+            layer.on('mouseover',function(){
+                clusterBrief.setLatLng(this.getLatLng());
+                view.map.openPopup(clusterBrief);
+                layer.setIcon(L.mapbox.marker.icon(newOptions));
+            }).on('mouseout',function(){
+                layer.setIcon(L.mapbox.marker.icon(oldOptions));
+                view.map.closePopup(clusterBrief);
+            }).on('click',function(){
+                if (!view.options.embed){
+                    var path = '#project/'+ feature.properties.project;
+                    view.goToLink(path);
+                } else {
+                    // open project page in a new tab/window
+                    window.open(BASE_URL + '#project/'+ feature.properties.project)
+                }
+            });
+        };
+
+        function filter(feature, layer, filter){// only two cases for type, hard code is fine
+            var subFilter = mapFilter || "all",
+                precision = parseInt(feature.properties['precision']);
+
+            if (subFilter === "all"){
+                return feature.properties
+            } else if (subFilter === "country" ){
+                return precision === 6 || precision === 9
+            } else if (subFilter === "subnational") {
+                return precision === 3 || precision === 4 || precision === 7 || precision === 8
+            } else if (subFilter === "street"){
+                return precision === 1 || precision === 2 || precision === 5
+            }
+        };
+        // Create a geoJSON with locations
+        var filteredMarkersLayer = L.geoJson(filteredMarkers, {
+            pointToLayer: L.mapbox.marker.style,
+            onEachFeature: onEachFeature,
+            filter: filter
+        });
+        // Add markers layer to the layer group titled view.markers
+        view.markers.addLayer(filteredMarkersLayer);
+        // Add view.markers to map
+        view.map.addLayer(view.markers);
     }
 });
