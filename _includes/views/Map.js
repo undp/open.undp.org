@@ -1,16 +1,11 @@
 views.Map = Backbone.View.extend({
     initialize: function() {
-        // detect filters
-        this.regionFilter =_(app.app.filters).findWhere({collection:"region"});
-        this.opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
-
         // world topojson and UN-approved Indian border json
         this.topo = new Countries();
         this.india = new India();
         this.country = new Nationals();
         this.subnationalIndex = new SubnationalIndices();
         this.focusAreaIndex = new FocusAreaIndices();
-
 
         this.topo.fetch();
         this.india.fetch();
@@ -25,13 +20,22 @@ views.Map = Backbone.View.extend({
             wheelZoom = true,
             category;
 
-        if (view.map){view.map.remove();} // remove previous map, same concept as view.$el.empty() for updating, http://leafletjs.com/reference.html#map-remove
+        // detect filters
+        view.regionFilter =_(app.app.filters).findWhere({collection:"region"});
+        view.opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
+
+        // remove previous map http://leafletjs.com/reference.html#map-remove
+        if (view.map){view.map.remove();}
+
+        // map style
         if (IE) {
             view.$el.css('border','1px solid #ddd');
         } else {
             view.$el.append('<div class="inner-shadow"></div>');
         }
-        view.$el.find('.inner-grey').remove(); // remove 'operating unit has no geo' paragraph
+
+        // remove 'operating unit has no geo' paragraph
+        view.$el.find('.inner-grey').remove();
 
         if (!view.options.embed) {
             category = $('.map-btn.active').attr('data-value') || 'budget';
@@ -49,6 +53,7 @@ views.Map = Backbone.View.extend({
                 showCoverageOnHover:false,
                 maxClusterRadius:30
             });
+
             // in embed if selected from a circle view (where widget-world has a link), keep the widget-nav
             if ($('#widget-world').attr('href')) {
                 $('.widget-nav').show()
@@ -67,8 +72,6 @@ views.Map = Backbone.View.extend({
             maxZoom: 10,
             scrollWheelZoom: wheelZoom
         });
-         
-        //view.map.legendControl.addLegend('last update');
 
         //for IE 8 and above add country outline
         if (!IE || IE_VERSION > 8){
@@ -77,40 +80,50 @@ views.Map = Backbone.View.extend({
 
         view.buildLayer(category);
     },
-    // define map center based on region filter
-    zoomToRegion: function(region){
-        if (region === "RBA"){
-            this.map.setView([0,20],3,{reset:true});
-        } else if (region === "RBAP"){
-            this.map.setView([37,80],2,{reset:true});
-        } else if (region === "RBAS" || region === "PAPP"){
-            this.map.setView([32,32],3,{reset:true});
-        } else if (region === "RBEC"){
-            this.map.setView([50,55],3,{reset:true});
-        } else if (region === "RBLAC"){
-            this.map.setView([-2,-67],2,{reset:true});
-        } else if (region === "global"){
-            this.map.setView([0,0],2,{reset:true});
-        }
-    },
-    // CIRCLE
-    scale: function(cat,feature) {
-        if (cat == 'budget' || cat == 'expenditure') {
-            var size = Math.round(feature.properties[cat] / 100000);
-            if (size < 10) {
-                return 10;
+    buildLayer: function(layer,mapFilter,mapCenter,mapZoom){
+        var view = this;
+        view.map.removeLayer(view.markers); //remove the marker featureGroup from view.map
+        view.markers.clearLayers(); // inside of marker group, clear the layers from the previous build
+        
+        if(_.isObject(view.opUnitFilter)){
+
+            var subs = new Subnationals();
+            subs.fetch({
+                url: 'api/units/' + view.opUnitFilter.id + '.json',
+                success:function(){
+                // the projects in subs need to be matched to the unit models
+                // matching subs.models and unit.models on id and set the visible ones
+                    _(view.collection.models).each(function(model){
+                        if (subs.get(model.id) != undefined){
+                            subs.get(model.id).set({visible:true})
+                        }
+                    })
+                    filteredSubs = subs.filtered(); //filtered() is a method in the collection
+                    view.renderClusters(filteredSubs);
+                }
+            });
+
+            var parent = _(view.country.models).findWhere({id:view.opUnitFilter.id}),
+                iso = parseInt(parent.get('iso_num'));
+            // find the iso number from the national models
+            if (_.isNaN(iso) && parent.get('id') != 'none'){
+                view.$el.prepend('<div class="inner-grey">'+
+                                 '<p>The selected operating unit and its project(s) do not have geographic information.</p>'+
+                                 '</div>');
             } else {
-                return size;
+                if (!IE || IE_VERSION > 8) {
+                    view.addCountryOutline(parent,iso);
+                } else {
+                    view.map.setView([parent.lat,parent.lon],4);
+                }
             }
-        } else if (cat == 'hdi') {
-            return Math.round(Math.pow(feature.properties[cat],2) / 0.0008);
         } else {
-            return Math.round(feature.properties[cat] / 0.05);
+            view.renderCircles(view.country);
+            if(_.isObject(view.regionFilter)){
+                util.zoomToRegion(view.regionFilter.id);
+            }
         }
-    },
-    radius: function(scaleResult){
-        var r = Math.round(Math.sqrt(scaleResult/ Math.PI));
-        return r
+
     },
     circleHighlight: function(e,options){
         if (!options){options = {}}
@@ -123,6 +136,9 @@ views.Map = Backbone.View.extend({
             fillOpacity: options.fillOpacity || 0.6
         })
     },
+    //
+    //TODO move the popups to a template
+    //
     circlePopup: function(cat,feature) {
         var description = '<div class="popup">' +
                             '<div class="title">' +
@@ -160,307 +176,256 @@ views.Map = Backbone.View.extend({
         }
         return description;
     },
-    goToLink: function(path){
-        app.navigate(path, { trigger: true });
-        $('#browser .summary').removeClass('off');
-    },
-    buildLayer: function(layer,mapFilter,mapCenter,mapZoom){
+    addCountryOutline: function(parent, iso) {
         var view = this;
-        view.map.removeLayer(view.markers); //remove the marker featureGroup from view.map
-        view.markers.clearLayers(); // inside of marker group, clear the layers from the previous build
+        view.outline.clearLayers();
 
-        var count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
-            unit = view.collection;
+        var world = view.topo.toJSON()[0],
+            india = view.india.toJSON()[0];
 
-        if(_.isObject(view.opUnitFilter)){
-            subs = new Subnationals();
-            subs.fetch({
-                url: 'api/units/' + view.opUnitFilter.id + '.json',
-                success:function(){
-                    // the projects in subs need to be matched to the unit models
-                    // matching subs.models and unit.models on id and set the visible ones
-                    _(unit.models).each(function(model){
-                        if (subs.get(model.id) != undefined){
-                            subs.get(model.id).set({visible:true})
-                        }
-                    })
-                    filteredSubs = subs.filtered(); //filtered() is a method in the collection
-                    renderClusters(filteredSubs);
-                }
-            });
+        var topoFeatures = topojson.feature(world, world.objects.countries).features,
+            selectedFeature = _(topoFeatures).findWhere({id:iso}),
+            coords = selectedFeature.geometry.coordinates,
+            outlineStyle ={
+                "color":"#b5b5b5",
+                "weight":0,
+                clickable: false
+            };
 
-            var parent = _(view.country.models).findWhere({id:view.opUnitFilter.id}),
-                iso = parseInt(parent.get('iso_num'));
-            // find the iso number from the national models
-            if (_.isNaN(iso) && parent.get('id') != 'none'){
-                view.$el.prepend('<div class="inner-grey">'+
-                                 '<p>The selected operating unit and its project(s) do not have geographic information.</p>'+
-                                 '</div>');
-            } else {
-                if (!IE || IE_VERSION > 8) {
-                    addCountryOutline(parent,iso);
-                } else {
-                    view.map.setView([parent.lat,parent.lon],4);
-                }
-            }
-        } else {
-            renderCircles(view.country);
-            if(_.isObject(view.regionFilter)){
-                view.zoomToRegion(view.regionFilter.id);
-            }
-        }
-
-       function addCountryOutline(parent, iso) {
-            view.outline.clearLayers();
-
-            var world = view.topo.toJSON()[0],
-                india = view.india.toJSON()[0];
-
-            var topoFeatures = topojson.feature(world, world.objects.countries).features,
-                selectedFeature = _(topoFeatures).findWhere({id:iso}),
-                coords = selectedFeature.geometry.coordinates,
-                outlineStyle ={
-                    "color":"#b5b5b5",
-                    "weight":0,
-                    clickable: false
-                };
-
-            // get outline
-            if (parent.get('id') === 'IND') {                
-                var indiaFeatures = topojson.feature(india, india.objects.india_admin0).features;
-                _(indiaFeatures).each(function(f){
-                    view.outline.addData(f)
-                      .setStyle(outlineStyle);
-                })
-            } else {
-                view.outline.addData(selectedFeature)
+        // get outline
+        if (parent.get('id') === 'IND') {                
+            var indiaFeatures = topojson.feature(india, india.objects.india_admin0).features;
+            _(indiaFeatures).each(function(f){
+                view.outline.addData(f)
                   .setStyle(outlineStyle);
-            }
-
-            // zoom into the specific country
-            if (IE_VERSION != 10) { //IE10 does not handle any map zoom/pan
-                if (parent.get('id') === 'RUS') {
-                    view.map.setView([parent.lat,parent.lon],2);
-                } else {
-                    view.map.fitBounds(ctyBounds(coords));
-                }
-            }
-
-            view.outline.addTo(view.map);
-        };
-
-        function renderClusters(collection){
-            var filteredMarkers = [],
-                projectWithNoGeo = 0;
-                hasGeo = false;
-
-            _(collection.models).each(function(model){
-                if (model.geojson){
-                    hasGeo = true;
-                    filteredMarkers.push(model.geojson);
-                    filteredMarkers = _(filteredMarkers).flatten(false);
-                } else {
-                    projectWithNoGeo += 1;
-                }
             })
-
-            var verbDo = (projectWithNoGeo === 1) ? "does" : "do";
-            var verbHave = (projectWithNoGeo === 1) ? "has" : "have";
-
-            // append sub-national location paragraph
-            if (projectWithNoGeo != 0 && !hasGeo){
-                $('#map-filters').addClass('disabled'); // no sub filter on page
-                $('#description p.geography').html("None of these projects have geographic information.");
-            } else if (projectWithNoGeo != 0 && hasGeo){
-                var projectWithNoGeoParagraph = " <b>" + projectWithNoGeo
-                    + "</b> of them " + verbDo + " not " + verbHave + " geographic information; the remaining <b>"
-                    + (filteredSubs.length - projectWithNoGeo)
-                    + "</b> have <b>"
-                    + filteredMarkers.length
-                    + "</b> subnational locations in total."
-                $('#description p.geography').html(projectWithNoGeoParagraph);
-            };
-
-            // create clustered markers
-            // TODO this cross-lookup needs to be revamped
-
-            var subLocIndex = view.subnationalIndex.toJSON(),
-                focusIndex = view.focusAreaIndex.toJSON();
-
-            _(filteredMarkers).each(function(feature){
-                _(focusIndex).each(function(f){
-                    if (f.id == feature.properties.focus_area){
-                       return feature.properties['marker-color'] = f.color;
-                    };
-                });
-            })
-            // Set popups and color changes on hover
-            function onEachFeature(feature, layer) {
-                var oldOptions = {
-                    'marker-size':'small',
-                    'marker-color':feature.properties['marker-color']
-                }
-                var newOptions = {
-                    'marker-size':'small',
-                }
-                var newColors = [
-                    {'color': 'AAA922', 'id': '1'},
-                    {'color': '218DB6', 'id': '2'},
-                    {'color': 'D15A4B', 'id': '3'},
-                    {'color': '689A46', 'id': '4'},
-                    {'color': '0066a0', 'id': '5'}
-                ]
-                // Match focus area ID to newColors array
-                _(newColors).each(function(color){
-                    if (color.id == feature.properties.focus_area){
-                       return newOptions['marker-color'] = color.color;
-                    };
-                })
-                // Popup
-                var clusterBrief = L.popup({
-                        closeButton:false,
-                        offset: new L.Point(0,-20)
-                    }).setContent(view.clusterPopup(feature, subLocIndex));
-                layer.on('mouseover',function(){
-                    clusterBrief.setLatLng(this.getLatLng());
-                    view.map.openPopup(clusterBrief);
-                    layer.setIcon(L.mapbox.marker.icon(newOptions));
-                }).on('mouseout',function(){
-                    layer.setIcon(L.mapbox.marker.icon(oldOptions));
-                    view.map.closePopup(clusterBrief);
-                }).on('click',function(){
-                    if (!view.options.embed){
-                        var path = '#project/'+ feature.properties.project;
-                        view.goToLink(path);
-                    } else {
-                        // open project page in a new tab/window
-                        window.open(BASE_URL + '#project/'+ feature.properties.project)
-                    }
-                });
-            };
-
-            function filter(feature, layer, filter){// only two cases for type, hard code is fine
-                var subFilter = mapFilter || "all",
-                    precision = parseInt(feature.properties['precision']);
-
-                if (subFilter === "all"){
-                    return feature.properties
-                } else if (subFilter === "country" ){
-                    return precision === 6 || precision === 9
-                } else if (subFilter === "subnational") {
-                    return precision === 3 || precision === 4 || precision === 7 || precision === 8
-                } else if (subFilter === "street"){
-                    return precision === 1 || precision === 2 || precision === 5
-                }
-            };
-            // Create a geoJSON with locations
-            var filteredMarkersLayer = L.geoJson(filteredMarkers, {
-                pointToLayer: L.mapbox.marker.style,
-                onEachFeature: onEachFeature,
-                filter: filter
-            });
-            // Add markers layer to the layer group titled view.markers
-            view.markers.addLayer(filteredMarkersLayer);
-            // Add view.markers to map
-            view.map.addLayer(view.markers);
-
-
-        };
-        function renderCircles(country){
-            var circles = [];
-            // render HDI
-            _(country.models).each(function(model){
-                if (unit.operating_unit[model.id] && model.lon){
-                    count = unit.operating_unit[model.id];
-                    sources = (unit.donorID) ? false : unit.operating_unitSources[model.id];
-                    budget = (unit.donorID && _.size(unit.operating_unit)) ? unit.donorBudget[unit.donorID] : unit.operating_unitBudget[model.id];
-                    expenditure = (unit.donorID && _.size(unit.operating_unit)) ? unit.donorExpenditure[unit.donorID] : unit.operating_unitExpenditure[model.id];
-
-                    // Collect HDI data, create HDI graph view if filtered on a single operating_unit
-                    if ((HDI[model.id]) ? HDI[model.id].hdi != '' : HDI[model.id]) {
-                        hdi = _.last(HDI[model.id].hdi)[1];
-                        hdi_health = _.last(HDI[model.id].health)[1];
-                        hdi_education = _.last(HDI[model.id].education)[1];
-                        hdi_income = _.last(HDI[model.id].income)[1];
-                        hdi_rank = HDI[model.id].rank;
-                    } else {
-                        hdi = hdi_health = hdi_education = hdi_income = hdi_rank = 'no data';
-                    }
-
-                    // populate the centroid geojson
-                    model.centroid.properties.count = count;
-                    model.centroid.properties.sources = sources;
-                    model.centroid.properties.budget = budget;
-                    model.centroid.properties.expenditure = expenditure;
-                    model.centroid.properties.hdi = hdi;
-                    model.centroid.properties.popup = view.circlePopup(layer,model.centroid);
-                    model.centroid.properties.radius = view.radius(view.scale(layer,model.centroid));
-
-                    circles.push(model.centroid);
-                }
-            });
-            var defaultCircle = {
-                color:"#fff",
-                weight:1,
-                opacity:1,
-                fillColor: "#0055aa",
-                fillOpacity: 0.6
-            };
-            var circleLayer = L.geoJson({
-                "type":"FeatureCollection",
-                "features":_(circles).sortBy(function(f) { return -f.properties[layer]; })
-            },{
-                pointToLayer:function(feature,latlng){
-                    return L.circleMarker(latlng,defaultCircle).setRadius(feature.properties.radius);
-                },
-                onEachFeature:function(feature, layer){
-                    var brief = L.popup({
-                            closeButton:false,
-                            offset:[0, -feature.properties.radius+5]
-                        }).setContent(feature.properties.popup);
-                    layer.on('mouseover',function(e){
-                        brief.setLatLng(this.getLatLng());
-                        view.map.openPopup(brief);
-                        view.circleHighlight(e,{color:'#0055aa',weight:2});
-                    }).on('mouseout',function(e){
-                        view.map.closePopup(brief);
-                        view.circleHighlight(e);
-                    }).on('click',function(e){
-                         if (!view.options.embed){
-                            var prevPath = location.hash;
-                        } else {
-                            prevPath = location.hash.split('?')[0];
-                            prevWidgetOpts = location.hash.split('?')[1]; // used when constructing the route with $('#widget-world')
-
-                            $('#widget-world')
-                            .removeClass('active')
-                            .addClass('enabled')
-                            .attr('href',location.origin + location.pathname + prevPath + "?"+ prevWidgetOpts)
-                            .on('click',function(e){
-                                $('#widget-country').removeClass('active');
-                                $(e.target).addClass('active').removeClass('enabled');
-                            })
-
-                            $('#widget-country').addClass('active');
-                        }
-
-                        if (app.app.filters.length === 0){
-                            if (!view.options.embed) {
-                                path = prevPath + '/filter/operating_unit-' + e.target.feature.properties.id;
-                            } else {
-                                // if there's no filter location hash is "#2013/widget/" which duplicates the "/"
-                                path = prevPath = 'filter/operating_unit-' + e.target.feature.properties.id;
-                            }
-                        } else {
-                            path = prevPath + '/operating_unit-' +  e.target.feature.properties.id;
-                        }
-
-                        view.goToLink(path);
-                    })
-                }
-            });
-            view.markers.addLayer(circleLayer);
-            view.map.addLayer(view.markers);
+        } else {
+            view.outline.addData(selectedFeature)
+              .setStyle(outlineStyle);
         }
+
+        // zoom into the specific country
+        if (IE_VERSION != 10) { //IE10 does not handle any map zoom/pan
+            if (parent.get('id') === 'RUS') {
+                view.map.setView([parent.lat,parent.lon],2);
+            } else {
+                view.map.fitBounds(util.ctyBounds(coords));
+            }
+        }
+
+        view.outline.addTo(view.map);
+    },
+    renderClusters: function(collection){
+        var filteredMarkers = [],
+            projectWithNoGeo = 0;
+            hasGeo = false;
+
+        _(collection.models).each(function(model){
+            if (model.geojson){
+                hasGeo = true;
+                filteredMarkers.push(model.geojson);
+                filteredMarkers = _(filteredMarkers).flatten(false);
+            } else {
+                projectWithNoGeo += 1;
+            }
+        })
+
+        // TODO description should be in template
+        var verbDo = (projectWithNoGeo === 1) ? "does" : "do";
+        var verbHave = (projectWithNoGeo === 1) ? "has" : "have";
+
+        // append sub-national location paragraph
+        if (projectWithNoGeo != 0 && !hasGeo){
+            $('#map-filters').addClass('disabled'); // no sub filter on page
+            $('#description p.geography').html("None of these projects have geographic information.");
+        } else if (projectWithNoGeo != 0 && hasGeo){
+            var projectWithNoGeoParagraph = " <b>" + projectWithNoGeo
+                + "</b> of them " + verbDo + " not " + verbHave + " geographic information; the remaining <b>"
+                + (filteredSubs.length - projectWithNoGeo)
+                + "</b> have <b>"
+                + filteredMarkers.length
+                + "</b> subnational locations in total."
+            $('#description p.geography').html(projectWithNoGeoParagraph);
+        };
+
+        // create clustered markers
+
+        var subLocIndex = view.subnationalIndex.toJSON(),
+            focusIndex = view.focusAreaIndex.toJSON();
+
+        _(filteredMarkers).each(function(feature){
+            _(focusIndex).each(function(f){
+                if (f.id == feature.properties.focus_area){
+                   return feature.properties['marker-color'] = f.color;
+                };
+            });
+        })
+        // Set popups and color changes on hover
+        function onEachFeature(feature, layer) {
+            var oldOptions = {
+                'marker-size':'small',
+                'marker-color':feature.properties['marker-color']
+            }
+            var newOptions = {
+                'marker-size':'small',
+            }
+            var newColors = [
+                {'color': 'AAA922', 'id': '1'},
+                {'color': '218DB6', 'id': '2'},
+                {'color': 'D15A4B', 'id': '3'},
+                {'color': '689A46', 'id': '4'},
+                {'color': '0066a0', 'id': '5'}
+            ]
+            // Match focus area ID to newColors array
+            _(newColors).each(function(color){
+                if (color.id == feature.properties.focus_area){
+                   return newOptions['marker-color'] = color.color;
+                };
+            })
+            // Popup
+            var clusterBrief = L.popup({
+                    closeButton:false,
+                    offset: new L.Point(0,-20)
+                }).setContent(view.clusterPopup(feature, subLocIndex));
+            layer.on('mouseover',function(){
+                clusterBrief.setLatLng(this.getLatLng());
+                view.map.openPopup(clusterBrief);
+                layer.setIcon(L.mapbox.marker.icon(newOptions));
+            }).on('mouseout',function(){
+                layer.setIcon(L.mapbox.marker.icon(oldOptions));
+                view.map.closePopup(clusterBrief);
+            }).on('click',function(){
+                if (!view.options.embed){
+                    var path = '#project/'+ feature.properties.project;
+                    util.goToLink(path);
+                } else {
+                    // open project page in a new tab/window
+                    window.open(BASE_URL + '#project/'+ feature.properties.project)
+                }
+            });
+        };
+
+        function filter(feature, layer, filter){// only two cases for type, hard code is fine
+            var subFilter = mapFilter || "all",
+                precision = parseInt(feature.properties['precision']);
+
+            if (subFilter === "all"){
+                return feature.properties
+            } else if (subFilter === "country" ){
+                return precision === 6 || precision === 9
+            } else if (subFilter === "subnational") {
+                return precision === 3 || precision === 4 || precision === 7 || precision === 8
+            } else if (subFilter === "street"){
+                return precision === 1 || precision === 2 || precision === 5
+            }
+        };
+        // Create a geoJSON with locations
+        var filteredMarkersLayer = L.geoJson(filteredMarkers, {
+            pointToLayer: L.mapbox.marker.style,
+            onEachFeature: onEachFeature,
+            filter: filter
+        });
+        // Add markers layer to the layer group titled view.markers
+        view.markers.addLayer(filteredMarkersLayer);
+        // Add view.markers to map
+        view.map.addLayer(view.markers);
+    },
+    renderCircles: function(country){
+        var count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
+            unit = view.collection,
+            circles = [];
+        // render HDI
+        _(country.models).each(function(model){
+            if (unit.operating_unit[model.id] && model.lon){
+                count = unit.operating_unit[model.id];
+                sources = (unit.donorID) ? false : unit.operating_unitSources[model.id];
+                budget = (unit.donorID && _.size(unit.operating_unit)) ? unit.donorBudget[unit.donorID] : unit.operating_unitBudget[model.id];
+                expenditure = (unit.donorID && _.size(unit.operating_unit)) ? unit.donorExpenditure[unit.donorID] : unit.operating_unitExpenditure[model.id];
+
+                // Collect HDI data, create HDI graph view if filtered on a single operating_unit
+                if ((HDI[model.id]) ? HDI[model.id].hdi != '' : HDI[model.id]) {
+                    hdi = _.last(HDI[model.id].hdi)[1];
+                    hdi_health = _.last(HDI[model.id].health)[1];
+                    hdi_education = _.last(HDI[model.id].education)[1];
+                    hdi_income = _.last(HDI[model.id].income)[1];
+                    hdi_rank = HDI[model.id].rank;
+                } else {
+                    hdi = hdi_health = hdi_education = hdi_income = hdi_rank = 'no data';
+                }
+
+                // populate the centroid geojson
+                model.centroid.properties.count = count;
+                model.centroid.properties.sources = sources;
+                model.centroid.properties.budget = budget;
+                model.centroid.properties.expenditure = expenditure;
+                model.centroid.properties.hdi = hdi;
+                model.centroid.properties.popup = view.circlePopup(layer,model.centroid);
+                model.centroid.properties.radius = util.radius(util.scale(layer,model.centroid));
+
+                circles.push(model.centroid);
+            }
+        });
+        var defaultCircle = {
+            color:"#fff",
+            weight:1,
+            opacity:1,
+            fillColor: "#0055aa",
+            fillOpacity: 0.6
+        };
+        var circleLayer = L.geoJson({
+            "type":"FeatureCollection",
+            "features":_(circles).sortBy(function(f) { return -f.properties[layer]; })
+        },{
+            pointToLayer:function(feature,latlng){
+                return L.circleMarker(latlng,defaultCircle).setRadius(feature.properties.radius);
+            },
+            onEachFeature:function(feature, layer){
+                var brief = L.popup({
+                        closeButton:false,
+                        offset:[0, -feature.properties.radius+5]
+                    }).setContent(feature.properties.popup);
+                layer.on('mouseover',function(e){
+                    brief.setLatLng(this.getLatLng());
+                    view.map.openPopup(brief);
+                    view.circleHighlight(e,{color:'#0055aa',weight:2});
+                }).on('mouseout',function(e){
+                    view.map.closePopup(brief);
+                    view.circleHighlight(e);
+                }).on('click',function(e){
+                     if (!view.options.embed){
+                        var prevPath = location.hash;
+                    } else {
+                        prevPath = location.hash.split('?')[0];
+                        prevWidgetOpts = location.hash.split('?')[1]; // used when constructing the route with $('#widget-world')
+
+                        $('#widget-world')
+                        .removeClass('active')
+                        .addClass('enabled')
+                        .attr('href',location.origin + location.pathname + prevPath + "?"+ prevWidgetOpts)
+                        .on('click',function(e){
+                            $('#widget-country').removeClass('active');
+                            $(e.target).addClass('active').removeClass('enabled');
+                        })
+
+                        $('#widget-country').addClass('active');
+                    }
+
+                    if (app.app.filters.length === 0){
+                        if (!view.options.embed) {
+                            path = prevPath + '/filter/operating_unit-' + e.target.feature.properties.id;
+                        } else {
+                            // if there's no filter location hash is "#2013/widget/" which duplicates the "/"
+                            path = prevPath = 'filter/operating_unit-' + e.target.feature.properties.id;
+                        }
+                    } else {
+                        path = prevPath + '/operating_unit-' +  e.target.feature.properties.id;
+                    }
+
+                    util.goToLink(path);
+                })
+            }
+        });
+        view.markers.addLayer(circleLayer);
+        view.map.addLayer(view.markers);
     }
 });
