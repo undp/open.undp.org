@@ -49,8 +49,6 @@ views.Map = Backbone.View.extend({
                 showCoverageOnHover:false,
                 maxClusterRadius:30
             });
-            var maxZoom = 10;
-
             // in embed if selected from a circle view (where widget-world has a link), keep the widget-nav
             if ($('#widget-world').attr('href')) {
                 $('.widget-nav').show()
@@ -62,13 +60,13 @@ views.Map = Backbone.View.extend({
         };
 
         // create the map with mapbox.js 1.3.1
-        view.map = L.mapbox.map(this.el,TJ.id,{
+        view.map = L.mapbox.map(this.el,mapid,{
             center: [20,20],
             zoom: 2,
-            minZoom: TJ.minzoom,
-            maxZoom: maxZoom || TJ.maxzoom,
+            minZoom: 2,
+            maxZoom: 10,
             scrollWheelZoom: wheelZoom
-            });
+        });
          
         //view.map.legendControl.addLegend('last update');
 
