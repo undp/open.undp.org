@@ -23,20 +23,30 @@ util.ctyBounds = function(coords) {
 }
 
 // define map center based on region filter
-util.zoomToRegion = function(region) {
+util.regionCenter = function(region) {
+    var coord,
+        zoom;
     if (region === "RBA"){
-        this.map.setView([0,20],3,{reset:true});
+        coord = [0,20];
+        zoom =3;
     } else if (region === "RBAP"){
-        this.map.setView([37,80],2,{reset:true});
+        coord = [37,80];
+        zoom =2;
     } else if (region === "RBAS" || region === "PAPP"){
-        this.map.setView([32,32],3,{reset:true});
+        coord = [32,32];
+        zoom = 3;
     } else if (region === "RBEC"){
-        this.map.setView([50,55],3,{reset:true});
+        coord = [50,55];
+        zoom = 3;
     } else if (region === "RBLAC"){
-        this.map.setView([-2,-67],2,{reset:true});
+        coord = [-2,-67]
+        zoom = 2;
     } else if (region === "global"){
-        this.map.setView([0,0],2,{reset:true});
+        coord = [0,0];
+        zoom = 2;
     }
+
+    return {"coord":coord, "zoom":zoom}
 }
 util.radius = function(scaleResult){
     var r = Math.round(Math.sqrt(scaleResult/ Math.PI));
@@ -56,12 +66,6 @@ util.scale = function(cat,feature) {
     } else {
         return Math.round(feature.properties[cat] / 0.05);
     }
-}
-
-// NAV
-util.goToLink = function(path){
-    app.navigate(path, { trigger: true });
-    $('#browser .summary').removeClass('off');
 }
 
 $(document).ready(function() {

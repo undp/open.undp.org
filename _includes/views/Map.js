@@ -118,12 +118,17 @@ views.Map = Backbone.View.extend({
                 }
             }
         } else {
-            view.renderCircles(view.country);
+            view.renderCircles(layer,view.country);
             if(_.isObject(view.regionFilter)){
-                util.zoomToRegion(view.regionFilter.id);
+                regionCenter = util.regionCenter(view.regionFilter.id);
+                view.map.setView(regionCenter.coord,regionCenter.zoom,{reset:true});
             }
         }
 
+    },
+    goToLink:function(path){
+        app.navigate(path, { trigger: true });
+        $('#browser .summary').removeClass('off');
     },
     circleHighlight: function(e,options){
         if (!options){options = {}}
@@ -297,7 +302,7 @@ views.Map = Backbone.View.extend({
             }).on('click',function(){
                 if (!view.options.embed){
                     var path = '#project/'+ feature.properties.project;
-                    util.goToLink(path);
+                    view.goToLink(path);
                 } else {
                     // open project page in a new tab/window
                     window.open(BASE_URL + '#project/'+ feature.properties.project)
@@ -330,7 +335,8 @@ views.Map = Backbone.View.extend({
         // Add view.markers to map
         view.map.addLayer(view.markers);
     },
-    renderCircles: function(country){
+    renderCircles: function(layer,country){
+        var view = this;
         var count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
             unit = view.collection,
             circles = [];
@@ -421,7 +427,7 @@ views.Map = Backbone.View.extend({
                         path = prevPath + '/operating_unit-' +  e.target.feature.properties.id;
                     }
 
-                    util.goToLink(path);
+                    view.goToLink(path);
                 })
             }
         });
