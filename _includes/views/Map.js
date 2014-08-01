@@ -54,6 +54,22 @@ views.Map = Backbone.View.extend({
                 maxClusterRadius:30
             });
 
+            var subs = new Subnationals(),
+                filteredSubs;
+
+            subs.fetch();
+
+            subs.on('sync',function(){
+                _(view.collection.models).each(function(model){
+                    if (subs.get(model.id) != undefined){
+                        subs.get(model.id).set({visible:true})
+                    }
+                });
+                filteredSubs = subs.filtered(); //filtered() is a method in the collection
+                view.renderClusters(filteredSubs);
+            },this);
+
+
             // in embed if selected from a circle view (where widget-world has a link), keep the widget-nav
             if ($('#widget-world').attr('href')) {
                 $('.widget-nav').show()
@@ -99,7 +115,8 @@ views.Map = Backbone.View.extend({
                         }
                     })
                     filteredSubs = subs.filtered(); //filtered() is a method in the collection
-                    view.renderClusters(filteredSubs);
+                    view.renderClusters(mapFilter,filteredSubs);
+
                 }
             });
 
@@ -220,7 +237,8 @@ views.Map = Backbone.View.extend({
 
         view.outline.addTo(view.map);
     },
-    renderClusters: function(collection){
+    renderClusters: function(mapFilter,collection){
+        var view = this;
         var filteredMarkers = [],
             projectWithNoGeo = 0;
             hasGeo = false;

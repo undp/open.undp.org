@@ -5,15 +5,10 @@ Nationals = Backbone.Collection.extend({
 
 Subnationals = Backbone.Collection.extend({
     model: Subnational,
-    // url: function() {
-    //     var opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
-
-    //     if (_.isObject(opUnitFilter)){
-    //         return 'api/units/' + opUnitFilter.id + '.json'
-    //     } else {
-    //         return
-    //     }
-    // },
+    url: function() {
+        var opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
+        return '../api/units/' + opUnitFilter.id + '.json'
+    },
     parse: function(response){
         return response.projects
     },
