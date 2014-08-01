@@ -46,17 +46,21 @@ views.ProjectMap = Backbone.View.extend({
             scrollWheelZoom: wheelZoom
         });
 
-        // TODO collection not fetching
-        var world = view.topo.toJSON()[0],
-            india = view.india.toJSON()[0],
-            subLocIndex = view.subnationalIndex.toJSON(),
-            focusIndex = view.focusAreaIndex.toJSON(),
-            data = view.unitIndex.toJSON();
+        queue()
+            .defer(util.request,'api/world.json')
+            .defer(util.request,'api/india_admin0.json')
+            .defer(util.request,'api/subnational-locs-index.json')
+            .defer(util.request,'api/focus-area-index.json')
+            .defer(util.request,'api/operating-unit-index.json')
+            .await(draw);
 
-        for (var i = 0; i < data.length; i++) {
+        function draw(error, world, india, subLocIndex,focusIndex,data){
+            for (var i = 0; i < data.length; i++) {
             var o = data[i];
             if (o.id === unit) {
-                if (!view.options.embed) view.getwebData(o);
+                // disable social media chunk
+                // if (!view.options.embed) view.getwebData(o);
+
                 $('#country-summary').html(templates.ctrySummary(o));
 
                 if (!o.lon) {// if the unit has no geography
@@ -91,7 +95,7 @@ views.ProjectMap = Backbone.View.extend({
                         if (iso == 643) {
                             view.map.setView([55,65],2);
                         } else {
-                            view.map.fitBounds(ctyBounds(coords));
+                            view.map.fitBounds(util.ctyBounds(coords));
                         }
 
                         view.outline.addTo(view.map);
@@ -180,6 +184,9 @@ views.ProjectMap = Backbone.View.extend({
                 }
             }
         }
+        }
+
+
     },
 
     fullscreen: function(e) {
