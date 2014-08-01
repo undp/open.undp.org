@@ -1,7 +1,9 @@
 ---
 ---
-var CURRENT_YR = FISCALYEARS[0];
-    BASE_URL = 'http://open.undp.org/';
+var CURRENT_YR = FISCALYEARS[0],
+    BASE_URL = 'http://open.undp.org/',
+    MAPID = "undp.map-6grwd0n3";
+
 
 function ctyBounds(coords) {
     if (coords.length > 1) {
@@ -226,7 +228,6 @@ $(document).ready(function() {
         .replace(/Vii\b/g, 'VII');
     };
 
-    var mapid = "undp.map-6grwd0n3";
 
     // ie-banner close
     $('#banner-close').on('click',function(e){

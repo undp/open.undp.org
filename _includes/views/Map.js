@@ -60,7 +60,7 @@ views.Map = Backbone.View.extend({
         };
 
         // create the map with mapbox.js 1.3.1
-        view.map = L.mapbox.map(this.el,mapid,{
+        view.map = L.mapbox.map(this.el,MAPID,{
             center: [20,20],
             zoom: 2,
             minZoom: 2,

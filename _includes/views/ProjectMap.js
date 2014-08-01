@@ -53,7 +53,7 @@ views.ProjectMap = Backbone.View.extend({
             maxClusterRadius:40
         });
         // create map
-        view.map = L.mapbox.map(this.el,TJ.id,{
+        view.map = L.mapbox.map(this.el,MAPID,{
             minZoom: 1,
             maxZoom: 10,
             scrollWheelZoom: wheelZoom
