@@ -1,18 +1,7 @@
 views.Map = Backbone.View.extend({
     initialize: function() {
-        // world topojson and UN-approved Indian border json
-        this.topo = new Countries();
-        this.india = new India();
-        this.country = new Nationals();
-        this.subnationalIndex = new SubnationalIndices();
-        this.focusAreaIndex = new FocusAreaIndices();
-
-        this.topo.fetch();
-        this.india.fetch();
-        this.country.fetch();
-        this.subnationalIndex.fetch();
-        this.focusAreaIndex.fetch();
-
+        this.nations = new Nationals();
+        this.nations.fetch();
         if (this.options.render) this.render();
     },
     render: function() {
@@ -30,17 +19,19 @@ views.Map = Backbone.View.extend({
         // remove 'operating unit has no geo' paragraph
         view.$el.find('.inner-grey').remove();
 
+        // category enables circle map to be switched between five (budget,expend, projects, budget sources. hdi) tabs
         if (!view.options.embed) {
             category = $('.map-btn.active').attr('data-value') || 'budget';
             // when no operating unit is selected, reset to the global map
-            if (category === 'budget' && _.isUndefined(view.opUnitFilter)){$('.map-btn.budget').addClass('active')};
+            if (category === 'budget' && _.isUndefined(view.opUnitFilter)){
+                $('.map-btn.budget').addClass('active')
+            };
         } else {
             // if it's embed mode, set the circles to the budget layer, disable zoom wheel
             category = 'budget';
             wheelZoom = false;
         };
         
-        // create the map with mapbox.js 1.3.1
         view.map = L.mapbox.map(this.el,MAPID,{
             center: [20,20],
             zoom: 2,
@@ -80,6 +71,9 @@ views.Map = Backbone.View.extend({
         
         if(_.isObject(view.opUnitFilter)){
 
+            var parent = _(view.nations.models).findWhere({id:view.opUnitFilter.id}),
+                iso = parseInt(parent.get('iso_num'));
+
             var subs = new Subnationals();
             subs.fetch({
                 url: 'api/units/' + view.opUnitFilter.id + '.json',
@@ -93,12 +87,9 @@ views.Map = Backbone.View.extend({
                     })
                     filteredSubs = subs.filtered(); //filtered() is a method in the collection
                     view.renderClusters(mapFilter,filteredSubs);
-
                 }
             });
 
-            var parent = _(view.country.models).findWhere({id:view.opUnitFilter.id}),
-                iso = parseInt(parent.get('iso_num'));
             // find the iso number from the national models
             if (_.isNaN(iso) && parent.get('id') != 'none'){
                 view.$el.prepend('<div class="inner-grey">'+
@@ -112,7 +103,7 @@ views.Map = Backbone.View.extend({
                 }
             }
         } else {
-            view.renderCircles(layer,view.country);
+            view.renderCircles(layer,view.nations);
             if(_.isObject(view.regionFilter)){
                 regionCenter = util.regionCenter(view.regionFilter.id);
                 view.map.setView(regionCenter.coord,regionCenter.zoom,{reset:true});
@@ -175,44 +166,48 @@ views.Map = Backbone.View.extend({
         }
         return description;
     },
+    outlineStyle: {
+        "color":"#b5b5b5",
+        "weight":0,
+        clickable: false
+    },
     addCountryOutline: function(parent, iso) {
         var view = this;
         view.outline.clearLayers();
 
-        var world = view.topo.toJSON()[0],
-            india = view.india.toJSON()[0];
+        queue()
+            .defer(util.request,'api/world.json')
+            .defer(util.request,'api/india_admin0.json')
+            .await(outline);
 
-        var topoFeatures = topojson.feature(world, world.objects.countries).features,
-            selectedFeature = _(topoFeatures).findWhere({id:iso}),
-            coords = selectedFeature.geometry.coordinates,
-            outlineStyle ={
-                "color":"#b5b5b5",
-                "weight":0,
-                clickable: false
-            };
+        function outline(error,world,india){
+            var topoFeatures = topojson.feature(world, world.objects.countries).features,
+                selectedFeature = _(topoFeatures).findWhere({id:iso}),
+                coords = selectedFeature.geometry.coordinates;
 
-        // get outline
-        if (parent.get('id') === 'IND') {                
-            var indiaFeatures = topojson.feature(india, india.objects.india_admin0).features;
-            _(indiaFeatures).each(function(f){
-                view.outline.addData(f)
-                  .setStyle(outlineStyle);
-            })
-        } else {
-            view.outline.addData(selectedFeature)
-              .setStyle(outlineStyle);
-        }
-
-        // zoom into the specific country
-        if (IE_VERSION != 10) { //IE10 does not handle any map zoom/pan
-            if (parent.get('id') === 'RUS') {
-                view.map.setView([parent.lat,parent.lon],2);
+            // get outline
+            if (parent.get('id') === 'IND') {
+                var indiaFeatures = topojson.feature(india, india.objects.india_admin0).features;
+                _(indiaFeatures).each(function(f){
+                    view.outline.addData(f)
+                      .setStyle(view.outlineStyle);
+                })
             } else {
-                view.map.fitBounds(util.ctyBounds(coords));
+                view.outline.addData(selectedFeature)
+                  .setStyle(view.outlineStyle);
             }
-        }
 
-        view.outline.addTo(view.map);
+            // zoom into the specific country
+            if (IE_VERSION != 10) { //IE10 does not handle any map zoom/pan
+                if (parent.get('id') === 'RUS') {
+                    view.map.setView([parent.lat,parent.lon],2);
+                } else {
+                    view.map.fitBounds(util.ctyBounds(coords));
+                }
+            }
+
+            view.outline.addTo(view.map);
+        }
     },
     renderClusters: function(mapFilter,collection){
         var view = this;
