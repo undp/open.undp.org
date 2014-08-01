@@ -4,8 +4,13 @@ var CURRENT_YR = FISCALYEARS[0],
     BASE_URL = 'http://open.undp.org/',
     MAPID = "undp.map-6grwd0n3";
 
+var IE = $.browser.msie;
+if (IE) {var IE_VERSION = parseInt($.browser.version);} // should return 6, 7, 8, 9
 
-function ctyBounds(coords) {
+var util = {};
+
+// MAP
+util.ctyBounds = function(coords) {
     if (coords.length > 1) {
         var polyline = L.polyline(_.flatten(_.flatten(coords,true),true));
     } else {
@@ -15,6 +20,48 @@ function ctyBounds(coords) {
 
     return [[bbox.getSouthWest().lng, bbox.getSouthWest().lat],
             [bbox.getNorthEast().lng, bbox.getNorthEast().lat]];
+}
+
+// define map center based on region filter
+util.zoomToRegion = function(region) {
+    if (region === "RBA"){
+        this.map.setView([0,20],3,{reset:true});
+    } else if (region === "RBAP"){
+        this.map.setView([37,80],2,{reset:true});
+    } else if (region === "RBAS" || region === "PAPP"){
+        this.map.setView([32,32],3,{reset:true});
+    } else if (region === "RBEC"){
+        this.map.setView([50,55],3,{reset:true});
+    } else if (region === "RBLAC"){
+        this.map.setView([-2,-67],2,{reset:true});
+    } else if (region === "global"){
+        this.map.setView([0,0],2,{reset:true});
+    }
+}
+util.radius = function(scaleResult){
+    var r = Math.round(Math.sqrt(scaleResult/ Math.PI));
+    return r
+}
+
+util.scale = function(cat,feature) {
+    if (cat == 'budget' || cat == 'expenditure') {
+        var size = Math.round(feature.properties[cat] / 100000);
+        if (size < 10) {
+            return 10;
+        } else {
+            return size;
+        }
+    } else if (cat == 'hdi') {
+        return Math.round(Math.pow(feature.properties[cat],2) / 0.0008);
+    } else {
+        return Math.round(feature.properties[cat] / 0.05);
+    }
+}
+
+// NAV
+util.goToLink = function(path){
+    app.navigate(path, { trigger: true });
+    $('#browser .summary').removeClass('off');
 }
 
 $(document).ready(function() {
@@ -53,8 +100,6 @@ $(document).ready(function() {
                 name: 'Budget Source'
             }
         ];
-    var IE = $.browser.msie;
-    if (IE) {var IE_VERSION = parseInt($.browser.version);} // should return 6, 7, 8, 9
 
     {% include models.js %}
     {% include collections.js %}
