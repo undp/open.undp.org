@@ -3,19 +3,6 @@ views.ProjectMap = Backbone.View.extend({
         'click .map-fullscreen': 'fullscreen',
     },
     initialize: function() {
-        // world topojson and UN-approved Indian border json
-        this.topo = new Countries();
-        this.india = new India();
-        this.subnationalIndex = new SubnationalIndices();
-        this.focusAreaIndex = new FocusAreaIndices();
-        this.unitIndex = new OperatingUnits();
-
-        this.topo.fetch();
-        this.india.fetch();
-        this.subnationalIndex.fetch();
-        this.focusAreaIndex.fetch();
-        this.unitIndex.fetch();
-
         if (this.options.render) this.render();
     },
     tooltip: function(data, g) {
