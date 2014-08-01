@@ -27,13 +27,6 @@ views.Map = Backbone.View.extend({
         // remove previous map http://leafletjs.com/reference.html#map-remove
         if (view.map){view.map.remove();}
 
-        // map style
-        if (IE) {
-            view.$el.css('border','1px solid #ddd');
-        } else {
-            view.$el.append('<div class="inner-shadow"></div>');
-        }
-
         // remove 'operating unit has no geo' paragraph
         view.$el.find('.inner-grey').remove();
 
