@@ -40,28 +40,21 @@ views.Map = Backbone.View.extend({
             wheelZoom = false;
         };
         
+        // create the map with mapbox.js 1.3.1
+        view.map = L.mapbox.map(this.el,MAPID,{
+            center: [20,20],
+            zoom: 2,
+            minZoom: 2,
+            maxZoom: 10,
+            scrollWheelZoom: wheelZoom
+        });
+
         // create circle or cluster based on the operating unit filter
         if (_.isObject(view.opUnitFilter)){
             view.markers = new L.MarkerClusterGroup({
                 showCoverageOnHover:false,
                 maxClusterRadius:30
             });
-
-            var subs = new Subnationals(),
-                filteredSubs;
-
-            subs.fetch();
-
-            subs.on('sync',function(){
-                _(view.collection.models).each(function(model){
-                    if (subs.get(model.id) != undefined){
-                        subs.get(model.id).set({visible:true})
-                    }
-                });
-                filteredSubs = subs.filtered(); //filtered() is a method in the collection
-                view.renderClusters(filteredSubs);
-            },this);
-
 
             // in embed if selected from a circle view (where widget-world has a link), keep the widget-nav
             if ($('#widget-world').attr('href')) {
@@ -72,15 +65,6 @@ views.Map = Backbone.View.extend({
         } else {
             view.markers = new L.LayerGroup();
         };
-
-        // create the map with mapbox.js 1.3.1
-        view.map = L.mapbox.map(this.el,MAPID,{
-            center: [20,20],
-            zoom: 2,
-            minZoom: 2,
-            maxZoom: 10,
-            scrollWheelZoom: wheelZoom
-        });
 
         //for IE 8 and above add country outline
         if (!IE || IE_VERSION > 8){
