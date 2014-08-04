@@ -124,7 +124,7 @@ views.ProjectProfile = Backbone.View.extend({
         }
 
         // If first load is a project page or output, don't animate
-        if (app.app && this.options.gotoOutput === false) {
+        if (global.app && this.options.gotoOutput === false) {
             $('#profile .summary').addClass('off');
         }
 

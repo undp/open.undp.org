@@ -8,7 +8,7 @@ views.HDI = Backbone.View.extend({
             unit = view.options.unit,
             hdiWorld = HDI['A-000'];
             
-            app.hdi = true;
+            global.hdi = true;
             
             view.hdiChart(HDI[unit],hdiWorld);
             view.hdiDetails(HDI[unit]);

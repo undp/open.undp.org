@@ -19,7 +19,7 @@ views.Filters = Backbone.View.extend({
                 // Use donor level financial data if available
                 if (active[0].collection.id === 'donors') {
                     donor = active[0].id;
-                    app.projects.map.collection.donorID = donor;
+                    global.projects.map.collection.donorID = donor;
                 }
                 // Add a filtered class to all parent containers
                 // where an active element has been selected.
@@ -35,7 +35,7 @@ views.Filters = Backbone.View.extend({
                 view.collection.sort();
                 
                 if (view.collection.id === 'donors') {
-                    var donorCountry = _(app.app.filters).where({ collection: 'donor_countries' });
+                    var donorCountry = _(global.filters).where({ collection: 'donor_countries' });
                     donorCountry = (donorCountry.length) ? donorCountry[0].id : false;
                 }
 
@@ -92,9 +92,9 @@ views.Filters = Backbone.View.extend({
 
                 if (filterModels.length) {
                     view.$el.html(templates.filters(view));
-                    app.description = app.description || [];
-                    app.donorDescription = app.donorDescription || [];
-                    app.donorTitle;
+                    global.description = global.description || [];
+                    global.donorDescription = global.donorDescription || [];
+                    global.donorTitle;
         
                     _(filterModels).each(function(model) {
         
@@ -112,29 +112,29 @@ views.Filters = Backbone.View.extend({
                             );
 
                             if (view.collection.id === 'operating_unit') {
-                                app.description.push(' for the <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong> office');
+                                global.description.push(' for the <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong> office');
                             }
                             if (view.collection.id === 'region') {
-                                app.description.push(' in the <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong> region');
+                                global.description.push(' in the <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong> region');
                             }
                             if (view.collection.id === 'donor_countries') {
                                 if (donorCountry === 'MULTI_AGY') {
-                                    app.donorTitle = '<strong>Multi-Lateral Agencies</strong>';
-                                    app.donorDescription = '<strong>Multi-Lateral Agencies</strong> fund <strong>' + app.projects.length +'</strong> ';
+                                    global.donorTitle = '<strong>Multi-Lateral Agencies</strong>';
+                                    global.donorDescription = '<strong>Multi-Lateral Agencies</strong> fund <strong>' + global.projects.length +'</strong> ';
                                 } else if (donorCountry === 'OTH') {
-                                    app.donorTitle = '<strong>Uncategorized Organizations</strong>';
-                                    app.donorDescription = '<strong>Uncategorized Organizations</strong> fund <strong>' + app.projects.length +'</strong> ';
+                                    global.donorTitle = '<strong>Uncategorized Organizations</strong>';
+                                    global.donorDescription = '<strong>Uncategorized Organizations</strong> fund <strong>' + global.projects.length +'</strong> ';
                                 } else {
-                                    app.donorTitle = '<strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong>';
-                                    app.donorDescription = '<strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong> funds <strong>' + app.projects.length +'</strong> ';
+                                    global.donorTitle = '<strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong>';
+                                    global.donorDescription = '<strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong> funds <strong>' + global.projects.length +'</strong> ';
                                 }
                             }
                             if (view.collection.id === 'donors') {
-                                app.description.push(' through <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong>');
+                                global.description.push(' through <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong>');
 
                             }
                             if (view.collection.id === 'focus_area') {
-                                app.description.push(' with a focus on <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong>');
+                                global.description.push(' with a focus on <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong>');
                             }
                         }
                     });
@@ -142,11 +142,11 @@ views.Filters = Backbone.View.extend({
                     view.$el.empty();
                 }
 
-                if (app.filtercounter !== facets.length ) {
-                    app.filtercounter = (app.filtercounter) ? app.filtercounter + 1 : 2;
+                if (global.filtercounter !== facets.length ) {
+                    global.filtercounter = (global.filtercounter) ? global.filtercounter + 1 : 2;
                 } else {
-                    app.filtercounter = 0;
-                    if (!keypress) app.projects.map.render();
+                    global.filtercounter = 0;
+                    if (!keypress) global.projects.map.render();
                 }
 
             }
@@ -154,7 +154,7 @@ views.Filters = Backbone.View.extend({
             $('#chart-' + view.collection.id + '.rows').empty();
 
             // update hash for charts
-            if (app.app.filters.length === 0 ){
+            if (global.filters.length === 0 ){
                 var pathTo = '#filter/';
             } else {
                 pathTo = document.location.hash + "/";
@@ -206,10 +206,10 @@ views.Filters = Backbone.View.extend({
                     $el.prepend('<h3 id="focus">Themes <span>% of budget</span></h3>');
                 } else if (view.collection.id === 'operating_unit' || view.collection.id === 'donors' || view.collection.id === 'donor_countries') {
 
-                    donor = (_(app.app.filters).find(function(filter) {
+                    donor = (_(global.filters).find(function(filter) {
                             return filter.collection === 'donors';
                         }) || {id: 0}).id;
-                    donor_ctry = (_(app.app.filters).find(function(filter) {
+                    donor_ctry = (_(global.filters).find(function(filter) {
                             return filter.collection === 'donor_countries';
                         }) || {id: 0}).id;
 
@@ -228,7 +228,7 @@ views.Filters = Backbone.View.extend({
                             if (view.collection.id === 'donors') {
                                 donor = model.id;
                                 
-                                var donorProjects = (donor) ? app.projects.chain()
+                                var donorProjects = (donor) ? global.projects.chain()
                                     .map(function(project) {
                                         var donorIndex = _(project.get('donors')).indexOf(donor);
                                         if (donorIndex === -1) return;
@@ -245,14 +245,14 @@ views.Filters = Backbone.View.extend({
                                     .reduce(function(memo, num){ return memo + num; }, 0).value();
                                     
                                 if (donor || donor_ctry) {
-                                    if (donor) app.projects.map.collection.donorID = false;      
-                                    app.projects.map.collection.donorBudget[donor] = donorBudget;
-                                    app.projects.map.collection.donorExpenditure[donor] = donorExpenditure;
+                                    if (donor) global.projects.map.collection.donorID = false;      
+                                    global.projects.map.collection.donorBudget[donor] = donorBudget;
+                                    global.projects.map.collection.donorExpenditure[donor] = donorExpenditure;
                                 }
 
                             } else {
                                 if (donor_ctry) {
-                                    var donorBudget = app.projects.chain()
+                                    var donorBudget = global.projects.chain()
                                         .filter(function(project) {
                                             return project.get('operating_unit') === model.id;
                                         })
@@ -264,7 +264,7 @@ views.Filters = Backbone.View.extend({
                                             });
                                             return memo;
                                         }, 0).value();
-                                    var donorExpenditure = app.projects.chain()
+                                    var donorExpenditure = global.projects.chain()
                                         .filter(function(project) {
                                             return project.get('operating_unit') === model.id;
                                         })
@@ -277,7 +277,7 @@ views.Filters = Backbone.View.extend({
                                             return memo;
                                         }, 0).value();
                                 } else {
-                                    var donorBudget = (donor) ? app.projects.chain()
+                                    var donorBudget = (donor) ? global.projects.chain()
                                             .filter(function(project) {
                                                 return project.get('operating_unit') === model.id;
                                             })
@@ -286,7 +286,7 @@ views.Filters = Backbone.View.extend({
                                                 if (donorIndex === -1) return memo;
                                                 return memo + project.get('donor_budget')[donorIndex];
                                             }, 0).value() : 0;
-                                    var donorExpenditure = (donor) ? app.projects.chain()
+                                    var donorExpenditure = (donor) ? global.projects.chain()
                                             .filter(function(project) {
                                                 return project.get('operating_unit') === model.id;
                                             })
@@ -297,9 +297,9 @@ views.Filters = Backbone.View.extend({
                                             }, 0).value() : 0;
                                 }
                                 if (donor || donor_ctry) {
-                                    if (donor) app.projects.map.collection.donorID = false;
-                                    app.projects.map.collection.operating_unitBudget[model.get('id')] = donorBudget;
-                                    app.projects.map.collection.operating_unitExpenditure[model.get('id')] = donorExpenditure;
+                                    if (donor) global.projects.map.collection.donorID = false;
+                                    global.projects.map.collection.operating_unitBudget[model.get('id')] = donorBudget;
+                                    global.projects.map.collection.operating_unitExpenditure[model.get('id')] = donorExpenditure;
                                 }
                             }
                             /* Akshay- before was M now so commenting out to show all figures ange getting rid of M.                        was

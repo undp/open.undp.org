@@ -299,6 +299,6 @@ $(document).ready(function() {
     });
 
     // Start the application
-    app = new routers.App();
+    global = new routers.Global();
     Backbone.history.start();
 });

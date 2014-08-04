@@ -6,7 +6,7 @@ Nationals = Backbone.Collection.extend({
 Subnationals = Backbone.Collection.extend({
     model: Subnational,
     url: function() {
-        var opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
+        var opUnitFilter =_(global.filters).findWhere({collection:"operating_unit"});
         return '../api/units/' + opUnitFilter.id + '.json'
     },
     parse: function(response){
@@ -24,11 +24,11 @@ Filters = Backbone.Collection.extend({
     model: Filter,
     watch: function() {
         this.update();
-        app.projects.on('update', this.update, this);
+        global.projects.on('update', this.update, this);
     },
     update: function() {
         var collection = this,
-            active = _(app.app.filters).find(function(filter) {
+            active = _(global.filters).find(function(filter) {
                 return (collection.id === filter.collection);
             });
 
@@ -41,9 +41,9 @@ Filters = Backbone.Collection.extend({
 
         if (active) {
             var model = this.get(active.id);
-            var count = app.projects[collection.id][model.id];
-            var budget = app.projects[collection.id + 'Budget'][model.id];
-            var expenditure = app.projects[collection.id + 'Expenditure'][model.id];
+            var count = global.projects[collection.id][model.id];
+            var budget = global.projects[collection.id + 'Budget'][model.id];
+            var expenditure = global.projects[collection.id + 'Expenditure'][model.id];
             model.set({
                 active: true,
                 count: count,
@@ -53,9 +53,9 @@ Filters = Backbone.Collection.extend({
 
         } else {
             collection.each(function(model) {
-                var count = app.projects[collection.id][model.id];
-                var budget = app.projects[collection.id + 'Budget'][model.id];
-                var expenditure = app.projects[collection.id + 'Expenditure'][model.id];
+                var count = global.projects[collection.id][model.id];
+                var budget = global.projects[collection.id + 'Budget'][model.id];
+                var expenditure = global.projects[collection.id + 'Expenditure'][model.id];
                 model.set({
                     count: count,
                     budget: budget,

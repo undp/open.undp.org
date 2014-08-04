@@ -1,4 +1,4 @@
-routers.App = Backbone.Router.extend({
+routers.Global = Backbone.Router.extend({
     routes: {
         '': 'redirect',
         'filter/*filters': 'redirect',
@@ -42,10 +42,10 @@ routers.App = Backbone.Router.extend({
     },
 
     browser: function (year, route, embed) {
-
         var that = this,
             unit = false,
             donor = false;
+
         // Set up menu
         $('#app .view, #mainnav .profile').hide();
         $('#profile .summary').addClass('off');
@@ -111,11 +111,12 @@ routers.App = Backbone.Router.extend({
             }, true);
         };
 
-        that.app.filters = filters;
+        that.filters = filters;
 
         var loadFilters = function() {
             var counter = 0;
             that.app.views = {};
+
             // Load filters
             _(facets).each(function (facet) {
                 var collection = new Filters();
@@ -167,9 +168,9 @@ routers.App = Backbone.Router.extend({
         };
 
         // Load projects
-        if (!that.allProjects || app.fiscalYear != year) {
-            if (app.fiscalYear && app.fiscalYear != year){app.projects.map.map.remove();}
-            app.fiscalYear = year;
+        if (!that.allProjects || that.fiscalYear != year) {
+            if (that.fiscalYear && that.fiscalYear != year){that.projects.map.map.remove();}
+            that.fiscalYear = year;
             that.allProjects = new Projects(SUMMARY);
 
             that.projects = new Projects(that.allProjects.filter(filter));
@@ -204,15 +205,15 @@ routers.App = Backbone.Router.extend({
 
         // Check for funding countries to show donor visualization
         if (donor){
-            app.donor = new views.Donors ();
+            that.donor = new views.Donors ();
             $('#donor-view').show();
         } else {
-            app.donor = false;
+            that.donor = false;
             $('#donor-view').hide();
         }
 
         // Save default description
-        app.defaultDescription = app.defaultDescription || $('#description p.intro').html();
+        that.defaultDescription = that.defaultDescription || $('#description p.intro').html();
         function updateDescription() {
             setTimeout(function() {
 
@@ -233,8 +234,8 @@ routers.App = Backbone.Router.extend({
                 // 2. filter (no donor) --> start with "The above includes"
                 // 3. filter (with donor) --> start with "DONOR funds the above"
 
-                var counts = (app.projects.length === 1) ? 'project' : 'projects';
-                    projectCounts = 'There are <strong>' + app.projects.length +'</strong> ' + counts;
+                var counts = (that.projects.length === 1) ? 'project' : 'projects';
+                    projectCounts = 'There are <strong>' + that.projects.length +'</strong> ' + counts;
 
                 function renderDonorContent(){
                     var $el = $('#donor-specific');
@@ -258,38 +259,38 @@ routers.App = Backbone.Router.extend({
                     });
                 }
 
-                if (app.description && app.description.length === 0){
-                    if (app.donorDescription.length > 0) {
+                if (that.description && that.description.length === 0){
+                    if (that.donorDescription.length > 0) {
                         // custom donor text
                         renderDonorContent();
                         // default donor text
-                        $('#description').find('p.desc').html(app.donorDescription + counts +' across the world.');
+                        $('#description').find('p.desc').html(that.donorDescription + counts +' across the world.');
                         // donor viz h3
-                        $('#donor-title').html(app.donorTitle);
+                        $('#donor-title').html(that.donorTitle);
                     } else {
                         $('#donor-specific').empty();
-                        $('#description').find('p.desc').html(app.defaultDescription);
+                        $('#description').find('p.desc').html(that.defaultDescription);
                     }
-                } else if (app.description && app.description.length > 0){
-                    if (app.donorDescription.length > 0) {
+                } else if (that.description && that.description.length > 0){
+                    if (that.donorDescription.length > 0) {
                         // custom donor text
                         renderDonorContent();
                         // default donor text
-                        $('#description').find('p.desc').html(app.donorDescription + counts + ' ' + app.description.join(',') + '.');
+                        $('#description').find('p.desc').html(that.donorDescription + counts + ' ' + that.description.join(',') + '.');
                         // donor viz h3
-                        $('#donor-title').html(app.donorTitle);
+                        $('#donor-title').html(that.donorTitle);
                     } else {
                         $('#donor-specific').empty();
-                        $('#description').find('p.desc').html(projectCounts + app.description.join(',') + '.');
+                        $('#description').find('p.desc').html(projectCounts + that.description.join(',') + '.');
                     }
-                } else if (!app.description) {
+                } else if (!that.description) {
                     $('#donor-specific').empty();
-                    $('#description').find('p.desc').html(app.defaultDescription);
+                    $('#description').find('p.desc').html(that.defaultDescription);
                 }
                 // reset description
-                app.description = false;
-                app.shortDesc = "";
-                app.donorDescription = "";
+                that.description = false;
+                that.shortDesc = "";
+                that.donorDescription = "";
 
                 $('#browser .summary').removeClass('off');
 
@@ -303,14 +304,14 @@ routers.App = Backbone.Router.extend({
         }
         // Show proper HDI data
         if (unit && ((HDI[unit]) ? HDI[unit].hdi != '' : HDI[unit])) {
-            app.hdi = new views.HDI({
+            that.hdi = new views.HDI({
                 unit: unit
             });
             if ($('.map-btn[data-value="hdi"]').hasClass('active')) {
                 $('#chart-hdi').addClass('active');
             }
         } else {
-            app.hdi = false;
+            that.hdi = false;
             $('#chart-hdi').removeClass('active');
             $('ul.layers li.no-hover.hdi a').css('cursor','default');
             $('ul.layers li.hdi .graph').removeClass('active');

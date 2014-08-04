@@ -10,8 +10,8 @@ views.Map = Backbone.View.extend({
             category;
 
         // detect filters
-        view.regionFilter =_(app.app.filters).findWhere({collection:"region"});
-        view.opUnitFilter =_(app.app.filters).findWhere({collection:"operating_unit"});
+        view.regionFilter =_(global.filters).findWhere({collection:"region"});
+        view.opUnitFilter =_(global.filters).findWhere({collection:"operating_unit"});
 
         // remove previous map http://leafletjs.com/reference.html#map-remove
         if (view.map){view.map.remove();}
@@ -112,7 +112,7 @@ views.Map = Backbone.View.extend({
 
     },
     goToLink:function(path){
-        app.navigate(path, { trigger: true });
+        global.navigate(path, { trigger: true });
         $('#browser .summary').removeClass('off');
     },
     circleHighlight: function(e,options){
@@ -410,7 +410,7 @@ views.Map = Backbone.View.extend({
                         $('#widget-country').addClass('active');
                     }
 
-                    if (app.app.filters.length === 0){
+                    if (global.filters.length === 0){
                         if (!view.options.embed) {
                             path = prevPath + '/filter/operating_unit-' + e.target.feature.properties.id;
                         } else {
