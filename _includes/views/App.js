@@ -81,11 +81,12 @@ views.App = Backbone.View.extend({
             year = global.fiscalYear;
             shift = false;
 
+    debugger
         if (parts[0] != 'year'){ // treat year differently, see yearChange
 
             this.clearFilter(e);
 
-            _(this.filters).each(function(filter) {
+            _(global.filters).each(function(filter) {
                 if (_.isEqual(filter, filters[0])) {
                     shift = true;
                 } else if (filter.collection !== filters[0].collection) {
@@ -239,7 +240,7 @@ views.App = Backbone.View.extend({
             $('#year .filter-items a').removeClass('inactive');
         }
         if (selectedYear != global.fiscalYear) {
-            var filters = _(this.filters).chain()
+            var filters = _(global.filters).chain()
                 .compact()
                 .map(function(filter) {
                     return filter.collection + '-' + filter.id;
