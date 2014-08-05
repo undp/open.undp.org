@@ -16,7 +16,7 @@ print "processing ..."
 # ********************
 tmpYears = []
 xmlFiles = []
-os.chdir("./download/undp_export/iati-xml-annual/")
+os.chdir("download/undp_export/iati-xml-annual/")
 for fn in os.listdir('.'):
     if fn.endswith(".xml"):
         fileY = fn[-8:-4]  # grab YEAR from file of form "atlas_projects_YEAR.xml"
@@ -37,7 +37,7 @@ projectsFull = []
 outputsFull = []
 
 # For donor JSONs
-cntry_donors = csv.DictReader(open('./download/undp_export/country_donors_updated.csv','rb'), delimiter = ',', quotechar = '"')
+cntry_donors = csv.DictReader(open('download/undp_export/country_donors_updated.csv','rb'), delimiter = ',', quotechar = '"')
 cntry_donors_sort = sorted(cntry_donors, key = lambda x: x['id'])
 
 # Global Donors Arrays
@@ -65,13 +65,13 @@ focusAreas = []
 # Read in South-South Projects
 # **************************
 ss_list = []
-ss_projects = csv.DictReader(open('./download/undp_export/SSCprojects_IDlist.csv', 'rU'), delimiter = ',', quotechar = '"')
+ss_projects = csv.DictReader(open('download/undp_export/SSCprojects_IDlist.csv', 'rU'), delimiter = ',', quotechar = '"')
 for s in ss_projects:
     ss_list.append(s['projectid'])
 
 # Process donors by Projects
 # **************************
-donor_projects = csv.DictReader(open('./download/undp_export/report_donors.csv', 'rU'), delimiter = ',', quotechar = '"')
+donor_projects = csv.DictReader(open('download/undp_export/report_donors.csv', 'rU'), delimiter = ',', quotechar = '"')
 donor_projects_sort = sorted(donor_projects, key = lambda x: x['fiscal_year'])
 
 row_count = 0
@@ -150,7 +150,7 @@ print "Donors by Project Process Count: %d" % row_count
 
 # Process donors by Outputs
 # *************************
-donor_outputs = csv.DictReader(open('./download/undp_export/report_donors.csv', 'rU'), delimiter = ',', quotechar = '"')
+donor_outputs = csv.DictReader(open('download/undp_export/report_donors.csv', 'rU'), delimiter = ',', quotechar = '"')
 donor_outputs_sort = sorted(donor_outputs, key = lambda x: x['projectID'])
 
 row_count = 0
@@ -452,7 +452,7 @@ projectsHeader = [
         'operating_unit_website','project_title','project_descr','start','end','inst_id',
         'inst_descr','inst_type_id','document_name'
         ]
-units = csv.DictReader(open('download/undp_export/report_units.csv', 'rbU'), delimiter = ',', quotechar = '"')
+units = csv.DictReader(open('download/undp_export/report_units.csv', 'rU'), delimiter = ',', quotechar = '"')
 units_sort = sorted(units, key = lambda x: x['operating_unit'])
 iati_regions = csv.DictReader(open('download/undp_export/iati_regions.csv', 'rb'), delimiter = ',', quotechar = '"')
 iati_regions_sort = sorted(iati_regions, key = lambda x: x['code'])
