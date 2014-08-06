@@ -12,10 +12,7 @@ views.Breadcrumbs = Backbone.View.extend({
 		name: 'top donors',
 		link: '#top-donors/regular'
 	},
-	about: {
-		name: '',
-		link: ''
-	},
+	about: {},
 	template: _.template('<li><a href="<%= link%>"><%= name%></a></li>'),
 	initialize: function(options){
 		this.options = options || false;
@@ -23,6 +20,7 @@ views.Breadcrumbs = Backbone.View.extend({
 	},
 	render: function(){
 		var base = this.template(this.home) + this.template(this.ourProjects);
+
 		// static links
 		if (!this.options) this.$el.html(base);
 		if (this.options.add === 'topDonors') {this.$el.html(base + this.template(this.topDonors))};
@@ -32,7 +30,9 @@ views.Breadcrumbs = Backbone.View.extend({
 			this.about.link = '#about/' + this.options.subnav.replace('info','');
 			this.$el.html(base + this.template(this.about));
 		}
+
 		// TODO model links
+		// after clarifying Filters.js and ProjectProfile.js
 	}
 })
 

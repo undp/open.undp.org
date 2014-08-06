@@ -102,6 +102,7 @@ views.Filters = Backbone.View.extend({
                         $('#' + view.collection.id + '-' + model.id).toggleClass('active', model.get('active'));
 
                         if (model.get('active') && !keypress) {
+                            // var breadcrumbs = new views.Breadcrumbs();
                             $('#breadcrumbs ul').append(
                                 '<li><a href="' + BASE_URL +
                                 document.location.hash.split('/')[0] + '/filter/' +
@@ -110,6 +111,8 @@ views.Filters = Backbone.View.extend({
                                 model.get('name').toLowerCase().toTitleCase() +
                                 '</a></li>'
                             );
+
+                            console.log(view.collection.id,  model)
 
                             if (view.collection.id === 'operating_unit') {
                                 global.description.push(' for the <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong> office');

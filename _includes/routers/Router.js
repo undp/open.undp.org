@@ -360,7 +360,7 @@ routers.Global = Backbone.Router.extend({
         that.project.model = new Project({
             id: id
         });
-
+        // loading the specific project
         that.project.model.fetch({
             success: function (data) {
                 if (that.project.view) that.project.view.undelegateEvents();
@@ -415,7 +415,6 @@ routers.Global = Backbone.Router.extend({
         // Add nav
         var nav = new views.Nav();
         var breadcrumbs = new views.Breadcrumbs({add:"topDonors"});
-        $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#top-donors/regular">Top Donors</a></li>');
 
         $('#app .view').hide();
         $('#mainnav li.profile').hide();
