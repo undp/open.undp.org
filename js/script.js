@@ -82,6 +82,47 @@ util.request = function(url, callback) {
   req.send(null);
 }
 
+// Script loader
+util.loadjsFile = function (filename, year, callback) {
+
+    $('#fiscalData').empty();
+    var fileref = document.createElement('script');
+
+    fileref.type = 'text/javascript';
+    // fileref.setAttribute('type', 'text/javascript');
+    fileref.id = 'y' + year;
+    // fileref.setAttribute('id', 'y' + year);
+    fileref.src = filename;
+    // fileref.setAttribute('src', filename);
+
+    // IE BUG FIX REPORT
+    // IE8 does not fire a .load() callback, but IE9 and above fires it twice
+    // Use jQuery.load for IE versions above 8, and onReadyStateChange for >= 8
+    if (IE_VERSION && IE_VERSION <= 8) {
+        fileref.onreadystatechange = function() {
+            var readyState = this.readyState;
+            if (this.readyState === 'complete' || this.readyState === 'loaded') {
+               callback();
+            }
+            else {
+                return
+            }
+        };
+    }
+
+    else {
+        $(fileref).load(callback)
+    }
+
+    //fileref.onreadystatechange = loadFunction;
+    //calling a function after the js is loaded (Chrome/Firefox)
+    //fileref.onload = callback;
+
+    //if(typeof(document.getElementById('fiscalData')) != 'undefined') {
+    document.getElementById('fiscalData').appendChild(fileref);
+    //}
+}
+
 $(document).ready(function() {
     var models = {},
         views = {},
@@ -144,47 +185,6 @@ $(document).ready(function() {
     String.prototype.capitalize = function() {
         return this.charAt(0).toUpperCase() + this.slice(1);
     };
-
-    // Script loader
-    function loadjsFile(filename, year, callback) {
-
-        $('#fiscalData').empty();
-        var fileref = document.createElement('script');
-
-        fileref.type = 'text/javascript';
-        // fileref.setAttribute('type', 'text/javascript');
-        fileref.id = 'y' + year;
-        // fileref.setAttribute('id', 'y' + year);
-        fileref.src = filename;
-        // fileref.setAttribute('src', filename);
-
-        // IE BUG FIX REPORT
-        // IE8 does not fire a .load() callback, but IE9 and above fires it twice
-        // Use jQuery.load for IE versions above 8, and onReadyStateChange for >= 8
-        if (IE_VERSION && IE_VERSION <= 8) {
-            fileref.onreadystatechange = function() {
-                var readyState = this.readyState;
-                if (this.readyState === 'complete' || this.readyState === 'loaded') {
-                   callback();
-                }
-                else {
-                    return
-                }
-            };
-        }
-
-        else {
-            $(fileref).load(callback)
-        }
-
-        //fileref.onreadystatechange = loadFunction;
-        //calling a function after the js is loaded (Chrome/Firefox)
-        //fileref.onload = callback;
-
-        //if(typeof(document.getElementById('fiscalData')) != 'undefined') {
-        document.getElementById('fiscalData').appendChild(fileref);
-	//}
-    }
 
     // Via https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/indexOf
     if (!Array.prototype.indexOf) {
