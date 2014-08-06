@@ -132,7 +132,7 @@ views.ProjectMap = Backbone.View.extend({
                                 project: view.model.get('project_title'),
                                 name: o.name,
                                 focus_area: o.focus_area,
-                                description: view.tooltip(o, g),
+                                description: view.tooltip(o, subLocIndex),
                                 'marker-size': 'small',
                                 'marker-color': markerColor
                             } 

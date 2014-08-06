@@ -18,7 +18,6 @@ views.ProjectProfile = Backbone.View.extend({
     },
 
     render: function() {
-        var breadcrumb = new views.Breadcrumbs({add:project, model:this.model});
         $('#breadcrumbs ul').html(
             '<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' +
             '<li><a href="' + BASE_URL + '">Our Projects</a></li>' +
