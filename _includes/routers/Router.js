@@ -32,7 +32,7 @@ routers.Global = Backbone.Router.extend({
 
         if (!$('#y' + year).length) { // I believe this is detecting whether or not the years have rendered on page
 
-            if (location.hash.split('-')[0] !='#project'){
+            if (year === CURRENT_YR){
                 loadjsFile('api/project_summary_' + year + '.js', year, function() {
                     that.browser(year, path, embed);
                 });
