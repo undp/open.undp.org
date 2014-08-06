@@ -22,26 +22,16 @@ routers.Global = Backbone.Router.extend({
     widgetRedirect: function(path) {
         this.navigate(CURRENT_YR + '/widget/' + path, {trigger: true});
     },
-    // Why are there three parts?
-    // This is a function to detect whether or not
-    // the app goes to trigger this.browser (world view) or this.project (project view)
+
     fiscalyear: function (year, path, embed) {
         var that = this;
 
-        debugger
-
-        if (!$('#y' + year).length) { // I believe this is detecting whether or not the years have rendered on page
-
-            if (year === CURRENT_YR){
-                loadjsFile('api/project_summary_' + year + '.js', year, function() {
-                    that.browser(year, path, embed);
-                });
-            } else { // when projects are loaded from the list view
-                that.project(location.hash.split('-')[1], false,false);
-            }
-
+        if (year === CURRENT_YR){
+            util.loadjsFile('api/project_summary_' + year + '.js', year, function() {
+                that.browser(year, path, embed);
+            });
         } else {
-            that.browser(year, path, embed);
+            that.project(year, false,false); // in this case year is the project id
         }
 
     },
