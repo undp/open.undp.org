@@ -81,7 +81,6 @@ views.App = Backbone.View.extend({
             year = global.fiscalYear;
             shift = false;
 
-    debugger
         if (parts[0] != 'year'){ // treat year differently, see yearChange
 
             this.clearFilter(e);

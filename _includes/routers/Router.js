@@ -1,47 +1,52 @@
 routers.Global = Backbone.Router.extend({
     routes: {
         '': 'redirect',
-        'filter/*filters': 'redirect',
-        ':fiscalyear': 'fiscalyear',
-        ':fiscalyear/filter/*filters': 'fiscalyear',
-        'project/:id': 'project',
-        'project/:id/output-:output': 'project',
-        'widget/*options': 'widgetRedirect',
+        'filter/*path': 'redirect', // filters --> "/donor-countries-MULTI_AGY/operating_unit-BRA";
+        ':fiscalyear': 'fiscalyear', // fiscalyear --> "2014"
+        ':fiscalyear/filter/*path': 'fiscalyear', // fiscalyear, filters
+        'project/:id': 'project', //id --> "00064848"
+        'project/:id/output-:output': 'project', //id-->"00064848", output ? //TODO this is a variation of the project page, what's different?
+        'widget/*options': 'widgetRedirect', //options --> see Widget.js
         ':fiscalyear/widget/*options': 'widget',
-        'about/*subnav': 'about',
-        'top-donors/*cat': 'topDonors'
+        'about/*subnav': 'about', // subnav --> {{post.tag}}
+        'top-donors/*category': 'topDonors' //cat --> "regular"
     },
 
-    redirect: function(route) {
-        //if url lacks a year, default to most recent
-        if (route) {
-            this.navigate(CURRENT_YR + '/filter/' + route, {trigger: true});
-        } else {
-            this.navigate(CURRENT_YR, {trigger: true});
-        }
+    // This is triggered when the user types in the root url ('http://open.undp.org')
+    // the site redirects to /#year
+    // which then triggers 'fiscalyear'
+    redirect: function() {
+        this.navigate(CURRENT_YR, {trigger: true});
     },
 
-    widgetRedirect: function(route) {
-        this.navigate(CURRENT_YR + '/widget/' + route, {trigger: true});
+    widgetRedirect: function(path) {
+        this.navigate(CURRENT_YR + '/widget/' + path, {trigger: true});
     },
-
-    fiscalyear: function (year, route, embed) {
+    // Why are there three parts?
+    // This is a function to detect whether or not
+    // the app goes to trigger this.browser (world view) or this.project (project view)
+    fiscalyear: function (year, path, embed) {
         var that = this;
-        if (!$('#y' + year).length) {
+
+        debugger
+
+        if (!$('#y' + year).length) { // I believe this is detecting whether or not the years have rendered on page
+
             if (location.hash.split('-')[0] !='#project'){
                 loadjsFile('api/project_summary_' + year + '.js', year, function() {
-                    that.browser(year, route, embed);
+                    that.browser(year, path, embed);
                 });
             } else { // when projects are loaded from the list view
                 that.project(location.hash.split('-')[1], false,false);
             }
+
         } else {
-            that.browser(year, route, embed);
+            that.browser(year, path, embed);
         }
 
     },
 
-    browser: function (year, route, embed) {
+    browser: function (year, path, embed) {
         var that = this,
             unit = false,
             donor = false;
@@ -86,9 +91,10 @@ routers.Global = Backbone.Router.extend({
         }
 
         // Parse hash
-        var parts = (route) ? route.split('/') : [];
+        var parts = (path) ? path.split('/') : [];
         var filters = _(parts).map(function (part) {
             var filter = part.split('-');
+
             if (filter[0] === 'operating_unit') {
                 unit = filter[1];
             } else if (filter[0] === 'donor_countries') {
@@ -370,43 +376,43 @@ routers.Global = Backbone.Router.extend({
         });
     },
 
-    widget: function (year, route) {
+    widget: function (year, path) {
         var that = this,
-            parts = route.split('?'),
+            parts = path.split('?'),
             options = parts[1],
-            path = parts[0];
+            pathTemp = parts[0]; // something widget related, temporarily renamed to differentiate from the path passed from url
 
-        path = (path) ? path.split('/') : [];
+        pathTemp = (pathTemp) ? pathTemp.split('/') : [];
         options = (options) ? options.split('&') : [];
 
-        if (path[0] === 'project') {
+        if (pathTemp[0] === 'project') {
             loadjsFile('api/project_summary_' + year + '.js', year, function() {
                 that.project(parts[0].split('/')[1], false, options);
             });
         } else {
-            var route = parts[0];
-            if (route === '') route = undefined;
-            that.fiscalyear(year, route, options);
+            var path = parts[0];
+            if (path === '') path = undefined;
+            that.fiscalyear(year, path, options);
         }
     },
-    about: function (route) {
+    about: function (subnav) {
         window.setTimeout(function () {
             $('html, body').scrollTop(0);
         }, 0);
         // add Nav
         this.nav = new views.Nav();
 
-        $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#about/' + route + '">About: ' + route.capitalize().replace('info','') + '</a></li>');
+        $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' +'<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#about/' + subnav + '">About: ' + subnav.capitalize().replace('info','') + '</a></li>');
 
         $('#app .view, #about .section, #mainnav .profile').hide();
         $('#aboutnav li, #mainnav li').removeClass('active');
 
         $('#about, #mainnav .browser').show();
-        $('#aboutnav li a[href="#about/' + route + '"]').parent().addClass('active');
-        $('#about #' + route).show();
+        $('#aboutnav li a[href="#about/' + subnav + '"]').parent().addClass('active');
+        $('#about #' + subnav).show();
         $('#mainnav li.parent').addClass('parent-active');
     },
-    topDonors: function (route) {
+    topDonors: function (category) {
         var that = this;
 
         // Add nav
@@ -424,11 +430,11 @@ routers.Global = Backbone.Router.extend({
         $('#mainnav li a[href="#top-donors/regular"]').parent().addClass('active');
 
         $('#donor-nav li a').removeClass('active');
-        $('#donor-nav li a[href="#top-donors/' + route + '"]').addClass('active');
+        $('#donor-nav li a[href="#top-donors/' + category + '"]').addClass('active');
         $('#unit-contact').hide();
 
         if (!that.donorsGross) {
-            that.donorsGross = new TopDonors({type: route});
+            that.donorsGross = new TopDonors({type: category});
             that.donorsGross.url = 'api/top-donor-gross-index.json';
 
             that.donorsLocal = new TopDonors({type: 'amount'});
@@ -456,7 +462,7 @@ routers.Global = Backbone.Router.extend({
             }, 0);
 
         } else {
-            that.topDonorsGross.update(route);
+            that.topDonorsGross.update(category);
         }
     },
 
