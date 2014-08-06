@@ -69,13 +69,12 @@ routers.Global = Backbone.Router.extend({
                 $target.parent().addClass('parent-active');
             }
         });
+        var breadcrumbs = new views.Breadcrumbs();
 
         if (!embed) {
             // Load in the top donors info and feedbackform dets.
             window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
-
             // Set up breadcrumbs
-            $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li><li><a href="' + BASE_URL + '">Our Projects</a></li>');
 
             // Load the main app view
             that.app = that.app || new views.App({
@@ -399,11 +398,9 @@ routers.Global = Backbone.Router.extend({
         window.setTimeout(function () {
             $('html, body').scrollTop(0);
         }, 0);
-        // add Nav
-        this.nav = new views.Nav();
 
-        $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' +'<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#about/' + subnav + '">About: ' + subnav.capitalize().replace('info','') + '</a></li>');
-
+        var nav = new views.Nav();
+        var breadcrumbs = new views.Breadcrumbs({add:'about',subnav:subnav})
         $('#app .view, #about .section, #mainnav .profile').hide();
         $('#aboutnav li, #mainnav li').removeClass('active');
 
@@ -416,8 +413,8 @@ routers.Global = Backbone.Router.extend({
         var that = this;
 
         // Add nav
-        this.nav = new views.Nav();
-
+        var nav = new views.Nav();
+        var breadcrumbs = new views.Breadcrumbs({add:"topDonors"});
         $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#top-donors/regular">Top Donors</a></li>');
 
         $('#app .view').hide();

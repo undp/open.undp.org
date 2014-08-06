@@ -134,6 +134,7 @@ $(document).ready(function() {
     {% include views/TopDonors.js %}
     {% include views/Widget.js %}
     {% include views/Donors.js %}
+    {% include views/Breadcrumbs.js %}
 
 
     // Router
