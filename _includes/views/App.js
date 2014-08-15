@@ -37,9 +37,14 @@ views.App = Backbone.View.extend({
                 year: this.options.year
             }));
 
-            if (IE) {
-                $('#ie-banner').show();
-            }
+            // disable this until browser sniffing functions
+            // if (IE) {
+            //     $('#ie-banner').show();
+            // $('#banner-close').on('click',function(e){
+            //     e.preventDefault();
+            //     $('#ie-banner').hide();
+            // });
+            // }
         }
 
         // highlight projects

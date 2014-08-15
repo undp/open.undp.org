@@ -113,7 +113,10 @@ routers.Global = Backbone.Router.extend({
             that.app.views = {};
 
             // Load filters
+            // create five sub collections
+            // which subsequently generates five sets of filter items in Filters.js
             _(facets).each(function (facet) {
+                console.log(facet);
                 var collection = new Filters();
 
                 $('#filter-items').find('#'+facet.id).remove();

@@ -27,6 +27,7 @@ views.Filters = Backbone.View.extend({
                     $('#' + a.collection.id).toggleClass('filtered', true);
                 });
     
+                // copy the collection twice for different usage
                 filterModels = active;
                 chartModels = active;
                 filterCallback();
@@ -91,7 +92,7 @@ views.Filters = Backbone.View.extend({
             function filterCallback() {
 
                 if (filterModels.length) {
-                    view.$el.html(templates.filters(view));
+                    view.$el.html(templates.filters(view)); //  and view === this... TODO: see script.js
                     global.description = global.description || [];
                     global.donorDescription = global.donorDescription || [];
                     global.donorTitle;
@@ -112,8 +113,8 @@ views.Filters = Backbone.View.extend({
                                 '</a></li>'
                             );
 
-                            console.log(view.collection.id,  model)
-
+                            // this can benefit from smaller views where each
+                            // facet has its own description
                             if (view.collection.id === 'operating_unit') {
                                 global.description.push(' for the <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong> office');
                             }
