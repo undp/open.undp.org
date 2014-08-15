@@ -41,16 +41,6 @@ routers.Global = Backbone.Router.extend({
             unit = false,
             donor = false;
 
-        // Set up about
-        $('#mainnav a.parent-link').click(function(e) {
-            e.preventDefault();
-            var $target = $(e.target);
-            if ($target.parent().hasClass('parent-active')) {
-                $target.parent().removeClass('parent-active');
-            } else {
-                $target.parent().addClass('parent-active');
-            }
-        });
         var breadcrumbs = new views.Breadcrumbs();
 
         if (!embed) {
