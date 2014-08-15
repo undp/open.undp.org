@@ -15,6 +15,7 @@ views.App = Backbone.View.extend({
     
     initialize: function(options) {
         var view = this;
+        var years = new views.YearNav();
 
         // Toggle country selector
         $(window).on('click', '#country-selector', _(this.showCountries).bind(this));

@@ -176,6 +176,7 @@ $(document).ready(function() {
     {% include views/Widget.js %}
     {% include views/Donors.js %}
     {% include views/Breadcrumbs.js %}
+    {% include views/YearNav.js %}
 
 
     // Router
