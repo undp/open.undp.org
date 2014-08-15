@@ -11,6 +11,14 @@ views.YearNav = Backbone.View.extend({
 				var year = {'y':y}; // construct year into a key-value pair for template
 				return template(year);
 			});
-		this.$el.html(years.join());
+		this.$el.html(years.join(''));
+	
+		// Set up menu
+        $('#app .view, #mainnav .profile').hide();
+        $('#profile .summary').addClass('off');
+        $('#browser, #mainnav .browser').show();
+        $('#nav-side.not-filter').remove();
+        $('#mainnav li').removeClass('active');
+        $('#mainnav li').first().addClass('active');
 	}
 });

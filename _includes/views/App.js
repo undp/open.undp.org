@@ -15,8 +15,6 @@ views.App = Backbone.View.extend({
     
     initialize: function(options) {
         var view = this;
-        var years = new views.YearNav();
-
         // Toggle country selector
         $(window).on('click', '#country-selector', _(this.showCountries).bind(this));
         $(window).on('click', '#country-list .close', _(this.hideCountries).bind(this));
@@ -46,6 +44,9 @@ views.App = Backbone.View.extend({
             // });
             // }
         }
+
+        // adding years in render since the year div is part of app template
+        this.years = new views.YearNav();
 
         // highlight projects
         $('#mainnav li').first().addClass('active');

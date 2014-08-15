@@ -41,14 +41,6 @@ routers.Global = Backbone.Router.extend({
             unit = false,
             donor = false;
 
-        // Set up menu
-        $('#app .view, #mainnav .profile').hide();
-        $('#profile .summary').addClass('off');
-        $('#browser, #mainnav .browser').show();
-        $('#nav-side.not-filter').remove();
-        $('#mainnav li').removeClass('active');
-        $('#mainnav li').first().addClass('active');
-
         // Set up about
         $('#mainnav a.parent-link').click(function(e) {
             e.preventDefault();
@@ -116,7 +108,6 @@ routers.Global = Backbone.Router.extend({
             // create five sub collections
             // which subsequently generates five sets of filter items in Filters.js
             _(facets).each(function (facet) {
-                console.log(facet);
                 var collection = new Filters();
 
                 $('#filter-items').find('#'+facet.id).remove();
@@ -331,17 +322,9 @@ routers.Global = Backbone.Router.extend({
             // Load in feedbackform deats
             that.feedback();
 
-            that.nav = new views.Nav();
+            var nav = new views.Nav({add:'project'});
 
             window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
-
-            // Set up menu
-            $('#app .view, #mainnav .browser').hide();
-            $('#mainnav li').removeClass('active');
-            $('#browser .summary').addClass('off');
-            $('#mainnav .profile').show();
-            $('#mainnav li').first().addClass('active');
-            $('#mainnav li.parent').removeClass('parent-active');
 
             that.project.widget = new views.Widget({
                 context: 'project'
@@ -392,35 +375,15 @@ routers.Global = Backbone.Router.extend({
             $('html, body').scrollTop(0);
         }, 0);
 
-        var nav = new views.Nav();
+        var nav = new views.Nav({add:'about',subnav:subnav});
         var breadcrumbs = new views.Breadcrumbs({add:'about',subnav:subnav})
-        $('#app .view, #about .section, #mainnav .profile').hide();
-        $('#aboutnav li, #mainnav li').removeClass('active');
-
-        $('#about, #mainnav .browser').show();
-        $('#aboutnav li a[href="#about/' + subnav + '"]').parent().addClass('active');
-        $('#about #' + subnav).show();
-        $('#mainnav li.parent').addClass('parent-active');
     },
     topDonors: function (category) {
         var that = this;
 
         // Add nav
-        var nav = new views.Nav();
-        var breadcrumbs = new views.Breadcrumbs({add:"topDonors"});
-
-        $('#app .view').hide();
-        $('#mainnav li.profile').hide();
-        $('#mainnav li.browser').show();
-        $('#mainnav li').removeClass('active');
-        $('#mainnav li.parent').removeClass('parent-active');
-
-        $('#top-donors').show();
-        $('#mainnav li a[href="#top-donors/regular"]').parent().addClass('active');
-
-        $('#donor-nav li a').removeClass('active');
-        $('#donor-nav li a[href="#top-donors/' + category + '"]').addClass('active');
-        $('#unit-contact').hide();
+        var nav = new views.Nav({add:'topDonors'});
+        var breadcrumbs = new views.Breadcrumbs({add:'topDonors'});
 
         if (!that.donorsGross) {
             that.donorsGross = new TopDonors({type: category});
