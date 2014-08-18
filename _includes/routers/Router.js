@@ -38,48 +38,34 @@ routers.Global = Backbone.Router.extend({
 
     browser: function (year, path, embed) {
         var that = this,
-            unit = false,
-            donor = false;
-
-        var breadcrumbs = new views.Breadcrumbs();
-
-        if (!embed) {
-            // Load in the top donors info and feedbackform dets.
-            window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
-            // Set up breadcrumbs
-
-            // Load the main app view
-            that.app = that.app || new views.App({
-                el: '#browser',
-                year: year
-            });
-        } else {
-            that.app = that.app || new views.App({
-                el: '#embed',
-                embed: embed,
-                year: year
-            });
-        }
+            unit = false, // this should be reused throughout the site
+            donor = false,
+            selectedFacets,
+            processedFacets;
 
         // Parse hash
         var parts = (path) ? path.split('/') : [];
-        var filters = _(parts).map(function (part) {
-            var filter = part.split('-');
+        var processedFacets = _(parts).map(function(part){
+            selectedFacets = part.split('-');
 
-            if (filter[0] === 'operating_unit') {
-                unit = filter[1];
-            } else if (filter[0] === 'donor_countries') {
-                donor = filter[1]
+            if (selectedFacets[0] === 'operating_unit') {
+                unit = selectedFacets[1];
+            } else if (selectedFacets[0] === 'donor_countries') {
+                donor = selectedFacets[1]
             }
             return {
-                collection: filter[0],
-                id: filter[1]
+                collection: selectedFacets[0],
+                id: selectedFacets[1]
             };
         });
 
+        this.filters = processedFacets; //global filters
+
+        // custom filter function
+        // TODO clarify
         var filter = function (model) {
-            if (!filters.length) return true;
-            return _(filters).reduce(function (memo, filter) {
+            if (!processedFacets.length) return true;
+            return _(processedFacets).reduce(function (memo, filter) {
                 if (filter.collection === 'region') {
                     return memo && model.get(filter.collection) == filter.id;
                 } else {
@@ -114,7 +100,7 @@ routers.Global = Backbone.Router.extend({
                             collection: collection
                         });
 
-                        _.each(filters, function (obj) {
+                        _.each(processedFacets, function (obj) {
                             if (obj.collection === facet.id) {
                                 that.app.views[facet.id].active = true;
                             }
@@ -145,6 +131,24 @@ routers.Global = Backbone.Router.extend({
             }
 
         };
+
+        if (!embed) {
+            // Load in the top donors info and feedbackform dets.
+            window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
+            // Set up breadcrumbs
+
+            // Load the main app view
+            that.app = that.app || new views.App({
+                el: '#browser',
+                year: year
+            });
+        } else {
+            that.app = that.app || new views.App({
+                el: '#embed',
+                embed: embed,
+                year: year
+            });
+        }
 
         // Load projects
         if (!that.allProjects || that.fiscalYear != year) {
@@ -200,7 +204,7 @@ routers.Global = Backbone.Router.extend({
 
                 $('#filters-search, #projects-search').val('');
 
-                if (_(filters).find(function(f) {
+                if (_(processedFacets).find(function(f) {
                     return f.collection === 'focus_area';
                 })) {
                     $('#chart-focus_area').hide();
@@ -303,6 +307,7 @@ routers.Global = Backbone.Router.extend({
             }
         }
 
+        var breadcrumbs = new views.Breadcrumbs();
     },
 
     project: function (id, output, embed) {
@@ -437,4 +442,5 @@ routers.Global = Backbone.Router.extend({
             return false;
         });
     }
+
 });
