@@ -36,7 +36,7 @@ views.Filters = Backbone.View.extend({
                 view.collection.sort();
                 
                 if (view.collection.id === 'donors') {
-                    var donorCountry = _(global.filters).where({ collection: 'donor_countries' });
+                    var donorCountry = _(global.processedFacets).where({ collection: 'donor_countries' });
                     donorCountry = (donorCountry.length) ? donorCountry[0].id : false;
                 }
 
@@ -90,7 +90,6 @@ views.Filters = Backbone.View.extend({
             }
 
             function filterCallback() {
-
                 if (filterModels.length) {
                     view.$el.html(templates.filters(view)); //  and view === this... TODO: see script.js
                     global.description = global.description || [];
@@ -158,7 +157,7 @@ views.Filters = Backbone.View.extend({
             $('#chart-' + view.collection.id + '.rows').empty();
 
             // update hash for charts
-            if (global.filters.length === 0 ){
+            if (global.processedFacets.length === 0 ){
                 var pathTo = '#filter/';
             } else {
                 pathTo = document.location.hash + "/";
@@ -210,10 +209,10 @@ views.Filters = Backbone.View.extend({
                     $el.prepend('<h3 id="focus">Themes <span>% of budget</span></h3>');
                 } else if (view.collection.id === 'operating_unit' || view.collection.id === 'donors' || view.collection.id === 'donor_countries') {
 
-                    donor = (_(global.filters).find(function(filter) {
+                    donor = (_(global.processedFacets).find(function(filter) {
                             return filter.collection === 'donors';
                         }) || {id: 0}).id;
-                    donor_ctry = (_(global.filters).find(function(filter) {
+                    donor_ctry = (_(global.processedFacets).find(function(filter) {
                             return filter.collection === 'donor_countries';
                         }) || {id: 0}).id;
 

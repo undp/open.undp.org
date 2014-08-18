@@ -14,7 +14,7 @@ views.Donors = Backbone.View.extend({
 
     render: function() {
         var view = this;
-            view.donorFilter =_(global.filters).findWhere({collection:"donor_countries"});
+            view.donorFilter =_(global.processedFacets).findWhere({collection:"donor_countries"});
             donor = view.donorFilter.id;
             view.donorGraphs(donor);
         global.donor = true;

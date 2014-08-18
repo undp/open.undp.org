@@ -25,7 +25,7 @@ views.Widget = Backbone.View.extend({
         }
         // add custom donor content option when a donor country is filtered
         if (global.app) {
-            var donorCountryFilter = _(app.filters).findWhere({collection:"donor_countries"}),
+            var donorCountryFilter = _(global.processedFacets).findWhere({collection:"donor_countries"}),
                 donorCountryOption = "<li class='main-opt donor-specific-opt'>"
                 + "<a href='#' data-value='donor-specific'>Custom Donor Content</a>"
                 + "</li>";

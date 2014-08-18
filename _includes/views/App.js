@@ -14,7 +14,6 @@ views.App = Backbone.View.extend({
     },
     
     initialize: function(options) {
-        var view = this;
         // Toggle country selector
         $(window).on('click', '#country-selector', _(this.showCountries).bind(this));
         $(window).on('click', '#country-list .close', _(this.hideCountries).bind(this));
@@ -92,7 +91,7 @@ views.App = Backbone.View.extend({
 
             this.clearFilter(e);
 
-            _(global.filters).each(function(filter) {
+            _(global.processedFacets).each(function(filter) {
                 if (_.isEqual(filter, filters[0])) {
                     shift = true;
                 } else if (filter.collection !== filters[0].collection) {
@@ -246,7 +245,7 @@ views.App = Backbone.View.extend({
             $('#year .filter-items a').removeClass('inactive');
         }
         if (selectedYear != global.fiscalYear) {
-            var filters = _(global.filters).chain()
+            var filters = _(global.processedFacets).chain()
                 .compact()
                 .map(function(filter) {
                     return filter.collection + '-' + filter.id;

@@ -6,7 +6,7 @@ Nationals = Backbone.Collection.extend({
 Subnationals = Backbone.Collection.extend({
     model: Subnational,
     url: function() {
-        var opUnitFilter =_(global.filters).findWhere({collection:"operating_unit"});
+        var opUnitFilter =_(global.processedFacets).findWhere({collection:"operating_unit"});
         return '../api/units/' + opUnitFilter.id + '.json'
     },
     parse: function(response){
@@ -27,8 +27,9 @@ Filters = Backbone.Collection.extend({
         global.projects.on('update', this.update, this);
     },
     update: function() {
+        // in the Filters collection
         var collection = this,
-            active = _(global.filters).find(function(filter) {
+            active = _(global.processedFacets).find(function(filter) {
                 return (collection.id === filter.collection);
             });
 

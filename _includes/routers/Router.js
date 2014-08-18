@@ -35,37 +35,39 @@ routers.Global = Backbone.Router.extend({
         }
 
     },
-
+    selectedFacets: false,
+    processedFacets: false,
+    unit: false,
+    donor: false,
     browser: function (year, path, embed) {
         var that = this,
             unit = false, // this should be reused throughout the site
-            donor = false,
-            selectedFacets,
-            processedFacets;
+            donor = false;
 
         // Parse hash
-        var parts = (path) ? path.split('/') : [];
-        var processedFacets = _(parts).map(function(part){
-            selectedFacets = part.split('-');
+        // hash comes in forms as 'operating_unit-ARG/donor-12300'
+        var hashParts = (path) ? path.split('/') : []; // --> ['operating_unit-ARG','donor-12300']
 
-            if (selectedFacets[0] === 'operating_unit') {
-                unit = selectedFacets[1];
-            } else if (selectedFacets[0] === 'donor_countries') {
-                donor = selectedFacets[1]
+        this.processedFacets = _(hashParts).map(function(part){
+
+            that.selectedFacets = part.split('-');  // --> ['operating_unit','ARG']
+
+            if (that.selectedFacets[0] === 'operating_unit') {
+                unit = that.selectedFacets[1];
+            } else if (that.selectedFacets[0] === 'donor_countries') {
+                donor = that.selectedFacets[1]
             }
             return {
-                collection: selectedFacets[0],
-                id: selectedFacets[1]
+                collection: that.selectedFacets[0],
+                id: that.selectedFacets[1]
             };
         });
-
-        this.filters = processedFacets; //global filters
 
         // custom filter function
         // TODO clarify
         var filter = function (model) {
-            if (!processedFacets.length) return true;
-            return _(processedFacets).reduce(function (memo, filter) {
+            if (!that.processedFacets.length) return true;
+            return _(that.processedFacets).reduce(function (memo, filter) {
                 if (filter.collection === 'region') {
                     return memo && model.get(filter.collection) == filter.id;
                 } else {
@@ -74,33 +76,51 @@ routers.Global = Backbone.Router.extend({
             }, true);
         };
 
-        that.filters = filters;
+        // initiate App view
+        // which now contains the filter-items div
+        if (!embed) {
+            // Load in the top donors info and feedbackform dets.
+            window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
+            // Load the main app view
+            that.app = that.app || new views.App({
+                el: '#browser',
+                year: year
+            });
+        } else {
+            that.app = that.app || new views.App({
+                el: '#embed',
+                embed: embed,
+                year: year
+            });
+        }
 
-        var loadFilters = function() {
+        var loadFilters = function(){
             var counter = 0;
             that.app.views = {};
 
             // Load filters
             // create five sub collections
             // which subsequently generates five sets of filter items in Filters.js
+
             _(facets).each(function (facet) {
                 var collection = new Filters();
 
                 $('#filter-items').find('#'+facet.id).remove();
                 $('#filter-items').append('<div id="' + facet.id + '" class="topics"></div>');
 
+                // populating the collection for Filters
                 _(facet).each(function (v, k) {
                     collection[k] = v;
                 });
 
-                collection.fetch({
+                collection.fetch({ // the url associated with each facet is getting called
                     success: function (data) {
                         that.app.views[facet.id] = new views.Filters({
                             el: '#' + facet.id,
                             collection: collection
                         });
 
-                        _.each(processedFacets, function (obj) {
+                        _.each(that.processedFacets, function (obj) {
                             if (obj.collection === facet.id) {
                                 that.app.views[facet.id].active = true;
                             }
@@ -204,7 +224,7 @@ routers.Global = Backbone.Router.extend({
 
                 $('#filters-search, #projects-search').val('');
 
-                if (_(processedFacets).find(function(f) {
+                if (_(that.processedFacets).find(function(f) {
                     return f.collection === 'focus_area';
                 })) {
                     $('#chart-focus_area').hide();
