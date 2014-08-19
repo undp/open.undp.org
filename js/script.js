@@ -140,10 +140,7 @@ $(document).ready(function() {
             return memo;
         }, {}),
         app = {},
-        // consider each individual object in the facet array
-        // its own models, collections, views
-        // the main machenism creates the collections/views for
-        // each of the object
+        // TODO in the process of moving this to the Facets collection
         facets = [
             {
                 id: 'operating_unit',
@@ -189,6 +186,7 @@ $(document).ready(function() {
     {% include views/Donors.js %}
     {% include views/Breadcrumbs.js %}
     {% include views/YearNav.js %}
+    {% include views/Facets.js %}
 
 
     // Router

@@ -71,6 +71,24 @@ Project = Backbone.Model.extend({
     }
 });
 
+Facet = Backbone.Model.extend({
+    defaults: {
+        id:'',
+        name:'',
+        url:''
+    },
+    initialize: function(){
+        var that = this;
+        // create the filters under each Facet model
+        this.subCollection = new Filters();
+
+        // the subCollection (aka Filters) inherit the facets fields
+        this.subCollection.id = this.get('id');
+        this.subCollection.name = this.get('name');
+        this.subCollection.url = this.get('url');
+    }
+});
+
 TopDonor = Backbone.Model.extend({});
 Modality = Backbone.Model.extend({});
 

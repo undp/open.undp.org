@@ -1,6 +1,6 @@
 Nationals = Backbone.Collection.extend({
     model: National,
-    url: '../api/operating-unit-index.json'
+    url: 'api/operating-unit-index.json'
 });
 
 Subnationals = Backbone.Collection.extend({
@@ -17,6 +17,48 @@ Subnationals = Backbone.Collection.extend({
           return model.get("visible") === true;
         });
         return new Subnationals(visible);
+    }
+});
+
+Facets = Backbone.Collection.extend({
+    model:Facet,
+    settings: [
+        {
+            id: 'operating_unit',
+            url: 'api/operating-unit-index.json',
+            name: 'Country Office / Operating Unit'
+        },
+        {
+            id: 'region',
+            url: 'api/region-index.json',
+            name: 'Region'
+        },
+        {
+            id: 'focus_area',
+            url: 'api/focus-area-index.json',
+            name: 'Themes'
+        },
+        {
+            id: 'donor_countries',
+            url: 'api/donor-country-index.json',
+            name: 'Funding by Country'
+        },
+        {
+            id: 'donors',
+            url: 'api/donor-index.json',
+            name: 'Budget Source'
+        }
+    ],
+    initialize: function(){
+        var that = this;
+        // TODO what is this////////
+        counter = 0;
+        ////////////////////////////
+
+        // populate all facets
+        _(this.settings).each(function(setting){
+            that.push(setting);
+        });
     }
 });
 

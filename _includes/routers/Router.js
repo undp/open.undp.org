@@ -95,44 +95,9 @@ routers.Global = Backbone.Router.extend({
         }
 
         var loadFilters = function(){
-            var counter = 0;
-            that.app.views = {};
 
-            // Load filters
-            // create five sub collections
-            // which subsequently generates five sets of filter items in Filters.js
+            var loadFacetsAndFilters = new views.Facets();
 
-            _(facets).each(function (facet) {
-                var collection = new Filters();
-
-                $('#filter-items').find('#'+facet.id).remove();
-                $('#filter-items').append('<div id="' + facet.id + '" class="topics"></div>');
-
-                // populating the collection for Filters
-                _(facet).each(function (v, k) {
-                    collection[k] = v;
-                });
-
-                collection.fetch({ // the url associated with each facet is getting called
-                    success: function (data) {
-                        that.app.views[facet.id] = new views.Filters({
-                            el: '#' + facet.id,
-                            collection: collection
-                        });
-
-                        _.each(that.processedFacets, function (obj) {
-                            if (obj.collection === facet.id) {
-                                that.app.views[facet.id].active = true;
-                            }
-                        });
-                        collection.watch();
-
-                        counter++;
-                        if (counter === facets.length) updateDescription();
-
-                    }
-                });
-            });
             // Create summary map view
             if (!embed){
                 that.projects.map = new views.Map({
@@ -152,23 +117,7 @@ routers.Global = Backbone.Router.extend({
 
         };
 
-        if (!embed) {
-            // Load in the top donors info and feedbackform dets.
-            window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
-            // Set up breadcrumbs
 
-            // Load the main app view
-            that.app = that.app || new views.App({
-                el: '#browser',
-                year: year
-            });
-        } else {
-            that.app = that.app || new views.App({
-                el: '#embed',
-                embed: embed,
-                year: year
-            });
-        }
 
         // Load projects
         if (!that.allProjects || that.fiscalYear != year) {
