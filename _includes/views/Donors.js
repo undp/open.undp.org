@@ -1,20 +1,34 @@
+Donors = Backbone.Collection.extend({
+    url:'api/donors/donors.json',
+    total:function(){
+        var total = this.filter(function(m){return m.get('donor-country') === 'all';});
+        return new Donors(total)
+    },
+    selectedDonor: function(donor){
+        var selected = this.filter(function(m){return m.get('donor-country') === donor;});
+        return new Donors(selected)
+    },
+    initialize:function(){}
+});
+
 views.Donors = Backbone.View.extend({
-    el: '#donor-graphs',
+    el: '#totals-table tbody',
 
     initialize: function() {
-        this.render();
-    },
 
-    render: function() {
-        var view = this;
-            view.donorFilter =_(app.app.filters).findWhere({collection:"donor_countries"});
-            donor = view.donorFilter.id;
-            view.donorGraphs(donor);
         app.donor = true;
+
+        this.allDonors = new Donors();
+        this.listenTo(this.allDonors,'sync',this.render);
+        this.allDonors.fetch();
     },
-    // Builds donor modality bar chart
-    donorGraphs: function(donor) {
-        $('#totals-table').empty();
+    render: function(){
+        var donorFilter =_(app.app.filters).findWhere({collection:"donor_countries"}),
+            donor = donorFilter.id;
+
+        this.total = this.allDonors.total(); // total amount of the core + non-core
+        this.collection = this.allDonors.selectedDonor(donor); // amount of the core + non-core of the specific donor
+
         // Get data for charts       
         $.getJSON( "api/donors/total-modality.json", function(totalData ) {
             var totals = []
@@ -121,23 +135,14 @@ views.Donors = Backbone.View.extend({
                 });
                 
                 // Sort rows by sort value
-                rows.push({
-                    sort: -100000000000,
-                    content: '<tr><td><b>Modality</b></td><td><b>Country Contribution</b></td><td class="block"><b>Allocation of Contribution (%)</b><td class="medium"><b>Contributions from All Donors</b></td><td class="block"><b>Country Share of All Contributions (%)</b></td></tr>'
-                });
+
                 rows = _(rows).sortBy('sort');
                 max = rows[0].sort * -1;
                 rows = rows.slice(0,7);
 
                 _(rows).each(function(row){
-                    $('#totals-table').append(row.content)
+                    $('#totals-table tbody').append(row.content)
                 })
-
-                $('#totals-table tr').each(function(d, e) {
-                    $('.budgetdata', this).width(($(' .budgetdata', this).attr('data-budget')) + '%');
-                    $('.fund', this).width(($(' .fund', this).attr('fund-percent')) + '%');
-                    $('.subdata', this).width('100%');
-                });
             });
         });
     },

@@ -177,7 +177,18 @@
           <div id='donor-view'>
             <h3 style='max-width: 430px;'>Contributions from <span id='donor-title'></span> by Fund Modality</h3>
               <div class='span6 stat-chart' id='donor-graphs'>
-                <table id='totals-table' class='chart modality'></table>
+                <table id='totals-table' class='chart modality'>
+                  <thead>
+                    <tr>
+                      <td>Modality</td>
+                      <td>Country Contribution</td>
+                      <td>Allocation of Contribution (%)</td>
+                      <td>Contributions from All Donors</td>
+                      <td>Country Share of All Contributions (%)</td>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
                 <small>&#8277; Negative amounts reflect adjustments or corrections from prior years, or refunds to donors.</small>
               </div>
           </div>
