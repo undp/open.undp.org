@@ -38,16 +38,47 @@ views.Donors = Backbone.View.extend({
         this.total = this.allDonors.total(); // total amount of the core + non-core
         this.collection = this.allDonors.selectedDonor(donor); // amount of the core + non-core of the specific donor
 
+        var overallContrib = this.collection.findWhere({'name': 'core'}).get('value') + this.collection.findWhere({'name': 'non-core'}).get('value');
+
         // varibles that power the table and graph, for example
         var varibles = {
-            'core': this.total.findWhere({'name': 'core'}).get('value')
-        }
+            'core': this.collection.findWhere({'name': 'core'}).get('value'),
+            'nonCore': this.collection.findWhere({'name': 'non-core'}).get('value'),
+            'costSharing': this.collection.findWhere({'name': 'cost sharing'}).get('value'),
+            'unv': this.collection.findWhere({'name': 'unv'}).get('value'),
+            'specialActivities': this.collection.findWhere({'name': 'special activities'}).get('value'),
+            'trustFunds': this.collection.findWhere({'name': 'trust funds'}).get('value'),
+            'thematicTrustFunds': this.collection.findWhere({'name': 'thematic trust funds'}).get('value'),
+
+            'costSharingTotal': this.total.findWhere({'name': 'cost sharing'}).get('value'),
+            'unvTotal': this.total.findWhere({'name': 'unv'}).get('value'),
+            'specialActivitiesTotal': this.total.findWhere({'name': 'special activities'}).get('value'),
+            'trustFundsTotal': this.total.findWhere({'name': 'trust funds'}).get('value'),
+            'thematicTrustFundsTotal': this.total.findWhere({'name': 'thematic trust funds'}).get('value'),
+
+            'coreAllocation': (this.collection.findWhere({'name': 'core'}).get('value') / overallContrib * 100).toFixed(2),
+            'nonCoreAllocation': (this.collection.findWhere({'name': 'non-core'}).get('value') / overallContrib * 100).toFixed(2),
+
+            'costSharingAllocation': (this.collection.findWhere({'name': 'cost sharing'}).get('value') / this.collection.findWhere({'name': 'non-core'}).get('value') * 100).toFixed(2),
+            'unvAllocation': (this.collection.findWhere({'name': 'unv'}).get('value') / this.collection.findWhere({'name': 'non-core'}).get('value') * 100).toFixed(2),
+            'specialActivitiesAllocation': (this.collection.findWhere({'name': 'special activities'}).get('value') / this.collection.findWhere({'name': 'non-core'}).get('value') * 100).toFixed(2),
+            'trustFundsAllocation': (this.collection.findWhere({'name': 'trust funds'}).get('value') / this.collection.findWhere({'name': 'non-core'}).get('value') * 100).toFixed(2),
+            'thematicTrustFundsAllocation': (this.collection.findWhere({'name': 'thematic trust funds'}).get('value') / this.collection.findWhere({'name': 'non-core'}).get('value') * 100).toFixed(2),
+
+            'corePct': (this.collection.findWhere({'name': 'core'}).get('value') / this.total.findWhere({'name': 'core'}).get('value') * 100).toFixed(2),
+            'nonCorePct': (this.collection.findWhere({'name': 'non-core'}).get('value') / this.total.findWhere({'name': 'non-core'}).get('value') * 100).toFixed(2),
+            'costSharingPct': (this.collection.findWhere({'name': 'cost sharing'}).get('value') / this.total.findWhere({'name': 'cost sharing'}).get('value') * 100).toFixed(2),
+            'unvPct': (this.collection.findWhere({'name': 'unv'}).get('value') / this.total.findWhere({'name': 'non-core'}).get('value') * 100).toFixed(2),
+            'specialActivitiesPct': (this.collection.findWhere({'name': 'special activities'}).get('value') / this.total.findWhere({'name': 'special activities'}).get('value') * 100).toFixed(2),
+            'trustFundsPct': (this.collection.findWhere({'name': 'trust funds'}).get('value') / this.total.findWhere({'name': 'trust funds'}).get('value') * 100).toFixed(2),
+            'thematicTrustFundsPct': (this.collection.findWhere({'name': 'thematic trust funds'}).get('value') / this.total.findWhere({'name': 'thematic trust funds'}).get('value') * 100).toFixed(2)
+        };
 
         this.$el.html(this.template(varibles));
 
 
         /////////////OLD FOR REFERENCE ONLY////////////////
-        // Get data for charts       
+        // Get data for charts
         // $.getJSON( "api/donors/total-modality.json", function(totalData ) {
         //     var totals = []
         //     var data = []
@@ -60,28 +91,28 @@ views.Donors = Backbone.View.extend({
         //         return tempData;
         //     });
 
-            
+
         //     $.getJSON( "api/donors/donor-modality.json", function(donorData) {
         //         var country = [];
         //         var index = 0;
         //         var rows = [];
         //         var sum = [];
         //         var countryTotal = donorData[donor][1];
-                
+
         //         var dtotals = _(donorData[donor][0]).map(function(val, label){
         //             // Format data for pie chart
         //             var dataPiece = {};
         //             dataPiece.label = label;
         //             var mil;
         //             // Set formatting for values
-        //             if (val == 0) { 
+        //             if (val == 0) {
         //                 mil = 0;
         //             } else if (val < 1000000 &&  val > 0) {
-        //                 mil = (val/1000).toFixed(1) + 'K'; 
+        //                 mil = (val/1000).toFixed(1) + 'K';
         //             } else if (val < -1000) {
-        //                 mil = that.addCommas((val/1000).toFixed(1)) + 'K'; 
+        //                 mil = that.addCommas((val/1000).toFixed(1)) + 'K';
         //             } else {
-        //                 mil = (val/1000000).toFixed(1)+ 'M'; 
+        //                 mil = (val/1000000).toFixed(1)+ 'M';
         //             }
         //             val < 0 ? dataPiece.data = 0 : dataPiece.data = val;
         //             var fundPerc;
@@ -97,7 +128,7 @@ views.Donors = Backbone.View.extend({
         //                 fundBar = '<div class="subdata"></div><div class="fund zero" fund-percent="' + fundPerc + '"></div>';
         //             } else {
         //                 fundBar = '<div class="subdata"></div><div class="fund" fund-percent="' + fundPerc + '"></div>';
-        //             } 
+        //             }
 
         //             if (totalsPerc == 0) {
         //                 totalsPerc = 0;
@@ -133,7 +164,7 @@ views.Donors = Backbone.View.extend({
         //             index = index + 1;
         //             return tempData;
         //         });
-                
+
         //         // Sort rows by sort value
 
         //         rows = _(rows).sortBy('sort');

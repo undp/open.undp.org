@@ -1,18 +1,78 @@
 <table id='totals-table' class='chart modality'>
   <thead>
+    <th>Core vs Non-Core Contributions</th>
     <tr>
-      <td>Modality</td>
+      <td>Funding Type</td>
       <td>Country Contribution</td>
-      <td>Allocation of Contribution (%)</td>
-      <td>Contributions from All Donors</td>
-      <td>Country Share of All Contributions (%)</td>
+      <td>Allocation of Contributions</td>
+      <td>Country Share of All Contributions</td>
     </tr>
   </thead>
   <tbody>
   	<tr>
-  		<td>Example using the varible</td>
-  		<td><%= core%></td>
+  		<td>Core Funds</td>
+  		<td>$<%= core %></td>
+      <td><%= coreAllocation %>%</td>
+      <td><%= corePct %>%</td>
   	</tr>
+    <tr>
+      <td>Non-Core Funds</td>
+      <td>$<%= nonCore %></td>
+      <td><%= nonCoreAllocation %>%</td>
+      <td><%= nonCorePct %>%</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr \>
+
+<table id='totals-table' class='chart modality'>
+  <thead>
+    <th>Non-Core Contributions</th>
+    <tr>
+      <td>Modality</td>
+      <td>Country Contribution</td>
+      <td>Allocation of Contributions</td>
+      <td>Contributions from All Donors</td>
+      <td>Country Share of All Contributions</td>
+    </tr>
+  </thead>
+  <tbody>
+  	<tr>
+  		<td>Cost Sharing</td>
+  		<td>$<%= costSharing%></td>
+      <td><%= costSharingAllocation %>%</td>
+      <td>$<%= costSharingTotal %></td>
+      <td><%= costSharingPct %>%</td>
+  	</tr>
+    <tr>
+      <td>Trust Funds</td>
+      <td>$<%= trustFunds%></td>
+      <td><%= trustFundsAllocation %>%</td>
+      <td>$<%= trustFundsTotal %></td>
+      <td><%= trustFundsPct %>%</td>
+    </tr>
+    <tr>
+      <td>Thematic Trust Funds</td>
+      <td>$<%= thematicTrustFunds%></td>
+      <td><%= thematicTrustFundsAllocation %>%</td>
+      <td>$<%= thematicTrustFundsTotal %></td>
+      <td><%= thematicTrustFundsPct %>%</td>
+    </tr>
+    <tr>
+      <td>Special Activities</td>
+      <td>$<%= specialActivities%></td>
+      <td><%= specialActivitiesAllocation %>%</td>
+      <td>$<%= specialActivitiesTotal %></td>
+      <td><%= specialActivitiesPct %>%</td>
+    </tr>
+    <tr>
+      <td>UNV</td>
+      <td>$<%= unv%></td>
+      <td><%= unvAllocation %>%</td>
+      <td>$<%= unvTotal %></td>
+      <td><%= unvPct %>%</td>
+    </tr>
   </tbody>
 </table>
 <small>&#8277; Negative amounts reflect adjustments or corrections from prior years, or refunds to donors.</small>
