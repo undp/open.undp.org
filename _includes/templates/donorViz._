@@ -5,21 +5,36 @@
       <td>Funding Type</td>
       <td>Country Contribution</td>
       <td>Allocation of Contributions</td>
+      <td>Contributions from All Donors</td>
       <td>Country Share of All Contributions</td>
     </tr>
   </thead>
   <tbody>
   	<tr>
   		<td>Core Funds</td>
-  		<td>$<%= core %></td>
+  		<td>$<%= core.toLocaleString() %></td>
       <td><%= coreAllocation %>%</td>
-      <td><%= corePct %>%</td>
+      <td>$<%= coreTotal.toLocaleString() %></td>
+      <td>
+        <div class='left'><%= corePct %>%</div>
+        <div class='right data wide'>
+          <div class='subdata' style='width: 100%;'></div>
+          <div class='fund' fund-percent=<%= corePct %>  style='width: <%= corePct %>%;'></div>
+        </div>
+      </td>
   	</tr>
     <tr>
       <td>Non-Core Funds</td>
-      <td>$<%= nonCore %></td>
+      <td>$<%= nonCore.toLocaleString() %></td>
       <td><%= nonCoreAllocation %>%</td>
-      <td><%= nonCorePct %>%</td>
+      <td>$<%= nonCoreTotal.toLocaleString() %></td>
+      <td>
+        <div class='left'><%= nonCorePct %>%</div>
+        <div class='right data wide'>
+          <div class='subdata' style='width: 100%;'></div>
+          <div class='fund' fund-percent=<%= nonCorePct %>  style='width: <%= nonCorePct %>%;'></div>
+        </div>
+      </td>
     </tr>
   </tbody>
 </table>
@@ -40,38 +55,98 @@
   <tbody>
   	<tr>
   		<td>Cost Sharing</td>
-  		<td>$<%= costSharing%></td>
-      <td><%= costSharingAllocation %>%</td>
-      <td>$<%= costSharingTotal %></td>
-      <td><%= costSharingPct %>%</td>
+  		<td>$<%= costSharing.toLocaleString()%></td>
+      <td>
+        <div class='left'><%= costSharingAllocation %>%</div>
+        <div class='right data wide'>
+          <div class='subdata' style='width: 100%;'></div>
+          <div class='fund' fund-percent=<%= costSharingAllocation %>  style='width: <%= costSharingAllocation %>%;'></div>
+        </div>
+      </td>
+      <td>$<%= costSharingTotal.toLocaleString() %></td>
+      <td>
+        <div class='left'><%= costSharingPct %>%</div>
+        <div class='right data wide'>
+          <div class='subdata' style='width: 100%;'></div>
+          <div class='fund' fund-percent=<%= costSharingPct %>  style='width: <%= costSharingPct %>%;'></div>
+        </div>
+      </td>
   	</tr>
     <tr>
       <td>Trust Funds</td>
-      <td>$<%= trustFunds%></td>
-      <td><%= trustFundsAllocation %>%</td>
-      <td>$<%= trustFundsTotal %></td>
-      <td><%= trustFundsPct %>%</td>
+      <td>$<%= trustFunds.toLocaleString()%></td>
+      <td>
+        <div class='left'><%= trustFundsAllocation %>%</div>
+        <div class='right data wide'>
+          <div class='subdata' style='width: 100%;'></div>
+          <div class='fund' fund-percent=<%= trustFundsAllocation %>  style='width: <%= trustFundsAllocation %>%;'></div>
+        </div>
+      </td>
+      <td>$<%= trustFundsTotal.toLocaleString() %></td>
+      <td>
+        <div class='left'><%= trustFundsPct %>%</div>
+        <div class='right data wide'>
+          <div class='subdata' style='width: 100%;'></div>
+          <div class='fund' fund-percent=<%= trustFundsPct %>  style='width: <%= trustFundsPct %>%;'></div>
+        </div>
+      </td>
     </tr>
     <tr>
       <td>Thematic Trust Funds</td>
-      <td>$<%= thematicTrustFunds%></td>
-      <td><%= thematicTrustFundsAllocation %>%</td>
-      <td>$<%= thematicTrustFundsTotal %></td>
-      <td><%= thematicTrustFundsPct %>%</td>
+      <td>$<%= thematicTrustFunds.toLocaleString()%></td>
+      <td>
+        <div class='left'><%= thematicTrustFundsAllocation %>%</div>
+        <div class='right data wide'>
+          <div class='subdata' style='width: 100%;'></div>
+          <div class='fund' fund-percent=<%= thematicTrustFundsAllocation %>  style='width: <%= thematicTrustFundsAllocation %>%;'></div>
+        </div>
+      </td>
+      <td>$<%= thematicTrustFundsTotal.toLocaleString() %></td>
+      <td>
+        <div class='left'><%= thematicTrustFundsPct %>%</div>
+        <div class='right data wide'>
+          <div class='subdata' style='width: 100%;'></div>
+          <div class='fund' fund-percent=<%= thematicTrustFundsPct %>  style='width: <%= thematicTrustFundsPct %>%;'></div>
+        </div>
+      </td>
     </tr>
     <tr>
       <td>Special Activities</td>
-      <td>$<%= specialActivities%></td>
-      <td><%= specialActivitiesAllocation %>%</td>
-      <td>$<%= specialActivitiesTotal %></td>
-      <td><%= specialActivitiesPct %>%</td>
+      <td>$<%= specialActivities.toLocaleString()%></td>
+      <td>
+        <div class='left'><%= specialActivitiesAllocation %>%</div>
+        <div class='right data wide'>
+          <div class='subdata' style='width: 100%;'></div>
+          <div class='fund' fund-percent=<%= specialActivitiesAllocation %>  style='width: <%= specialActivitiesAllocation %>%;'></div>
+        </div>
+      </td>
+      <td>$<%= specialActivitiesTotal.toLocaleString() %></td>
+      <td>
+        <div class='left'><%= specialActivitiesPct %>%</div>
+        <div class='right data wide'>
+          <div class='subdata' style='width: 100%;'></div>
+          <div class='fund' fund-percent=<%= specialActivitiesPct %>  style='width: <%= specialActivitiesPct %>%;'></div>
+        </div>
+      </td>
     </tr>
     <tr>
       <td>UNV</td>
-      <td>$<%= unv%></td>
-      <td><%= unvAllocation %>%</td>
-      <td>$<%= unvTotal %></td>
-      <td><%= unvPct %>%</td>
+      <td>$<%= unv.toLocaleString()%></td>
+      <td>
+        <div class='left'><%= unvAllocation %>%</div>
+        <div class='right data wide'>
+          <div class='subdata' style='width: 100%;'></div>
+          <div class='fund' fund-percent=<%= unvAllocation %>  style='width: <%= unvAllocation %>%;'></div>
+        </div>
+      </td>
+      <td>$<%= unvTotal.toLocaleString() %></td>
+      <td>
+        <div class='left'><%= unvPct %>%</div>
+        <div class='right data wide'>
+          <div class='subdata' style='width: 100%;'></div>
+          <div class='fund' fund-percent=<%= unvPct %>  style='width: <%= unvPct %>%;'></div>
+        </div>
+      </td>
     </tr>
   </tbody>
 </table>

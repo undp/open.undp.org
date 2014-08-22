@@ -42,6 +42,7 @@ views.Donors = Backbone.View.extend({
 
         // varibles that power the table and graph, for example
         var varibles = {
+            // contributions of this particular donor in each category
             'core': this.collection.findWhere({'name': 'core'}).get('value'),
             'nonCore': this.collection.findWhere({'name': 'non-core'}).get('value'),
             'costSharing': this.collection.findWhere({'name': 'cost sharing'}).get('value'),
@@ -50,28 +51,34 @@ views.Donors = Backbone.View.extend({
             'trustFunds': this.collection.findWhere({'name': 'trust funds'}).get('value'),
             'thematicTrustFunds': this.collection.findWhere({'name': 'thematic trust funds'}).get('value'),
 
+            // total contributions in each category
+            'coreTotal': this.total.findWhere({'name': 'core'}).get('value'),
+            'nonCoreTotal': this.total.findWhere({'name': 'non-core'}).get('value'),
             'costSharingTotal': this.total.findWhere({'name': 'cost sharing'}).get('value'),
             'unvTotal': this.total.findWhere({'name': 'unv'}).get('value'),
             'specialActivitiesTotal': this.total.findWhere({'name': 'special activities'}).get('value'),
             'trustFundsTotal': this.total.findWhere({'name': 'trust funds'}).get('value'),
             'thematicTrustFundsTotal': this.total.findWhere({'name': 'thematic trust funds'}).get('value'),
 
-            'coreAllocation': (this.collection.findWhere({'name': 'core'}).get('value') / overallContrib * 100).toFixed(2),
-            'nonCoreAllocation': (this.collection.findWhere({'name': 'non-core'}).get('value') / overallContrib * 100).toFixed(2),
+            // percentage (allocation) of this donor's contributions in core vs. non-core funds
+            'coreAllocation': (this.collection.findWhere({'name': 'core'}).get('value') / overallContrib * 100).toFixed(1),
+            'nonCoreAllocation': (this.collection.findWhere({'name': 'non-core'}).get('value') / overallContrib * 100).toFixed(1),
 
-            'costSharingAllocation': (this.collection.findWhere({'name': 'cost sharing'}).get('value') / this.collection.findWhere({'name': 'non-core'}).get('value') * 100).toFixed(2),
-            'unvAllocation': (this.collection.findWhere({'name': 'unv'}).get('value') / this.collection.findWhere({'name': 'non-core'}).get('value') * 100).toFixed(2),
-            'specialActivitiesAllocation': (this.collection.findWhere({'name': 'special activities'}).get('value') / this.collection.findWhere({'name': 'non-core'}).get('value') * 100).toFixed(2),
-            'trustFundsAllocation': (this.collection.findWhere({'name': 'trust funds'}).get('value') / this.collection.findWhere({'name': 'non-core'}).get('value') * 100).toFixed(2),
-            'thematicTrustFundsAllocation': (this.collection.findWhere({'name': 'thematic trust funds'}).get('value') / this.collection.findWhere({'name': 'non-core'}).get('value') * 100).toFixed(2),
+            // percentage (allocation) of this donor's contributions to each non-core fund category
+            'costSharingAllocation': (this.collection.findWhere({'name': 'cost sharing'}).get('value') / this.collection.findWhere({'name': 'non-core'}).get('value') * 100).toFixed(1),
+            'unvAllocation': (this.collection.findWhere({'name': 'unv'}).get('value') / this.collection.findWhere({'name': 'non-core'}).get('value') * 100).toFixed(1),
+            'specialActivitiesAllocation': (this.collection.findWhere({'name': 'special activities'}).get('value') / this.collection.findWhere({'name': 'non-core'}).get('value') * 100).toFixed(1),
+            'trustFundsAllocation': (this.collection.findWhere({'name': 'trust funds'}).get('value') / this.collection.findWhere({'name': 'non-core'}).get('value') * 100).toFixed(1),
+            'thematicTrustFundsAllocation': (this.collection.findWhere({'name': 'thematic trust funds'}).get('value') / this.collection.findWhere({'name': 'non-core'}).get('value') * 100).toFixed(1),
 
-            'corePct': (this.collection.findWhere({'name': 'core'}).get('value') / this.total.findWhere({'name': 'core'}).get('value') * 100).toFixed(2),
-            'nonCorePct': (this.collection.findWhere({'name': 'non-core'}).get('value') / this.total.findWhere({'name': 'non-core'}).get('value') * 100).toFixed(2),
-            'costSharingPct': (this.collection.findWhere({'name': 'cost sharing'}).get('value') / this.total.findWhere({'name': 'cost sharing'}).get('value') * 100).toFixed(2),
-            'unvPct': (this.collection.findWhere({'name': 'unv'}).get('value') / this.total.findWhere({'name': 'non-core'}).get('value') * 100).toFixed(2),
-            'specialActivitiesPct': (this.collection.findWhere({'name': 'special activities'}).get('value') / this.total.findWhere({'name': 'special activities'}).get('value') * 100).toFixed(2),
-            'trustFundsPct': (this.collection.findWhere({'name': 'trust funds'}).get('value') / this.total.findWhere({'name': 'trust funds'}).get('value') * 100).toFixed(2),
-            'thematicTrustFundsPct': (this.collection.findWhere({'name': 'thematic trust funds'}).get('value') / this.total.findWhere({'name': 'thematic trust funds'}).get('value') * 100).toFixed(2)
+            // this donor's percentage of the total UNDP funds in each category
+            'corePct': (this.collection.findWhere({'name': 'core'}).get('value') / this.total.findWhere({'name': 'core'}).get('value') * 100).toFixed(1),
+            'nonCorePct': (this.collection.findWhere({'name': 'non-core'}).get('value') / this.total.findWhere({'name': 'non-core'}).get('value') * 100).toFixed(1),
+            'costSharingPct': (this.collection.findWhere({'name': 'cost sharing'}).get('value') / this.total.findWhere({'name': 'cost sharing'}).get('value') * 100).toFixed(1),
+            'unvPct': (this.collection.findWhere({'name': 'unv'}).get('value') / this.total.findWhere({'name': 'non-core'}).get('value') * 100).toFixed(1),
+            'specialActivitiesPct': (this.collection.findWhere({'name': 'special activities'}).get('value') / this.total.findWhere({'name': 'special activities'}).get('value') * 100).toFixed(1),
+            'trustFundsPct': (this.collection.findWhere({'name': 'trust funds'}).get('value') / this.total.findWhere({'name': 'trust funds'}).get('value') * 100).toFixed(1),
+            'thematicTrustFundsPct': (this.collection.findWhere({'name': 'thematic trust funds'}).get('value') / this.total.findWhere({'name': 'thematic trust funds'}).get('value') * 100).toFixed(1)
         };
 
         this.$el.html(this.template(varibles));
