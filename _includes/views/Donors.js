@@ -41,7 +41,7 @@ views.Donors = Backbone.View.extend({
         var overallContrib = this.collection.findWhere({'name': 'core'}).get('value') + this.collection.findWhere({'name': 'non-core'}).get('value');
 
         // varibles that power the table and graph, for example
-        var varibles = {
+        var variables = {
             // contributions of this particular donor in each category
             'core': this.collection.findWhere({'name': 'core'}).get('value'),
             'nonCore': this.collection.findWhere({'name': 'non-core'}).get('value'),
@@ -80,8 +80,9 @@ views.Donors = Backbone.View.extend({
             'trustFundsPct': (this.collection.findWhere({'name': 'trust funds'}).get('value') / this.total.findWhere({'name': 'trust funds'}).get('value') * 100).toFixed(1),
             'thematicTrustFundsPct': (this.collection.findWhere({'name': 'thematic trust funds'}).get('value') / this.total.findWhere({'name': 'thematic trust funds'}).get('value') * 100).toFixed(1)
         };
-
-        this.$el.html(this.template(varibles));
+        console.log('Core Total: ')
+        console.log(variables.coreTotal)
+        this.$el.html(this.template(variables));
 
 
         /////////////OLD FOR REFERENCE ONLY////////////////
