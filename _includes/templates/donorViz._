@@ -13,7 +13,13 @@
   	<tr>
   		<td>Core Funds</td>
   		<td>$<%= core.toLocaleString() %></td>
-      <td><%= coreAllocation %>%</td>
+      <td>
+        <div class='left'><%= coreAllocation  %>%</div>
+        <div class='right data wide'>
+          <div class='subdata' style='width: 100%;'></div>
+          <div class='fund' fund-percent=<%= coreAllocation  %>  style='width: <%= coreAllocation  %>%;'></div>
+        </div>
+      </td>
       <td>$<%= coreTotal.toLocaleString() %></td>
       <td>
         <div class='left'><%= corePct %>%</div>
@@ -26,7 +32,13 @@
     <tr>
       <td>Non-Core Funds</td>
       <td>$<%= nonCore.toLocaleString() %></td>
-      <td><%= nonCoreAllocation %>%</td>
+      <td>
+        <div class='left'><%= nonCoreAllocation  %>%</div>
+        <div class='right data wide'>
+          <div class='subdata' style='width: 100%;'></div>
+          <div class='fund' fund-percent=<%= nonCoreAllocation  %>  style='width: <%= nonCoreAllocation  %>%;'></div>
+        </div>
+      </td>
       <td>$<%= nonCoreTotal.toLocaleString() %></td>
       <td>
         <div class='left'><%= nonCorePct %>%</div>

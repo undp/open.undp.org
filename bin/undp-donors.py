@@ -172,28 +172,30 @@ outputTotals = []
 # append overall totals
 for k, v in totals.iteritems():
   innerStruct = {
-                  'name': k.lower(),
-                  'value': v,
-                  'donor-country': 'all'
+                  "name": k.lower(),
+                  "value": v,
+                  "donor-country": "all"
                 }
   outputTotals.append(innerStruct)
 # append individual country data
 for d in donorList:
   for k, v in donorList[d][0].iteritems():
     innerStruct = {
-                    'name': k.lower(),
-                    'value': v,
-                    'donor-country': d
+                    "name": k.lower(),
+                    "value": v,
+                    "donor-country": d
                   }
     outputTotals.append(innerStruct)
 
 # Write the outputTotals array to file
-f_out = open('../api/donors/donorDataArray.js', 'wb')
-f_out.write('[\n')
-for entry in outputTotals:
-  f_out.write("%s,\n" % entry)
-f_out.write(']\n')
+writeout = json.dumps(outputTotals, sort_keys=True, separators=(',',':'))
+f_out = open('../api/donors/donors.json', 'wb')
+f_out.writelines(writeout)
 f_out.close()
+# for entry in outputTotals:
+#   f_out.write("%s,\n" % entry)
+# f_out.write(']\n')
+# f_out.close()
 
 writeout = json.dumps(totals, sort_keys=True, separators=(',',':'))
 f_out = open('../api/donors/total-modality.json', 'wb')
