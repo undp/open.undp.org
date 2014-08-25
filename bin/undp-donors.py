@@ -80,7 +80,7 @@ for d in fund_modalities_sort:
     donorID = 'OTH'
   else:
     donorID = d['Donor Rollup Level 3']
-    donorList[donorID] = []
+  donorList[donorID] = []
     # donorList[donorID].append(totals)
 
 # Add to the donors list any core donors that weren't accounted for in the non-core donors list
