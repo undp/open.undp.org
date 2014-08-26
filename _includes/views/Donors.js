@@ -80,6 +80,8 @@ views.Donors = Backbone.View.extend({
             'trustFundsPct': (this.collection.findWhere({'name': 'trust funds'}).get('value') / this.total.findWhere({'name': 'trust funds'}).get('value') * 100).toFixed(1),
             'thematicTrustFundsPct': (this.collection.findWhere({'name': 'thematic trust funds'}).get('value') / this.total.findWhere({'name': 'thematic trust funds'}).get('value') * 100).toFixed(1)
         };
+
+        // Make the Core vs. Non-Core Pie Chart
         data = [{label: 'Core', data: variables.core, color: "#2980b9"},
                {label: 'Non-Core', data: variables.nonCore, color: "#e74c3c"}];
         $.plot($('#donorPieChart'), data, {
@@ -105,9 +107,8 @@ views.Donors = Backbone.View.extend({
                 }
         });
 
+        // Make the % of total core contributions bar chart
         coreData = [[0, variables.corePct]];
-        nonCoreData = [[1, variables.nonCorePct]];
-
         var data = [
         {
             label: "Core",
@@ -120,18 +121,6 @@ views.Donors = Backbone.View.extend({
                 fillColor:  "#2980b9"
             },
             color: "#2980b9"
-        },
-        {
-            label: "Non-Core",
-            data: nonCoreData,
-            bars: {
-                show: true,
-                fill: true,
-                lineWidth: 1,
-                order: 2,
-                fillColor:  "#e74c3c"
-            },
-            color: "#e74c3c"
         }];
 
         $.plot($('#percentCoreBar'), data, {
@@ -148,7 +137,8 @@ views.Donors = Backbone.View.extend({
                   axisLabelUseCanvas: true,
                   axisLabelFontSizePixels: 12,
                   axisLabelFontFamily: 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
-                  axisLabelPadding: 5
+                  axisLabelPadding: 5,
+                  max: 100
               },
               legend: {
                   show: true,
@@ -160,6 +150,7 @@ views.Donors = Backbone.View.extend({
               }
           });
 
+        // Make the Non-core modalities pie chart
         data = [{label: 'Cost Sharing', data: variables.costSharing},
                 {label: 'UNV', data: variables.unv},
                 {label: 'Special Activities', data: variables.specialActivities},
