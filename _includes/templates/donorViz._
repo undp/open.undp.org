@@ -1,17 +1,15 @@
-<table id='totals-table' class='chart modality'>
+<table id='totals-table' class='chart modality coreTable'>
   <thead>
-    <th>Core vs Non-Core Contributions</th>
+    <th>Core Contributions</th>
     <tr>
-      <td>Funding Type</td>
-      <td>Country Contribution</td>
-      <td>Allocation of Contributions</td>
-      <td>Contributions from All Donors</td>
-      <td>Country Share of All Contributions</td>
+      <td>Country Core Contribution</td>
+      <td>Percent of Contributions</td>
+      <td>Core Contributions from All Donors</td>
+      <td>Country Share of All Core Contributions</td>
     </tr>
   </thead>
   <tbody>
   	<tr>
-  		<td>Core Funds</td>
   		<td>$<%= core.toLocaleString() %></td>
       <td>
         <div class='left'><%= coreAllocation  %>%</div>
@@ -29,8 +27,23 @@
         </div>
       </td>
   	</tr>
+  </tbody>
+</table>
+
+<hr />
+
+<table id='totals-table' class='chart modality nonCoreTable'>
+  <thead>
+    <th>Non-Core Contributions</th>
     <tr>
-      <td>Non-Core Funds</td>
+      <td>Country Non-Core Contribution</td>
+      <td>Percent of Country Contributions</td>
+      <td>Non-Core Contributions from All Donors</td>
+      <td>Country Share of All Non-Core Contributions</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
       <td>$<%= nonCore.toLocaleString() %></td>
       <td>
         <div class='left'><%= nonCoreAllocation  %>%</div>
@@ -51,15 +64,15 @@
   </tbody>
 </table>
 
-<hr \>
+<hr />
 
-<table id='totals-table' class='chart modality'>
+<table id='totals-table' class='chart modality nonCoreTable'>
   <thead>
-    <th>Non-Core Contributions</th>
+    <th>Non-Core Contributions by Modality</th>
     <tr>
-      <td>Modality</td>
+      <td>Non-Core Modality</td>
       <td>Country Contribution</td>
-      <td>Allocation of Contributions</td>
+      <td>Percent of Non-Core Contributions</td>
       <td>Contributions from All Donors</td>
       <td>Country Share of All Contributions</td>
     </tr>

@@ -15,11 +15,11 @@ Donors = Backbone.Collection.extend({
 });
 
 views.Donors = Backbone.View.extend({
-    el: '#donor-graphs',
+    el: '#donorPieChart',
     // see the template in _includes/templates/donorViz._
     // selecting #donorViz since it's the id of the template script, see _includes/templates.html
     // which is included in index.html
-    template: _.template($('#donorViz').html()),
+    //template: _.template($('#donorViz').html()),
     initialize: function() {
 
         app.donor = true;
@@ -28,7 +28,7 @@ views.Donors = Backbone.View.extend({
         this.listenTo(this.allDonors,'sync',this.render);
         this.allDonors.fetch();
     },
-    render: function(){
+    render: function() {
         var that = this;
         var donorFilter =_(app.app.filters).findWhere({collection:"donor_countries"}),
             donor = donorFilter.id;
@@ -80,109 +80,107 @@ views.Donors = Backbone.View.extend({
             'trustFundsPct': (this.collection.findWhere({'name': 'trust funds'}).get('value') / this.total.findWhere({'name': 'trust funds'}).get('value') * 100).toFixed(1),
             'thematicTrustFundsPct': (this.collection.findWhere({'name': 'thematic trust funds'}).get('value') / this.total.findWhere({'name': 'thematic trust funds'}).get('value') * 100).toFixed(1)
         };
-        console.log('Core Total: ')
-        console.log(variables.coreTotal)
-        this.$el.html(this.template(variables));
+        data = [{label: 'Core', data: variables.core, color: "#2980b9"},
+               {label: 'Non-Core', data: variables.nonCore, color: "#e74c3c"}];
+        $.plot($('#donorPieChart'), data, {
+                series: {
+                  pie: {
+                      show: true,
+                      radius: 0.8
+                  },
+                  label: {
+                    show: true,
+                    formatter: function(label, series) {
+                      return '<div style="font-size:11px; text-align:center; color:black">'+label+'<br/>'+Math.round(series.percent)+'%<br/>$'+series.data+'</div>';
+                    }
+                  }
+                },
+                legend: {
+                    show: true,
+                    labelBoxBorderColor: "none",
+                    labelFormatter: function(label, series) {
+                      pct = series.percent.toFixed(2);
+                      return label+' - '+pct+'% ($'+series.data[0][1].toLocaleString()+')';
+                    }
+                }
+        });
 
+        coreData = [[0, variables.corePct]];
+        nonCoreData = [[1, variables.nonCorePct]];
 
-        /////////////OLD FOR REFERENCE ONLY////////////////
-        // Get data for charts
-        // $.getJSON( "api/donors/total-modality.json", function(totalData ) {
-        //     var totals = []
-        //     var data = []
-        //     var c = 0;
-        //     var totals = _(totalData).map(function(val, label){
-        //         // Format data for bar chart
-        //         var tempData = []
-        //         tempData.push(c, val)
-        //         c = c + 1;
-        //         return tempData;
-        //     });
+        var data = [
+        {
+            label: "Core",
+            data: coreData,
+            bars: {
+                show: true,
+                fill: true,
+                lineWidth: 1,
+                order: 1,
+                fillColor:  "#2980b9"
+            },
+            color: "#2980b9"
+        },
+        {
+            label: "Non-Core",
+            data: nonCoreData,
+            bars: {
+                show: true,
+                fill: true,
+                lineWidth: 1,
+                order: 2,
+                fillColor:  "#e74c3c"
+            },
+            color: "#e74c3c"
+        }];
 
+        $.plot($('#percentCoreBar'), data, {
+                xaxis: {
+                  ticks: false,
+                  axisLabel: 'Fund Type',
+                  axisLabelUseCanvas: true,
+                  axisLabelFontSizePixels: 12,
+                  axisLabelFontFamily: 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
+                  axisLabelPadding: 5
+              },
+              yaxis: {
+                  axisLabel: 'Percent of Total Contributions (All Donors)',
+                  axisLabelUseCanvas: true,
+                  axisLabelFontSizePixels: 12,
+                  axisLabelFontFamily: 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
+                  axisLabelPadding: 5
+              },
+              legend: {
+                  show: true,
+                  labelBoxBorderColor: "none",
+                  labelFormatter: function(label, series) {
+                    pct = parseFloat(series.data[0][1]).toFixed(2);
+                    return label+' - '+pct+'%';
+                  }
+              }
+          });
 
-        //     $.getJSON( "api/donors/donor-modality.json", function(donorData) {
-        //         var country = [];
-        //         var index = 0;
-        //         var rows = [];
-        //         var sum = [];
-        //         var countryTotal = donorData[donor][1];
+        data = [{label: 'Cost Sharing', data: variables.costSharing},
+                {label: 'UNV', data: variables.unv},
+                {label: 'Special Activities', data: variables.specialActivities},
+                {label: 'Trust Funds', data: variables.trustFunds},
+                {label: 'Thematic Trust Funds', data: variables.thematicTrustFunds}
+                ];
 
-        //         var dtotals = _(donorData[donor][0]).map(function(val, label){
-        //             // Format data for pie chart
-        //             var dataPiece = {};
-        //             dataPiece.label = label;
-        //             var mil;
-        //             // Set formatting for values
-        //             if (val == 0) {
-        //                 mil = 0;
-        //             } else if (val < 1000000 &&  val > 0) {
-        //                 mil = (val/1000).toFixed(1) + 'K';
-        //             } else if (val < -1000) {
-        //                 mil = that.addCommas((val/1000).toFixed(1)) + 'K';
-        //             } else {
-        //                 mil = (val/1000000).toFixed(1)+ 'M';
-        //             }
-        //             val < 0 ? dataPiece.data = 0 : dataPiece.data = val;
-        //             var fundPerc;
-        //             val == 0 ? fundPerc = 0 : fundPerc = ((val/countryTotal) * 100).toFixed(1);
-        //             var totalsPerc = ((val/totals[index][1]) * 100).toFixed(1);
-        //             var tMil = that.addCommas((totals[index][1]/1000000).toFixed(1)) + 'M';
-        //             var cleanLabel = label.replace(' ','').toLowerCase();
-        //             var fundBar,
-        //                 totalsBar;
-
-        //             if (fundPerc == 0) {
-        //                 fundPerc = 0;
-        //                 fundBar = '<div class="subdata"></div><div class="fund zero" fund-percent="' + fundPerc + '"></div>';
-        //             } else {
-        //                 fundBar = '<div class="subdata"></div><div class="fund" fund-percent="' + fundPerc + '"></div>';
-        //             }
-
-        //             if (totalsPerc == 0) {
-        //                 totalsPerc = 0;
-        //                 totalsBar = '<div class="subdata" data-expenditure="' + totals[index][1] + '"></div><div class="budgetdata zero" data-budget="' + totalsPerc + '"></div>';
-        //             } else {
-        //                 totalsBar = '<div class="subdata" data-expenditure="' + totals[index][1] + '"></div><div class="budgetdata" data-budget="' + totalsPerc + '"></div>';
-        //             }
-
-        //             console.log(totalsBar)
-
-        //             rows.push({
-        //                 sort: -1 * ((val) ? val : 0),
-        //                 content: '<tr class="'+cleanLabel+'">' +
-        //                          ' <td class="wide">' + label +'</td>' +
-        //                          ' <td>$' + mil + '</td>' +
-        //                          ' <td class="block">' +
-        //                          '      <div class="left" >' + fundPerc +'%</div>' +
-        //                          '      <div class="right data wide">'+ fundBar + '</div>' +
-        //                          ' </td>' +
-        //                          ' <td class="medium">$' + tMil + '</td>' +
-        //                          ' <td class="block">' +
-        //                          '      <div class="left" >' + totalsPerc +'%</div>' +
-        //                          '      <div class="right data wide">'+ totalsBar + '</div>' +
-        //                          ' </td>' +
-        //                          '</tr>'
-        //             });
-
-        //             country.push(dataPiece);
-        //             // Format data for totals
-        //             var tempData = []
-        //             sum.push(val)
-        //             tempData.push(index, val/1000000)
-        //             index = index + 1;
-        //             return tempData;
-        //         });
-
-        //         // Sort rows by sort value
-
-        //         rows = _(rows).sortBy('sort');
-        //         max = rows[0].sort * -1;
-        //         rows = rows.slice(0,7);
-
-        //         _(rows).each(function(row){
-        //             $('#totals-table tbody').append(row.content)
-        //         })
-        //     });
-        // });
-    },
+        $.plot($('#nonCorePieChart'), data, {
+                series: {
+                  pie: {
+                      show: true,
+                      radius: 0.8
+                  }
+                },
+                legend: {
+                  show: true,
+                  labelBoxBorderColor: "none",
+                  labelFormatter: function(label, series) {
+                    return label+' - '+series.percent.toFixed(2)+'% ($'+series.data[0][1].toLocaleString()+')';
+                  }
+                }
+          });
+      }
 });

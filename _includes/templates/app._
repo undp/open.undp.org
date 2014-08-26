@@ -175,9 +175,13 @@
         <div class='row-fluid'>
           <!--Donor viz charts -->
           <div id='donor-view'>
-            <h3 style='max-width: 430px;'>Contributions from <span id='donor-title'></span> by Fund Modality</h3>
-              <div class='span6 stat-chart' id='donor-graphs'>
-              </div>
+            <h3 style='max-width: 430px;'><span id='donor-title'></span>'s Contributions to Core and Non-Core Funds</h3>
+              <div id='donorPieChart' style="width:300px;height:200px"></div>
+            <br />
+            <h3 style='max-width: 430px;'>Percent of Total UNDP Contributions (All Donors)</h3>
+              <div id='percentCoreBar' style='width:200px;height:200px'></div>
+            <h3 style='max-width: 430px;'>Non-Core Contributions by Fund Modality</h3>
+              <div id='nonCorePieChart' style="width:500px;height:200px;"></div>
           </div>
 
           <!--/ #chart-operating_unit -->
