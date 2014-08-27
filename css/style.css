@@ -831,7 +831,8 @@ h3#focus span {
   margin: 0;
   }
 #charts .span6.stat-chart {
-  width: 100%;
+  width: 90%;
+  font-size: 70%;
   position: relative;
   -webkit-box-sizing:border-box;
      -moz-box-sizing:border-box;
@@ -1939,5 +1940,30 @@ body.ie .inner-shadow {
 
 body.ie8 #chart-hdi .details { display: none; }
 
+
+/* New Donor Data Page */
+/* ******************* */
+
+/* These desribe the legends for FLOT pie charts. */
 .legend table, .legend > div { height: 40% !important; opacity: 1 !important; left: 220px; top: 1px; width:275px !important; }
 .legend table { border: 1px solid #555; padding: 5px; }
+
+#totalCoreContribution {
+    font-size: 275%;
+    font-weight: bold;
+    font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;;
+    padding: 5% 5% 5% 5%;
+    color: #0055AA;
+}
+
+#corePercentageTotal {
+    font-size: 275%;
+    font-weight: bold;
+    font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;;
+    padding: 3% 5% 5% 5%;
+    color: #0055AA;
+}
+
+#percentCoreBar {
+  padding: 2% 2%;
+}

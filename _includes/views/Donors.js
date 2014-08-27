@@ -15,11 +15,11 @@ Donors = Backbone.Collection.extend({
 });
 
 views.Donors = Backbone.View.extend({
-    el: '#donorPieChart',
+    el: '#donor-graphs',
     // see the template in _includes/templates/donorViz._
     // selecting #donorViz since it's the id of the template script, see _includes/templates.html
     // which is included in index.html
-    //template: _.template($('#donorViz').html()),
+    template: _.template($('#donorViz').html()),
     initialize: function() {
 
         app.donor = true;
@@ -81,9 +81,62 @@ views.Donors = Backbone.View.extend({
             'thematicTrustFundsPct': (this.collection.findWhere({'name': 'thematic trust funds'}).get('value') / this.total.findWhere({'name': 'thematic trust funds'}).get('value') * 100).toFixed(1)
         };
 
+        // Core donations
+        var coreText = '$' + variables.core.toLocaleString();
+        $('#totalCoreContribution').html(coreText);
+
+        // Percentage of total core contributions (all donors)
+        var corePctText = variables.corePct.toLocaleString() + '%';
+        $('#corePercentageTotal').html(corePctText);
+
+        // Make the % of total core contributions bar chart
+        coreData = [[variables.corePct, 0]];
+        var data = [
+        {
+            label: "Core",
+            data: coreData,
+            bars: {
+                show: true,
+                fill: true,
+                lineWidth: 1,
+                fillColor:  "#0055AA",
+                horizontal: true,
+                barWidth: 0.5,
+                align: 'center'
+            },
+            color: "#0055AA"
+        }];
+
+        $.plot($('#percentCoreBar'), data, {
+                xaxis: {
+                  axisLabel: 'Percent of Total Core Contributions',
+                  axisLabelUseCanvas: true,
+                  axisLabelFontSizePixels: 12,
+                  axisLabelFontFamily: 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
+                  axisLabelPadding: 5,
+                  max: 100,
+                  tickColor: 'black'
+              },
+              yaxis: {
+                  axisLabelUseCanvas: true,
+                  axisLabelFontSizePixels: 12,
+                  axisLabelFontFamily: 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
+                  axisLabelPadding: 5,
+                  ticks: false
+              },
+              legend: {
+                  show: false,
+                  labelBoxBorderColor: "none",
+                  labelFormatter: function(label, series) {
+                    pct = parseFloat(series.data[0][1]).toFixed(2);
+                    return label+' - '+pct+'%';
+                  }
+              }
+          });
+
         // Make the Core vs. Non-Core Pie Chart
-        data = [{label: 'Core', data: variables.core, color: "#2980b9"},
-               {label: 'Non-Core', data: variables.nonCore, color: "#e74c3c"}];
+        data = [{label: 'Core', data: variables.core, color: "#0055AA"},
+               {label: 'Non-Core', data: variables.nonCore, color: "#ecf0f1"}];
         $.plot($('#donorPieChart'), data, {
                 series: {
                   pie: {
@@ -107,71 +160,9 @@ views.Donors = Backbone.View.extend({
                 }
         });
 
-        // Make the % of total core contributions bar chart
-        coreData = [[0, variables.corePct]];
-        var data = [
-        {
-            label: "Core",
-            data: coreData,
-            bars: {
-                show: true,
-                fill: true,
-                lineWidth: 1,
-                order: 1,
-                fillColor:  "#2980b9"
-            },
-            color: "#2980b9"
-        }];
+        // Make non-core modalities chart
+        this.$el.html(this.template(variables));
 
-        $.plot($('#percentCoreBar'), data, {
-                xaxis: {
-                  ticks: false,
-                  axisLabel: 'Fund Type',
-                  axisLabelUseCanvas: true,
-                  axisLabelFontSizePixels: 12,
-                  axisLabelFontFamily: 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
-                  axisLabelPadding: 5
-              },
-              yaxis: {
-                  axisLabel: 'Percent of Total Contributions (All Donors)',
-                  axisLabelUseCanvas: true,
-                  axisLabelFontSizePixels: 12,
-                  axisLabelFontFamily: 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
-                  axisLabelPadding: 5,
-                  max: 100
-              },
-              legend: {
-                  show: true,
-                  labelBoxBorderColor: "none",
-                  labelFormatter: function(label, series) {
-                    pct = parseFloat(series.data[0][1]).toFixed(2);
-                    return label+' - '+pct+'%';
-                  }
-              }
-          });
+    }
 
-        // Make the Non-core modalities pie chart
-        data = [{label: 'Cost Sharing', data: variables.costSharing},
-                {label: 'UNV', data: variables.unv},
-                {label: 'Special Activities', data: variables.specialActivities},
-                {label: 'Trust Funds', data: variables.trustFunds},
-                {label: 'Thematic Trust Funds', data: variables.thematicTrustFunds}
-                ];
-
-        $.plot($('#nonCorePieChart'), data, {
-                series: {
-                  pie: {
-                      show: true,
-                      radius: 0.8
-                  }
-                },
-                legend: {
-                  show: true,
-                  labelBoxBorderColor: "none",
-                  labelFormatter: function(label, series) {
-                    return label+' - '+series.percent.toFixed(2)+'% ($'+series.data[0][1].toLocaleString()+')';
-                  }
-                }
-          });
-      }
 });
