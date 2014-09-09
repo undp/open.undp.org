@@ -980,13 +980,13 @@ f_out.close()
 hdi = csv.DictReader(open('hdi/hdi-csv-clean.csv', 'rU'), delimiter = ',', quotechar = '"')
 geo = csv.DictReader(open('process_files/country-centroids.csv', 'rb'), delimiter = ',', quotechar = '"')
 
-hdi_sort = sorted(hdi, key = lambda x: x['hdi2012'], reverse = True)
+hdi_sort = sorted(hdi, key = lambda x: x['hdi2013'], reverse = True)
 country_sort = sorted(geo, key = lambda x: x['iso3'])
 
 # Add current year to the years array
-years = [1980,1985,1990,1995,2000,2005,2006,2007,2008,2011,2012]
+years = [1980,1985,1990,1995,2000,2005,2006,2007,2008,2011,2012,2013]
 # Set current year to the latest year of HDI Data
-current_year = 2012
+current_year = 2013
 
 row_count = 0
 rank = 0
