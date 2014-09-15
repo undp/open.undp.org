@@ -361,7 +361,6 @@ views.Map = Backbone.View.extend({
         };
         var renderCircles = function(){
             var circles = [];
-            //console.log(country.models);
             // render HDI
             _(country.models).each(function(model){
                 if (unit.operating_unit[model.id] && model.lon) {
@@ -407,7 +406,6 @@ views.Map = Backbone.View.extend({
                 "features":_(circles).sortBy(function(f) { return -f.properties[layer]; })
             },{
                 pointToLayer:function(feature,latlng){
-                    console.log(feature.type);
                     return L.circleMarker(latlng, {
                         color:"#fff",
                         weight:1,
