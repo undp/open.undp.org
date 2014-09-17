@@ -14,6 +14,13 @@ Donors = Backbone.Collection.extend({
     initialize:function(){}
 });
 
+// shortens millions and thousands;
+// attach to window b/c it's called in _includes/templates/donorViz._
+window.abbreviateNumber = function(n) {
+  return n > 1000000 ? (+(n / 1000000).toFixed(1)).toLocaleString() + 'M' :
+    n > 1000 ? (+(n / 1000).toFixed(1)).toLocaleString() + 'K' : n.toLocaleString();
+};
+
 views.Donors = Backbone.View.extend({
     el: '#donor-graphs',
     // see the template in _includes/templates/donorViz._
@@ -27,6 +34,8 @@ views.Donors = Backbone.View.extend({
         this.allDonors = new Donors();
         this.listenTo(this.allDonors,'sync',this.render);
         this.allDonors.fetch();
+        this.$core = $('#totalCoreContribution');
+        this.$nonCore = $('#totalNonCoreContribution');
     },
     render: function() {
         var that = this;
@@ -35,59 +44,69 @@ views.Donors = Backbone.View.extend({
 
         // total and donor related items from collection
         // are being calculated
-        this.total = this.allDonors.total(); // total amount of the core + non-core
-        this.collection = this.allDonors.selectedDonor(donor); // amount of the core + non-core of the specific donor
+        var total = this.allDonors.total(); // total amount of the core + non-core
+        var collection = this.allDonors.selectedDonor(donor); // amount of the core + non-core of the specific donor
 
-        var overallContrib = this.collection.findWhere({'name': 'core'}).get('value') + this.collection.findWhere({'name': 'non-core'}).get('value');
+        var core = collection.findWhere({'name': 'core'}).get('value');
+        var nonCore = collection.findWhere({'name': 'non-core'}).get('value');
+        var overallContrib = core + nonCore;
 
-        // varibles that power the table and graph, for example
-        var variables = {
+        // varibles that power the table and graph
+        var base = {
             // contributions of this particular donor in each category
-            'core': this.collection.findWhere({'name': 'core'}).get('value'),
-            'nonCore': this.collection.findWhere({'name': 'non-core'}).get('value'),
-            'costSharing': this.collection.findWhere({'name': 'cost sharing'}).get('value'),
-            'unv': this.collection.findWhere({'name': 'unv'}).get('value'),
-            'specialActivities': this.collection.findWhere({'name': 'special activities'}).get('value'),
-            'trustFunds': this.collection.findWhere({'name': 'trust funds'}).get('value'),
-            'thematicTrustFunds': this.collection.findWhere({'name': 'thematic trust funds'}).get('value'),
+            core: core,
+            nonCore: nonCore,
+            costSharing: collection.findWhere({'name': 'cost sharing'}).get('value'),
+            unv: collection.findWhere({'name': 'unv'}).get('value'),
+            specialActivities: collection.findWhere({'name': 'special activities'}).get('value'),
+            trustFunds: collection.findWhere({'name': 'trust funds'}).get('value'),
+            thematicTrustFunds: collection.findWhere({'name': 'thematic trust funds'}).get('value'),
 
             // total contributions in each category
-            'coreTotal': this.total.findWhere({'name': 'core'}).get('value'),
-            'nonCoreTotal': this.total.findWhere({'name': 'non-core'}).get('value'),
-            'costSharingTotal': this.total.findWhere({'name': 'cost sharing'}).get('value'),
-            'unvTotal': this.total.findWhere({'name': 'unv'}).get('value'),
-            'specialActivitiesTotal': this.total.findWhere({'name': 'special activities'}).get('value'),
-            'trustFundsTotal': this.total.findWhere({'name': 'trust funds'}).get('value'),
-            'thematicTrustFundsTotal': this.total.findWhere({'name': 'thematic trust funds'}).get('value'),
+            coreTotal: total.findWhere({'name': 'core'}).get('value'),
+            nonCoreTotal: total.findWhere({'name': 'non-core'}).get('value'),
+            costSharingTotal: total.findWhere({'name': 'cost sharing'}).get('value'),
+            unvTotal: total.findWhere({'name': 'unv'}).get('value'),
+            specialActivitiesTotal: total.findWhere({'name': 'special activities'}).get('value'),
+            trustFundsTotal: total.findWhere({'name': 'trust funds'}).get('value'),
+            thematicTrustFundsTotal: total.findWhere({'name': 'thematic trust funds'}).get('value'),
+          };
 
-            // percentage (allocation) of this donor's contributions in core vs. non-core funds
-            'coreAllocation': (this.collection.findWhere({'name': 'core'}).get('value') / overallContrib * 100).toFixed(1),
-            'nonCoreAllocation': (this.collection.findWhere({'name': 'non-core'}).get('value') / overallContrib * 100).toFixed(1),
+        var calc = {
+            // percentage (allocation) of donor's contributions in core vs. non-core funds
+            coreAllocation: core / overallContrib,
+            nonCoreAllocation: nonCore / overallContrib,
 
-            // percentage (allocation) of this donor's contributions to each non-core fund category
-            'costSharingAllocation': (this.collection.findWhere({'name': 'cost sharing'}).get('value') / this.collection.findWhere({'name': 'non-core'}).get('value') * 100).toFixed(1),
-            'unvAllocation': (this.collection.findWhere({'name': 'unv'}).get('value') / this.collection.findWhere({'name': 'non-core'}).get('value') * 100).toFixed(1),
-            'specialActivitiesAllocation': (this.collection.findWhere({'name': 'special activities'}).get('value') / this.collection.findWhere({'name': 'non-core'}).get('value') * 100).toFixed(1),
-            'trustFundsAllocation': (this.collection.findWhere({'name': 'trust funds'}).get('value') / this.collection.findWhere({'name': 'non-core'}).get('value') * 100).toFixed(1),
-            'thematicTrustFundsAllocation': (this.collection.findWhere({'name': 'thematic trust funds'}).get('value') / this.collection.findWhere({'name': 'non-core'}).get('value') * 100).toFixed(1),
+            // percentage (allocation) of donor's contributions to each non-core fund category
+            costSharingAllocation: base.costSharing / nonCore,
 
-            // this donor's percentage of the total UNDP funds in each category
-            'corePct': (this.collection.findWhere({'name': 'core'}).get('value') / this.total.findWhere({'name': 'core'}).get('value') * 100).toFixed(1),
-            'nonCorePct': (this.collection.findWhere({'name': 'non-core'}).get('value') / this.total.findWhere({'name': 'non-core'}).get('value') * 100).toFixed(1),
-            'costSharingPct': (this.collection.findWhere({'name': 'cost sharing'}).get('value') / this.total.findWhere({'name': 'cost sharing'}).get('value') * 100).toFixed(1),
-            'unvPct': (this.collection.findWhere({'name': 'unv'}).get('value') / this.total.findWhere({'name': 'non-core'}).get('value') * 100).toFixed(1),
-            'specialActivitiesPct': (this.collection.findWhere({'name': 'special activities'}).get('value') / this.total.findWhere({'name': 'special activities'}).get('value') * 100).toFixed(1),
-            'trustFundsPct': (this.collection.findWhere({'name': 'trust funds'}).get('value') / this.total.findWhere({'name': 'trust funds'}).get('value') * 100).toFixed(1),
-            'thematicTrustFundsPct': (this.collection.findWhere({'name': 'thematic trust funds'}).get('value') / this.total.findWhere({'name': 'thematic trust funds'}).get('value') * 100).toFixed(1)
+            unvAllocation: base.unv / nonCore,
+            specialActivitiesAllocation: base.specialActivities / nonCore,
+            trustFundsAllocation: base.trustFunds / nonCore,
+            thematicTrustFundsAllocation: base.thematicTrustFunds / nonCore,
+
+            // donor's percentage of the total UNDP funds in each category
+            corePct: core / base.coreTotal,
+            nonCorePct: nonCore / base.nonCoreTotal,
+            costSharingPct: base.costSharing / base.costSharingTotal,
+            unvPct: base.unv / base.unvTotal,
+            specialActivitiesPct: base.specialActivities / base.specialActivitiesTotal,
+            trustFundsPct: base.trustFunds / base.trustFundsTotal,
+            thematicTrustFundsPct: base.thematicTrustFunds / base.thematicTrustFundsTotal
         };
 
+        for (var key in calc) {
+          calc[key] = (calc[key] * 100).toFixed(1);
+        }
+
+        var variables = $.extend({}, calc, base);
+
         // Core donations
-        var coreText = '$' + variables.core.toLocaleString();
-        $('#totalCoreContribution').html(coreText);
+        this.$core.text(variables.core.toLocaleString());
+        this.$nonCore.text(variables.nonCore.toLocaleString());
 
         // Percentage of total core contributions (all donors)
-        var corePctText = variables.corePct.toLocaleString() + '%';
-        $('#corePercentageTotal').html(corePctText);
+        $('#corePercentageTotal').html(variables.corePct);
 
         // Make the % of total core contributions bar chart
         coreData = [[variables.corePct, 0]];
@@ -141,7 +160,7 @@ views.Donors = Backbone.View.extend({
                 series: {
                   pie: {
                       show: true,
-                      radius: 0.8
+                      radius: .9
                   },
                   label: {
                     show: true,
@@ -151,12 +170,12 @@ views.Donors = Backbone.View.extend({
                   }
                 },
                 legend: {
-                    show: true,
-                    labelBoxBorderColor: "none",
-                    labelFormatter: function(label, series) {
-                      pct = series.percent.toFixed(2);
-                      return label+' - '+pct+'% ($'+series.data[0][1].toLocaleString()+')';
-                    }
+                    show: false,
+                    // labelBoxBorderColor: "none",
+                    // labelFormatter: function(label, series) {
+                      // pct = series.percent.toFixed(2);
+                      // return label+' - '+pct+'% ($'+series.data[0][1].toLocaleString()+')';
+                    // }
                 }
         });
 

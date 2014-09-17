@@ -176,19 +176,30 @@
           <!--Donor viz charts -->
           <div id='donor-view'>
             <h3 style='max-width: 430px;'><span id='donor-title'></span>'s Contributions to Core Funds</h3>
-              <div id='totalCoreContribution'></div>
-            <h3 style='max-width: 430px;'>Percentage of Total UNDP Core Contributions (All Donors)</h3>
-              <div id='corePercentageTotal' style='width: 10%;top:25%'></div>
-              <div id='percentCoreBar' style='width:300px;height:100px;'></div>
+
+            <table class='chart-table'>
+              <tbody>
+                <tr>
+                  <td id='donorPieChart' style="width: 25%;">&nbsp;</td>
+                  <td style="width: 25%;">
+                    <p><span class='legend-block' style='background: #0055AA'>&nbsp;</span> Core: $<span id='totalCoreContribution'></span></p>
+                    <p><span class='legend-block' style='background: #ECF0F1'>&nbsp;</span> Non-core: $<span id='totalNonCoreContribution'></span></p>
+                  </td>
+                  <td style="width: 50%;">
+                    <p><span id='corePercentageTotal'></span>% percent of UNDP Core Contributions</p>
+                    <div id='percentCoreBar' style='width:250px;height:50px;'></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
             <br />
-            <h3 style='max-width: 430px;'>Contributions to Core and Non-Core Funds</h3>
-              <div id='donorPieChart' style="width:300px;height:200px"></div>
-            <br />
+
             <h3 style='max-width: 430px;'>Non-Core Contributions by Fund Modality</h3>
-              <div class='span6 stat-chart' id='donor-graphs'>
-                <table id='totals-table' class='chart modality'></table>
-                <small>&#8277; Negative amounts reflect adjustments or corrections from prior years, or refunds to donors.</small>
-              </div>
+
+            <div class='span6 stat-chart' id='donor-graphs'>
+              <table id='totals-table' class='chart modality'></table>
+              <small>&#8277; Negative amounts reflect adjustments or corrections from prior years, or refunds to donors.</small>
+            </div>
           </div>
 
           <!--/ #chart-operating_unit -->

@@ -1944,25 +1944,30 @@ body.ie8 #chart-hdi .details { display: none; }
 /* ******************* */
 
 /* These desribe the legends for FLOT pie charts. */
-.legend table, .legend > div { height: 40% !important; opacity: 1 !important; left: 220px; top: 1px; width:275px !important; }
-.legend table { border: 1px solid #555; padding: 5px; }
+.legend table, .legend > div {
+  left: 220px;
+}
+.legend table {
+  padding: 5px;
+}
+.pieLabel { display: none; }
 
-#totalCoreContribution {
-    font-size: 275%;
-    font-weight: bold;
-    font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;;
-    padding: 5% 5% 5% 5%;
-    color: #0055AA;
+.chart-table {
+  border: none;
+  width: 100%;
 }
 
-#corePercentageTotal {
-    font-size: 275%;
-    font-weight: bold;
-    font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;;
-    padding: 3% 5% 5% 5%;
-    color: #0055AA;
+.chart-table td {
+  vertical-align: middle;
+  height: 120px;
+  border-left: none;
 }
 
-#percentCoreBar {
-  padding: 2% 2%;
+.legend-block {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  line-height: 12px;
+  border-radius: 2px;
+  margin-right: 1px;
 }
