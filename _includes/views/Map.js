@@ -255,6 +255,9 @@ views.Map = Backbone.View.extend({
         };
 
         var renderClusters = function(collection){
+            //hide legend
+            $('.map-legends').hide();
+
             var filteredMarkers = [],
                 projectWithNoGeo = 0;
                 hasGeo = false;
@@ -370,6 +373,9 @@ views.Map = Backbone.View.extend({
             });
         };
         var renderCircles = function(){
+            //show legend
+            $('.map-legends').show()
+
             var circles = [];
             // render HDI
             _(country.models).each(function(model){
