@@ -52,11 +52,21 @@ views.Map = Backbone.View.extend({
             zoom: 2,
             minZoom: TJ.minzoom,
             maxZoom: maxZoom || TJ.maxzoom,
-            scrollWheelZoom: wheelZoom
+            scrollWheelZoom: wheelZoom,
+            
+            attributionControl: true,
+            legendControl: {
+                position: 'bottomleft'
+            },
             });
-         
+        
+        view.map.legendControl.addLegend($("#homemap-legend").html());
 
-        //view.map.legendControl.addLegend('last update');
+        // L.control.attribution({position: 'bottomri'}).addTo(view.map);
+        // $('.leaflet-control-attribution').html('<a href="https://www.mapbox.com/about/maps/" target="_blank">© Mapbox © OpenStreetMap</a> ' +
+        //     '<a class="mapbox-improve-map" href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a>');
+
+    
 
         //for IE 8 and above add country outline
         if (!IE || IE_VERSION > 8){
