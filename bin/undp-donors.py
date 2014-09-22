@@ -1,16 +1,16 @@
 # ------------------------------------------
 # This script organizes donor data for donor visualizations, to be added to undp-xml-process.py
 # ------------------------------------------
-# This script runs Python commands to create the JSON API. 
-# Requirements: Python 2.6 or greater 
- 
-import csv, sys, json, time, copy, chardet
+# This script runs Python commands to create the JSON API.
+# Requirements: Python 2.6 or greater
+
+import csv, sys, json, time, copy
 from itertools import groupby
 
 t0 = time.time()
 
 # CSVs
-#********************************* 
+#*********************************
 
 # # Contributions cost sharing
 # cost_sharing = csv.DictReader(open('donor_data/contribution_cost_sharing.csv', 'rb'), delimiter = ',', quotechar = '"')
@@ -29,13 +29,17 @@ t0 = time.time()
 # cntry_donors_sort = sorted(cntry_donors, key = lambda x: x['id'])
 
 # Expenses by region
-region_expenses = csv.DictReader(open('donor_data/region_expenses.csv', 'rb'), delimiter = ',', quotechar = '"')
+region_expenses = csv.DictReader(open('donor_data/region_expenses.csv', 'rU'), delimiter = ',', quotechar = '"')
 region_expenses_sort = sorted(region_expenses, key = lambda x: x['id'])
 
 
 # Donors by fund modalities
-fund_modalities = csv.DictReader(open('donor_data/fund_modalities.csv', 'rb'), delimiter = ',', quotechar = '"')
+fund_modalities = csv.DictReader(open('donor_data/fund_modalities.csv', 'rU'), delimiter = ',', quotechar = '"')
 fund_modalities_sort = sorted(fund_modalities, key = lambda x: x['key'])
+
+# Core fund donors
+core_donors = csv.DictReader(open('donor_data/core_fund.csv', 'rU'), delimiter = ',', quotechar = '"')
+core_donors_sort = sorted(core_donors, key = lambda x: x['key'])
 
 # # Cost sharing by region
 # cost_sharing_region = csv.DictReader(open('donor_data/region_cost_sharing.csv', 'rb'), delimiter = ',', quotechar = '"')
@@ -45,87 +49,153 @@ fund_modalities_sort = sorted(fund_modalities, key = lambda x: x['key'])
 
 regions = []
 for iden in region_expenses_sort:
-	regTemp = {}
-	regTemp['id'] = iden['id']
-	regTemp['region'] = iden['region']
-	regTemp['percent'] = iden['percent']
-	regTemp['expense'] = int(iden['expenses_int'])
-	regTemp['format_expense'] = iden['expenses']
-	regions.append(regTemp)
+  regTemp = {}
+  regTemp['id'] = iden['id']
+  regTemp['region'] = iden['region']
+  regTemp['percent'] = iden['percent']
+  regTemp['expense'] = int(iden['expenses_int'])
+  regTemp['format_expense'] = iden['expenses']
+  regions.append(regTemp)
 
 row_count = 0
 donorList = {}
 totals = {
-            "Special Activities": [], 
-            "Cost Sharing": [], 
-            "UNV": [],
-            "Thematic Trust Funds": [],
-            "Trust Funds": []
-        }
+  "CORE": 0,
+  "Non-CORE": 0,
+  "Special Activities": 0,
+  "Cost Sharing": 0,
+  "UNV": 0,
+  "Thematic Trust Funds": 0,
+  "Trust Funds": 0
+}
 
-count = 0
+# Get a list of all donors in the non-core donors list
 for d in fund_modalities_sort:
-	# Fix names from CSV to match UN_AGY and MULTI_AGY used elsewhere in the site. 
-	if d['Donor Rollup Level 3'] == 'UN_AGY 1':
-		donorID = 'UN_AGY'
-	elif d['Donor Rollup Level 3'] == 'MUTLI_AGY2':
-		donorID = 'MULTI_AGY'
-	elif d['Donor Rollup Level 3'] == 'OTH_CDF1' or d['Donor Rollup Level 3'] == 'OTH_2' or d['Donor Rollup Level 3'] == 'OTH_UND1':
-		donorID = 'OTH'
-	else: 
-		donorID = d['Donor Rollup Level 3']
-	donorList[donorID] = []
-	# donorList[donorID].append(totals)
+  # Fix names from CSV to match UN_AGY and MULTI_AGY used elsewhere in the site.
+  if d['Donor Rollup Level 3'] == 'UN_AGY 1':
+    donorID = 'UN_AGY'
+  elif d['Donor Rollup Level 3'] == 'MUTLI_AGY2':
+    donorID = 'MULTI_AGY'
+  elif d['Donor Rollup Level 3'] == 'OTH_CDF1' or d['Donor Rollup Level 3'] == 'OTH_2' or d['Donor Rollup Level 3'] == 'OTH_UND1':
+    donorID = 'OTH'
+  else:
+    donorID = d['Donor Rollup Level 3']
+  donorList[donorID] = []
+    # donorList[donorID].append(totals)
 
+# Add to the donors list any core donors that weren't accounted for in the non-core donors list
+for d in core_donors_sort:
+  # Fix names from CSV to match UN_AGY and MULTI_AGY used elsewhere in the site.
+  if d['Donor Level 3'] == 'UN_AGY 1':
+    donorID = 'UN_AGY'
+  elif d['Donor Level 3'] == 'MUTLI_AGY2':
+    donorID = 'MULTI_AGY'
+  elif d['Donor Level 3'] == 'OTH_CDF1' or d['Donor Level 3'] == 'OTH_2' or d['Donor Level 3'] == 'OTH_UND1':
+    donorID = 'OTH'
+  else:
+    donorID = d['Donor Level 3']
+    if (donorID not in donorList):
+      donorList[donorID] = []
+      # donorList[donorID].append(totals)
+
+# Find the contributions from each donor according to fund type
 for d in donorList:
-	temp = {
-		"Special Activities": [], 
-		"Cost Sharing": [], 
-		"UNV": [],
-		"Thematic Trust Funds": [],
-		"Trust Funds": []
-	}
-	for k in fund_modalities_sort:
-		if k['Donor Rollup Level 3'] == 'UN_AGY 1':
-			donorID = 'UN_AGY'
-		elif k['Donor Rollup Level 3'] == 'MUTLI_AGY2':
-			donorID = 'MULTI_AGY'
-		elif k['Donor Rollup Level 3'] == 'OTH_CDF1' or k['Donor Rollup Level 3'] == 'OTH_2' or k['Donor Rollup Level 3'] == 'OTH_UND1':
-			donorID = 'OTH'
-		else: 
-			donorID = k['Donor Rollup Level 3']
+  temp = {
+    "CORE": 0,
+    "Non-CORE": 0,
+    "Special Activities": 0,
+    "Cost Sharing": 0,
+    "UNV": 0,
+    "Thematic Trust Funds": 0,
+    "Trust Funds": 0
+  }
+  # Contributions from non-core donors
+  for k in fund_modalities_sort:
+    if k['Donor Rollup Level 3'] == 'UN_AGY 1':
+      donorID = 'UN_AGY'
+    elif k['Donor Rollup Level 3'] == 'MUTLI_AGY2':
+      donorID = 'MULTI_AGY'
+    elif k['Donor Rollup Level 3'] == 'OTH_CDF1' or k['Donor Rollup Level 3'] == 'OTH_2' or k['Donor Rollup Level 3'] == 'OTH_UND1':
+      donorID = 'OTH'
+    else:
+      donorID = k['Donor Rollup Level 3']
+    if donorID == d:
+      row_count = row_count + 1
+      val = k['Contribution Revenue'].replace("\"", "").replace(" ", "").replace("$","").replace("(","-").replace(")","").replace(",","")
+      try:
+        newVal = int(val)
+      except ValueError:
+        newVal = 0
+      type = k['Fund Rollup Level 3']
+      temp[type] += newVal
+      totals[type] += newVal
+      if type != "CORE":
+        temp["Non-CORE"] += newVal
+        totals["Non-CORE"] += newVal
 
-		if donorID == d:
-			row_count = row_count +1
-			val = k['Contribution Revenue'].replace("$","").replace("(","-").replace(")","").replace(",","")
-			newVal = int(val)
-			type = k['Fund Rollup Level 3']
-			temp[type].append(newVal)
-			totals[k['Fund Rollup Level 3']].append(newVal)
+  # Contributions from core donors
+  for k in core_donors_sort:
+    if k['Donor Level 3'] == 'UN_AGY 1':
+      donorID = 'UN_AGY'
+    elif k['Donor Level 3'] == 'MUTLI_AGY2':
+      donorID = 'MULTI_AGY'
+    elif k['Donor Level 3'] == 'OTH_CDF1' or k['Donor Level 3'] == 'OTH_2' or k['Donor Level 3'] == 'OTH_UND1':
+      donorID = 'OTH'
+    else:
+      donorID = k['Donor Level 3']
+      if donorID == d:
+        row_count = row_count +1
+        val = k['Contribution Revenue'].replace("\"", "").replace(" ", "").replace("$","").replace("(","-").replace(")","").replace(",","")
+        try:
+          newVal = -1 * int(val)  # negate because negative values imply incoming donations
+        except ValueError:
+          newVal = 0
+        type = k['Fund Rollup Level 2']
+        temp[type] += newVal
+        totals[type] += newVal
 
-	donorList[d].append(temp)
-
-for k, v in donorList.items():
-	dtotal = 0
-	for x in v:
-		for typ, values in x.items():
-			donorList[k][0][typ] = sum(values)
-			# To remove negative values from total to change percent calculation in site
-			#if donorList[k][0][typ] > -1:
-				#dtotal = dtotal + sum(values)
-			# else just use this:
-			dtotal = dtotal + sum(values)
-	donorList[k].append(dtotal)
+  # append the breakdown of contributions
+  donorList[d].append(temp)
+  # append this donor's overall contribution
+  totalContribution = 0
+  for k, v in temp.iteritems():
+    totalContribution += v;
+  donorList[d].append(totalContribution);
 
 print row_count, 'successful matches'
 
-# Get sums of all numbers appended to totals arrays
-totals['UNV'] = sum(totals['UNV'])
-totals['Thematic Trust Funds'] = sum(totals['Thematic Trust Funds'])
-totals['Trust Funds'] = sum(totals['Trust Funds'])
-totals['Cost Sharing'] = sum(totals['Cost Sharing'])
-totals['Special Activities'] = sum(totals['Special Activities'])
+# make the combined output list (contains both individual donor contributions and overall totals)
+# outputTotals: list
+# Each entry of the list is a dictionary of the form:
+# {'name': donationType, 'value': donationAmount, 'donor-country': countryName or all for totals}
+outputTotals = []
+# append overall totals
+for k, v in totals.iteritems():
+  innerStruct = {
+                  "name": k.lower(),
+                  "value": v,
+                  "donor-country": "all"
+                }
+  outputTotals.append(innerStruct)
+# append individual country data
+for d in donorList:
+  for k, v in donorList[d][0].iteritems():
+    innerStruct = {
+                    "name": k.lower(),
+                    "value": v,
+                    "donor-country": d
+                  }
+    outputTotals.append(innerStruct)
 
+# Write the outputTotals array to file
+writeout = json.dumps(outputTotals, sort_keys=True, separators=(',',':'))
+f_out = open('../api/donors/donors.json', 'wb')
+f_out.writelines(writeout)
+f_out.close()
+# for entry in outputTotals:
+#   f_out.write("%s,\n" % entry)
+# f_out.write(']\n')
+# f_out.close()
 
 writeout = json.dumps(totals, sort_keys=True, separators=(',',':'))
 f_out = open('../api/donors/total-modality.json', 'wb')

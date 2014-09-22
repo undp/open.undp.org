@@ -172,11 +172,31 @@
         <div class='row-fluid'>
           <!--Donor viz charts -->
           <div id='donor-view'>
-            <h3 style='max-width: 430px;'>Contributions from <span id='donor-title'></span> by Fund Modality</h3>
-              <div class='span6 stat-chart' id='donor-graphs'>
-                <table id='totals-table' class='chart modality'></table>
-                <small>&#8277; Negative amounts reflect adjustments or corrections from prior years, or refunds to donors.</small>
-              </div>
+            <h3 style='max-width: 430px;'><span id='donor-title'></span>'s 2013 Contributions to Regular Resources</h3>
+
+            <table class='chart-table'>
+              <tbody>
+                <tr>
+                  <td id='donorPieChart' style="width: 25%;">&nbsp;</td>
+                  <td style="width: 25%;">
+                    <p><span class='legend-block' style='background: #0055AA'>&nbsp;</span> Core: $<span id='totalCoreContribution'></span></p>
+                    <p><span class='legend-block' style='background: #ECF0F1'>&nbsp;</span> Non-core: $<span id='totalNonCoreContribution'></span></p>
+                  </td>
+                  <td style="width: 50%;">
+                    <p><span id='corePercentageTotal'></span>% of UNDP Regular Resources</p>
+                    <div id='percentCoreBar' style='width:250px;height:50px;'></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+
+            <h3 style='max-width: 430px;'>Non-Core Contributions by Fund Modality</h3>
+
+            <div class='span6 stat-chart' id='donor-graphs'>
+              <table id='totals-table' class='chart modality'></table>
+              <small>&#8277; Negative amounts reflect adjustments or corrections from prior years, or refunds to donors.</small>
+            </div>
           </div>
 
           <!--/ #chart-operating_unit -->

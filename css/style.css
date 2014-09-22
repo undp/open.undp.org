@@ -46,6 +46,7 @@ table {
     border-top:1px solid #ddd;
     }
   table th {
+    font-size: 110%;
     background:#f6f6f6;
     text-shadow:0 1px 0 #fff;
     font-weight:bold;
@@ -57,6 +58,7 @@ table {
   table thead:first-child tr th,
   table thead:first-child tr td {
     border-top:0;
+    font-weight: bold;
     }
   table tbody + tbody {
     border-top:2px solid #ddd;
@@ -481,6 +483,9 @@ input[readonly] {
   border-bottom:1px solid #ddd;
   }
 /* keep the map attribution on left */
+.leaflet-control.map-legends{
+  margin-bottom:30px;
+}
 .leaflet-right {
   right:auto;
   }
@@ -1925,3 +1930,36 @@ Details: http: //perishablepress.com/press/2009/12/06/new-clearfix-hack*/
   }
 
 body.ie8 #chart-hdi .details { display: none; }
+
+
+/* New Donor Data Page */
+/* ******************* */
+
+/* These desribe the legends for FLOT pie charts. */
+.legend table, .legend > div {
+  left: 220px;
+}
+.legend table {
+  padding: 5px;
+}
+.pieLabel { display: none; }
+
+.chart-table {
+  border: none;
+  width: 100%;
+}
+
+.chart-table td {
+  vertical-align: middle;
+  height: 120px;
+  border-left: none;
+}
+
+.legend-block {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  line-height: 12px;
+  border-radius: 2px;
+  margin-right: 1px;
+}

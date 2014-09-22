@@ -37,8 +37,14 @@ views.Map = Backbone.View.extend({
             zoom: 2,
             minZoom: 2,
             maxZoom: 10,
-            scrollWheelZoom: wheelZoom
+            scrollWheelZoom: wheelZoom,
+            attributionControl: true,
+            legendControl: {
+                position: 'bottomleft'
+            }
         });
+
+        view.map.legendControl.addLegend($("#homemap-legend").html());
 
         // create circle or cluster based on the operating unit filter
         if (_.isObject(view.opUnitFilter)){
@@ -335,97 +341,126 @@ views.Map = Backbone.View.extend({
             unit = view.collection,
             circles = [];
         // render HDI
-        _(country.models).each(function(model){
-            if (unit.operating_unit[model.id] && model.lon){
-                count = unit.operating_unit[model.id];
-                sources = (unit.donorID) ? false : unit.operating_unitSources[model.id];
-                budget = (unit.donorID && _.size(unit.operating_unit)) ? unit.donorBudget[unit.donorID] : unit.operating_unitBudget[model.id];
-                expenditure = (unit.donorID && _.size(unit.operating_unit)) ? unit.donorExpenditure[unit.donorID] : unit.operating_unitExpenditure[model.id];
+            //show legend
+            $('.map-legends').show()
 
-                // Collect HDI data, create HDI graph view if filtered on a single operating_unit
-                if ((HDI[model.id]) ? HDI[model.id].hdi != '' : HDI[model.id]) {
-                    hdi = _.last(HDI[model.id].hdi)[1];
-                    hdi_health = _.last(HDI[model.id].health)[1];
-                    hdi_education = _.last(HDI[model.id].education)[1];
-                    hdi_income = _.last(HDI[model.id].income)[1];
-                    hdi_rank = HDI[model.id].rank;
-                } else {
-                    hdi = hdi_health = hdi_education = hdi_income = hdi_rank = 'no data';
+            var circles = [];
+            // render HDI
+            _(country.models).each(function(model){
+                if (unit.operating_unit[model.id] && model.lon) {
+                    fund_type = model.fund_type;
+                    count = unit.operating_unit[model.id];
+                    sources = (unit.donorID) ? false : unit.operating_unitSources[model.id];
+                    budget = (unit.donorID && _.size(unit.operating_unit)) ? unit.donorBudget[unit.donorID] : unit.operating_unitBudget[model.id];
+                    expenditure = (unit.donorID && _.size(unit.operating_unit)) ? unit.donorExpenditure[unit.donorID] : unit.operating_unitExpenditure[model.id];
+
+                    // Collect HDI data, create HDI graph view if filtered on a single operating_unit
+                    if ((HDI[model.id]) ? HDI[model.id].hdi != '' : HDI[model.id]) {
+                        hdi = _.last(HDI[model.id].hdi)[1];
+                        hdi_health = _.last(HDI[model.id].health)[1];
+                        hdi_education = _.last(HDI[model.id].education)[1];
+                        hdi_income = _.last(HDI[model.id].income)[1];
+                        hdi_rank = HDI[model.id].rank;
+                    } else {
+                        hdi = hdi_health = hdi_education = hdi_income = hdi_rank = 'no data';
+                    }
+
+                    // populate the centroid geojson
+                    model.centroid.properties.count = count;
+                    model.centroid.properties.sources = sources;
+                    model.centroid.properties.budget = budget;
+                    model.centroid.properties.expenditure = expenditure;
+                    model.centroid.properties.hdi = hdi;
+                    model.centroid.properties.popup = view.circlePopup(layer,model.centroid);
+                    model.centroid.properties.radius = util.radius(util.scale(layer,model.centroid));
+                    model.centroid.properties.type = fund_type;
+
+                    circles.push(model.centroid);
                 }
+            });
 
-                // populate the centroid geojson
-                model.centroid.properties.count = count;
-                model.centroid.properties.sources = sources;
-                model.centroid.properties.budget = budget;
-                model.centroid.properties.expenditure = expenditure;
-                model.centroid.properties.hdi = hdi;
-                model.centroid.properties.popup = view.circlePopup(layer,model.centroid);
-                model.centroid.properties.radius = util.radius(util.scale(layer,model.centroid));
+            var otherFundedCircle = {
+                color:"#fff",
+                weight:1,
+                opacity:1,
+                fillColor: "#0055aa",
+                fillOpacity: 0.6
+            };
 
-                circles.push(model.centroid);
-            }
-        });
-        var defaultCircle = {
-            color:"#fff",
-            weight:1,
-            opacity:1,
-            fillColor: "#0055aa",
-            fillOpacity: 0.6
-        };
-        var circleLayer = L.geoJson({
-            "type":"FeatureCollection",
-            "features":_(circles).sortBy(function(f) { return -f.properties[layer]; })
-        },{
-            pointToLayer:function(feature,latlng){
-                return L.circleMarker(latlng,defaultCircle).setRadius(feature.properties.radius);
-            },
-            onEachFeature:function(feature, layer){
-                var brief = L.popup({
-                        closeButton:false,
-                        offset:[0, -feature.properties.radius+5]
-                    }).setContent(feature.properties.popup);
-                layer.on('mouseover',function(e){
-                    brief.setLatLng(this.getLatLng());
-                    view.map.openPopup(brief);
-                    view.circleHighlight(e,{color:'#0055aa',weight:2});
-                }).on('mouseout',function(e){
-                    view.map.closePopup(brief);
-                    view.circleHighlight(e);
-                }).on('click',function(e){
-                     if (!view.options.embed){
-                        var prevPath = location.hash;
-                    } else {
-                        prevPath = location.hash.split('?')[0];
-                        prevWidgetOpts = location.hash.split('?')[1]; // used when constructing the route with $('#widget-world')
+            var localFundedCircle = {
+                color:"#0055aa",
+                weight:1,
+                opacity:1,
+                fillColor: "#0055aa",
+                fillOpacity: 0.1
+            };
 
-                        $('#widget-world')
-                        .removeClass('active')
-                        .addClass('enabled')
-                        .attr('href',location.origin + location.pathname + prevPath + "?"+ prevWidgetOpts)
-                        .on('click',function(e){
-                            $('#widget-country').removeClass('active');
-                            $(e.target).addClass('active').removeClass('enabled');
-                        })
+            var hoverCircle = {
+                color:"green",
+                weight:2,
+                opacity:1,
+                fillColor: "#0055aa",
+                fillOpacity: 0.3
+            };
 
-                        $('#widget-country').addClass('active');
-                    }
-
-                    if (global.processedFacets.length === 0){
-                        if (!view.options.embed) {
-                            path = prevPath + '/filter/operating_unit-' + e.target.feature.properties.id;
+            var circleLayer = L.geoJson({
+                "type":"FeatureCollection",
+                "features":_(circles).sortBy(function(f) { return -f.properties[layer]; })
+            },{
+                pointToLayer:function(feature,latlng){
+                    return L.circleMarker(latlng, 
+                        ((feature.properties.type === "Other")?otherFundedCircle:localFundedCircle)
+                    ).setRadius(feature.properties.radius);
+                },
+                onEachFeature:function(feature, layer){
+                    var brief = L.popup({
+                            closeButton:false,
+                            offset:[0, -feature.properties.radius+5]
+                        }).setContent(feature.properties.popup);
+                    layer.on('mouseover',function(e){
+                        brief.setLatLng(this.getLatLng());
+                        view.map.openPopup(brief);
+                        view.circleHighlight(e,hoverCircle);
+                    }).on('mouseout',function(e){   
+                        view.map.closePopup(brief);
+                        view.circleHighlight(e,
+                            ((feature.properties.type === "Other")?otherFundedCircle:localFundedCircle)
+                        );
+                    }).on('click',function(e){
+                         if (!view.options.embed){
+                            var prevPath = location.hash;
                         } else {
-                            // if there's no filter location hash is "#2013/widget/" which duplicates the "/"
-                            path = prevPath = 'filter/operating_unit-' + e.target.feature.properties.id;
-                        }
-                    } else {
-                        path = prevPath + '/operating_unit-' +  e.target.feature.properties.id;
-                    }
+                            prevPath = location.hash.split('?')[0];
+                            prevWidgetOpts = location.hash.split('?')[1]; // used when constructing the route with $('#widget-world')
 
-                    view.goToLink(path);
-                })
-            }
-        });
-        view.markers.addLayer(circleLayer);
-        view.map.addLayer(view.markers);
-    }
+                            $('#widget-world')
+                            .removeClass('active')
+                            .addClass('enabled')
+                            .attr('href',location.origin + location.pathname + prevPath + "?"+ prevWidgetOpts)
+                            .on('click',function(e){
+                                $('#widget-country').removeClass('active');
+                                $(e.target).addClass('active').removeClass('enabled');
+                            })
+
+                            $('#widget-country').addClass('active');
+                        }
+
+                        if (app.app.filters.length === 0){
+                            if (!view.options.embed) {
+                                path = prevPath + '/filter/operating_unit-' + e.target.feature.properties.id;
+                            } else {
+                                // if there's no filter location hash is "#2013/widget/" which duplicates the "/"
+                                path = prevPath = 'filter/operating_unit-' + e.target.feature.properties.id;
+                            }
+                        } else {
+                            path = prevPath + '/operating_unit-' +  e.target.feature.properties.id;
+                        }
+
+                        view.goToLink(path);
+                    })
+                }
+            });
+            view.markers.addLayer(circleLayer);
+            view.map.addLayer(view.markers);
+        }
 });
