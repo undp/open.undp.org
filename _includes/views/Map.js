@@ -52,11 +52,21 @@ views.Map = Backbone.View.extend({
             zoom: 2,
             minZoom: TJ.minzoom,
             maxZoom: maxZoom || TJ.maxzoom,
-            scrollWheelZoom: wheelZoom
+            scrollWheelZoom: wheelZoom,
+            
+            attributionControl: true,
+            legendControl: {
+                position: 'bottomleft'
+            },
             });
-         
+        
+        view.map.legendControl.addLegend($("#homemap-legend").html());
 
-        //view.map.legendControl.addLegend('last update');
+        // L.control.attribution({position: 'bottomri'}).addTo(view.map);
+        // $('.leaflet-control-attribution').html('<a href="https://www.mapbox.com/about/maps/" target="_blank">© Mapbox © OpenStreetMap</a> ' +
+        //     '<a class="mapbox-improve-map" href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a>');
+
+    
 
         //for IE 8 and above add country outline
         if (!IE || IE_VERSION > 8){
@@ -245,6 +255,9 @@ views.Map = Backbone.View.extend({
         };
 
         var renderClusters = function(collection){
+            //hide legend
+            $('.map-legends').hide();
+
             var filteredMarkers = [],
                 projectWithNoGeo = 0;
                 hasGeo = false;
@@ -360,10 +373,14 @@ views.Map = Backbone.View.extend({
             });
         };
         var renderCircles = function(){
+            //show legend
+            $('.map-legends').show()
+
             var circles = [];
             // render HDI
             _(country.models).each(function(model){
-                if (unit.operating_unit[model.id] && model.lon){
+                if (unit.operating_unit[model.id] && model.lon) {
+                    fund_type = model.fund_type;
                     count = unit.operating_unit[model.id];
                     sources = (unit.donorID) ? false : unit.operating_unitSources[model.id];
                     budget = (unit.donorID && _.size(unit.operating_unit)) ? unit.donorBudget[unit.donorID] : unit.operating_unitBudget[model.id];
@@ -388,23 +405,44 @@ views.Map = Backbone.View.extend({
                     model.centroid.properties.hdi = hdi;
                     model.centroid.properties.popup = view.circlePopup(layer,model.centroid);
                     model.centroid.properties.radius = view.radius(view.scale(layer,model.centroid));
+                    model.centroid.properties.type = fund_type;
 
                     circles.push(model.centroid);
                 }
             });
-            var defaultCircle = {
+            
+            var otherFundedCircle = {
                 color:"#fff",
                 weight:1,
                 opacity:1,
                 fillColor: "#0055aa",
                 fillOpacity: 0.6
             };
+
+            var localFundedCircle = {
+                color:"#0055aa",
+                weight:1,
+                opacity:1,
+                fillColor: "#0055aa",
+                fillOpacity: 0.1
+            };
+
+            var hoverCircle = {
+                color:"green",
+                weight:2,
+                opacity:1,
+                fillColor: "#0055aa",
+                fillOpacity: 0.3
+            };
+
             var circleLayer = L.geoJson({
                 "type":"FeatureCollection",
                 "features":_(circles).sortBy(function(f) { return -f.properties[layer]; })
             },{
                 pointToLayer:function(feature,latlng){
-                    return L.circleMarker(latlng,defaultCircle).setRadius(feature.properties.radius);
+                    return L.circleMarker(latlng, 
+                        ((feature.properties.type === "Other")?otherFundedCircle:localFundedCircle)
+                    ).setRadius(feature.properties.radius);
                 },
                 onEachFeature:function(feature, layer){
                     var brief = L.popup({
@@ -414,10 +452,12 @@ views.Map = Backbone.View.extend({
                     layer.on('mouseover',function(e){
                         brief.setLatLng(this.getLatLng());
                         view.map.openPopup(brief);
-                        view.circleHighlight(e,{color:'#0055aa',weight:2});
-                    }).on('mouseout',function(e){
+                        view.circleHighlight(e,hoverCircle);
+                    }).on('mouseout',function(e){   
                         view.map.closePopup(brief);
-                        view.circleHighlight(e);
+                        view.circleHighlight(e,
+                            ((feature.properties.type === "Other")?otherFundedCircle:localFundedCircle)
+                        );
                     }).on('click',function(e){
                          if (!view.options.embed){
                             var prevPath = location.hash;
