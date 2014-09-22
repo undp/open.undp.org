@@ -1,0 +1,115 @@
+<table id='totals-table' class='chart modality nonCoreTable'>
+  <thead>
+    <tr>
+      <td>Non-Core Modality</td>
+      <td>Country Contribution</td>
+      <td>Percent of Non-Core Contributions</td>
+      <td>Contributions from All Donors</td>
+      <td>Country Share of All Contributions</td>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td>Cost Sharing</td>
+      <td>$<%= abbreviateNumber(costSharing) %></td>
+      <td>
+        <div class='left'><%= costSharingAllocation %>%</div>
+        <div class='right data wide'>
+          <div class='subdata' style='width: 100%;'></div>
+          <div class='fund' fund-percent=<%= costSharingAllocation %>  style='width: <%= costSharingAllocation %>%;'></div>
+        </div>
+      </td>
+      <td>$<%= abbreviateNumber(costSharingTotal) %></td>
+      <td>
+        <div class='left'><%= costSharingPct %>%</div>
+        <div class='right data wide'>
+          <div class='subdata' style='width: 100%;'></div>
+          <div class='fund' fund-percent=<%= costSharingPct %>  style='width: <%= costSharingPct %>%;'></div>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Trust Funds</td>
+      <td>$<%= abbreviateNumber(trustFunds) %></td>
+      <td>
+        <div class='left'><%= trustFundsAllocation %>%</div>
+        <div class='right data wide'>
+          <div class='subdata' style='width: 100%;'></div>
+          <div class='fund' fund-percent=<%= trustFundsAllocation %>  style='width: <%= trustFundsAllocation %>%;'></div>
+        </div>
+      </td>
+      <td>$<%= abbreviateNumber(trustFundsTotal) %></td>
+      <td>
+        <div class='left'><%= trustFundsPct %>%</div>
+        <div class='right data wide'>
+          <div class='subdata' style='width: 100%;'></div>
+          <div class='fund' fund-percent=<%= trustFundsPct %>  style='width: <%= trustFundsPct %>%;'></div>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Thematic Trust Funds</td>
+      <td>$<%= abbreviateNumber(thematicTrustFunds)%></td>
+      <td>
+        <div class='left'><%= thematicTrustFundsAllocation %>%</div>
+        <div class='right data wide'>
+          <div class='subdata' style='width: 100%;'></div>
+          <div class='fund' fund-percent=<%= thematicTrustFundsAllocation %>  style='width: <%= thematicTrustFundsAllocation %>%;'></div>
+        </div>
+      </td>
+      <td>$<%= abbreviateNumber(thematicTrustFundsTotal) %></td>
+      <td>
+        <div class='left'><%= thematicTrustFundsPct %>%</div>
+        <div class='right data wide'>
+          <div class='subdata' style='width: 100%;'></div>
+          <div class='fund' fund-percent=<%= thematicTrustFundsPct %>  style='width: <%= thematicTrustFundsPct %>%;'></div>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Special Activities</td>
+      <td>$<%= abbreviateNumber(specialActivities)%></td>
+      <td>
+        <div class='left'><%= specialActivitiesAllocation %>%</div>
+        <div class='right data wide'>
+          <div class='subdata' style='width: 100%;'></div>
+          <div class='fund' fund-percent=<%= specialActivitiesAllocation %>  style='width: <%= specialActivitiesAllocation %>%;'></div>
+        </div>
+      </td>
+      <td>$<%= abbreviateNumber(specialActivitiesTotal) %></td>
+      <td>
+        <div class='left'><%= specialActivitiesPct %>%</div>
+        <div class='right data wide'>
+          <div class='subdata' style='width: 100%;'></div>
+          <div class='fund' fund-percent=<%= specialActivitiesPct %>  style='width: <%= specialActivitiesPct %>%;'></div>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>UNV</td>
+      <td>$<%= abbreviateNumber(unv)%></td>
+      <td>
+        <div class='left'><%= unvAllocation %>%</div>
+        <div class='right data wide'>
+          <div class='subdata' style='width: 100%;'></div>
+          <div class='fund' fund-percent=<%= unvAllocation %>  style='width: <%= unvAllocation %>%;'></div>
+        </div>
+      </td>
+      <td>$<%= abbreviateNumber(unvTotal) %></td>
+      <td>
+        <div class='left'><%= unvPct %>%</div>
+        <div class='right data wide'>
+          <div class='subdata' style='width: 100%;'></div>
+          <div class='fund' fund-percent=<%= unvPct %>  style='width: <%= unvPct %>%;'></div>
+        </div>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+<small>&#8277; Negative amounts reflect adjustments or corrections from prior years, or refunds to donors.</small>
