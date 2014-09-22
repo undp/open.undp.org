@@ -445,7 +445,7 @@ views.Map = Backbone.View.extend({
                             $('#widget-country').addClass('active');
                         }
 
-                        if (app.app.filters.length === 0){
+                        if (global.processedFacets.length === 0){
                             if (!view.options.embed) {
                                 path = prevPath + '/filter/operating_unit-' + e.target.feature.properties.id;
                             } else {
