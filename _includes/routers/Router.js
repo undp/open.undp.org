@@ -26,7 +26,7 @@ routers.Global = Backbone.Router.extend({
     fiscalyear: function (year, path, embed) {
         var that = this;
 
-        if (year === CURRENT_YR){
+        if ((FISCALYEARS).indexOf(year) > -1){
             util.loadjsFile('api/project_summary_' + year + '.js', year, function() {
                 that.browser(year, path, embed);
             });

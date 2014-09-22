@@ -254,7 +254,7 @@ views.App = Backbone.View.extend({
 
             var path = (filters.length) ? selectedYear + '/filter/' + filters : selectedYear;
             
-            app.navigate(path, { trigger: true });
+            global.navigate(path, { trigger: true });
         }
     },
 
