@@ -1,77 +1,86 @@
-routers.App = Backbone.Router.extend({
+routers.Global = Backbone.Router.extend({
     routes: {
         '': 'redirect',
-        'filter/*filters': 'redirect',
-        ':fiscalyear': 'fiscalyear',
-        ':fiscalyear/filter/*filters': 'fiscalyear',
-        'project/:id': 'project',
-        'project/:id/output-:output': 'project',
-        'widget/*options': 'widgetRedirect',
+        'filter/*path': 'redirect', // filters --> "/donor-countries-MULTI_AGY/operating_unit-BRA";
+        ':fiscalyear': 'fiscalyear', // fiscalyear --> "2014"
+        ':fiscalyear/filter/*path': 'fiscalyear', // fiscalyear, filters
+        'project/:id': 'project', //id --> "00064848"
+        'project/:id/output-:output': 'project', //id-->"00064848", output ? //TODO this is a variation of the project page, what's different?
+        'widget/*options': 'widgetRedirect', //options --> see Widget.js
         ':fiscalyear/widget/*options': 'widget',
-        'about/*subnav': 'about',
-        'top-donors/*cat': 'topDonors'
+        'about/*subnav': 'about', // subnav --> {{post.tag}}
+        'top-donors/*category': 'topDonors' //cat --> "regular"
     },
 
-    redirect: function(route) {
-        //if url lacks a year, default to most recent
-        if (route) {
-            this.navigate(CURRENT_YR + '/filter/' + route, {trigger: true});
-        } else {
-            this.navigate(CURRENT_YR, {trigger: true});
-        }
+    // This is triggered when the user types in the root url ('http://open.undp.org')
+    // the site redirects to /#year
+    // which then triggers 'fiscalyear'
+    redirect: function() {
+        this.navigate(CURRENT_YR, {trigger: true});
     },
 
-    widgetRedirect: function(route) {
-        this.navigate(CURRENT_YR + '/widget/' + route, {trigger: true});
+    widgetRedirect: function(path) {
+        this.navigate(CURRENT_YR + '/widget/' + path, {trigger: true});
     },
 
-    fiscalyear: function (year, route, embed) {
+    fiscalyear: function (year, path, embed) {
         var that = this;
-        if (!$('#y' + year).length) {
-            if (location.hash.split('-')[0] !='#project'){
-                loadjsFile('api/project_summary_' + year + '.js', year, function() {
-                    that.browser(year, route, embed);
-                });
-            } else { // when projects are loaded from the list view
-                that.project(location.hash.split('-')[1], false,false);
-            }
+
+        if ((FISCALYEARS).indexOf(year) > -1){
+            util.loadjsFile('api/project_summary_' + year + '.js', year, function() {
+                that.browser(year, path, embed);
+            });
         } else {
-            that.browser(year, route, embed);
+            that.project(year, false,false); // in this case year is the project id
         }
 
     },
-
-    browser: function (year, route, embed) {
-
+    selectedFacets: false,
+    processedFacets: false,
+    unit: false,
+    donor: false,
+    browser: function (year, path, embed) {
         var that = this,
-            unit = false,
+            unit = false, // this should be reused throughout the site
             donor = false;
-        // Set up menu
-        $('#app .view, #mainnav .profile').hide();
-        $('#profile .summary').addClass('off');
-        $('#browser, #mainnav .browser').show();
-        $('#nav-side.not-filter').remove();
-        $('#mainnav li').removeClass('active');
-        $('#mainnav li').first().addClass('active');
 
-        // Set up about
-        $('#mainnav a.parent-link').click(function(e) {
-            e.preventDefault();
-            var $target = $(e.target);
-            if ($target.parent().hasClass('parent-active')) {
-                $target.parent().removeClass('parent-active');
-            } else {
-                $target.parent().addClass('parent-active');
+        // Parse hash
+        // hash comes in forms as 'operating_unit-ARG/donor-12300'
+        var hashParts = (path) ? path.split('/') : []; // --> ['operating_unit-ARG','donor-12300']
+
+        this.processedFacets = _(hashParts).map(function(part){
+
+            that.selectedFacets = part.split('-');  // --> ['operating_unit','ARG']
+
+            if (that.selectedFacets[0] === 'operating_unit') {
+                unit = that.selectedFacets[1];
+            } else if (that.selectedFacets[0] === 'donor_countries') {
+                donor = that.selectedFacets[1]
             }
+            return {
+                collection: that.selectedFacets[0],
+                id: that.selectedFacets[1]
+            };
         });
 
+        // custom filter function
+        // TODO clarify
+        var filter = function (model) {
+            if (!that.processedFacets.length) return true;
+            return _(that.processedFacets).reduce(function (memo, filter) {
+                if (filter.collection === 'region') {
+                    return memo && model.get(filter.collection) == filter.id;
+                } else {
+                    return memo && (model.get(filter.collection) && model.get(filter.collection).indexOf(filter.id) >= 0);
+                }
+            }, true);
+        };
+
+        // initiate App view
+        // which now contains the filter-items div
         if (!embed) {
             // Load in the top donors info and feedbackform dets.
             window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
-
-            // Set up breadcrumbs
-            $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li><li><a href="' + BASE_URL + '">Our Projects</a></li>');
-
             // Load the main app view
             that.app = that.app || new views.App({
                 el: '#browser',
@@ -85,68 +94,10 @@ routers.App = Backbone.Router.extend({
             });
         }
 
-        // Parse hash
-        var parts = (route) ? route.split('/') : [];
-        var filters = _(parts).map(function (part) {
-            var filter = part.split('-');
-            if (filter[0] === 'operating_unit') {
-                unit = filter[1];
-            } else if (filter[0] === 'donor_countries') {
-                donor = filter[1]
-            }
-            return {
-                collection: filter[0],
-                id: filter[1]
-            };
-        });
+        var loadFilters = function(){
 
-        var filter = function (model) {
-            if (!filters.length) return true;
-            return _(filters).reduce(function (memo, filter) {
-                if (filter.collection === 'region') {
-                    return memo && model.get(filter.collection) == filter.id;
-                } else {
-                    return memo && (model.get(filter.collection) && model.get(filter.collection).indexOf(filter.id) >= 0);
-                }
-            }, true);
-        };
+            var loadFacetsAndFilters = new views.Facets();
 
-        that.app.filters = filters;
-
-        var loadFilters = function() {
-            var counter = 0;
-            that.app.views = {};
-            // Load filters
-            _(facets).each(function (facet) {
-                var collection = new models.Filters();
-
-                $('#filter-items').find('#'+facet.id).remove();
-                $('#filter-items').append('<div id="' + facet.id + '" class="topics"></div>');
-
-                _(facet).each(function (v, k) {
-                    collection[k] = v;
-                });
-
-                collection.fetch({
-                    success: function (data) {
-                        that.app.views[facet.id] = new views.Filters({
-                            el: '#' + facet.id,
-                            collection: collection
-                        });
-
-                        _.each(filters, function (obj) {
-                            if (obj.collection === facet.id) {
-                                that.app.views[facet.id].active = true;
-                            }
-                        });
-                        collection.watch();
-
-                        counter++;
-                        if (counter === facets.length) updateDescription();
-
-                    }
-                });
-            });
             // Create summary map view
             if (!embed){
                 that.projects.map = new views.Map({
@@ -166,13 +117,15 @@ routers.App = Backbone.Router.extend({
 
         };
 
-        // Load projects
-        if (!that.allProjects || app.fiscalYear != year) {
-            if (app.fiscalYear && app.fiscalYear != year){app.projects.map.map.remove();}
-            app.fiscalYear = year;
-            that.allProjects = new models.Projects(SUMMARY);
 
-            that.projects = new models.Projects(that.allProjects.filter(filter));
+
+        // Load projects
+        if (!that.allProjects || that.fiscalYear != year) {
+            if (that.fiscalYear && that.fiscalYear != year){that.projects.map.map.remove();}
+            that.fiscalYear = year;
+            that.allProjects = new Projects(SUMMARY);
+
+            that.projects = new Projects(that.allProjects.filter(filter));
             that.projects.view = new views.Projects({ collection: that.projects });
             that.projects.cb = _(loadFilters).bind(that);
 
@@ -204,15 +157,15 @@ routers.App = Backbone.Router.extend({
 
         // Check for funding countries to show donor visualization
         if (donor){
-            app.donor = new views.Donors ();
+            that.donor = new views.Donors ();
             $('#donor-view').show();
         } else {
-            app.donor = false;
+            that.donor = false;
             $('#donor-view').hide();
         }
 
         // Save default description
-        app.defaultDescription = app.defaultDescription || $('#description p.intro').html();
+        that.defaultDescription = that.defaultDescription || $('#description p.intro').html();
         function updateDescription() {
             setTimeout(function() {
 
@@ -220,7 +173,7 @@ routers.App = Backbone.Router.extend({
 
                 $('#filters-search, #projects-search').val('');
 
-                if (_(filters).find(function(f) {
+                if (_(that.processedFacets).find(function(f) {
                     return f.collection === 'focus_area';
                 })) {
                     $('#chart-focus_area').hide();
@@ -233,8 +186,8 @@ routers.App = Backbone.Router.extend({
                 // 2. filter (no donor) --> start with "The above includes"
                 // 3. filter (with donor) --> start with "DONOR funds the above"
 
-                var counts = (app.projects.length === 1) ? 'project' : 'projects';
-                    projectCounts = 'There are <strong>' + app.projects.length +'</strong> ' + counts;
+                var counts = (that.projects.length === 1) ? 'project' : 'projects';
+                    projectCounts = 'There are <strong>' + that.projects.length +'</strong> ' + counts;
 
                 function renderDonorContent(){
                     var $el = $('#donor-specific');
@@ -258,38 +211,38 @@ routers.App = Backbone.Router.extend({
                     });
                 }
 
-                if (app.description && app.description.length === 0){
-                    if (app.donorDescription.length > 0) {
+                if (that.description && that.description.length === 0){
+                    if (that.donorDescription.length > 0) {
                         // custom donor text
                         renderDonorContent();
                         // default donor text
-                        $('#description').find('p.desc').html(app.donorDescription + counts +' across the world.');
+                        $('#description').find('p.desc').html(that.donorDescription + counts +' across the world.');
                         // donor viz h3
-                        $('#donor-title').html(app.donorTitle);
+                        $('#donor-title').html(that.donorTitle);
                     } else {
                         $('#donor-specific').empty();
-                        $('#description').find('p.desc').html(app.defaultDescription);
+                        $('#description').find('p.desc').html(that.defaultDescription);
                     }
-                } else if (app.description && app.description.length > 0){
-                    if (app.donorDescription.length > 0) {
+                } else if (that.description && that.description.length > 0){
+                    if (that.donorDescription.length > 0) {
                         // custom donor text
                         renderDonorContent();
                         // default donor text
-                        $('#description').find('p.desc').html(app.donorDescription + counts + ' ' + app.description.join(',') + '.');
+                        $('#description').find('p.desc').html(that.donorDescription + counts + ' ' + that.description.join(',') + '.');
                         // donor viz h3
-                        $('#donor-title').html(app.donorTitle);
+                        $('#donor-title').html(that.donorTitle);
                     } else {
                         $('#donor-specific').empty();
-                        $('#description').find('p.desc').html(projectCounts + app.description.join(',') + '.');
+                        $('#description').find('p.desc').html(projectCounts + that.description.join(',') + '.');
                     }
-                } else if (!app.description) {
+                } else if (!that.description) {
                     $('#donor-specific').empty();
-                    $('#description').find('p.desc').html(app.defaultDescription);
+                    $('#description').find('p.desc').html(that.defaultDescription);
                 }
                 // reset description
-                app.description = false;
-                app.shortDesc = "";
-                app.donorDescription = "";
+                that.description = false;
+                that.shortDesc = "";
+                that.donorDescription = "";
 
                 $('#browser .summary').removeClass('off');
 
@@ -303,14 +256,14 @@ routers.App = Backbone.Router.extend({
         }
         // Show proper HDI data
         if (unit && ((HDI[unit]) ? HDI[unit].hdi != '' : HDI[unit])) {
-            app.hdi = new views.HDI({
+            that.hdi = new views.HDI({
                 unit: unit
             });
             if ($('.map-btn[data-value="hdi"]').hasClass('active')) {
                 $('#chart-hdi').addClass('active');
             }
         } else {
-            app.hdi = false;
+            that.hdi = false;
             $('#chart-hdi').removeClass('active');
             $('ul.layers li.no-hover.hdi a').css('cursor','default');
             $('ul.layers li.hdi .graph').removeClass('active');
@@ -323,6 +276,7 @@ routers.App = Backbone.Router.extend({
             }
         }
 
+        var breadcrumbs = new views.Breadcrumbs();
     },
 
     project: function (id, output, embed) {
@@ -332,17 +286,9 @@ routers.App = Backbone.Router.extend({
             // Load in feedbackform deats
             that.feedback();
 
-            that.nav = new views.Nav();
+            var nav = new views.Nav({add:'project'});
 
             window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
-
-            // Set up menu
-            $('#app .view, #mainnav .browser').hide();
-            $('#mainnav li').removeClass('active');
-            $('#browser .summary').addClass('off');
-            $('#mainnav .profile').show();
-            $('#mainnav li').first().addClass('active');
-            $('#mainnav li.parent').removeClass('parent-active');
 
             that.project.widget = new views.Widget({
                 context: 'project'
@@ -351,10 +297,10 @@ routers.App = Backbone.Router.extend({
 
         // Set up this route
 
-        that.project.model = new models.Project({
+        that.project.model = new Project({
             id: id
         });
-
+        // loading the specific project
         that.project.model.fetch({
             success: function (data) {
                 if (that.project.view) that.project.view.undelegateEvents();
@@ -369,68 +315,45 @@ routers.App = Backbone.Router.extend({
         });
     },
 
-    widget: function (year, route) {
+    widget: function (year, path) {
         var that = this,
-            parts = route.split('?'),
+            parts = path.split('?'),
             options = parts[1],
-            path = parts[0];
+            pathTemp = parts[0]; // something widget related, temporarily renamed to differentiate from the path passed from url
 
-        path = (path) ? path.split('/') : [];
+        pathTemp = (pathTemp) ? pathTemp.split('/') : [];
         options = (options) ? options.split('&') : [];
 
-        if (path[0] === 'project') {
+        if (pathTemp[0] === 'project') {
             loadjsFile('api/project_summary_' + year + '.js', year, function() {
                 that.project(parts[0].split('/')[1], false, options);
             });
         } else {
-            var route = parts[0];
-            if (route === '') route = undefined;
-            that.fiscalyear(year, route, options);
+            var path = parts[0];
+            if (path === '') path = undefined;
+            that.fiscalyear(year, path, options);
         }
     },
-    about: function (route) {
+    about: function (subnav) {
         window.setTimeout(function () {
             $('html, body').scrollTop(0);
         }, 0);
-        // add Nav
-        this.nav = new views.Nav();
 
-        $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#about/' + route + '">About: ' + route.capitalize().replace('info','') + '</a></li>');
-
-        $('#app .view, #about .section, #mainnav .profile').hide();
-        $('#aboutnav li, #mainnav li').removeClass('active');
-
-        $('#about, #mainnav .browser').show();
-        $('#aboutnav li a[href="#about/' + route + '"]').parent().addClass('active');
-        $('#about #' + route).show();
-        $('#mainnav li.parent').addClass('parent-active');
+        var nav = new views.Nav({add:'about',subnav:subnav});
+        var breadcrumbs = new views.Breadcrumbs({add:'about',subnav:subnav})
     },
-    topDonors: function (route) {
+    topDonors: function (category) {
         var that = this;
 
         // Add nav
-        this.nav = new views.Nav();
-
-        $('#breadcrumbs ul').html('<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' + '<li><a href="' + BASE_URL + '">Our Projects</a></li>' + '<li><a href="#top-donors/regular">Top Donors</a></li>');
-
-        $('#app .view').hide();
-        $('#mainnav li.profile').hide();
-        $('#mainnav li.browser').show();
-        $('#mainnav li').removeClass('active');
-        $('#mainnav li.parent').removeClass('parent-active');
-
-        $('#top-donors').show();
-        $('#mainnav li a[href="#top-donors/regular"]').parent().addClass('active');
-
-        $('#donor-nav li a').removeClass('active');
-        $('#donor-nav li a[href="#top-donors/' + route + '"]').addClass('active');
-        $('#unit-contact').hide();
+        var nav = new views.Nav({add:'topDonors'});
+        var breadcrumbs = new views.Breadcrumbs({add:'topDonors'});
 
         if (!that.donorsGross) {
-            that.donorsGross = new models.TopDonors({type: route});
+            that.donorsGross = new TopDonors({type: category});
             that.donorsGross.url = 'api/top-donor-gross-index.json';
 
-            that.donorsLocal = new models.TopDonors({type: 'amount'});
+            that.donorsLocal = new TopDonors({type: 'amount'});
             that.donorsLocal.url = 'api/top-donor-local-index.json';
 
             that.donorsGross.fetch({
@@ -455,7 +378,7 @@ routers.App = Backbone.Router.extend({
             }, 0);
 
         } else {
-            that.topDonorsGross.update(route);
+            that.topDonorsGross.update(category);
         }
     },
 
@@ -488,4 +411,5 @@ routers.App = Backbone.Router.extend({
             return false;
         });
     }
+
 });

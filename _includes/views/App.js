@@ -14,8 +14,6 @@ views.App = Backbone.View.extend({
     },
     
     initialize: function(options) {
-        var view = this;
-
         // Toggle country selector
         $(window).on('click', '#country-selector', _(this.showCountries).bind(this));
         $(window).on('click', '#country-list .close', _(this.hideCountries).bind(this));
@@ -36,10 +34,18 @@ views.App = Backbone.View.extend({
                 year: this.options.year
             }));
 
-            if (IE) {
-                $('#ie-banner').show();
-            }
+            // disable this until browser sniffing functions
+            // if (IE) {
+            //     $('#ie-banner').show();
+            // $('#banner-close').on('click',function(e){
+            //     e.preventDefault();
+            //     $('#ie-banner').hide();
+            // });
+            // }
         }
+
+        // adding years in render since the year div is part of app template
+        this.years = new views.YearNav();
 
         // highlight projects
         $('#mainnav li').first().addClass('active');
@@ -78,14 +84,14 @@ views.App = Backbone.View.extend({
                 collection: parts[0],
                 id: parts[1]
             }],
-            year = app.fiscalYear;
+            year = global.fiscalYear;
             shift = false;
 
         if (parts[0] != 'year'){ // treat year differently, see yearChange
 
             this.clearFilter(e);
 
-            _(this.filters).each(function(filter) {
+            _(global.processedFacets).each(function(filter) {
                 if (_.isEqual(filter, filters[0])) {
                     shift = true;
                 } else if (filter.collection !== filters[0].collection) {
@@ -107,7 +113,7 @@ views.App = Backbone.View.extend({
             e.preventDefault();
 
             // $('#all-projects').attr('href', '#' + path);
-            app.navigate(path, { trigger: true });
+            global.navigate(path, { trigger: true });
         }
     },
 
@@ -188,7 +194,7 @@ views.App = Backbone.View.extend({
 
         // When on operating unit, turn on/off the HDI graph
         if ($('ul.layers li').hasClass('no-hover')){
-            if ($target.attr('data-value') === 'hdi' && app.hdi) {
+            if ($target.attr('data-value') === 'hdi' && global.hdi) {
                 if ($('li.hdi').hasClass('active')) {
                     $('li.hdi').removeClass('active')
                     $($target).removeClass('active');
@@ -203,7 +209,7 @@ views.App = Backbone.View.extend({
             $target.addClass('active');
         }
 
-        app.projects.map.buildLayer(this.layer); // see Map.js
+        global.projects.map.buildLayer(this.layer); // see Map.js
         return false;
     },
 
@@ -238,8 +244,8 @@ views.App = Backbone.View.extend({
             $('#year').toggleClass('active',true);
             $('#year .filter-items a').removeClass('inactive');
         }
-        if (selectedYear != app.fiscalYear) {
-            var filters = _(this.filters).chain()
+        if (selectedYear != global.fiscalYear) {
+            var filters = _(global.processedFacets).chain()
                 .compact()
                 .map(function(filter) {
                     return filter.collection + '-' + filter.id;
@@ -248,7 +254,7 @@ views.App = Backbone.View.extend({
 
             var path = (filters.length) ? selectedYear + '/filter/' + filters : selectedYear;
             
-            app.navigate(path, { trigger: true });
+            global.navigate(path, { trigger: true });
         }
     },
 
@@ -266,10 +272,10 @@ views.App = Backbone.View.extend({
         $('.map-filter').removeClass('active');
         $('#'+$target.id).addClass('active');
 
-        var currentCenter = app.projects.map.map.getCenter(),
-            currentZoom = app.projects.map.map.getZoom();
+        var currentCenter = global.projects.map.map.getCenter(),
+            currentZoom = global.projects.map.map.getZoom();
 
-        app.projects.map.buildLayer(this.layer,subFilter,currentCenter,currentZoom); // see Map.js
+        global.projects.map.buildLayer(this.layer,subFilter,currentCenter,currentZoom); // see Map.js
     },
 
     activeMap: function(e) {
@@ -277,7 +283,7 @@ views.App = Backbone.View.extend({
         $('.view-switch a').removeClass('active');
         $(e.target).addClass('active');
         $('#mainnav li').first().addClass('re-active');
-        setTimeout(function(){app.projects.map.map.invalidateSize({pan:true});}, 200);
+        setTimeout(function(){global.projects.map.map.invalidateSize({pan:true});}, 200);
     },
 
     layersBack: function(e) {

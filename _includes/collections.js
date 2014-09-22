@@ -1,13 +1,120 @@
-// Model
-models.Project = Backbone.Model.extend({
-    defaults: { visible: true },
+Nationals = Backbone.Collection.extend({
+    model: National,
+    url: 'api/operating-unit-index.json'
+});
+
+Subnationals = Backbone.Collection.extend({
+    model: Subnational,
     url: function() {
-        return 'api/projects/' + this.get('id') + '.json';
+        var opUnitFilter =_(global.processedFacets).findWhere({collection:"operating_unit"});
+        return '../api/units/' + opUnitFilter.id + '.json'
+    },
+    parse: function(response){
+        return response.projects
+    },
+    filtered: function() {
+        visible = this.filter(function(model) {
+          return model.get("visible") === true;
+        });
+        return new Subnationals(visible);
     }
 });
 
-// Collection
-models.Projects = Backbone.Collection.extend({
+Facets = Backbone.Collection.extend({
+    model:Facet,
+    settings: [
+        {
+            id: 'operating_unit',
+            url: 'api/operating-unit-index.json',
+            name: 'Country Office / Operating Unit'
+        },
+        {
+            id: 'region',
+            url: 'api/region-index.json',
+            name: 'Region'
+        },
+        {
+            id: 'focus_area',
+            url: 'api/focus-area-index.json',
+            name: 'Themes'
+        },
+        {
+            id: 'donor_countries',
+            url: 'api/donor-country-index.json',
+            name: 'Funding by Country'
+        },
+        {
+            id: 'donors',
+            url: 'api/donor-index.json',
+            name: 'Budget Source'
+        }
+    ],
+    initialize: function(){
+        var that = this;
+        // TODO what is this////////
+        counter = 0;
+        ////////////////////////////
+
+        // populate all facets
+        _(this.settings).each(function(setting){
+            that.push(setting);
+        });
+    }
+});
+
+Filters = Backbone.Collection.extend({
+    model: Filter,
+    watch: function() {
+        this.update();
+        global.projects.on('update', this.update, this);
+    },
+    update: function() {
+        // in the Filters collection
+        var collection = this,
+            active = _(global.processedFacets).find(function(filter) {
+                return (collection.id === filter.collection);
+            });
+
+        var activeCollection = collection.where({active:true});
+
+        // set all models to be active: false
+        _.each(activeCollection, function(model) {
+            model.set('active', false);
+        });
+
+        if (active) {
+            var model = this.get(active.id);
+            var count = global.projects[collection.id][model.id];
+            var budget = global.projects[collection.id + 'Budget'][model.id];
+            var expenditure = global.projects[collection.id + 'Expenditure'][model.id];
+            model.set({
+                active: true,
+                count: count,
+                budget: budget,
+                expenditure: expenditure
+            });
+
+        } else {
+            collection.each(function(model) {
+                var count = global.projects[collection.id][model.id];
+                var budget = global.projects[collection.id + 'Budget'][model.id];
+                var expenditure = global.projects[collection.id + 'Expenditure'][model.id];
+                model.set({
+                    count: count,
+                    budget: budget,
+                    expenditure: expenditure
+                });
+            });
+        }
+        this.trigger('update');
+    },
+    comparator: function(model) {
+        return -1 * model.get('budget') || 0;
+    }
+});
+
+Projects = Backbone.Collection.extend({
+    model: Project,
     initialize: function() {
         this.sortData = this.sortData || 'budget';
         this.sortOrder = this.sortOrder || 'desc';
@@ -205,7 +312,6 @@ models.Projects = Backbone.Collection.extend({
         }
 
     },
-    model: models.Project,
     comparator: function(model) {
         if (this.sortOrder == 'desc') {
             if (this.sortData == 'name') {
@@ -217,4 +323,49 @@ models.Projects = Backbone.Collection.extend({
             return model.get(this.sortData);
         }
     } 
+});
+
+TopDonors = Backbone.Collection.extend({
+    model: TopDonor,
+    initialize: function(options) {
+        this.type = options.type;
+    },
+    
+    comparator: function(model) {
+        return -1 * model.get(this.type);
+    }
+});
+
+TotalModalities = Backbone.Collection.extend({
+    model: Modality,
+    url: '../api/donors/total-modality.json'
+})
+
+DonorModalities = Backbone.Collection.extend({
+    model: Modality,
+    url: '../api/donors/donor-modality.json'
+})
+
+Countries = Backbone.Collection.extend({
+    model: Country,
+    url: '../api/world.json'
+});
+
+India = Backbone.Collection.extend({
+    model: Country,
+    url: '../api/india_admin0.json'
+});
+
+OperatingUnits = Backbone.Model.extend({
+    model:OperatingUnit,
+    url: '../api/operating-unit-index.json'
+});
+
+SubnationalIndices = Backbone.Model.extend({
+    model:SubnationalIndex,
+    url: '../api/subnational-locs-index.json'
+});
+FocusAreaIndices = Backbone.Model.extend({
+    model:FocusAreaIndex,
+    url: '../api/focus-area-index.json'
 });

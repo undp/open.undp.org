@@ -20,10 +20,10 @@ views.Projects = Backbone.View.extend({
 
     render: function() {
 
-        var donor = _(app.app.filters).find(function(filter) {
+        var donor = _(global.processedFacets).find(function(filter) {
                 return filter.collection === 'donors';
             }),
-            donor_ctry = _(app.app.filters).find(function(filter) {
+            donor_ctry = _(global.processedFacets).find(function(filter) {
                 return filter.collection === 'donor_countries';
             }),
             models = _(this.collection.filter(function(model) {
@@ -36,11 +36,11 @@ views.Projects = Backbone.View.extend({
 
         if (donor) {
             $('#total-donors').parent().hide();
-            if (app.projects.map.updateMap) {
+            if (global.projects.map.updateMap) {
                 var $target = $('.layers li:first a');
                 $('.map-btn').removeClass('active');
                 $target.addClass('active');
-                app.projects.map.updateMap($target.attr('data-value'));
+                global.projects.map.updateMap($target.attr('data-value'));
             }
 
         } else {
@@ -118,7 +118,7 @@ views.Projects = Backbone.View.extend({
 
     routeToProject: function(e) {
         var id = $(e.currentTarget).attr('id');
-        app.navigate(id, {trigger: true});
+        global.navigate(id, {trigger: true});
     },
 
     search: function (e) {

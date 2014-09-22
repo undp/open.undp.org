@@ -394,10 +394,8 @@ input[readonly] {
   width:100%;
   height:100%;
   z-index:5;
+  border:1px solid #ddd;
   pointer-events:none;
-  -webkit-box-shadow:inset 0 0 8px rgba(0,0,0,0.25);
-     -moz-box-shadow:inset 0 0 8px rgba(0,0,0,0.25);
-          box-shadow:inset 0 0 8px rgba(0,0,0,0.25);
   }
 .map .inner-grey {
   background:rgba(255,255,255,0.5);
@@ -431,6 +429,7 @@ input[readonly] {
   -webkit-transition-duration:.5s;
   -o-transition-duration:.5s;
   transition-duration:.5s;
+  border:1px solid #ddd;
   }
 #homemap.small {
   height: 200px;
@@ -1929,16 +1928,6 @@ Details: http: //perishablepress.com/press/2009/12/06/new-clearfix-hack*/
   opacity: 1;
   filter: alpha(opacity=100);
   }
-
-
-body.ie .inner-shadow {
-  position:relative;
-  z-index:5;
-  -webkit-box-shadow:none;
-     -moz-box-shadow:none;
-          box-shadow:none;
-  border:1px solid #ddd;
-}
 
 body.ie8 #chart-hdi .details { display: none; }
 

@@ -1,9 +1,16 @@
 ---
 ---
-var CURRENT_YR = FISCALYEARS[0];
-    BASE_URL = 'http://open.undp.org/';
+var CURRENT_YR = FISCALYEARS[0],
+    BASE_URL = 'http://open.undp.org/',
+    MAPID = "undp.map-6grwd0n3";
 
-function ctyBounds(coords) {
+var IE = $.browser.msie;
+if (IE) {var IE_VERSION = parseInt($.browser.version);} // should return 6, 7, 8, 9
+
+var util = {};
+
+// MAP
+util.ctyBounds = function(coords) {
     if (coords.length > 1) {
         var polyline = L.polyline(_.flatten(_.flatten(coords,true),true));
     } else {
@@ -15,15 +22,125 @@ function ctyBounds(coords) {
             [bbox.getNorthEast().lng, bbox.getNorthEast().lat]];
 }
 
+// define map center based on region filter
+util.regionCenter = function(region) {
+    var coord,
+        zoom;
+    if (region === "RBA"){
+        coord = [0,20];
+        zoom =3;
+    } else if (region === "RBAP"){
+        coord = [37,80];
+        zoom =2;
+    } else if (region === "RBAS" || region === "PAPP"){
+        coord = [32,32];
+        zoom = 3;
+    } else if (region === "RBEC"){
+        coord = [50,55];
+        zoom = 3;
+    } else if (region === "RBLAC"){
+        coord = [-2,-67]
+        zoom = 2;
+    } else if (region === "global"){
+        coord = [0,0];
+        zoom = 2;
+    }
+
+    return {"coord":coord, "zoom":zoom}
+}
+util.radius = function(scaleResult){
+    var r = Math.round(Math.sqrt(scaleResult/ Math.PI));
+    return r
+}
+
+util.scale = function(cat,feature) {
+    if (cat == 'budget' || cat == 'expenditure') {
+        var size = Math.round(feature.properties[cat] / 100000);
+        if (size < 10) {
+            return 10;
+        } else {
+            return size;
+        }
+    } else if (cat == 'hdi') {
+        return Math.round(Math.pow(feature.properties[cat],2) / 0.0008);
+    } else {
+        return Math.round(feature.properties[cat] / 0.05);
+    }
+}
+
+// https://gist.github.com/mbostock/1696080
+util.request = function(url, callback) {
+  var req = new XMLHttpRequest;
+  req.open("GET", url, true);
+  req.setRequestHeader("Accept", "application/json");
+  req.onreadystatechange = function() {
+    if (req.readyState === 4) {
+      if (req.status < 300) callback(null, JSON.parse(req.responseText));
+      else callback(req.status);
+    }
+  };
+  req.send(null);
+}
+
+// Script loader
+util.loadjsFile = function (filename, year, callback) {
+
+    $('#fiscalData').empty();
+    var fileref = document.createElement('script');
+
+    fileref.type = 'text/javascript';
+    // fileref.setAttribute('type', 'text/javascript');
+    fileref.id = 'y' + year;
+    // fileref.setAttribute('id', 'y' + year);
+    fileref.src = filename;
+    // fileref.setAttribute('src', filename);
+
+    // IE BUG FIX REPORT
+    // IE8 does not fire a .load() callback, but IE9 and above fires it twice
+    // Use jQuery.load for IE versions above 8, and onReadyStateChange for >= 8
+    if (IE_VERSION && IE_VERSION <= 8) {
+        fileref.onreadystatechange = function() {
+            var readyState = this.readyState;
+            if (this.readyState === 'complete' || this.readyState === 'loaded') {
+               callback();
+            }
+            else {
+                return
+            }
+        };
+    }
+
+    else {
+        $(fileref).load(callback)
+    }
+
+    //fileref.onreadystatechange = loadFunction;
+    //calling a function after the js is loaded (Chrome/Firefox)
+    //fileref.onload = callback;
+
+    //if(typeof(document.getElementById('fiscalData')) != 'undefined') {
+    document.getElementById('fiscalData').appendChild(fileref);
+    //}
+}
+
 $(document).ready(function() {
     var models = {},
         views = {},
         routers = {},
+        // geting ALL the script with names, aka templates
+        // and return memo, which is an object with all templates turned functions
+        // that's why you see things like
+        // ---> $el.append(templates.donorSpecific(app)) <--
+        // it simply means: use the donorSpecific template, and pass in the varible app
+        //
+        // This is too confusing. TODO use normal ways of templating
+        //
         templates = _($('script[name]')).reduce(function(memo, el) {
-            memo[el.getAttribute('name')] = _(el.innerHTML).template();
+            memo[el.getAttribute('name')] = _.template(el.innerHTML);
             return memo;
         }, {}),
         app = {},
+        // TODO in the process of moving this to the Facets collection
         facets = [
             {
                 id: 'operating_unit',
@@ -51,15 +168,9 @@ $(document).ready(function() {
                 name: 'Budget Source'
             }
         ];
-    var IE = $.browser.msie;
-    if (IE) {var IE_VERSION = parseInt($.browser.version);} // should return 6, 7, 8, 9
 
-    // Models
-    {% include models/Filter.js %}
-    {% include models/Project.js %}
-    {% include models/TopDonor.js %}
-    {% include models/Subnational.js %}
-    {% include models/National.js %}
+    {% include models.js %}
+    {% include collections.js %}
 
     // Views
     {% include views/App.js %}
@@ -73,6 +184,10 @@ $(document).ready(function() {
     {% include views/TopDonors.js %}
     {% include views/Widget.js %}
     {% include views/Donors.js %}
+    {% include views/Breadcrumbs.js %}
+    {% include views/YearNav.js %}
+    {% include views/Facets.js %}
+
 
     // Router
     {% include routers/Router.js %}
@@ -81,47 +196,6 @@ $(document).ready(function() {
     String.prototype.capitalize = function() {
         return this.charAt(0).toUpperCase() + this.slice(1);
     };
-
-    // Script loader
-    function loadjsFile(filename, year, callback) {
-
-        $('#fiscalData').empty();
-        var fileref = document.createElement('script');
-
-        fileref.type = 'text/javascript';
-        // fileref.setAttribute('type', 'text/javascript');
-        fileref.id = 'y' + year;
-        // fileref.setAttribute('id', 'y' + year);
-        fileref.src = filename;
-        // fileref.setAttribute('src', filename);
-
-        // IE BUG FIX REPORT
-        // IE8 does not fire a .load() callback, but IE9 and above fires it twice
-        // Use jQuery.load for IE versions above 8, and onReadyStateChange for >= 8
-        if (IE_VERSION && IE_VERSION <= 8) {
-            fileref.onreadystatechange = function() {
-                var readyState = this.readyState;
-                if (this.readyState === 'complete' || this.readyState === 'loaded') {
-                   callback();
-                }
-                else {
-                    return
-                }
-            };
-        }
-
-        else {
-            $(fileref).load(callback)
-        }
-
-        //fileref.onreadystatechange = loadFunction;
-        //calling a function after the js is loaded (Chrome/Firefox)
-        //fileref.onload = callback;
-
-        //if(typeof(document.getElementById('fiscalData')) != 'undefined') {
-        document.getElementById('fiscalData').appendChild(fileref);
-	//}
-    }
 
     // Via https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/indexOf
     if (!Array.prototype.indexOf) {
@@ -229,42 +303,7 @@ $(document).ready(function() {
         .replace(/Vii\b/g, 'VII');
     };
 
-    //localize map tilejson
-    var TJ = {
-        bounds: [
-            -180,
-            -85,
-            180,
-            85
-        ],
-        center: [
-            0,
-            0,
-            2
-        ],
-        id: "undp.map-6grwd0n3",
-        maxzoom: 7, //set to 7 to avoid zooming too much in order to get the granular markers on cluster markers
-        minzoom: 2,
-        name: "UNDP base layer",
-        private: true,
-        scheme: "xyz",
-        tilejson: "2.0.0",
-        tiles: [
-            "http://a.tiles.mapbox.com/v3/undp.map-6grwd0n3/{z}/{x}/{y}.png",
-            "http://b.tiles.mapbox.com/v3/undp.map-6grwd0n3/{z}/{x}/{y}.png",
-            "http://c.tiles.mapbox.com/v3/undp.map-6grwd0n3/{z}/{x}/{y}.png",
-            "http://d.tiles.mapbox.com/v3/undp.map-6grwd0n3/{z}/{x}/{y}.png"
-        ],
-        webpage: "http://tiles.mapbox.com/undp/map/map-6grwd0n3"
-    };
-
-    // ie-banner close
-    $('#banner-close').on('click',function(e){
-        e.preventDefault();
-        $('#ie-banner').hide();
-    });
-
     // Start the application
-    app = new routers.App();
+    global = new routers.Global();
     Backbone.history.start();
 });

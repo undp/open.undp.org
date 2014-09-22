@@ -25,20 +25,17 @@
           </div>
         </div>
         <div class='row-fluid'>
+          <!-- year -->
+          <div id='year' class='span12 topics'>
+            <a href='#' data-category='year' class='label'>
+              <span class='open'></span>
+              year
+            </a>
+            <ul class='filter-items'>
+            </ul>
+          </div>
+          <!-- other filter items -->
           <div id='filter-items' class='span12'>
-            <!--start of year, using same markup as other filter-items-->
-            <div id='year' class='topics'>
-              <a href='#' data-category='year' class='label'>
-                <span class='open'></span>
-                year
-              </a>
-              <ul class='filter-items'>
-                <% _.each(FISCALYEARS, function(y) { %>
-                <li><a id='year-<%= y %>' href="#" class='filter'><%= y %></a></li>
-                <% }); %>
-              </ul>
-            </div>
-            <!--end of year-->
           </div>
         </div>
       </div>
