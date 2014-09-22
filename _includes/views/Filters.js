@@ -158,7 +158,7 @@ views.Filters = Backbone.View.extend({
 
             // update hash for charts
             if (global.processedFacets.length === 0 ){
-                var pathTo = '#filter/';
+                var pathTo = '#' + CURRENT_YR +'/filter/';
             } else {
                 pathTo = document.location.hash + "/";
             };
