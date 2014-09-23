@@ -37,8 +37,6 @@ routers.Global = Backbone.Router.extend({
     },
     selectedFacets: false,
     processedFacets: false,
-    unit: false,
-    donor: false,
     browser: function (year, path, embed) {
         var that = this,
             unit = false, // this should be reused throughout the site
@@ -137,22 +135,6 @@ routers.Global = Backbone.Router.extend({
             // if projects are already present
             that.projects.cb = updateDescription;
             that.projects.reset(this.allProjects.filter(filter));
-        }
-
-        // change summary look when on individual country
-
-        $('.map-filter').removeClass('active') // reset the subfilter look
-        $('#map-filters').find('#loc-all').addClass('active');
-
-        if(unit){
-            $('#map-filters').removeClass('disabled');//shows type sub-filter
-            $('.map-btn').removeClass('active');
-            $('ul.layers li').addClass('no-hover');
-            $('ul.layers li.hdi .graph').addClass('active');
-        } else {
-            $('#map-filters').addClass('disabled'); //hides type sub-filter
-            $('ul.layers li').removeClass('no-hover');
-            $('ul.layers li.hdi .graph').removeClass('active');
         }
 
         // Check for funding countries to show donor visualization
