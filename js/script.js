@@ -1,7 +1,7 @@
 ---
 ---
 var CURRENT_YR = FISCALYEARS[0],
-    BASE_URL = 'http://open.undp.org/',
+    BASE_URL = '{{site.baseurl}}',
     MAPID = "undp.map-6grwd0n3";
 
 var IE = $.browser.msie;
