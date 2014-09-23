@@ -94,7 +94,7 @@ routers.Global = Backbone.Router.extend({
 
         var loadFilters = function(){
 
-            var loadFacetsAndFilters = new views.Facets();
+            new views.Facets();
 
             // Create summary map view
             if (!embed){
@@ -258,7 +258,7 @@ routers.Global = Backbone.Router.extend({
             }
         }
 
-        var breadcrumbs = new views.Breadcrumbs();
+        new views.Breadcrumbs();
     },
 
     project: function (id, output, embed) {
@@ -321,15 +321,14 @@ routers.Global = Backbone.Router.extend({
             $('html, body').scrollTop(0);
         }, 0);
 
-        var nav = new views.Nav({add:'about',subnav:subnav});
-        var breadcrumbs = new views.Breadcrumbs({add:'about',subnav:subnav})
+        new views.Nav({add:'about',subnav:subnav});
+        new views.Breadcrumbs({add:'about',subnav:subnav})
     },
     topDonors: function (category) {
         var that = this;
 
-        // Add nav
-        var nav = new views.Nav({add:'topDonors'});
-        var breadcrumbs = new views.Breadcrumbs({add:'topDonors'});
+        new views.Nav({add:'topDonors'});
+        new views.Breadcrumbs({add:'topDonors'});
 
         if (!that.donorsGross) {
             that.donorsGross = new TopDonors({type: category});
