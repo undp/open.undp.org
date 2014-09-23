@@ -324,6 +324,7 @@ views.Filters = Backbone.View.extend({
                             if (budget!='$0'){
                                 rows.push({
                                     sort: -1 * ((donor || donor_ctry) ? donorBudget : model.get('budget')),
+                                    fund_type: model.attributes.fund_type,
                                     content: '<tr>' +
                                         '    <td>' + caption + '</td>' +
                                         '    <td class="right">' + budget + '</td>' +
@@ -348,8 +349,16 @@ views.Filters = Backbone.View.extend({
                         rows = rows.slice(0,19);
 
                         _(rows).each(function(row) {
-                            $('#chart-' + view.collection.id + ' .rows').append(row.content);
+                            console.log(row.fund_type);
+                            if (row.fund_type === 'Local') {
+                                $('#chart-' + view.collection.id + ' #localTab .rows').append(row.content);
+                            } else if (row.fund_type == 'Other') {
+                                $('#chart-' + view.collection.id + ' #partnerTab .rows').append(row.content);
+                            } else {
+                                $('#chart-' + view.collection.id + ' .rows').append(row.content);
+                            }
                         });
+
                         $('#chart-' + view.collection.id + ' .rows tr').each(function() {
                             $('.data .budgetdata', this).width(($('.data .budgetdata', this).attr('data-budget') / max * 100) + '%');
                             $('.data .subdata', this).width(($('.data .subdata', this).attr('data-expenditure') / max * 100) + '%');
@@ -362,6 +371,5 @@ views.Filters = Backbone.View.extend({
         }, 0);
     }
 });
-
 
 
