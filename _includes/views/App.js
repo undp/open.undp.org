@@ -330,7 +330,7 @@ views.App = Backbone.View.extend({
 
         $('.widget-preview', el).html(defaultIframe);
         $('.widget-code', el)
-            .val(defaultIframe.replace('src="{{site.baseurl}}/','src="' + BASE_URL))
+            .val(defaultIframe.replace('src="{{site.baseurl}}/','src="' + Backbone.history.location.origin + '/'))
             .select();
     }
 });

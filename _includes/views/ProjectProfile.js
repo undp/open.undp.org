@@ -205,7 +205,7 @@ views.ProjectProfile = Backbone.View.extend({
 
         $('.widget-preview', el).html(defaultIframe); // this is where the json is getting called
         $('.widget-code', el)
-            .val(defaultIframe.replace('src="{{site.baseurl}}/','src="' + BASE_URL))
+            .val(defaultIframe.replace('src="{{site.baseurl}}/','src="' + Backbone.history.location.origin + '/'))
             .select();
     }
 });

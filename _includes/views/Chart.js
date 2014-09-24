@@ -2,14 +2,25 @@ function renderFocusAreaChart(chartData, rootPath, view) {
     var $el = $('#chart-focus_area');
     $el.empty();
     
+    this.pageType = Backbone.history.location.hash.split('/')[1];
+    console.log(this.pageType);
+
     // Calculate budget for each focus area
     var totalBudget = _(chartData).reduce(function(budget, focusArea) {
         return budget + (focusArea.get('budget') || 0);
     }, 0) || 0;
 
+    var pageType = Backbone.history.location.hash.split('/')[1];
 
-    // For each focus area, fill the template with the percentage value
-    var template = _.template($("#focusAreaItemTemplate").html());
+    // Template for each row
+    var template = '';
+    var pageType = Backbone.history.location.hash.split('/')[1];
+    if (pageType === 'widget') {
+        template = _.template($("#embedFocusAreaItemTemplate").html());
+    } else {
+        template = _.template($("#focusAreaItemTemplate").html());
+    }
+
     _(chartData).each(function(model, index) {
         var focusIconClass = model.get('name').replace(/\s+/g, '-').toLowerCase().split('-')[0];
         var focusName = model.get('name').toLowerCase().toTitleCase();
@@ -40,7 +51,13 @@ function setBudgetHTML(donorInfo, model, notOperatingUnit, pathTo) {
     var donorExpenditure = donorInfo.expenditure;
 
     //Template of chart row
-    var chartTemplate = _.template($("#budgetChartItemTemplate").html()); 
+    var chartTemplate = '';
+    var pageType = Backbone.history.location.hash.split('/')[1];
+    if (pageType === 'widget') {
+        chartTemplate = _.template($("#embedBudgetChartItemTemplate").html());
+    } else {
+        chartTemplate = _.template($("#budgetChartItemTemplate").html());
+    }
 
     var budget = accounting.formatMoney(
             ((notOperatingUnit) ? donorBudget : model.get('budget')),"$", 0, ",", "."
