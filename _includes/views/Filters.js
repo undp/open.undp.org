@@ -134,11 +134,16 @@ views.Filters = Backbone.View.extend({
             }
     
             // Root path of links for each chart item
+            var pathTo;
             if (global.processedFacets.length === 0 ){
-                var pathTo = '#' + CURRENT_YR +'/filter/';
+                pathTo = '#' + CURRENT_YR +'/filter/';
             } else {
-                pathTo = document.location.hash + "/";
+                pathTo = document.location.hash
+
+                //Creates proper link for embedded chart items
+                pathTo = (pathTo.split('?')[0] + '/').replace('widget', 'filter')
             };
+            pathTo = BASE_URL + pathTo;
 
             //If we don't have any data for that chart don't render it
             if (chartModels.length <= 1 && view.collection.id !== 'focus_area' && !donorCountry) {
