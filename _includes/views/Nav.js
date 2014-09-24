@@ -30,6 +30,7 @@ views.Nav = Backbone.View.extend({
             $('#aboutnav li a[href="#about/' + this.options.subnav + '"]').parent().addClass('active');
             $('#about #' + this.options.subnav).show();
             $('#mainnav li.parent').addClass('parent-active');
+
         } else if (this.options.add === 'topDonors'){
             $('#app .view').hide();
             $('#mainnav li.profile').hide();
@@ -41,9 +42,11 @@ views.Nav = Backbone.View.extend({
             $('#mainnav li a[href="#top-donors/regular"]').parent().addClass('active');
 
             $('#donor-nav li a').removeClass('active');
-            $('#donor-nav li a[href="#top-donors/' + category + '"]').addClass('active');
+            $('#donor-nav li a[href="#top-donors/' + this.options.category + '"]').addClass('active');
             $('#unit-contact').hide();
+
         } else if (this.options.add === 'project') {
+
             $('#app .view, #mainnav .browser').hide();
             $('#mainnav li').removeClass('active');
             $('#browser .summary').addClass('off');
