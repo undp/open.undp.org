@@ -164,18 +164,16 @@ views.Filters = Backbone.View.extend({
                         return filter.collection === 'donor_countries';
                     }) || {id: 0}).id;
 
-
                 if (view.collection.id === 'focus_area') {
                     chartModels = view.collection.models;
-                    renderFocusAreaChart(chartModels, pathTo, view);
+                    setTimeout(function() {renderFocusAreaChart(chartModels, pathTo, view)},0);
 
                 } else if ( view.collection.id === 'donors' ){
                     view.chartModels = chartModels;
-                    renderBudgetSourcesChart(donor, donor_ctry, chartModels, view, pathTo) 
-
+                    setTimeout(function() {renderBudgetSourcesChart(donor, donor_ctry, chartModels, view, pathTo)},0);
                 } else if (view.collection.id === 'operating_unit' || view.collection.id === 'donor_countries') {
                     view.chartModels = chartModels;
-                    renderRecipientOfficesChart(donor, donor_ctry, chartModels, view, pathTo) 
+                    setTimeout(function() {renderRecipientOfficesChart(donor, donor_ctry, chartModels, view, pathTo) },0);
                 }
             }
         }, 0);

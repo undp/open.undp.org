@@ -35,12 +35,6 @@ function renderFocusAreaChart(chartData, rootPath, view) {
     $el.prepend('<h3 id="focus">Themes <span>% of budget</span></h3>');
 }
 
-function setMapInfo(donorInfo, model, budgetSource) {
-    if (budgetSource) global.projects.map.collection.donorID = false;
-    global.projects.map.collection.operating_unitBudget[model.get('id')] = donorInfo.budget;
-    global.projects.map.collection.operating_unitExpenditure[model.get('id')] = donorInfo.expenditure;      
-}
-
 function setBudgetHTML(donorInfo, model, notOperatingUnit, pathTo) {
     var donorBudget = donorInfo.budget;
     var donorExpenditure = donorInfo.expenditure;
@@ -107,13 +101,15 @@ function renderBudgetSourcesChart(donor, donorCountrySelected, chartData, view, 
         donorInfo.budget = _(donorProjects).chain().pluck('budget')
             .reduce(function(memo, num){ return memo + num; }, 0).value();
 
-        donorInfo.budget = _(donorProjects).chain().pluck('expenditure')
+        donorInfo.expenditure = _(donorProjects).chain().pluck('expenditure')
             .reduce(function(memo, num){ return memo + num; }, 0).value();     
 
         var notOperatingUnit = (donor || donorCountrySelected);
 
         if (notOperatingUnit) {
-            setMapInfo(donorInfo, model, donor);
+            if (donor) global.projects.map.collection.donorID = false;      
+            global.projects.map.collection.donorBudget[donor] = donorInfo.budget;
+            global.projects.map.collection.donorExpenditure[donor] = donorInfo.expenditure;
         }
 
         var row = setBudgetHTML(donorInfo, model, notOperatingUnit, pathTo);
@@ -155,7 +151,10 @@ function renderRecipientOfficesChart(donor, donorCountrySelected, chartData, vie
         var notOperatingUnit = (donor || donorCountrySelected);
 
         if (notOperatingUnit) {
-            setMapInfo(donorInfo, model, donor);
+            if (donor) global.projects.map.collection.donorID = false;
+            global.projects.map.collection.operating_unitBudget[model.get('id')] = donorInfo.budget;
+            global.projects.map.collection.operating_unitExpenditure[model.get('id')] = donorInfo.expenditure;
+            console.log(model.get('id') + ", " + global.projects.map.collection.operating_unitBudget[model.get('id')]) ; 
         }
 
         var row = setBudgetHTML(donorInfo, model, notOperatingUnit, pathTo);
