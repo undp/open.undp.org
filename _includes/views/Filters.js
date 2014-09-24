@@ -114,8 +114,9 @@ views.Filters = Backbone.View.extend({
                             );
 
                             new views.Description({
-                                collection:view.collection,
-                                activeModel:model
+                                facetName:view.collection.id,
+                                activeModel:model,
+                                donorCountry: donorCountry
                             })
                         }
                     });
