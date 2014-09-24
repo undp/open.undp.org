@@ -22,7 +22,7 @@ Subnationals = Backbone.Collection.extend({
 
 Facets = Backbone.Collection.extend({
     model:Facet,
-    settings: [
+    facets: [
         {
             id: 'operating_unit',
             url: 'api/operating-unit-index.json',
@@ -50,15 +50,14 @@ Facets = Backbone.Collection.extend({
         }
     ],
     initialize: function(){
-        var that = this;
-        // TODO what is this////////
-        counter = 0;
-        ////////////////////////////
-
         // populate all facets
-        _(this.settings).each(function(setting){
-            that.push(setting);
-        });
+        // with predefined values
+        _(this.facets).each(function(facet){
+            this.push(facet);
+        },this);
+    },
+    idsOnly: function(){
+        return this.map(function(m){return m.get('id');});
     }
 });
 
