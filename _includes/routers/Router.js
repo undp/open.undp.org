@@ -37,8 +37,6 @@ routers.Global = Backbone.Router.extend({
     },
     selectedFacets: false,
     processedFacets: false,
-    unit: false,
-    donor: false,
     browser: function (year, path, embed) {
         var that = this,
             unit = false, // this should be reused throughout the site
@@ -96,7 +94,7 @@ routers.Global = Backbone.Router.extend({
 
         var loadFilters = function(){
 
-            var loadFacetsAndFilters = new views.Facets();
+            new views.Facets();
 
             // Create summary map view
             if (!embed){
@@ -137,22 +135,6 @@ routers.Global = Backbone.Router.extend({
             // if projects are already present
             that.projects.cb = updateDescription;
             that.projects.reset(this.allProjects.filter(filter));
-        }
-
-        // change summary look when on individual country
-
-        $('.map-filter').removeClass('active') // reset the subfilter look
-        $('#map-filters').find('#loc-all').addClass('active');
-
-        if(unit){
-            $('#map-filters').removeClass('disabled');//shows type sub-filter
-            $('.map-btn').removeClass('active');
-            $('ul.layers li').addClass('no-hover');
-            $('ul.layers li.hdi .graph').addClass('active');
-        } else {
-            $('#map-filters').addClass('disabled'); //hides type sub-filter
-            $('ul.layers li').removeClass('no-hover');
-            $('ul.layers li.hdi .graph').removeClass('active');
         }
 
         // Check for funding countries to show donor visualization
@@ -276,7 +258,7 @@ routers.Global = Backbone.Router.extend({
             }
         }
 
-        var breadcrumbs = new views.Breadcrumbs();
+        new views.Breadcrumbs();
     },
 
     project: function (id, output, embed) {
@@ -339,15 +321,14 @@ routers.Global = Backbone.Router.extend({
             $('html, body').scrollTop(0);
         }, 0);
 
-        var nav = new views.Nav({add:'about',subnav:subnav});
-        var breadcrumbs = new views.Breadcrumbs({add:'about',subnav:subnav})
+        new views.Nav({add:'about',subnav:subnav});
+        new views.Breadcrumbs({add:'about',subnav:subnav})
     },
     topDonors: function (category) {
         var that = this;
 
-        // Add nav
-        var nav = new views.Nav({add:'topDonors'});
-        var breadcrumbs = new views.Breadcrumbs({add:'topDonors'});
+        new views.Nav({add:'topDonors'});
+        new views.Breadcrumbs({add:'topDonors',category:category});
 
         if (!that.donorsGross) {
             that.donorsGross = new TopDonors({type: category});

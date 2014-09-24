@@ -187,6 +187,7 @@ $(document).ready(function() {
     {% include views/Breadcrumbs.js %}
     {% include views/YearNav.js %}
     {% include views/Facets.js %}
+    {% include views/Description.js%}
 
 
     // Router
