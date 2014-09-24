@@ -38,6 +38,7 @@ views.Filters = Backbone.View.extend({
                 if (view.collection.id === 'donors') {
                     var donorCountry = _(global.processedFacets).where({ collection: 'donor_countries' });
                     donorCountry = (donorCountry.length) ? donorCountry[0].id : false;
+                    view.donorCountry = donorCountry;
                 }
 
                 setTimeout(function() {
@@ -154,19 +155,19 @@ views.Filters = Backbone.View.extend({
 
             }
     
-            $('#chart-' + view.collection.id + '.rows').empty();
-
-            // update hash for charts
+            // Root path of links for each chart item
             if (global.processedFacets.length === 0 ){
                 var pathTo = '#' + CURRENT_YR +'/filter/';
             } else {
                 pathTo = document.location.hash + "/";
             };
 
+            //If we don't have any data for that chart don't render it
             if (chartModels.length <= 1 && view.collection.id !== 'focus_area' && !donorCountry) {
                 $('#chart-' + view.collection.id)
                     .css('display','none');
             } else {
+                //This code makes sure that all appropriate charts are displayed again after removing a filter
                 if ($('.stat-chart').hasClass('full')) {
                     $('.stat-chart').removeClass('full');
                     $('#chart-' + view.collection.id)
@@ -177,195 +178,26 @@ views.Filters = Backbone.View.extend({
                         .css('display','block');
                 }
     
-                if (view.collection.id === 'focus_area') {
-                    var $el = $('#chart-focus_area');
-                        $el.empty();
-    
-                    chartModels = view.collection.models;
-    
-                    var total = _(chartModels).reduce(function(memo, model) {
-                        return memo + (model.get('budget') || 0 );
-                    }, 0) || 0;
-    
-                    _(chartModels).each(function(model, i) {
-                        var focusIconClass = model.get('name').replace(/\s+/g, '-').toLowerCase().split('-')[0];
-                        var focusName = model.get('name').toLowerCase().toTitleCase();
-    
-                        var value = _(((model.get('budget') || 0) / total)).isNaN() ? 0 :
-                                ((model.get('budget') || 0) / total * 100).toFixed(0);
-
-                        $el.append(
-                            '<li class="focus fa' + model.id + '">' +
-                            '  <a href="'+ pathTo + view.collection.id + '-' + model.id + '" class="focus-title">' + focusName + '</a>' +
-                            '  <p class="pct"><span class="' + focusIconClass + '"></span></p>' +
-                            '</li>'
-                        );
-
-                        $('.fa' + (model.id) + ' .pct span')
-                            .css('width',value * 2) // the width of the percentage block corresponds to the value visually, times 2 to make it legible
-                            .text(value === '0' ? value : value + '%');
-                    });
-
-                    $el.prepend('<h3 id="focus">Themes <span>% of budget</span></h3>');
-                } else if (view.collection.id === 'operating_unit' || view.collection.id === 'donors' || view.collection.id === 'donor_countries') {
-
-                    donor = (_(global.processedFacets).find(function(filter) {
+                //Get the filter values
+                var donor = (_(global.processedFacets).find(function(filter) {
                             return filter.collection === 'donors';
                         }) || {id: 0}).id;
-                    donor_ctry = (_(global.processedFacets).find(function(filter) {
-                            return filter.collection === 'donor_countries';
-                        }) || {id: 0}).id;
+                var donor_ctry = (_(global.processedFacets).find(function(filter) {
+                        return filter.collection === 'donor_countries';
+                    }) || {id: 0}).id;
 
-                    var max = '',
-                        rows = [],
-                        newWidth = 1;
-    
-                    $('#chart-' + view.collection.id + ' .rows').html('');
-                    var status = 1,
-                        processes = chartModels.length;
 
-                    _(chartModels).each(function(model) {
+                if (view.collection.id === 'focus_area') {
+                    chartModels = view.collection.models;
+                    renderFocusAreaChart(chartModels, pathTo, view);
 
-                        setTimeout(function() {
+                } else if ( view.collection.id === 'donors' ){
+                    view.chartModels = chartModels;
+                    renderBudgetSourcesChart(donor, donor_ctry, chartModels, view, pathTo) 
 
-                            if (view.collection.id === 'donors') {
-                                donor = model.id;
-                                
-                                var donorProjects = (donor) ? global.projects.chain()
-                                    .map(function(project) {
-                                        var donorIndex = _(project.get('donors')).indexOf(donor);
-                                        if (donorIndex === -1) return;
-                                        return {
-                                            budget: project.get('donor_budget')[donorIndex],
-                                            expenditure: project.get('donor_expend')[donorIndex]
-                                        };
-                                    }, 0).compact().value() : [];
-
-                                var donorBudget = _(donorProjects).chain().pluck('budget')
-                                    .reduce(function(memo, num){ return memo + num; }, 0).value();
-
-                                var donorExpenditure = _(donorProjects).chain().pluck('expenditure')
-                                    .reduce(function(memo, num){ return memo + num; }, 0).value();
-                                    
-                                if (donor || donor_ctry) {
-                                    if (donor) global.projects.map.collection.donorID = false;      
-                                    global.projects.map.collection.donorBudget[donor] = donorBudget;
-                                    global.projects.map.collection.donorExpenditure[donor] = donorExpenditure;
-                                }
-
-                            } else {
-                                if (donor_ctry) {
-                                    var donorBudget = global.projects.chain()
-                                        .filter(function(project) {
-                                            return project.get('operating_unit') === model.id;
-                                        })
-                                        .reduce(function(memo, project) {
-                                            _.each(project.get('donor_countries'), function(v,i) {
-                                                if (v === donor_ctry) {
-                                                    memo = memo + project.get('donor_budget')[i];
-                                                }
-                                            });
-                                            return memo;
-                                        }, 0).value();
-                                    var donorExpenditure = global.projects.chain()
-                                        .filter(function(project) {
-                                            return project.get('operating_unit') === model.id;
-                                        })
-                                        .reduce(function(memo, project) {
-                                            _.each(project.get('donor_countries'), function(v,i) {
-                                                if (v === donor_ctry) {
-                                                    memo = memo + project.get('donor_expend')[i];
-                                                }
-                                            });
-                                            return memo;
-                                        }, 0).value();
-                                } else {
-                                    var donorBudget = (donor) ? global.projects.chain()
-                                            .filter(function(project) {
-                                                return project.get('operating_unit') === model.id;
-                                            })
-                                            .reduce(function(memo, project) {
-                                                var donorIndex = _(project.get('donors')).indexOf(donor);
-                                                if (donorIndex === -1) return memo;
-                                                return memo + project.get('donor_budget')[donorIndex];
-                                            }, 0).value() : 0;
-                                    var donorExpenditure = (donor) ? global.projects.chain()
-                                            .filter(function(project) {
-                                                return project.get('operating_unit') === model.id;
-                                            })
-                                            .reduce(function(memo, project) {
-                                                var donorIndex = _(project.get('donors')).indexOf(donor);
-                                                if (donorIndex === -1) return memo;
-                                                return memo + project.get('donor_expend')[donorIndex];
-                                            }, 0).value() : 0;
-                                }
-                                if (donor || donor_ctry) {
-                                    if (donor) global.projects.map.collection.donorID = false;
-                                    global.projects.map.collection.operating_unitBudget[model.get('id')] = donorBudget;
-                                    global.projects.map.collection.operating_unitExpenditure[model.get('id')] = donorExpenditure;
-                                }
-                            }
-                            /* Akshay- before was M now so commenting out to show all figures ange getting rid of M.                        was
-                            var budget = accounting.formatMoney(
-                                        ((donor || donor_ctry) ? donorBudget : model.get('budget')) / 1000000
-                                    ) + 'M';
-                            */
-
-                            var budget = accounting.formatMoney(
-                                        ((donor || donor_ctry) ? donorBudget : model.get('budget')),"$", 0, ",", "."
-                                    );
-        
-                            var budgetWidth = (donor || donor_ctry) ? (donorBudget) : (model.get('budget'));
-                            var expenditureWidth = (donor || donor_ctry) ? (donorExpenditure) : (model.get('expenditure'));
-
-                            var caption = '<a href="' + pathTo + model.collection.id + '-' + model.get('id') +
-                                '">' + model.get('name').toLowerCase().toTitleCase() + '</a>';
-                            var bar = '<div class="budgetdata" data-budget="' + budgetWidth + '"></div>' + '<div class="subdata" data-expenditure="' + expenditureWidth + '"></div>';
-                            if (budget!='$0'){
-                                rows.push({
-                                    sort: -1 * ((donor || donor_ctry) ? donorBudget : model.get('budget')),
-                                    fund_type: model.attributes.fund_type,
-                                    content: '<tr>' +
-                                        '    <td>' + caption + '</td>' +
-                                        '    <td class="right">' + budget + '</td>' +
-                                        '    <td class="data">' + bar + '</td>' +
-                                        '</tr>'
-                                });
-                            }
-
-                            if (status === processes) {
-                                callback();
-                            } else {
-                                status++;
-                            }
-
-                        }, 0);
-    
-                    });
-
-                    function callback() {
-                        rows = _(rows).sortBy('sort');
-                        max = rows[0].sort * -1;
-                        rows = rows.slice(0,19);
-
-                        _(rows).each(function(row) {
-                            console.log(row.fund_type);
-                            if (row.fund_type === 'Local') {
-                                $('#chart-' + view.collection.id + ' #localTab .rows').append(row.content);
-                            } else if (row.fund_type == 'Other') {
-                                $('#chart-' + view.collection.id + ' #partnerTab .rows').append(row.content);
-                            } else {
-                                $('#chart-' + view.collection.id + ' .rows').append(row.content);
-                            }
-                        });
-
-                        $('#chart-' + view.collection.id + ' .rows tr').each(function() {
-                            $('.data .budgetdata', this).width(($('.data .budgetdata', this).attr('data-budget') / max * 100) + '%');
-                            $('.data .subdata', this).width(($('.data .subdata', this).attr('data-expenditure') / max * 100) + '%');
-                        });
-                        if (donorCountry) $('#total-donors').html(chartModels.length);
-                    }
-    
+                } else if (view.collection.id === 'operating_unit' || view.collection.id === 'donor_countries') {
+                    view.chartModels = chartModels;
+                    renderRecipientOfficesChart(donor, donor_ctry, chartModels, view, pathTo) 
                 }
             }
         }, 0);

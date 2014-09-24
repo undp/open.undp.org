@@ -35,46 +35,13 @@ function renderFocusAreaChart(chartData, rootPath, view) {
     $el.prepend('<h3 id="focus">Themes <span>% of budget</span></h3>');
 }
 
-//This function filters projects according to a donor country and a budget source
-//and calculates budget and expenditure 
-// If a model is present, it only selects projects whose operating_unit is that model
-function calculateStatistic(budgetSource, donorCountry, operating_unit) {
-    var donorProjects = (donorCountry || budgetSource) ? global.projects.chain() 
-        .filter(function(project) {
-            //Filter if there's a model -> we are looking for projects that match either a funding country or funded country
-            return (typeof operating_unit !== 'undefined')? (project.get('operating_unit') == operating_unit) : true;
-        })
-        .map(function(project) {
-            //If there is a donor country, only select projects where 'donor_countries' == donorCountry
-            //Else, select projects where 'donors' is budgetSource
-            var donorIndex = _(project.get( ((donorCountry)?'donor_countries':'donors') )).indexOf((donorCountry || budgetSource));
-
-            if (donorIndex === -1) return;
-            return {
-                budget: project.get('donor_budget')[donorIndex],
-                expenditure: project.get('donor_expend')[donorIndex]
-            };
-        }, 0).compact().value() : [];
-
-    var donorBudget = _(donorProjects).chain().pluck('budget')
-                .reduce(function(memo, num){ return memo + num; }, 0).value();
-
-    var donorExpenditure = _(donorProjects).chain().pluck('expenditure')
-        .reduce(function(memo, num){ return memo + num; }, 0).value();
-
-    return {
-        expenditure: donorExpenditure,
-        budget: donorBudget
-    }
-}
-
 function setMapInfo(donorInfo, model, budgetSource) {
-    // if (budgetSource) global.projects.mapView.collection.donorID = false;
-    // global.projects.mapView.collection.operating_unitBudget[model.get('id')] = donorInfo.budget;
-    // global.projects.mapView.collection.operating_unitExpenditure[model.get('id')] = donorInfo.expenditure;      
+    if (budgetSource) global.projects.map.collection.donorID = false;
+    global.projects.map.collection.operating_unitBudget[model.get('id')] = donorInfo.budget;
+    global.projects.map.collection.operating_unitExpenditure[model.get('id')] = donorInfo.expenditure;      
 }
 
-function setBudgetHTML(donorInfo, model, isFiltered, pathTo) {
+function setBudgetHTML(donorInfo, model, notOperatingUnit, pathTo) {
     var donorBudget = donorInfo.budget;
     var donorExpenditure = donorInfo.expenditure;
 
@@ -82,10 +49,10 @@ function setBudgetHTML(donorInfo, model, isFiltered, pathTo) {
     var chartTemplate = _.template($("#budgetChartItemTemplate").html()); 
 
     var budget = accounting.formatMoney(
-            ((isFiltered) ? donorBudget : model.get('budget')),"$", 0, ",", "."
+            ((notOperatingUnit) ? donorBudget : model.get('budget')),"$", 0, ",", "."
         );
-    var budgetWidth = (isFiltered) ? (donorBudget) : (model.get('budget'));
-    var expenditureWidth = (isFiltered) ? (donorExpenditure) : (model.get('expenditure'));
+    var budgetWidth = (notOperatingUnit) ? (donorBudget) : (model.get('budget'));
+    var expenditureWidth = (notOperatingUnit) ? (donorExpenditure) : (model.get('expenditure'));
 
     if (budget!='$0') {
         return {
@@ -102,13 +69,15 @@ function setBudgetHTML(donorInfo, model, isFiltered, pathTo) {
     }
 }
 
+
 function addRows(selector, rows, view) {
     rows = _(rows).sortBy('sort');
     var max = rows[0].sort * -1;
     rows = rows.slice(0,19);
+
     _(rows).each(function(row) {
         selector.append(row.content);
-    },view);
+    });
 
     selector.children().each(function() {
         $('.data .budgetdata', this).width(($('.data .budgetdata', this).attr('data-budget') / max * 100) + '%');
@@ -117,51 +86,85 @@ function addRows(selector, rows, view) {
     if (view.donorCountry) $('#total-donors').html(view.chartModels.length);
 }
 
-function renderBudgetSourcesChart(chartData, pathTo, view) {
-    var donorCountry = (_(global.processedFacets).find(function(filter) {
-        return filter.facet === 'donor_countries';
-    }) || {id: 0}).id;
+function renderBudgetSourcesChart(donor, donorCountrySelected, chartData, view, pathTo) {
+     $('#chart-' + view.collection.id + ' .rows').empty();
 
     var rows = [];
 
     _(chartData).each(function(model) {
-        donorInfo = calculateStatistic(model.id, donorCountry)
-        setMapInfo(donorInfo, model, model.id);
-        var rowHTML = setBudgetHTML(donorInfo, model, true, pathTo)
-        if (rowHTML) rows.push(rowHTML);
-    }, view)
+        var donorInfo = { budget: 0, expenditure: 0};
+        donor = model.id;
+        var donorProjects = (donor) ? global.projects.chain()
+                .map(function(project) {
+                    var donorIndex = _(project.get('donors')).indexOf(donor);
+                    if (donorIndex === -1) return;
+                    return {
+                        budget: project.get('donor_budget')[donorIndex],
+                        expenditure: project.get('donor_expend')[donorIndex]
+                    };
+                }, 0).compact().value() : [];
 
-    
-    if (rows.length > 0 ) addRows($('#chart-' + view.collection.id + ' .rows'), rows, view);
+        donorInfo.budget = _(donorProjects).chain().pluck('budget')
+            .reduce(function(memo, num){ return memo + num; }, 0).value();
+
+        donorInfo.budget = _(donorProjects).chain().pluck('expenditure')
+            .reduce(function(memo, num){ return memo + num; }, 0).value();     
+
+        var notOperatingUnit = (donor || donorCountrySelected);
+
+        if (notOperatingUnit) {
+            setMapInfo(donorInfo, model, donor);
+        }
+
+        var row = setBudgetHTML(donorInfo, model, notOperatingUnit, pathTo);
+        if (typeof row !== 'undefined') rows.push(row);
+    }); 
+    addRows($('#chart-' + view.collection.id + ' .rows'),rows, view);
 }
 
-function renderRecipientOfficesChart(chartData, view, pathTo) {
-
-    var budgetSource = (_(global.processedFacets).find(function(filter) {
-        return filter.facet === 'donors';
-    }) || {id: 0}).id;
-
-    var donorCountry = (_(global.processedFacets).find(function(filter) {
-        return filter.facet === 'donor_countries';
-    }) || {id: 0}).id;
-
+function renderRecipientOfficesChart(donor, donorCountrySelected, chartData, view, pathTo) {
     var localRows = [];
-    var otherRows = [];
-   _(chartData).each(function(model) {
+    var partnerRows = [];
+    $('#chart-' + view.collection.id + ' .rows').empty();
 
-        donorInfo = calculateStatistic(budgetSource, donorCountry, model.id);
-        if (budgetSource || donorCountry) {
-            setMapInfo(donorInfo, model, budgetSource);
-        } 
-        var rowHTML = setBudgetHTML(donorInfo, model, (budgetSource || donorCountry), pathTo)
-        if (rowHTML && rowHTML.fund_type === 'Local') {
-            localRows.push(rowHTML);
-        } else {
-            otherRows.push(rowHTML);
+    _(chartData).each(function(model) {
+
+        var donorInfo = { budget: 0, expenditure: 0};
+        
+        donorInfo.budget = (donorCountrySelected || donor) ? global.projects.chain()
+            .filter(function(project) {
+                return project.get('operating_unit') === model.id;
+            })
+            .reduce(function(memo, project) {
+                var donorIndex = _(project.get( ((donorCountrySelected)? 'donor_countries':'donors')) )
+                    .indexOf( ((donorCountrySelected)?donorCountrySelected:donor) );
+                if (donorIndex === -1) return memo;
+                return memo + project.get('donor_budget')[donorIndex];
+            }, 0).value() : 0;
+
+        donorInfo.expenditure = (donor) ? global.projects.chain()
+            .filter(function(project) {
+                return project.get('operating_unit') === model.id;
+            })
+            .reduce(function(memo, project) {
+                var donorIndex = _(project.get( ((donorCountrySelected)?'donor_countries':'donors')) )
+                    .indexOf( ((donorCountrySelected)? donorCountrySelected:donor ) );
+                return memo + project.get('donor_expend')[donorIndex];
+            }, 0).value() : 0;
+            
+        var notOperatingUnit = (donor || donorCountrySelected);
+
+        if (notOperatingUnit) {
+            setMapInfo(donorInfo, model, donor);
         }
-    }, view)
 
-    if (localRows.length > 0) addRows($('#chart-' + view.collection.id + ' #localTab .rows'), localRows, view);
-    if (otherRows.length > 0) addRows($('#chart-' + view.collection.id + ' #partnerTab .rows'), otherRows, view);
-
+        var row = setBudgetHTML(donorInfo, model, notOperatingUnit, pathTo);
+        if (typeof row !== 'undefined') {
+            if (row.fund_type === 'Local') localRows.push(row);
+            else partnerRows.push(row);
+        }
+    });    
+    
+    if (localRows.length > 0 ) addRows($('#chart-' + view.collection.id + ' #localTab .rows'), localRows, view);
+    if (partnerRows.length > 0) addRows($('#chart-' + view.collection.id + ' #partnerTab .rows'), partnerRows, view);
 }
