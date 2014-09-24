@@ -180,4 +180,3 @@ views.Filters = Backbone.View.extend({
     }
 });
 
-

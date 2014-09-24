@@ -22,7 +22,7 @@ Subnationals = Backbone.Collection.extend({
 
 Facets = Backbone.Collection.extend({
     model:Facet,
-    settings: [
+    facets: [
         {
             id: 'operating_unit',
             url: 'api/operating-unit-index.json',
@@ -50,15 +50,14 @@ Facets = Backbone.Collection.extend({
         }
     ],
     initialize: function(){
-        var that = this;
-        // TODO what is this////////
-        counter = 0;
-        ////////////////////////////
-
         // populate all facets
-        _(this.settings).each(function(setting){
-            that.push(setting);
-        });
+        // with predefined values
+        _(this.facets).each(function(facet){
+            this.push(facet);
+        },this);
+    },
+    idsOnly: function(){
+        return this.map(function(m){return m.get('id');});
     }
 });
 
@@ -120,105 +119,149 @@ Projects = Backbone.Collection.extend({
         this.sortOrder = this.sortOrder || 'desc';
     },
     watch: function() {
-        var collection = this;
         this.update();
-        collection.on('reset', this.update, this);
+        this.on('reset', this.update, this);
+    },
+    getSumValuesOfFacet:function(facetName){
+        // the sum of the values from selected facet
+        // applies to focus_area, region and operating_unit
+        var valuesUnderFacetName = this.pluck(facetName);  // returns values
+        var sumValues = _.chain(valuesUnderFacetName)
+            .chain()
+            .flatten()
+            .countBy();
+
+        return sumValues.value()
+    },
+    getDonorCountires:function(){
+        // the sum of donor countries
+        // donor countries is an array associated with a project
+        var allDonorCountires = this.pluck('donor_countries'); // returns arrays
+
+        var sumDonorCountries = _.chain(allDonorCountires)
+            .map(function(donorId){ return _.uniq(donorId);})
+            .flatten()
+            .countBy();
+
+        return sumDonorCountries.value()
+    },
+    getUnitSources:function(){
+        // the sum of the number of donors
+        // under each operating unit for selected proejcts
+        // if there are two units, its the sum of the two
+        // if it's part of the projects under the unit
+        // donor numbers change accordingly
+        var groupedByUnit = this.groupBy(function(m){return m.get('operating_unit');});
+
+        var sumDonorsUnderUnit = _.chain(groupedByUnit)
+            .reduce(function(memo, modelsUnderUnit, unit) {
+                memo[unit] = _.chain(modelsUnderUnit)
+                    .map(function(m){return m.get('donors')}) // returns arrays
+                    .flatten()
+                    .uniq()
+                    .size()
+                    .value();
+                return memo;
+            }, {});
+
+        return sumDonorsUnderUnit.value()
+    },
+    getBudgetAndExpenseOfFacet: function(collection,facetName,category){ // category is "budget" or "expenditure"
+        // the sum of budget (or expenditure) of respective facet
+        // for example: donor_countriesBudget is the budget sum of
+        // the category is capitalized here
+        var facetCategory = facetName + category.capitalize(),
+            facetSubkey,
+            projectFinance;
+
+        // Populate the new key/value associated with the Projects collection
+        collection[facetCategory] = _.reduce(collection.models, function(memo,model) {
+
+            facetSubkey = model.get(facetName),
+            projectFinance = model.get(category);
+
+            if (_.isArray(facetSubkey)) {
+
+                _.each(facetSubkey, function(key){
+                    this.addFinance(key,memo,projectFinance);
+                },this); // scope binding to _.each
+
+            } else {
+
+                this.addFinance(facetSubkey,memo,projectFinance);
+
+            }
+
+            return memo
+        }, {}, this); // scope binding to _.reduce
+    },
+    addFinance: function(keyUnderFacet,memoObject,finance){
+        if (!(keyUnderFacet in memoObject)) {
+            memoObject[keyUnderFacet] = finance
+        } else {
+            memoObject[keyUnderFacet] += finance
+        }
     },
     update: function() {
+
+        var facets = new Facets().idsOnly(); // donors, donor_countries, operating_unit, focus_area, region
+
         var collection = this,
             processes = 5 + facets.length,
             status = 0;
 
-        if (!this.length) return false;
+        if (!collection.length) return false;
         
-        function calc(that,facet,category) {
-            that[facet + category.capitalize()] = _.reduce(that.models, function(res,obj) {
-                if (_.isArray(obj.attributes[facet])) {
-                    _.each(obj.attributes[facet], function(o) {
-                        if (!(o in res)) {
-                            res[o] = obj.attributes[category];
-                        } else {
-                            res[o] += obj.attributes[category];
-                        }
-                    });
-                } else {
-                    if (!(obj.attributes[facet] in res)) {
-                        res[obj.attributes[facet]] = obj.attributes[category];
-                    } else {
-                        res[obj.attributes[facet]] += obj.attributes[category];
-                    }
-                }
-                return res;
-            }, {});
-        }
+        // calculate needed value to populate filters, circles and summary fields
 
+        this['donors'] = this.getSumValuesOfFacet('donors');
+        this['focus_area'] = this.getSumValuesOfFacet('focus_area')
+        this['region'] = this.getSumValuesOfFacet('region')
+        this['operating_unit'] = this.getSumValuesOfFacet('operating_unit')
+        this['donor_countries'] = this.getDonorCountires();
 
-            // Count projects for each facet
-            _(facets).each(function(facet) {
+        // "Budget Sources" in summary
+        this['operating_unitSources'] = this.getUnitSources();
+
+        // Count projects for each facet
+        _(facets).each(function(facet) {
+            setTimeout(function() {
+                var subStatus = 0,
+                    subProcesses = 1;
+
                 setTimeout(function() {
-                    var subStatus = 0,
-                        subProcesses = 1;
-
-                    if (facet.id == 'donor_countries') {
-                        collection[facet.id] = _(collection.pluck(facet.id))
-                            .chain()
-                            .map(function(v) {
-                                return _(v).uniq(true);
-                            })
-                            .flatten()
-                            .countBy(function(n) { return n; })
-                            .value();
+                    collection.getBudgetAndExpenseOfFacet(collection,facet,'budget');
+                    if (subStatus === subProcesses) {
+                        subCallback();
                     } else {
-                        collection[facet.id] = _(collection.pluck(facet.id))
-                            .chain()
-                            .flatten()
-                            .countBy(function(n) { return n; })
-                            .value();
-
-                        if (facet.id == 'operating_unit') {
-                            collection[facet.id + 'Sources'] = _(collection.models).chain()
-                                .groupBy(function(model) { return model.get(facet.id); })
-                                .reduce(function(memo, models, unit) {
-                                    memo[unit] = _(models).chain().pluck('attributes').pluck('donors').flatten().uniq().size().value();
-                                    return memo;
-                                }, {}).value();
-                        }
+                        subStatus++;
                     }
-
-                    setTimeout(function() {
-                        calc(collection,facet.id,'budget');
-                        if (subStatus === subProcesses) {
-                            subCallback();
-                        } else {
-                            subStatus++;
-                        }
-                    }, 0);
-
-                    setTimeout(function() {
-                        calc(collection,facet.id,'expenditure');
-                        if (subStatus === subProcesses) {
-                            subCallback();
-                        } else {
-                            subStatus++;
-                        }
-                    }, 0);
-
-                    function subCallback() {
-                        if (status === processes) {
-                            callback();
-                        } else {
-                            status++;
-                        }
-                    }
-
                 }, 0);
 
-            }, collection);
+                setTimeout(function() {
+                    collection.getBudgetAndExpenseOfFacet(collection,facet,'expenditure');                        if (subStatus === subProcesses) {
+                        subCallback();
+                    } else {
+                        subStatus++;
+                    }
+                }, 0);
+
+                function subCallback() {
+                    if (status === processes) {
+                        callback();
+                    } else {
+                        status++;
+                    }
+                }
+
+            }, 0);
+
+        }, collection);
 
         setTimeout(function() {
             // Total budget
-            collection.budget = collection.reduce(function(memo, project) {
-                return memo + parseFloat(project.get('budget'));
+            collection['budget'] = collection.reduce(function(memo, model) {
+                return memo + parseFloat(model.get('budget'));
             }, 0);
             if (status === processes) {
                 callback();
@@ -229,11 +272,11 @@ Projects = Backbone.Collection.extend({
 
         setTimeout(function() {
             // Donor budgets
-            collection.donorBudget = collection.reduce(function(memo, project) {
-                _(project.get('donors')).each(function(donor, i) {
-                    var budget = project.get('donor_budget')[i] || 0;
-                    memo[donor] = memo[donor] +  budget || budget;
-                });
+            collection['donorBudget'] = collection.reduce(function(memo, model) {
+                _.each(model.get('donors'),function(donor, i) {
+                    var budget = model.get('donor_budget')[i] || 0;
+                        memo[donor] = memo[donor] + budget || budget;
+                },this);
                 return memo;
             }, {});
             if (status === processes) {
@@ -245,9 +288,9 @@ Projects = Backbone.Collection.extend({
         
         setTimeout(function() {
             // Funding by Country budgets
-            collection.ctryBudget = collection.reduce(function(memo, project) {
-                _(project.get('donor_countries')).each(function(donor, i) {
-                    var budget = project.get('donor_budget')[i] || 0;
+            collection['ctryBudget'] = collection.reduce(function(memo, model) {
+                _(model.get('donor_countries')).each(function(donor, i) {
+                    var budget = model.get('donor_budget')[i] || 0;
                     memo[donor] = memo[donor] +  budget || budget;
                 });
                 return memo;
@@ -261,8 +304,8 @@ Projects = Backbone.Collection.extend({
 
         setTimeout(function() {
             // Total expenditure
-            collection.expenditure = collection.reduce(function(memo, project) {
-                return memo + parseFloat(project.get('expenditure'));
+            collection['expenditure'] = collection.reduce(function(memo, model) {
+                return memo + parseFloat(model.get('expenditure'));
             }, 0);
             if (status === processes) {
                 callback();
@@ -274,11 +317,11 @@ Projects = Backbone.Collection.extend({
 
         setTimeout(function() {
             // Donor expenditure
-            collection.donorExpenditure = collection.reduce(function(memo, project) {
-                _(project.get('donors')).each(function(donor, i) {
-                    var budget = project.get('donor_expend')[i] || 0;
-                    memo[donor] = memo[donor] +  budget || budget;
-                });
+            collection['donorExpenditure'] = collection.reduce(function(memo, model) {
+                _.each(model.get('donor_countries'),function(donor, i) {
+                    var budget = model.get('donor_budget')[i] || 0;
+                    memo[donor] = memo[donor] + budget || budget;
+                },this);
                 return memo;
             }, {});
             if (status === processes) {
@@ -291,13 +334,13 @@ Projects = Backbone.Collection.extend({
         
         setTimeout(function() {
             // Funding by Country expenditure
-            collection.ctryExpenditure = collection.reduce(function(memo, project) {
-                _(project.get('donor_countries')).each(function(donor, i) {
-                    var budget = project.get('donor_expend')[i] || 0;
+            collection['ctryExpenditure'] = collection.reduce(function(memo, model) {
+                _.each(model.get('donor_countries'),function(donor, i) {
+                    var budget = model.get('donor_expend')[i] || 0;
                     memo[donor] = memo[donor] +  budget || budget;
-                });
+                },this);
                 return memo;
-            }, {});
+            }, {},collection);
             if (status === processes) {
                 callback();
             } else {
