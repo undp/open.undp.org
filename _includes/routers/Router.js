@@ -26,12 +26,18 @@ routers.Global = Backbone.Router.extend({
     fiscalyear: function (year, path, embed) {
         var that = this;
 
-        if ((FISCALYEARS).indexOf(year) > -1){
-            util.loadjsFile('api/project_summary_' + year + '.js', year, function() {
-                that.browser(year, path, embed);
+        if ((FISCALYEARS).indexOf(year) > -1){ // if year exsits in FISCALYEARS array
+
+            this.allProjects = new Projects();
+            this.allProjects.url = 'api/project_summary_' + year + '.json';
+
+            this.allProjects.fetch({
+                success:function(){
+                    that.browser(year, path, embed);
+                }
             });
         } else {
-            that.project(year, false,false); // in this case year is the project id
+            this.project(year, false,false); // in this case "year" is the project id
         }
 
     },
@@ -60,19 +66,6 @@ routers.Global = Backbone.Router.extend({
                 id: that.selectedFacets[1]
             };
         });
-
-        // custom filter function
-        // TODO clarify
-        var filter = function (model) {
-            if (!that.processedFacets.length) return true;
-            return _(that.processedFacets).reduce(function (memo, filter) {
-                if (filter.collection === 'region') {
-                    return memo && model.get(filter.collection) == filter.id;
-                } else {
-                    return memo && (model.get(filter.collection) && model.get(filter.collection).indexOf(filter.id) >= 0);
-                }
-            }, true);
-        };
 
         // initiate App view
         // which now contains the filter-items div
@@ -115,15 +108,25 @@ routers.Global = Backbone.Router.extend({
 
         };
 
-
+        // custom filter function
+        // TODO clarify
+        var customFilter = function (model) {
+            if (!that.processedFacets.length) return true;
+            return _(that.processedFacets).reduce(function (memo, filter) {
+                if (filter.collection === 'region') {
+                    return memo && model.get(filter.collection) == filter.id;
+                } else {
+                    return memo && (model.get(filter.collection) && model.get(filter.collection).indexOf(filter.id) >= 0);
+                }
+            }, true);
+        };
 
         // Load projects
         if (!that.allProjects || that.fiscalYear != year) {
             if (that.fiscalYear && that.fiscalYear != year){that.projects.map.map.remove();}
             that.fiscalYear = year;
-            that.allProjects = new Projects(SUMMARY);
 
-            that.projects = new Projects(that.allProjects.filter(filter));
+            that.projects = new Projects(that.allProjects.filter(customFilter));
             that.projects.view = new views.Projects({ collection: that.projects });
             that.projects.cb = _(loadFilters).bind(that);
 
@@ -134,7 +137,7 @@ routers.Global = Backbone.Router.extend({
         } else {
             // if projects are already present
             that.projects.cb = updateDescription;
-            that.projects.reset(this.allProjects.filter(filter));
+            that.projects.reset(this.allProjects.filter(customFilter));
         }
 
         // Check for funding countries to show donor visualization
