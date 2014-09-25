@@ -44,6 +44,7 @@ routers.Global = Backbone.Router.extend({
     processedFacets: false,
     unit:false, // this should be reused throughout the site
     donorCountr:false,
+    fiscalYear:false,
     parseHash: function(path){
         var that = this;
         // hash comes in forms as 'operating_unit-ARG/donor-12300'
