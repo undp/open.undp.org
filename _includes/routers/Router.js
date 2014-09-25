@@ -70,6 +70,7 @@ routers.Global = Backbone.Router.extend({
         var that = this;
 
         that.parseHash(path);
+
         // initiate App view
         // which now contains the filter-items div
         if (!embed) {
@@ -88,11 +89,10 @@ routers.Global = Backbone.Router.extend({
             });
         }
 
+        // this function is created to populate the filters
+        // when the site first loads (or when the year changes)
+        // binds to the projects collection
         var loadFilters = function(){
-            // load facets
-            // in facets, filters associated with each facets are created
-            new views.Facets();
-
             // Create summary map view
             if (!embed){
                 that.projects.map = new views.Map({
@@ -110,6 +110,10 @@ routers.Global = Backbone.Router.extend({
                 });
             }
 
+            // load facets
+            // in facets, filters associated with each facets are created
+            // see Facets.js
+            new views.Facets();
         };
 
         var getProjectFromFacets = function (model) {
@@ -142,13 +146,11 @@ routers.Global = Backbone.Router.extend({
             // completed -- see collections.js (Projects)
             that.projects.excecuteAfterCalculation = _(loadFilters).bind(that);
 
-            // remove map to avoid "Map Container is already initialized"
-            if (that.fiscalYear && that.fiscalYear != year){
-                that.projects.map.map.remove();
-            }
-
             // start the project calculations
             that.projects.watch();
+
+            that.app.updateYear(year);
+
         } else {
             // if that.allProjects are already present
             that.projects.excecuteAfterCalculation = updateDescription;
