@@ -1,7 +1,7 @@
 ---
 ---
 var CURRENT_YR = FISCALYEARS[0],
-    BASE_URL = '{{site.baseurl}}',
+    BASE_URL = '/',
     MAPID = "undp.map-6grwd0n3";
 
 var IE = $.browser.msie;
@@ -17,6 +17,7 @@ util.ctyBounds = function(coords) {
         var polyline = L.polyline(coords[0]);
     }
     var bbox = polyline.getBounds();
+
 
     return [[bbox.getSouthWest().lng, bbox.getSouthWest().lat],
             [bbox.getNorthEast().lng, bbox.getNorthEast().lat]];
