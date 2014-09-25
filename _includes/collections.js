@@ -351,7 +351,7 @@ Projects = Backbone.Collection.extend({
         
         function callback() {
             collection.trigger('update');
-            _(collection.cb).bind(collection)();
+            _(collection.excecuteAfterCalculation).bind(collection)();
         }
 
     },

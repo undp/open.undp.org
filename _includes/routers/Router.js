@@ -88,7 +88,8 @@ routers.Global = Backbone.Router.extend({
         }
 
         var loadFilters = function(){
-
+            // load facets
+            // in facets, filters associated with each facets are created
             new views.Facets();
 
             // Create summary map view
@@ -97,8 +98,8 @@ routers.Global = Backbone.Router.extend({
                     el: '#homemap',
                     collection: that.projects
                 });
-                that.projects.widget = new views.Widget({
-                    context: 'projects'
+                new views.Widget({
+                    context: 'projects' // the other context is "project" - for individual project page
                 });
             } else {
                 that.projects.map = new views.Map({
@@ -110,36 +111,44 @@ routers.Global = Backbone.Router.extend({
 
         };
 
-        // custom filter function
-        // TODO clarify
-        var customFilter = function (model) {
+        var getProjectFromFacets = function (model) {
             if (!that.processedFacets.length) return true;
-            return _(that.processedFacets).reduce(function (memo, filter) {
-                if (filter.collection === 'region') {
-                    return memo && model.get(filter.collection) == filter.id;
+            return _(that.processedFacets).reduce(function (memo, facet) {
+                if (facet.collection === 'region') {
+                    return memo && model.get(facet.collection) == facet.id;
                 } else {
-                    return memo && (model.get(filter.collection) && model.get(filter.collection).indexOf(filter.id) >= 0);
+                    return memo && (model.get(facet.collection) && model.get(facet.collection).indexOf(facet.id) >= 0);
                 }
             }, true);
         };
 
         // Load projects
+        // if there is no projects loaded (aka when site first loads)
+        // or if the fiscalYear recorded does not correspond to the selected year
         if (!that.allProjects || that.fiscalYear != year) {
-            if (that.fiscalYear && that.fiscalYear != year){that.projects.map.map.remove();}
-            that.fiscalYear = year;
-
-            that.projects = new Projects(that.allProjects.filter(customFilter));
-            that.projects.view = new views.Projects({ collection: that.projects });
-            that.projects.cb = _(loadFilters).bind(that);
-
-            that.projects.watch();
-
+            // change year and update the year
+            that.fiscalyear = year;
             that.app.updateYear(year);
 
+            // from that.allProjects get new projects based on the facets
+            that.projects = new Projects(that.allProjects.filter(getProjectFromFacets));
+
+            // bind a function to the collection that will be
+            // excecuted after the projects front-end calculations are
+            // completed -- see collections.js (Projects)
+            that.projects.excecuteAfterCalculation = _(loadFilters).bind(that);
+
+            // remove map to avoid "Map Container is already initialized"
+            if (that.fiscalYear && that.fiscalYear != year){
+                that.projects.map.map.remove();
+            }
+
+            // start the project calculations
+            that.projects.watch();
         } else {
-            // if projects are already present
-            that.projects.cb = updateDescription;
-            that.projects.reset(this.allProjects.filter(customFilter));
+            // if that.allProjects are already present
+            that.projects.excecuteAfterCalculation = updateDescription;
+            that.projects.reset(this.allProjects.filter(getProjectFromFacets));
         }
 
         // Check for funding countries to show donor visualization
@@ -152,7 +161,7 @@ routers.Global = Backbone.Router.extend({
         }
 
         // Save default description
-        that.defaultDescription = that.defaultDescription || $('#description p.intro').html();
+        that.defaultDescription = $('#description p.intro').html();
         function updateDescription() {
             setTimeout(function() {
 
