@@ -61,6 +61,47 @@
   </tr>
 </script>
 
+<script id='recipientOfficesChart' type='text/html'>
+  <h3>Top Recipient Offices</h3>
+  <span class='chart-legend'>
+    <div class='thick-bar clearfix'><span></span>Budget</div>
+    <div class='thin-bar'><span></span>Expense</div>
+  </span>
+  <table class='table table-unstyled'>
+    <tbody class='rows'></tbody>
+  </table>
+</script>
+
+<script id='recipientOfficesChartTabbed' type='text/html'>
+  <h3>Top Recipient Offices</h3>
+  <span class='chart-legend'>
+    <div class='thick-bar clearfix'><span></span>Budget</div>
+    <div class='thin-bar'><span></span>Expense</div>
+  </span>
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#partnerTab" data-toggle='tab'>Partner Resources</a></li>
+    <li><a href="#localTab" data-toggle='tab'>Local Resources</a></li>
+    <li><a href="#readMore" data-toggle='tab'>Read More</a></li>
+  </ul>
+  <div>
+    <div class="tab-content">
+      <div class='tab-pane active' id='partnerTab'>
+        <table class='table table-unstyled'>
+          <tbody class='rows'></tbody>
+        </table>
+      </div>
+      <div class='tab-pane' id='localTab'>
+        <table class='table table-unstyled'>
+          <tbody class='rows'></tbody>
+        </table>
+      </div>
+      <div class='tab-pane' id='readMore'>
+        <p>The ranking of the top recipient offices includes funding originating <b>from within the country</b>. Country offices such as Argentina is listed as a local resource recipient because it receives funding from domestic organizations.</p>
+      </div>
+    </div>
+  </div>
+</script>
+
 <!-- Google Analytics -->
 <script type="text/javascript">
 
