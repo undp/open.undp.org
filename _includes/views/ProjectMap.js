@@ -489,7 +489,6 @@ views.ProjectMap = Backbone.View.extend({
                 .attr('src',src)
                 .addClass('in')
                 .on('load',function(){
-                    console.log('loaded')
                     $el.find('.spin').remove();
                 })
         }
