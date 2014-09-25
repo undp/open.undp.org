@@ -41,32 +41,34 @@ routers.Global = Backbone.Router.extend({
         }
 
     },
-    selectedFacets: false,
     processedFacets: false,
-    browser: function (year, path, embed) {
-        var that = this,
-            unit = false, // this should be reused throughout the site
-            donor = false;
-
-        // Parse hash
+    unit:false, // this should be reused throughout the site
+    donorCountr:false,
+    parseHash: function(path){
+        var that = this;
         // hash comes in forms as 'operating_unit-ARG/donor-12300'
-        var hashParts = (path) ? path.split('/') : []; // --> ['operating_unit-ARG','donor-12300']
+        var hashParts = (path) ? path.split('/') : [], // --> ['operating_unit-ARG','donor-12300']
+            selectedFacets;
 
         this.processedFacets = _(hashParts).map(function(part){
 
-            that.selectedFacets = part.split('-');  // --> ['operating_unit','ARG']
+            var selectedFacets = part.split('-');  // --> ['operating_unit','ARG']
 
-            if (that.selectedFacets[0] === 'operating_unit') {
-                unit = that.selectedFacets[1];
-            } else if (that.selectedFacets[0] === 'donor_countries') {
-                donor = that.selectedFacets[1]
+            if (selectedFacets[0] === 'operating_unit') {
+                that.unit = selectedFacets[1];
+            } else if (selectedFacets[0] === 'donor_countries') {
+                that.donorCountry = selectedFacets[1]
             }
             return {
-                collection: that.selectedFacets[0],
-                id: that.selectedFacets[1]
+                collection: selectedFacets[0],
+                id: selectedFacets[1]
             };
         });
+    },
+    browser: function (year, path, embed) {
+        var that = this;
 
+        that.parseHash(path);
         // initiate App view
         // which now contains the filter-items div
         if (!embed) {
@@ -141,7 +143,7 @@ routers.Global = Backbone.Router.extend({
         }
 
         // Check for funding countries to show donor visualization
-        if (donor){
+        if (that.donorCountry){
             that.donor = new views.Donors ();
             $('#donor-view').show();
         } else {
@@ -240,9 +242,9 @@ routers.Global = Backbone.Router.extend({
             }, 0);
         }
         // Show proper HDI data
-        if (unit && ((HDI[unit]) ? HDI[unit].hdi != '' : HDI[unit])) {
+        if (that.unit && ((HDI[that.unit]) ? HDI[that.unit].hdi != '' : HDI[that.unit])) {
             that.hdi = new views.HDI({
-                unit: unit
+                unit: that.unit
             });
             if ($('.map-btn[data-value="hdi"]').hasClass('active')) {
                 $('#chart-hdi').addClass('active');
@@ -252,7 +254,7 @@ routers.Global = Backbone.Router.extend({
             $('#chart-hdi').removeClass('active');
             $('ul.layers li.no-hover.hdi a').css('cursor','default');
             $('ul.layers li.hdi .graph').removeClass('active');
-            if (unit) {
+            if (that.unit) {
                 $('#hdi').html('no data');
                 $('.map-btn[data-value="hdi"] .total-caption').html('HDI');
             } else {
