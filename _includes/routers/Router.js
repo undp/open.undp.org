@@ -149,6 +149,7 @@ routers.Global = Backbone.Router.extend({
             // start the project calculations
             that.projects.watch();
 
+            // this updates the summary panel
             that.app.updateYear(year);
 
         } else {
@@ -256,6 +257,20 @@ routers.Global = Backbone.Router.extend({
 
             }, 0);
         }
+
+        if(that.unit){ // unit is not being updated
+            // add map filters to summary when on individual country
+            $('.map-filter').removeClass('active') // reset the subfilter look
+            $('#map-filters').find('#loc-all').addClass('active');
+            $('#map-filters').removeClass('disabled');//shows type sub-filter
+            $('.map-btn').removeClass('active');
+            $('ul.layers li').addClass('no-hover');
+            $('ul.layers li.hdi .graph').addClass('active');
+        } else {
+            $('#map-filters').addClass('disabled'); //hides type sub-filter
+            $('ul.layers li').removeClass('no-hover');
+            $('ul.layers li.hdi .graph').removeClass('active');
+        }
         // Show proper HDI data
         if (that.unit && ((HDI[that.unit]) ? HDI[that.unit].hdi != '' : HDI[that.unit])) {
             that.hdi = new views.HDI({
@@ -280,6 +295,10 @@ routers.Global = Backbone.Router.extend({
 
         new views.Breadcrumbs();
         new views.Projects({ collection: that.projects });
+
+        // reset unit and donorCountry
+        this.unit = false;
+        this.donorCountry = false;
     },
 
     project: function (id, output, embed) {
