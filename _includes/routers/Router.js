@@ -168,7 +168,7 @@ routers.Global = Backbone.Router.extend({
         }
 
         // Save default description
-        that.defaultDescription = $('#description p.intro').html();
+        that.defaultDescription = that.defaultDescription || $('#description p.intro').html();
         function updateDescription() {
             setTimeout(function() {
 
