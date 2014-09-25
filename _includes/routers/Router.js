@@ -274,6 +274,7 @@ routers.Global = Backbone.Router.extend({
         }
 
         new views.Breadcrumbs();
+        new views.Projects({ collection: that.projects });
     },
 
     project: function (id, output, embed) {
