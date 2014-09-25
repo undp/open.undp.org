@@ -210,6 +210,9 @@ views.Map = Backbone.View.extend({
         }
     },
     renderClusters: function(mapFilter,collection){
+        //Hide the legend
+        $('.map-legends').hide();
+
         var view = this;
         var filteredMarkers = [],
             projectWithNoGeo = 0;
@@ -330,13 +333,22 @@ views.Map = Backbone.View.extend({
         }
     },
     renderCircles: function(layer,country){
+        //If a donor country is selected, we don't want to specify a distinction between
+        //Local and partner resources
+        var donorCountry = _(global.processedFacets).where({ collection: 'donor_countries' });
+        donorCountry = (donorCountry.length) ? donorCountry[0].id : false;
+
         var view = this;
         var count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
             unit = view.collection,
             circles = [];
         // render HDI
-            //show legend
-            $('.map-legends').show()
+            //show legend on non-donor country views
+            if (donorCountry) {
+                $('.map-legends').hide();
+            } else {
+                $('.map-legends').show();
+            }
 
             var circles = [];
             // render HDI
@@ -373,7 +385,7 @@ views.Map = Backbone.View.extend({
                 }
             });
 
-            var otherFundedCircle = {
+            var partnerFundedCircle = {
                 color:"#fff",
                 weight:1,
                 opacity:1,
@@ -402,9 +414,15 @@ views.Map = Backbone.View.extend({
                 "features":_(circles).sortBy(function(f) { return -f.properties[layer]; })
             },{
                 pointToLayer:function(feature,latlng){
-                    return L.circleMarker(latlng, 
-                        ((feature.properties.type === "Other")?otherFundedCircle:localFundedCircle)
+                    var marker;
+                    if (donorCountry) {
+                        marker = L.circleMarker(latlng, partnerFundedCircle).setRadius(feature.properties.radius);
+                    } else {
+                        marker = L.circleMarker(latlng,
+                        ((feature.properties.type === "Other")?partnerFundedCircle:localFundedCircle)
                     ).setRadius(feature.properties.radius);
+                    }
+                    return marker
                 },
                 onEachFeature:function(feature, layer){
                     var brief = L.popup({
@@ -417,9 +435,13 @@ views.Map = Backbone.View.extend({
                         view.circleHighlight(e,hoverCircle);
                     }).on('mouseout',function(e){   
                         view.map.closePopup(brief);
-                        view.circleHighlight(e,
-                            ((feature.properties.type === "Other")?otherFundedCircle:localFundedCircle)
-                        );
+                        if (donorCountry) {
+                            view.circleHighlight(e, partnerFundedCircle);
+                        } else {
+                            view.circleHighlight(e,
+                                ((feature.properties.type === "Other")?partnerFundedCircle:localFundedCircle)
+                            );
+                        }
                     }).on('click',function(e){
                          if (!view.options.embed){
                             var prevPath = location.hash;
