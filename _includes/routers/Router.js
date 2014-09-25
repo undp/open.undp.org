@@ -43,7 +43,8 @@ routers.Global = Backbone.Router.extend({
     },
     processedFacets: false,
     unit:false, // this should be reused throughout the site
-    donorCountr:false,
+    donorCountry:false,
+    fiscalYear: false,
     parseHash: function(path){
         var that = this;
         // hash comes in forms as 'operating_unit-ARG/donor-12300'
@@ -126,9 +127,12 @@ routers.Global = Backbone.Router.extend({
         // if there is no projects loaded (aka when site first loads)
         // or if the fiscalYear recorded does not correspond to the selected year
         if (!that.allProjects || that.fiscalYear != year) {
+            // remove map to avoid "Map Container is already initialized"
+            if (that.fiscalYear && that.fiscalYear != year){
+                that.projects.map.map.remove();
+            }
             // change year and update the year
-            that.fiscalyear = year;
-            that.app.updateYear(year);
+            that.fiscalYear = year;
 
             // from that.allProjects get new projects based on the facets
             that.projects = new Projects(that.allProjects.filter(getProjectFromFacets));
