@@ -3,7 +3,6 @@ function renderFocusAreaChart(chartData, rootPath, view) {
     $el.empty();
     
     this.pageType = Backbone.history.location.hash.split('/')[1];
-    console.log(this.pageType);
 
     // Calculate budget for each focus area
     var totalBudget = _(chartData).reduce(function(budget, focusArea) {
@@ -171,7 +170,6 @@ function renderRecipientOfficesChart(donor, donorCountrySelected, chartData, vie
             if (donor) global.projects.map.collection.donorID = false;
             global.projects.map.collection.operating_unitBudget[model.get('id')] = donorInfo.budget;
             global.projects.map.collection.operating_unitExpenditure[model.get('id')] = donorInfo.expenditure;
-            console.log(model.get('id') + ", " + global.projects.map.collection.operating_unitBudget[model.get('id')]) ; 
         }
 
         var row = setBudgetHTML(donorInfo, model, notOperatingUnit, pathTo);
