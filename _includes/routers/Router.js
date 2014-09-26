@@ -94,7 +94,11 @@ routers.Global = Backbone.Router.extend({
         // this function is created to populate the filters
         // when the site first loads (or when the year changes)
         // binds to the projects collection
-        var loadFilters = function(){
+        var loadFiltersAndMap = function(){
+            // load facets
+            // in facets, filters associated with each facets are created
+            // see Facets.js
+            new views.Facets();
             // Create summary map view
             if (!embed){
                 that.projects.map = new views.Map({
@@ -111,11 +115,6 @@ routers.Global = Backbone.Router.extend({
                     embed: embed
                 });
             }
-
-            // load facets
-            // in facets, filters associated with each facets are created
-            // see Facets.js
-            new views.Facets();
         };
 
         var getProjectFromFacets = function (model) {
@@ -129,30 +128,30 @@ routers.Global = Backbone.Router.extend({
             }, true);
         };
 
-        // Load projects
+        // Load and filter projects according to facet
         // on load: if the fiscalYear recorded does not correspond to the selected year
         if (that.fiscalYear != year) {
             // remove map to avoid "Map Container is already initialized"
             if (that.fiscalYear && that.fiscalYear != year){
                 that.projects.map.map.remove();
             }
-            // change year and update the year
-            that.fiscalYear = year;
-
             // from that.allProjects get new projects based on the facets
+            // that.projects = new Projects(that.allProjects.filter(getProjectFromFacets));
             that.projects = new Projects(that.allProjects.filter(getProjectFromFacets));
-
-            // bind a function to the collection that will be
-            // excecuted after the projects front-end calculations are
-            // completed -- see collections.js (Projects)
-            that.projects.excecuteAfterCalculation = _(loadFilters).bind(that);
 
             // start the project calculations
             that.projects.watch();
 
+            // change year and update the year
+            that.fiscalYear = year;
+
+            // bind a function to the collection that will be
+            // excecuted after the projects front-end calculations are
+            // completed -- see collections.js (Projects)
+            that.projects.excecuteAfterCalculation = _(loadFiltersAndMap).bind(that);
+
             // this updates the summary panel
             that.app.updateYear(year);
-
         } else {
             // if that.allProjects are already present
             that.projects.excecuteAfterCalculation = updateDescription;
