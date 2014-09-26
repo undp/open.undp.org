@@ -80,12 +80,6 @@ views.Filters = Backbone.View.extend({
                         .first(20)
                         .value(); // Top 20
                 }
-                // if (view.collection.id === 'operating_unit') {
-                //     $('#applied-filters').addClass('no-country');
-                // }
-                // if (view.collection.id === 'region') {
-                //     $('#applied-filters').addClass('no-region');
-                // }
             }
 
             function filterCallback() {
