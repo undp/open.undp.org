@@ -29,8 +29,6 @@ views.Facets = Backbone.View.extend({
 				});
 				facet.subCollection.watch();
 
-				// that.counter++;
-				// if (that.counter === facets.length) updateDescription();
 				}
 			});
 		})
