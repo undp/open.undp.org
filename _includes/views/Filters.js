@@ -17,8 +17,8 @@ views.Filters = Backbone.View.extend({
             if (activeFilter) {
     
                 // Use donor level financial data if available
-                if (active[0].collection.id === 'donors') {
-                    donor = active[0].id;
+                if (activeFilter.collection.id === 'donors') {
+                    donor = activeFilter.id;
                     global.projects.map.collection.donorID = donor;
                 }
                 // Add a filtered class to all parent containers
@@ -26,8 +26,8 @@ views.Filters = Backbone.View.extend({
                 $('#' + activeFilter.collection.id).toggleClass('filtered', true);
     
                 // copy the collection twice for different usage
-                filterModels = active;
-                chartModels = active;
+                filterModels.push(activeFilter);
+                chartModels.push(activeFilter);
                 filterCallback();
 
             } else {
