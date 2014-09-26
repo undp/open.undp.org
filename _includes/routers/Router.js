@@ -89,6 +89,44 @@ routers.Global = Backbone.Router.extend({
             });
         }
 
+        // this function is created to populate the filters
+        // when the site first loads (or when the year changes)
+        // binds to the projects collection
+        var loadFilters = function(){
+            // Create summary map view
+            if (!embed){
+                that.projects.map = new views.Map({
+                    el: '#homemap',
+                    collection: that.projects
+                });
+                new views.Widget({
+                    context: 'projects' // the other context is "project" - for individual project page
+                });
+            } else {
+                that.projects.map = new views.Map({
+                    el: '#homemap',
+                    collection: that.projects,
+                    embed: embed
+                });
+            }
+
+            // load facets
+            // in facets, filters associated with each facets are created
+            // see Facets.js
+            new views.Facets();
+        };
+
+        var getProjectFromFacets = function (model) {
+            if (!that.processedFacets.length) return true;
+            return _(that.processedFacets).reduce(function (memo, facet) {
+                if (facet.collection === 'region') {
+                    return memo && model.get(facet.collection) == facet.id;
+                } else {
+                    return memo && (model.get(facet.collection) && model.get(facet.collection).indexOf(facet.id) >= 0);
+                }
+            }, true);
+        };
+
         // Load projects
         // if there is no projects loaded (aka when site first loads)
         // or if the fiscalYear recorded does not correspond to the selected year
@@ -120,43 +158,14 @@ routers.Global = Backbone.Router.extend({
             that.projects.reset(this.allProjects.filter(getProjectFromFacets));
         }
 
-        var getProjectFromFacets = function (model) {
-            if (!that.processedFacets.length) return true;
-            return _(that.processedFacets).reduce(function (memo, facet) {
-                if (facet.collection === 'region') { // treat region more simply since it is a string value, rather than an array
-                    return memo && model.get('region') === facet.id;
-                } else {
-                    return memo && (model.get(facet.collection) && model.get(facet.collection).indexOf(facet.id) > -1);
-                }
-            }, true);
-        };
-
-        // this function is created to populate the filters
-        // when the site first loads (or when the year changes)
-        // binds to the projects collection
-        var loadFilters = function(){
-            // Create summary map view
-            if (!embed){
-                that.projects.map = new views.Map({
-                    el: '#homemap',
-                    collection: that.projects
-                });
-                new views.Widget({
-                    context: 'projects' // the other context is "project" - for individual project page
-                });
-            } else {
-                that.projects.map = new views.Map({
-                    el: '#homemap',
-                    collection: that.projects,
-                    embed: embed
-                });
-            }
-
-            // load facets
-            // in facets, filters associated with each facets are created
-            // see Facets.js
-            new views.Facets();
-        };
+        // Check for funding countries to show donor visualization
+        if (that.donorCountry){
+            that.donor = new views.Donors ();
+            $('#donor-view').show();
+        } else {
+            that.donor = false;
+            $('#donor-view').hide();
+        }
 
         // Save default description
         that.defaultDescription = that.defaultDescription || $('#description p.intro').html();
@@ -247,15 +256,6 @@ routers.Global = Backbone.Router.extend({
                 $('#description').find('p.geography').empty();
 
             }, 0);
-        }
-
-        // Check for funding countries to show donor visualization
-        if (that.donorCountry){
-            that.donor = new views.Donors ();
-            $('#donor-view').show();
-        } else {
-            that.donor = false;
-            $('#donor-view').hide();
         }
 
         if(that.unit){ // unit is not being updated
