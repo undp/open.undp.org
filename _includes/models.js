@@ -67,7 +67,9 @@ Filter = Backbone.Model.extend({
 });
 
 Project = Backbone.Model.extend({
-    defaults: { visible: true },
+    defaults: {
+        visible: true
+    },
     url: function() {
         return 'api/projects/' + this.get('id') + '.json';
     }
