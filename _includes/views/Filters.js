@@ -23,9 +23,7 @@ views.Filters = Backbone.View.extend({
                 }
                 // Add a filtered class to all parent containers
                 // where an active element has been selected.
-                _(active).each(function(a) {
-                    $('#' + a.collection.id).toggleClass('filtered', true);
-                });
+                $('#' + activeFilter.collection.id).toggleClass('filtered', true);
     
                 // copy the collection twice for different usage
                 filterModels = active;
