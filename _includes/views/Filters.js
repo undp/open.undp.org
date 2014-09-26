@@ -8,13 +8,13 @@ views.Filters = Backbone.View.extend({
 
             var filterModels = [],
                 chartModels = [],
-                active = view.collection.where({ active: true }),
-                chartType = 'budget',
                 donor = '';
-                
+
+            var activeFilter = view.collection.findWhere({active:true});
+
             $('#' + view.collection.id).toggleClass('filtered', false);
 
-            if (active.length) {
+            if (activeFilter) {
     
                 // Use donor level financial data if available
                 if (active[0].collection.id === 'donors') {
