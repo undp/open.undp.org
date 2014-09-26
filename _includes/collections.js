@@ -67,43 +67,48 @@ Filters = Backbone.Collection.extend({
         this.update();
         global.projects.on('update', this.update, this);
     },
+    aggregate: function(collection,model){
+        return {
+            count: global.projects[collection.id][model.id],
+            budget: global.projects[collection.id + 'Budget'][model.id],
+            expenditure: global.projects[collection.id + 'Expenditure'][model.id]
+        }
+    },
     update: function() {
-        // in the Filters collection
-        var collection = this,
-            active = _(global.processedFacets).find(function(filter) {
-                return (collection.id === filter.collection);
-            });
+        // _.find: Looks through each value in the list
+        // returning the first one that passes a truth test (predicate)
+        // in this case, returns this firs {collection: smth, id: smth} facet
+        var activeHash = _(global.processedFacets).find(function(facet) {
+                return this.id === facet.collection;
+            },this),
+            activeModel;
 
-        var activeCollection = collection.where({active:true});
+        if (activeHash) {
 
-        // set all models to be active: false
-        _.each(activeCollection, function(model) {
-            model.set('active', false);
-        });
+            activeModel = this.get(activeHash.id);
+    
+            // the selected hash has a model where active equals true
+            activeModel.set({
+                active:true
+            })
 
-        if (active) {
-            var model = this.get(active.id);
-            var count = global.projects[collection.id][model.id];
-            var budget = global.projects[collection.id + 'Budget'][model.id];
-            var expenditure = global.projects[collection.id + 'Expenditure'][model.id];
-            model.set({
-                active: true,
-                count: count,
-                budget: budget,
-                expenditure: expenditure
+            activeModel.set({
+                count: this.aggregate(this,activeModel).count,
+                budget: this.aggregate(this,activeModel).budget,
+                expenditure: this.aggregate(this,activeModel).expenditure
             });
 
         } else {
-            collection.each(function(model) {
-                var count = global.projects[collection.id][model.id];
-                var budget = global.projects[collection.id + 'Budget'][model.id];
-                var expenditure = global.projects[collection.id + 'Expenditure'][model.id];
+            this.each(function(model) {
                 model.set({
-                    count: count,
-                    budget: budget,
-                    expenditure: expenditure
+                    active:false
+                })
+                model.set({
+                    count: this.aggregate(this,model).count,
+                    budget: this.aggregate(this,model).budget,
+                    expenditure: this.aggregate(this,model).expenditure,
                 });
-            });
+            },this);
         }
         this.trigger('update');
     },

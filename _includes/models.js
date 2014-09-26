@@ -54,6 +54,7 @@ Subnational = Backbone.Model.extend({
 });
 
 Filter = Backbone.Model.extend({
+    // by default filter models are active false
     defaults: {
         active: false,
         visible: true
