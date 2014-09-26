@@ -74,8 +74,10 @@ routers.Global = Backbone.Router.extend({
         // initiate App view
         // which now contains the filter-items div
         if (!embed) {
-            // Load in the top donors info and feedbackform dets.
-            window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
+            // Load in the top donors info and feedbackform deats.
+            setTimeout(function() {
+                $('html, body').scrollTop(0);
+            }, 0);
             // Load the main app view
             that.app = that.app || new views.App({
                 el: '#browser',
@@ -119,7 +121,7 @@ routers.Global = Backbone.Router.extend({
         var getProjectFromFacets = function (model) {
             if (!that.processedFacets.length) return true;
             return _(that.processedFacets).reduce(function (memo, facet) {
-                if (facet.collection === 'region') {
+                if (facet.collection === 'region') { // region is treated differently since it is a value, not an array
                     return memo && model.get(facet.collection) == facet.id;
                 } else {
                     return memo && (model.get(facet.collection) && model.get(facet.collection).indexOf(facet.id) >= 0);
@@ -128,9 +130,8 @@ routers.Global = Backbone.Router.extend({
         };
 
         // Load projects
-        // if there is no projects loaded (aka when site first loads)
-        // or if the fiscalYear recorded does not correspond to the selected year
-        if (!that.allProjects || that.fiscalYear != year) {
+        // on load: if the fiscalYear recorded does not correspond to the selected year
+        if (that.fiscalYear != year) {
             // remove map to avoid "Map Container is already initialized"
             if (that.fiscalYear && that.fiscalYear != year){
                 that.projects.map.map.remove();
