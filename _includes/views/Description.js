@@ -3,35 +3,37 @@ views.Description = Backbone.View.extend({
 		this.render();
 	},
 	render: function(){
+        // modify the description based on the active model passed in
 		var model = this.options.activeModel,
             facetName = this.options.facetName,
             donorCountry = this.options.donorCountry;
-        // this can benefit from smaller views where each
-        // facet has its own description
+
+        var subject = model.get('name').toLowerCase().toTitleCase(),
+            verbFund = 'funds';
+
         if (facetName === 'operating_unit') {
-            global.description.push(' for the <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong> office');
+            global.description.push(' for the ' + util.bold(subject) + ' office');
         }
         if (facetName === 'region') {
-            global.description.push(' in the <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong> region');
+            global.description.push(' in the ' + util.bold(subject) + ' region');
         }
         if (facetName === 'donor_countries') {
             if (donorCountry === 'MULTI_AGY') {
-                global.donorTitle = '<strong>Multi-Lateral Agencies</strong>';
-                global.donorDescription = '<strong>Multi-Lateral Agencies</strong> fund <strong>' + global.projects.length +'</strong> ';
+                subject = 'Multi-Lateral Agencies';
+                verbFund = 'fund';
             } else if (donorCountry === 'OTH') {
-                global.donorTitle = '<strong>Uncategorized Organizations</strong>';
-                global.donorDescription = '<strong>Uncategorized Organizations</strong> fund <strong>' + global.projects.length +'</strong> ';
-            } else {
-                global.donorTitle = '<strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong>';
-                global.donorDescription = '<strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong> funds <strong>' + global.projects.length +'</strong> ';
+                subject = 'Uncategorized Organizations';
+                verbFund = 'fund';
             }
+
+            global.donorTitle = subject;
+            global.donorDescription = [util.bold(subject), verbFund, util.bold(global.projects.length), 'projects'].join(' ');
         }
         if (facetName === 'donors') {
-            global.description.push(' through <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong>');
-
+            global.description.push(' through ' + util.bold(subject));
         }
         if (facetName === 'focus_area') {
-            global.description.push(' with a focus on <strong>' + model.get('name').toLowerCase().toTitleCase() + '</strong>');
+            global.description.push(' with a focus on ' + util.bold(subject));
         }
     }
 })

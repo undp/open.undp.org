@@ -150,7 +150,6 @@ $(document).ready(function() {
     {% include views/Facets.js %}
     {% include views/Description.js%}
 
-
     // Router
     {% include routers/Router.js %}
 

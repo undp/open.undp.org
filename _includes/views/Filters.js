@@ -85,12 +85,9 @@ views.Filters = Backbone.View.extend({
             function filterCallback() {
                 if (filterModels.length) {
                     view.$el.html(templates.filters(view)); //  and view === this... TODO: see script.js
-                    global.description = global.description || [];
-                    global.donorDescription = global.donorDescription || [];
-                    global.donorTitle;
-        
+
                     _(filterModels).each(function(model) {
-        
+
                         view.$('.filter-items').append(templates.filter({ model: model }));
                         $('#' + view.collection.id + '-' + model.id).toggleClass('active', model.get('active'));
 

@@ -172,93 +172,14 @@ routers.Global = Backbone.Router.extend({
 
         // Save default description
         that.defaultDescription = that.defaultDescription || $('#description p.intro').html();
-        function updateDescription() {
-            setTimeout(function() {
 
-                // Clear search values on refresh
-
-                $('#filters-search, #projects-search').val('');
-
-                if (_(that.processedFacets).find(function(f) {
-                    return f.collection === 'focus_area';
-                })) {
-                    $('#chart-focus_area').hide();
-                } else {
-                    $('#chart-focus_area').show();
-                }
-
-                // three kinds of descriptions
-                // 1. no filter --> defaultDescription
-                // 2. filter (no donor) --> start with "The above includes"
-                // 3. filter (with donor) --> start with "DONOR funds the above"
-
-                var counts = (that.projects.length === 1) ? 'project' : 'projects';
-                    projectCounts = 'There are <strong>' + that.projects.length +'</strong> ' + counts;
-
-                function renderDonorContent(){
-                    var $el = $('#donor-specific');
-                    $el.empty();
-                    $el.append(templates.donorSpecific(app));
-                    $el.find('.spin').spin({ color:'#000' });
-
-                    _($el.find('img')).each(function(img){
-                        var caption = $('<p class="photo-caption">'+img.alt+'</p>')
-                        caption.insertAfter(img);
-                        caption.prev().andSelf().wrapAll('<div class="slide" />');
-                    });
-                    $('.slide').wrapAll('<div id="slides" />');
-                    $('#slides', $el).slidesjs({
-                        pagination:{active:false},
-                        callback: {
-                            loaded: function(number) {
-                                $el.find('.spin').remove();
-                            }
-                        }
-                    });
-                }
-
-                if (that.description && that.description.length === 0){
-                    if (that.donorDescription.length > 0) {
-                        // custom donor text
-                        renderDonorContent();
-                        // default donor text
-                        $('#description').find('p.desc').html(that.donorDescription + counts +' across the world.');
-                        // donor viz h3
-                        $('#donor-title').html(that.donorTitle);
-                    } else {
-                        $('#donor-specific').empty();
-                        $('#description').find('p.desc').html(that.defaultDescription);
-                    }
-                } else if (that.description && that.description.length > 0){
-                    if (that.donorDescription.length > 0) {
-                        // custom donor text
-                        renderDonorContent();
-                        // default donor text
-                        $('#description').find('p.desc').html(that.donorDescription + counts + ' ' + that.description.join(',') + '.');
-                        // donor viz h3
-                        $('#donor-title').html(that.donorTitle);
-                    } else {
-                        $('#donor-specific').empty();
-                        $('#description').find('p.desc').html(projectCounts + that.description.join(',') + '.');
-                    }
-                } else if (!that.description) {
-                    $('#donor-specific').empty();
-                    $('#description').find('p.desc').html(that.defaultDescription);
-                }
-                // reset description
-                that.description = false;
-                that.shortDesc = "";
-                that.donorDescription = "";
-
-                $('#browser .summary').removeClass('off');
-
-                // defaultDescription is already populated
-                $('#description').find('p.intro').empty();
-
-                // empty the sub loc content since
-                $('#description').find('p.geography').empty();
-
-            }, 0);
+        // whether or not to show focus area charts
+        if (_(that.processedFacets).find(
+            function(f) {return f.collection === 'focus_area';
+        })) {
+            $('#chart-focus_area').hide();
+        } else {
+            $('#chart-focus_area').show();
         }
 
         if(that.unit){ // unit is not being updated
