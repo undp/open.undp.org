@@ -26,59 +26,61 @@ routers.Global = Backbone.Router.extend({
     fiscalyear: function (year, path, embed) {
         var that = this;
 
-        if ((FISCALYEARS).indexOf(year) > -1){
-            util.loadjsFile('api/project_summary_' + year + '.js', year, function() {
-                that.browser(year, path, embed);
+        if ((FISCALYEARS).indexOf(year) > -1){ // if year exsits in FISCALYEARS array
+
+            this.allProjects = new Projects();
+            this.allProjects.url = 'api/project_summary_' + year + '.json';
+
+            this.allProjects.fetch({
+                success:function(){
+                    that.browser(year, path, embed);
+                }
             });
         } else {
-            that.project(year, false,false); // in this case year is the project id
+            this.project(year, false,false); // in this case "year" is the project id
         }
 
     },
-    selectedFacets: false,
+    defaultDescription: $('#description p.intro').html(),
+    description: [],
+    donorDescription: [],
     processedFacets: false,
-    browser: function (year, path, embed) {
-        var that = this,
-            unit = false, // this should be reused throughout the site
-            donor = false;
-
-        // Parse hash
+    unit:false, // this should be reused throughout the site
+    donorCountry:false,
+    fiscalYear: false,
+    parseHash: function(path){
+        var that = this;
         // hash comes in forms as 'operating_unit-ARG/donor-12300'
-        var hashParts = (path) ? path.split('/') : []; // --> ['operating_unit-ARG','donor-12300']
+        var hashParts = (path) ? path.split('/') : [], // --> ['operating_unit-ARG','donor-12300']
+            selectedFacets;
 
         this.processedFacets = _(hashParts).map(function(part){
 
-            that.selectedFacets = part.split('-');  // --> ['operating_unit','ARG']
+            var selectedFacets = part.split('-');  // --> ['operating_unit','ARG']
 
-            if (that.selectedFacets[0] === 'operating_unit') {
-                unit = that.selectedFacets[1];
-            } else if (that.selectedFacets[0] === 'donor_countries') {
-                donor = that.selectedFacets[1]
+            if (selectedFacets[0] === 'operating_unit') {
+                that.unit = selectedFacets[1];
+            } else if (selectedFacets[0] === 'donor_countries') {
+                that.donorCountry = selectedFacets[1]
             }
             return {
-                collection: that.selectedFacets[0],
-                id: that.selectedFacets[1]
+                collection: selectedFacets[0],
+                id: selectedFacets[1]
             };
         });
+    },
+    browser: function (year, path, embed) {
+        var that = this;
 
-        // custom filter function
-        // TODO clarify
-        var filter = function (model) {
-            if (!that.processedFacets.length) return true;
-            return _(that.processedFacets).reduce(function (memo, filter) {
-                if (filter.collection === 'region') {
-                    return memo && model.get(filter.collection) == filter.id;
-                } else {
-                    return memo && (model.get(filter.collection) && model.get(filter.collection).indexOf(filter.id) >= 0);
-                }
-            }, true);
-        };
+        that.parseHash(path);
 
         // initiate App view
         // which now contains the filter-items div
         if (!embed) {
-            // Load in the top donors info and feedbackform dets.
-            window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
+            // Load in the top donors info and feedbackform deats.
+            setTimeout(function() {
+                $('html, body').scrollTop(0);
+            }, 0);
             // Load the main app view
             that.app = that.app || new views.App({
                 el: '#browser',
@@ -92,18 +94,22 @@ routers.Global = Backbone.Router.extend({
             });
         }
 
-        var loadFilters = function(){
-
+        // this function is created to populate the filters
+        // when the site first loads (or when the year changes)
+        // binds to the projects collection
+        var loadFiltersAndMap = function(){
+            // load facets
+            // in facets, filters associated with each facets are created
+            // see Facets.js
             new views.Facets();
-
             // Create summary map view
             if (!embed){
                 that.projects.map = new views.Map({
                     el: '#homemap',
                     collection: that.projects
                 });
-                that.projects.widget = new views.Widget({
-                    context: 'projects'
+                new views.Widget({
+                    context: 'projects' // the other context is "project" - for individual project page
                 });
             } else {
                 that.projects.map = new views.Map({
@@ -112,33 +118,51 @@ routers.Global = Backbone.Router.extend({
                     embed: embed
                 });
             }
-
         };
 
+        var getProjectFromFacets = function (model) {
+            if (!that.processedFacets.length) return true;
+            return _(that.processedFacets).reduce(function (memo, facet) {
+                if (facet.collection === 'region') { // region is treated differently since it is a value, not an array
+                    return memo && model.get(facet.collection) == facet.id;
+                } else {
+                    return memo && (model.get(facet.collection) && model.get(facet.collection).indexOf(facet.id) >= 0);
+                }
+            }, true);
+        };
 
+        // Load and filter projects according to facet
+        // on load: if the fiscalYear recorded does not correspond to the selected year
+        if (that.fiscalYear != year) {
+            // remove map to avoid "Map Container is already initialized"
+            if (that.fiscalYear && that.fiscalYear != year){
+                that.projects.map.map.remove();
+            }
+            // from that.allProjects get new projects based on the facets
+            // that.projects = new Projects(that.allProjects.filter(getProjectFromFacets));
+            that.projects = new Projects(that.allProjects.filter(getProjectFromFacets));
 
-        // Load projects
-        if (!that.allProjects || that.fiscalYear != year) {
-            if (that.fiscalYear && that.fiscalYear != year){that.projects.map.map.remove();}
-            that.fiscalYear = year;
-            that.allProjects = new Projects(SUMMARY);
-
-            that.projects = new Projects(that.allProjects.filter(filter));
-            that.projects.view = new views.Projects({ collection: that.projects });
-            that.projects.cb = _(loadFilters).bind(that);
-
+            // start the project calculations
             that.projects.watch();
 
-            that.app.updateYear(year);
+            // change year and update the year
+            that.fiscalYear = year;
 
+            // bind a function to the collection that will be
+            // excecuted after the projects front-end calculations are
+            // completed -- see collections.js (Projects)
+            that.projects.excecuteAfterCalculation = _(loadFiltersAndMap).bind(that);
+
+            // this updates the summary panel
+            that.app.updateYear(year);
         } else {
-            // if projects are already present
-            that.projects.cb = updateDescription;
-            that.projects.reset(this.allProjects.filter(filter));
+            // if that.allProjects are already present
+            that.projects.excecuteAfterCalculation = that.updateDescription;
+            that.projects.reset(this.allProjects.filter(getProjectFromFacets));
         }
 
         // Check for funding countries to show donor visualization
-        if (donor){
+        if (that.donorCountry){
             that.donor = new views.Donors ();
             $('#donor-view').show();
         } else {
@@ -148,98 +172,34 @@ routers.Global = Backbone.Router.extend({
 
         // Save default description
         that.defaultDescription = that.defaultDescription || $('#description p.intro').html();
-        function updateDescription() {
-            setTimeout(function() {
 
-                // Clear search values on refresh
-
-                $('#filters-search, #projects-search').val('');
-
-                if (_(that.processedFacets).find(function(f) {
-                    return f.collection === 'focus_area';
-                })) {
-                    $('#chart-focus_area').hide();
-                } else {
-                    $('#chart-focus_area').show();
-                }
-
-                // three kinds of descriptions
-                // 1. no filter --> defaultDescription
-                // 2. filter (no donor) --> start with "The above includes"
-                // 3. filter (with donor) --> start with "DONOR funds the above"
-
-                var counts = (that.projects.length === 1) ? 'project' : 'projects';
-                    projectCounts = 'There are <strong>' + that.projects.length +'</strong> ' + counts;
-
-                function renderDonorContent(){
-                    var $el = $('#donor-specific');
-                    $el.empty();
-                    $el.append(templates.donorSpecific(app));
-                    $el.find('.spin').spin({ color:'#000' });
-
-                    _($el.find('img')).each(function(img){
-                        var caption = $('<p class="photo-caption">'+img.alt+'</p>')
-                        caption.insertAfter(img);
-                        caption.prev().andSelf().wrapAll('<div class="slide" />');
-                    });
-                    $('.slide').wrapAll('<div id="slides" />');
-                    $('#slides', $el).slidesjs({
-                        pagination:{active:false},
-                        callback: {
-                            loaded: function(number) {
-                                $el.find('.spin').remove();
-                            }
-                        }
-                    });
-                }
-
-                if (that.description && that.description.length === 0){
-                    if (that.donorDescription.length > 0) {
-                        // custom donor text
-                        renderDonorContent();
-                        // default donor text
-                        $('#description').find('p.desc').html(that.donorDescription + counts +' across the world.');
-                        // donor viz h3
-                        $('#donor-title').html(that.donorTitle);
-                    } else {
-                        $('#donor-specific').empty();
-                        $('#description').find('p.desc').html(that.defaultDescription);
-                    }
-                } else if (that.description && that.description.length > 0){
-                    if (that.donorDescription.length > 0) {
-                        // custom donor text
-                        renderDonorContent();
-                        // default donor text
-                        $('#description').find('p.desc').html(that.donorDescription + counts + ' ' + that.description.join(',') + '.');
-                        // donor viz h3
-                        $('#donor-title').html(that.donorTitle);
-                    } else {
-                        $('#donor-specific').empty();
-                        $('#description').find('p.desc').html(projectCounts + that.description.join(',') + '.');
-                    }
-                } else if (!that.description) {
-                    $('#donor-specific').empty();
-                    $('#description').find('p.desc').html(that.defaultDescription);
-                }
-                // reset description
-                that.description = false;
-                that.shortDesc = "";
-                that.donorDescription = "";
-
-                $('#browser .summary').removeClass('off');
-
-                // defaultDescription is already populated
-                $('#description').find('p.intro').empty();
-
-                // empty the sub loc content since
-                $('#description').find('p.geography').empty();
-
-            }, 0);
+        // whether or not to show focus area charts
+        if (_(that.processedFacets).find(
+            function(f) {return f.collection === 'focus_area';
+        })) {
+            $('#chart-focus_area').hide();
+        } else {
+            $('#chart-focus_area').show();
         }
+
+        if(that.unit){ // unit is not being updated
+            // add map filters to summary when on individual country
+            $('.map-filter').removeClass('active') // reset the subfilter look
+            $('#map-filters').find('#loc-all').addClass('active');
+            $('#map-filters').removeClass('disabled');//shows type sub-filter
+            $('.map-btn').removeClass('active');
+            $('ul.layers li').addClass('no-hover');
+            $('ul.layers li.hdi .graph').addClass('active');
+        } else {
+            $('#map-filters').addClass('disabled'); //hides type sub-filter
+            $('ul.layers li').removeClass('no-hover');
+            $('ul.layers li.hdi .graph').removeClass('active');
+        }
+
         // Show proper HDI data
-        if (unit && ((HDI[unit]) ? HDI[unit].hdi != '' : HDI[unit])) {
+        if (that.unit && ((HDI[that.unit]) ? HDI[that.unit].hdi != '' : HDI[that.unit])) {
             that.hdi = new views.HDI({
-                unit: unit
+                unit: that.unit
             });
             if ($('.map-btn[data-value="hdi"]').hasClass('active')) {
                 $('#chart-hdi').addClass('active');
@@ -249,7 +209,7 @@ routers.Global = Backbone.Router.extend({
             $('#chart-hdi').removeClass('active');
             $('ul.layers li.no-hover.hdi a').css('cursor','default');
             $('ul.layers li.hdi .graph').removeClass('active');
-            if (unit) {
+            if (that.unit) {
                 $('#hdi').html('no data');
                 $('.map-btn[data-value="hdi"] .total-caption').html('HDI');
             } else {
@@ -259,6 +219,13 @@ routers.Global = Backbone.Router.extend({
         }
 
         new views.Breadcrumbs();
+        new views.Projects({ collection: that.projects });
+
+        // reset unit and donorCountry
+        this.unit = false;
+        this.donorCountry = false;
+        this.description = [];
+        this.donorDescription = [];
     },
 
     project: function (id, output, embed) {
@@ -391,6 +358,70 @@ routers.Global = Backbone.Router.extend({
             });
             return false;
         });
+    },
+
+    renderDonorContent: function() {
+        var $el = $('#donor-specific');
+        $el.empty();
+        $el.append(templates.donorSpecific(app));
+        $el.find('.spin').spin({ color:'#000' });
+
+        _($el.find('img')).each(function(img){
+            var caption = $('<p class="photo-caption">'+img.alt+'</p>')
+            caption.insertAfter(img);
+            caption.prev().andSelf().wrapAll('<div class="slide" />');
+        });
+        $('.slide').wrapAll('<div id="slides" />');
+        $('#slides', $el).slidesjs({
+            pagination:{active:false},
+            callback: {
+                loaded: function(number) {
+                    $el.find('.spin').remove();
+                }
+            }
+        });
+    },
+
+    updateDescription: function() {
+        var $elDesc = $('#description p.desc'),
+            $elGeo = $('#description p.geography'),
+            $elIntro = $('#description p.intro');
+
+        // defaultDescription is already populated
+        $elDesc.empty();
+        $elGeo.empty();
+        $elIntro.empty();
+
+        setTimeout(function() {
+
+            var plural = (global.projects.length === 1) ? 'project' : 'projects',
+                sentenceThere = 'There are ' + util.bold(global.projects.length),
+                sentenceDonor = global.donorDescription;
+
+            if (global.donorDescription.length > 1){
+                global.renderDonorContent();
+                $('#donor-title').html(global.donorTitle);
+                $elDesc.html(sentenceDonor + global.description.join(',') + '.');
+            } else if (global.donorDescription.length === 0 && global.description.length > 0){
+                $elDesc.html(sentenceThere + global.description.join(',') + '.');
+            } else {
+                $elDesc.html(global.defaultDescription);
+            }
+
+            $('#browser .summary').removeClass('off');
+
+            $('#donor-specific').empty();
+            $('#filters-search, #projects-search').val('');
+
+            if (_(global.processedFacets).find(function(f) {
+                return f.collection === 'focus_area';
+            })) {
+                $('#chart-focus_area').hide();
+            } else {
+                $('#chart-focus_area').show();
+            }
+
+        }, 0);
     }
 
 });

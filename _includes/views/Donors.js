@@ -29,7 +29,7 @@ views.Donors = Backbone.View.extend({
     template: _.template($('#donorViz').html()),
     initialize: function() {
 
-        app.donor = true;
+        global.donor = true;
 
         this.allDonors = new Donors();
         this.listenTo(this.allDonors,'sync',this.render);

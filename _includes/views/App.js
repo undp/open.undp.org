@@ -22,7 +22,6 @@ views.App = Backbone.View.extend({
     },
 
     render: function() {
-        this.opUnitFilter =_(global.processedFacets).findWhere({collection:"operating_unit"});
 
         if (this.options.embed) {
             this.$el.empty().append(templates.embedProjects());
@@ -63,21 +62,6 @@ views.App = Backbone.View.extend({
                 $target.parent().addClass('parent-active');
             }
         });
-
-        // add map filters to summary when on individual country
-        $('.map-filter').removeClass('active') // reset the subfilter look
-        $('#map-filters').find('#loc-all').addClass('active');
-
-        if(this.opUnitFilter){
-            $('#map-filters').removeClass('disabled');//shows type sub-filter
-            $('.map-btn').removeClass('active');
-            $('ul.layers li').addClass('no-hover');
-            $('ul.layers li.hdi .graph').addClass('active');
-        } else {
-            $('#map-filters').addClass('disabled'); //hides type sub-filter
-            $('ul.layers li').removeClass('no-hover');
-            $('ul.layers li.hdi .graph').removeClass('active');
-        }
 
         this.selectYear(this.options.year);
     },

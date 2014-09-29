@@ -22,15 +22,12 @@ views.Facets = Backbone.View.extend({
 					collection: facet.subCollection
 				});
 
-				_.each(global.processedFacets, function (obj) {
-					if (obj.collection === facet.id) {
+				_.each(global.processedFacets, function (f){
+					if (f.collection === facet.id) {
 				 		global.app.views[facet.id].active = true;
 					}
 				});
 				facet.subCollection.watch();
-
-				// that.counter++;
-				// if (that.counter === facets.length) updateDescription();
 				}
 			});
 		})

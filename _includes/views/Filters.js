@@ -8,28 +8,26 @@ views.Filters = Backbone.View.extend({
 
             var filterModels = [],
                 chartModels = [],
-                active = view.collection.where({ active: true }),
-                chartType = 'budget',
                 donor = '';
-                
+
+            var activeFilter = view.collection.findWhere({active:true});
+
             $('#' + view.collection.id).toggleClass('filtered', false);
 
-            if (active.length) {
+            if (activeFilter) {
     
                 // Use donor level financial data if available
-                if (active[0].collection.id === 'donors') {
-                    donor = active[0].id;
+                if (activeFilter.collection.id === 'donors') {
+                    donor = activeFilter.id;
                     global.projects.map.collection.donorID = donor;
                 }
                 // Add a filtered class to all parent containers
                 // where an active element has been selected.
-                _(active).each(function(a) {
-                    $('#' + a.collection.id).toggleClass('filtered', true);
-                });
+                $('#' + activeFilter.collection.id).toggleClass('filtered', true);
     
                 // copy the collection twice for different usage
-                filterModels = active;
-                chartModels = active;
+                filterModels.push(activeFilter);
+                chartModels.push(activeFilter);
                 filterCallback();
 
             } else {
@@ -82,23 +80,14 @@ views.Filters = Backbone.View.extend({
                         .first(20)
                         .value(); // Top 20
                 }
-                // if (view.collection.id === 'operating_unit') {
-                //     $('#applied-filters').addClass('no-country');
-                // }
-                // if (view.collection.id === 'region') {
-                //     $('#applied-filters').addClass('no-region');
-                // }
             }
 
             function filterCallback() {
                 if (filterModels.length) {
                     view.$el.html(templates.filters(view)); //  and view === this... TODO: see script.js
-                    global.description = global.description || [];
-                    global.donorDescription = global.donorDescription || [];
-                    global.donorTitle;
-        
+
                     _(filterModels).each(function(model) {
-        
+
                         view.$('.filter-items').append(templates.filter({ model: model }));
                         $('#' + view.collection.id + '-' + model.id).toggleClass('active', model.get('active'));
 
@@ -116,7 +105,7 @@ views.Filters = Backbone.View.extend({
                             new views.Description({
                                 facetName:view.collection.id,
                                 activeModel:model,
-                                donorCountry: donorCountry
+                                donorCountry: model.get('name')
                             })
                         }
                     });
@@ -124,11 +113,14 @@ views.Filters = Backbone.View.extend({
                     view.$el.empty();
                 }
 
+                // when all the facets have been looped
+                // update the map the description
                 if (global.filtercounter !== facets.length ) {
                     global.filtercounter = (global.filtercounter) ? global.filtercounter + 1 : 2;
                 } else {
                     global.filtercounter = 0;
                     if (!keypress) global.projects.map.render();
+                    if (!keypress) global.updateDescription();
                 }
 
             }

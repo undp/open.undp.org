@@ -54,6 +54,7 @@ Subnational = Backbone.Model.extend({
 });
 
 Filter = Backbone.Model.extend({
+    // by default filter models are active false
     defaults: {
         active: false,
         visible: true
@@ -66,7 +67,9 @@ Filter = Backbone.Model.extend({
 });
 
 Project = Backbone.Model.extend({
-    defaults: { visible: true },
+    defaults: {
+        visible: true
+    },
     url: function() {
         return 'api/projects/' + this.get('id') + '.json';
     }
