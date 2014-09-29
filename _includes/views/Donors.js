@@ -1,10 +1,3 @@
-// shortens millions and thousands;
-// attach to window b/c it's called in _includes/templates/donorViz._
-window.abbreviateNumber = function(n) {
-  return n > 1000000 ? (+(n / 1000000).toFixed(1)).toLocaleString() + 'M' :
-    n > 1000 ? (+(n / 1000).toFixed(1)).toLocaleString() + 'K' : n.toLocaleString();
-};
-
 views.Donors = Backbone.View.extend({
     el: '#donor-graphs',
     // see the template in _includes/templates/donorViz._
