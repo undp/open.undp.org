@@ -113,11 +113,14 @@ views.Filters = Backbone.View.extend({
                     view.$el.empty();
                 }
 
+                // when all the facets have been looped
+                // update the map the description
                 if (global.filtercounter !== facets.length ) {
                     global.filtercounter = (global.filtercounter) ? global.filtercounter + 1 : 2;
                 } else {
                     global.filtercounter = 0;
                     if (!keypress) global.projects.map.render();
+                    if (!keypress) global.updateDescription();
                 }
 
             }
