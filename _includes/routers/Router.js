@@ -41,6 +41,9 @@ routers.Global = Backbone.Router.extend({
         }
 
     },
+    defaultDescription: $('#description p.intro').html(),
+    description: [],
+    donorDescription: [],
     processedFacets: false,
     unit:false, // this should be reused throughout the site
     donorCountry:false,
@@ -154,7 +157,7 @@ routers.Global = Backbone.Router.extend({
             that.app.updateYear(year);
         } else {
             // if that.allProjects are already present
-            that.projects.excecuteAfterCalculation = updateDescription;
+            that.projects.excecuteAfterCalculation = that.updateDescription;
             that.projects.reset(this.allProjects.filter(getProjectFromFacets));
         }
 
@@ -271,6 +274,7 @@ routers.Global = Backbone.Router.extend({
             $('ul.layers li').removeClass('no-hover');
             $('ul.layers li.hdi .graph').removeClass('active');
         }
+
         // Show proper HDI data
         if (that.unit && ((HDI[that.unit]) ? HDI[that.unit].hdi != '' : HDI[that.unit])) {
             that.hdi = new views.HDI({
@@ -299,6 +303,8 @@ routers.Global = Backbone.Router.extend({
         // reset unit and donorCountry
         this.unit = false;
         this.donorCountry = false;
+        this.description = [];
+        this.donorDescription = [];
     },
 
     project: function (id, output, embed) {
@@ -431,6 +437,70 @@ routers.Global = Backbone.Router.extend({
             });
             return false;
         });
+    },
+
+    renderDonorContent: function() {
+        var $el = $('#donor-specific');
+        $el.empty();
+        $el.append(templates.donorSpecific(app));
+        $el.find('.spin').spin({ color:'#000' });
+
+        _($el.find('img')).each(function(img){
+            var caption = $('<p class="photo-caption">'+img.alt+'</p>')
+            caption.insertAfter(img);
+            caption.prev().andSelf().wrapAll('<div class="slide" />');
+        });
+        $('.slide').wrapAll('<div id="slides" />');
+        $('#slides', $el).slidesjs({
+            pagination:{active:false},
+            callback: {
+                loaded: function(number) {
+                    $el.find('.spin').remove();
+                }
+            }
+        });
+    },
+
+    updateDescription: function() {
+        var $elDesc = $('#description p.desc'),
+            $elGeo = $('#description p.geography'),
+            $elIntro = $('#description p.intro');
+
+        // defaultDescription is already populated
+        $elDesc.empty();
+        $elGeo.empty();
+        $elIntro.empty();
+
+        setTimeout(function() {
+
+            var plural = (global.projects.length === 1) ? 'project' : 'projects',
+                sentenceThere = 'There are ' + util.bold(global.projects.length),
+                sentenceDonor = global.donorDescription;
+
+            if (global.donorDescription.length > 1){
+                global.renderDonorContent();
+                $('#donor-title').html(global.donorTitle);
+                $elDesc.html(sentenceDonor + global.description.join(',') + '.');
+            } else if (global.donorDescription.length === 0 && global.description.length > 0){
+                $elDesc.html(sentenceThere + global.description.join(',') + '.');
+            } else {
+                $elDesc.html(global.defaultDescription);
+            }
+
+            $('#browser .summary').removeClass('off');
+
+            $('#donor-specific').empty();
+            $('#filters-search, #projects-search').val('');
+
+            if (_(global.processedFacets).find(function(f) {
+                return f.collection === 'focus_area';
+            })) {
+                $('#chart-focus_area').hide();
+            } else {
+                $('#chart-focus_area').show();
+            }
+
+        }, 0);
     }
 
 });
