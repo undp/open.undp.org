@@ -104,35 +104,7 @@ $(document).ready(function() {
             memo[el.getAttribute('name')] = _.template(el.innerHTML);
             return memo;
         }, {}),
-        app = {},
-        // TODO in the process of moving this to the Facets collection
-        facets = [
-            {
-                id: 'operating_unit',
-                url: 'api/operating-unit-index.json',
-                name: 'Country Office / Operating Unit'
-            },
-            {
-                id: 'region',
-                url: 'api/region-index.json',
-                name: 'Region'
-            },
-            {
-                id: 'focus_area',
-                url: 'api/focus-area-index.json',
-                name: 'Themes'
-            },
-            {
-                id: 'donor_countries',
-                url: 'api/donor-country-index.json',
-                name: 'Funding by Country'
-            },
-            {
-                id: 'donors',
-                url: 'api/donor-index.json',
-                name: 'Budget Source'
-            }
-        ];
+        app = {};
 
     {% include models.js %}
     {% include collections.js %}

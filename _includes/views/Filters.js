@@ -113,6 +113,7 @@ views.Filters = Backbone.View.extend({
                     view.$el.empty();
                 }
 
+                var facets = new Facets().idsOnly();
                 // when all the facets have been looped
                 // update the map the description
                 if (global.filtercounter !== facets.length ) {
