@@ -83,6 +83,11 @@ util.request = function(url, callback) {
   req.send(null);
 }
 
+// bolding
+util.bold = function(word){
+    return '<b>' + word + '</b>'
+}
+
 $(document).ready(function() {
     var models = {},
         views = {},
