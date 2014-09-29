@@ -1,3 +1,27 @@
+//////////////////////////////////////
+///////////  DONORS  VIZ  ////////////
+//////////////////////////////////////
+
+// a donor collection built with the donors/donors.json
+// with two built in filter machanism
+// one for the total, one for the selected donor
+Donors = Backbone.Collection.extend({
+    url:'api/donors/donors.json',
+    total:function(){
+        var total = this.filter(function(m){return m.get('donor-country') === 'all';});
+        return new Donors(total)
+    },
+    selectedDonor: function(donor){
+        var selected = this.filter(function(m){return m.get('donor-country') === donor;});
+        return new Donors(selected)
+    },
+    initialize:function(){}
+});
+
+//////////////////////////////////////
+//////// USED IN views/Map.js ////////
+//////////////////////////////////////
+
 Nationals = Backbone.Collection.extend({
     model: National,
     url: 'api/operating-unit-index.json'
@@ -19,6 +43,10 @@ Subnationals = Backbone.Collection.extend({
         return new Subnationals(visible);
     }
 });
+
+//////////////////////////////////////
+//////// USED IN views/Facet.js //////
+//////////////////////////////////////
 
 Facets = Backbone.Collection.extend({
     model:Facet,
@@ -116,6 +144,10 @@ Filters = Backbone.Collection.extend({
         return -1 * model.get('budget') || 0;
     }
 });
+
+//////////////////////////////////////
+/////// USED IN routers/Router.js ////
+//////////////////////////////////////
 
 Projects = Backbone.Collection.extend({
     model: Project,
@@ -384,35 +416,40 @@ TopDonors = Backbone.Collection.extend({
     }
 });
 
+//////////////////////////////////////
+////////////// NOT USED //////////////
+//////////////////////////////////////
+
 TotalModalities = Backbone.Collection.extend({
     model: Modality,
-    url: '../api/donors/total-modality.json'
+    url: 'api/donors/total-modality.json'
 })
 
 DonorModalities = Backbone.Collection.extend({
     model: Modality,
-    url: '../api/donors/donor-modality.json'
+    url: 'api/donors/donor-modality.json'
 })
 
 Countries = Backbone.Collection.extend({
     model: Country,
-    url: '../api/world.json'
+    url: 'api/world.json'
 });
 
 India = Backbone.Collection.extend({
     model: Country,
-    url: '../api/india_admin0.json'
+    url: 'api/india_admin0.json'
 });
 
 OperatingUnits = Backbone.Model.extend({
     model:OperatingUnit,
-    url: '../api/operating-unit-index.json'
+    url: 'api/operating-unit-index.json'
 });
 
 SubnationalIndices = Backbone.Model.extend({
     model:SubnationalIndex,
-    url: '../api/subnational-locs-index.json'
+    url: 'api/subnational-locs-index.json'
 });
+
 FocusAreaIndices = Backbone.Model.extend({
     model:FocusAreaIndex,
     url: '../api/focus-area-index.json'

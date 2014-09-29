@@ -1,19 +1,3 @@
-// a donor collection built with the donors.json
-// with two built in filter machanism
-// one for the total, one for the selected donor
-Donors = Backbone.Collection.extend({
-    url:'api/donors/donors.json',
-    total:function(){
-        var total = this.filter(function(m){return m.get('donor-country') === 'all';});
-        return new Donors(total)
-    },
-    selectedDonor: function(donor){
-        var selected = this.filter(function(m){return m.get('donor-country') === donor;});
-        return new Donors(selected)
-    },
-    initialize:function(){}
-});
-
 // shortens millions and thousands;
 // attach to window b/c it's called in _includes/templates/donorViz._
 window.abbreviateNumber = function(n) {
