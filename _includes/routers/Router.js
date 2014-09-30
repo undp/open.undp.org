@@ -392,7 +392,6 @@ routers.Global = Backbone.Router.extend({
 
             $('#browser .summary').removeClass('off');
 
-            $('#donor-specific').empty();
             $('#filters-search, #projects-search').val('');
 
             if (_(global.processedFacets).find(function(f) {
