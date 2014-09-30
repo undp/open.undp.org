@@ -1,13 +1,13 @@
 views.Nav = Backbone.View.extend({
     el: '#left-nav',
-
+    template: _.template($('#navTemplate').html()),
     initialize: function (options) {
         this.options = options || false;
         this.render();
     },
 
     render: function() {
-        $(this.el).empty().append(templates.nav());
+        this.$el.html(this.template());
         // add about functionalities
         $('#mainnav a.parent-link').click(function(e) { //TODO avoid initial click which changes path
             e.preventDefault();

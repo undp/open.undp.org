@@ -18,12 +18,13 @@ views.ProjectProfile = Backbone.View.extend({
     },
 
     render: function() {
-        $('#breadcrumbs ul').html(
-            '<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' +
-            '<li><a href="' + BASE_URL + '">Our Projects</a></li>' +
-            '<li><a href="' + BASE_URL + '#'+ CURRENT_YR +'/filter/operating_unit-' + this.model.get('operating_unit_id') + '">' + this.model.get("operating_unit") + '</a></li>' +
-            '<li><a href="' + BASE_URL + '#project/' + this.model.get('id') + '">' + this.model.get('id') + '</a></li>'
-        );
+        new views.Breadcrumbs({
+            add:'activeProject',
+            projectUnitId: this.model.get('operating_unit_id'),
+            projectUnitName: this.model.get("operating_unit"),
+            projectName: this.model.get('id')
+        });
+
         // sometimes the model doesn't get the attributes
         if (this.model.get('start') != undefined) {
             var start = this.model.get('start').split('-');

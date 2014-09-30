@@ -97,13 +97,8 @@ views.Filters = Backbone.View.extend({
                             new views.Breadcrumbs({
                                 add: 'activeFilter',
                                 filterName: model.get('name').toLowerCase().toTitleCase(),
-                                filterLink: [
-                                    document.location.hash.split('/')[0],
-                                    '/filter/',
-                                    view.collection.id,
-                                    '-',
-                                    model.get('id')
-                                  ].join('')
+                                filterCollection: view.collection.id,
+                                filterId: model.get('id')
                             });
 
                             new views.Description({

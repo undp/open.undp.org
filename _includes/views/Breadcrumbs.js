@@ -14,6 +14,7 @@ views.Breadcrumbs = Backbone.View.extend({
 	},
 	about: {},
 	activeFilter: {},
+	activeProject: {},
 	template: _.template('<li><a href="<%= link%>"><%= name%></a></li>'),
 	initialize: function(options){
 		this.options = options || false;
@@ -36,12 +37,22 @@ views.Breadcrumbs = Backbone.View.extend({
 		if (this.options.add === 'activeFilter') {
 
 			this.activeFilter.name = this.options.filterName;
-			this.activeFilter.link = this.options.filterLink;
+			this.activeFilter.link = ['#', CURRENT_YR, '/filter/',this.options.filterCollection,'-',this.options.filterId].join('');
 			this.$el.html(base + this.template(this.activeFilter));
 		}
+		if (this.options.add === 'activeProject'){
 
-		// TODO model links
-		// after clarifying and ProjectProfile.js
+			this.activeProject.name = this.options.projectName;
+			this.activeProject.link = ['#project/',this.options.projectName].join('');
+
+			var unit = {
+				name: this.options.projectUnitName,
+				link: ['#',CURRENT_YR,'/filter/operating_unit-',this.options.projectUnitId].join('')
+			};
+
+			this.$el.html(base + this.template(unit) + this.template(this.activeProject));
+		}
+
 	}
 })
 
