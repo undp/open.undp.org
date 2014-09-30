@@ -97,18 +97,6 @@ $(document).ready(function() {
     var models = {},
         views = {},
         routers = {},
-        // geting ALL the script with names, aka templates
-        // and return memo, which is an object with all templates turned functions
-        // that's why you see things like
-        // ---> $el.append(templates.donorSpecific(app)) <--
-        // it simply means: use the donorSpecific template, and pass in the varible app
-        //
-        // This is too confusing. TODO use normal ways of templating
-        //
-        templates = _($('script[name]')).reduce(function(memo, el) {
-            memo[el.getAttribute('name')] = _.template(el.innerHTML);
-            return memo;
-        }, {}),
         app = {};
 
     {% include models.js %}
