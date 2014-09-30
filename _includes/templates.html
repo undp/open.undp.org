@@ -1,121 +1,47 @@
-<script name='app' type='text/html'>{% include templates/app._ %}</script>
-<script name='nav' type='text/html'>{% include templates/nav._ %}</script>
-<script name='donorSpecific' type='text/html'>{% include templates/donorSpecific._ %}</script>
-<script name='filter' type='text/html'>{% include templates/filter._ %}</script>
-<script name='filters' type='text/html'>{% include templates/filters._ %}</script>
-<script name='project' type='text/html'>{% include templates/project._ %}</script>
-<script name='projects' type='text/html'>{% include templates/projects._ %}</script>
-<script name='projectProfile' type='text/html'>{% include templates/projectProfile._ %}</script>
-<script name='projectOutputs' type='text/html'>{% include templates/projectOutputs._ %}</script>
-<script name='embedProject' type='text/html'>{% include templates/embedProject._ %}</script>
-<script name='embedProjectOutputs' type='text/html'>{% include templates/embedProjectOutputs._ %}</script>
-<script name='topDonors' type='text/html'>{% include templates/topDonors._ %}</script>
-<script name='topDonor' type='text/html'>{% include templates/topDonor._ %}</script>
-<script name='ctrySummary' type='text/html'>{% include templates/ctrySummary._ %}</script>
-<script name='widget' type='text/html'>{% include templates/widget._ %}</script>
-
-<script id='donorViz' type='text/html'>
-  {% include templates/donorViz._%}
-</script>
-
 <div id='homemap-legend' style='display:none;'>
-	<strong>Type of funds</strong>
-	<div class='clearfix'>
-    	<div><i style='background: #0055aa;border-radius: 1; border-color: #0055aa;' class="legend-icon"></i><p>Partner</div>
-    	<div><i style='background: rgba(0, 85, 170, 0.6); border-color: #0055aa' class='legend-icon'></i>Local</div>
-	</div>
+  <strong>Type of funds</strong>
+  <div class='clearfix'>
+      <div><i style='background: #0055aa;border-radius: 1; border-color: #0055aa;' class="legend-icon"></i><p>Partner</div>
+      <div><i style='background: rgba(0, 85, 170, 0.6); border-color: #0055aa' class='legend-icon'></i>Local</div>
+  </div>
 </div>
 
-<script id='focusAreaItemTemplate' type='text/html'>
-  <li class='focus fa<%= id %>'>
-    <a href='<%= path %>' class='focus-title'> <%= focusName %> </a>
-    <p class='pct'><span class='<%= focusIconClass %>'></span></p>
-  </li>
-</script>
+<script id='navTemplate' type='text/html'>{% include templates/navTemplate._ %}</script>
+<!-- Filter  -->
+<script id='filterItem' type='text/html'>{% include templates/filterItem._ %}</script>
+<script id='filterItemList' type='text/html'>{% include templates/filterItemList._ %}</script>
 
+<!-- Project Item List -->
+<script id='projectItem' type='text/html'>{% include templates/projectItem._ %}</script>
+<script id='projectItemList' type='text/html'>{% include templates/projectItemList._ %}</script>
 
-<script id='budgetChartItemTemplate' type='text/html'>
-  <tr>
-    <td><a href='<%= path %>'><%= name %></a></td>
-    <td class='right'><%= budget %></td>
-    <td class='data'>
-      <div class='budgetdata' data-budget='<%= budgetWidth %>'></div>
-      <div class='subdata' data-expenditure='<%= expenditureWidth %>'></div>
-    </td>
-  </tr>
-</script>
+<!-- Top Donors Page -->
+<script id='topDonor' type='text/html'>{% include templates/topDonor._ %}</script>
+<script id='topDonors' type='text/html'>{% include templates/topDonors._ %}</script>
 
-<script id='embedFocusAreaItemTemplate' type='text/html'>
-  <li class='focus fa<%= id %>'>
-    <a target="_blank" href='<%= path %>' class='focus-title'> <%= focusName %> </a>
-    <p class='pct'><span class='<%= focusIconClass %>'></span></p>
-  </li>
-</script>
+<!-- Donor country visualization -->
+<script id='donorViz' type='text/html'>{% include templates/donorViz._%}</script>
+<script id='donorSpecific' type='text/html'>{% include templates/donorSpecific._ %}</script>
 
+<!-- Embed Widget UI -->
+<script id='widgetTemplate' type='text/html'>{% include templates/widgetTemplate._ %}</script>
 
-<script id='embedBudgetChartItemTemplate' type='text/html'>
-  <tr>
-    <td><a target="_blank" href='<%= path %>'><%= name %></a></td>
-    <td class='right'><%= budget %></td>
-    <td class='data'>
-      <div class='budgetdata' data-budget='<%= budgetWidth %>'></div>
-      <div class='subdata' data-expenditure='<%= expenditureWidth %>'></div>
-    </td>
-  </tr>
-</script>
+<!-- Main App/Embed-->
+<script id='appTemplate' type='text/html'>{% include templates/appTemplate._ %}</script>
+<script id='embedAppTemplate' type='text/html'>{% include templates/embedAppTemplate._ %}</script>
+<script id='embedProjectItem' type='text/html'>{% include templates/embedProjectItem._ %}</script>
+<script id='embedFocusAreaItemTemplate' type='text/html'>{% include templates/embedFocusAreaItemTemplate._ %}</script>
+<script id='embedBudgetChartItemTemplate' type='text/html'>{% include templates/embedBudgetChartItemTemplate._%}</script>
 
-<script id='recipientOfficesChart' type='text/html'>
-  <h3>Top Recipient Offices</h3>
-  <span class='chart-legend'>
-    <div class='thick-bar clearfix'><span></span>Budget</div>
-    <div class='thin-bar'><span></span>Expense</div>
-  </span>
-  <table class='table table-unstyled'>
-    <tbody class='rows'></tbody>
-  </table>
-</script>
+<!-- Individual Project Page/Embed -->
+<script id='projectProfile' type='text/html'>{% include templates/projectProfile._ %}</script>
+<script id='projectOutputs' type='text/html'>{% include templates/projectOutputs._ %}</script>
+<script id='embedProjectProfile' type='text/html'>{% include templates/embedProjectProfile._ %}</script>
+<script id='embedProjectOutputs' type='text/html'>{% include templates/embedProjectOutputs._ %}</script>
+<script id='projectMapCountrySummary' type='text/html'>{% include templates/projectMapCountrySummary._ %}</script>
 
-<script id='recipientOfficesChartTabbed' type='text/html'>
-  <h3>Top Recipient Offices</h3>
-  <span class='chart-legend'>
-    <div class='thick-bar clearfix'><span></span>Budget</div>
-    <div class='thin-bar'><span></span>Expense</div>
-  </span>
-  <ul class="nav nav-tabs">
-    <li class="active"><a href="#partnerTab" data-toggle='tab'>Partner Resources</a></li>
-    <li><a href="#localTab" data-toggle='tab'>Local Resources</a></li>
-    <li><a href="#readMore" data-toggle='tab'>Read More</a></li>
-  </ul>
-  <div>
-    <div class="tab-content">
-      <div class='tab-pane active' id='partnerTab'>
-        <table class='table table-unstyled'>
-          <tbody class='rows'></tbody>
-        </table>
-      </div>
-      <div class='tab-pane' id='localTab'>
-        <table class='table table-unstyled'>
-          <tbody class='rows'></tbody>
-        </table>
-      </div>
-      <div class='tab-pane' id='readMore'>
-        <p>The ranking of the top recipient offices includes funding originating <b>from within the country</b>. Country offices such as Argentina is listed as a local resource recipient because it receives funding from domestic organizations.</p>
-      </div>
-    </div>
-  </div>
-</script>
-
-<!-- Google Analytics -->
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-24131528-32']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
+<!-- charts -->
+<script id='focusAreaItemTemplate' type='text/html'>{% include templates/focusAreaItemTemplate._ %}</script>
+<script id='budgetChartItemTemplate' type='text/html'>{% include templates/budgetChartItemTemplate._ %}</script>
+<script id='recipientOfficesChart' type='text/html'>{% include templates/recipientOfficesChart._ %}</script>
+<script id='recipientOfficesChartTabbed' type='text/html'>{% include templates/recipientOfficesChartTabbed._ %}</script>

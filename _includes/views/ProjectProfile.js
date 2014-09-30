@@ -5,6 +5,14 @@ views.ProjectProfile = Backbone.View.extend({
     },
 
     initialize: function() {
+        if (this.options.embed){
+            this.template = _.template($('#embedProjectProfile').html());
+            this.subTemplate = _.template($('#embedProjectOutputs').html());
+        } else {
+            this.template = _.template($('#projectProfile').html());
+            this.subTemplate = _.template($('#projectOutputs').html());
+        }
+
         this.render();
 
         var outputID = this.options.gotoOutput;
@@ -18,12 +26,13 @@ views.ProjectProfile = Backbone.View.extend({
     },
 
     render: function() {
-        $('#breadcrumbs ul').html(
-            '<li><a href="http://www.undp.org/content/undp/en/home.html">Home</a></li>' +
-            '<li><a href="' + BASE_URL + '">Our Projects</a></li>' +
-            '<li><a href="' + BASE_URL + '#'+ CURRENT_YR +'/filter/operating_unit-' + this.model.get('operating_unit_id') + '">' + this.model.get("operating_unit") + '</a></li>' +
-            '<li><a href="' + BASE_URL + '#project/' + this.model.get('id') + '">' + this.model.get('id') + '</a></li>'
-        );
+        new views.Breadcrumbs({
+            add:'activeProject',
+            projectUnitId: this.model.get('operating_unit_id'),
+            projectUnitName: this.model.get("operating_unit"),
+            projectName: this.model.get('id')
+        });
+
         // sometimes the model doesn't get the attributes
         if (this.model.get('start') != undefined) {
             var start = this.model.get('start').split('-');
@@ -100,12 +109,12 @@ views.ProjectProfile = Backbone.View.extend({
 
         if (this.options.embed) {
 
-            this.$el.empty().append(templates.embedProjectProfile({
+            this.$el.html(this.template({
                 start: start,
                 end: end,
                 documents: documents,
                 model: this.model
-            }));
+            }))
             // Depending on the options passed into the array add a fade
             // in class to all elements containing a data-option attribute
             this.$el.find('.option').hide();
@@ -114,7 +123,7 @@ views.ProjectProfile = Backbone.View.extend({
             });
 
         } else {
-            this.$el.empty().append(templates.projectProfile({
+            this.$el.html(this.template({
                 start: start,
                 end: end,
                 base: BASE_URL,
@@ -139,21 +148,14 @@ views.ProjectProfile = Backbone.View.extend({
 
         $('#progress').find('.bar').css('width', progress + '%');
 
-        this.$('#outputs').empty();
+        $('#outputs',this.$el).empty();
         
         if (this.model.attributes.outputs) {
             var outputs = this.model.attributes.outputs.slice(0, 9);
 
-            if (this.options.embed) {
-                _(outputs).each(function(model) {
-                    this.$('#outputs').append(templates.embedProjectOutputs({ model: model }));
-                });
-            } else {
-                _(outputs).each(function(model) {
-                    this.$('#outputs').append(templates.projectOutputs({ model: model }));
-                });
-            }
-
+            _(outputs).each(function(model) {
+                $('#outputs',this.$el).append(this.subTemplate({model:model}));
+            },this);
 
             if (this.model.attributes.outputs.length < 10) {
                 $('.load').hide();
@@ -161,9 +163,6 @@ views.ProjectProfile = Backbone.View.extend({
                 $('.load').show();
             }
         }
-
-        // Append menu items to the breadcrumb
-        $('breadcrumbs').find('ul').remove();
 
         return this;
     },
@@ -176,8 +175,8 @@ views.ProjectProfile = Backbone.View.extend({
 
         if (outputs.length) {
             _(outputs).each(function(model) {
-                this.$('#outputs').append(templates.projectOutputs({ model: model }));
-            });
+                $('#outputs',this.$el).append(this.subTemplate({model:model}));
+            },this);
         } else {
             $(e.target).text('All Projects Loaded').addClass('disabled');
         }

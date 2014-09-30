@@ -1,6 +1,12 @@
 views.TopDonors = Backbone.View.extend({
+    template:_.template($('#topDonors').html()),
     initialize: function () {
-        this.$el.html(templates.topDonors(this));
+        // populate parent ul
+        this.$el.html(this.template());
+        this.$subEl = $('tbody',this.$el);
+
+        // sub template addresses li
+        this.subTemplate = _.template($('#topDonor').html());
         this.render();
     },
     render: function () {
@@ -13,20 +19,18 @@ views.TopDonors = Backbone.View.extend({
         _(chartModels).each(function(model) {
             
             if (model.get(cat) != '' && model.get(cat)!=0) {
-               $('tbody', that.el).append(templates.topDonor({
+                this.$subEl.append(this.subTemplate({
                     name: model.get('name'),
                     id: model.get('donor_id'),
                     country: model.get('country'),
                     number: model.get(cat),
                     barWidth: model.get(cat)/max*100
-                }));
-                count++;
-               
+                }))
             }
-        });
+        },this);
+
     },
     update: function(cat) {
-        //debugger;
         var that = this;
         
         that.collection.comparator = function(model) {

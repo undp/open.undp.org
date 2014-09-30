@@ -163,7 +163,7 @@ routers.Global = Backbone.Router.extend({
 
         // Check for funding countries to show donor visualization
         if (that.donorCountry){
-            that.donor = new views.Donors ();
+            that.donor = new views.DonorCharts ();
             $('#donor-view').show();
         } else {
             that.donor = false;
@@ -219,7 +219,7 @@ routers.Global = Backbone.Router.extend({
         }
 
         new views.Breadcrumbs();
-        new views.Projects({ collection: that.projects });
+        new views.ProjectItemList({collection: that.projects });
 
         // reset unit and donorCountry
         this.unit = false;
@@ -231,29 +231,25 @@ routers.Global = Backbone.Router.extend({
     project: function (id, output, embed) {
         var that = this;
 
-        if (!embed) {
-            // Load in feedbackform deats
-            that.feedback();
-
-            var nav = new views.Nav({add:'project'});
-
-            window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
-
-            that.project.widget = new views.Widget({
-                context: 'project'
-            });
-        }
-
-        // Set up this route
-
         that.project.model = new Project({
             id: id
         });
+
+        if (!embed) {
+            window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
+
+            new views.Nav({add:'project'});
+            new views.Widget({
+                context: 'project'
+            });
+            // Load in feedbackform deats
+            that.feedback();
+        }
+
         // loading the specific project
         that.project.model.fetch({
             success: function (data) {
-                if (that.project.view) that.project.view.undelegateEvents();
-                that.project.view = new views.ProjectProfile({
+                new views.ProjectProfile({
                     el: (embed) ? '#embed' : '#profile',
                     model: that.project.model,
                     embed: embed || false,
@@ -268,15 +264,15 @@ routers.Global = Backbone.Router.extend({
         var that = this,
             parts = path.split('?'),
             options = parts[1],
-            pathTemp = parts[0]; // something widget related, temporarily renamed to differentiate from the path passed from url
+            projectInfo = parts[0]; //['project','00041501']
 
-        pathTemp = (pathTemp) ? pathTemp.split('/') : [];
+        projectInfo = (projectInfo) ? projectInfo.split('/') : [];
         options = (options) ? options.split('&') : [];
 
-        if (pathTemp[0] === 'project') {
-            loadjsFile('api/project_summary_' + year + '.js', year, function() {
-                that.project(parts[0].split('/')[1], false, options);
-            });
+        if (projectInfo[0] === 'project') {
+
+            that.project(parts[0].split('/')[1], false, options);
+
         } else {
             var path = parts[0];
             if (path === '') path = undefined;
@@ -360,28 +356,6 @@ routers.Global = Backbone.Router.extend({
         });
     },
 
-    renderDonorContent: function() {
-        var $el = $('#donor-specific');
-        $el.empty();
-        $el.append(templates.donorSpecific(app));
-        $el.find('.spin').spin({ color:'#000' });
-
-        _($el.find('img')).each(function(img){
-            var caption = $('<p class="photo-caption">'+img.alt+'</p>')
-            caption.insertAfter(img);
-            caption.prev().andSelf().wrapAll('<div class="slide" />');
-        });
-        $('.slide').wrapAll('<div id="slides" />');
-        $('#slides', $el).slidesjs({
-            pagination:{active:false},
-            callback: {
-                loaded: function(number) {
-                    $el.find('.spin').remove();
-                }
-            }
-        });
-    },
-
     updateDescription: function() {
         var $elDesc = $('#description p.desc'),
             $elGeo = $('#description p.geography'),
@@ -391,17 +365,21 @@ routers.Global = Backbone.Router.extend({
         $elDesc.empty();
         $elGeo.empty();
         $elIntro.empty();
+        $('#donor-specific').empty();
 
         setTimeout(function() {
+
 
             var plural = (global.projects.length === 1) ? 'project' : 'projects',
                 sentenceThere = 'There are ' + util.bold(global.projects.length),
                 sentenceDonor = global.donorDescription;
 
             if (global.donorDescription.length > 1){
-                global.renderDonorContent();
-                $('#donor-title').html(global.donorTitle);
+
+                new views.DonorTexts();
+                $('#donor-title').html(global.donorTitle); // would be better if updated in DonorCharts
                 $elDesc.html(sentenceDonor + global.description.join(',') + '.');
+
             } else if (global.donorDescription.length === 0 && global.description.length > 0){
                 $elDesc.html(sentenceThere + global.description.join(',') + '.');
             } else {
@@ -410,7 +388,6 @@ routers.Global = Backbone.Router.extend({
 
             $('#browser .summary').removeClass('off');
 
-            $('#donor-specific').empty();
             $('#filters-search, #projects-search').val('');
 
             if (_(global.processedFacets).find(function(f) {

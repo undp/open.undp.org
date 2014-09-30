@@ -1,5 +1,7 @@
 views.Filters = Backbone.View.extend({
+    template:_.template($('#filterItemList').html()),
     initialize: function () {
+        this.subTemplate = _.template($('#filterItem').html());
         this.collection.on('update', this.render, this);
     },
     render: function(keypress) {
@@ -84,23 +86,20 @@ views.Filters = Backbone.View.extend({
 
             function filterCallback() {
                 if (filterModels.length) {
-                    view.$el.html(templates.filters(view)); //  and view === this... TODO: see script.js
+                    view.$el.html(view.template(view)); // pass in the view as the template varible
 
                     _(filterModels).each(function(model) {
 
-                        view.$('.filter-items').append(templates.filter({ model: model }));
+                        view.$('.filter-items').append(view.subTemplate({model:model}));
                         $('#' + view.collection.id + '-' + model.id).toggleClass('active', model.get('active'));
 
                         if (model.get('active') && !keypress) {
-                            // var breadcrumbs = new views.Breadcrumbs();
-                            $('#breadcrumbs ul').append(
-                                '<li><a href="' + BASE_URL +
-                                document.location.hash.split('/')[0] + '/filter/' +
-                                view.collection.id + '-' +
-                                model.get('id') + '">' +
-                                model.get('name').toLowerCase().toTitleCase() +
-                                '</a></li>'
-                            );
+                            new views.Breadcrumbs({
+                                add: 'activeFilter',
+                                filterName: model.get('name').toLowerCase().toTitleCase(),
+                                filterCollection: view.collection.id,
+                                filterId: model.get('id')
+                            });
 
                             new views.Description({
                                 facetName:view.collection.id,
