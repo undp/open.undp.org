@@ -6,14 +6,13 @@
   </div>
 </div>
 <script name='nav' type='text/html'>{% include templates/nav._ %}</script>
-<script name='filter' id='filterTemplate' type='text/html'>{% include templates/filter._ %}</script>
-<script name='filters' type='text/html'>{% include templates/filters._ %}</script>
+<!-- Filter  -->
+<script id='filterItem' name='filter' id='filterTemplate' type='text/html'>{% include templates/filterItem._ %}</script>
+<script id='filterItemList' name='filters' type='text/html'>{% include templates/filterItemList._ %}</script>
+
 <!-- Project Item List -->
 <script id='projectItem' type='text/html'>{% include templates/projectItem._ %}</script>
 <script id='projectItemList' type='text/html'>{% include templates/projectItemList._ %}</script>
-
-<!-- Map Summary (sidebar) -->
-<script id='projectMapCountrySummary' type='text/html'>{% include templates/projectMapCountrySummary._ %}</script>
 
 <!-- Top Donors Page -->
 <script id='topDonor' type='text/html'>{% include templates/topDonor._ %}</script>
@@ -38,6 +37,7 @@
 <script name='projectOutputs' type='text/html'>{% include templates/projectOutputs._ %}</script>
 <script name='embedProjectProfile' type='text/html'>{% include templates/embedProjectProfile._ %}</script>
 <script name='embedProjectOutputs' type='text/html'>{% include templates/embedProjectOutputs._ %}</script>
+<script id='projectMapCountrySummary' type='text/html'>{% include templates/projectMapCountrySummary._ %}</script>
 
 <!-- charts -->
 <script id='focusAreaItemTemplate' type='text/html'>{% include templates/focusAreaItemTemplate._ %}</script>
