@@ -219,7 +219,7 @@ routers.Global = Backbone.Router.extend({
         }
 
         new views.Breadcrumbs();
-        new views.Projects({ collection: that.projects });
+        new views.ProjectItemList({collection: that.projects });
 
         // reset unit and donorCountry
         this.unit = false;

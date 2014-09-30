@@ -2,7 +2,9 @@ views.ProjectMap = Backbone.View.extend({
     events: {
         'click .map-fullscreen': 'fullscreen',
     },
+    template:_.template($('#projectMapCountrySummary').html()),
     initialize: function() {
+        this.$summaryEl = $('#country-summary');
         if (this.options.render) this.render();
     },
     tooltip: function(data, g) {
@@ -28,8 +30,8 @@ views.ProjectMap = Backbone.View.extend({
             subLocations = this.model.get('subnational'),
             wheelZoom = true;
             
-            // adding faux fullscreen control
-         if (!view.options.embed) {
+        // adding faux fullscreen control
+        if (!view.options.embed) {
            $('#profilemap').append('<div class="full-control"><a href="#" class="icon map-fullscreen"></a></div>');
         } else {
             wheelZoom = false;
@@ -54,21 +56,21 @@ views.ProjectMap = Backbone.View.extend({
             .defer(util.request,'api/operating-unit-index.json')
             .await(draw);
 
-        function draw(error, world, india, subLocIndex,focusIndex,data){
-            for (var i = 0; i < data.length; i++) {
-            var o = data[i];
-            if (o.id === unit) {
+        function draw(error, world, india, subLocIndex,focusIndex, opUnitData){
+            for (var i = 0; i < opUnitData.length; i++) {
+            var opUnit = opUnitData[i];
+            if (opUnit.id === unit) {
                 // disable social media chunk
                 // if (!view.options.embed) view.getwebData(o);
 
-                $('#country-summary').html(templates.ctrySummary(o));
+                view.$summaryEl.html(view.template(opUnit));
 
-                if (!o.lon) {// if the unit has no geography
+                if (!opUnit.lon) {// if the unit has no geography
                     view.$el.prev().hide();
                     view.$el.next().addClass('nogeo');
                     view.$el.hide();
                 } else {
-                    var iso = parseInt(o.iso_num);
+                    var iso = parseInt(opUnit.iso_num);
                         // second try
                     if (!IE || IE_VERSION > 8){
                         view.outline = new L.GeoJSON();
@@ -100,17 +102,17 @@ views.ProjectMap = Backbone.View.extend({
 
                         view.outline.addTo(view.map);
                     } else {
-                        view.map.setView([o.lat,o.lon],3);
+                        view.map.setView([opUnit.lat,opUnit.lon],3);
                     }
                     var markerOptions = {
                         'marker-size': 'small'
                     };
 
-                    _(subLocations).each(function(o) {
+                    _(subLocations).each(function(subLoc) {
                         var markerColor;
-                        _(focusIndex).each(function(f){
-                            if (f.id == o.focus_area){
-                                return markerColor = f.color;
+                        _(focusIndex).each(function(focus){
+                            if (focus.id == subLoc.focus_area){
+                                return markerColor = focus.color;
                             };
                         });
 
@@ -119,20 +121,20 @@ views.ProjectMap = Backbone.View.extend({
                             geometry: {
                                 type: "Point",
                                 coordinates: [
-                                    o.lon,
-                                    o.lat
+                                    subLoc.lon,
+                                    subLoc.lat
                                 ]
                             },
                             properties: {
-                                id: o.awardID,
-                                outputID: o.outputID,
-                                precision: o.precision,
-                                type: o.type,
-                                scope: o.scope,
+                                id: subLoc.awardID,
+                                outputID: subLoc.outputID,
+                                precision: subLoc.precision,
+                                type: subLoc.type,
+                                scope: subLoc.scope,
                                 project: view.model.get('project_title'),
-                                name: o.name,
-                                focus_area: o.focus_area,
-                                description: view.tooltip(o, subLocIndex),
+                                name: subLoc.name,
+                                focus_area: subLoc.focus_area,
+                                description: view.tooltip(subLoc, subLocIndex),
                                 'marker-size': 'small',
                                 'marker-color': markerColor
                             } 

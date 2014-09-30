@@ -1,5 +1,6 @@
-views.Projects = Backbone.View.extend({
+views.ProjectItemList = Backbone.View.extend({
     el: '#project-items',
+    template: _.template($('#projectItemList').html()),
     events: {
         'click .load a': 'loadMore',
         'click table tr': 'routeToProject',
@@ -7,15 +8,24 @@ views.Projects = Backbone.View.extend({
     },
 
     initialize: function() {
-        
-        this.$el.html(templates.projects(this));
+        this.$el.html(this.template());
+        this.$subEl = $(('#project-table tbody'),this.$el);
+
         this.collection.on('update', this.render, this);
         $('#projects input[type="search"]').on('keyup', _.bind(this.search, this));
 
         this.low = 50,
         this.high = 100;
 
-        this.pageType = Backbone.history.location.hash.split('/')[1];
+        this.$subEl.empty();
+
+        var pageType = Backbone.history.location.hash.split('/')[1];
+
+        if (pageType == 'widget'){
+            this.subTemplate = _.template($('#embedProjectItem').html());
+        } else {
+            this.subTemplate = _.template($('#projectItem').html());
+        }
     },
 
     render: function() {
@@ -65,16 +75,11 @@ views.Projects = Backbone.View.extend({
         }
         if (models.length) {
 
-            this.$('#project-table tbody').empty();
-            if (this.pageType == 'widget'){
-                _(models).each(function(model) {
-                    this.$('#project-table tbody').append(templates.embedProject({ model: model }));
-                })
-            } else {
-                _(models).each(function(model) {
-                    this.$('#project-table tbody').append(templates.project({ model: model }));
-                })
-            }
+            this.$subEl.empty();
+
+            _(models).each(function(model) {
+                this.$subEl.append(this.subTemplate({ model:model }));
+            },this)
 
            if (models.length < 50) {
                 $('.load').hide();
@@ -83,7 +88,7 @@ views.Projects = Backbone.View.extend({
             }
         } else {
             this.$('.load').hide();
-            this.$('#project-table tbody').empty().append('<tr><td><em>No projects</em></td><td></td><td></td></tr>');
+            this.$subEl.empty().append('<tr><td><em>No projects</em></td><td></td><td></td></tr>');
 
         }
 
@@ -100,15 +105,9 @@ views.Projects = Backbone.View.extend({
             })).slice(self.low,self.high);
 
         if (models.length) {
-            if (this.pageType == 'widget'){
-                _(models).each(function(model) {
-                    this.$('#project-table tbody').append(templates.embedProject({ model: model }));
-                })
-            } else {
-                _(models).each(function(model) {
-                    this.$('#project-table tbody').append(templates.project({ model: model }));
-                })
-            }
+            _(models).each(function(model) {
+                this.$subEl.append(this.subTemplate({ model:model }));
+            },this)
         } else {
             $(e.target).text('All Projects Loaded').addClass('disabled');
         }
