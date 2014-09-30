@@ -92,15 +92,17 @@ views.Filters = Backbone.View.extend({
                         $('#' + view.collection.id + '-' + model.id).toggleClass('active', model.get('active'));
 
                         if (model.get('active') && !keypress) {
-                            // var breadcrumbs = new views.Breadcrumbs();
-                            $('#breadcrumbs ul').append(
-                                '<li><a href="' + BASE_URL +
-                                document.location.hash.split('/')[0] + '/filter/' +
-                                view.collection.id + '-' +
-                                model.get('id') + '">' +
-                                model.get('name').toLowerCase().toTitleCase() +
-                                '</a></li>'
-                            );
+                            new views.Breadcrumbs({
+                                add: 'activeFilter',
+                                filterName: model.get('name').toLowerCase().toTitleCase(),
+                                filterLink: [
+                                    document.location.hash.split('/')[0],
+                                    '/filter/',
+                                    view.collection.id,
+                                    '-',
+                                    model.get('id')
+                                  ].join('')
+                            });
 
                             new views.Description({
                                 facetName:view.collection.id,
