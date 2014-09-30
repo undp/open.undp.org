@@ -14,24 +14,24 @@ views.App = Backbone.View.extend({
     },
     
     initialize: function(options) {
-        // Toggle country selector
-        $(window).on('click', '#country-selector', _(this.showCountries).bind(this));
-        $(window).on('click', '#country-list .close', _(this.hideCountries).bind(this));
-
+        if (this.options.embed){
+            this.template = _.template($('#embedAppTemplate').html());
+        } else {
+            this.template = _.template($('#appTemplate').html());
+        }
         this.render();
     },
 
     render: function() {
 
         if (this.options.embed) {
-            this.$el.empty().append(templates.embedProjects());
+            this.$el.html(this.template());
             this.$el.find('.option').hide();
             _(this.options.embed).each(function (o) {
                 $('[data-option="' + o + '"]').show();
             });
         } else {
-            this.$el.empty().append(templates.app({
-                base: BASE_URL,
+            this.$el.html(this.template({
                 year: this.options.year
             }));
 
@@ -64,6 +64,10 @@ views.App = Backbone.View.extend({
         });
 
         this.selectYear(this.options.year);
+
+        // Toggle country selector - relavant in global header
+        $(window).on('click', '#country-selector', _(this.showCountries).bind(this));
+        $(window).on('click', '#country-list .close', _(this.hideCountries).bind(this));
     },
 
     selectYear: function(year) {
