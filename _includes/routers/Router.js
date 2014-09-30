@@ -231,29 +231,25 @@ routers.Global = Backbone.Router.extend({
     project: function (id, output, embed) {
         var that = this;
 
-        if (!embed) {
-            // Load in feedbackform deats
-            that.feedback();
-
-            var nav = new views.Nav({add:'project'});
-
-            window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
-
-            that.project.widget = new views.Widget({
-                context: 'project'
-            });
-        }
-
-        // Set up this route
-
         that.project.model = new Project({
             id: id
         });
+
+        if (!embed) {
+            window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
+
+            new views.Nav({add:'project'});
+            new views.Widget({
+                context: 'project'
+            });
+            // Load in feedbackform deats
+            that.feedback();
+        }
+
         // loading the specific project
         that.project.model.fetch({
             success: function (data) {
-                if (that.project.view) that.project.view.undelegateEvents();
-                that.project.view = new views.ProjectProfile({
+                new views.ProjectProfile({
                     el: (embed) ? '#embed' : '#profile',
                     model: that.project.model,
                     embed: embed || false,
@@ -268,15 +264,15 @@ routers.Global = Backbone.Router.extend({
         var that = this,
             parts = path.split('?'),
             options = parts[1],
-            pathTemp = parts[0]; // something widget related, temporarily renamed to differentiate from the path passed from url
+            projectInfo = parts[0]; //['project','00041501']
 
-        pathTemp = (pathTemp) ? pathTemp.split('/') : [];
+        projectInfo = (projectInfo) ? projectInfo.split('/') : [];
         options = (options) ? options.split('&') : [];
 
-        if (pathTemp[0] === 'project') {
-            loadjsFile('api/project_summary_' + year + '.js', year, function() {
-                that.project(parts[0].split('/')[1], false, options);
-            });
+        if (projectInfo[0] === 'project') {
+
+            that.project(parts[0].split('/')[1], false, options);
+
         } else {
             var path = parts[0];
             if (path === '') path = undefined;
