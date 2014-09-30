@@ -1,4 +1,4 @@
-views.Donors = Backbone.View.extend({
+views.DonorCharts = Backbone.View.extend({
     el: '#donor-graphs',
     template: _.template($('#donorViz').html()),
     initialize: function() {

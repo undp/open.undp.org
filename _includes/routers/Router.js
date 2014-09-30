@@ -163,7 +163,7 @@ routers.Global = Backbone.Router.extend({
 
         // Check for funding countries to show donor visualization
         if (that.donorCountry){
-            that.donor = new views.Donors ();
+            that.donor = new views.DonorCharts ();
             $('#donor-view').show();
         } else {
             that.donor = false;
@@ -360,28 +360,6 @@ routers.Global = Backbone.Router.extend({
         });
     },
 
-    renderDonorContent: function() {
-        var $el = $('#donor-specific');
-        $el.empty();
-        $el.append(templates.donorSpecific(app));
-        $el.find('.spin').spin({ color:'#000' });
-
-        _($el.find('img')).each(function(img){
-            var caption = $('<p class="photo-caption">'+img.alt+'</p>')
-            caption.insertAfter(img);
-            caption.prev().andSelf().wrapAll('<div class="slide" />');
-        });
-        $('.slide').wrapAll('<div id="slides" />');
-        $('#slides', $el).slidesjs({
-            pagination:{active:false},
-            callback: {
-                loaded: function(number) {
-                    $el.find('.spin').remove();
-                }
-            }
-        });
-    },
-
     updateDescription: function() {
         var $elDesc = $('#description p.desc'),
             $elGeo = $('#description p.geography'),
@@ -391,17 +369,21 @@ routers.Global = Backbone.Router.extend({
         $elDesc.empty();
         $elGeo.empty();
         $elIntro.empty();
+        $('#donor-specific').empty();
 
         setTimeout(function() {
+
 
             var plural = (global.projects.length === 1) ? 'project' : 'projects',
                 sentenceThere = 'There are ' + util.bold(global.projects.length),
                 sentenceDonor = global.donorDescription;
 
             if (global.donorDescription.length > 1){
-                global.renderDonorContent();
-                $('#donor-title').html(global.donorTitle);
+
+                new views.DonorTexts();
+                $('#donor-title').html(global.donorTitle); // would be better if updated in DonorCharts
                 $elDesc.html(sentenceDonor + global.description.join(',') + '.');
+
             } else if (global.donorDescription.length === 0 && global.description.length > 0){
                 $elDesc.html(sentenceThere + global.description.join(',') + '.');
             } else {

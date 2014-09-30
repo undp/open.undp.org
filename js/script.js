@@ -126,7 +126,8 @@ $(document).ready(function() {
     {% include views/HDI.js %}
     {% include views/TopDonors.js %}
     {% include views/Widget.js %}
-    {% include views/Donors.js %}
+    {% include views/DonorCharts.js %}
+    {% include views/DonorTexts.js %}
     {% include views/Breadcrumbs.js %}
     {% include views/YearNav.js %}
     {% include views/Facets.js %}
