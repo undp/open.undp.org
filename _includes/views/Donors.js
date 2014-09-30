@@ -1,8 +1,5 @@
 views.Donors = Backbone.View.extend({
     el: '#donor-graphs',
-    // see the template in _includes/templates/donorViz._
-    // selecting #donorViz since it's the id of the template script, see _includes/templates.html
-    // which is included in index.html
     template: _.template($('#donorViz').html()),
     initialize: function() {
 

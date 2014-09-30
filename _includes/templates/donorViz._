@@ -12,7 +12,7 @@
 
     <tr>
       <td>Cost Sharing</td>
-      <td>$<%= abbreviateNumber(costSharing) %></td>
+      <td>$<%= util.abbreviateNumber(costSharing) %></td>
       <td>
         <div class='left'><%= costSharingAllocation %>%</div>
         <div class='right data wide'>
@@ -20,7 +20,7 @@
           <div class='fund' fund-percent=<%= costSharingAllocation %>  style='width: <%= costSharingAllocation %>%;'></div>
         </div>
       </td>
-      <td>$<%= abbreviateNumber(costSharingTotal) %></td>
+      <td>$<%= util.abbreviateNumber(costSharingTotal) %></td>
       <td>
         <div class='left'><%= costSharingPct %>%</div>
         <div class='right data wide'>
@@ -32,7 +32,7 @@
 
     <tr>
       <td>Trust Funds</td>
-      <td>$<%= abbreviateNumber(trustFunds) %></td>
+      <td>$<%= util.abbreviateNumber(trustFunds) %></td>
       <td>
         <div class='left'><%= trustFundsAllocation %>%</div>
         <div class='right data wide'>
@@ -40,7 +40,7 @@
           <div class='fund' fund-percent=<%= trustFundsAllocation %>  style='width: <%= trustFundsAllocation %>%;'></div>
         </div>
       </td>
-      <td>$<%= abbreviateNumber(trustFundsTotal) %></td>
+      <td>$<%= util.abbreviateNumber(trustFundsTotal) %></td>
       <td>
         <div class='left'><%= trustFundsPct %>%</div>
         <div class='right data wide'>
@@ -52,7 +52,7 @@
 
     <tr>
       <td>Thematic Trust Funds</td>
-      <td>$<%= abbreviateNumber(thematicTrustFunds)%></td>
+      <td>$<%= util.abbreviateNumber(thematicTrustFunds)%></td>
       <td>
         <div class='left'><%= thematicTrustFundsAllocation %>%</div>
         <div class='right data wide'>
@@ -60,7 +60,7 @@
           <div class='fund' fund-percent=<%= thematicTrustFundsAllocation %>  style='width: <%= thematicTrustFundsAllocation %>%;'></div>
         </div>
       </td>
-      <td>$<%= abbreviateNumber(thematicTrustFundsTotal) %></td>
+      <td>$<%= util.abbreviateNumber(thematicTrustFundsTotal) %></td>
       <td>
         <div class='left'><%= thematicTrustFundsPct %>%</div>
         <div class='right data wide'>
@@ -72,7 +72,7 @@
 
     <tr>
       <td>Special Activities</td>
-      <td>$<%= abbreviateNumber(specialActivities)%></td>
+      <td>$<%= util.abbreviateNumber(specialActivities)%></td>
       <td>
         <div class='left'><%= specialActivitiesAllocation %>%</div>
         <div class='right data wide'>
@@ -80,7 +80,7 @@
           <div class='fund' fund-percent=<%= specialActivitiesAllocation %>  style='width: <%= specialActivitiesAllocation %>%;'></div>
         </div>
       </td>
-      <td>$<%= abbreviateNumber(specialActivitiesTotal) %></td>
+      <td>$<%= util.abbreviateNumber(specialActivitiesTotal) %></td>
       <td>
         <div class='left'><%= specialActivitiesPct %>%</div>
         <div class='right data wide'>
@@ -92,7 +92,7 @@
 
     <tr>
       <td>UNV</td>
-      <td>$<%= abbreviateNumber(unv)%></td>
+      <td>$<%= util.abbreviateNumber(unv)%></td>
       <td>
         <div class='left'><%= unvAllocation %>%</div>
         <div class='right data wide'>
@@ -100,7 +100,7 @@
           <div class='fund' fund-percent=<%= unvAllocation %>  style='width: <%= unvAllocation %>%;'></div>
         </div>
       </td>
-      <td>$<%= abbreviateNumber(unvTotal) %></td>
+      <td>$<%= util.abbreviateNumber(unvTotal) %></td>
       <td>
         <div class='left'><%= unvPct %>%</div>
         <div class='right data wide'>

@@ -88,6 +88,11 @@ util.bold = function(word){
     return '<b>' + word + '</b>'
 }
 
+util.abbreviateNumber = function(n) {
+  return n > 1000000 ? (+(n / 1000000).toFixed(1)).toLocaleString() + 'M' :
+    n > 1000 ? (+(n / 1000).toFixed(1)).toLocaleString() + 'K' : n.toLocaleString();
+};
+
 $(document).ready(function() {
     var models = {},
         views = {},
