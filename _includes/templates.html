@@ -1,42 +1,68 @@
-<script name='app' type='text/html'>{% include templates/app._ %}</script>
-<script name='nav' type='text/html'>{% include templates/nav._ %}</script>
-<script name='donorSpecific' type='text/html'>{% include templates/donorSpecific._ %}</script>
-<script name='filter' type='text/html'>{% include templates/filter._ %}</script>
-<script name='filters' type='text/html'>{% include templates/filters._ %}</script>
-<script name='project' type='text/html'>{% include templates/project._ %}</script>
-<script name='projects' type='text/html'>{% include templates/projects._ %}</script>
-<script name='projectProfile' type='text/html'>{% include templates/projectProfile._ %}</script>
-<script name='projectOutputs' type='text/html'>{% include templates/projectOutputs._ %}</script>
-<script name='embedProject' type='text/html'>{% include templates/embedProject._ %}</script>
-<script name='embedProjectOutputs' type='text/html'>{% include templates/embedProjectOutputs._ %}</script>
-<script name='topDonors' type='text/html'>{% include templates/topDonors._ %}</script>
-<script name='topDonor' type='text/html'>{% include templates/topDonor._ %}</script>
-<script name='ctrySummary' type='text/html'>{% include templates/ctrySummary._ %}</script>
-<script name='widget' type='text/html'>{% include templates/widget._ %}</script>
-
+<div id='homemap-legend' style='display:none;'>
+  <strong>Type of funds</strong>
+  <div class='clearfix'>
+      <div><i style='background: #0055aa;border-radius: 1; border-color: #0055aa;' class="legend-icon"></i><p>Partner</div>
+      <div><i style='background: rgba(0, 85, 170, 0.6); border-color: #0055aa' class='legend-icon'></i>Local</div>
+  </div>
+</div>
+<!-- templates -->
+<script name='app' type='text/html'>
+  {% include templates/app._ %}
+</script>
+<script name='nav' type='text/html'>
+  {% include templates/nav._ %}
+</script>
+<script name='filter' type='text/html'>
+  {% include templates/filter._ %}
+</script>
+<script name='filters' type='text/html'>
+  {% include templates/filters._ %}
+</script>
+<script name='project' type='text/html'>
+  {% include templates/project._ %}
+</script>
+<script name='projects' type='text/html'>
+  {% include templates/projects._ %}
+</script>
+<script name='projectProfile' type='text/html'>
+  {% include templates/projectProfile._ %}
+</script>
+<script name='projectOutputs' type='text/html'>
+  {% include templates/projectOutputs._ %}
+</script>
+<!-- Map Summary (sidebar) -->
+<script name='ctrySummary' type='text/html'>
+  {% include templates/ctrySummary._ %}
+</script>
+<!-- Top Donors Page -->
+<script name='topDonors' type='text/html'>
+  {% include templates/topDonors._ %}
+</script>
+<script name='topDonor' type='text/html'>
+  {% include templates/topDonor._ %}
+</script>
+<!-- Donor country visualization -->
 <script id='donorViz' type='text/html'>
   {% include templates/donorViz._%}
 </script>
-
-<div id='homemap-legend' style='display:none;'>
-	<strong>Type of funds</strong>
-	<div class='clearfix'>
-    	<div><i style='background: #0055aa;border-radius: 1; border-color: #0055aa;' class="legend-icon"></i><p>Partner</div>
-    	<div><i style='background: rgba(0, 85, 170, 0.6); border-color: #0055aa' class='legend-icon'></i>Local</div>
-	</div>
-</div>
-
-<script id='focusAreaItemTemplate' type='text/html'>
+<script id='donorSpecific' type='text/html'>
+  {% include templates/donorSpecific._ %}
+</script>
+<!-- Embed Widget UI -->
+<script name='widget' type='text/html'>{% include templates/widget._ %}</script>
+<!-- Embed Content -->
+<script name='embedProject' type='text/html'>{% include templates/embedProject._ %}</script>
+<script name='embedProjectOutputs' type='text/html'>{% include templates/embedProjectOutputs._ %}</script>
+<script id='embedFocusAreaItemTemplate' type='text/html'>
   <li class='focus fa<%= id %>'>
-    <a href='<%= path %>' class='focus-title'> <%= focusName %> </a>
+    <a target="_blank" href='<%= path %>' class='focus-title'> <%= focusName %> </a>
     <p class='pct'><span class='<%= focusIconClass %>'></span></p>
   </li>
 </script>
 
-
-<script id='budgetChartItemTemplate' type='text/html'>
+<script id='embedBudgetChartItemTemplate' type='text/html'>
   <tr>
-    <td><a href='<%= path %>'><%= name %></a></td>
+    <td><a target="_blank" href='<%= path %>'><%= name %></a></td>
     <td class='right'><%= budget %></td>
     <td class='data'>
       <div class='budgetdata' data-budget='<%= budgetWidth %>'></div>
@@ -45,17 +71,17 @@
   </tr>
 </script>
 
-<script id='embedFocusAreaItemTemplate' type='text/html'>
+<!-- charts -->
+<script id='focusAreaItemTemplate' type='text/html'>
   <li class='focus fa<%= id %>'>
-    <a target="_blank" href='<%= path %>' class='focus-title'> <%= focusName %> </a>
+    <a href='<%= path %>' class='focus-title'> <%= focusName %> </a>
     <p class='pct'><span class='<%= focusIconClass %>'></span></p>
   </li>
 </script>
 
-
-<script id='embedBudgetChartItemTemplate' type='text/html'>
+<script id='budgetChartItemTemplate' type='text/html'>
   <tr>
-    <td><a target="_blank" href='<%= path %>'><%= name %></a></td>
+    <td><a href='<%= path %>'><%= name %></a></td>
     <td class='right'><%= budget %></td>
     <td class='data'>
       <div class='budgetdata' data-budget='<%= budgetWidth %>'></div>
