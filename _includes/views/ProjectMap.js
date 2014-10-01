@@ -124,6 +124,7 @@ views.ProjectMap = Backbone.View.extend({
                         clickable: false
                     };
 
+                // India border
                 if (iso == 356) {
                     var topoFeatures = topojson.feature(india, india.objects.india_admin0).features;
                     _(topoFeatures).each(function(f){
@@ -135,6 +136,7 @@ views.ProjectMap = Backbone.View.extend({
                         .setStyle(outlineStyle);
                 }
 
+                // Russia center
                 if (iso == 643) {
                     this.map.setView([55,65],2);
                 } else {
@@ -158,35 +160,15 @@ views.ProjectMap = Backbone.View.extend({
         }
     },
     onEachFeature: function(feature, layer) {
-        var oldOptions = {
-            'marker-size':'small',
-            'marker-color':feature.properties['marker-color']
-        }
-        var newOptions = {
-            'marker-size':'small',
-        }
-        var newColors = [
-            {'color': '689A46', 'id': '4'},
-            {'color': '218DB6', 'id': '2'},
-            {'color': 'AAA922', 'id': '1'},
-            {'color': 'D15A4B', 'id': '3'}
-        ]
-        // Match focus area ID to newColors array
-        _(newColors).each(function(color){
-            if (color.id == feature.properties.focus_area){
-               return newOptions['marker-color'] = color.color;
-            };
-        })
+        var view = this;
         var clusterBrief = L.popup({
                 closeButton:true,
                 offset: new L.Point(0,-20)
             }).setContent(feature.properties.description);
+
         layer.on('click',function(){
             clusterBrief.setLatLng(this.getLatLng());
-            this.map.openPopup(clusterBrief);
-            layer.setIcon(L.mapbox.marker.icon(newOptions));
-        }).on('mouseout',function(){
-            layer.setIcon(L.mapbox.marker.icon(oldOptions));
+            view.map.openPopup(clusterBrief);
         })
     },
     tooltip: function(loc, index) {
