@@ -35,39 +35,25 @@ views.App = Backbone.View.extend({
                 year: this.options.year
             }));
 
-            // disable this until browser sniffing functions
-            // if (IE) {
-            //     $('#ie-banner').show();
-            // $('#banner-close').on('click',function(e){
-            //     e.preventDefault();
-            //     $('#ie-banner').hide();
-            // });
-            // }
+            // IE banner based on brower sniffing
+            if (IE) {
+                $('#ie-banner').show();
+                $('#banner-close').on('click',function(e){
+                    e.preventDefault();
+                    $('#ie-banner').hide();
+                });
+            }
         }
-
-        // adding years in render since the year div is part of app template
-        this.years = new views.YearNav();
 
         // highlight projects
         $('#mainnav li').first().addClass('active');
-
-        // about nav
-        $('#mainnav a.parent-link').click(function(e) {
-            e.preventDefault();
-            var $target = $(e.target);
-
-            if ($target.parent().hasClass('parent-active')) {
-                $target.parent().removeClass('parent-active');
-            } else {
-                $target.parent().addClass('parent-active');
-            }
-        });
-
-        this.selectYear(this.options.year);
-
         // Toggle country selector - relavant in global header
         $(window).on('click', '#country-selector', _(this.showCountries).bind(this));
         $(window).on('click', '#country-list .close', _(this.hideCountries).bind(this));
+
+        // adding years in render since the year div is part of app template
+        new views.YearNav();
+        this.selectYear(this.options.year);
     },
 
     selectYear: function(year) {
