@@ -8,8 +8,7 @@ views.ProjectMap = Backbone.View.extend({
         if (this.options.render) this.render();
     },
     tooltip: function(data, g) {
-        var //scope = g.scope[data.scope',
-            type = g.type[data.type],
+        var type = g.type[data.type],
             precision = g.precision[data.precision],
             output = data.outputID,
             focus_clean = (data.focus_area_descr).replace(/\s+/g, '-').toLowerCase().split('-')[0],
@@ -18,7 +17,6 @@ views.ProjectMap = Backbone.View.extend({
         var description =  '<div class="popup top">'
                         + '<table><tr><td>Output</td><td>' + output + '</td></tr></table>'  
                          + '<div class="focus"><span class="'+focus_clean+'"></span><p class="space">' + focus_area + '<p></div></div>'
-                        //+ '<div><b>Scope:</b> <span class="value">' + scope + '</span></div>'
                         + '<div class="popup bottom"><div><b>Location type:</b> <span class="value">' + type + '</span></div>'
                         + '<div><b>Precision:</b> <span class="value">' + precision + '</span></div></div>';
         return description;
