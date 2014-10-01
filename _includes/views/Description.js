@@ -27,13 +27,36 @@ views.Description = Backbone.View.extend({
             }
 
             global.donorTitle = subject;
-            global.donorDescription = [util.bold(subject), verbFund, util.bold(global.projects.length), 'projects'].join(' ');
+
+            //Check if it's part of core
+            var id = model.get('id')
+            var opUnitFilter =_(global.processedFacets).findWhere({collection:"operating_unit"});
+            var donors =_(global.processedFacets).findWhere({collection:"donors"});
+            if (_(global.coreFund).contains(id) && !opUnitFilter && !donors) {
+                var coreProjects = global.projects.filter(function(project) {
+                    var isCore = _(project.attributes.donors).contains('00012');
+                    return (isCore && !_(project.attributes.donor_countries).contains(id));
+                })
+                global.donorDescription = [
+                    util.bold(subject),
+                    verbFund,
+                    util.bold(global.projects.length - coreProjects.length),
+                    'projects through direct funding'
+                ].join(' ');
+
+                global.description.push(' and ' + util.bold(coreProjects.length) + ' projects through ' + util.bold('UNDP Regular Resources'));
+            } else {
+                global.donorDescription = [util.bold(subject), verbFund, util.bold(global.projects.length), 'projects'].join(' ');
+            }
         }
+        
+        
         if (facetName === 'donors') {
             global.description.push(' through ' + util.bold(subject));
         }
         if (facetName === 'focus_area') {
             global.description.push(' with a focus on ' + util.bold(subject));
         }
+
     }
 })

@@ -136,6 +136,23 @@ routers.Global = Backbone.Router.extend({
             }, true);
         };
 
+        var getCoreFundsFromFacets = function(donorCountry) { 
+            return function (model) {
+                var isCore = _(model.attributes.donors)
+                                .contains('00012') && !_(model.attributes.donor_countries)
+                                                            .contains(donorCountry);
+                return _(global.processedFacets).reduce(function (memo, facet) {
+                    if (facet.collection === 'region') { // region is treated differently since it is a value, not an array
+                        return memo && model.get(facet.collection) == facet.id;
+                    } else if (facet.collection === 'donor_countries') { //Discard donor_countries
+                        return memo;
+                    } else {
+                        return memo && (model.get(facet.collection) && model.get(facet.collection).indexOf(facet.id) >= 0);
+                    }
+                }, isCore);
+            }
+        }
+
         // Load and filter projects according to facet
         // on load: if the fiscalYear recorded does not correspond to the selected year
         if (that.fiscalYear != year) {
@@ -149,13 +166,12 @@ routers.Global = Backbone.Router.extend({
             //Create coreProjects array for projects that are funded by UNDP regular resources
            var coreProjects = [];
            if (_(that.coreFund).contains(that.donorCountry)) {
-                coreProjects = that.allProjects.filter(function(project) {
-                    var isCore = _(project.attributes.donors).contains('00012');
-                   return ( isCore && !_(project.attributes.donor_countries).contains(that.donorCountry));
-                });
+                coreProjects = that.allProjects.filter(getCoreFundsFromFacets(that.donorCountry))
+                that.projects = new Projects(facettedProjects.concat(coreProjects));
+            } else {
+                that.projects = new Projects(facettedProjects);
             }
 
-            that.projects = new Projects(facettedProjects.concat(coreProjects));
 
             // start the project calculations
             that.projects.watch();
@@ -178,12 +194,12 @@ routers.Global = Backbone.Router.extend({
             //Create coreProjects array for projects that are funded by UNDP regular resources
            var coreProjects = [];
            if (_(that.coreFund).contains(that.donorCountry)) {
-                coreProjects = that.allProjects.filter(function(project) {
-                    var isCore = _(project.attributes.donors).contains('00012');
-                   return ( isCore && !_(project.attributes.donor_countries).contains(that.donorCountry));
-                });
+                coreProjects = that.allProjects.filter(getCoreFundsFromFacets(that.donorCountry));
+                that.projects.reset(this.allProjects.filter(getProjectFromFacets).concat(coreProjects));
+            } else {
+                that.projects.reset(this.allProjects.filter(getProjectFromFacets));
             }
-            that.projects.reset(this.allProjects.filter(getProjectFromFacets).concat(coreProjects));
+            
 
         }
 
