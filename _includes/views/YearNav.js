@@ -14,7 +14,6 @@ views.YearNav = Backbone.View.extend({
 	
 		// Set up menu
         $('#app .view, #mainnav .profile').hide();
-        $('#profile .summary').addClass('off');
         $('#browser, #mainnav .browser').show();
         $('#nav-side.not-filter').remove();
         $('#mainnav li').removeClass('active');

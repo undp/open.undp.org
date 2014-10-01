@@ -17,17 +17,9 @@ views.ProjectProfile = Backbone.View.extend({
         this.high = 10;
 
         this.render();
-        $('#profile .summary').removeClass('off');
     },
 
     render: function() {
-
-        new views.Breadcrumbs({
-            add:'activeProject',
-            projectUnitId: this.model.get('operating_unit_id'),
-            projectUnitName: this.model.get("operating_unit"),
-            projectName: this.model.get('id')
-        });
 
         // sometimes the model doesn't get the attributes
         if (this.model.get('start') != undefined) {
@@ -128,18 +120,6 @@ views.ProjectProfile = Backbone.View.extend({
             })).show();
         }
 
-        // If first load is a project page or output, don't animate
-        if (global.app && this.options.gotoOutput === false) {
-            $('#profile .summary').addClass('off');
-        }
-
-        this.map = new views.ProjectMap({
-            el: '#profilemap',
-            model: this.model,
-            embed: this.options.embed,
-            render: true
-        });
-
         $('#progress').find('.bar').css('width', progress + '%');
         
         if (this.model.attributes.outputs) {
@@ -163,6 +143,20 @@ views.ProjectProfile = Backbone.View.extend({
                 window.scrollTo(0, $('#output-' + outputId).offset().top);
             }, 0);
         }
+
+        new views.Breadcrumbs({
+            add:'activeProject',
+            projectUnitId: this.model.get('operating_unit_id'),
+            projectUnitName: this.model.get("operating_unit"),
+            projectName: this.model.get('id')
+        });
+
+        new views.ProjectMap({
+            el: '#profilemap',
+            model: this.model,
+            embed: this.options.embed,
+            render: true
+        });
 
         return this;
     },
