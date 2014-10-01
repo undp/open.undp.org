@@ -125,6 +125,7 @@ routers.Global = Backbone.Router.extend({
             }
         };
 
+        //This is a filter function that checks if a project matches the facets
         var getProjectFromFacets = function (model) {
             if (!that.processedFacets.length) return true;
             return _(that.processedFacets).reduce(function (memo, facet) {
@@ -136,6 +137,8 @@ routers.Global = Backbone.Router.extend({
             }, true);
         };
 
+        //This gets the UNDP regular resources projects that don't have the donor country as one 
+        //of the funders, so that we don't double count. We also filter these projects using the facets.
         var getCoreFundsFromFacets = function(donorCountry) {
             return function (model) {
                 var isCore = _(model.attributes.donors)
@@ -194,7 +197,7 @@ routers.Global = Backbone.Router.extend({
             that.projects.excecuteAfterCalculation = that.updateDescription;
 
 
-            //Create coreProjects array for projects that are funded by UNDP regular resources
+           //Create coreProjects array for projects that are funded by UNDP regular resources
            var coreProjects = [];
            var opUnitFilter =_(global.processedFacets).findWhere({collection:"operating_unit"});
            if (_(that.coreFund).contains(that.donorCountry) && !opUnitFilter) {
