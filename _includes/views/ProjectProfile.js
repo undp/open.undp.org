@@ -120,6 +120,12 @@ views.ProjectProfile = Backbone.View.extend({
             })).show();
         }
 
+        this.map = new views.ProjectMap({
+            el: '#profilemap',
+            model: this.model,
+            embed: this.options.embed,
+        });
+
         $('#progress').find('.bar').css('width', progress + '%');
         
         if (this.model.attributes.outputs) {

@@ -2,47 +2,59 @@ views.ProjectMap = Backbone.View.extend({
     events: {
         'click .map-fullscreen': 'fullscreen',
     },
-    template:_.template($('#projectMapCountrySummary').html()),
     initialize: function() {
-        this.$summaryEl = $('#country-summary');
-        if (this.options.render) this.render();
-    },
-    tooltip: function(data, g) {
-        var //scope = g.scope[data.scope',
-            type = g.type[data.type],
-            precision = g.precision[data.precision],
-            output = data.outputID,
-            focus_clean = (data.focus_area_descr).replace(/\s+/g, '-').toLowerCase().split('-')[0],
-            focus_area = (data.focus_area_descr).toTitleCase();
+        this.summaryTemplate = _.template($('#projectMapCountrySummary').html()),
+        this.tooltipTemplate = _.template($('#projectMapTooltip').html());
+        this.contactTemplate = _.template($('#contactInfo').html());
 
-        var description =  '<div class="popup top">'
-                        + '<table><tr><td>Output</td><td>' + output + '</td></tr></table>'  
-                         + '<div class="focus"><span class="'+focus_clean+'"></span><p class="space">' + focus_area + '<p></div></div>'
-                        //+ '<div><b>Scope:</b> <span class="value">' + scope + '</span></div>'
-                        + '<div class="popup bottom"><div><b>Location type:</b> <span class="value">' + type + '</span></div>'
-                        + '<div><b>Precision:</b> <span class="value">' + precision + '</span></div></div>';
-        return description;
+        this.$summaryEl = $('#country-summary');
+        this.$contactEl = $('#unit-contact'); // originated in Nav.js
+
+        this.nations = new Nationals();
+
+        this.listenTo(this.nations,'sync',this.render);
+
+        this.nations.fetch();
+
+        _.bindAll(this,'draw','onEachFeature');
     },
     render: function() {
         var view = this,
-            locations = [],
-            unit = this.model.get('operating_unit_id'),
-            subLocations = this.model.get('subnational'),
             wheelZoom = true;
-            
-        // adding faux fullscreen control
-        if (!view.options.embed) {
+
+        // match project operating unit with operating unit index
+        this.opUnit = this.nations.findWhere({
+            'id':this.model.get('operating_unit_id')
+        });
+        // fill in country summary
+        this.$summaryEl.html(this.summaryTemplate({
+            count: this.opUnit.get('project_count'),
+            fund: this.opUnit.get('funding_sources_count'),
+            budget: this.opUnit.get('budget_sum'),
+            expenditure: this.opUnit.get('expenditure_sume')
+        }));
+
+        this.$contactEl.html(this.contactTemplate({
+            unit: this.opUnit.get('name'),
+            website: this.opUnit.get('web'),
+            email: this.opUnit.get('email')
+        }))
+
+        if (!this.options.embed) {
+            // fire up social media spreadsheet
+            this.getwebData(this.nations.models);
+            // adding faux fullscreen control
            $('#profilemap').append('<div class="full-control"><a href="#" class="icon map-fullscreen"></a></div>');
         } else {
             wheelZoom = false;
         }
         // create a cluster
-        view.markers = new L.MarkerClusterGroup({
+        this.markers = new L.MarkerClusterGroup({
             showCoverageOnHover:false,
             maxClusterRadius:40
         });
         // create map
-        view.map = L.mapbox.map(this.el,MAPID,{
+        this.map = L.mapbox.map(this.el,MAPID,{
             minZoom: 1,
             maxZoom: 10,
             scrollWheelZoom: wheelZoom
@@ -53,144 +65,121 @@ views.ProjectMap = Backbone.View.extend({
             .defer(util.request,'api/india_admin0.json')
             .defer(util.request,'api/subnational-locs-index.json')
             .defer(util.request,'api/focus-area-index.json')
-            .defer(util.request,'api/operating-unit-index.json')
-            .await(draw);
-
-        function draw(error, world, india, subLocIndex,focusIndex, opUnitData){
-            for (var i = 0; i < opUnitData.length; i++) {
-            var opUnit = opUnitData[i];
-            if (opUnit.id === unit) {
-                // disable social media chunk
-                // if (!view.options.embed) view.getwebData(o);
-
-                view.$summaryEl.html(view.template(opUnit));
-
-                if (!opUnit.lon) {// if the unit has no geography
-                    view.$el.prev().hide();
-                    view.$el.next().addClass('nogeo');
-                    view.$el.hide();
-                } else {
-                    var iso = parseInt(opUnit.iso_num);
-                        // second try
-                    if (!IE || IE_VERSION > 8){
-                        view.outline = new L.GeoJSON();
-
-                        var topoFeatures = topojson.feature(world, world.objects.countries).features,
-                            selectedFeature = _(topoFeatures).findWhere({id:iso}),
-                            coords = selectedFeature.geometry.coordinates,
-                            outlineStyle = {
-                                    "color": "#b5b5b5",
-                                    "weight": 0,
-                                    clickable: false
-                            };
-                        if (iso == 356) {
-                            var topoFeatures = topojson.feature(india, india.objects.india_admin0).features;
-                            _(topoFeatures).each(function(f){
-                                view.outline.addData(f)
-                                    .setStyle(outlineStyle);
-                            });
-                        } else {
-                            view.outline.addData(selectedFeature)
-                                .setStyle(outlineStyle);
-                        }
-
-                        if (iso == 643) {
-                            view.map.setView([55,65],2);
-                        } else {
-                            view.map.fitBounds(util.ctyBounds(coords));
-                        }
-
-                        view.outline.addTo(view.map);
-                    } else {
-                        view.map.setView([opUnit.lat,opUnit.lon],3);
-                    }
-                    var markerOptions = {
-                        'marker-size': 'small'
-                    };
-
-                    _(subLocations).each(function(subLoc) {
-                        var markerColor;
-                        _(focusIndex).each(function(focus){
-                            if (focus.id == subLoc.focus_area){
-                                return markerColor = focus.color;
-                            };
-                        });
-
-                        locations.push({
-                            type: "Feature",
-                            geometry: {
-                                type: "Point",
-                                coordinates: [
-                                    subLoc.lon,
-                                    subLoc.lat
-                                ]
-                            },
-                            properties: {
-                                id: subLoc.awardID,
-                                outputID: subLoc.outputID,
-                                precision: subLoc.precision,
-                                type: subLoc.type,
-                                scope: subLoc.scope,
-                                project: view.model.get('project_title'),
-                                name: subLoc.name,
-                                focus_area: subLoc.focus_area,
-                                description: view.tooltip(subLoc, subLocIndex),
-                                'marker-size': 'small',
-                                'marker-color': markerColor
-                            } 
-                        });
-                    });
-                    
-                    function onEachFeature(feature, layer) {
-                        var oldOptions = {
-                            'marker-size':'small',
-                            'marker-color':feature.properties['marker-color']
-                        }
-                        var newOptions = {
-                            'marker-size':'small',
-                        }
-                        var newColors = [
-                            {'color': '689A46', 'id': '4'},
-                            {'color': '218DB6', 'id': '2'},
-                            {'color': 'AAA922', 'id': '1'},
-                            {'color': 'D15A4B', 'id': '3'}
-                        ]
-                        // Match focus area ID to newColors array
-                        _(newColors).each(function(color){
-                            if (color.id == feature.properties.focus_area){
-                               return newOptions['marker-color'] = color.color;
-                            };
-                        })
-                        var clusterBrief = L.popup({
-                                closeButton:true,
-                                offset: new L.Point(0,-20)
-                            }).setContent(feature.properties.description);
-                        layer.on('click',function(){
-                            clusterBrief.setLatLng(this.getLatLng());
-                            view.map.openPopup(clusterBrief);
-                            layer.setIcon(L.mapbox.marker.icon(newOptions));
-                        }).on('mouseout',function(){
-                            layer.setIcon(L.mapbox.marker.icon(oldOptions));
-                        })
-                    }
-                    // Create a geoJSON with locations
-                    var markerLayer = L.geoJson(locations, {
-                        pointToLayer: L.mapbox.marker.style,
-                        onEachFeature: onEachFeature
-                    });
-                    // Add the geoJSON to the cluster layer
-                    view.markers.addLayer(markerLayer);
-                    // Add cluster layer to map
-                    view.map.addLayer(view.markers);
-
-                }
-            }
-        }
-        }
-
-
+            .await(this.draw);
     },
 
+    draw: function(error, world, india,subLocIndex,focusIndex){
+        var view = this,
+            subLocations = this.model.get('subnational');
+
+        // if the unit has no geography do not show map
+        if (!this.opUnit.lon) {
+            this.$el.prev().hide();
+            this.$el.next().addClass('nogeo');
+            this.$el.hide();
+        } else {
+            var iso = parseInt(this.opUnit.get('iso_num'));
+            // a list of sub location points
+            var locations = _(subLocations).map(function(subLoc) {
+
+                var markerColor = _(focusIndex).find(function(f){
+                    return f.id === subLoc.focus_area
+                    }).color
+
+                return {
+                    type: "Feature",
+                    geometry: {
+                        type: "Point",
+                        coordinates: [
+                            subLoc.lon,
+                            subLoc.lat
+                        ]
+                    },
+                    properties: {
+                        id: subLoc.awardID,
+                        outputID: subLoc.outputID,
+                        precision: subLoc.precision,
+                        type: subLoc.type,
+                        scope: subLoc.scope,
+                        project: this.model.get('project_title'),
+                        name: subLoc.name,
+                        focus_area: subLoc.focus_area,
+                        description: this.tooltip(subLoc, subLocIndex),
+                        'marker-size': 'small',
+                        'marker-color': markerColor
+                    }
+                }
+
+            },this);
+
+            // add country outline
+            if (!IE || IE_VERSION > 8){
+                this.outline = new L.GeoJSON();
+                var topoFeatures = topojson.feature(world, world.objects.countries).features,
+                    selectedFeature = _(topoFeatures).findWhere({id:iso}),
+                    coords = selectedFeature.geometry.coordinates,
+                    outlineStyle = {
+                        "color": "#b5b5b5",
+                        "weight": 0,
+                        clickable: false
+                    };
+
+                // India border
+                if (iso == 356) {
+                    var topoFeatures = topojson.feature(india, india.objects.india_admin0).features;
+                    _(topoFeatures).each(function(f){
+                        this.outline.addData(f)
+                            .setStyle(outlineStyle);
+                    });
+                } else {
+                    this.outline.addData(selectedFeature)
+                        .setStyle(outlineStyle);
+                }
+
+                // Russia center
+                if (iso == 643) {
+                    this.map.setView([55,65],2);
+                } else {
+                    this.map.fitBounds(util.ctyBounds(coords));
+                }
+
+                this.outline.addTo(this.map);
+            } else {
+                this.map.setView([this.opUnit.lat,this.opUnit.lon],3);
+            }
+
+            // Create a geoJSON with locations
+            var markerLayer = L.geoJson(locations, {
+                pointToLayer: L.mapbox.marker.style,
+                onEachFeature: this.onEachFeature
+            });
+            // Add the geoJSON to the cluster layer
+            this.markers.addLayer(markerLayer);
+            // Add cluster layer to map
+            this.map.addLayer(this.markers);
+        }
+    },
+    onEachFeature: function(feature, layer) {
+        var view = this;
+        var clusterBrief = L.popup({
+                closeButton:true,
+                offset: new L.Point(0,-20)
+            }).setContent(feature.properties.description);
+
+        layer.on('click',function(){
+            clusterBrief.setLatLng(this.getLatLng());
+            view.map.openPopup(clusterBrief);
+        })
+    },
+    tooltip: function(loc, index) {
+        return this.tooltipTemplate({
+            type: index.type[loc.type],
+            precision: index.precision[loc.precision],
+            output: loc.outputID,
+            focus_clean: (loc.focus_area_descr).replace(/\s+/g, '-').toLowerCase().split('-')[0],
+            focus_area: (loc.focus_area_descr).toTitleCase()
+        })
+    },
     fullscreen: function(e) {
         e.preventDefault();
         var view = this;
@@ -207,8 +196,19 @@ views.ProjectMap = Backbone.View.extend({
 
         $('a.map-fullscreen').toggleClass('full');
         $('.country-profile').toggleClass('full');
-      },
+    },
     getwebData: function(data) {
+        // Get social media google spreadsheet
+        var sheetId = '0Airl6dsmcbKodHB4SlVfeVRHeWoyWTdKcDY5UW1xaEE',
+            sheetNum = '1';
+        var sheetUrl= 'https://spreadsheets.google.com/feeds/list/'+
+            sheetId + '/' + sheetNum +
+            '/public/values?alt=json';
+
+        // queue()
+        //     .defer(util.request,sheetUrl)
+        //     .await(loadSpreadsheet)
+
         var view = this,
             photos = [],
             coContact = {
@@ -217,16 +217,8 @@ views.ProjectMap = Backbone.View.extend({
                 facebook: []
             };
 
-        // Get social media accounts from UNDP-maintained spreadsheet
-        var spreadsheet = '//spreadsheets.google.com/feeds/list/0Airl6dsmcbKodHB4SlVfeVRHeWoyWTdKcDY5UW1xaEE/1/public/values?alt=json-in-script&callback=?';
-
-        queue()
-            .defer($.getJSON,spreadsheet)
-            .await(view.socialReady);
-
         function contacts(allSocialAccts) {
-            var accts = ['web','email','twitter','flickr','facebook'],
-                pageUrl = "http%3A%2F%2Fopen.undp.org%2F%23project/"+view.model.get('project_id'),
+            var accts = ['twitter','flickr','facebook'],
                 pageUrl = BASE_URL + "#project/" + view.model.get('project_id'),
                 socialBaseUrl = '';
                 tweetButton = {
@@ -244,9 +236,9 @@ views.ProjectMap = Backbone.View.extend({
                 var link = '',
                     i = 0;
 
-                if (acct == 'twitter') socialBaseUrl = 'http://twitter.com/';
-                if (acct == 'email') socialBaseUrl = 'mailto:';
-                if (acct == 'flickr') socialBaseUrl = 'http://flickr.com/photos/';
+                if (acct == 'twitter') socialBaseUrl = 'https://twitter.com/';
+                if (acct == 'flickr') socialBaseUrl = 'https://flickr.com/photos/';
+                if (acct == 'facebook') socialBaseUrl = 'https://facebook.com/'
 
                 // hide unit contact if there's no social media accounts available
                 if ((_.flatten(_.values(allSocialAccts)).length)) {
@@ -266,19 +258,6 @@ views.ProjectMap = Backbone.View.extend({
                 } else if (data[acct]) {
                     link += '<a target="_blank" href="' + data[acct] + '">' + data[acct] + '</a>';
                 }
-
-                if (link.length > 0) {
-                    $('#unit-contact .contact-info').append(
-                        '<li class="row-fluid">' +
-                            '<div class="label">' +
-                                '<p>' + ((acct == 'web') ? 'Website' : acct.capitalize()) +'</p>' +
-                            '</div>' +
-                            '<div>' +
-                                '<p>' + link + '</p>' +
-                            '</div>' +
-                        '</li>'
-                    );
-                }
             });
 
             $('#tweet-button').append(
@@ -287,19 +266,11 @@ views.ProjectMap = Backbone.View.extend({
                 'data-url='      + tweetButton["data-url"]       + ' ' +
                 'data-hashtags=' + tweetButton["data-hashtags"]  + ' ' +
                 'data-text='     + tweetButton["data-text"]      + ' ' +
-                //'data-counturl=' + tweetButton["data-counturl"]  + ' ' +
                 'data-via='      + ((tweetButton["data-via"].length) ? tweetButton["data-via"] : "OpenUNDP") + ' ' +
                 '></a>' +
                 followButton +
                 tweetScript
             );
-
-            if (data['email'] || data['web'] || (_.flatten(_.values(allSocialAccts)).length)) {
-                $('#unit-contact').show();
-                $('#unit-contact h3').html('Contact UNDP ' + data.name);
-            } else {
-                $('#unit-contact').hide();
-            }
         }
     },
 
@@ -309,7 +280,7 @@ views.ProjectMap = Backbone.View.extend({
             fbAccts = [],
             q = queue(1);
 
-        q.defer(function(cb) {
+        queue(1).defer(function(cb) {
             _(g.feed.entry).each(function(row) {
                 var acctType = row.gsx$type.$t,
                     acctId = row.gsx$id.$t,
@@ -340,7 +311,7 @@ views.ProjectMap = Backbone.View.extend({
         });
         
         // Gather photos from documents and flickr, in that order
-        q.defer(function(cb) {
+        queue(1).defer(function(cb) {
             if (that.model.get('document_name')) {
                 _(that.model.get('document_name')[0]).each(function (photo, i) {
                     try {
@@ -365,7 +336,7 @@ views.ProjectMap = Backbone.View.extend({
 
             cb();
         });
-        q.await(function() {
+        queue(1).await(function() {
             view.flickr(flickrAccts,photos);
         }); 
     },
