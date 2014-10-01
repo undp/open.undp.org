@@ -98,10 +98,19 @@ Filters = Backbone.Collection.extend({
     aggregate: function(collection,model){
         var count = global.projects[collection.id][model.id];
         var opUnitFilter =_(global.processedFacets).findWhere({collection:"operating_unit"});
-        if (collection.id === 'donor_countries' && !opUnitFilter && _(global.coreFund).contains(model.get('id'))) {
+        if (!opUnitFilter && _(global.coreFund).contains(model.get('id'))) {
             var coreProjects = global.allProjects.filter(function(project) {
                var isCore = _(project.attributes.donors).contains('00012');
-               return (isCore && !_(project.attributes.donor_countries).contains(model.get('id')));
+               isCore =  (isCore && !_(project.attributes.donor_countries).contains(model.get('id')));
+               return _(global.processedFacets).reduce(function(memo, facet) {
+                    if (facet.collection === 'region') { // region is treated differently since it is a value, not an array
+                        return memo && model.get(facet.collection) == facet.id;
+                    } else if (facet.collection === 'donor_countries') { //Discard donor_countries
+                        return memo;
+                    } else {
+                        return memo && (model.get(facet.collection) && model.get(facet.collection).indexOf(facet.id) >= 0);
+                    }
+               }, isCore);
             });
             count = count + coreProjects.length;
         }

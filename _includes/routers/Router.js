@@ -136,7 +136,7 @@ routers.Global = Backbone.Router.extend({
             }, true);
         };
 
-        var getCoreFundsFromFacets = function(donorCountry) { 
+        var getCoreFundsFromFacets = function(donorCountry) {
             return function (model) {
                 var isCore = _(model.attributes.donors)
                                 .contains('00012') && !_(model.attributes.donor_countries)
@@ -153,6 +153,7 @@ routers.Global = Backbone.Router.extend({
             }
         }
 
+
         // Load and filter projects according to facet
         // on load: if the fiscalYear recorded does not correspond to the selected year
         if (that.fiscalYear != year) {
@@ -168,10 +169,7 @@ routers.Global = Backbone.Router.extend({
 
            var opUnitFilter =_(global.processedFacets).findWhere({collection:"operating_unit"});
            if (_(that.coreFund).contains(that.donorCountry) && !opUnitFilter) {
-                coreProjects = that.allProjects.filter(function(project) {
-                   var isCore = _(project.attributes.donors).contains('00012');
-                   return ( isCore && !_(project.attributes.donor_countries).contains(that.donorCountry));
-                });
+                coreProjects = that.allProjects.filter(getCoreFundsFromFacets(that.donorCountry));
                 that.projects = new Projects(facettedProjects.concat(coreProjects));
             } else {
                 that.projects = new Projects(facettedProjects);
@@ -200,10 +198,7 @@ routers.Global = Backbone.Router.extend({
            var coreProjects = [];
            var opUnitFilter =_(global.processedFacets).findWhere({collection:"operating_unit"});
            if (_(that.coreFund).contains(that.donorCountry) && !opUnitFilter) {
-                coreProjects = that.allProjects.filter(function(project) {
-                    var isCore = _(project.attributes.donors).contains('00012');
-                   return ( isCore && !_(project.attributes.donor_countries).contains(that.donorCountry));
-                });
+                coreProjects = that.allProjects.filter(getCoreFundsFromFacets(that.donorCountry));
                 that.projects.reset(this.allProjects.filter(getProjectFromFacets).concat(coreProjects));
             } else {
                 that.projects.reset(this.allProjects.filter(getProjectFromFacets));
