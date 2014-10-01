@@ -141,38 +141,37 @@ views.Filters = Backbone.View.extend({
             if (chartModels.length <= 1 && view.collection.id !== 'focus_area' && !donorCountry) {
                 $('#chart-' + view.collection.id)
                     .css('display','none');
+            }  
+            //This code makes sure that all appropriate charts are displayed again after removing a filter
+            if ($('.stat-chart').hasClass('full')) {
+                $('.stat-chart').removeClass('full');
+                $('#chart-' + view.collection.id)
+                    .css('display','block');
             } else {
-                //This code makes sure that all appropriate charts are displayed again after removing a filter
-                if ($('.stat-chart').hasClass('full')) {
-                    $('.stat-chart').removeClass('full');
-                    $('#chart-' + view.collection.id)
-                        .css('display','block');
-                } else {
-                    $('#chart-' + view.collection.id)
-                        .addClass('full')
-                        .css('display','block');
-                }
-    
-                //Get the filter values
-                var donor = (_(global.processedFacets).find(function(filter) {
-                            return filter.collection === 'donors';
-                        }) || {id: 0}).id;
-                var donor_ctry = (_(global.processedFacets).find(function(filter) {
-                        return filter.collection === 'donor_countries';
-                    }) || {id: 0}).id;
-
-                if (view.collection.id === 'focus_area') {
-                    chartModels = view.collection.models;
-                    setTimeout(function() {renderFocusAreaChart(chartModels, pathTo, view)},0);
-
-                } else if ( view.collection.id === 'donors' ){
-                    view.chartModels = chartModels;
-                    setTimeout(function() {renderBudgetSourcesChart(donor, donor_ctry, chartModels, view, pathTo)},0);
-                } else if (view.collection.id === 'operating_unit' || view.collection.id === 'donor_countries') {
-                    view.chartModels = chartModels;
-                    setTimeout(function() {renderRecipientOfficesChart(donor, donor_ctry, chartModels, view, pathTo) },0);
-                }
+                $('#chart-' + view.collection.id)
+                    .addClass('full')
+                    .css('display','block');
             }
+
+            //Get the filter values
+            var donor = (_(global.processedFacets).find(function(filter) {
+                        return filter.collection === 'donors';
+                    }) || {id: 0}).id;
+            var donor_ctry = (_(global.processedFacets).find(function(filter) {
+                    return filter.collection === 'donor_countries';
+                }) || {id: 0}).id;
+
+            if (view.collection.id === 'focus_area') {
+                chartModels = view.collection.models;
+                setTimeout(function() {renderFocusAreaChart(chartModels, pathTo, view)},0);
+            } else if ( view.collection.id === 'donors' ){
+                view.chartModels = chartModels;
+                setTimeout(function() {renderBudgetSourcesChart(donor, donor_ctry, chartModels, view, pathTo)},0);
+            } else if (view.collection.id === 'operating_unit' || view.collection.id === 'donor_countries') {
+                view.chartModels = chartModels;
+                setTimeout(function() {renderRecipientOfficesChart(donor, donor_ctry, chartModels, view, pathTo) },0);
+            }
+        
         }, 0);
     }
 });
