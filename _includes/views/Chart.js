@@ -97,8 +97,7 @@ function addRows(selector, rows, view) {
 }
 
 function renderBudgetSourcesChart(donor, donorCountrySelected, chartData, view, pathTo) {
-     $('#chart-' + view.collection.id + ' .rows').empty();
-
+    $('#chart-' + view.collection.id + ' .rows').empty();
     var rows = [];
 
     _(chartData).each(function(model) {
@@ -131,7 +130,7 @@ function renderBudgetSourcesChart(donor, donorCountrySelected, chartData, view, 
         var row = setBudgetHTML(donorInfo, model, notOperatingUnit, pathTo);
         if (typeof row !== 'undefined') rows.push(row);
     }); 
-    addRows($('#chart-' + view.collection.id + ' .rows'),rows, view);
+    if (rows.length > 0) addRows($('#chart-' + view.collection.id + ' .rows'),rows, view);
 }
 
 function renderRecipientOfficesChart(donor, donorCountrySelected, chartData, view, pathTo) {
