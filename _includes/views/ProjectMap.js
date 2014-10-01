@@ -5,7 +5,181 @@ views.ProjectMap = Backbone.View.extend({
     template:_.template($('#projectMapCountrySummary').html()),
     initialize: function() {
         this.$summaryEl = $('#country-summary');
-        if (this.options.render) this.render();
+
+        this.nations = new Nationals();
+
+        this.listenTo(this.nations,'sync',this.render);
+
+        this.nations.fetch();
+    },
+    render: function() {
+        // match project operating unit with operating unit index
+        this.opUnit = this.nations.findWhere({
+            'id':this.model.get('operating_unit_id')
+        });
+
+        var view = this,
+            locations = [],
+            subLocations = this.model.get('subnational'),
+            wheelZoom = true;
+
+        if (!this.options.embed) {
+            // fire up social media spreadsheet
+            this.getwebData(this.nations.models);
+            // adding faux fullscreen control
+           $('#profilemap').append('<div class="full-control"><a href="#" class="icon map-fullscreen"></a></div>');
+        } else {
+            wheelZoom = false;
+        }
+        // create a cluster
+        this.markers = new L.MarkerClusterGroup({
+            showCoverageOnHover:false,
+            maxClusterRadius:40
+        });
+        // create map
+        this.map = L.mapbox.map(this.el,MAPID,{
+            minZoom: 1,
+            maxZoom: 10,
+            scrollWheelZoom: wheelZoom
+        });
+
+        queue()
+            .defer(util.request,'api/world.json')
+            .defer(util.request,'api/india_admin0.json')
+            .defer(util.request,'api/subnational-locs-index.json')
+            .defer(util.request,'api/focus-area-index.json')
+            .await(draw);
+
+        function draw(error, world, india, subLocIndex,focusIndex){
+
+            view.$summaryEl.html(view.template({
+                count: view.opUnit.get('project_count'),
+                fund: view.opUnit.get('funding_sources_count'),
+                budget: view.opUnit.get('budget_sum'),
+                expenditure: view.opUnit.get('expenditure_sume')
+            }));
+
+            if (!view.opUnit.lon) {// if the unit has no geography
+                view.$el.prev().hide();
+                view.$el.next().addClass('nogeo');
+                view.$el.hide();
+            } else {
+                var iso = parseInt(view.opUnit.get('iso_num'));
+                    // second try
+                if (!IE || IE_VERSION > 8){
+                    view.outline = new L.GeoJSON();
+
+                    var topoFeatures = topojson.feature(world, world.objects.countries).features,
+                        selectedFeature = _(topoFeatures).findWhere({id:iso}),
+                        coords = selectedFeature.geometry.coordinates,
+                        outlineStyle = {
+                                "color": "#b5b5b5",
+                                "weight": 0,
+                                clickable: false
+                        };
+                    if (iso == 356) {
+                        var topoFeatures = topojson.feature(india, india.objects.india_admin0).features;
+                        _(topoFeatures).each(function(f){
+                            view.outline.addData(f)
+                                .setStyle(outlineStyle);
+                        });
+                    } else {
+                        view.outline.addData(selectedFeature)
+                            .setStyle(outlineStyle);
+                    }
+
+                    if (iso == 643) {
+                        view.map.setView([55,65],2);
+                    } else {
+                        view.map.fitBounds(util.ctyBounds(coords));
+                    }
+
+                    view.outline.addTo(view.map);
+                } else {
+                    view.map.setView([view.opUnit.lat,view.opUnit.lon],3);
+                }
+                var markerOptions = {
+                    'marker-size': 'small'
+                };
+
+                _(subLocations).each(function(subLoc) {
+                    var markerColor;
+                    _(focusIndex).each(function(focus){
+                        if (focus.id == subLoc.focus_area){
+                            return markerColor = focus.color;
+                        };
+                    });
+
+                    locations.push({
+                        type: "Feature",
+                        geometry: {
+                            type: "Point",
+                            coordinates: [
+                                subLoc.lon,
+                                subLoc.lat
+                            ]
+                        },
+                        properties: {
+                            id: subLoc.awardID,
+                            outputID: subLoc.outputID,
+                            precision: subLoc.precision,
+                            type: subLoc.type,
+                            scope: subLoc.scope,
+                            project: view.model.get('project_title'),
+                            name: subLoc.name,
+                            focus_area: subLoc.focus_area,
+                            description: view.tooltip(subLoc, subLocIndex),
+                            'marker-size': 'small',
+                            'marker-color': markerColor
+                        } 
+                    });
+                });
+                
+                function onEachFeature(feature, layer) {
+                    var oldOptions = {
+                        'marker-size':'small',
+                        'marker-color':feature.properties['marker-color']
+                    }
+                    var newOptions = {
+                        'marker-size':'small',
+                    }
+                    var newColors = [
+                        {'color': '689A46', 'id': '4'},
+                        {'color': '218DB6', 'id': '2'},
+                        {'color': 'AAA922', 'id': '1'},
+                        {'color': 'D15A4B', 'id': '3'}
+                    ]
+                    // Match focus area ID to newColors array
+                    _(newColors).each(function(color){
+                        if (color.id == feature.properties.focus_area){
+                           return newOptions['marker-color'] = color.color;
+                        };
+                    })
+                    var clusterBrief = L.popup({
+                            closeButton:true,
+                            offset: new L.Point(0,-20)
+                        }).setContent(feature.properties.description);
+                    layer.on('click',function(){
+                        clusterBrief.setLatLng(this.getLatLng());
+                        view.map.openPopup(clusterBrief);
+                        layer.setIcon(L.mapbox.marker.icon(newOptions));
+                    }).on('mouseout',function(){
+                        layer.setIcon(L.mapbox.marker.icon(oldOptions));
+                    })
+                }
+                // Create a geoJSON with locations
+                var markerLayer = L.geoJson(locations, {
+                    pointToLayer: L.mapbox.marker.style,
+                    onEachFeature: onEachFeature
+                });
+                // Add the geoJSON to the cluster layer
+                view.markers.addLayer(markerLayer);
+                // Add cluster layer to map
+                view.map.addLayer(view.markers);
+
+            }
+        }
+
     },
     tooltip: function(data, g) {
         var type = g.type[data.type],
@@ -21,174 +195,6 @@ views.ProjectMap = Backbone.View.extend({
                         + '<div><b>Precision:</b> <span class="value">' + precision + '</span></div></div>';
         return description;
     },
-    render: function() {
-        var view = this,
-            locations = [],
-            unit = this.model.get('operating_unit_id'),
-            subLocations = this.model.get('subnational'),
-            wheelZoom = true;
-            
-        // adding faux fullscreen control
-        if (!view.options.embed) {
-           $('#profilemap').append('<div class="full-control"><a href="#" class="icon map-fullscreen"></a></div>');
-        } else {
-            wheelZoom = false;
-        }
-        // create a cluster
-        view.markers = new L.MarkerClusterGroup({
-            showCoverageOnHover:false,
-            maxClusterRadius:40
-        });
-        // create map
-        view.map = L.mapbox.map(this.el,MAPID,{
-            minZoom: 1,
-            maxZoom: 10,
-            scrollWheelZoom: wheelZoom
-        });
-
-        queue()
-            .defer(util.request,'api/world.json')
-            .defer(util.request,'api/india_admin0.json')
-            .defer(util.request,'api/subnational-locs-index.json')
-            .defer(util.request,'api/focus-area-index.json')
-            .defer(util.request,'api/operating-unit-index.json')
-            .await(draw);
-
-        function draw(error, world, india, subLocIndex,focusIndex, opUnitData){
-            for (var i = 0; i < opUnitData.length; i++) {
-            var opUnit = opUnitData[i];
-            if (opUnit.id === unit) {
-                // disable social media chunk
-                // if (!view.options.embed) view.getwebData(o);
-
-                view.$summaryEl.html(view.template(opUnit));
-
-                if (!opUnit.lon) {// if the unit has no geography
-                    view.$el.prev().hide();
-                    view.$el.next().addClass('nogeo');
-                    view.$el.hide();
-                } else {
-                    var iso = parseInt(opUnit.iso_num);
-                        // second try
-                    if (!IE || IE_VERSION > 8){
-                        view.outline = new L.GeoJSON();
-
-                        var topoFeatures = topojson.feature(world, world.objects.countries).features,
-                            selectedFeature = _(topoFeatures).findWhere({id:iso}),
-                            coords = selectedFeature.geometry.coordinates,
-                            outlineStyle = {
-                                    "color": "#b5b5b5",
-                                    "weight": 0,
-                                    clickable: false
-                            };
-                        if (iso == 356) {
-                            var topoFeatures = topojson.feature(india, india.objects.india_admin0).features;
-                            _(topoFeatures).each(function(f){
-                                view.outline.addData(f)
-                                    .setStyle(outlineStyle);
-                            });
-                        } else {
-                            view.outline.addData(selectedFeature)
-                                .setStyle(outlineStyle);
-                        }
-
-                        if (iso == 643) {
-                            view.map.setView([55,65],2);
-                        } else {
-                            view.map.fitBounds(util.ctyBounds(coords));
-                        }
-
-                        view.outline.addTo(view.map);
-                    } else {
-                        view.map.setView([opUnit.lat,opUnit.lon],3);
-                    }
-                    var markerOptions = {
-                        'marker-size': 'small'
-                    };
-
-                    _(subLocations).each(function(subLoc) {
-                        var markerColor;
-                        _(focusIndex).each(function(focus){
-                            if (focus.id == subLoc.focus_area){
-                                return markerColor = focus.color;
-                            };
-                        });
-
-                        locations.push({
-                            type: "Feature",
-                            geometry: {
-                                type: "Point",
-                                coordinates: [
-                                    subLoc.lon,
-                                    subLoc.lat
-                                ]
-                            },
-                            properties: {
-                                id: subLoc.awardID,
-                                outputID: subLoc.outputID,
-                                precision: subLoc.precision,
-                                type: subLoc.type,
-                                scope: subLoc.scope,
-                                project: view.model.get('project_title'),
-                                name: subLoc.name,
-                                focus_area: subLoc.focus_area,
-                                description: view.tooltip(subLoc, subLocIndex),
-                                'marker-size': 'small',
-                                'marker-color': markerColor
-                            } 
-                        });
-                    });
-                    
-                    function onEachFeature(feature, layer) {
-                        var oldOptions = {
-                            'marker-size':'small',
-                            'marker-color':feature.properties['marker-color']
-                        }
-                        var newOptions = {
-                            'marker-size':'small',
-                        }
-                        var newColors = [
-                            {'color': '689A46', 'id': '4'},
-                            {'color': '218DB6', 'id': '2'},
-                            {'color': 'AAA922', 'id': '1'},
-                            {'color': 'D15A4B', 'id': '3'}
-                        ]
-                        // Match focus area ID to newColors array
-                        _(newColors).each(function(color){
-                            if (color.id == feature.properties.focus_area){
-                               return newOptions['marker-color'] = color.color;
-                            };
-                        })
-                        var clusterBrief = L.popup({
-                                closeButton:true,
-                                offset: new L.Point(0,-20)
-                            }).setContent(feature.properties.description);
-                        layer.on('click',function(){
-                            clusterBrief.setLatLng(this.getLatLng());
-                            view.map.openPopup(clusterBrief);
-                            layer.setIcon(L.mapbox.marker.icon(newOptions));
-                        }).on('mouseout',function(){
-                            layer.setIcon(L.mapbox.marker.icon(oldOptions));
-                        })
-                    }
-                    // Create a geoJSON with locations
-                    var markerLayer = L.geoJson(locations, {
-                        pointToLayer: L.mapbox.marker.style,
-                        onEachFeature: onEachFeature
-                    });
-                    // Add the geoJSON to the cluster layer
-                    view.markers.addLayer(markerLayer);
-                    // Add cluster layer to map
-                    view.map.addLayer(view.markers);
-
-                }
-            }
-        }
-        }
-
-
-    },
-
     fullscreen: function(e) {
         e.preventDefault();
         var view = this;
