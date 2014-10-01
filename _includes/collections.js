@@ -119,8 +119,6 @@ Filters = Backbone.Collection.extend({
                     }
                }, isCore);
             });
-
-            //Add them to the core count
             count = count + coreProjects.length;
         }
         return {

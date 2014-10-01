@@ -137,9 +137,13 @@ routers.Global = Backbone.Router.extend({
             }, true);
         };
 
+<<<<<<< HEAD
         //This gets the UNDP regular resources projects that don't have the donor country as one 
         //of the funders, so that we don't double count. We also filter these projects using the facets.
         var getCoreFundsFromFacets = function(donorCountry) {
+=======
+        var getCoreFundsFromFacets = function(donorCountry) { 
+>>>>>>> 7fab82ea5b7f06700c706e183a9fa3afc995537c
             return function (model) {
                 var isCore = _(model.attributes.donors)
                                 .contains('00012') && !_(model.attributes.donor_countries)
@@ -169,7 +173,10 @@ routers.Global = Backbone.Router.extend({
 
            //Create coreProjects array for projects that are funded by UNDP regular resources
            var coreProjects = [];
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7fab82ea5b7f06700c706e183a9fa3afc995537c
            var opUnitFilter =_(global.processedFacets).findWhere({collection:"operating_unit"});
            if (_(that.coreFund).contains(that.donorCountry) && !opUnitFilter) {
                 coreProjects = that.allProjects.filter(getCoreFundsFromFacets(that.donorCountry));
@@ -206,6 +213,10 @@ routers.Global = Backbone.Router.extend({
             } else {
                 that.projects.reset(this.allProjects.filter(getProjectFromFacets));
             }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7fab82ea5b7f06700c706e183a9fa3afc995537c
         }
 
         // Check for funding countries to show donor visualization
