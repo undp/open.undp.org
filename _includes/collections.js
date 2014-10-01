@@ -96,8 +96,17 @@ Filters = Backbone.Collection.extend({
         global.projects.on('update', this.update, this);
     },
     aggregate: function(collection,model){
+        var count = global.projects[collection.id][model.id];
+        var opUnitFilter =_(global.processedFacets).findWhere({collection:"operating_unit"});
+        if (collection.id === 'donor_countries' && !opUnitFilter && _(global.coreFund).contains(model.get('id'))) {
+            var coreProjects = global.allProjects.filter(function(project) {
+               var isCore = _(project.attributes.donors).contains('00012');
+               return (isCore && !_(project.attributes.donor_countries).contains(model.get('id')));
+            });
+            count = count + coreProjects.length;
+        }
         return {
-            count: global.projects[collection.id][model.id],
+            count: count,
             budget: global.projects[collection.id + 'Budget'][model.id],
             expenditure: global.projects[collection.id + 'Expenditure'][model.id]
         }
@@ -112,7 +121,6 @@ Filters = Backbone.Collection.extend({
             activeModel;
 
         if (activeHash) {
-
             activeModel = this.get(activeHash.id);
     
             // the selected hash has a model where active equals true
