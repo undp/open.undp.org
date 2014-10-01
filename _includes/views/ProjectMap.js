@@ -2,10 +2,13 @@ views.ProjectMap = Backbone.View.extend({
     events: {
         'click .map-fullscreen': 'fullscreen',
     },
-    template:_.template($('#projectMapCountrySummary').html()),
     initialize: function() {
+        this.summaryTemplate = _.template($('#projectMapCountrySummary').html()),
         this.tooltipTemplate = _.template($('#projectMapTooltip').html());
+        this.contactTemplate = _.template($('#contactInfo').html());
+
         this.$summaryEl = $('#country-summary');
+        this.$contactEl = $('#unit-contact'); // originated in Nav.js
 
         this.nations = new Nationals();
 
@@ -24,12 +27,18 @@ views.ProjectMap = Backbone.View.extend({
             'id':this.model.get('operating_unit_id')
         });
         // fill in country summary
-        this.$summaryEl.html(this.template({
+        this.$summaryEl.html(this.summaryTemplate({
             count: this.opUnit.get('project_count'),
             fund: this.opUnit.get('funding_sources_count'),
             budget: this.opUnit.get('budget_sum'),
             expenditure: this.opUnit.get('expenditure_sume')
         }));
+
+        this.$contactEl.html(this.contactTemplate({
+            unit: this.opUnit.get('name'),
+            website: this.opUnit.get('web'),
+            email: this.opUnit.get('email')
+        }))
 
         if (!this.options.embed) {
             // fire up social media spreadsheet
