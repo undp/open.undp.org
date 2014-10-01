@@ -12,7 +12,7 @@ views.ProjectMap = Backbone.View.extend({
 
         this.nations.fetch();
 
-        _.bindAll(this,'draw');
+        _.bindAll(this,'draw','onEachFeature');
     },
     render: function() {
         var view = this,
@@ -137,48 +137,48 @@ views.ProjectMap = Backbone.View.extend({
                 this.map.setView([this.opUnit.lat,this.opUnit.lon],3);
             }
 
-            function onEachFeature(feature, layer) {
-                var oldOptions = {
-                    'marker-size':'small',
-                    'marker-color':feature.properties['marker-color']
-                }
-                var newOptions = {
-                    'marker-size':'small',
-                }
-                var newColors = [
-                    {'color': '689A46', 'id': '4'},
-                    {'color': '218DB6', 'id': '2'},
-                    {'color': 'AAA922', 'id': '1'},
-                    {'color': 'D15A4B', 'id': '3'}
-                ]
-                // Match focus area ID to newColors array
-                _(newColors).each(function(color){
-                    if (color.id == feature.properties.focus_area){
-                       return newOptions['marker-color'] = color.color;
-                    };
-                })
-                var clusterBrief = L.popup({
-                        closeButton:true,
-                        offset: new L.Point(0,-20)
-                    }).setContent(feature.properties.description);
-                layer.on('click',function(){
-                    clusterBrief.setLatLng(this.getLatLng());
-                    view.map.openPopup(clusterBrief);
-                    layer.setIcon(L.mapbox.marker.icon(newOptions));
-                }).on('mouseout',function(){
-                    layer.setIcon(L.mapbox.marker.icon(oldOptions));
-                })
-            }
             // Create a geoJSON with locations
             var markerLayer = L.geoJson(locations, {
                 pointToLayer: L.mapbox.marker.style,
-                onEachFeature: onEachFeature
+                onEachFeature: this.onEachFeature
             });
             // Add the geoJSON to the cluster layer
             this.markers.addLayer(markerLayer);
             // Add cluster layer to map
             this.map.addLayer(this.markers);
         }
+    },
+    onEachFeature: function(feature, layer) {
+        var oldOptions = {
+            'marker-size':'small',
+            'marker-color':feature.properties['marker-color']
+        }
+        var newOptions = {
+            'marker-size':'small',
+        }
+        var newColors = [
+            {'color': '689A46', 'id': '4'},
+            {'color': '218DB6', 'id': '2'},
+            {'color': 'AAA922', 'id': '1'},
+            {'color': 'D15A4B', 'id': '3'}
+        ]
+        // Match focus area ID to newColors array
+        _(newColors).each(function(color){
+            if (color.id == feature.properties.focus_area){
+               return newOptions['marker-color'] = color.color;
+            };
+        })
+        var clusterBrief = L.popup({
+                closeButton:true,
+                offset: new L.Point(0,-20)
+            }).setContent(feature.properties.description);
+        layer.on('click',function(){
+            clusterBrief.setLatLng(this.getLatLng());
+            this.map.openPopup(clusterBrief);
+            layer.setIcon(L.mapbox.marker.icon(newOptions));
+        }).on('mouseout',function(){
+            layer.setIcon(L.mapbox.marker.icon(oldOptions));
+        })
     },
     tooltip: function(data, g) {
         var type = g.type[data.type],
