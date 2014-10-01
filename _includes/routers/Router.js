@@ -163,10 +163,15 @@ routers.Global = Backbone.Router.extend({
             // from that.allProjects get new projects based on the facets
             var facettedProjects = that.allProjects.filter(getProjectFromFacets);
 
-            //Create coreProjects array for projects that are funded by UNDP regular resources
+           //Create coreProjects array for projects that are funded by UNDP regular resources
            var coreProjects = [];
-           if (_(that.coreFund).contains(that.donorCountry)) {
-                coreProjects = that.allProjects.filter(getCoreFundsFromFacets(that.donorCountry))
+
+           var opUnitFilter =_(global.processedFacets).findWhere({collection:"operating_unit"});
+           if (_(that.coreFund).contains(that.donorCountry) && !opUnitFilter) {
+                coreProjects = that.allProjects.filter(function(project) {
+                   var isCore = _(project.attributes.donors).contains('00012');
+                   return ( isCore && !_(project.attributes.donor_countries).contains(that.donorCountry));
+                });
                 that.projects = new Projects(facettedProjects.concat(coreProjects));
             } else {
                 that.projects = new Projects(facettedProjects);
@@ -193,14 +198,16 @@ routers.Global = Backbone.Router.extend({
 
             //Create coreProjects array for projects that are funded by UNDP regular resources
            var coreProjects = [];
-           if (_(that.coreFund).contains(that.donorCountry)) {
-                coreProjects = that.allProjects.filter(getCoreFundsFromFacets(that.donorCountry));
+           var opUnitFilter =_(global.processedFacets).findWhere({collection:"operating_unit"});
+           if (_(that.coreFund).contains(that.donorCountry) && !opUnitFilter) {
+                coreProjects = that.allProjects.filter(function(project) {
+                    var isCore = _(project.attributes.donors).contains('00012');
+                   return ( isCore && !_(project.attributes.donor_countries).contains(that.donorCountry));
+                });
                 that.projects.reset(this.allProjects.filter(getProjectFromFacets).concat(coreProjects));
             } else {
                 that.projects.reset(this.allProjects.filter(getProjectFromFacets));
             }
-            
-
         }
 
         // Check for funding countries to show donor visualization
