@@ -27,28 +27,24 @@ routers.Global = Backbone.Router.extend({
         var that = this;
 
         queue()
-           .defer(function(callback) {
-                $.get('api/core-fund.json', function(data) {
-                    callback(null, data)
-                })
-           })
-        .await(function(err, result) {
-            that.coreFund = result;
+            .defer(util.request,'api/core-fund.json') // load JSON that contains all the core fund donors
+            .await(function(err, result) {
+                that.coreFund = result;
 
-            if ((FISCALYEARS).indexOf(year) > -1){ // if year exsits in FISCALYEARS array
+                if ((FISCALYEARS).indexOf(year) > -1){ // if year exsits in FISCALYEARS array
 
-                that.allProjects = new Projects();
-                that.allProjects.url = 'api/project_summary_' + year + '.json';
+                    that.allProjects = new Projects();
+                    that.allProjects.url = 'api/project_summary_' + year + '.json';
 
-                that.allProjects.fetch({
-                    success:function(){
-                        that.browser(year, path, embed);
-                    }
-                });
-            } else {
-                that.project(year, false,false); // in this case "year" is the project id
-            }
-        })
+                    that.allProjects.fetch({
+                        success:function(){
+                            that.browser(year, path, embed);
+                        }
+                    });
+                } else {
+                    that.project(year, false,false); // in this case "year" is the project id
+                }
+            });
     },
     defaultDescription: $('#description p.intro').html(),
     description: [],
