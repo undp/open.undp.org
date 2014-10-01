@@ -96,8 +96,7 @@ util.abbreviateNumber = function(n) {
 $(document).ready(function() {
     var models = {},
         views = {},
-        routers = {},
-        app = {};
+        routers = {};
 
     {% include models.js %}
     {% include collections.js %}

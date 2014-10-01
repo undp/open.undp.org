@@ -29,7 +29,7 @@ views.ProjectItemList = Backbone.View.extend({
     },
 
     render: function() {
-
+        setTimeout(function() {
         var donor = _(global.processedFacets).find(function(filter) {
                 return filter.collection === 'donors';
             }),
@@ -93,6 +93,7 @@ views.ProjectItemList = Backbone.View.extend({
         }
 
         return this;
+        }.bind(this), 200);
     },
 
     loadMore: function(e) {

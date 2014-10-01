@@ -1,8 +1,8 @@
 <div id='homemap-legend' style='display:none;'>
   <strong>Type of funds</strong>
   <div class='clearfix'>
-      <div><i style='background: #0055aa;border-radius: 1; border-color: #0055aa;' class="legend-icon"></i><p>Partner</div>
-      <div><i style='background: rgba(0, 85, 170, 0.6); border-color: #0055aa' class='legend-icon'></i>Local</div>
+      <div><i style='background: #0055aa;border-radius: 1; border-color: #0055aa;' class="legend-icon"></i><p>International</div>
+      <div><i style='background: rgba(0, 85, 170, 0.6); border-color: #0055aa' class='legend-icon'></i>National</div>
   </div>
 </div>
 
@@ -45,18 +45,5 @@
 <script id='budgetChartItemTemplate' type='text/html'>{% include templates/budgetChartItemTemplate._ %}</script>
 <script id='recipientOfficesChart' type='text/html'>{% include templates/recipientOfficesChart._ %}</script>
 <script id='recipientOfficesChartTabbed' type='text/html'>{% include templates/recipientOfficesChartTabbed._ %}</script>
-
 <script id='projectMapTooltip' type='text/html'>{% include templates/projectMapTooltip._%}</script>
-<script id='contactInfo' type='text/html'>
-    <h3 class='contact-title'>UNDP <%= unit %> Office</h3>
-    <ul class='contact-info'>
-      <li>
-        <span class='label'>Website</span>
-        <a href='<%= website %>'><%= website %></a>
-      </li>
-      <li>
-        <span class='label'>Email</span>
-        <a href='mailto:<%= email %>'><%= email %></a>
-      </li>
-    </ul>
-</script>
+<script id='contactInfo' type='text/html'>{% include templates/contactInfo._%}</script>

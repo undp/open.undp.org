@@ -5,7 +5,7 @@ routers.Global = Backbone.Router.extend({
         ':fiscalyear': 'fiscalyear', // fiscalyear --> "2014"
         ':fiscalyear/filter/*path': 'fiscalyear', // fiscalyear, filters
         'project/:id': 'project', //id --> "00064848"
-        'project/:id/output-:output': 'project', //id-->"00064848", output ? //TODO this is a variation of the project page, what's different?
+        'project/:id/output-:output': 'project', //project id, output id
         'widget/*options': 'widgetRedirect', //options --> see Widget.js
         ':fiscalyear/widget/*options': 'widget',
         'about/*subnav': 'about', // subnav --> {{post.tag}}
@@ -26,20 +26,25 @@ routers.Global = Backbone.Router.extend({
     fiscalyear: function (year, path, embed) {
         var that = this;
 
-        if ((FISCALYEARS).indexOf(year) > -1){ // if year exsits in FISCALYEARS array
+        queue()
+            .defer(util.request,'api/core-fund.json') // load JSON that contains all the core fund donors
+            .await(function(err, result) {
+                that.coreFund = result;
 
-            this.allProjects = new Projects();
-            this.allProjects.url = 'api/project_summary_' + year + '.json';
+                if ((FISCALYEARS).indexOf(year) > -1){ // if year exsits in FISCALYEARS array
 
-            this.allProjects.fetch({
-                success:function(){
-                    that.browser(year, path, embed);
+                    that.allProjects = new Projects();
+                    that.allProjects.url = 'api/project_summary_' + year + '.json';
+
+                    that.allProjects.fetch({
+                        success:function(){
+                            that.browser(year, path, embed);
+                        }
+                    });
+                } else {
+                    that.project(year, false,false); // in this case "year" is the project id
                 }
             });
-        } else {
-            this.project(year, false,false); // in this case "year" is the project id
-        }
-
     },
     defaultDescription: $('#description p.intro').html(),
     description: [],
@@ -139,8 +144,18 @@ routers.Global = Backbone.Router.extend({
                 that.projects.map.map.remove();
             }
             // from that.allProjects get new projects based on the facets
-            // that.projects = new Projects(that.allProjects.filter(getProjectFromFacets));
-            that.projects = new Projects(that.allProjects.filter(getProjectFromFacets));
+            var facettedProjects = that.allProjects.filter(getProjectFromFacets);
+
+            //Create coreProjects array for projects that are funded by UNDP regular resources
+           var coreProjects = [];
+           if (_(that.coreFund).contains(that.donorCountry)) {
+                coreProjects = that.allProjects.filter(function(project) {
+                    var isCore = _(project.attributes.donors).contains('00012');
+                   return ( isCore && !_(project.attributes.donor_countries).contains(that.donorCountry));
+                });
+            }
+
+            that.projects = new Projects(facettedProjects.concat(coreProjects));
 
             // start the project calculations
             that.projects.watch();
@@ -158,7 +173,18 @@ routers.Global = Backbone.Router.extend({
         } else {
             // if that.allProjects are already present
             that.projects.excecuteAfterCalculation = that.updateDescription;
-            that.projects.reset(this.allProjects.filter(getProjectFromFacets));
+
+
+            //Create coreProjects array for projects that are funded by UNDP regular resources
+           var coreProjects = [];
+           if (_(that.coreFund).contains(that.donorCountry)) {
+                coreProjects = that.allProjects.filter(function(project) {
+                    var isCore = _(project.attributes.donors).contains('00012');
+                   return ( isCore && !_(project.attributes.donor_countries).contains(that.donorCountry));
+                });
+            }
+            that.projects.reset(this.allProjects.filter(getProjectFromFacets).concat(coreProjects));
+
         }
 
         // Check for funding countries to show donor visualization
@@ -229,35 +255,28 @@ routers.Global = Backbone.Router.extend({
     },
 
     project: function (id, output, embed) {
-        var that = this;
+        var oneProject = new Project({id: id});
 
-        that.project.model = new Project({
-            id: id
+        // loading the specific project
+        oneProject.fetch({
+            success: function (data) {
+                new views.ProjectProfile({
+                    el: (embed) ? '#embed' : '#profile',
+                    model: oneProject,
+                    embed: embed || false,
+                    outputId: (output) ? output : false
+                });
+            }
         });
 
         if (!embed) {
             window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
 
             new views.Nav({add:'project'});
-            new views.Widget({
-                context: 'project'
-            });
+            new views.Widget({context: 'project'});
             // Load in feedbackform deats
-            that.feedback();
+            this.feedback();
         }
-
-        // loading the specific project
-        that.project.model.fetch({
-            success: function (data) {
-                new views.ProjectProfile({
-                    el: (embed) ? '#embed' : '#profile',
-                    model: that.project.model,
-                    embed: embed || false,
-                    gotoOutput: (output) ? output : false
-                });
-
-            }
-        });
     },
 
     widget: function (year, path) {

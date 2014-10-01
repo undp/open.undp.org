@@ -5,17 +5,15 @@ views.YearNav = Backbone.View.extend({
 		this.render();
 	},
 	render: function(){
-		var template = this.template,
-
-			years = _.map(FISCALYEARS,function(y){
+		var years = _.map(FISCALYEARS,function(y){
 				var year = {'y':y}; // construct year into a key-value pair for template
-				return template(year);
-			});
+				return this.template(year);
+			},this);
+
 		this.$el.html(years.join(''));
 	
 		// Set up menu
         $('#app .view, #mainnav .profile').hide();
-        $('#profile .summary').addClass('off');
         $('#browser, #mainnav .browser').show();
         $('#nav-side.not-filter').remove();
         $('#mainnav li').removeClass('active');
