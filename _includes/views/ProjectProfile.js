@@ -13,19 +13,15 @@ views.ProjectProfile = Backbone.View.extend({
             this.subTemplate = _.template($('#projectOutputs').html());
         }
 
-        this.render();
-
-        var outputID = this.options.gotoOutput;
-        if (outputID) {
-            window.setTimeout(function() { window.scrollTo(0, $('#output-' + outputID).offset().top); }, 0);
-        }
-
-        $('#profile .summary').removeClass('off');
         this.low = 10,
         this.high = 10;
+
+        this.render();
+        $('#profile .summary').removeClass('off');
     },
 
     render: function() {
+
         new views.Breadcrumbs({
             add:'activeProject',
             projectUnitId: this.model.get('operating_unit_id'),
@@ -144,11 +140,7 @@ views.ProjectProfile = Backbone.View.extend({
             render: true
         });
 
-        
-
         $('#progress').find('.bar').css('width', progress + '%');
-
-        $('#outputs',this.$el).empty();
         
         if (this.model.attributes.outputs) {
             var outputs = this.model.attributes.outputs.slice(0, 9);
@@ -162,6 +154,14 @@ views.ProjectProfile = Backbone.View.extend({
             } else {
                 $('.load').show();
             }
+        }
+
+        // if outputId is passed scroll to that output
+        if (this.options.outputId) {
+            var outputId = this.options.outputId;
+            window.setTimeout(function() {
+                window.scrollTo(0, $('#output-' + outputId).offset().top);
+            }, 0);
         }
 
         return this;
