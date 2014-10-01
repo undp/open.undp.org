@@ -4,6 +4,7 @@ views.ProjectMap = Backbone.View.extend({
     },
     template:_.template($('#projectMapCountrySummary').html()),
     initialize: function() {
+        this.tooltipTemplate = _.template($('#projectMapTooltip').html());
         this.$summaryEl = $('#country-summary');
 
         this.nations = new Nationals();
@@ -56,7 +57,6 @@ views.ProjectMap = Backbone.View.extend({
             .defer(util.request,'api/subnational-locs-index.json')
             .defer(util.request,'api/focus-area-index.json')
             .await(this.draw);
-
     },
 
     draw: function(error, world, india,subLocIndex,focusIndex){
@@ -180,19 +180,14 @@ views.ProjectMap = Backbone.View.extend({
             layer.setIcon(L.mapbox.marker.icon(oldOptions));
         })
     },
-    tooltip: function(data, g) {
-        var type = g.type[data.type],
-            precision = g.precision[data.precision],
-            output = data.outputID,
-            focus_clean = (data.focus_area_descr).replace(/\s+/g, '-').toLowerCase().split('-')[0],
-            focus_area = (data.focus_area_descr).toTitleCase();
-
-        var description =  '<div class="popup top">'
-                        + '<table><tr><td>Output</td><td>' + output + '</td></tr></table>'  
-                         + '<div class="focus"><span class="'+focus_clean+'"></span><p class="space">' + focus_area + '<p></div></div>'
-                        + '<div class="popup bottom"><div><b>Location type:</b> <span class="value">' + type + '</span></div>'
-                        + '<div><b>Precision:</b> <span class="value">' + precision + '</span></div></div>';
-        return description;
+    tooltip: function(loc, index) {
+        return this.tooltipTemplate({
+            type: index.type[loc.type],
+            precision: index.precision[loc.precision],
+            output: loc.outputID,
+            focus_clean: (loc.focus_area_descr).replace(/\s+/g, '-').toLowerCase().split('-')[0],
+            focus_area: (loc.focus_area_descr).toTitleCase()
+        })
     },
     fullscreen: function(e) {
         e.preventDefault();
