@@ -196,8 +196,19 @@ views.ProjectMap = Backbone.View.extend({
 
         $('a.map-fullscreen').toggleClass('full');
         $('.country-profile').toggleClass('full');
-      },
+    },
     getwebData: function(data) {
+        // Get social media google spreadsheet
+        var sheetId = '0Airl6dsmcbKodHB4SlVfeVRHeWoyWTdKcDY5UW1xaEE',
+            sheetNum = '1';
+        var sheetUrl= 'https://spreadsheets.google.com/feeds/list/'+
+            sheetId + '/' + sheetNum +
+            '/public/values?alt=json';
+
+        // queue()
+        //     .defer(util.request,sheetUrl)
+        //     .await(loadSpreadsheet)
+
         var view = this,
             photos = [],
             coContact = {
@@ -206,16 +217,8 @@ views.ProjectMap = Backbone.View.extend({
                 facebook: []
             };
 
-        // Get social media accounts from UNDP-maintained spreadsheet
-        var spreadsheet = '//spreadsheets.google.com/feeds/list/0Airl6dsmcbKodHB4SlVfeVRHeWoyWTdKcDY5UW1xaEE/1/public/values?alt=json-in-script&callback=?';
-
-        queue()
-            .defer($.getJSON,spreadsheet)
-            .await(view.socialReady);
-
         function contacts(allSocialAccts) {
-            var accts = ['web','email','twitter','flickr','facebook'],
-                pageUrl = "http%3A%2F%2Fopen.undp.org%2F%23project/"+view.model.get('project_id'),
+            var accts = ['twitter','flickr','facebook'],
                 pageUrl = BASE_URL + "#project/" + view.model.get('project_id'),
                 socialBaseUrl = '';
                 tweetButton = {
@@ -233,9 +236,9 @@ views.ProjectMap = Backbone.View.extend({
                 var link = '',
                     i = 0;
 
-                if (acct == 'twitter') socialBaseUrl = 'http://twitter.com/';
-                if (acct == 'email') socialBaseUrl = 'mailto:';
-                if (acct == 'flickr') socialBaseUrl = 'http://flickr.com/photos/';
+                if (acct == 'twitter') socialBaseUrl = 'https://twitter.com/';
+                if (acct == 'flickr') socialBaseUrl = 'https://flickr.com/photos/';
+                if (acct == 'facebook') socialBaseUrl = 'https://facebook.com/'
 
                 // hide unit contact if there's no social media accounts available
                 if ((_.flatten(_.values(allSocialAccts)).length)) {
@@ -255,19 +258,6 @@ views.ProjectMap = Backbone.View.extend({
                 } else if (data[acct]) {
                     link += '<a target="_blank" href="' + data[acct] + '">' + data[acct] + '</a>';
                 }
-
-                if (link.length > 0) {
-                    $('#unit-contact .contact-info').append(
-                        '<li class="row-fluid">' +
-                            '<div class="label">' +
-                                '<p>' + ((acct == 'web') ? 'Website' : acct.capitalize()) +'</p>' +
-                            '</div>' +
-                            '<div>' +
-                                '<p>' + link + '</p>' +
-                            '</div>' +
-                        '</li>'
-                    );
-                }
             });
 
             $('#tweet-button').append(
@@ -276,19 +266,11 @@ views.ProjectMap = Backbone.View.extend({
                 'data-url='      + tweetButton["data-url"]       + ' ' +
                 'data-hashtags=' + tweetButton["data-hashtags"]  + ' ' +
                 'data-text='     + tweetButton["data-text"]      + ' ' +
-                //'data-counturl=' + tweetButton["data-counturl"]  + ' ' +
                 'data-via='      + ((tweetButton["data-via"].length) ? tweetButton["data-via"] : "OpenUNDP") + ' ' +
                 '></a>' +
                 followButton +
                 tweetScript
             );
-
-            if (data['email'] || data['web'] || (_.flatten(_.values(allSocialAccts)).length)) {
-                $('#unit-contact').show();
-                $('#unit-contact h3').html('Contact UNDP ' + data.name);
-            } else {
-                $('#unit-contact').hide();
-            }
         }
     },
 
@@ -298,7 +280,7 @@ views.ProjectMap = Backbone.View.extend({
             fbAccts = [],
             q = queue(1);
 
-        q.defer(function(cb) {
+        queue(1).defer(function(cb) {
             _(g.feed.entry).each(function(row) {
                 var acctType = row.gsx$type.$t,
                     acctId = row.gsx$id.$t,
@@ -329,7 +311,7 @@ views.ProjectMap = Backbone.View.extend({
         });
         
         // Gather photos from documents and flickr, in that order
-        q.defer(function(cb) {
+        queue(1).defer(function(cb) {
             if (that.model.get('document_name')) {
                 _(that.model.get('document_name')[0]).each(function (photo, i) {
                     try {
@@ -354,7 +336,7 @@ views.ProjectMap = Backbone.View.extend({
 
             cb();
         });
-        q.await(function() {
+        queue(1).await(function() {
             view.flickr(flickrAccts,photos);
         }); 
     },
