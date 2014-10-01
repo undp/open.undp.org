@@ -229,17 +229,7 @@ routers.Global = Backbone.Router.extend({
     },
 
     project: function (id, output, embed) {
-        console.log(output)
         var oneProject = new Project({id: id});
-
-        if (!embed) {
-            window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
-
-            new views.Nav({add:'project'});
-            new views.Widget({context: 'project'});
-            // Load in feedbackform deats
-            this.feedback();
-        }
 
         // loading the specific project
         oneProject.fetch({
@@ -252,6 +242,15 @@ routers.Global = Backbone.Router.extend({
                 });
             }
         });
+
+        if (!embed) {
+            window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
+
+            new views.Nav({add:'project'});
+            new views.Widget({context: 'project'});
+            // Load in feedbackform deats
+            this.feedback();
+        }
     },
 
     widget: function (year, path) {
