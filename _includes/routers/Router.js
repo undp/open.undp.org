@@ -5,7 +5,7 @@ routers.Global = Backbone.Router.extend({
         ':fiscalyear': 'fiscalyear', // fiscalyear --> "2014"
         ':fiscalyear/filter/*path': 'fiscalyear', // fiscalyear, filters
         'project/:id': 'project', //id --> "00064848"
-        'project/:id/output-:output': 'project', //id-->"00064848", output ? //TODO this is a variation of the project page, what's different?
+        'project/:id/output-:output': 'project', //project id, output id
         'widget/*options': 'widgetRedirect', //options --> see Widget.js
         ':fiscalyear/widget/*options': 'widget',
         'about/*subnav': 'about', // subnav --> {{post.tag}}
@@ -229,33 +229,27 @@ routers.Global = Backbone.Router.extend({
     },
 
     project: function (id, output, embed) {
-        var that = this;
-
-        that.project.model = new Project({
-            id: id
-        });
+        console.log(output)
+        var oneProject = new Project({id: id});
 
         if (!embed) {
             window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
 
             new views.Nav({add:'project'});
-            new views.Widget({
-                context: 'project'
-            });
+            new views.Widget({context: 'project'});
             // Load in feedbackform deats
-            that.feedback();
+            this.feedback();
         }
 
         // loading the specific project
-        that.project.model.fetch({
+        oneProject.fetch({
             success: function (data) {
                 new views.ProjectProfile({
                     el: (embed) ? '#embed' : '#profile',
-                    model: that.project.model,
+                    model: oneProject,
                     embed: embed || false,
-                    gotoOutput: (output) ? output : false
+                    outputId: (output) ? output : false
                 });
-
             }
         });
     },
