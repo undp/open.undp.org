@@ -54,6 +54,7 @@ views.App = Backbone.View.extend({
         // adding years in render since the year div is part of app template
         new views.YearNav();
         this.selectYear(this.options.year);
+
     },
 
     selectYear: function(year) {
