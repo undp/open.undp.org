@@ -119,6 +119,7 @@ $(document).ready(function() {
     {% include views/YearNav.js %}
     {% include views/Facets.js %}
     {% include views/Description.js%}
+    {% include views/Social.js %}
 
     // Router
     {% include routers/Router.js %}

@@ -8,20 +8,20 @@
     <span class='label'>Email</span>
     <a href='mailto:<%= email %>'><%= email %></a>
   </li>
-  <% if (twitter) { %>
+  <% if (twitter.length) { %>
   <li>
     <span class='label'>Twitter</span>
     <a href='https://twitter.com/<%= twitter %>'>@<%= twitter %></a>
   </li>
-  <% } else if (flickr){ %>
+  <% } else if (flickr.length){ %>
   <li>
     <span class='label'>Flickr</span>
-    <a href='https://flickr.com/<%= flickr %>'>@ <%= flickr %></a>
+    <a href='https://flickr.com/photos/<%= flickr %>'><%= flickr %></a>
   </li>
-  <% } else if (facebook){ %>
+  <% } else if (facebook.length){ %>
   <li>
     <span class='label'>Facebook</span>
-    <a href='https://facebook.com/<%= fb %>'>@ <%= facebook %></a>
+    <a href='https://facebook.com/<%= facebook %>'><%= facebook %></a>
   </li>
   <% } %>
 </ul>

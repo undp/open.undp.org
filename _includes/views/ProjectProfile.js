@@ -161,7 +161,6 @@ views.ProjectProfile = Backbone.View.extend({
             el: '#profilemap',
             model: this.model,
             embed: this.options.embed,
-            render: true
         });
 
         return this;

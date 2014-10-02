@@ -3,12 +3,16 @@ views.ProjectMap = Backbone.View.extend({
         'click .map-fullscreen': 'fullscreen',
     },
     initialize: function() {
-        this.summaryTemplate = _.template($('#projectMapCountrySummary').html()),
+        this.summaryTemplate = _.template($('#projectMapCountrySummary').html());
         this.tooltipTemplate = _.template($('#projectMapTooltip').html());
-        this.contactTemplate = _.template($('#contactInfo').html());
 
-        this.$summaryEl = $('#country-summary');
-        this.$contactEl = $('#unit-contact'); // originated in Nav.js
+        this.$summaryEl = $('#country-summary'),
+        this.$flickrEl = $('#flickr');
+
+        // social media setup
+        this.photos = [];
+        this.flickrAccts = [];
+        this.fbAccts = [];
 
         this.nations = new Nationals();
 
@@ -16,17 +20,15 @@ views.ProjectMap = Backbone.View.extend({
 
         this.nations.fetch();
 
-        _.bindAll(this,'draw','onEachFeature','photosFromDocument','socialReady','flickr');
+        _.bindAll(this,'draw','onEachFeature','photosFromDocument','processSheet','flickr');
     },
     render: function() {
-        var view = this,
-            wheelZoom = true;
-
         // match project operating unit with operating unit index
         this.opUnit = this.nations.findWhere({
             'id':this.model.get('operating_unit_id')
         });
-        // fill in country summary
+
+        // fill in country summary under the map
         this.$summaryEl.html(this.summaryTemplate({
             count: this.opUnit.get('project_count'),
             fund: this.opUnit.get('funding_sources_count'),
@@ -34,35 +36,25 @@ views.ProjectMap = Backbone.View.extend({
             expenditure: this.opUnit.get('expenditure_sume')
         }));
 
-        // this.$contactEl.html(this.contactTemplate({
-        //     unit: this.opUnit.get('name'),
-        //     website: this.opUnit.get('web'),
-        //     email: this.opUnit.get('email')
-        // }))
-
         if (!this.options.embed) {
             // fire up social media spreadsheet
             this.loadSocialSpreadsheet(this.nations.models);
             // adding faux fullscreen control
            $('#profilemap').append('<div class="full-control"><a href="#" class="icon map-fullscreen"></a></div>');
-        } else {
-            wheelZoom = false;
         }
+
         // create a cluster
         this.markers = new L.MarkerClusterGroup({
             showCoverageOnHover:false,
             maxClusterRadius:40
         });
+
         // create map
         this.map = L.mapbox.map(this.el,MAPID,{
             minZoom: 1,
             maxZoom: 10,
-            scrollWheelZoom: wheelZoom
+            scrollWheelZoom: this.options.embed ? false : true
         });
-
-        if (this.model.get('document_name')) {
-            this.photosFromDocument();
-        }
 
         // load in necessary geography
         // and lookup jsons for drawing the map
@@ -190,7 +182,7 @@ views.ProjectMap = Backbone.View.extend({
         e.preventDefault();
         var view = this;
 
-        view.$el.toggleClass('full');
+        this.$el.toggleClass('full');
         setTimeout(function(){
             view.map.invalidateSize();
             if (view.$el.hasClass('full')) {
@@ -244,20 +236,16 @@ views.ProjectMap = Backbone.View.extend({
 
         queue()
             .defer(util.request,sheetUrl)
-            .await(this.socialReady)
+            .await(this.processSheet)
     },
-    socialReady: function(error,spreadsheet){
-        var flickrAccts = [],
-            fbAccts = [];
+    processSheet: function(error,spreadsheet){
 
         this.opUnit.twitter = '';
         this.opUnit.flickr = '';
         this.opUnit.facebook = '';
 
-        var spreadsheetContent = spreadsheet.feed.entry;
-
         // extract content from google spreadsheet
-        _(spreadsheetContent).each(function(row) {
+        _(spreadsheet.feed.entry).each(function(row) {
             var accountType = row.gsx$type.$t,
                 accountId = row.gsx$id.$t,
                 twitterAcct = row.gsx$twitter.$t,
