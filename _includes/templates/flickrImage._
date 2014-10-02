@@ -1,5 +1,13 @@
 <div class='slide'>
+	<% if (url.length) { %>
 	<a href='<%= url %>' target='_blank'>
-		<img src='<%= source %>' alt='<%= title %>' />
+		<div class='flickr-img'>
+			<img src='<%= source %>' alt='<%= title %>' />
+		</div>
 	</a>
+	<% } else { %>
+		<div class='flickr-img'>
+			<img src='<%= source %>' alt='<%= title %>' />
+		</div>
+	<% } %>
 </div>

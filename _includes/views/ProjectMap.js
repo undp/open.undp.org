@@ -54,6 +54,10 @@ views.ProjectMap = Backbone.View.extend({
             scrollWheelZoom: this.options.embed ? false : true
         });
 
+        if (this.model.get('document_name')) {
+            this.photosFromDocument();
+        }
+
         // load in necessary geography
         // and lookup jsons for drawing the map
         queue()
@@ -62,13 +66,9 @@ views.ProjectMap = Backbone.View.extend({
             .defer(util.request,'api/subnational-locs-index.json')
             .defer(util.request,'api/focus-area-index.json')
             .await(this.draw);
-
-        if (this.model.get('document_name')) {
-            this.photosFromDocument();
-        }
     },
 
-    draw: function(error, world, india,subLocIndex,focusIndex){
+    draw: function(error, world, india, subLocIndex, focusIndex){
         var view = this,
             subLocations = this.model.get('subnational');
 
@@ -215,16 +215,16 @@ views.ProjectMap = Backbone.View.extend({
             source = fileSrc[i];
 
             if (filetype === 'jpg' || filetype === 'jpeg' || filetype === 'png' || filetype === 'gif') {
-                var img = new Image();
-                img.src = source;
+                // var img = new Image();
+                // img.src = source;
 
                 this.photos.push({
-                    'title': photo.split('.')[0],
+                    'title': file.split('.')[0],
                     'source': source,
-                    'image': img
+                    'url': '' // document images do not have a consistent url such as flickr, keep blank
                 });
             }
-        });
+        },this);
     },
     loadSocialSpreadsheet: function(data) {
         // Get social media google spreadsheet
@@ -256,7 +256,6 @@ views.ProjectMap = Backbone.View.extend({
             // global and regional headquarters
             if (accountType === 'Global' || (accountType === 'HQ' && accountId === this.model.get('region_id'))) {
                 if (flickrAcct) this.flickrAccts.push(flickrAcct);
-                if (fbAcct) this.fbAccts.push(fbAcct);
                 }
             // country office
             // add to the global/regional flickr and fb account array
