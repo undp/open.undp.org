@@ -3,12 +3,14 @@ views.ProjectMap = Backbone.View.extend({
         'click .map-fullscreen': 'fullscreen',
     },
     initialize: function() {
-        this.summaryTemplate = _.template($('#projectMapCountrySummary').html()),
+        this.summaryTemplate = _.template($('#projectMapCountrySummary').html());
         this.tooltipTemplate = _.template($('#projectMapTooltip').html());
-        this.contactTemplate = _.template($('#contactInfo').html());
 
-        this.$summaryEl = $('#country-summary');
-        this.$contactEl = $('#unit-contact'); // originated in Nav.js
+        this.$summaryEl = $('#country-summary'),
+
+        // photos setup
+        this.photos = [];
+        this.flickrAccts = [];
 
         this.nations = new Nationals();
 
@@ -16,17 +18,15 @@ views.ProjectMap = Backbone.View.extend({
 
         this.nations.fetch();
 
-        _.bindAll(this,'draw','onEachFeature');
+        _.bindAll(this,'draw','onEachFeature','photosFromDocument','processSheet');
     },
     render: function() {
-        var view = this,
-            wheelZoom = true;
-
         // match project operating unit with operating unit index
         this.opUnit = this.nations.findWhere({
             'id':this.model.get('operating_unit_id')
         });
-        // fill in country summary
+
+        // fill in country summary under the map
         this.$summaryEl.html(this.summaryTemplate({
             count: this.opUnit.get('project_count'),
             fund: this.opUnit.get('funding_sources_count'),
@@ -34,32 +34,32 @@ views.ProjectMap = Backbone.View.extend({
             expenditure: this.opUnit.get('expenditure_sume')
         }));
 
-        this.$contactEl.html(this.contactTemplate({
-            unit: this.opUnit.get('name'),
-            website: this.opUnit.get('web'),
-            email: this.opUnit.get('email')
-        }))
-
         if (!this.options.embed) {
             // fire up social media spreadsheet
-            this.getwebData(this.nations.models);
+            this.loadSocialSpreadsheet(this.nations.models);
             // adding faux fullscreen control
            $('#profilemap').append('<div class="full-control"><a href="#" class="icon map-fullscreen"></a></div>');
-        } else {
-            wheelZoom = false;
         }
+
         // create a cluster
         this.markers = new L.MarkerClusterGroup({
             showCoverageOnHover:false,
             maxClusterRadius:40
         });
+
         // create map
         this.map = L.mapbox.map(this.el,MAPID,{
             minZoom: 1,
             maxZoom: 10,
-            scrollWheelZoom: wheelZoom
+            scrollWheelZoom: this.options.embed ? false : true
         });
 
+        if (this.model.get('document_name')) {
+            this.photosFromDocument();
+        }
+
+        // load in necessary geography
+        // and lookup jsons for drawing the map
         queue()
             .defer(util.request,'api/world.json')
             .defer(util.request,'api/india_admin0.json')
@@ -68,7 +68,7 @@ views.ProjectMap = Backbone.View.extend({
             .await(this.draw);
     },
 
-    draw: function(error, world, india,subLocIndex,focusIndex){
+    draw: function(error, world, india, subLocIndex, focusIndex){
         var view = this,
             subLocations = this.model.get('subnational');
 
@@ -80,11 +80,11 @@ views.ProjectMap = Backbone.View.extend({
         } else {
             var iso = parseInt(this.opUnit.get('iso_num'));
             // a list of sub location points
-            var locations = _(subLocations).map(function(subLoc) {
+            var locations = _.map(subLocations,function(subLoc) {
 
-                var markerColor = _(focusIndex).find(function(f){
-                    return f.id === subLoc.focus_area
-                    }).color
+                var markerFocus = _.find(focusIndex,function(f){
+                        return f.id === subLoc.focus_area
+                    });
 
                 return {
                     type: "Feature",
@@ -106,7 +106,7 @@ views.ProjectMap = Backbone.View.extend({
                         focus_area: subLoc.focus_area,
                         description: this.tooltip(subLoc, subLocIndex),
                         'marker-size': 'small',
-                        'marker-color': markerColor
+                        'marker-color': (markerFocus != undefined) ? markerFocus.color : '#888'
                     }
                 }
 
@@ -114,7 +114,9 @@ views.ProjectMap = Backbone.View.extend({
 
             // add country outline
             if (!IE || IE_VERSION > 8){
+
                 this.outline = new L.GeoJSON();
+
                 var topoFeatures = topojson.feature(world, world.objects.countries).features,
                     selectedFeature = _(topoFeatures).findWhere({id:iso}),
                     coords = selectedFeature.geometry.coordinates,
@@ -127,10 +129,11 @@ views.ProjectMap = Backbone.View.extend({
                 // India border
                 if (iso == 356) {
                     var topoFeatures = topojson.feature(india, india.objects.india_admin0).features;
-                    _(topoFeatures).each(function(f){
-                        this.outline.addData(f)
+
+                    _(topoFeatures).each(function(feature){
+                        this.outline.addData(feature)
                             .setStyle(outlineStyle);
-                    });
+                    },this);
                 } else {
                     this.outline.addData(selectedFeature)
                         .setStyle(outlineStyle);
@@ -184,7 +187,7 @@ views.ProjectMap = Backbone.View.extend({
         e.preventDefault();
         var view = this;
 
-        view.$el.toggleClass('full');
+        this.$el.toggleClass('full');
         setTimeout(function(){
             view.map.invalidateSize();
             if (view.$el.hasClass('full')) {
@@ -197,7 +200,36 @@ views.ProjectMap = Backbone.View.extend({
         $('a.map-fullscreen').toggleClass('full');
         $('.country-profile').toggleClass('full');
     },
-    getwebData: function(data) {
+    photosFromDocument: function(){
+        var files = _.first(this.model.get('document_name')),
+            fileSrc = _.last(this.model.get('document_name'));
+
+        _(files).each(function (file, i) {
+            var filetype,
+                source;
+
+            try {
+                filetype = file.split('.')[1].toLowerCase();
+            }
+            catch(err) {
+                filetype = '';
+            }
+
+            source = fileSrc[i];
+
+            if (filetype === 'jpg' || filetype === 'jpeg' || filetype === 'png' || filetype === 'gif') {
+                // var img = new Image();
+                // img.src = source;
+
+                this.photos.push({
+                    'title': file.split('.')[0],
+                    'source': source,
+                    'url': '' // document images do not have a consistent url such as flickr, keep blank
+                });
+            }
+        },this);
+    },
+    loadSocialSpreadsheet: function(data) {
         // Get social media google spreadsheet
         var sheetId = '0Airl6dsmcbKodHB4SlVfeVRHeWoyWTdKcDY5UW1xaEE',
             sheetNum = '1';
@@ -205,293 +237,50 @@ views.ProjectMap = Backbone.View.extend({
             sheetId + '/' + sheetNum +
             '/public/values?alt=json';
 
-        // queue()
-        //     .defer(util.request,sheetUrl)
-        //     .await(loadSpreadsheet)
-
-        var view = this,
-            photos = [],
-            coContact = {
-                twitter: [],
-                flickr: [],
-                facebook: []
-            };
-
-        function contacts(allSocialAccts) {
-            var accts = ['twitter','flickr','facebook'],
-                pageUrl = BASE_URL + "#project/" + view.model.get('project_id'),
-                socialBaseUrl = '';
-                tweetButton = {
-                    "data-url": '"' + pageUrl + '"',
-                    "data-hashtags": '"project' + view.model.get('project_id') + '"',
-                    "data-text": '"' + view.model.get('project_title').toLowerCase().toTitleCase() + '"',
-                    "data-via":"",
-                    "data-counturl": '"' + pageUrl + '"'
-                },
-                followButton = '',
-                tweetScript = '<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>';
-
-            // looping through all five possible social accounts
-            _(accts).each(function(acct) {
-                var link = '',
-                    i = 0;
-
-                if (acct == 'twitter') socialBaseUrl = 'https://twitter.com/';
-                if (acct == 'flickr') socialBaseUrl = 'https://flickr.com/photos/';
-                if (acct == 'facebook') socialBaseUrl = 'https://facebook.com/'
-
-                // hide unit contact if there's no social media accounts available
-                if ((_.flatten(_.values(allSocialAccts)).length)) {
-                    _(allSocialAccts[acct]).each(function() {
-                        i += 1;
-                        link += '<a target="_blank" href="' + socialBaseUrl + allSocialAccts[acct] + '">' +
-                                ((acct == 'twitter') ? '@' + allSocialAccts[acct] : allSocialAccts[acct]) + '</a>';
-                        if (i < allSocialAccts[acct].length) link += ', ';
-
-                        // populate: via @country-office to tweet button
-                        // and follow button
-                        if (acct=='twitter'){
-                            tweetButton["data-via"] = allSocialAccts[acct][0];
-                            followButton = '<a href="https://twitter.com/'+ allSocialAccts[acct][0] + '" class="twitter-follow-button" data-show-count="true">Follow @' + allSocialAccts[acct][0] + '</a>'
-                        }
-                    })
-                } else if (data[acct]) {
-                    link += '<a target="_blank" href="' + data[acct] + '">' + data[acct] + '</a>';
-                }
-            });
-
-            $('#tweet-button').append(
-                '<a href="https://twitter.com/share" class="twitter-share-button" ' +
-                'data-count="none"' +
-                'data-url='      + tweetButton["data-url"]       + ' ' +
-                'data-hashtags=' + tweetButton["data-hashtags"]  + ' ' +
-                'data-text='     + tweetButton["data-text"]      + ' ' +
-                'data-via='      + ((tweetButton["data-via"].length) ? tweetButton["data-via"] : "OpenUNDP") + ' ' +
-                '></a>' +
-                followButton +
-                tweetScript
-            );
-        }
+        queue()
+            .defer(util.request,sheetUrl)
+            .await(this.processSheet)
     },
+    processSheet: function(error,spreadsheet){
 
-    socialReady: function(g){
-        var twitterAcct,
-            flickrAccts = [],
-            fbAccts = [],
-            q = queue(1);
+        this.opUnit.twitter = '';
+        this.opUnit.flickr = '';
+        this.opUnit.facebook = '';
 
-        queue(1).defer(function(cb) {
-            _(g.feed.entry).each(function(row) {
-                var acctType = row.gsx$type.$t,
-                    acctId = row.gsx$id.$t,
-                    twitterAcct = row.gsx$twitter.$t,
-                    flickrAcct = row.gsx$flickr.$t,
-                    fbAcct = row.gsx$facebook.$t;
+        // extract content from google spreadsheet
+        // go through each row and record all the type, id, twitter, flickr, fb info
+        _(spreadsheet.feed.entry).each(function(row) {
+            var accountType = row.gsx$type.$t,
+                accountId = row.gsx$id.$t,
+                twitterAcct = row.gsx$twitter.$t,
+                flickrAcct = row.gsx$flickr.$t,
+                fbAcct = row.gsx$facebook.$t;
 
-                if (acctType === 'Global' || (acctType === 'HQ' && acctId === view.model.get('region_id'))) {
-                    if (flickrAcct) flickrAccts.push(flickrAcct);
-                    if (fbAcct) fbAccts.push(fbAcct);
-                    }
-                if (acctType === 'CO' && acctId === data.id) {
-                    if (twitterAcct) {
-                        coContact.twitter.push(twitterAcct.replace('@',''));
-                    }
-                    if (flickrAcct) {
-                        flickrAccts.unshift(flickrAcct);
-                        coContact.flickr.push(flickrAcct);
-                    }
-                    if (fbAcct) {
-                        fbAccts.unshift(fbAcct);
-                        coContact.facebook.push(fbAcct);
-                    }
+            // global and regional headquarters
+            if (accountType === 'Global' || (accountType === 'HQ' && accountId === this.model.get('region_id'))) {
+                if (flickrAcct) this.flickrAccts.push(flickrAcct);
                 }
-            });
-            contacts(coContact);
-            cb();
-        });
-        
-        // Gather photos from documents and flickr, in that order
-        queue(1).defer(function(cb) {
-            if (that.model.get('document_name')) {
-                _(that.model.get('document_name')[0]).each(function (photo, i) {
-                    try {
-                        var filetype = photo.split('.')[1].toLowerCase();
-                    }
-                    catch(err) {
-                        var filetype = '';
-                    }
-                    var source = that.model.get('document_name')[1][i];
-                        
-                    if (filetype === 'jpg' || filetype === 'jpeg' || filetype === 'png' || filetype === 'gif') {
-                        var img = new Image();
-                        photos.push({
-                            'title': photo.split('.')[0],
-                            'source': source,
-                            'image': img
-                        });
-                        img.src = source;
-                    }
-                });
+            // country office
+            // add to the global/regional flickr and fb account array
+            if (accountType === 'CO' && accountId === this.opUnit.id) {
+                if (twitterAcct) {
+                    this.opUnit.twitter = twitterAcct.replace('@','');
+                }
+                if (flickrAcct) {
+                    this.flickrAccts.unshift(flickrAcct);
+                    this.opUnit.flickr = flickrAcct;
+                }
+                if (fbAcct) {
+                    this.opUnit.facebook = fbAcct;
+                }
             }
+        },this)
 
-            cb();
-        });
-        queue(1).await(function() {
-            view.flickr(flickrAccts,photos);
-        }); 
-    },
-
-    flickr: function(account, photos) {
-        var apiBase = 'https://api.flickr.com/services/rest/?format=json&jsoncallback=?&method=',
-            apiKey = '1da8476bfea197f692c2334997c10c87', //from UNDP's main account (unitednationsdevelopmentprogramme)
-            attempt = 0,
-            i = 0,
-            $el = $('#flickr'),
-            tagCollection = [],
-            search;
-
-        tagCollection.push(this.model.get('project_id'));
-        _.each(this.model.get('outputs'),function(output){
-            tagCollection.push(output["output_id"]);
-        });
-        _.each(tagCollection, function(tag){
-            var noZero = parseInt(tag);
-            tagCollection.push(noZero);
-        });
-
-        search = tagCollection.join(',');
-
-        if (!account.length && photos.length) { // show photos from the document
-            $el.show();
-            loadPhoto(i);
-        } else {
-            _(account).each(function(acct) {
-                // Get user info based on flickr link
-                $.getJSON(apiBase + 'flickr.urls.lookupUser&api_key=' + apiKey + '&url=http://www.flickr.com/photos/' + acct, function(f) {
-                    searchPhotos(f.user.id, search);
-                });
-            });
-        }
-
-        // Search Flickr based on project ID.
-        function searchPhotos(id, tags) {
-            attempt += 1;
-            $.getJSON(apiBase + 'flickr.photos.search&api_key=' + apiKey + '&user_id=' + id + '&tags=' + tags,
-                function(f) {
-                    if (f.photos.total != '0') {
-                        photos = photos.concat(f.photos.photo);
-                    }
-                    if (attempt == account.length) {
-                        if (photos.length) {
-                            $el.show();
-                            loadPhoto(i);
-                        }
-                    }
-                }
-            );
-        }
-
-        // Load single photo from array
-        function loadPhoto(x) {
-            $el.find('.meta').hide();
-
-            if (x === 0) $('.control.prev', $el).addClass('inactive');
-            if (x === photos.length - 1) $('.control.next', $el).addClass('inactive');
-
-            if (photos[x].id) {
-                var photoid = photos[x].id,
-                    source,
-                    attempt = 0;
-                // Get photo info based on id
-                $.getJSON(apiBase + 'flickr.photos.getInfo&api_key=' + apiKey + '&photo_id=' + photoid, function(info) {
-
-                    var description = info.photo.description._content,
-                        date = (new Date(info.photo.dates.taken)).toLocaleDateString(),
-                        url = info.photo.urls.url[0]._content;
-
-                    // Get available sizes
-                    $.getJSON(apiBase + 'flickr.photos.getSizes&api_key=' + apiKey + '&photo_id=' + photoid, function(s) {
-                        getSize('Medium 800');
-                        function getSize(sizeName) {
-                            _(s.sizes.size).each(function(z) {
-                                if (z.label == sizeName) {
-                                    source = z.source;
-                                }
-                            });
-
-                            if (!source) {
-                                attempt += 1;
-                                switch (attempt) {
-                                    case 1:
-                                        getSize('Medium 640');
-                                        break;
-                                    case 2:
-                                        getSize('Large');
-                                        break;
-                                    case 3:
-                                        getSize('Original');
-                                        break;
-                                }
-                            }
-                        }
-
-                        // Fill in date & description
-                        $('.meta', $el).show().html('<div class="meta-inner"><span class="date">' + date + '</span>' +
-                            '<p>' + description +
-                            '<a href="' + url + 'in/photostream/" title="See our photos on Flickr"> Source</a></p></div>');
-
-                        insertPhoto(source);
-                    });
-                });
-
-            } else if (photos[x].date) {
-                $('.meta', $el).show().html('<div class="meta-inner"><span class="date">' + photos[x].date.toLocaleDateString() + '</span>' +
-                    '<p>' + photos[x].description +
-                    '<a href="' + photos[x].link + '/in/photostream/" title="See our photos on Flickr"> Source</a></p></div>');
-
-                insertPhoto(photos[x].source);
-            } else {
-                $('.meta-inner', $el).empty();
-                insertPhoto(photos[x].source);
-            }
-
-        }
-        function insertPhoto(src){
-            $el.find('.spin').spin({ color:'#000' });
-            $el.find('img')
-                .attr('src',src)
-                .addClass('in')
-                .on('load',function(){
-                    $el.find('.spin').remove();
-                })
-        }
-
-        // Cycle through photo array
-        $('.control.next', $el).click(function(e) {
-            e.preventDefault();
-            if (!$('.next', $el).hasClass('inactive')) {
-                if (i === 0) {
-                    $('.control.prev', $el).removeClass('inactive');
-                }
-                i += 1;
-                if (i == photos.length - 1) {
-                    $('.control.next', $el).addClass('inactive');
-                }
-                loadPhoto(i);
-            }
-        });
-        $('.control.prev', $el).click(function(e) {
-            e.preventDefault();
-            if (!$('.control.prev', $el).hasClass('inactive')) {
-                if (i === photos.length - 1) {
-                    $('.control.next', $el).removeClass('inactive');
-                }
-                i -= 1;
-                if (i === 0) {
-                    $('.control.prev', $el).addClass('inactive');
-                }
-                loadPhoto(i);
-            }
+        new views.Social({
+            unit: this.opUnit,
+            model: this.model,
+            photos: this.photos,
+            allFlickr: this.flickrAccts,
         });
     }
 });
