@@ -7,12 +7,10 @@ views.ProjectMap = Backbone.View.extend({
         this.tooltipTemplate = _.template($('#projectMapTooltip').html());
 
         this.$summaryEl = $('#country-summary'),
-        this.$flickrEl = $('#flickr');
 
-        // social media setup
+        // photos setup
         this.photos = [];
         this.flickrAccts = [];
-        this.fbAccts = [];
 
         this.nations = new Nationals();
 
@@ -20,7 +18,7 @@ views.ProjectMap = Backbone.View.extend({
 
         this.nations.fetch();
 
-        _.bindAll(this,'draw','onEachFeature','photosFromDocument','processSheet','flickr');
+        _.bindAll(this,'draw','onEachFeature','photosFromDocument','processSheet');
     },
     render: function() {
         // match project operating unit with operating unit index
@@ -84,9 +82,9 @@ views.ProjectMap = Backbone.View.extend({
             // a list of sub location points
             var locations = _(subLocations).map(function(subLoc) {
 
-                var markerColor = _(focusIndex).find(function(f){
-                    return f.id === subLoc.focus_area
-                    }).color
+                var markerFocus = _(focusIndex).find(function(f){
+                        return f.id === subLoc.focus_area
+                    });
 
                 return {
                     type: "Feature",
@@ -108,7 +106,7 @@ views.ProjectMap = Backbone.View.extend({
                         focus_area: subLoc.focus_area,
                         description: this.tooltip(subLoc, subLocIndex),
                         'marker-size': 'small',
-                        'marker-color': markerColor
+                        'marker-color': markerFocus.color
                     }
                 }
 
@@ -247,6 +245,7 @@ views.ProjectMap = Backbone.View.extend({
         this.opUnit.facebook = '';
 
         // extract content from google spreadsheet
+        // go through each row and record all the type, id, twitter, flickr, fb info
         _(spreadsheet.feed.entry).each(function(row) {
             var accountType = row.gsx$type.$t,
                 accountId = row.gsx$id.$t,
@@ -256,214 +255,30 @@ views.ProjectMap = Backbone.View.extend({
 
             // global and regional headquarters
             if (accountType === 'Global' || (accountType === 'HQ' && accountId === this.model.get('region_id'))) {
-                if (flickrAcct) flickrAccts.push(flickrAcct);
-                if (fbAccts) fbAccts.push(fbAcct);
+                if (flickrAcct) this.flickrAccts.push(flickrAcct);
+                if (fbAcct) this.fbAccts.push(fbAcct);
                 }
             // country office
             // add to the global/regional flickr and fb account array
-            if (accountType === 'CO' && accountId === this.model.id) {
+            if (accountType === 'CO' && accountId === this.opUnit.id) {
                 if (twitterAcct) {
-                    unitContact.twitter = twitterAcct.replace('@','');
+                    this.opUnit.twitter = twitterAcct.replace('@','');
                 }
                 if (flickrAcct) {
-                    flickrAccts.unshift(flickrAcct);
-                    unitContact.flickr = flickrAcct;
+                    this.flickrAccts.unshift(flickrAcct);
+                    this.opUnit.flickr = flickrAcct;
                 }
                 if (fbAcct) {
-                    fbAccts.unshift(fbAcct);
-                    unitContact.facebook = fbAcct;
+                    this.opUnit.facebook = fbAcct;
                 }
             }
-        },this);
+        },this)
 
-        var pageUrl = BASE_URL + "#project/" + this.model.get('project_id'),
-            flickrBaseUrl = 'https://flickr.com/photos/',
-            fbBaseUrl = 'https://facebook.com/';
-
-        var twitterBaseUrl = 'https://twitter.com/',
-            tweetScript = '<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>';
-            tweetButton = {
-                'url': pageUrl,
-                'hashtags': 'project' + this.model.get('project_id'),
-                'text': this.model.get('project_title').toLowerCase().toTitleCase(),
-                'via':this.opUnit.twitter.length > 0 ? this.opUnit.twitter  : '',
-            };
-
-        // tweetButton["data-via"] = unitContact)[acct][0];
-        // followButton = '<a href="https://twitter.com/'+ unitContact)[acct][0] + '" class="twitter-follow-button" data-show-count="true">Follow @' + unitContact)[acct][0] + '</a>'
-
-
-        $('#tweet-button').append(
-            '<a href="https://twitter.com/share" class="twitter-share-button" ' +
-            'data-count="none"' +
-            'data-url='      + tweetButton.url       + ' ' +
-            'data-hashtags=' + tweetButton.hashtags  + ' ' +
-            'data-text='     + toString(tweetButton.text)      + ' ' +
-            'data-via='      + ((tweetButton.via.length) ? tweetButton.via : "OpenUNDP") + ' ' +
-            '></a>' +
-            // followButton +
-            tweetScript
-        );
-
-        // queue(1).await(function() {
-        //     this.flickr(flickrAccts);
-        // }); 
-    },
-    flickr: function(account) {
-        var apiBase = 'https://api.flickr.com/services/rest/?format=json&jsoncallback=?&method=',
-            apiKey = '1da8476bfea197f692c2334997c10c87', //from UNDP's main account (unitednationsdevelopmentprogramme)
-            attempt = 0,
-            i = 0,
-            $el = $('#flickr'),
-            search;
-
-        // get ouput id for flickr tag
-        var tagCollection = _.map(this.model.get('outputs'),function(output){
-            return output['ouput_id']
-        });
-        // get project id for flickr tag
-        tagCollection.push(this.model.get('project_id'));
-
-        // turn all tags into numbers -- TODO necessary?
-        tagCollection = _.map(tagCollection,function(num){
-            return parseInt(num)
-        })
-
-        search = tagCollection.join(',');
-
-        if (!account.length && this.photos.length) { // no flickr account but document contains photos
-            $el.show();
-            loadPhoto(i);
-        } else if (account.length){
-            _(account).each(function(acct) {
-                // Get user info based on flickr link
-                $.getJSON(apiBase + 'flickr.urls.lookupUser&api_key=' + apiKey + '&url=http://www.flickr.com/photos/' + acct, function(f) {
-                    searchPhotos(f.user.id, search);
-                });
-            });
-        } else {
-            return false
-        }
-
-        // Search Flickr based on project ID.
-        function searchPhotos(id, tags) {
-            attempt += 1;
-            $.getJSON(apiBase + 'flickr.photos.search&api_key=' + apiKey + '&user_id=' + id + '&tags=' + tags,
-                function(f) {
-                    if (f.photos.total != '0') {
-                        photos = photos.concat(f.photos.photo);
-                    }
-                    if (attempt == account.length) {
-                        if (photos.length) {
-                            $el.show();
-                            loadPhoto(i);
-                        }
-                    }
-                }
-            );
-        }
-
-        // Load single photo from array
-        function loadPhoto(x) {
-            $el.find('.meta').hide();
-
-            if (x === 0) $('.control.prev', $el).addClass('inactive');
-            if (x === photos.length - 1) $('.control.next', $el).addClass('inactive');
-
-            if (photos[x].id) {
-                var photoid = photos[x].id,
-                    source,
-                    attempt = 0;
-                // Get photo info based on id
-                $.getJSON(apiBase + 'flickr.photos.getInfo&api_key=' + apiKey + '&photo_id=' + photoid, function(info) {
-
-                    var description = info.photo.description._content,
-                        date = (new Date(info.photo.dates.taken)).toLocaleDateString(),
-                        url = info.photo.urls.url[0]._content;
-
-                    // Get available sizes
-                    $.getJSON(apiBase + 'flickr.photos.getSizes&api_key=' + apiKey + '&photo_id=' + photoid, function(s) {
-                        getSize('Medium 800');
-                        function getSize(sizeName) {
-                            _(s.sizes.size).each(function(z) {
-                                if (z.label == sizeName) {
-                                    source = z.source;
-                                }
-                            });
-
-                            if (!source) {
-                                attempt += 1;
-                                switch (attempt) {
-                                    case 1:
-                                        getSize('Medium 640');
-                                        break;
-                                    case 2:
-                                        getSize('Large');
-                                        break;
-                                    case 3:
-                                        getSize('Original');
-                                        break;
-                                }
-                            }
-                        }
-
-                        // Fill in date & description
-                        $('.meta', $el).show().html('<div class="meta-inner"><span class="date">' + date + '</span>' +
-                            '<p>' + description +
-                            '<a href="' + url + 'in/photostream/" title="See our photos on Flickr"> Source</a></p></div>');
-
-                        insertPhoto(source);
-                    });
-                });
-
-            } else if (photos[x].date) {
-                $('.meta', $el).show().html('<div class="meta-inner"><span class="date">' + photos[x].date.toLocaleDateString() + '</span>' +
-                    '<p>' + photos[x].description +
-                    '<a href="' + photos[x].link + '/in/photostream/" title="See our photos on Flickr"> Source</a></p></div>');
-
-                insertPhoto(photos[x].source);
-            } else {
-                $('.meta-inner', $el).empty();
-                insertPhoto(photos[x].source);
-            }
-
-        }
-        function insertPhoto(src){
-            $el.find('.spin').spin({ color:'#000' });
-            $el.find('img')
-                .attr('src',src)
-                .addClass('in')
-                .on('load',function(){
-                    $el.find('.spin').remove();
-                })
-        }
-
-        // Cycle through photo array
-        $('.control.next', $el).click(function(e) {
-            e.preventDefault();
-            if (!$('.next', $el).hasClass('inactive')) {
-                if (i === 0) {
-                    $('.control.prev', $el).removeClass('inactive');
-                }
-                i += 1;
-                if (i == photos.length - 1) {
-                    $('.control.next', $el).addClass('inactive');
-                }
-                loadPhoto(i);
-            }
-        });
-        $('.control.prev', $el).click(function(e) {
-            e.preventDefault();
-            if (!$('.control.prev', $el).hasClass('inactive')) {
-                if (i === photos.length - 1) {
-                    $('.control.next', $el).removeClass('inactive');
-                }
-                i -= 1;
-                if (i === 0) {
-                    $('.control.prev', $el).addClass('inactive');
-                }
-                loadPhoto(i);
-            }
+        new views.Social({
+            unit: this.opUnit,
+            model: this.model,
+            photos: this.photos,
+            allFlickr: this.flickrAccts,
         });
     }
 });
