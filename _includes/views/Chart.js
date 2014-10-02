@@ -182,7 +182,9 @@ function renderRecipientOfficesChart(donor, donorCountrySelected, chartData, vie
     $('#chart-' + view.collection.id).empty();
     if (donorCountrySelected) {
         $('#chart-' + view.collection.id).append($('#recipientOfficesChart').html());
-        addRows($('#chart-' + view.collection.id +' .rows'), localRows.concat(partnerRows), view);
+        if (localRows.length > 0 || partnerRows.length > 0) {
+            addRows($('#chart-' + view.collection.id +' .rows'), localRows.concat(partnerRows), view);
+        }
     } else {
         $('#chart-' + view.collection.id).append($('#recipientOfficesChartTabbed').html());
         if (localRows.length > 0 ) addRows($('#chart-' + view.collection.id + ' #localTab .rows'), localRows, view);
