@@ -64,6 +64,10 @@ views.ProjectMap = Backbone.View.extend({
             .defer(util.request,'api/subnational-locs-index.json')
             .defer(util.request,'api/focus-area-index.json')
             .await(this.draw);
+
+        if (this.model.get('document_name')) {
+            this.photosFromDocument();
+        }
     },
 
     draw: function(error, world, india,subLocIndex,focusIndex){
@@ -195,11 +199,9 @@ views.ProjectMap = Backbone.View.extend({
         $('a.map-fullscreen').toggleClass('full');
         $('.country-profile').toggleClass('full');
     },
-    // TODO change photo array into this.photos
     photosFromDocument: function(){
         var files = _.first(this.model.get('document_name')),
             fileSrc = _.last(this.model.get('document_name'));
-            this.photos = [];
 
         _(files).each(function (file, i) {
             var filetype,
