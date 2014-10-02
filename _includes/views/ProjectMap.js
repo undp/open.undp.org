@@ -80,9 +80,9 @@ views.ProjectMap = Backbone.View.extend({
         } else {
             var iso = parseInt(this.opUnit.get('iso_num'));
             // a list of sub location points
-            var locations = _(subLocations).map(function(subLoc) {
+            var locations = _.map(subLocations,function(subLoc) {
 
-                var markerFocus = _(focusIndex).find(function(f){
+                var markerFocus = _.find(focusIndex,function(f){
                         return f.id === subLoc.focus_area
                     });
 
@@ -106,7 +106,7 @@ views.ProjectMap = Backbone.View.extend({
                         focus_area: subLoc.focus_area,
                         description: this.tooltip(subLoc, subLocIndex),
                         'marker-size': 'small',
-                        'marker-color': markerFocus.color
+                        'marker-color': (markerFocus != undefined) ? markerFocus.color : '#888'
                     }
                 }
 
@@ -114,7 +114,9 @@ views.ProjectMap = Backbone.View.extend({
 
             // add country outline
             if (!IE || IE_VERSION > 8){
+
                 this.outline = new L.GeoJSON();
+
                 var topoFeatures = topojson.feature(world, world.objects.countries).features,
                     selectedFeature = _(topoFeatures).findWhere({id:iso}),
                     coords = selectedFeature.geometry.coordinates,
@@ -127,10 +129,11 @@ views.ProjectMap = Backbone.View.extend({
                 // India border
                 if (iso == 356) {
                     var topoFeatures = topojson.feature(india, india.objects.india_admin0).features;
-                    _(topoFeatures).each(function(f){
-                        this.outline.addData(f)
+
+                    _(topoFeatures).each(function(feature){
+                        this.outline.addData(feature)
                             .setStyle(outlineStyle);
-                    });
+                    },this);
                 } else {
                     this.outline.addData(selectedFeature)
                         .setStyle(outlineStyle);
