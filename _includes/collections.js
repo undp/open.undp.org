@@ -102,7 +102,6 @@ Filters = Backbone.Collection.extend({
         //Add the project count to the country's projects if it's part of the core fund
         if (_(global.coreFund).contains(model.get('id'))) {
             var coreProjects = global.projects.filter(function(project) {
-                debugger
                return project.attributes.core && !_(project.attributes.donor_countries).contains(model.get('id'));
             });
             count = count + coreProjects.length;
