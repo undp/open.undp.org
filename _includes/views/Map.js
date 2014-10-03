@@ -5,6 +5,9 @@ views.Map = Backbone.View.extend({
         if (this.options.render) this.render();
     },
     render: function() {
+        this.circlePopupTemplate = _.template($('#circlePopupTemplate').html());
+        this.clusterPopupTemplate = _.template($('#clusterPopupTemplate').html());
+
         var view = this,
             wheelZoom = true,
             category;
@@ -126,41 +129,25 @@ views.Map = Backbone.View.extend({
     //TODO move the popups to a template
     //
     circlePopup: function(cat,feature) {
-        var description = '<div class="popup">' +
-                            '<div class="title">' +
-                                '<b>' + feature.properties.title + '</b>' + 
-                            '</div>' +
-                            '<table class="pop"><tr><td>Projects</td><td>' + feature.properties.count + '</td></tr>' +
-                                '<tr><td>Budget</td><td>' +  accounting.formatMoney(feature.properties.budget) + '</td></tr>' + 
-                                '<tr><td>Expense</td><td>' + accounting.formatMoney(feature.properties.expenditure) + '</td></tr>' + 
-                                '<tr><td>HDI</td><td>' + feature.properties.hdi + '</td></tr>' + 
-                            '</table>' + 
-                         '</div>';
-        return description;
+        return this.circlePopupTemplate({
+            title: feature.properties.title,
+            count: feature.properties.count,
+            budget: accounting.formatMoney(feature.properties.budget),
+            expenditure: accounting.formatMoney(feature.properties.expenditure),
+            hdi:feature.properties.hdi
+        })
     },
     // CLUSTER
-    clusterPopup: function(feature, g) {
-        var project = feature.properties.project,
-            output = feature.properties.output_id,
-            title = feature.properties.title,
-            focus_clean = (feature.properties.focus_descr).replace(/\s+/g, '-').toLowerCase().split('-')[0],
-            focus_area = (feature.properties.focus_descr).toTitleCase(),
-            type = g.type[feature.properties.type],
-            // scope = (g.scope[feature.properties.scope]) ? g.scope[feature.properties.scope].split(':')[0] : 'unknown',
-            precision = g.precision[feature.properties.precision];
-        if (focus_clean){
-            var description = '<div class="popup top"><div><b>' + title + '</b></div>'
-                + '<div><table class="pop"><tr><td>Project</td><td>' + project + '</td></tr><tr><td>Output</td><td>' + output + '</td></tr></table></div>'
-                + '<div class="focus"><span class="'+focus_clean+'"></span><p class="space">' + focus_area + '<p></div></div>'
-                + '<div class="popup bottom"><div><b>Location type: </b>' + type + '</div>'
-                + '<div><b>Precision: </b>' + precision + '</div></div>';
-        } else {
-            var description = '<div class="popup top"><div><b>' + title + '</b></div>'
-                + '<div><table class="pop"><tr><td>Project</td><td>' + project + '</td></tr><tr><td>Output</td><td>' + output + '</td></tr></table></div></div>'
-                + '<div class="popup bottom"><div><b>Location type: </b>' + type + '</div>'
-                + '<div><b>Precision: </b>' + precision + '</div></div>';
-        }
-        return description;
+    clusterPopup: function(feature, index) {
+        return this.clusterPopupTemplate({
+            title: feature.properties.title,
+            project: feature.properties.project,
+            output: feature.properties.output_id,
+            focus_area: (feature.properties.focus_descr).toTitleCase(),
+            focus_clean: (feature.properties.focus_descr).replace(/\s+/g, '-').toLowerCase().split('-')[0],
+            type: index.type[feature.properties.type],
+            precision: index.precision[feature.properties.precision]
+        })
     },
     outlineStyle: {
         "color":"#b5b5b5",
