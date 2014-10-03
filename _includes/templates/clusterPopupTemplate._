@@ -1,0 +1,23 @@
+<div class='popup top'>
+	<div><b><%= title %></b></div>
+ 	<div>
+ 		<table class='pop'>
+ 			<tr>
+ 				<td>Project</td><td><%= project %></td>
+ 			</tr>
+ 			<tr>
+ 				<td>Output</td><td><%= output %></td>
+ 			</tr>
+ 		</table>
+ 	</div>
+ 	<% if (focus_clean.length) { %>
+  <div class='focus'>
+  	<span class='<%= focus_clean %>'></span>
+  	<p class='space'><%= focus_area %><p>
+  </div>
+  <% } %>
+</div>
+<div class='popup bottom'>
+  <div><b>Location type: </b><%= type %></div>
+  <div><b>Precision: </b><%= precision %></div>
+</div>

@@ -5,18 +5,26 @@ views.Map = Backbone.View.extend({
         if (this.options.render) this.render();
     },
     render: function() {
+        this.circlePopupTemplate = _.template($('#circlePopupTemplate').html());
+        this.clusterPopupTemplate = _.template($('#clusterPopupTemplate').html());
+
+        this.noGeoTemplate = _.template($('#noGeoTemplate').html());
+        this.withGeoTemplate = _.template($('#withGeoTemplate').html());
+
+        this.$geoDescriptionEl = $('#description p.geography');
+
         var view = this,
             wheelZoom = true,
             category;
 
         // remove previous map http://leafletjs.com/reference.html#map-remove
-        if (view.map){view.map.remove();}
+        if (this.map){this.map.remove();}
 
         // remove 'operating unit has no geo' paragraph
-        view.$el.find('.inner-grey').remove();
+        this.$el.find('.inner-grey').remove();
 
         // category enables circle map to be switched between five (budget,expend, projects, budget sources. hdi) tabs
-        if (!view.options.embed) {
+        if (!this.options.embed) {
             category = $('.map-btn.active').attr('data-value') || 'budget';
             // when no operating unit is selected, reset to the global map
             if (category === 'budget' && !global.unit){
@@ -25,49 +33,48 @@ views.Map = Backbone.View.extend({
         } else {
             // if it's embed mode, set the circles to the budget layer, disable zoom wheel
             category = 'budget';
-            wheelZoom = false;
         };
         
-        view.map = L.mapbox.map(this.el,MAPID,{
+        this.map = L.mapbox.map(this.el,MAPID,{
             center: [20,20],
             zoom: 2,
             minZoom: 2,
             maxZoom: 10,
-            scrollWheelZoom: wheelZoom,
+            scrollWheelZoom: this.options.embed ? false : true,
             attributionControl: true,
             legendControl: {
                 position: 'bottomleft'
             }
         });
 
-        view.map.legendControl.addLegend($("#homemap-legend").html());
+        this.map.legendControl.addLegend($("#homemap-legend").html());
 
         // create circle or cluster based on the operating unit filter
         if (global.unit){
-            view.markers = new L.MarkerClusterGroup({
+            this.markers = new L.MarkerClusterGroup({
                 showCoverageOnHover:false,
                 maxClusterRadius:30
             });
 
         } else {
-            view.markers = new L.LayerGroup();
+            this.markers = new L.LayerGroup();
         };
 
         //for IE 8 and above add country outline
         if (!IE || IE_VERSION > 8){
-            view.outline = new L.GeoJSON()
+            this.outline = new L.GeoJSON()
         }
 
-        view.buildLayer(category);
+        this.buildLayer(category);
     },
     buildLayer: function(layer,mapFilter,mapCenter,mapZoom){
         var view = this;
-        view.map.removeLayer(view.markers); //remove the marker featureGroup from view.map
-        view.markers.clearLayers(); // inside of marker group, clear the layers from the previous build
+        this.map.removeLayer(view.markers); //remove the marker featureGroup from view.map
+        this.markers.clearLayers(); // inside of marker group, clear the layers from the previous build
         
         if(global.unit){
 
-            var parent = _(view.nations.models).findWhere({id:global.unit}),
+            var parent = _(this.nations.models).findWhere({id:global.unit}),
                 iso = parseInt(parent.get('iso_num'));
 
             var subs = new Subnationals();
@@ -88,21 +95,19 @@ views.Map = Backbone.View.extend({
 
             // find the iso number from the national models
             if (_.isNaN(iso) && parent.get('id') != 'none'){
-                view.$el.prepend('<div class="inner-grey">'+
-                                 '<p>The selected operating unit and its project(s) do not have geographic information.</p>'+
-                                 '</div>');
+                this.$el.prepend(this.noGeoTemplate());
             } else {
                 if (!IE || IE_VERSION > 8) {
-                    view.addCountryOutline(parent,iso);
+                    this.addCountryOutline(parent,iso);
                 } else {
-                    view.map.setView([parent.lat,parent.lon],4);
+                    this.map.setView([parent.lat,parent.lon],4);
                 }
             }
         } else {
-            view.renderCircles(layer,view.nations);
+            this.renderCircles(layer,view.nations);
             if(global.region){
                 regionCenter = util.regionCenter(global.region);
-                view.map.setView(regionCenter.coord,regionCenter.zoom,{reset:true});
+                this.map.setView(regionCenter.coord,regionCenter.zoom,{reset:true});
             }
         }
 
@@ -122,45 +127,26 @@ views.Map = Backbone.View.extend({
             fillOpacity: options.fillOpacity || 0.6
         })
     },
-    //
-    //TODO move the popups to a template
-    //
     circlePopup: function(cat,feature) {
-        var description = '<div class="popup">' +
-                            '<div class="title">' +
-                                '<b>' + feature.properties.title + '</b>' + 
-                            '</div>' +
-                            '<table class="pop"><tr><td>Projects</td><td>' + feature.properties.count + '</td></tr>' +
-                                '<tr><td>Budget</td><td>' +  accounting.formatMoney(feature.properties.budget) + '</td></tr>' + 
-                                '<tr><td>Expense</td><td>' + accounting.formatMoney(feature.properties.expenditure) + '</td></tr>' + 
-                                '<tr><td>HDI</td><td>' + feature.properties.hdi + '</td></tr>' + 
-                            '</table>' + 
-                         '</div>';
-        return description;
+        return this.circlePopupTemplate({
+            title: feature.properties.title,
+            count: feature.properties.count,
+            budget: accounting.formatMoney(feature.properties.budget),
+            expenditure: accounting.formatMoney(feature.properties.expenditure),
+            hdi:feature.properties.hdi
+        })
     },
     // CLUSTER
-    clusterPopup: function(feature, g) {
-        var project = feature.properties.project,
-            output = feature.properties.output_id,
-            title = feature.properties.title,
-            focus_clean = (feature.properties.focus_descr).replace(/\s+/g, '-').toLowerCase().split('-')[0],
-            focus_area = (feature.properties.focus_descr).toTitleCase(),
-            type = g.type[feature.properties.type],
-            // scope = (g.scope[feature.properties.scope]) ? g.scope[feature.properties.scope].split(':')[0] : 'unknown',
-            precision = g.precision[feature.properties.precision];
-        if (focus_clean){
-            var description = '<div class="popup top"><div><b>' + title + '</b></div>'
-                + '<div><table class="pop"><tr><td>Project</td><td>' + project + '</td></tr><tr><td>Output</td><td>' + output + '</td></tr></table></div>'
-                + '<div class="focus"><span class="'+focus_clean+'"></span><p class="space">' + focus_area + '<p></div></div>'
-                + '<div class="popup bottom"><div><b>Location type: </b>' + type + '</div>'
-                + '<div><b>Precision: </b>' + precision + '</div></div>';
-        } else {
-            var description = '<div class="popup top"><div><b>' + title + '</b></div>'
-                + '<div><table class="pop"><tr><td>Project</td><td>' + project + '</td></tr><tr><td>Output</td><td>' + output + '</td></tr></table></div></div>'
-                + '<div class="popup bottom"><div><b>Location type: </b>' + type + '</div>'
-                + '<div><b>Precision: </b>' + precision + '</div></div>';
-        }
-        return description;
+    clusterPopup: function(feature, index) {
+        return this.clusterPopupTemplate({
+            title: feature.properties.title,
+            project: feature.properties.project,
+            output: feature.properties.output_id,
+            focus_area: (feature.properties.focus_descr).toTitleCase(),
+            focus_clean: (feature.properties.focus_descr).replace(/\s+/g, '-').toLowerCase().split('-')[0],
+            type: index.type[feature.properties.type],
+            precision: index.precision[feature.properties.precision]
+        })
     },
     outlineStyle: {
         "color":"#b5b5b5",
@@ -169,7 +155,7 @@ views.Map = Backbone.View.extend({
     },
     addCountryOutline: function(parent, iso) {
         var view = this;
-        view.outline.clearLayers();
+        this.outline.clearLayers();
 
         queue()
             .defer(util.request,'api/world.json')
@@ -206,12 +192,10 @@ views.Map = Backbone.View.extend({
         }
     },
     renderClusters: function(mapFilter,collection){
-        //Hide the legend
-        $('.map-legends').hide();
 
-        var view = this;
-        var filteredMarkers = [],
-            projectWithNoGeo = 0;
+        var view = this,
+            filteredMarkers = [],
+            projectWithNoGeo = 0,
             hasGeo = false;
 
         _(collection.models).each(function(model){
@@ -224,32 +208,34 @@ views.Map = Backbone.View.extend({
             }
         })
 
-        // TODO description should be in template
-        var verbDo = (projectWithNoGeo === 1) ? "does" : "do";
-        var verbHave = (projectWithNoGeo === 1) ? "has" : "have";
-
         // append sub-national location paragraph
         if (projectWithNoGeo != 0 && !hasGeo){
+
             $('#map-filters').addClass('disabled'); // no sub filter on page
-            $('#description p.geography').html("None of these projects have geographic information.");
+            this.$geoDescriptionEl.html("None of these projects have geographic information.");
+
         } else if (projectWithNoGeo != 0 && hasGeo){
-            var projectWithNoGeoParagraph = " <b>" + projectWithNoGeo
-                + "</b> of them " + verbDo + " not " + verbHave + " geographic information; the remaining <b>"
-                + (filteredSubs.length - projectWithNoGeo)
-                + "</b> have <b>"
-                + filteredMarkers.length
-                + "</b> subnational locations in total."
-            $('#description p.geography').html(projectWithNoGeoParagraph);
+
+            this.$geoDescriptionEl.html(this.withGeoTemplate({
+                noGeo: projectWithNoGeo,
+                does: (projectWithNoGeo === 1) ? 'does' : 'do',
+                has: (projectWithNoGeo === 1) ? 'has' : 'have',
+                remaining: filteredSubs.length - projectWithNoGeo,
+                locationNum: filteredMarkers.length
+            }));
         };
 
-        // create clustered markers
+        //Hide the legend
+        $('.map-legends').hide();
 
+        // create clustered markers
         queue()
             .defer(util.request,'api/subnational-locs-index.json')
             .defer(util.request,'api/focus-area-index.json')
             .await(colorize);
 
         function colorize(error,subLocIndex,focusIndex){
+
             _(filteredMarkers).each(function(feature){
                 _(focusIndex).each(function(f){
                     if (f.id == feature.properties.focus_area){
@@ -443,18 +429,6 @@ views.Map = Backbone.View.extend({
                             var prevPath = location.hash;
                         } else {
                             prevPath = location.hash.split('?')[0];
-                            prevWidgetOpts = location.hash.split('?')[1]; // used when constructing the route with $('#widget-world')
-
-                            $('#widget-world')
-                            .removeClass('active')
-                            .addClass('enabled')
-                            .attr('href',location.origin + location.pathname + prevPath + "?"+ prevWidgetOpts)
-                            .on('click',function(e){
-                                $('#widget-country').removeClass('active');
-                                $(e.target).addClass('active').removeClass('enabled');
-                            })
-
-                            $('#widget-country').addClass('active');
                         }
 
                         if (global.processedFacets.length === 0){
