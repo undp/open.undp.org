@@ -30,10 +30,9 @@ views.Description = Backbone.View.extend({
 
             //Check if it's part of core
             var id = model.get('id')
-            var opUnitFilter =_(global.processedFacets).findWhere({collection:"operating_unit"});
-            var donors =_(global.processedFacets).findWhere({collection:"donors"});
+
             // core fund donor
-            if (_(global.coreFund).contains(id) && !opUnitFilter && !donors) {
+            if (_(global.coreFund).contains(id) && !global.unit && !global.donor) {
 
                 var coreProjects = global.projects.filter(function(project) {
                     var isCore = _(project.attributes.donors).contains('00012');

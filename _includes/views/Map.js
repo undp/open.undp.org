@@ -9,10 +9,6 @@ views.Map = Backbone.View.extend({
             wheelZoom = true,
             category;
 
-        // detect filters
-        view.regionFilter =_(global.processedFacets).findWhere({collection:"region"});
-        view.opUnitFilter =_(global.processedFacets).findWhere({collection:"operating_unit"});
-
         // remove previous map http://leafletjs.com/reference.html#map-remove
         if (view.map){view.map.remove();}
 
@@ -23,7 +19,7 @@ views.Map = Backbone.View.extend({
         if (!view.options.embed) {
             category = $('.map-btn.active').attr('data-value') || 'budget';
             // when no operating unit is selected, reset to the global map
-            if (category === 'budget' && _.isUndefined(view.opUnitFilter)){
+            if (category === 'budget' && !global.unit){
                 $('.map-btn.budget').addClass('active')
             };
         } else {
@@ -47,7 +43,7 @@ views.Map = Backbone.View.extend({
         view.map.legendControl.addLegend($("#homemap-legend").html());
 
         // create circle or cluster based on the operating unit filter
-        if (_.isObject(view.opUnitFilter)){
+        if (global.unit){
             view.markers = new L.MarkerClusterGroup({
                 showCoverageOnHover:false,
                 maxClusterRadius:30
@@ -69,14 +65,14 @@ views.Map = Backbone.View.extend({
         view.map.removeLayer(view.markers); //remove the marker featureGroup from view.map
         view.markers.clearLayers(); // inside of marker group, clear the layers from the previous build
         
-        if(_.isObject(view.opUnitFilter)){
+        if(global.unit){
 
-            var parent = _(view.nations.models).findWhere({id:view.opUnitFilter.id}),
+            var parent = _(view.nations.models).findWhere({id:global.unit}),
                 iso = parseInt(parent.get('iso_num'));
 
             var subs = new Subnationals();
             subs.fetch({
-                url: 'api/units/' + view.opUnitFilter.id + '.json',
+                url: 'api/units/' + global.unit + '.json',
                 success:function(){
                 // the projects in subs need to be matched to the unit models
                 // matching subs.models and unit.models on id and set the visible ones
@@ -104,8 +100,8 @@ views.Map = Backbone.View.extend({
             }
         } else {
             view.renderCircles(layer,view.nations);
-            if(_.isObject(view.regionFilter)){
-                regionCenter = util.regionCenter(view.regionFilter.id);
+            if(global.region){
+                regionCenter = util.regionCenter(global.region);
                 view.map.setView(regionCenter.coord,regionCenter.zoom,{reset:true});
             }
         }

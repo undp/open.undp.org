@@ -30,8 +30,7 @@ Nationals = Backbone.Collection.extend({
 Subnationals = Backbone.Collection.extend({
     model: Subnational,
     url: function() {
-        var opUnitFilter =_(global.processedFacets).findWhere({collection:"operating_unit"});
-        return '../api/units/' + opUnitFilter.id + '.json'
+        return '../api/units/' + global.unit + '.json'
     },
     parse: function(response){
         return response.projects

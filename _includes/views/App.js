@@ -34,7 +34,6 @@ views.App = Backbone.View.extend({
             this.$el.html(this.template({
                 year: this.options.year
             }));
-
             // IE banner based on brower sniffing
             if (IE) {
                 $('#ie-banner').show();

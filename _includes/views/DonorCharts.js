@@ -2,9 +2,6 @@ views.DonorCharts = Backbone.View.extend({
     el: '#donor-graphs',
     template: _.template($('#donorViz').html()),
     initialize: function() {
-
-        global.donor = true;
-
         this.allDonors = new Donors();
         this.listenTo(this.allDonors,'sync',this.render);
         this.allDonors.fetch();
@@ -13,8 +10,7 @@ views.DonorCharts = Backbone.View.extend({
     },
     render: function() {
         var that = this;
-        var donorFilter =_(global.processedFacets).findWhere({collection:"donor_countries"}),
-            donor = donorFilter.id;
+        var donor = global.donorCountry;
 
         // total and donor related items from collection
         // are being calculated
