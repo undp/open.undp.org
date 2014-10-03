@@ -73,7 +73,7 @@ routers.Global = Backbone.Router.extend({
             } else if (selectedFacets[0] === 'donor_countries') {
                 that.donorCountry = selectedFacets[1]
             } else if (selectedFacets[0] === 'donors') {
-                that.donor = selectFacets[1];
+                that.donor = selectedFacets[1];
             }
 
             return {
