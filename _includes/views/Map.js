@@ -429,18 +429,6 @@ views.Map = Backbone.View.extend({
                             var prevPath = location.hash;
                         } else {
                             prevPath = location.hash.split('?')[0];
-                            prevWidgetOpts = location.hash.split('?')[1]; // used when constructing the route with $('#widget-world')
-
-                            $('#widget-world')
-                            .removeClass('active')
-                            .addClass('enabled')
-                            .attr('href',location.origin + location.pathname + prevPath + "?"+ prevWidgetOpts)
-                            .on('click',function(e){
-                                $('#widget-country').removeClass('active');
-                                $(e.target).addClass('active').removeClass('enabled');
-                            })
-
-                            $('#widget-country').addClass('active');
                         }
 
                         if (global.processedFacets.length === 0){
