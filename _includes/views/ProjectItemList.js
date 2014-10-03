@@ -93,7 +93,7 @@ views.ProjectItemList = Backbone.View.extend({
         }
 
         return this;
-        }.bind(this), 200);
+        }.bind(this), 500);
     },
 
     loadMore: function(e) {
