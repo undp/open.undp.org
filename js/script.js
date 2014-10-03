@@ -9,7 +9,8 @@ $(document).ready(function() {
     if (IE) {var IE_VERSION = parseInt($.browser.version);} // should return an integer
 
     var util = {},
-        views = {};
+        views = {},
+        routers = {};
 
     {% include util.js %}
 
