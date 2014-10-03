@@ -112,7 +112,7 @@ views.App = Backbone.View.extend({
 
         $target.parent().find('.reset').toggleClass('hidden', (val === ''));
 
-        _(this.views).each(function(view) {
+        _(this.facets).each(function(view) {
             view.collection.each(function(model) {
                 var name = model.get('name').toLowerCase();
 
@@ -153,8 +153,8 @@ views.App = Backbone.View.extend({
 
             if ($parent.hasClass('active')) {
                 $parent.toggleClass('active', false);
-                if (this.views[cat]) {
-                    this.views[cat].active = false;
+                if (this.facets[cat]) {
+                    this.facets[cat].active = false;
                 }
             } else {
                 $('.topics').each(function () {
@@ -166,8 +166,8 @@ views.App = Backbone.View.extend({
                     }
                 });
                 $parent.toggleClass('active', true);
-                if (this.views[cat]) {
-                    this.views[cat].active = true;
+                if (this.facets[cat]) {
+                    this.facets[cat].active = true;
                 }
             }
             return false;

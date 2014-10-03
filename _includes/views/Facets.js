@@ -9,7 +9,8 @@ views.Facets = Backbone.View.extend({
 		var that = this;
 		var facetHTML = '';
 
-		global.app.views = {}; // what is the views
+		// app.facets is used when filters are searched. see App.js
+		global.app.facets = {};
 
 		// create the topics divs
 		this.collection.each(function(facet){
@@ -17,16 +18,17 @@ views.Facets = Backbone.View.extend({
 
 			facet.subCollection.fetch({
 				success: function (data) {
-					global.app.views[facet.id] = new views.Filters({
+					global.app.facets[facet.id] = new views.Filters({
 					el: '#' + facet.id,
 					collection: facet.subCollection
 				});
 
 				_.each(global.processedFacets, function (f){
 					if (f.collection === facet.id) {
-				 		global.app.views[facet.id].active = true;
+						global.app.facets[facet.id].active = true;
 					}
 				});
+
 				facet.subCollection.watch();
 				}
 			});
