@@ -414,7 +414,7 @@ routers.Global = Backbone.Router.extend({
 
 
             var plural = (global.projects.length === 1) ? 'project' : 'projects',
-                sentenceThere = 'There are ' + util.bold(global.projects.length),
+                sentenceThere = ['There are', util.bold(global.projects.length), plural].join(' '),
                 sentenceDonor = global.donorDescription;
 
             if (global.donorDescription.length > 1){
