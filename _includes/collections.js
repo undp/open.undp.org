@@ -97,23 +97,10 @@ Filters = Backbone.Collection.extend({
     aggregate: function(collection,model){
         //First get the number of projects from the global projects array
         var count = global.projects[collection.id][model.id];
-
-        //Get all the core projects filtered using the facets
         //Add the project count to the country's projects if it's part of the core fund
-        if (!global.unit && _(global.coreFund).contains(model.get('id'))) {
-            var coreProjects = global.allProjects.filter(function(project) {
-               var isCore = _(project.attributes.donors).contains('00012');
-               isCore =  (isCore && !_(project.attributes.donor_countries).contains(model.get('id')));
-               return _(global.processedFacets).reduce(function(memo, facet) {
-                    if (facet.collection === 'region') { // region is treated differently since it is a value, not an array
-                        return memo && model.get(facet.collection) == facet.id;
-                    } else if (facet.collection === 'donor_countries') { 
-                        //disregard this facet in the filter
-                        return memo;
-                    } else {
-                        return memo && (model.get(facet.collection) && model.get(facet.collection).indexOf(facet.id) >= 0);
-                    }
-               }, isCore);
+        if (_(global.coreFund).contains(model.get('id'))) {
+            var coreProjects = global.projects.filter(function(project) {
+               return project.attributes.core && !_(project.attributes.donor_countries).contains(model.get('id'));
             });
             count = count + coreProjects.length;
         }
