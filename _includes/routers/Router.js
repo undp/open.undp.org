@@ -50,8 +50,6 @@ routers.Global = Backbone.Router.extend({
     description: [],
     donorDescription: [],
     processedFacets: false,
-    unit:false, // this should be reused throughout the site
-    donorCountry:false,
     fiscalYear: false,
     parseHash: function(path){
         var that = this;
@@ -59,15 +57,25 @@ routers.Global = Backbone.Router.extend({
         var hashParts = (path) ? path.split('/') : [], // --> ['operating_unit-ARG','donor-12300']
             selectedFacets;
 
+        this.unit = false;
+        this.region = false;
+        this.donorCountry = false;
+        this.donor = false;
+
         this.processedFacets = _(hashParts).map(function(part){
 
             var selectedFacets = part.split('-');  // --> ['operating_unit','ARG']
 
             if (selectedFacets[0] === 'operating_unit') {
                 that.unit = selectedFacets[1];
+            } else if (selectedFacets[0] === 'region') {
+                that.region = selectedFacets[1];
             } else if (selectedFacets[0] === 'donor_countries') {
                 that.donorCountry = selectedFacets[1]
+            } else if (selectedFacets[0] === 'donors') {
+                that.donor = selectFacets[1];
             }
+
             return {
                 collection: selectedFacets[0],
                 id: selectedFacets[1]
@@ -169,8 +177,8 @@ routers.Global = Backbone.Router.extend({
 
            //Create coreProjects array for projects that are funded by UNDP regular resources
            var coreProjects = [];
-           var opUnitFilter =_(global.processedFacets).findWhere({collection:"operating_unit"});
-           if (_(that.coreFund).contains(that.donorCountry) && !opUnitFilter) {
+
+           if (_(that.coreFund).contains(that.donorCountry) && !global.unit) {
                 coreProjects = that.allProjects.filter(getCoreFundsFromFacets(that.donorCountry));
                 that.projects = new Projects(facettedProjects.concat(coreProjects));
             } else {
@@ -198,8 +206,7 @@ routers.Global = Backbone.Router.extend({
 
            //Create coreProjects array for projects that are funded by UNDP regular resources
            var coreProjects = [];
-           var opUnitFilter =_(global.processedFacets).findWhere({collection:"operating_unit"});
-           if (_(that.coreFund).contains(that.donorCountry) && !opUnitFilter) {
+           if (_(that.coreFund).contains(that.donorCountry) && !global.unit) {
                 coreProjects = that.allProjects.filter(getCoreFundsFromFacets(that.donorCountry));
                 that.projects.reset(this.allProjects.filter(getProjectFromFacets).concat(coreProjects));
             } else {
@@ -209,10 +216,9 @@ routers.Global = Backbone.Router.extend({
 
         // Check for funding countries to show donor visualization
         if (that.donorCountry){
-            that.donor = new views.DonorCharts ();
+            new views.DonorCharts ();
             $('#donor-view').show();
         } else {
-            that.donor = false;
             $('#donor-view').hide();
         }
 
@@ -267,9 +273,7 @@ routers.Global = Backbone.Router.extend({
         new views.Breadcrumbs();
         new views.ProjectItemList({collection: that.projects });
 
-        // reset unit and donorCountry
-        this.unit = false;
-        this.donorCountry = false;
+        // reset description
         this.description = [];
         this.donorDescription = [];
     },

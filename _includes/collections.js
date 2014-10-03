@@ -30,8 +30,7 @@ Nationals = Backbone.Collection.extend({
 Subnationals = Backbone.Collection.extend({
     model: Subnational,
     url: function() {
-        var opUnitFilter =_(global.processedFacets).findWhere({collection:"operating_unit"});
-        return '../api/units/' + opUnitFilter.id + '.json'
+        return '../api/units/' + global.unit + '.json'
     },
     parse: function(response){
         return response.projects
@@ -99,12 +98,9 @@ Filters = Backbone.Collection.extend({
         //First get the number of projects from the global projects array
         var count = global.projects[collection.id][model.id];
 
-        //If we haven't selected a specific recipient office
-        var opUnitFilter =_(global.processedFacets).findWhere({collection:"operating_unit"});
-
         //Get all the core projects filtered using the facets
         //Add the project count to the country's projects if it's part of the core fund
-        if (!opUnitFilter && _(global.coreFund).contains(model.get('id'))) {
+        if (!global.unit && _(global.coreFund).contains(model.get('id'))) {
             var coreProjects = global.allProjects.filter(function(project) {
                var isCore = _(project.attributes.donors).contains('00012');
                isCore =  (isCore && !_(project.attributes.donor_countries).contains(model.get('id')));

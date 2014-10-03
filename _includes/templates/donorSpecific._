@@ -6,7 +6,7 @@
 
 <!-- From the app -->
 <%
-	var donorIdApp = _(global.processedFacets).findWhere({collection:"donor_countries"}).id;
+	var donorIdApp = global.donorCountry;
 %>
 
 <!-- Using conditions from the app and vairables defined from the post -->
