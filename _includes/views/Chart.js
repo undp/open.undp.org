@@ -97,28 +97,28 @@ function addRows(selector, rows, view) {
 }
 
 function renderBudgetSourcesChart(donor, donorCountrySelected, chartData, view, pathTo) {
-    $('#chart-' + view.collection.id + ' .rows').empty();
+   $('#chart-' + view.collection.id + ' .rows').empty();
     var rows = [];
 
+    var donorTable = {};
+    global.projects.chain().each(function(project) {
+        _(project.get('donors')).each(function(donor, idx) {
+            if (donor in donorTable) {
+                donorTable[donor].budget += project.get('donor_budget')[idx];
+                donorTable[donor].expenditure += project.get('donor_expend')[idx];   
+            } else {
+                donorTable[donor] = { 
+                    budget: project.get('donor_budget')[idx], 
+                    expenditure: project.get('donor_expend')[idx]
+                };
+            }
+        })
+    });
     _(chartData).each(function(model) {
         var donorInfo = { budget: 0, expenditure: 0};
         donor = model.id;
-        var donorProjects = (donor) ? global.projects.chain()
-                .map(function(project) {
-                    var donorIndex = _(project.get('donors')).indexOf(donor);
-                    if (donorIndex === -1) return;
-                    return {
-                        budget: project.get('donor_budget')[donorIndex],
-                        expenditure: project.get('donor_expend')[donorIndex]
-                    };
-                }, 0).compact().value() : [];
-
-        donorInfo.budget = _(donorProjects).chain().pluck('budget')
-            .reduce(function(memo, num){ return memo + num; }, 0).value();
-
-        donorInfo.expenditure = _(donorProjects).chain().pluck('expenditure')
-            .reduce(function(memo, num){ return memo + num; }, 0).value();     
-
+        donorInfo.budget = (donor in donorTable)? donorTable[donor].budget : 0;
+        donorInfo.expenditure = (donor in donorTable)? donorTable[donor].expenditure : 0;
         var notOperatingUnit = (donor || donorCountrySelected);
 
         if (notOperatingUnit) {
