@@ -1,4 +1,4 @@
-routers.Global = Backbone.Router.extend({
+Global = Backbone.Router.extend({
     routes: {
         '': 'redirect',
         'filter/*path': 'redirect', // filters --> "/donor-countries-MULTI_AGY/operating_unit-BRA";

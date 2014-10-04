@@ -1,5 +1,8 @@
 ---
 ---
+var util = {}; // until is on the Window level, since it needs to be accessed by the templates
+{% include util.js %}
+
 $(document).ready(function() {
     var CURRENT_YR = FISCALYEARS[0],
         BASE_URL = '/',
@@ -8,11 +11,7 @@ $(document).ready(function() {
     var IE = $.browser.msie;
     if (IE) {var IE_VERSION = parseInt($.browser.version);} // should return an integer
 
-    var util = {},
-        views = {},
-        routers = {};
-
-    {% include util.js %}
+    var views = {};
 
     {% include models.js %}
     {% include collections.js %}
@@ -51,6 +50,6 @@ $(document).ready(function() {
     {% include routers/Router.js %}
 
     // Start the application
-    global = new routers.Global();
+    global = new Global();
     Backbone.history.start();
 });

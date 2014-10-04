@@ -4,11 +4,12 @@
     <span class='label'>Website</span>
     <a href='<%= website %>'><%= website %></a>
   </li>
+  <% if (email.length > 1) { %>
   <li>
     <span class='label'>Email</span>
     <a href='mailto:<%= email %>'><%= email %></a>
   </li>
-  <% if (twitter.length) { %>
+  <% } else if (twitter.length) { %>
   <li>
     <span class='label'>Twitter</span>
     <a href='https://twitter.com/<%= twitter %>'>@<%= twitter %></a>
