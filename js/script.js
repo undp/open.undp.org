@@ -1,6 +1,6 @@
 ---
 ---
-var util = {}; // until is on the Window level, since it needs to be accessed by the templates
+var util = {}; // util is on the Window level, since it needs to be accessed by the templates
 {% include util.js %}
 
 $(document).ready(function() {
