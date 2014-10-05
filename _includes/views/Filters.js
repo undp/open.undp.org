@@ -12,7 +12,6 @@ views.Filters = Backbone.View.extend({
 
             view.filterModels = [];
             view.chartModels = [];
-                donor;
 
             var isThereDonorCountry = _(global.processedFacets).findWhere({ collection: 'donor_countries' }),
                 activeFilter = view.collection.findWhere({active:true});
@@ -23,8 +22,7 @@ views.Filters = Backbone.View.extend({
     
                 // Use donor level financial data if available
                 if (activeFilter.collection.id === 'donors') {
-                    donor = activeFilter.id;
-                    global.projects.map.collection.donorID = donor;
+                    global.projects.map.collection.donorID = activeFilter.id;
                 }
                 // Add a filtered class to all parent containers
                 // where an active element has been selected.
@@ -35,7 +33,6 @@ views.Filters = Backbone.View.extend({
                 view.chartModels.push(activeFilter);
 
                 view.renderFilters(keypress);
-
             } else {
                 view.collection.sort();
                 
@@ -101,60 +98,65 @@ views.Filters = Backbone.View.extend({
                         .value(); // Top 20
                 }
             }
-    
-            // Root path of links for each chart item
-            var pathTo;
+            view.renderCharts();
+        },0);
+    },
 
-            if (global.processedFacets.length === 0 ){
-                pathTo = '#' + CURRENT_YR +'/filter/';
-            } else {
-                pathTo = document.location.hash
+    renderCharts: function(){
+        var view =this;
+        // Root path of links for each chart item
+        var pathTo;
 
-                //Creates proper link for embedded chart items
-                pathTo = (pathTo.split('?')[0] + '/').replace('widget', 'filter')
-            };
-            pathTo = BASE_URL + pathTo;
+        if (global.processedFacets.length === 0 ){
+            pathTo = '#' + CURRENT_YR +'/filter/';
+        } else {
+            pathTo = document.location.hash
 
-            //If we don't have any data for that chart don't render it
-            if (view.chartModels.length <= 1 && view.collection.id !== 'focus_area' && !view.donorCountry) {
-                $('#chart-' + view.collection.id)
-                    .css('display','none');
-            }  
-            //This code makes sure that all appropriate charts are displayed again after removing a filter
-            if ($('.stat-chart').hasClass('full')) {
-                $('.stat-chart').removeClass('full');
-                $('#chart-' + view.collection.id)
-                    .css('display','block');
-            } else {
-                $('#chart-' + view.collection.id)
-                    .addClass('full')
-                    .css('display','block');
-            }
+            //Creates proper link for embedded chart items
+            pathTo = (pathTo.split('?')[0] + '/').replace('widget', 'filter')
+        };
 
-            //Get the filter values
-            var donor = (_(global.processedFacets).find(function(filter) {
-                        return filter.collection === 'donors';
-                    }) || {id: 0}).id;
-            var donor_ctry = (_(global.processedFacets).find(function(filter) {
-                    return filter.collection === 'donor_countries';
+        pathTo = BASE_URL + pathTo;
+
+        //If we don't have any data for that chart don't render it
+        if (view.chartModels.length <= 1 && view.collection.id !== 'focus_area' && !view.donorCountry) {
+            $('#chart-' + view.collection.id)
+                .css('display','none');
+        }
+        //This code makes sure that all appropriate charts are displayed again after removing a filter
+        if ($('.stat-chart').hasClass('full')) {
+            $('.stat-chart').removeClass('full');
+            $('#chart-' + view.collection.id)
+                .css('display','block');
+        } else {
+            $('#chart-' + view.collection.id)
+                .addClass('full')
+                .css('display','block');
+        }
+
+        //Get the filter values
+        var donor = (_(global.processedFacets).find(function(filter) {
+                    return filter.collection === 'donors';
                 }) || {id: 0}).id;
+        var donor_ctry = (_(global.processedFacets).find(function(filter) {
+                return filter.collection === 'donor_countries';
+            }) || {id: 0}).id;
 
-            // chart functions live in Chart.js
-            if (view.collection.id === 'focus_area') {
-                view.chartModels = view.collection.models;
-                setTimeout(function() {
-                    renderFocusAreaChart(view.chartModels, pathTo, view)
-                },0);
-            } else if ( view.collection.id === 'donors' ){
-                setTimeout(function() {
-                    renderBudgetSourcesChart(donor, donor_ctry, view.chartModels, view, pathTo)
-                },0);
-            } else if (view.collection.id === 'operating_unit' || view.collection.id === 'donor_countries') {
-                setTimeout(function() {
-                    renderRecipientOfficesChart(donor, donor_ctry, view.chartModels, view, pathTo)
-                },0);
-            }
-        }, 0);
+        // chart functions live in Chart.js
+        if (view.collection.id === 'focus_area') {
+            view.chartModels = view.collection.models;
+            setTimeout(function() {
+                renderFocusAreaChart(view.chartModels, pathTo, view)
+            },0);
+        } else if ( view.collection.id === 'donors' ){
+            setTimeout(function() {
+                renderBudgetSourcesChart(donor, donor_ctry, view.chartModels, view, pathTo)
+            },0);
+        } else if (view.collection.id === 'operating_unit' || view.collection.id === 'donor_countries') {
+            setTimeout(function() {
+                renderRecipientOfficesChart(donor, donor_ctry, view.chartModels, view, pathTo)
+            },0);
+        }
     },
     renderFilters: function(keypress){
         if (this.filterModels.length) {
