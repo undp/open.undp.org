@@ -51,7 +51,8 @@ views.ProjectMap = Backbone.View.extend({
         this.map = L.mapbox.map(this.el,MAPID,{
             minZoom: 1,
             maxZoom: 10,
-            scrollWheelZoom: this.options.embed ? false : true
+            scrollWheelZoom: this.options.embed ? false : true,
+            legendControl: false
         });
 
         if (this.model.get('document_name')) {
