@@ -225,7 +225,7 @@ views.ProjectMap = Backbone.View.extend({
                 this.photos.push({
                     'title': file.split('.')[0],
                     'source': source,
-                    'url': '' // document images do not have a consistent url such as flickr, keep blank
+                    'url': source
                 });
             }
         },this);
