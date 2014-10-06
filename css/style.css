@@ -1562,6 +1562,7 @@ form {
 #flickr .flickr-img {
   float:left;
   width:150px;
+  height:150px;
   padding:5px;
 }
 #flickr img {
@@ -1853,16 +1854,17 @@ form {
   Clearfix
 -------------------------------------*/
 /*Markup free clearing
-Details: http: //perishablepress.com/press/2009/12/06/new-clearfix-hack*/
+Details: http://nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix:before,
 .clearfix:after {
-  content:'';
-  display:block;
-  height:0;
-  clear:both;
-  visibility:hidden;
-  }
-* html .clearfix { height:1%; }
-*:first-child + html .clearfix { min-height:1%; }
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
 
 
 /* Country selector */

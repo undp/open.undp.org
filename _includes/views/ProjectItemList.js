@@ -3,7 +3,7 @@ views.ProjectItemList = Backbone.View.extend({
     template: _.template($('#projectItemList').html()),
     events: {
         'click .load a': 'loadMore',
-        'click table tr': 'routeToProject',
+        'click table tr td:first-child a': 'routeToProject',
         'click #project-table th': 'sortProjects'
     },
 
