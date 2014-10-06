@@ -153,16 +153,17 @@ function renderRecipientOfficesChart(donor, donorCountrySelected, chartData, vie
                 return memo + project.get('donor_budget')[donorIndex];
             }, 0).value() : 0;
 
-        donorInfo.expenditure = (donor) ? global.projects.chain()
+        donorInfo.expenditure = (donorCountrySelected || donor) ? global.projects.chain()
             .filter(function(project) {
                 return project.get('operating_unit') === model.id;
             })
             .reduce(function(memo, project) {
                 var donorIndex = _(project.get( ((donorCountrySelected)?'donor_countries':'donors')) )
                     .indexOf( ((donorCountrySelected)? donorCountrySelected:donor ) );
+                if (donorIndex === -1) return memo;
                 return memo + project.get('donor_expend')[donorIndex];
             }, 0).value() : 0;
-            
+        
         var notOperatingUnit = (donor || donorCountrySelected);
 
         if (notOperatingUnit) {
