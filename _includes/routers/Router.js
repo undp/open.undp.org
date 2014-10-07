@@ -459,5 +459,4 @@ Global = Backbone.Router.extend({
 
         }, 0);
     }
-
 });
