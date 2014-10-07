@@ -30,7 +30,6 @@ Global = Backbone.Router.extend({
             .defer(util.request,'api/core-fund.json') // load JSON that contains all the core fund donors
             .await(function(err, result) {
                 that.coreFund = result;
-
                 if ((FISCALYEARS).indexOf(year) > -1){ // if year exsits in FISCALYEARS array
 
                     that.allProjects = new Projects();
@@ -38,6 +37,7 @@ Global = Backbone.Router.extend({
 
                     that.allProjects.fetch({
                         success:function(){
+
                             that.browser(year, path, embed);
                         }
                     });
@@ -222,9 +222,6 @@ Global = Backbone.Router.extend({
             $('#donor-view').hide();
         }
 
-        // Save default description
-        that.defaultDescription = that.defaultDescription || $('#description p.intro').html();
-
         // whether or not to show focus area charts
         if (_(that.processedFacets).find(
             function(f) {return f.collection === 'focus_area';
@@ -269,11 +266,19 @@ Global = Backbone.Router.extend({
                 $('.map-btn[data-value="hdi"] .total-caption').html('HDI Global');
             }
         }
+        // correct UI config
+        if (this.nav){this.nav.empty();}
+
+        $('#profile').hide();
+        $('#browser').show();
+        $('#mainnav li').first().addClass('active');
 
         new views.Breadcrumbs();
         new views.ProjectItemList({collection: that.projects });
 
         // reset description
+        // Save default description
+        this.defaultDescription = that.defaultDescription || $('#description p.intro').html();
         this.description = [];
         this.donorDescription = [];
     },
@@ -296,7 +301,7 @@ Global = Backbone.Router.extend({
         if (!embed) {
             window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
 
-            new views.Nav({add:'project'});
+            this.nav = new views.Nav({add:'project'});
             new views.Widget({context: 'project'});
             // Load in feedbackform deats
             this.feedback();
@@ -327,13 +332,13 @@ Global = Backbone.Router.extend({
             $('html, body').scrollTop(0);
         }, 0);
 
-        new views.Nav({add:'about',subnav:subnav});
+        this.nav = new views.Nav({add:'about',subnav:subnav});
         new views.Breadcrumbs({add:'about',subnav:subnav})
     },
     topDonors: function (category) {
         var that = this;
 
-        new views.Nav({add:'topDonors'});
+        this.nav = new views.Nav({add:'topDonors'});
         new views.Breadcrumbs({add:'topDonors',category:category});
 
         if (!that.donorsGross) {
@@ -428,8 +433,6 @@ Global = Backbone.Router.extend({
             } else {
                 $elDesc.html(global.defaultDescription);
             }
-
-            $('#browser .summary').removeClass('off');
 
             $('#filters-search, #projects-search').val('');
 
