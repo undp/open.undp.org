@@ -99,7 +99,9 @@ views.Filters = Backbone.View.extend({
                 }
             }
             view.renderCharts();
+
         },0);
+
     },
 
     renderCharts: function(){

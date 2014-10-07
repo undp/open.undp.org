@@ -83,6 +83,7 @@ Global = Backbone.Router.extend({
         });
     },
     browser: function (year, path, embed) {
+
         var that = this;
 
         that.parseHash(path);
@@ -99,6 +100,7 @@ Global = Backbone.Router.extend({
                 el: '#browser',
                 year: year
             });
+
         } else {
             that.app = that.app || new views.App({
                 el: '#embed',
@@ -132,6 +134,20 @@ Global = Backbone.Router.extend({
                 });
             }
         };
+
+        // load spinner for map and filter panel
+        var mapSpinTarget = document.getElementById('map-view'),
+            filterSpinTarget = document.getElementById('filters');
+
+        this.spinOpts = {
+            color:'#333',
+            length: 6,
+            radius: 10,
+            speed: 0.6
+        };
+
+        this.mapSpinner = new Spinner(this.spinOpts).spin(mapSpinTarget);
+        this.filterSpinner = new Spinner(this.spinOpts).spin(filterSpinTarget);
 
         //This is a filter function that checks if a project matches the facets
         var getProjectFromFacets = function (model) {

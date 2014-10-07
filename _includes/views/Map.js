@@ -111,6 +111,9 @@ views.Map = Backbone.View.extend({
             }
         }
 
+        // once map renders stop the spinners
+        global.mapSpinner.stop();
+        global.filterSpinner.stop();
     },
     goToLink:function(path){
         global.navigate(path, { trigger: true });
