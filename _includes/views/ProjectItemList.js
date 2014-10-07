@@ -117,8 +117,9 @@ views.ProjectItemList = Backbone.View.extend({
     },
 
     routeToProject: function(e) {
+        e.preventDefault();
         var id = $(e.currentTarget).attr('id');
-        global.navigate(id, {trigger: true});
+        global.navigate('#project/'+id, {trigger: true});
     },
 
     search: function (e) {

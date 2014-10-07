@@ -1,10 +1,11 @@
 <h3 class='contact-title'>UNDP <%= unit %> Office</h3>
 <ul class='contact-info'>
+  <% if (website && website.length > 1) { %>
   <li>
     <span class='label'>Website</span>
     <a href='<%= website %>'><%= website %></a>
   </li>
-  <% if (email.length > 1) { %>
+  <% } else if (email && email.length > 1) { %>
   <li>
     <span class='label'>Email</span>
     <a href='mailto:<%= email %>'><%= email %></a>

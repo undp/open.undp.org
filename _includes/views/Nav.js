@@ -6,7 +6,11 @@ views.Nav = Backbone.View.extend({
         this.render();
     },
 
+    empty:function(){
+        this.$el.html('')
+    },
     render: function() {
+
         this.$el.html(this.template());
         // add about functionalities
         $('#mainnav a.parent-link').click(function(e) { //TODO avoid initial click which changes path
@@ -23,34 +27,42 @@ views.Nav = Backbone.View.extend({
         // TODO: Nav jumble that needs clean-up
         // things are still page-based...
         if (this.options.add === 'about') {
-            $('#app .view, #about .section, #mainnav .profile').hide();
-            $('#aboutnav li, #mainnav li').removeClass('active');
-    
-            $('#about, #mainnav .browser').show();
-            $('#aboutnav li a[href="#about/' + this.options.subnav + '"]').parent().addClass('active');
+            // UI
+            $('#app .view').hide();
+            $('#unit-contact').hide();
+            $('#about .section').hide();
+
+            $('#about').show();
             $('#about #' + this.options.subnav).show();
+
+            // menu
+            $('#mainnav li').removeClass('active');
+            $('#aboutnav li').removeClass('active');
+
             $('#mainnav li.parent').addClass('parent-active');
+            $('#aboutnav li a[href="#about/' + this.options.subnav + '"]').parent().addClass('active');
 
         } else if (this.options.add === 'topDonors'){
+            // UI
             $('#app .view').hide();
-            $('#mainnav li.profile').hide();
-            $('#mainnav li.browser').show();
-            $('#mainnav li').removeClass('active');
-            $('#mainnav li.parent').removeClass('parent-active');
-
-            $('#top-donors').show();
-            $('#mainnav li a[href="#top-donors/regular"]').parent().addClass('active');
-
-            $('#donor-nav li a').removeClass('active');
-            $('#donor-nav li a[href="#top-donors/' + this.options.category + '"]').addClass('active');
             $('#unit-contact').hide();
 
-        } else if (this.options.add === 'project') {
+            $('#top-donors').show();
 
-            $('#app .view, #mainnav .browser').hide();
+            // menu
             $('#mainnav li').removeClass('active');
-            $('#browser .summary').addClass('off');
-            $('#mainnav .profile').show();
+            $('#mainnav li.parent').removeClass('parent-active');
+            $('#donor-nav li a').removeClass('active');
+
+            $('#mainnav li a[href="#top-donors/regular"]').parent().addClass('active');
+            $('#donor-nav li a[href="#top-donors/' + this.options.category + '"]').addClass('active');
+
+        } else if (this.options.add === 'project') {
+            // UI
+            $('#app .view').hide();
+
+            // menu
+            $('#mainnav li').removeClass('active');
             $('#mainnav li').first().addClass('active');
             $('#mainnav li.parent').removeClass('parent-active');
         }
