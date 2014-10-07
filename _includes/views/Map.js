@@ -110,7 +110,6 @@ views.Map = Backbone.View.extend({
                 this.map.setView(regionCenter.coord,regionCenter.zoom,{reset:true});
             }
         }
-
     },
     goToLink:function(path){
         global.navigate(path, { trigger: true });

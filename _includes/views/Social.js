@@ -130,6 +130,9 @@ views.Social = Backbone.View.extend({
         function insertPhotos(photos){
             $('#flickr').show();
 
+            var spinTarget = document.getElementById('flickr');
+            view.spinner = new Spinner(global.spinOpts).spin(spinTarget);
+
             var flickrHTML = '';
 
             _.each(photos,function(photo,i){
@@ -138,6 +141,7 @@ views.Social = Backbone.View.extend({
 
             view.$flickrEl.html(flickrHTML);
 
+            view.spinner.stop();
         }
     }
 })

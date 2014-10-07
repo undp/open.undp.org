@@ -83,6 +83,7 @@ Global = Backbone.Router.extend({
         });
     },
     browser: function (year, path, embed) {
+
         var that = this;
 
         that.parseHash(path);
@@ -99,6 +100,7 @@ Global = Backbone.Router.extend({
                 el: '#browser',
                 year: year
             });
+
         } else {
             that.app = that.app || new views.App({
                 el: '#embed',
@@ -443,5 +445,4 @@ Global = Backbone.Router.extend({
 
         }, 0);
     }
-
 });
