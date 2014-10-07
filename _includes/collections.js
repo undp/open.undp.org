@@ -91,6 +91,23 @@ Facets = Backbone.Collection.extend({
 Filters = Backbone.Collection.extend({
     model: Filter,
     watch: function() {
+        //Create a core fund count
+        var that = this;
+        this.coreProjects = {};
+
+        global.projects.chain().each(function(project) {
+            //If it's core
+            if (project.attributes.core) {
+                // console.log(project.attributes.donor_countries);
+                _(project.attributes.donor_countries).chain().uniq().each(function(ctry) {
+                    if (typeof that.coreProjects[ctry] === 'undefined') {
+                        that.coreProjects[ctry] = 1;
+                    } else {
+                        that.coreProjects[ctry] += 1;
+                    }
+                })
+            }
+        });
         this.update();
         global.projects.on('update', this.update, this);
     },
@@ -99,10 +116,11 @@ Filters = Backbone.Collection.extend({
         var count = global.projects[collection.id][model.id];
         //Add the project count to the country's projects if it's part of the core fund
         if (_(global.coreFund).contains(model.get('id'))) {
-            var coreProjects = global.projects.filter(function(project) {
-               return project.attributes.core && !_(project.attributes.donor_countries).contains(model.get('id'));
-            });
-            count = count + coreProjects.length;
+            // var coreProjects = global.projects.filter(function(project) {
+            //    return project.attributes.core && !_(project.attributes.donor_countries).contains(model.get('id'));
+            // });
+            // count = count + coreProjects.length;
+            count = count + this.coreProjects['MULTI_AGY'] - this.coreProjects[model.get('id')]
         }
         return {
             count: count,
