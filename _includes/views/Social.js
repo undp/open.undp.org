@@ -131,7 +131,7 @@ views.Social = Backbone.View.extend({
             $('#flickr').show();
 
             var spinTarget = document.getElementById('flickr');
-            view.spinner = new Spinner(global.spinOpts).spin(spinTarget);
+            view.spinner = new Spinner().spin(spinTarget);
 
             var flickrHTML = '';
 

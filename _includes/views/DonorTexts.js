@@ -10,7 +10,7 @@ views.DonorTexts = Backbone.View.extend({
         this.$el.html(this.template());
 
         var spinTarget = document.getElementById('donor-specific');
-        this.spinner = new Spinner(global.spinOpts).spin(spinTarget);
+        // this.spinner = new Spinner().spin(spinTarget);
 
         _(this.$el.find('img')).each(function(img){
             var caption = $('<p class="photo-caption">'+img.alt+'</p>')
@@ -21,8 +21,8 @@ views.DonorTexts = Backbone.View.extend({
         $('#slides', this.$el).slidesjs({
             pagination:{active:false},
             callback: {
-                loaded: function(number) {
-                    that.spinner.stop();
+                loaded: function() {
+                    // that.spinner.stop();
                 }
             }
         });
