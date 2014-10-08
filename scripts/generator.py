@@ -40,7 +40,7 @@ class ProjectsController(Controller):
         self.donor_ids = DonorIDs()
         self.region_index = RegionIndex()
         self.core_donors = CoreDonors()
-        self.api_path = 'test_api'
+        self.api_path = settings.API_PATH
         self._years = set()
 
         # Adding 2010 because the xmls files are starting from 2011 but the legacy site expect to see 2010
@@ -147,6 +147,10 @@ class ProjectsController(Controller):
             obj.description.value = core['Donor Desc']
             obj.short_description.value = core['Donor Level 3']
 
+            # Adding extra zeros to the begining of donor ids to make them 5 characters
+            additional_zeros = 5 - len(obj.donor_id.value)
+            obj.donor_id.value = '%s%s' % (('0' * additional_zeros), obj.donor_id.value)
+
             self.core_donors.add(obj.donor_id.value, obj)
 
     def _populate_region_index(self):
@@ -238,21 +242,29 @@ class ProjectsController(Controller):
                 try:
                     country = defaultdict(lambda: defaultdict(float))
                     for item in report_donors.collection[project.project_id.value]:
-                        if int(item['fiscal_year']) == int(year):
-                            country[item['donor_type_lvl3']]['budget'] += float(item['budget'])
-                            country[item['donor_type_lvl3']]['expenditure'] += float(item['expenditure'])
-                            country[item['donor_type_lvl3']]['type'] = item['donor_type_lvl1'].replace(" ", "")
-                            country[item['donor_type_lvl3']]['id'] = item['donorID']
+                        if int(item['fiscal_year']) == int(year) and item['donorID']:
+                            country[item['donorID']]['budget'] += float(item['budget'])
+                            country[item['donorID']]['expenditure'] += float(item['expenditure'])
+                            country[item['donorID']]['type'] = item['donor_type_lvl1'].replace(" ", "")
+
+                            if item['donor_type_lvl1'] == 'PROG CTY' or item['donor_type_lvl1'] == 'NON_PROG CTY':
+                                country[item['donorID']]['name'] = item['donor_type_lvl3'].replace(" ", "")
+                            elif item['donor_type_lvl1'] == 'MULTI_AGY':
+                                country[item['donorID']]['name'] = item['donor_type_lvl1'].replace(" ", "")
+                            else:
+                                country[item['donorID']]['name'] = 'OTH'
+
+                            # country[item['donorID']]['name'] = item['donor_type_lvl3']
 
                             if item['donorID'] == '00012':
                                 obj.core.value = True
 
                     for key, value in country.iteritems():
-                        obj.donor_countries.value.append(key)
+                        obj.donor_countries.value.append(value['name'])
                         obj.donor_budget.value.append(value['budget'])
                         obj.donor_expend.value.append(value['expenditure'])
                         obj.donor_types.value.append(value['type'])
-                        obj.donors.value.append(value['id'])
+                        obj.donors.value.append(key)
 
                 except KeyError:
                     # There are few projects ids that are not appearing the donor list. this catch resolve them
@@ -274,7 +286,7 @@ class ProjectsController(Controller):
     def _generate_year_index(self):
         """ Generates year-index.js """
 
-        writeout = 'var FISCALYEARS = %s' % self.years
+        writeout = 'var FISCALYEARS = %s' % map(str, list(self.years))
         f_out = open('%s/year-index.js' % self.api_path, 'wb')
         f_out.writelines(writeout)
         f_out.close()
@@ -467,12 +479,11 @@ class ProjectsController(Controller):
 
                 for donor in o.findall("./participating-org[@role='Funding']"):
                     ref = donor.get('ref')
-                    if ref not in obj.donor_id.value:
-                        obj.donor_id.value.append(ref)
-                        if ref == '00012':
-                            obj.donor_name.value.append('Voluntary Contributions')
-                        else:
-                            obj.donor_name.value.append(donor.text)
+                    obj.donor_id.value.add(ref)
+                    if ref == '00012':
+                        obj.donor_name.value.append('Voluntary Contributions')
+                    else:
+                        obj.donor_name.value.append(donor.text)
 
                     for d in sorted_donors:
                         # Check IDs from the CSV against the cntry_donors_sort.

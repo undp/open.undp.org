@@ -338,3 +338,7 @@ class OperatingUnitIndex(Collection):
 
 class CoreDonors(Collection):
     pass
+
+
+class Donors(Collection):
+    pass

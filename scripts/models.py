@@ -196,7 +196,7 @@ class Output(Model):
         self.budget = Field(name='budget', key='budget', default=[], type='list')
         self.crs = Field(name='crs', key='code', type='string')
         self.crs_descr = Field(name='crs_descr', key="sector[@vocabulary='DAC']", type='string')
-        self.donor_id = Field(name='donor_id', default=[], type='list')
+        self.donor_id = Field(name='donor_id', default=set(), type='list')
         self.donor_name = Field(name='donor_name', default=[], type='list')
         self.donor_short = Field(name='donor_short', key='short_descr', default=[], type='list')
         self.expenditure = Field(name='expenditure', key="transaction-type[@code='E']", default=[], type='list')
@@ -447,3 +447,22 @@ class CoreDonor(Model):
         self.donor_id = Field(name='donor_id', key='donor')
         self.short_description = Field(name='short_description', key='Donor Short Desc')
         self.description = Field(name='description', key='Donor Desc')
+
+
+class DonorValue(Model):
+
+    """ Model for:
+
+    {
+        "donor-country": "all",
+        "name": "core",
+        "value": 484940477
+    }
+    """
+
+    def __init__(self):
+
+        self.country = Field(name='donor-country')
+        self.name = Field(name='name')
+        self.value = Field(name='value')
+
