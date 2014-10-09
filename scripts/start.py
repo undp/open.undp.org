@@ -7,6 +7,7 @@
 # pip install requirements.txt
 
 import time
+from shutil import copyfile, Error
 
 from generators.generator import ProjectsController
 from generators.donors import donors
@@ -26,6 +27,13 @@ if __name__ == '__main__':
     p.generate()
     # Generate modality data
     donors()
+
+    # Copy fixtures
+    try:
+        copyfile('%s/world.json' % config.FIXTURES, '%s/world.json' % config.API_PATH)
+        copyfile('%s/india_admin0.json' % config.FIXTURES, '%s/india_admin0.json' % config.API_PATH)
+    except Error:
+        pass
 
     end = time.time()
 

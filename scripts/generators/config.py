@@ -11,6 +11,7 @@ IATI_XML_ANNUAL = UNDP_EXPORT + '/iati-xml-annual'
 DONOR_DATA = DATA + '/donor_data'
 HDI = DATA + '/hdi'
 PROCESS_FILES = DATA + '/process_files'
+FIXTURES = DATA + '/fixtures'
 
 
 COUNTRY_DONORS = UNDP_EXPORT + '/country_donors_updated.csv'
