@@ -261,13 +261,7 @@ class ProjectSummaries(Collection):
             j_file.write(json.dumps(_list))
             j_file.close()
 
-            # Generate js file
-
-            j_file = open('%s/project_summary_%s.js' % (path, pk), 'w')
-            j_file.writelines('var SUMMARY = %s' % json.dumps(_list))
-            j_file.close()
-
-            self.log('%s summary json and js files generated' % pk)
+            self.log('%s summary json files generated' % pk)
 
 
 class ReportDonors(Collection):

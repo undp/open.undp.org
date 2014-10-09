@@ -138,7 +138,7 @@ class ProjectsController(Controller):
 
     def _populate_core_donors(self):
 
-        cores = self.get_and_sort(settings.BIN + '/donor_data/core_fund.csv', 'Donor')
+        cores = self.get_and_sort(settings.DONOR_DATA + '/core_fund.csv', 'Donor')
 
         for core in cores:
             obj = CoreDonor()
@@ -160,18 +160,23 @@ class ProjectsController(Controller):
 
         for unit in units:
 
-            if unit['bureau'] in choices:
-                obj = Region()
+            if (unit['bureau'] in choices and unit['hq_co'] == 'HQ') or unit['bureau'] == 'PAPP':
+                if unit['ou_descr'] != 'Regional Center - Addis Ababa':
+                    obj = Region()
 
-                obj.name.value = unit['ou_descr']
-                obj.id.value = unit['bureau']
+                    obj.name.value = unit['ou_descr']
+                    obj.id.value = unit['bureau']
 
-                try:
-                    self.region_index.add(obj.id.value, obj)
-                except ObjectExists:
-                    pass
+                    try:
+                        self.region_index.add(obj.id.value, obj)
+                    except ObjectExists:
+                        pass
 
-        self.region_index.add('global', obj)
+        obj = Region()
+        obj.name.value = 'Global'
+        obj.id.value = 'global'
+
+        self.region_index.add(obj.id.value, obj)
 
     def _populate_top_donor_local_index(self):
 
@@ -286,7 +291,7 @@ class ProjectsController(Controller):
     def _generate_year_index(self):
         """ Generates year-index.js """
 
-        writeout = 'var FISCALYEARS = %s' % map(str, list(self.years))
+        writeout = 'var FISCALYEARS = %s' % sorted(map(str, list(self.years)), reverse=True)
         f_out = open('%s/year-index.js' % self.api_path, 'wb')
         f_out.writelines(writeout)
         f_out.close()
@@ -610,8 +615,8 @@ class ProjectsController(Controller):
 
     def _generate_hdi(self):
 
-        hdi = self.get_and_sort('%s/hdi/hdi-csv-clean.csv' % settings.BIN, 'hdi2013')
-        geo = self.get_and_sort('%s/process_files/country-centroids.csv' % settings.BIN, 'iso3')
+        hdi = self.get_and_sort('%s/hdi-csv-clean.csv' % settings.HDI, 'hdi2013')
+        geo = self.get_and_sort('%s/country-centroids.csv' % settings.PROCESS_FILES, 'iso3')
 
         # Add current year to the years array
         years = [1980, 1985, 1990, 1995, 2000, 2005, 2006, 2007, 2008, 2011, 2012, 2013]
