@@ -9,10 +9,10 @@ import json
 from controller import Controller
 import config as settings
 from models import (Project, Output, Subnational, Unit, UnitProject, Crs, Donor, CountryDonor, ProjectSummary,
-                    TopDonor, TopDonorLocal, Region, CoreDonor)
+                    TopDonor, TopDonorLocal, Region, CoreDonor, OperatingUnit)
 from _collection import (Projects, Outputs, Subnationals, Units, CrsIndex, DonorIndex, CountryDonorIndex,
                          ProjectSummaries, ReportDonors, DonorIDs, TopDonorGrossIndex, TopDonorLocalIndex,
-                         RegionIndex, FocusAreaIndex, CoreDonors)
+                         RegionIndex, FocusAreaIndex, CoreDonors, OperatingUnitIndex)
 from _collection import ObjectExists
 
 
@@ -40,11 +40,13 @@ class ProjectsController(Controller):
         self.donor_ids = DonorIDs()
         self.region_index = RegionIndex()
         self.core_donors = CoreDonors()
+        self.operating_unit_index = OperatingUnitIndex()
         self.api_path = settings.API_PATH
         self._years = set()
+        self.geo = None
 
         # Adding 2010 because the xmls files are starting from 2011 but the legacy site expect to see 2010
-        self._years.add(2010)
+        self.years = 2010
 
         self.country_donors = None
 
@@ -113,6 +115,10 @@ class ProjectsController(Controller):
         # Generating HDI
         self._generate_hdi()
 
+        # Save Operating Unit Index
+        self._populate_operating_unit_index()
+        self.operating_unit_index.save_json(self.api_path, 'operating-unit-index.json')
+
     def _prepare(self, xml_file, tag, op_type):
         """Prepares and executes other methods to prepare the data.
 
@@ -135,6 +141,54 @@ class ProjectsController(Controller):
         func = getattr(self, '_populate_%s' % op_type)
 
         func(iter_obj, year)
+
+    def _populate_operating_unit_index(self):
+
+        current_year = sorted(list(self.years), reverse=True)[0]
+
+        country_isos = self.get_and_sort('%s/country_iso.csv' % settings.UNDP_EXPORT, 'iso3')
+        units = self.get_and_sort(self.undp_export + '/report_units.csv', 'operating_unit')
+
+        iso3 = dict([(i['iso3'].decode('utf-8').encode('ascii', 'ignore'),
+                      i['iso_num'].decode('utf-8').encode('ascii', 'ignore')) for i in country_isos])
+
+        units_index = dict([(i['operating_unit'], i['fund_type']) for i in units])
+
+        # import pdb
+        # pdb.set_trace()
+        for country in self.geo:
+            if country['iso3'] in self.units.pks:
+                obj = OperatingUnit()
+
+                obj.id.value = country['iso3']
+                obj.fund_type.value = units_index[obj.id.value]
+
+                obj.name.value = country[obj.name.key]
+                if country[obj.lat.key] != '':
+                    obj.lat.value = country[obj.lat.key]
+                    obj.lon.value = country[obj.lon.key]
+
+                if obj.id.value in iso3:
+                    obj.iso_num.value = iso3[obj.id.value]
+
+                # Looping through project summaries to get total budgets
+                funding_source = set()
+                for project in self.projectsummaries.collection[current_year]:
+                    if project.operating_unit.value == obj.id.value:
+                        obj.project_count.value += 1
+                        obj.budget_sum.value += round(project.budget.value, 2)
+                        obj.expenditure_sum.value += round(project.expenditure.value, 2)
+                        for item in project.donors.value:
+                            funding_source.add(item)
+
+                        project_obj = self.projects.collection[project.id.value]
+
+                        obj.email.value = project_obj.operating_unit_email.value
+                        obj.web.value = project_obj.operating_unit_website.value
+
+                obj.funding_sources_count.value = len(funding_source)
+
+                self.operating_unit_index.add(obj.id.value, obj)
 
     def _populate_core_donors(self):
 
@@ -616,7 +670,7 @@ class ProjectsController(Controller):
     def _generate_hdi(self):
 
         hdi = self.get_and_sort('%s/hdi-csv-clean.csv' % settings.HDI, 'hdi2013')
-        geo = self.get_and_sort('%s/country-centroids.csv' % settings.PROCESS_FILES, 'iso3')
+        self.geo = self.get_and_sort('%s/country-centroids.csv' % settings.PROCESS_FILES, 'iso3')
 
         # Add current year to the years array
         years = [1980, 1985, 1990, 1995, 2000, 2005, 2006, 2007, 2008, 2011, 2012, 2013]
@@ -649,7 +703,7 @@ class ProjectsController(Controller):
                                 change.append(change_year)
             if len(change) == 0:
                 change.append("")
-            for ctry in geo:
+            for ctry in self.geo:
                 if ctry['name'] == val['country']:
                     if val['hdi%d' % current_year] == "":
                         g = {

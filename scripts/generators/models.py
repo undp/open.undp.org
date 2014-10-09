@@ -426,18 +426,18 @@ class OperatingUnit(Model):
 
     def __init__(self):
 
-        self.budget_sum = Field(name='budget_sum')
+        self.budget_sum = Field(name='budget_sum', default=0)
         self.email = Field(name='email')
-        self.expenditure_sum = Field(name='expenditure_sum')
-        self.fund_type = Field(name='fund_type')
-        self.funding_sources_count = Field(name='funding_sources_count')
+        self.expenditure_sum = Field(name='expenditure_sum', default=0)
+        self.funding_sources_count = Field(name='funding_sources_count', default=0)
         self.id = Field(name='id')
-        self.iso_num = Field(name='iso_num')
-        self.lat = Field(name='lat')
-        self.lon = Field(name='lon')
-        self.name = Field(name='name')
-        self.project_count = Field(name='project_count')
+        self.iso_num = Field(name='iso_num', key='iso3')
+        self.lat = Field(name='lat', key='lat')
+        self.lon = Field(name='lon', key='lon')
+        self.name = Field(name='name', key='name')
+        self.project_count = Field(name='project_count', default=0)
         self.web = Field(name='web')
+        self.fund_type = Field(name='fund_type')
 
 
 class CoreDonor(Model):
