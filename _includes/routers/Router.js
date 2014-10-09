@@ -27,9 +27,9 @@ Global = Backbone.Router.extend({
         var that = this;
 
         queue()
-            .defer(util.request,'api/core-fund.json') // load JSON that contains all the core fund donors
+            .defer(util.request,'api/core-donors.json') // load JSON that contains all the core fund donors
             .await(function(err, result) {
-                that.coreFund = result;
+                that.coreFund = _(result).chain().pluck('short_description').uniq().value();
                 if ((FISCALYEARS).indexOf(year) > -1){ // if year exsits in FISCALYEARS array
 
                     that.allProjects = new Projects();
@@ -287,7 +287,7 @@ Global = Backbone.Router.extend({
 
     project: function (id, output, embed) {
         var oneProject = new Project({id: id});
-
+        console.log(id);
         // loading the specific project
         oneProject.fetch({
             success: function (data) {
