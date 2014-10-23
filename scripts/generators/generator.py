@@ -597,9 +597,9 @@ class ProjectsController(Controller):
             Populatess subnationals property
         """
 
-        obj = Subnational()
         counter = 0
         for location in locations:
+            obj = Subnational()
             counter += 1
             obj.awardID.value = project_id
 
