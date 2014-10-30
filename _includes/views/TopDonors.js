@@ -31,19 +31,21 @@ views.TopDonors = Backbone.View.extend({
 
     },
     update: function(cat) {
-        var that = this;
         
-        that.collection.comparator = function(model) {
+        this.collection.comparator = function(model) {
             return -1 * model.get(cat);
         };
-        that.collection.sort();
-        var chartModels = that.collection.models.slice(0,20);
-        var max = that.collection.models[0].get(cat);
+
+        this.collection.sort();
+
+        var chartModels = this.collection.models.slice(0,20);
+        var max = this.collection.models[0].get(cat);
         
-        $('tbody', that.el).empty();
+        $('tbody', this.$el).empty();
+
         _(chartModels).each(function(model) {
             if (model.get(cat) != '' && model.get(cat)!=0) {
-                $('tbody', that.el).append(templates.topDonor({
+                $('tbody', this.$el).append(this.subTemplate({
                     name: model.get('name'),
                     id: model.get('donor_id'),
                     country: model.get('country'),
@@ -51,6 +53,6 @@ views.TopDonors = Backbone.View.extend({
                     barWidth: model.get(cat)/max*100
                 }));
             }
-        });
+        },this);
     }
 });

@@ -341,6 +341,7 @@ Global = Backbone.Router.extend({
         var that = this;
 
         this.nav = new views.Nav({add:'topDonors'});
+
         new views.Breadcrumbs({add:'topDonors',category:category});
 
         if (!that.donorsGross) {
@@ -374,6 +375,8 @@ Global = Backbone.Router.extend({
         } else {
             that.topDonorsGross.update(category);
         }
+
+        $('#' + category, '#donor-nav').find('a').addClass('active');
     },
 
     feedback: function () {
