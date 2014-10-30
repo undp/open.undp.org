@@ -78,9 +78,9 @@
           {{donor.content}}
           {% endfor %}
           <ul id='donor-nav'>
-            <li><a href='#top-donors/regular'>Regular</a></li>
-            <li><a href='#top-donors/other'>Other</a></li>
-            <li><a href='#top-donors/total'>Total</a></li>
+            <li id='regular'><a href='#top-donors/regular'>Regular</a></li>
+            <li id='other'><a href='#top-donors/other'>Other</a></li>
+            <li id='total'><a href='#top-donors/total'>Total</a></li>
           </ul>
           <table class='table table-unstyled donor-gross-table'></table>
           {% for donor in site.tags['donors-local'] %}
