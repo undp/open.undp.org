@@ -8,16 +8,12 @@ views.Breadcrumbs = Backbone.View.extend({
 		name: 'our projects',
 		link: BASE_URL
 	},
-	topDonors: {
-		name: 'top donors',
-		link: '#top-donors/regular'
-	},
+	topDonors: {},
 	about: {},
 	activeFilter: {},
 	activeProject: {},
 	template: _.template('<li><a href="<%= link%>"><%= name%></a></li>'),
 	initialize: function(options){
-		this.options = options || false;
 		this.render();
 	},
 	render: function(){
@@ -26,7 +22,9 @@ views.Breadcrumbs = Backbone.View.extend({
 		// static links
 		if (!this.options) this.$el.html(base);
 		if (this.options.add === 'topDonors') {
-			this.$el.html(base + this.template(this.topDonors))
+			this.topDonors.name = 'Top Donors: ' + this.options.category;
+			this.topDonors.link = '#top-donors/' + this.options.category;
+			this.$el.html(base + this.template(this.topDonors));
 		};
 		if (this.options.add === 'about') {
 
