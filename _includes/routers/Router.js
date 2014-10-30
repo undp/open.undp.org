@@ -375,6 +375,8 @@ Global = Backbone.Router.extend({
         } else {
             that.topDonorsGross.update(category);
         }
+
+        $('#' + category, '#donor-nav').find('a').addClass('active');
     },
 
     feedback: function () {
