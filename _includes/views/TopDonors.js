@@ -20,6 +20,7 @@ views.TopDonors = Backbone.View.extend({
             
             if (model.get(cat) != '' && model.get(cat)!=0) {
                 this.$subEl.append(this.subTemplate({
+                    year: CURRENT_YR,
                     name: model.get('name'),
                     id: model.get('donor_id'),
                     country: model.get('country'),
@@ -46,6 +47,7 @@ views.TopDonors = Backbone.View.extend({
         _(chartModels).each(function(model) {
             if (model.get(cat) != '' && model.get(cat)!=0) {
                 $('tbody', this.$el).append(this.subTemplate({
+                    year: CURRENT_YR,
                     name: model.get('name'),
                     id: model.get('donor_id'),
                     country: model.get('country'),
