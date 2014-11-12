@@ -17,6 +17,17 @@ class Controller(object):
         else:
             print(message)
 
+    def get_and_list(self, csv_file, column):
+        """Receive a CSV file and return the chosen column in a list"""
+        output_file = csv.DictReader(open(csv_file, 'rU'),
+                                     delimiter=',',
+                                     quotechar='"')
+        output = []
+        for o in output_file:
+            output.append(o[column])
+
+        return output
+
     def get_and_sort(self, csv_file, sort_key):
         """Receive a CSV file and return a sorted list based on the sort key
 
