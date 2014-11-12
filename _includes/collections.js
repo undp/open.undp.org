@@ -93,7 +93,7 @@ Filters = Backbone.Collection.extend({
     watch: function() {  
         //Create a core fund count which we will use to aggregate for the core donor countries
         var that = this;
-        this.coreProjectDonors = {};
+        this.coreProjectDonors = {}; //How many projects a core donor country funds
         global.projects.chain().each(function(project) { //For each project
             //If it's core
             if (project.attributes.core) { //If it's core 
@@ -115,7 +115,7 @@ Filters = Backbone.Collection.extend({
         //First get the number of projects from the global projects array
         var count = global.projects[collection.id][model.id];
         //Add the project count to the country's projects if it's part of the core fund
-        if (_(global.coreFund).contains(model.get('id'))) {
+        if (collection.id === 'donor_countries' && _(global.coreFund).contains(model.get('id'))) {
             count = count + this.coreProjectDonors['MULTI_AGY'] - this.coreProjectDonors[model.get('id')]
         }
         return {
