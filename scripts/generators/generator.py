@@ -154,8 +154,6 @@ class ProjectsController(Controller):
 
         units_index = dict([(i['operating_unit'], i['fund_type']) for i in units])
 
-        # import pdb
-        # pdb.set_trace()
         for country in self.geo:
             if country['iso3'] in self.units.pks:
                 obj = OperatingUnit()
@@ -483,6 +481,10 @@ class ProjectsController(Controller):
         # Get sorted country donoros
         sorted_donors = self.get_and_sort(self.undp_export + '/country_donors_updated.csv', 'id')
 
+        # Get South-South projects
+
+        ss_list = self.get_and_list(self.undp_export + '/SSCprojects_IDlist.csv', 'projectid')
+
         for event, o in iter_obj:
             hierarchy = o.attrib['hierarchy']
 
@@ -529,8 +531,13 @@ class ProjectsController(Controller):
                     obj.award_id.value = (o.find("./related-activity[@type='2']").get('ref').split('-', 2)[2])
 
                 try:
-                    obj.focus_area.value = o.find(obj.focus_area_descr.xml_key).get(obj.focus_area.key)
-                    obj.focus_area_descr.value = o.find(obj.focus_area_descr.xml_key).text
+                    if obj.award_id.value in ss_list:
+                        obj.focus_area.value = '5'
+                        obj.focus_area_descr.value = 'South-South'
+
+                    else:
+                        obj.focus_area.value = o.find(obj.focus_area_descr.xml_key).get(obj.focus_area.key)
+                        obj.focus_area_descr.value = o.find(obj.focus_area_descr.xml_key).text
 
                 except:
                     obj.focus_area.value = "-"
