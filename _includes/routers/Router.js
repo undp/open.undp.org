@@ -272,7 +272,9 @@ Global = Backbone.Router.extend({
         if (this.nav){this.nav.empty();}
 
         $('#profile').hide();
+        $('#top-donors').hide();
         $('#browser').show();
+        $('#mainnav li').removeClass('active');
         $('#mainnav li').first().addClass('active');
 
         new views.Breadcrumbs();
