@@ -8,6 +8,8 @@ views.TopDonors = Backbone.View.extend({
         // sub template addresses li
         this.subTemplate = _.template($('#topDonor').html());
         this.render();
+
+        $('#top-donors').show();
     },
     render: function () {
         var count = 0;
