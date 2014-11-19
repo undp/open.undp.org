@@ -169,7 +169,6 @@ String.prototype.toTitleCase = function () {
     .replace(/Bra\b/g, 'BRA')
     .replace(/BCPR/g, 'Bureau for Crisis Prevention and Recovery')
     .replace(/'Belarus$'/g, 'Belarus')
-    .replace(/Bolivia/g, 'Bolivia (Plurinational State of)')
     .replace(/Bom ofc of Asst Administrator \b/g, 'Bureau of Management')
     .replace(/Bratislava Regional Center/g, 'Regional Centre in Bratislava')
     .replace(/Cameroon Republic of/g, 'Cameroon')
