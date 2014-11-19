@@ -180,7 +180,6 @@ String.prototype.toTitleCase = function () {
     .replace(/Kyrgyzstan/g, 'Kyrgyz Republic')
     .replace(/Lao Peoples Democratic Republ/g, 'Lao Peoples Democratic Republic')
     .replace(/Latvia, Republic of/g, 'Latvia')
-    .replace(/Libya/g, 'Libyan Arab Jamahiriya')
     .replace(/Democratic Republic of Republic of Congo/g, 'Democratic Republic of Congo')
     .replace(/Lithuania, Republic of/g, 'Lithuania')
     .replace(/Macedonia, former Yugoslav Rep/g, 'The former Yugoslav Republic of Macedonia')
