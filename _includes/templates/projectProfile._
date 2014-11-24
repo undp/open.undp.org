@@ -134,13 +134,14 @@
           <p>
             <%
             q.await(function() {
+            var fiscal_year = _(model.attributes.fiscal_year).chain().sort().last().value()
                 if (donors_long.length < 5) {
                     _.each(donors_id, function(o,i) { %>
-                <a href='#filter/donors-<%= o %>'><%= donors_long[i] %></a><% if (i != donors_id.length -1) { %>, <% } %>
+                <a href='#<%= fiscal_year %>/filter/donors-<%= o %>'><%= donors_long[i] %></a><% if (i != donors_id.length -1) { %>, <% } %>
                 <% });
                 } else {
                     _.each(donors_id, function(o,i) { %>
-                <a href='#filter/donors-<%= o %>'><%= donors_short[i] %></a><% if (i != donors_id.length -1) { %>, <% } %>
+                <a href='#<%= fiscal_year %>/filter/donors-<%= o %>'><%= donors_short[i] %></a><% if (i != donors_id.length -1) { %>, <% } %>
                 <% });
                 }
             });
