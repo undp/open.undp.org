@@ -317,8 +317,9 @@ views.Map = Backbone.View.extend({
         //If a donor country is selected, we don't want to specify a distinction between
         //Local and partner resources
         var donorCountry = _(global.processedFacets).where({ collection: 'donor_countries' });
+        if (!donorCountry.length) { donorCountry = _(global.processedFacets).where({ collection: 'donors' });}
         donorCountry = (donorCountry.length) ? donorCountry[0].id : false;
-
+        console.log(donorCountry)
         var view = this;
         var count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
             unit = view.collection,
@@ -445,7 +446,7 @@ views.Map = Backbone.View.extend({
                                     return project.get('operating_unit')  === e.target.feature.properties.id;
                                 })
                                 .filter(function(project) { return _(project.get('donor_countries'))
-                                    .contains(donorCountry) 
+                                    .contains(donorCountry) || _(project.get('donors')).contains(donorCountry)
                                 }).value().length > 0)  
                             {
                                 path = prevPath + '/operating_unit-' +  e.target.feature.properties.id;
