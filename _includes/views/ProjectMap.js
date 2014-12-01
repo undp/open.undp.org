@@ -31,7 +31,7 @@ views.ProjectMap = Backbone.View.extend({
             count: this.opUnit.get('project_count'),
             fund: this.opUnit.get('funding_sources_count'),
             budget: this.opUnit.get('budget_sum'),
-            expenditure: this.opUnit.get('expenditure_sume')
+            expenditure: this.opUnit.get('expenditure_sum')
         }));
 
         if (!this.options.embed) {
