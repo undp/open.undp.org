@@ -394,7 +394,7 @@ class ProjectsController(Controller):
             if hierarchy == '1':
                 obj = Project()
 
-                obj.project_id.value = p[1].text.split('-', 2)[2]
+                obj.project_id.value = self._grab_award_id(p[1].text)
 
                 # Check if the project_id is unique
                 if obj.project_id.value in self.projects.pks:
@@ -492,7 +492,7 @@ class ProjectsController(Controller):
                 obj = Output()
                 crs = Crs()
 
-                obj.output_id.value = o[1].text.split('-', 2)[2]
+                obj.output_id.value = self._grab_award_id(o[1].text)
 
                 # Check if the project_id is unique
                 if obj.output_id.value in self.outputs.output_ids:
@@ -526,9 +526,9 @@ class ProjectsController(Controller):
                     pass
 
                 try:
-                    obj.award_id.value = (o.find(obj.award_id.xml_key).get('ref').split('-', 2)[2])
+                    obj.award_id.value = self._grab_award_id(o.find(obj.award_id.xml_key).get('ref'))
                 except:
-                    obj.award_id.value = (o.find("./related-activity[@type='2']").get('ref').split('-', 2)[2])
+                    obj.award_id.value = self._grab_award_id(o.find("./related-activity[@type='2']").get('ref'))
 
                 try:
                     if obj.award_id.value in ss_list:
@@ -627,6 +627,21 @@ class ProjectsController(Controller):
                     obj.name.value = item.text
 
                 if item.tag == 'location-type':
+                    obj.type.value = item.get(obj.type.key)
+
+                # IATI 1.04
+                if item.tag == 'point':
+                    pos = item.getchildren()
+                    lat_lon = pos[0].text.split(' ')
+                    obj.lat.value = lat_lon[0]
+                    obj.lon.value = lat_lon[1]
+
+                # IATI 1.04
+                if item.tag == 'exactness':
+                    obj.precision.value = item.get('code')
+
+                # IATI 1.04
+                if item.tag == 'feature-designation':
                     obj.type.value = item.get(obj.type.key)
 
             self.subnationals.add_update_list(project_id, obj)
@@ -778,3 +793,12 @@ class ProjectsController(Controller):
         filenames -- an array of filenames
         """
         return [f[-8:-4] for f in filenames]
+
+    def _grab_award_id(self, text):
+        """ grabs award id from the xml text
+
+        @example
+        Text: XM-DAC-41114-PROJECT-00068618
+        Return: 00068618
+        """
+        return text.split('-')[-1]
