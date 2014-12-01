@@ -90,17 +90,17 @@ Facets = Backbone.Collection.extend({
 
 Filters = Backbone.Collection.extend({
     model: Filter,
-    watch: function() {  
+    watch: function() {
         //Create a core fund count which we will use to aggregate for the core donor countries
         var that = this;
         this.coreProjectDonors = {}; //How many projects a core donor country funds
         global.projects.chain().each(function(project) { //For each project
             //If it's core
-            if (project.attributes.core) { //If it's core 
+            if (project.attributes.core) { //If it's core
                 //Aggregate the donor countries in the coreProjectDonors object
                 _(project.attributes.donor_countries).chain().uniq().each(function(ctry) {
                     if (typeof that.coreProjectDonors[ctry] === 'undefined') {
-                        that.coreProjectDonors[ctry] = 1; 
+                        that.coreProjectDonors[ctry] = 1;
                     } else {
                         that.coreProjectDonors[ctry] += 1;
                     }
@@ -114,9 +114,14 @@ Filters = Backbone.Collection.extend({
     aggregate: function(collection,model){
         //First get the number of projects from the global projects array
         var count = global.projects[collection.id][model.id];
+
         //Add the project count to the country's projects if it's part of the core fund
         if (collection.id === 'donor_countries' && _(global.coreFund).contains(model.get('id'))) {
-            count = count + this.coreProjectDonors['MULTI_AGY'] - this.coreProjectDonors[model.get('id')]
+            var donorCountryCoreProjectCount = 0;
+            if(typeof this.coreProjectDonors[model.get('id')] !== 'undefined') {
+                donorCountryCoreProjectCount = this.coreProjectDonors[model.get('id')]
+            }
+            count = count + this.coreProjectDonors['MULTI_AGY'] - donorCountryCoreProjectCount;
         }
         return {
             count: count,
@@ -135,7 +140,7 @@ Filters = Backbone.Collection.extend({
 
         if (activeHash) {
             activeModel = this.get(activeHash.id);
-    
+
             // the selected hash has a model where active equals true
             activeModel.set({
                 active:true
@@ -269,7 +274,7 @@ Projects = Backbone.Collection.extend({
             status = 0;
 
         if (!collection.length) return false;
-        
+
         // calculate needed value to populate filters, circles and summary fields
 
         this['donors'] = this.getSumValuesOfFacet('donors');
@@ -343,7 +348,7 @@ Projects = Backbone.Collection.extend({
                 status++;
             }
         }, 0);
-        
+
         setTimeout(function() {
             // Funding by Country budgets
             collection['ctryBudget'] = collection.reduce(function(memo, model) {
@@ -389,7 +394,7 @@ Projects = Backbone.Collection.extend({
             }
 
         }, 0);
-        
+
         setTimeout(function() {
             // Funding by Country expenditure
             collection['ctryExpenditure'] = collection.reduce(function(memo, model) {
@@ -406,7 +411,7 @@ Projects = Backbone.Collection.extend({
             }
 
         }, 0);
-        
+
         function callback() {
             collection.trigger('update');
             _(collection.excecuteAfterCalculation).bind(collection)();
@@ -419,11 +424,11 @@ Projects = Backbone.Collection.extend({
                 return -model.get(this.sortData).toLowerCase().charCodeAt(0);
             } else {
                 return -model.get(this.sortData);
-            }    
+            }
         } else {
             return model.get(this.sortData);
         }
-    } 
+    }
 });
 
 TopDonors = Backbone.Collection.extend({
@@ -431,7 +436,7 @@ TopDonors = Backbone.Collection.extend({
     initialize: function(options) {
         this.type = options.type;
     },
-    
+
     comparator: function(model) {
         return -1 * model.get(this.type);
     }
