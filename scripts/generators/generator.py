@@ -394,7 +394,7 @@ class ProjectsController(Controller):
             if hierarchy == '1':
                 obj = Project()
 
-                obj.project_id.value = p[1].text.split('-', 2)[2]
+                obj.project_id.value = self._grab_award_id(p[1].text)
 
                 # Check if the project_id is unique
                 if obj.project_id.value in self.projects.pks:
@@ -492,7 +492,7 @@ class ProjectsController(Controller):
                 obj = Output()
                 crs = Crs()
 
-                obj.output_id.value = o[1].text.split('-', 2)[2]
+                obj.output_id.value = self._grab_award_id(o[1].text)
 
                 # Check if the project_id is unique
                 if obj.output_id.value in self.outputs.output_ids:
@@ -778,3 +778,12 @@ class ProjectsController(Controller):
         filenames -- an array of filenames
         """
         return [f[-8:-4] for f in filenames]
+
+    def _grab_award_id(self, text):
+        """ grabs award id from the xml text
+
+        @example
+        Text: XM-DAC-41114-PROJECT-00068618
+        Return: 00068618
+        """
+        return text.split('-')[-1]
