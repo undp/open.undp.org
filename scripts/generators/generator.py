@@ -526,9 +526,9 @@ class ProjectsController(Controller):
                     pass
 
                 try:
-                    obj.award_id.value = (o.find(obj.award_id.xml_key).get('ref').split('-', 2)[2])
+                    obj.award_id.value = self._grab_award_id(o.find(obj.award_id.xml_key).get('ref'))
                 except:
-                    obj.award_id.value = (o.find("./related-activity[@type='2']").get('ref').split('-', 2)[2])
+                    obj.award_id.value = self._grab_award_id(o.find("./related-activity[@type='2']").get('ref'))
 
                 try:
                     if obj.award_id.value in ss_list:
@@ -627,6 +627,21 @@ class ProjectsController(Controller):
                     obj.name.value = item.text
 
                 if item.tag == 'location-type':
+                    obj.type.value = item.get(obj.type.key)
+
+                # IATI 1.04
+                if item.tag == 'point':
+                    pos = item.getchildren()
+                    lat_lon = pos[0].text.split(' ')
+                    obj.lat.value = lat_lon[0]
+                    obj.lon.value = lat_lon[1]
+
+                # IATI 1.04
+                if item.tag == 'exactness':
+                    obj.precision.value = item.get('code')
+
+                # IATI 1.04
+                if item.tag == 'feature-designation':
                     obj.type.value = item.get(obj.type.key)
 
             self.subnationals.add_update_list(project_id, obj)
