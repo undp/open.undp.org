@@ -74,7 +74,7 @@ views.Widget = Backbone.View.extend({
                 '" width="100%" height="100%" frameborder="0"> </iframe>';
 
             $('.widget-preview', this.$el).html(widgetCode);
-            $('.widget-code', view.$el)
+            $('.widget-code', this.$el)
                 .val(widgetCode.replace('src="{{site.baseurl}}/','src="' + Backbone.history.location.origin + '/'))
                 .select();
         } else {
