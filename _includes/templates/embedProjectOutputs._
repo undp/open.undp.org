@@ -5,7 +5,7 @@
               <% if (model.focus_area && model.focus_area != '-') { %>
               <div class='focus'>
                 <span class="<%= (model.focus_area_descr).replace(/\s+/g, '-').toLowerCase().split('-')[0] %>"></span>
-                <a target='_blank' href='http://open.undp.org/#<%= CURRENT_YR %>/filter/focus_area-<%= model.focus_area %>' class='focus-title'><%= model.focus_area_descr.toTitleCase() %></a>
+                <a target='_blank' href='http://open.undp.org/#<%= year %>/filter/focus_area-<%= model.focus_area %>' class='focus-title'><%= model.focus_area_descr.toTitleCase() %></a>
               </div>
               <% } %>
               <h3><%= model.output_title.toLowerCase().toTitleCase() %> <small><%= model.output_id %></small></h3>
@@ -28,7 +28,7 @@
                     <div class='row-fluid'>
                       <div class='label'>Budget Sources</div>
                       <% _.each(model.donor_short, function(o, i) { %>
-                      <span><a target='_blank' href='http://open.undp.org/#<%= CURRENT_YR %>/filter/donors-<%= model.donor_id[i] %>'><%= o %></a></span><% if (i != model.donor_short.length -1) { %>, <% } %>
+                      <span><a target='_blank' href='http://open.undp.org/#<%= year %>/filter/donors-<%= model.donor_id[i] %>'><%= o %></a></span><% if (i != model.donor_short.length -1) { %>, <% } %>
                       <% }); %>
                     </div>
                 </div>

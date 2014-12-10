@@ -1,6 +1,6 @@
 <tr id="project-<%= model.get('id') %>">
     <td><a target='_blank' href="/#project/<%= model.get('id') %>"><%= model.get('name').toLowerCase().toTitleCase() %></a></td>
-    <td><%= model.get('budget') %></td>
-    <td><%= model.get('expenditure') %></td>
+    <td><%= accounting.formatMoney(model.get('budget')) %></td>
+    <td><%= accounting.formatMoney(model.get('expenditure')) %></td>
 </tr>
 
