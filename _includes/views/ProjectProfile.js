@@ -96,8 +96,8 @@ views.ProjectProfile = Backbone.View.extend({
         window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
 
         if (this.options.embed) {
-
             this.$el.html(this.template({
+                year: CURRENT_YR,
                 start: start,
                 end: end,
                 documents: documents,
@@ -126,7 +126,7 @@ views.ProjectProfile = Backbone.View.extend({
             var outputs = this.model.attributes.outputs.slice(0, 9);
 
             _(outputs).each(function(model) {
-                $('#outputs',this.$el).append(this.subTemplate({model:model}));
+                $('#outputs',this.$el).append(this.subTemplate({year: CURRENT_YR, model:model}));
             },this);
 
             if (this.model.attributes.outputs.length < 10) {
@@ -168,7 +168,7 @@ views.ProjectProfile = Backbone.View.extend({
 
         if (outputs.length) {
             _(outputs).each(function(model) {
-                $('#outputs',this.$el).append(this.subTemplate({model:model}));
+                $('#outputs',this.$el).append(this.subTemplate({year: CURRENT_YR, model:model}));
             },this);
         } else {
             $(e.target).text('All Projects Loaded').addClass('disabled');
