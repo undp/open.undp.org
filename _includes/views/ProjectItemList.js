@@ -118,6 +118,7 @@ views.ProjectItemList = Backbone.View.extend({
 
     routeToProject: function(e) {
         var id = $(e.currentTarget).attr('id');
+        // use real links in widgets
         if (typeof id !== "undefined") {
             e.preventDefault();
             global.navigate('#project/'+id, {trigger: true});
