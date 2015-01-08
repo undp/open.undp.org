@@ -410,7 +410,10 @@ class ProjectsController(Controller):
                     names = []
                     links = []
                     for doc in documents:
-                        links.append(urllib2.unquote(doc.get('url')).decode('utf-8'))
+                        try:
+                            links.append(urllib2.unquote(doc.get('url')).encode('utf-8').decode('utf-8'))
+                        except UnicodeDecodeError:
+                            links.append(urllib2.unquote(doc.get('url')).decode('utf-8'))
 
                         for d in doc.iterchildren(tag=obj.document_name.key):
                             names.append(d.text)
