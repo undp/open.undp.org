@@ -535,7 +535,7 @@ class ProjectsController(Controller):
 
                 try:
                     if obj.award_id.value in ss_list:
-                        obj.focus_area.value = '5'
+                        obj.focus_area.value = '8'
                         obj.focus_area_descr.value = 'South-South'
 
                     else:
