@@ -540,7 +540,10 @@ class ProjectsController(Controller):
 
                     else:
                         obj.focus_area.value = o.find(obj.focus_area_descr.xml_key).get(obj.focus_area.key)
-                        obj.focus_area_descr.value = o.find(obj.focus_area_descr.xml_key).text
+                        if not o.find(obj.focus_area_descr.xml_key).text:
+                            obj.focus_area_descr.value = "-"
+                        else:
+                            obj.focus_area_descr.value = o.find(obj.focus_area_descr.xml_key).text
 
                 except:
                     obj.focus_area.value = "-"
