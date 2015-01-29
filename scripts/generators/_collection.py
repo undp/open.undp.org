@@ -294,23 +294,35 @@ class FocusAreaIndex(Collection):
         self._collection[1] = [
             {
                 "color": "049fd9",
-                "id": "2",
-                "name": "Democratic governance"
+                "id": "1",
+                "name": "Inclusive & Sustainable Growth"
             }, {
                 "color": "ff5640",
-                "id": "3",
-                "name": "Crisis prevention & recovery"
+                "id": "2",
+                "name": "Democratic Governance"
             }, {
                 "color": "c8c605",
-                "id": "1",
-                "name": "Poverty reduction & MDG achievement"
+                "id": "3",
+                "name": "Responsive Institutions"
             }, {
                 "color": "6ab139",
                 "id": "4",
-                "name": "Environment & sustainable development"
+                "name": "Gender Equality"
+            }, {
+                "color": "D9D73A",
+                "id": "5",
+                "name": "Climate Change & Disaster Resilience"
+            }, {
+                "color": "FF8500",
+                "id": "6",
+                "name": "Crisis Prevention & Recovery"
+            }, {
+                "color": "0082B2",
+                "id": "7",
+                "name": "Development Impact & Effectiveness"
             }, {
                 "color": "0066a0",
-                "id": "5",
+                "id": "8",
                 "name": "South-South"
             }
         ]
