@@ -293,15 +293,15 @@ class FocusAreaIndex(Collection):
         self._collection = {}
         self._collection[1] = [
             {
-                "color": "049fd9",
+                "color": "c8c605",
                 "id": "1",
                 "name": "Inclusive & Sustainable Growth"
             }, {
-                "color": "ff5640",
+                "color": "FF8500",
                 "id": "2",
                 "name": "Democratic Governance"
             }, {
-                "color": "c8c605",
+                "color": "049fd9",
                 "id": "3",
                 "name": "Responsive Institutions"
             }, {
@@ -313,7 +313,7 @@ class FocusAreaIndex(Collection):
                 "id": "5",
                 "name": "Climate Change & Disaster Resilience"
             }, {
-                "color": "FF8500",
+                "color": "ff5640",
                 "id": "6",
                 "name": "Crisis Prevention & Recovery"
             }, {

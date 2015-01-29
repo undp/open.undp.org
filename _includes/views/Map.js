@@ -252,12 +252,12 @@ views.Map = Backbone.View.extend({
                     'marker-size':'small',
                 }
                 var newColors = [
-                    {'color': '049fd9', 'id': '1'},
-                    {'color': 'ff5640', 'id': '2'},
-                    {'color': 'c8c605', 'id': '3'},
+                    {'color': 'c8c605', 'id': '1'},
+                    {'color': 'FF8500', 'id': '2'},
+                    {'color': '049fd9', 'id': '3'},
                     {'color': '6ab139', 'id': '4'},
                     {'color': 'D9D73A', 'id': '5'},
-                    {'color': 'FF8500', 'id': '6'},
+                    {'color': 'ff5640', 'id': '6'},
                     {'color': '0082B2', 'id': '7'},
                     {'color': '0066a0', 'id': '8'}
                 ]
