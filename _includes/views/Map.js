@@ -252,13 +252,13 @@ views.Map = Backbone.View.extend({
                     'marker-size':'small',
                 }
                 var newColors = [
-                    {'color': 'AAA922', 'id': '1'},
-                    {'color': '218DB6', 'id': '2'},
-                    {'color': 'D15A4B', 'id': '3'},
-                    {'color': '689A46', 'id': '4'},
-                    {'color': '0066a0', 'id': '5'},
-                    {'color': '0066a0', 'id': '6'},
-                    {'color': '0066a0', 'id': '7'},
+                    {'color': '049fd9', 'id': '1'},
+                    {'color': 'ff5640', 'id': '2'},
+                    {'color': 'c8c605', 'id': '3'},
+                    {'color': '6ab139', 'id': '4'},
+                    {'color': 'D9D73A', 'id': '5'},
+                    {'color': 'FF8500', 'id': '6'},
+                    {'color': '0082B2', 'id': '7'},
                     {'color': '0066a0', 'id': '8'}
                 ]
                 // Match focus area ID to newColors array
