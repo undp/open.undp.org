@@ -37,7 +37,8 @@ function renderFocusAreaChart(chartData, rootPath, view) {
         //Set css for each item
         $('.fa' + (model.id) + ' .pct span')
         .css('width', value * 2) // the width of the percentage block corresponds to the value visually, times 2 to make it legible
-        .text(value === '0' ? value : value + '%');
+        .css('background', value === '0' ? '#999' : '')
+        .text(value === '0' ? '<1%' : value + '%');
         
     });
 
