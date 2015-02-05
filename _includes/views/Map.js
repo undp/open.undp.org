@@ -34,7 +34,7 @@ views.Map = Backbone.View.extend({
             // if it's embed mode, set the circles to the budget layer, disable zoom wheel
             category = 'budget';
         };
-        
+
         this.map = L.mapbox.map(this.el,MAPID,{
             center: [20,20],
             zoom: 2,
@@ -71,7 +71,7 @@ views.Map = Backbone.View.extend({
         var view = this;
         this.map.removeLayer(view.markers); //remove the marker featureGroup from view.map
         this.markers.clearLayers(); // inside of marker group, clear the layers from the previous build
-        
+
         if(global.unit){
 
             var parent = _(this.nations.models).findWhere({id:global.unit}),
@@ -252,11 +252,14 @@ views.Map = Backbone.View.extend({
                     'marker-size':'small',
                 }
                 var newColors = [
-                    {'color': 'AAA922', 'id': '1'},
-                    {'color': '218DB6', 'id': '2'},
-                    {'color': 'D15A4B', 'id': '3'},
-                    {'color': '689A46', 'id': '4'},
-                    {'color': '0066a0', 'id': '5'}
+                    {'color': 'c8c605', 'id': '1'},
+                    {'color': 'FF8500', 'id': '2'},
+                    {'color': '049fd9', 'id': '3'},
+                    {'color': '6ab139', 'id': '4'},
+                    {'color': 'D9D73A', 'id': '5'},
+                    {'color': 'ff5640', 'id': '6'},
+                    {'color': '0082B2', 'id': '7'},
+                    {'color': '0066a0', 'id': '8'}
                 ]
                 // Match focus area ID to newColors array
                 _(newColors).each(function(color){
@@ -415,7 +418,7 @@ views.Map = Backbone.View.extend({
                         brief.setLatLng(this.getLatLng());
                         view.map.openPopup(brief);
                         view.circleHighlight(e,hoverCircle);
-                    }).on('mouseout',function(e){   
+                    }).on('mouseout',function(e){
                         view.map.closePopup(brief);
                         if (donorCountry) {
                             view.circleHighlight(e, partnerFundedCircle);
@@ -442,12 +445,12 @@ views.Map = Backbone.View.extend({
                             // If a core donor country is selected and the marker isn't necessarily funded
                             // by that country, change the hash to be UNDP regular resources, donors-00012
                             if (global.projects.chain()
-                                .filter(function(project) { 
+                                .filter(function(project) {
                                     return project.get('operating_unit')  === e.target.feature.properties.id;
                                 })
                                 .filter(function(project) { return _(project.get('donor_countries'))
                                     .contains(donorCountry) || _(project.get('donors')).contains(donorCountry)
-                                }).value().length > 0)  
+                                }).value().length > 0)
                             {
                                 path = prevPath + '/operating_unit-' +  e.target.feature.properties.id;
                             } else {

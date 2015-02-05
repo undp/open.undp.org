@@ -410,7 +410,10 @@ class ProjectsController(Controller):
                     names = []
                     links = []
                     for doc in documents:
-                        links.append(urllib2.unquote(doc.get('url')).decode('utf-8'))
+                        try:
+                            links.append(urllib2.unquote(doc.get('url')).encode('utf-8').decode('utf-8'))
+                        except UnicodeDecodeError:
+                            links.append(urllib2.unquote(doc.get('url')).decode('utf-8'))
 
                         for d in doc.iterchildren(tag=obj.document_name.key):
                             names.append(d.text)
@@ -532,12 +535,15 @@ class ProjectsController(Controller):
 
                 try:
                     if obj.award_id.value in ss_list:
-                        obj.focus_area.value = '5'
+                        obj.focus_area.value = '8'
                         obj.focus_area_descr.value = 'South-South'
 
                     else:
                         obj.focus_area.value = o.find(obj.focus_area_descr.xml_key).get(obj.focus_area.key)
-                        obj.focus_area_descr.value = o.find(obj.focus_area_descr.xml_key).text
+                        if not o.find(obj.focus_area_descr.xml_key).text:
+                            obj.focus_area_descr.value = "-"
+                        else:
+                            obj.focus_area_descr.value = o.find(obj.focus_area_descr.xml_key).text
 
                 except:
                     obj.focus_area.value = "-"
