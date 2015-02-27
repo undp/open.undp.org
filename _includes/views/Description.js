@@ -1,6 +1,9 @@
 views.Description = Backbone.View.extend({
 	initialize: function(){
-		this.render();
+        this.allDonors = new Donors();
+        this.listenTo(this.allDonors,'sync',this.render);
+        this.allDonors.fetch();
+		//this.render();
 	},
 	render: function(){
         // modify the description based on the active model passed in
@@ -53,7 +56,15 @@ views.Description = Backbone.View.extend({
         
         
         if (facetName === 'donors') {
-            global.description.push(' through ' + util.bold(subject));
+        	if (global.donorCountry) {
+            	if (this.allDonors.selectedDonor(global.donorCountry).findWhere({'name': 'core'}).get('value') > 0) {
+            		global.description.push(' through ' + util.bold(subject));
+            	} else {
+            		global.description.push(' where UNDP also contributes with regular resources');
+            	}
+        	} else {
+        		global.description.push(' funded through ' + util.bold(subject));
+        	}
         }
         if (facetName === 'focus_area') {
             global.description.push(' with a focus on ' + util.bold(subject));

@@ -67,12 +67,14 @@ views.ProjectProfile = Backbone.View.extend({
 
         var documents = [];
         if (this.model.get('document_name')) {
-            
-            var filterDocNames = _(this.model.get('document_name')[0]).filter(function(n) {
+        	var filterDocNames = _(this.model.get('document_name')[0]).filter(function(n) {
                 return !(/\.(gif|jpg|jpeg|tiff|png)$/i).test(n);
             });
             var filterDocUrls = _(this.model.get('document_name')[1]).filter(function(d) {
                 return !(/\.(gif|jpg|jpeg|tiff|png)$/i).test(d);
+            });
+            var filterDocFormats = _(this.model.get('document_name')[2]).filter(function(f) {
+                return !(/\.(gif|jpg|jpeg|tiff|png)$/i).test(f);
             });
             
             
@@ -85,11 +87,15 @@ views.ProjectProfile = Backbone.View.extend({
                     } else {
                         documents[i].title = title;
                     }
-                    documents[i].filetype = d.split('.').pop();
+                    //documents[i].filetype = d.split('.').pop();
                 });
                 _(filterDocUrls).each(function(d, i) {
                     documents[i].src = d;
                 });
+                _(filterDocFormats).each(function(d, i) {
+                	documents[i].filetype = d;
+                });
+                
             }
         }
 
