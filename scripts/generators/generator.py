@@ -62,7 +62,7 @@ class ProjectsController(Controller):
     def generate(self):
         """ Main method. Execute necessary functions and generate json files """
 
-        for files in reversed(self.get_filenames(settings.IATI_XML_ANNUAL)):
+        for files in reversed(sorted(self.get_filenames(settings.IATI_XML_ANNUAL))):
             self._prepare(files, 'iati-activity', 'projects')
             self._prepare(files, 'iati-activity', 'outputs')
 
@@ -384,7 +384,7 @@ class ProjectsController(Controller):
         
         # Get sorted units
         report_units = self.get_and_sort(self.undp_export + '/report_units.csv', 'operating_unit')
-
+        
         # Loop through each IATI activity in the XML
         for event, p in iter_obj:
 
@@ -456,7 +456,7 @@ class ProjectsController(Controller):
                     region_unit = p.findall("./recipient-region")
                     for ru in region_unit:
                         for r in report_units:
-                            if type(ru.text) == type(r['ou_descr']) and ru.text == r['ou_descr']:
+                            if type(ru.text) == type(r['ou_descr']) and ru.text == r['ou_descr']: 
                                 obj.operating_unit_id.value = r['operating_unit']
                                 obj.operating_unit.value = r['ou_descr']
                     obj.iati_op_id.value = '998'
