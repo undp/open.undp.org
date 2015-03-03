@@ -282,8 +282,12 @@ input[readonly] {
   height:40px;
   }
 .icon.reset                   { background-position:0 0; }
-.icon.filetype                { background-position:0 -105px; }
+.icon.filetype                { background-position:-98px -105px; }
 .icon.filetype.filetype-pdf   { background-position:-25px -105px; }
+.icon.filetype.filetype-xls, .icon.filetype.filetype-xlsx   { background-position:-50px -105px; }
+.icon.filetype.filetype-zip, .icon.filetype.filetype-rar   { background-position:-74px -105px; }
+.icon.filetype.filetype-doc, .icon.filetype.filetype-docx   { background-position:0px -105px; }
+.icon.filetype.filetype-ppt, .icon.filetype.filetype-pptx   { background-position:-123px -105px; }
 .icon.embed                   { background-position:0 -130px; }
 .icon.chevron                 { background-position:-60px 0; }
 .icon.map-fullscreen          { background-position:-168px 4px;}
@@ -306,9 +310,9 @@ input[readonly] {
 .gender      {  background: #6ab139;color: #fff;}
 .climate     {  background: #D9D73A;color: #fff;}
 .crisis      {  background: #ff5640;color: #fff;}
+.environment {background: #6ab139;color: #fff;}
 .development {  background: #0082B2;color: #fff;}
 .south       {  background: #0066a0;color: #fff;}
-
 
 /*-----------------------------------
   Global Layout

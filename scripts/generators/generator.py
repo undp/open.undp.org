@@ -5,6 +5,7 @@ from collections import defaultdict
 from lxml import etree
 import copy
 import json
+import mimetypes
 
 from controller import Controller
 import config as settings
@@ -61,7 +62,7 @@ class ProjectsController(Controller):
     def generate(self):
         """ Main method. Execute necessary functions and generate json files """
 
-        for files in reversed(self.get_filenames(settings.IATI_XML_ANNUAL)):
+        for files in reversed(sorted(self.get_filenames(settings.IATI_XML_ANNUAL))):
             self._prepare(files, 'iati-activity', 'projects')
             self._prepare(files, 'iati-activity', 'outputs')
 
@@ -380,10 +381,10 @@ class ProjectsController(Controller):
         iter_obj - and iteratble etree object
         """
         counter = 0
-
+        
         # Get sorted units
         report_units = self.get_and_sort(self.undp_export + '/report_units.csv', 'operating_unit')
-
+        
         # Loop through each IATI activity in the XML
         for event, p in iter_obj:
 
@@ -409,16 +410,28 @@ class ProjectsController(Controller):
                 if documents:
                     names = []
                     links = []
+                    format = []
+                    
                     for doc in documents:
                         try:
                             links.append(urllib2.unquote(doc.get('url')).encode('utf-8').decode('utf-8'))
                         except UnicodeDecodeError:
                             links.append(urllib2.unquote(doc.get('url')).decode('utf-8'))
-
+                        #links.append(doc.get('url'))
+                        
+                        if 'application/' in doc.get('format'):
+                            ft = mimetypes.guess_extension(doc.get('format'), False)
+                            if ft is None:
+                                format.append('')
+                            else:
+                                format.append(ft.lstrip('.'))
+                        else:
+                            format.append('format')
+                        
                         for d in doc.iterchildren(tag=obj.document_name.key):
                             names.append(d.text)
 
-                    obj.document_name.value.extend([names, links])
+                    obj.document_name.value.extend([names, links, format])
 
                 # Find start and end dates
                 obj.start.value = p.find(obj.start.xml_key).text
@@ -443,7 +456,7 @@ class ProjectsController(Controller):
                     region_unit = p.findall("./recipient-region")
                     for ru in region_unit:
                         for r in report_units:
-                            if ru.text == r['ou_descr']:
+                            if type(ru.text) == type(r['ou_descr']) and ru.text == r['ou_descr']: 
                                 obj.operating_unit_id.value = r['operating_unit']
                                 obj.operating_unit.value = r['ou_descr']
                     obj.iati_op_id.value = '998'
