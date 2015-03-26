@@ -198,7 +198,7 @@ span.int {
 	height:125px;
 	background:url("../img/global/bg-header.png") repeat-x;
 	position:relative;
-	z-index:1;
+	z-index:1010; /* to avoid overlaying by leaflet controls with 1000 z-index */
 	min-width: 960px;
   }
 #header ul li a {
