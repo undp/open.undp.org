@@ -170,6 +170,41 @@
     <div id='flickr-images'></div>
   </div>
   <!--/ #flickr -->
+  
+  <% if (model.get('contracts')) { %>
+  <h2 class='heading-title'>
+    <% if (model.get('contracts').length === 1) { %>
+      <span>1</span> Contract<% } else { %>
+      <span><%= model.get('contracts').length %></span> Contracts
+    <% } %>
+  </h2>
+  <div class="table-responsive">
+  <table class='table table-bordered'>
+    <thead>
+      <tr>
+        <th>Vendor ID</th>
+        <th>Vendor</th>
+        <th>PO ID</th>
+        <th>Description</th>
+        <th>Date</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% _.each(model.get('contracts'), function(doc) { var d = doc.po_date.split('-'); var po_date = new Date(d[0],d[1]-1,d[2]).format('M d, Y'); %>
+      <tr>
+        <td><%= doc.vendorID %></td>
+        <td><%= doc.vendor_name %></td>
+        <td><%= doc.poID %></td>
+        <td><%= doc.po_description %></td>
+        <td><%= po_date %></td>
+        <td><%= accounting.formatMoney(doc.po_amount) %></td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  </div> 
+ <% } %>
 
   <% if (model.get('outputs')) { %>
   <h2 class='heading-title'>

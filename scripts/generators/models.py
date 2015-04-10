@@ -114,6 +114,16 @@ class Project(Model):
             "output_id": "00011031",
             "output_title": "Partnership for Peace"
         }],
+        "contracts": [
+            {
+                "vendorID": "2863",
+                "vendor_name": "test1",
+                "poID": "17303",
+                "po_description": "E) Air Tickets - International",
+                "po_date": "2013-01-23",
+                "po_amount": 7749
+            }
+        ],
         "project_descr": "Partnership for Peace - Afghanistan's New Beginnings Programme - ANBP",
         "project_id": "00011031",
         "project_title": "Partnership for Peace",
@@ -151,6 +161,7 @@ class Project(Model):
         self.operating_unit_id = Field(name='operating_unit_id')
         self.operating_unit_website = Field(name='operating_unit_website', key='activity-website')
         self.outputs = Field(name='outputs', default=[])
+        self.contracts = Field(name='contracts', default=[])
         self.project_descr = Field(name='project_descr', key='description')
         self.project_id = Field(name='project_id', pk=True)
         self.project_title = Field(name='project_title', key='title')
@@ -162,6 +173,32 @@ class Project(Model):
         j_file = open('%s/%s.json' % (path, self.project_id), 'w')
         j_file.write(json.dumps(self.to_dict()))
         j_file.close()
+
+
+class Contract(Model):
+
+    """
+    Contract model - nested inside the project model
+
+    Intended output:
+    {
+        "vendorID": "2863",
+        "vendor_name": "test1",
+        "poID": "17303",
+        "po_description": "E) Air Tickets - International",
+        "po_date": "2013-01-23",
+        "po_amount": 7749
+    }
+    """
+
+    def __init__(self):
+
+        self.vendorID = Field(name='vendorID')
+        self.vendor_name = Field(name='vendor_name')
+        self.poID = Field(name='poID')
+        self.po_description = Field(name='po_description')
+        self.po_date = Field(name='po_date')
+        self.po_amount = Field(name='po_amount')
 
 
 class Output(Model):
