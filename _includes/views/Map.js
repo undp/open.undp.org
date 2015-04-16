@@ -322,7 +322,7 @@ views.Map = Backbone.View.extend({
         var donorCountry = _(global.processedFacets).where({ collection: 'donor_countries' });
         if (!donorCountry.length) { donorCountry = _(global.processedFacets).where({ collection: 'donors' });}
         donorCountry = (donorCountry.length) ? donorCountry[0].id : false;
-        console.log(donorCountry)
+        
         var view = this;
         var count, sources, budget, title, hdi, hdi_health, hdi_education, hdi_income,
             unit = view.collection,

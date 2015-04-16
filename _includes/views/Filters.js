@@ -78,10 +78,12 @@ views.Filters = Backbone.View.extend({
                     // resulting in a different number than budget
                     view.chartModels = view.collection.chain()
                         .sortBy(function(model) {
-                            return -1 * model.get('expenditure') || 0;
+                            //return -1 * model.get('expenditure') || 0;
+                        	return -1 * model.get('budget') || 0;
                         })
                         .filter(function(model) {
-                            return (model.get('expenditure') > 0);
+                            //return (model.get('expenditure') > 0);
+                        	return (model.get('budget') > 0);
                         })
                         .first(75)
                         .value(); // Top 20
@@ -89,12 +91,14 @@ views.Filters = Backbone.View.extend({
                     // Top 20 donors, donor_countries, and operating_unit
                     view.chartModels = view.collection.chain()
                         .sortBy(function(model) {
-                            return -1 * model.get('expenditure') || 0;
+                            //return -1 * model.get('expenditure') || 0;
+                        	return -1 * model.get('budget') || 0;
                         })
                         .filter(function(model) {
-                            return (model.get('expenditure') > 0);
+                            //return (model.get('expenditure') > 0);
+                        	return (model.get('budget') > 0);
                         })
-                        .first(20)
+                        .first(75)
                         .value(); // Top 20
                 }
             }
@@ -106,6 +110,7 @@ views.Filters = Backbone.View.extend({
 
     renderCharts: function(){
         var view =this;
+        
         // Root path of links for each chart item
         var pathTo;
 

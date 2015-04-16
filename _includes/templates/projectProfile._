@@ -107,7 +107,7 @@
               q = queue();
           
           q.defer(function(cb) {
-              console.log(model.get('outputs'))
+              //console.log(model.get('outputs'))
               donors_id = _.chain(model.get('outputs'))
                   .map(function (o) { return _.zip(_(o.donor_id).sort(), o.donor_short, o.donor_name) })
                   .flatten(true)
@@ -145,12 +145,12 @@
           <div id='documents' class='row-fluid'>
             <div class='span12'>
               <ul class='unstyled'>
-                <% _.each(documents, function(doc) { %>
+                <% _.each(documents, function(doc) { if (!(/\.(gif|jpg|jpeg|tiff|png)$/i).test(doc.src)) { %>
                 <li><a href='<%= doc.src %>'>
                   <span class='icon filetype filetype-<%= doc.filetype %>'></span>
                   <%= doc.title %></a>
                 </li>
-                <% }); %>
+                <% }}); %>
               </ul>
             </div>
           </div>
