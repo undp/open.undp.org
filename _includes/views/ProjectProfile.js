@@ -67,7 +67,7 @@ views.ProjectProfile = Backbone.View.extend({
 
         var documents = [];
         if (this.model.get('document_name')) {
-        	var filterDocNames = _(this.model.get('document_name')[0]).filter(function(n) {
+        	/*var filterDocNames = _(this.model.get('document_name')[0]).filter(function(n) {
                 return !(/\.(gif|jpg|jpeg|tiff|png)$/i).test(n);
             });
             var filterDocUrls = _(this.model.get('document_name')[1]).filter(function(d) {
@@ -75,7 +75,10 @@ views.ProjectProfile = Backbone.View.extend({
             });
             var filterDocFormats = _(this.model.get('document_name')[2]).filter(function(f) {
                 return !(/\.(gif|jpg|jpeg|tiff|png)$/i).test(f);
-            });
+            });*/
+        	var filterDocNames = this.model.get('document_name')[0];
+        	var filterDocUrls = this.model.get('document_name')[1];
+        	var filterDocFormats = this.model.get('document_name')[2];
             
             
              if (filterDocNames.length !== 0) {
@@ -90,7 +93,7 @@ views.ProjectProfile = Backbone.View.extend({
                     //documents[i].filetype = d.split('.').pop();
                 });
                 _(filterDocUrls).each(function(d, i) {
-                    documents[i].src = d;
+                    documents[i].src = d.replace(/'/g, "%27"); // properly encode single quote in the URI
                 });
                 _(filterDocFormats).each(function(d, i) {
                 	documents[i].filetype = d;
