@@ -81,7 +81,7 @@ views.ProjectProfile = Backbone.View.extend({
         	var filterDocFormats = this.model.get('document_name')[2];
             
             
-             if (filterDocNames.length !== 0) {
+             if (typeof filterDocNames == "object" && filterDocNames.length !== 0) {
                 _(filterDocNames).each(function(d, i) {
                     documents[i] = {};
                     var title = d;
