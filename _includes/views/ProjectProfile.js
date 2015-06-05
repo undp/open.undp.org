@@ -81,7 +81,7 @@ views.ProjectProfile = Backbone.View.extend({
         	var filterDocFormats = this.model.get('document_name')[2];
             
             
-             if (filterDocNames.length !== 0) {
+             if (typeof filterDocNames != "undefined" && filterDocNames.length !== 0) {
                 _(filterDocNames).each(function(d, i) {
                     documents[i] = {};
                     var title = d;
@@ -165,6 +165,47 @@ views.ProjectProfile = Backbone.View.extend({
             model: this.model,
             embed: this.options.embed,
         });
+        
+        // load contracts
+        /*var CONTRACTS_DATASOURCE = "1J3xv5DGXHCd1ct0gUtAdTmkR1tXYXC2xymscccrj";
+        var query = {
+    		"sql": "SELECT VENDOR_ID,VENDOR_NAME,VENDOR_DESCRIPTION,PO_ID,LINE_NBR,PO_DESCRIPTION,PO_DT,AMOUNT_USD FROM " + CONTRACTS_DATASOURCE + " WHERE PROJECT = " + this.model.get('id') + " ORDER BY PO_ID",
+    		"key": "AIzaSyCu3LqZDIDAj5f7uWzIJaI0BESvOxuAuUg"
+    	};
+        google.load("visualization", "1", {packages:["table"]});
+        google.setOnLoadCallback(drawTable);
+        function drawTable() {
+            $.getJSON('https://www.googleapis.com/fusiontables/v2/query', query).done(function(ftable){
+            	if (ftable.rows.length > 0) {
+            		var tableData = {
+            			"cols": [
+            			    {"label": "PO ID", "type": "string"},
+            			    {"label": "Description", "type": "string"},
+            			    {"label": "Amount (USD)", "type": "number"},
+            			    {"label": "Items", "type": "number"},
+            			    {"label": "", "type": "string", "p": {"role":"tooltip"}}
+            			],
+            			"rows": []
+            		};
+            		$.each(ftable.rows, function(i, row) {            			
+            			var tableRow = {
+            				c:[
+            				   {v: row[3]},
+            				   {v: (row[2] == 'SSA / IC') ? 'Consultant' : row[1]},
+            				   {v: row[7], f: '$' + row[7]},
+            				   {v: row[4]},
+            				   {v: '<a href="#">' + row[3] + '</a>'}
+            				]
+            			};
+            			tableData.rows.push(tableRow);
+            		});
+            		//{v: (row[2] == 'SSA / IC') ? 'Consultant' : row[1]}
+            		var data = new google.visualization.DataTable(tableData);
+            		var table = new google.visualization.Table(document.getElementById('contracts-table'));
+                    table.draw(data, {showRowNumber: true, allowHtml: true});
+            	}
+            });        	
+        }*/
 
         return this;
     },

@@ -289,7 +289,7 @@ Global = Backbone.Router.extend({
 
     project: function (id, output, embed) {
         var oneProject = new Project({id: id});
-        console.log(id);
+        //console.log(id);
         // loading the specific project
         oneProject.fetch({
             success: function (data) {
