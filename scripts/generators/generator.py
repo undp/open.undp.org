@@ -9,9 +9,9 @@ import mimetypes
 
 from controller import Controller
 import config as settings
-from models import (Project, Output, Subnational, Unit, UnitProject, Crs, Donor, CountryDonor, ProjectSummary,
+from models import (Project, Output, Contract, Subnational, Unit, UnitProject, Crs, Donor, CountryDonor, ProjectSummary,
                     TopDonor, TopDonorLocal, Region, CoreDonor, OperatingUnit)
-from _collection import (Projects, Outputs, Subnationals, Units, CrsIndex, DonorIndex, CountryDonorIndex,
+from _collection import (Projects, Outputs, Contracts, Subnationals, Units, CrsIndex, DonorIndex, CountryDonorIndex,
                          ProjectSummaries, ReportDonors, DonorIDs, TopDonorGrossIndex, TopDonorLocalIndex,
                          RegionIndex, FocusAreaIndex, CoreDonors, OperatingUnitIndex)
 from _collection import ObjectExists
@@ -31,6 +31,7 @@ class ProjectsController(Controller):
         self.projects = Projects()
         self.projectsummaries = ProjectSummaries()
         self.outputs = Outputs()
+        self.contracts = Contracts()
         self.subnationals = Subnationals()
         self.units = Units()
         self.crsindex = CrsIndex()
@@ -489,6 +490,11 @@ class ProjectsController(Controller):
                 self.projects.add(obj.project_id.value, obj)
 
         self.log('%s - Project Annuals: %s rows processed' % (yr, counter))
+        
+    def _populate_contracts(award_id):
+        
+        # get contracts
+        contracts = self.get_and_sort(self.undp_export + '/contracts.csv', 'AWARD_ID')
 
     def _populate_outputs(self, iter_obj, yr):
 
