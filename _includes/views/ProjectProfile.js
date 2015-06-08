@@ -249,7 +249,7 @@ views.ProjectProfile = Backbone.View.extend({
             		});
             		var data = new google.visualization.DataTable(tableData);
             		var table = new google.visualization.Table(document.getElementById('contracts-table'));
-            		$('.contracts-container > h2').html('Purchase orders')
+            		$('.contracts-container > h2').html('Payments or purchases')
                     table.draw(data, {showRowNumber: true, allowHtml: true, page: 'enable', pageSize: 20, width: '100%'});                    
             	}
         	});
