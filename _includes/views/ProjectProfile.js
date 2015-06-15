@@ -218,7 +218,7 @@ views.ProjectProfile = Backbone.View.extend({
     	google.load("visualization", "1", {packages:["table"], 'callback': function(){
         	var apiUrl = 'https://www.googleapis.com/fusiontables/v2/query';
         	var datasource = '1ax65en-NNrqI71-66QS52uvYTU3sKI6tg9M0KZMA';
-        	var sql = 'SELECT SUM(AMOUNT_USD),PO_ID,VENDOR_NAME,VENDOR_CLASSIFICATION,PO_DT FROM ' + datasource + ' WHERE PROJECT = ' + id + ' GROUP BY PO_ID,VENDOR_NAME,VENDOR_CLASSIFICATION,PO_DT ORDER BY PO_ID';
+        	var sql = 'SELECT SUM(AMOUNT_USD),PO_ID,VENDOR_NAME,VENDOR_CLASSIFICATION,PO_DT FROM ' + datasource + ' WHERE PROJECT = ' + id + ' GROUP BY PO_ID,VENDOR_NAME,VENDOR_CLASSIFICATION,PO_DT ORDER BY PO_DT DESC';
         	var key = 'AIzaSyCu3LqZDIDAj5f7uWzIJaI0BESvOxuAuUg';
         	var mask = {
         		"Beneficiary Family": "Individual",
@@ -244,19 +244,21 @@ views.ProjectProfile = Backbone.View.extend({
             			"rows": []
             		};
             		$.each(ftable.rows, function(i, row) {
-            			var tableRow = {
-            				c:[
-            				   {v: row[1]},
-            				   {v: (typeof mask[row[3]] !== 'undefined') ? mask[row[3]] : row[2]},
-            				   {v: new Date(row[4])},
-            				   {v: row[0], f: accounting.formatMoney(row[0])}
-            				]
-            			};
-            			tableData.rows.push(tableRow);
+            			if (row[0] > 0) {            				
+	            			var tableRow = {
+	            				c:[
+	            				   {v: row[1]},
+	            				   {v: (typeof mask[row[3]] !== 'undefined') ? mask[row[3]] : row[2]},
+	            				   {v: new Date(row[4])},
+	            				   {v: row[0], f: accounting.formatMoney(row[0])}
+	            				]
+	            			};
+	            			tableData.rows.push(tableRow);
+            			}
             		});
             		var data = new google.visualization.DataTable(tableData);
             		var table = new google.visualization.Table(document.getElementById('contracts-table'));
-            		$('.contracts-container > h2').html('Payments or purchases')
+            		$('.contracts-container > h2').html('Summary of payments (contract issued) above 30,000 USD');
                     table.draw(data, {showRowNumber: true, allowHtml: true, page: 'enable', pageSize: 20, width: '100%'});                    
             	}
         	});
