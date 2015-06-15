@@ -217,9 +217,18 @@ views.ProjectProfile = Backbone.View.extend({
     	
     	google.load("visualization", "1", {packages:["table"], 'callback': function(){
         	var apiUrl = 'https://www.googleapis.com/fusiontables/v2/query';
-        	var datasource = '1J3xv5DGXHCd1ct0gUtAdTmkR1tXYXC2xymscccrj';
-        	var sql = 'SELECT SUM(AMOUNT_USD),count(),PO_ID,VENDOR_NAME,VENDOR_CLASSIFICATION,PO_DESCRIPTION,PO_DT FROM ' + datasource + ' WHERE PROJECT = ' + id + ' GROUP BY PO_ID,VENDOR_NAME,VENDOR_CLASSIFICATION,PO_DESCRIPTION,PO_DT ORDER BY PO_ID';
+        	var datasource = '1ax65en-NNrqI71-66QS52uvYTU3sKI6tg9M0KZMA';
+        	var sql = 'SELECT SUM(AMOUNT_USD),PO_ID,VENDOR_NAME,VENDOR_CLASSIFICATION,PO_DT FROM ' + datasource + ' WHERE PROJECT = ' + id + ' GROUP BY PO_ID,VENDOR_NAME,VENDOR_CLASSIFICATION,PO_DT ORDER BY PO_ID';
         	var key = 'AIzaSyCu3LqZDIDAj5f7uWzIJaI0BESvOxuAuUg';
+        	var mask = {
+        		"Beneficiary Family": "Individual",
+        		"Fellow": "Individual",
+        		"Meeting Participant" : "Individual", 
+        		"Service Contract": "Consultant",
+        		"SSA / IC": "Consultant",
+        		"Staff": "Individual",
+        		"UNV": "UNV"
+        	}
         	
         	queue()
         	.defer($.getJSON, apiUrl + '?sql=' + encodeURI(sql) + '&key=' + key)
@@ -228,7 +237,6 @@ views.ProjectProfile = Backbone.View.extend({
             		var tableData = {
             			"cols": [
             			    {"label": "PO ID", "type": "string"},
-            			    {"label": "Description", "type": "string"},
             			    {"label": "Vendor", "type": "string"},
             			    {"label": "Date", "type": "date"},
             			    {"label": "Amount (USD)", "type": "number"}
@@ -238,10 +246,9 @@ views.ProjectProfile = Backbone.View.extend({
             		$.each(ftable.rows, function(i, row) {
             			var tableRow = {
             				c:[
-            				   {v: row[2]},
-            				   {v: (row[5].indexOf(') ') > -1) ? row[5].substr(row[5].indexOf(') ')+2) : row[5]},
-            				   {v: (row[4] == 'SSA / IC') ? 'Consultant' : row[3]},
-            				   {v: new Date(row[6])},
+            				   {v: row[1]},
+            				   {v: (typeof mask[row[3]] !== 'undefined') ? mask[row[3]] : row[2]},
+            				   {v: new Date(row[4])},
             				   {v: row[0], f: accounting.formatMoney(row[0])}
             				]
             			};
