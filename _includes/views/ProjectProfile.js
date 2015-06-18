@@ -218,7 +218,7 @@ views.ProjectProfile = Backbone.View.extend({
     	google.load("visualization", "1", {packages:["table"], 'callback': function(){
         	var apiUrl = 'https://www.googleapis.com/fusiontables/v2/query';
         	var datasource = '1ax65en-NNrqI71-66QS52uvYTU3sKI6tg9M0KZMA';
-        	var sql = 'SELECT SUM(AMOUNT_USD),PO_ID,VENDOR_NAME,VENDOR_CLASSIFICATION,PO_DT FROM ' + datasource + ' WHERE PROJECT = ' + id + ' GROUP BY PO_ID,VENDOR_NAME,VENDOR_CLASSIFICATION,PO_DT ORDER BY PO_DT DESC';
+        	var sql = 'SELECT AMOUNT_USD,PO_ID,VENDOR_NAME,VENDOR_CLASSIFICATION,PO_DT,PO_DESCRIPTION,PO_REF FROM ' + datasource + ' WHERE PROJECT = ' + id + ' ORDER BY PO_DT DESC';
         	var key = 'AIzaSyCu3LqZDIDAj5f7uWzIJaI0BESvOxuAuUg';
         	var mask = {
         		"Beneficiary Family": "Individual",
@@ -238,28 +238,43 @@ views.ProjectProfile = Backbone.View.extend({
             			"cols": [
             			    {"label": "PO ID", "type": "string"},
             			    {"label": "Vendor", "type": "string"},
+            			    {"label": "Description", "type": "string"},
             			    {"label": "Date", "type": "date"},
             			    {"label": "Amount (USD)", "type": "number"}
             			],
             			"rows": []
             		};
             		$.each(ftable.rows, function(i, row) {
-            			if (row[0] > 0) {            				
-	            			var tableRow = {
-	            				c:[
-	            				   {v: row[1]},
-	            				   {v: (typeof mask[row[3]] !== 'undefined') ? mask[row[3]] : row[2]},
-	            				   {v: new Date(row[4])},
-	            				   {v: row[0], f: accounting.formatMoney(row[0])}
-	            				]
-	            			};
-	            			tableData.rows.push(tableRow);
-            			}
+            			var tableRow = {
+            				c:[
+            				   {v: row[1]},
+            				   {v: (typeof mask[row[3]] !== 'undefined') ? mask[row[3]] : row[2]},
+            				   {v: row[5]},
+            				   {v: new Date(row[4])},
+            				   {v: Math.round(row[0]*100)/100}
+            				]
+            			};
+            			if (tableData.rows.length > 0 && tableData.rows[tableData.rows.length-1].c[0].v == row[1] && row[6].trim() != '') {
+            				tableRow.c[2].v = row[6];
+            				tableData.rows[tableData.rows.length-1].c[2].v = row[6];
+            			} 
+            			tableData.rows.push(tableRow);
             		});
             		var data = new google.visualization.DataTable(tableData);
+            		var groupedData = google.visualization.data.group(
+        				data, 
+        				[0,1,{"column": 2, "modifier": function(value){return (value.indexOf(") ") > -1) ? value.substring(value.indexOf(") ")+2) : value;}, "type": "string", "label": "Description"},3], 
+        				[{
+        					"column": 4, 
+        					"aggregation": function(values) {
+        						return accounting.formatMoney(values.reduce(function(a,b){return a+b;}))
+        					}, 
+        					"type": "string"
+        				}]
+            		);
             		var table = new google.visualization.Table(document.getElementById('contracts-table'));
-            		$('.contracts-container > h2').html('Summary of payments (contract issued) above 30,000 USD');
-                    table.draw(data, {showRowNumber: true, allowHtml: true, page: 'enable', pageSize: 20, width: '100%'});                    
+            		$('.contracts-container > h2').html('Summary of Purchase orders (contracts) issued over USD 30,000').css('margin-bottom', '10px');
+            		table.draw(groupedData, {showRowNumber: true, allowHtml: true, page: 'enable', pageSize: 20, width: '100%'});      
             	}
         	});
         }});
