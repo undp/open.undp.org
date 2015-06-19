@@ -214,12 +214,12 @@ views.ProjectProfile = Backbone.View.extend({
     },
     
     contracts: function(id) {
-    	
+    	// requires Google jsapi script already loaded 
     	google.load("visualization", "1", {packages:["table"], 'callback': function(){
-        	var apiUrl = 'https://www.googleapis.com/fusiontables/v2/query';
-        	var datasource = '1ax65en-NNrqI71-66QS52uvYTU3sKI6tg9M0KZMA';
+        	var apiUrl = 'https://www.googleapis.com/fusiontables/v2/query'; // Google Fusion Table API endpoint
+        	var datasource = '1ax65en-NNrqI71-66QS52uvYTU3sKI6tg9M0KZMA'; // ID of the Fusion Table we are pulling data from
         	var sql = 'SELECT AMOUNT_USD,PO_ID,VENDOR_NAME,VENDOR_CLASSIFICATION,PO_DT,PO_DESCRIPTION,PO_REF FROM ' + datasource + ' WHERE PROJECT = ' + id + ' ORDER BY PO_DT DESC';
-        	var key = 'AIzaSyCu3LqZDIDAj5f7uWzIJaI0BESvOxuAuUg';
+        	var key = 'AIzaSyCu3LqZDIDAj5f7uWzIJaI0BESvOxuAuUg'; // Google API key used for requests attribution
         	var mask = {
         		"Beneficiary Family": "Individual",
         		"Fellow": "Individual",
@@ -228,12 +228,12 @@ views.ProjectProfile = Backbone.View.extend({
         		"SSA / IC": "Consultant",
         		"Staff": "Individual",
         		"UNV": "UNV"
-        	}
+        	}; // Mapping Vendor names to the neutral terminology - we don't want to expose some details like Consultant names, etc. 
         	
         	queue()
         	.defer($.getJSON, apiUrl + '?sql=' + encodeURI(sql) + '&key=' + key)
         	.await(function(ftable){
-            	if (ftable.rows.length > 0) {
+            	if ('rows' in ftable && ftable.rows.length > 0) {
             		var tableData = {
             			"cols": [
             			    {"label": "PO ID", "type": "string"},
@@ -255,6 +255,8 @@ views.ProjectProfile = Backbone.View.extend({
             				   {v: Math.round(row[0]*100)/100}
             				]
             			};
+            			// Use line description if there is only one record in PO
+            			// for multiline POs we are using either PO reference (if provided) or line description of the first item
             			if (tableData.rows.length > 0 && tableData.rows[tableData.rows.length-1].c[0].v == row[1] && vendor != 'Consultant') {
             				if (row[6].trim() != '') {
                 				tableRow.c[2].v = row[6];
@@ -266,6 +268,7 @@ views.ProjectProfile = Backbone.View.extend({
             			tableData.rows.push(tableRow);
             		});
             		var data = new google.visualization.DataTable(tableData);
+            		// aggregate data by PO
             		var groupedData = google.visualization.data.group(
         				data, 
         				[0,1,{"column": 2, "modifier": function(value){return (value.indexOf(") ") > -1) ? value.substring(value.indexOf(") ")+2) : value;}, "type": "string", "label": "Description"},3], 
