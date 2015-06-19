@@ -245,18 +245,23 @@ views.ProjectProfile = Backbone.View.extend({
             			"rows": []
             		};
             		$.each(ftable.rows, function(i, row) {
+            			var vendor = (typeof mask[row[3]] !== 'undefined') ? mask[row[3]] : row[2];
             			var tableRow = {
             				c:[
             				   {v: row[1]},
-            				   {v: (typeof mask[row[3]] !== 'undefined') ? mask[row[3]] : row[2]},
-            				   {v: row[5]},
+            				   {v: vendor},
+            				   {v: (vendor == 'Consultant') ? vendor + '\'s payment' : row[5]},
             				   {v: new Date(row[4])},
             				   {v: Math.round(row[0]*100)/100}
             				]
             			};
-            			if (tableData.rows.length > 0 && tableData.rows[tableData.rows.length-1].c[0].v == row[1] && row[6].trim() != '') {
-            				tableRow.c[2].v = row[6];
-            				tableData.rows[tableData.rows.length-1].c[2].v = row[6];
+            			if (tableData.rows.length > 0 && tableData.rows[tableData.rows.length-1].c[0].v == row[1] && vendor != 'Consultant') {
+            				if (row[6].trim() != '') {
+                				tableRow.c[2].v = row[6];
+                				tableData.rows[tableData.rows.length-1].c[2].v = row[6];
+            				} else {
+            					tableRow.c[2].v = tableData.rows[tableData.rows.length-1].c[2].v;
+            				}
             			} 
             			tableData.rows.push(tableRow);
             		});
