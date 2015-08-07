@@ -6,8 +6,12 @@ views.YearNav = Backbone.View.extend({
 	},
 	render: function(){
 		var years = _.map(FISCALYEARS,function(y){
-				var year = {'y':y}; // construct year into a key-value pair for template
-				return this.template(year);
+				if (y > 2011) {
+					var year = {'y':y}; // construct year into a key-value pair for template
+					return this.template(year);
+				} else {
+					return '';
+				}
 			},this);
 
 		this.$el.html(years.join(''));
