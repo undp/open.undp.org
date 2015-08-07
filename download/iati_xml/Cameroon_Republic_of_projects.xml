@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2015-06-04T21:11:10" version="1.04">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2015-07-09T16:02:12" version="1.04">
   <!--Cameroon, Republic of-->
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00038939</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
@@ -10,7 +10,8 @@
     <title>Dev Support Services</title>
     <description type="1">Dev Support Services</description>
     <participating-org role="Implementing" type="40" ref="99999">UNDP</participating-org>
-    <participating-org role="Accountable" type="40" ref="99999">UNDP</participating-org>
+    <participating-org role="Accountable" type="40" ref="00012">United Nations Development Programme</participating-org>
+    <participating-org role="Funding" type="10" ref="00085">GOVERNMENT OF CAMEROON, REPUBLIC OF</participating-org>
     <participating-org role="Funding" type="40" ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</participating-org>
     <activity-date type="start-planned" iso-date="2005-01-01">2005-01-01</activity-date>
     <activity-date type="start-actual" iso-date="2005-01-01">2005-01-01</activity-date>
@@ -37,18 +38,19 @@
       <category code="A10" />
     </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00043433</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00038939" />
     <recipient-country code="CM">Cameroon, Republic of</recipient-country>
     <title xml:lang="en">Dev Support Services</title>
     <description xml:lang="en" type="1">Dev Support Services</description>
+    <participating-org role="Funding" type="10" ref="00085">GOVERNMENT OF CAMEROON, REPUBLIC OF</participating-org>
     <participating-org role="Funding" type="40" ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</participating-org>
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-05-31">201040</value>
+      <value currency="USD" value-date="2015-06-30">85086</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2014-01-01" />
@@ -62,23 +64,39 @@
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-05-31">25770</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">8649</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-05-31">201040</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">780</value>
+      <transaction-date iso-date="2015-06-30" />
+      <provider-org ref="00085">GOVERNMENT OF CAMEROON, REPUBLIC OF</provider-org>
+      <receiver-org ref="41114">United Nations development Programme</receiver-org>
+      <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
+    </transaction>
+    <transaction>
+      <transaction-type code="IF">Incoming funds</transaction-type>
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
+      <provider-org ref="00085">GOVERNMENT OF CAMEROON, REPUBLIC OF</provider-org>
+      <receiver-org ref="41114">United Nations development Programme</receiver-org>
+      <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
+    </transaction>
+    <transaction>
+      <transaction-type code="C">Commitment</transaction-type>
+      <value currency="USD" value-date="2015-06-30">84306</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -119,7 +137,7 @@
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00046596</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
@@ -127,7 +145,7 @@
     <title>Changer d’Habitudes – S’Opposer à la Corruption (CHOC)</title>
     <description type="1">Ce Programme a pour objectif principal de contribuer à une réduction significative de la corruption au Cameroun à travers un appui à la mise en oeuvre des projets décrits dans la composante "politique de lutte contre la corruption" du PNG.</description>
     <participating-org role="Implementing" type="40" ref="99999">UNDP</participating-org>
-    <participating-org role="Accountable" type="40" ref="99999">UNDP</participating-org>
+    <participating-org role="Accountable" type="40" ref="00012">United Nations Development Programme</participating-org>
     <participating-org role="Funding" type="10" ref="00112">GOVERNMENT OF FRANCE</participating-org>
     <participating-org role="Funding" type="40" ref="10159">EUROPEAN COMMISSION</participating-org>
     <activity-date type="start-planned" iso-date="2007-02-24">2007-02-24</activity-date>
@@ -154,7 +172,7 @@
       <category code="A05" />
     </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00060631</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00046596" />
@@ -166,7 +184,7 @@
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-05-31">8164</value>
+      <value currency="USD" value-date="2015-06-30">8164</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2014-01-01" />
@@ -185,39 +203,39 @@
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-05-31">7627</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">7627</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00112">GOVERNMENT OF FRANCE</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00112">GOVERNMENT OF FRANCE</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-05-31">537</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">537</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="10159">EUROPEAN COMMISSION</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="10159">EUROPEAN COMMISSION</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -265,7 +283,7 @@
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00049435</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
@@ -273,7 +291,7 @@
     <title>Coordination de la mise en oeuvre du Programme Pays</title>
     <description type="1">L'objectif principal de ce projet est de renforcer les capacités de la Direction en charge de la Coopération Technique du MINEPAT dans son rôle de coordination du suivi de la mise en œuvre du Programme Pays du PNUD pour la période 2008 - 2012</description>
     <participating-org role="Implementing" type="40" ref="99999">UNDP</participating-org>
-    <participating-org role="Accountable" type="40" ref="99999">UNDP</participating-org>
+    <participating-org role="Accountable" type="40" ref="00012">United Nations Development Programme</participating-org>
     <participating-org role="Funding" type="40" ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</participating-org>
     <activity-date type="start-planned" iso-date="2008-02-19">2008-02-19</activity-date>
     <activity-date type="start-actual" iso-date="2008-02-19">2008-02-19</activity-date>
@@ -310,7 +328,7 @@
       <category code="A08" />
     </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00060287</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00049435" />
@@ -321,7 +339,7 @@
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-05-31">0</value>
+      <value currency="USD" value-date="2015-06-30">0</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2014-01-01" />
@@ -340,23 +358,23 @@
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-05-31">-815</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">-815</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -404,15 +422,15 @@
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00049535</iati-identifier>
-    <activity-status code="3">Completion</activity-status>
+    <activity-status code="2">Implementation</activity-status>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00060479" />
     <title>Capacités Développées et Renforcée      es en OMDs-CADRE</title>
     <description type="1">Le présent projet concourt au développement et au renforcement des capacités nationales dans la lutte contre la pauvreté et la réalisation des Objectifs Millénaire du Développements</description>
     <participating-org role="Implementing" type="40" ref="99999">UNDP</participating-org>
-    <participating-org role="Accountable" type="40" ref="99999">UNDP</participating-org>
+    <participating-org role="Accountable" type="40" ref="00012">United Nations Development Programme</participating-org>
     <participating-org role="Funding" type="40" ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</participating-org>
     <activity-date type="start-planned" iso-date="2008-02-27">2008-02-27</activity-date>
     <activity-date type="start-actual" iso-date="2008-02-27">2008-02-27</activity-date>
@@ -439,7 +457,7 @@
       <category code="A05" />
     </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00060479</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00049535" />
@@ -450,7 +468,7 @@
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-05-31">0</value>
+      <value currency="USD" value-date="2015-06-30">0</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2014-01-01" />
@@ -469,23 +487,23 @@
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-05-31">-2550</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">-2499</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -533,7 +551,7 @@
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00058591</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
@@ -541,7 +559,7 @@
     <title>Climate Change Adaptation - Cameroon</title>
     <description type="1">This project addresses climate change risks under each of the five AAP global Project outputs.</description>
     <participating-org role="Implementing" type="40" ref="99999">UNDP</participating-org>
-    <participating-org role="Accountable" type="40" ref="99999">UNDP</participating-org>
+    <participating-org role="Accountable" type="40" ref="00012">United Nations Development Programme</participating-org>
     <participating-org role="Funding" type="10" ref="00141">GOVERNMENT OF JAPAN</participating-org>
     <activity-date type="start-planned" iso-date="2009-10-01">2009-10-01</activity-date>
     <activity-date type="start-actual" iso-date="2009-10-01">2009-10-01</activity-date>
@@ -568,7 +586,7 @@
       <category code="A05" />
     </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00072824</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00058591" />
@@ -579,7 +597,7 @@
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-05-31">0</value>
+      <value currency="USD" value-date="2015-06-30">0</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2014-01-01" />
@@ -598,23 +616,23 @@
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-05-31">153</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">192</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00141">GOVERNMENT OF JAPAN</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00141">GOVERNMENT OF JAPAN</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -690,7 +708,7 @@
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00060231</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
@@ -698,7 +716,7 @@
     <title>Cameroon Millenium Village Programme</title>
     <description type="1">This program will contribute to the implementation of the growth and employment strategy paper of the Government by piloting application at the cluster level and with the Millenium Development Goals serving as the reference point.</description>
     <participating-org role="Implementing" type="10" ref="00654">National Execution</participating-org>
-    <participating-org role="Accountable" type="10" ref="00654">National Execution</participating-org>
+    <participating-org role="Accountable" type="10" ref="00012">United Nations Development Programme</participating-org>
     <participating-org role="Funding" type="10" ref="11140">Japanese international Cooperation Agency</participating-org>
     <activity-date type="start-planned" iso-date="2010-01-01">2010-01-01</activity-date>
     <activity-date type="start-actual" iso-date="2010-01-01">2010-01-01</activity-date>
@@ -752,7 +770,7 @@
       <category code="A07" />
     </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00075755</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00060231" />
@@ -763,7 +781,7 @@
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-05-31">8732</value>
+      <value currency="USD" value-date="2015-06-30">8732</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2014-01-01" />
@@ -782,23 +800,23 @@
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-05-31">-16076</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">-14850</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-05-31">8732</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">8732</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="11140">Japanese international Cooperation Agency</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="11140">Japanese international Cooperation Agency</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -860,7 +878,7 @@
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00061791</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
@@ -868,7 +886,7 @@
     <title>Institutional Cap Enhancmt of EIRFORCES</title>
     <description type="1">The present Project aims to enhance the capability of Cameroon to effectively participate in UN and African Union peacekeeping and peace building activities of the International school for security forces (EIFORCES), AWAE, Cameroon</description>
     <participating-org role="Implementing" type="10" ref="00654">National Execution</participating-org>
-    <participating-org role="Accountable" type="10" ref="00654">National Execution</participating-org>
+    <participating-org role="Accountable" type="10" ref="00012">United Nations Development Programme</participating-org>
     <participating-org role="Funding" type="10" ref="00141">GOVERNMENT OF JAPAN</participating-org>
     <activity-date type="start-planned" iso-date="2011-06-01">2011-06-01</activity-date>
     <activity-date type="start-actual" iso-date="2011-06-01">2011-06-01</activity-date>
@@ -894,7 +912,7 @@
       <category code="A05" />
     </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00078557</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00061791" />
@@ -910,7 +928,7 @@
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-05-31">2345</value>
+      <value currency="USD" value-date="2015-06-30">2345</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2014-01-01" />
@@ -929,23 +947,23 @@
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-05-31">115</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">143</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-05-31">2345</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">2345</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00141">GOVERNMENT OF JAPAN</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00141">GOVERNMENT OF JAPAN</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -993,7 +1011,7 @@
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00062486</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
@@ -1001,7 +1019,7 @@
     <title>Human Rights aspect to HIV/AIDS Response in Cameroon</title>
     <description type="1">Human Rights aspect to HIV/AIDS R</description>
     <participating-org role="Implementing" type="40" ref="99999">UNDP</participating-org>
-    <participating-org role="Accountable" type="40" ref="99999">UNDP</participating-org>
+    <participating-org role="Accountable" type="40" ref="00012">United Nations Development Programme</participating-org>
     <participating-org role="Funding" type="40" ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</participating-org>
     <activity-date type="start-planned" iso-date="2011-10-01">2011-10-01</activity-date>
     <activity-date type="start-actual" iso-date="2011-10-01">2011-10-01</activity-date>
@@ -1066,7 +1084,7 @@
       <category code="A08" />
     </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00079982</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00062486" />
@@ -1082,7 +1100,7 @@
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-05-31">0</value>
+      <value currency="USD" value-date="2015-06-30">0</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2014-01-01" />
@@ -1101,23 +1119,23 @@
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-05-31">534</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">514</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -1165,7 +1183,7 @@
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00066883</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
@@ -1173,7 +1191,7 @@
     <title>SOUS PROGRAMME REDUCTION DE LA PAUVRETE A LA BASE 2</title>
     <description type="1">Contribuer durablement à la réduction de la pauvreté en millieu rural à travers la promotion de l'emploi durable et à l'amélioration des revenus des populations et des couches les plus vulnérables en zone rurale</description>
     <participating-org role="Implementing" type="10" ref="00654">National Execution</participating-org>
-    <participating-org role="Accountable" type="10" ref="00654">National Execution</participating-org>
+    <participating-org role="Accountable" type="10" ref="00012">United Nations Development Programme</participating-org>
     <participating-org role="Funding" type="40" ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</participating-org>
     <activity-date type="start-planned" iso-date="2012-01-01">2012-01-01</activity-date>
     <activity-date type="start-actual" iso-date="2012-01-01">2012-01-01</activity-date>
@@ -1228,7 +1246,7 @@
       <category code="A10" />
     </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00082899</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00066883" />
@@ -1239,7 +1257,7 @@
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-05-31">531582</value>
+      <value currency="USD" value-date="2015-06-30">531582</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2014-01-01" />
@@ -1258,23 +1276,23 @@
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-05-31">76144</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">92440</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-05-31">531582</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">531582</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -1322,7 +1340,7 @@
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00074049</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
@@ -1330,7 +1348,7 @@
     <title>POST 2015 Development Consultations in Cameroon</title>
     <description type="1">Stimulating an inclusive national dialogue in Cameroon on its future vision and priorities for the post MDG 2015 which takes strong consideration of the voice of the most marginalized groups</description>
     <participating-org role="Implementing" type="40" ref="99999">UNDP</participating-org>
-    <participating-org role="Accountable" type="40" ref="99999">UNDP</participating-org>
+    <participating-org role="Accountable" type="40" ref="00012">United Nations Development Programme</participating-org>
     <participating-org role="Funding" type="40" ref="00003">INTERNATIONAL LABOUR ORGANIZATION</participating-org>
     <participating-org role="Funding" type="40" ref="00006">WORLD HEALTH ORGANIZATION</participating-org>
     <participating-org role="Funding" type="40" ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</participating-org>
@@ -1364,7 +1382,7 @@
       <category code="A09" />
     </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00086615</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00074049" />
@@ -1377,7 +1395,7 @@
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-05-31">26933</value>
+      <value currency="USD" value-date="2015-06-30">26934</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2014-01-01" />
@@ -1391,55 +1409,55 @@
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-05-31">12715</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">12728</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-05-31">7920</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">7921</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00003">INTERNATIONAL LABOUR ORGANIZATION</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00003">INTERNATIONAL LABOUR ORGANIZATION</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-05-31">6776</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">6776</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00006">WORLD HEALTH ORGANIZATION</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00006">WORLD HEALTH ORGANIZATION</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-05-31">12237</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">12237</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -1480,7 +1498,7 @@
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00074612</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
@@ -1488,7 +1506,7 @@
     <title>PRogramme d'INClusion Economique et Sociale</title>
     <description type="1">Prog. d'Amélioration participation politique groupes sociaux en situation de vulnérabilité et de l'intégration de leurs préoccupations, du genre et dimensions transversales (environnement, VIH/SIDA) dans les plans politiques et stratégies sectorielles.</description>
     <participating-org role="Implementing" type="10" ref="00654">National Execution</participating-org>
-    <participating-org role="Accountable" type="10" ref="00654">National Execution</participating-org>
+    <participating-org role="Accountable" type="10" ref="00012">United Nations Development Programme</participating-org>
     <participating-org role="Funding" type="40" ref="00032">UNITED NATIONS DEVELOPMENT FUND FOR WOME</participating-org>
     <participating-org role="Funding" type="10" ref="00085">GOVERNMENT OF CAMEROON, REPUBLIC OF</participating-org>
     <participating-org role="Funding" type="10" ref="00112">GOVERNMENT OF FRANCE</participating-org>
@@ -1533,7 +1551,7 @@
       <category code="A10" />
     </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00086927</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00074612" />
@@ -1548,7 +1566,7 @@
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-05-31">352571</value>
+      <value currency="USD" value-date="2015-06-30">401296</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2014-01-01" />
@@ -1562,87 +1580,87 @@
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-05-31">88149</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">105625</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-05-31">2039</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">2039</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00032">UNITED NATIONS DEVELOPMENT FUND FOR WOME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00032">UNITED NATIONS DEVELOPMENT FUND FOR WOME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-05-31">31631</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">31631</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00085">GOVERNMENT OF CAMEROON, REPUBLIC OF</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00085">GOVERNMENT OF CAMEROON, REPUBLIC OF</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-05-31">1085</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">1085</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00112">GOVERNMENT OF FRANCE</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00112">GOVERNMENT OF FRANCE</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-05-31">230</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">230</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="10712">KOREA INTERN. COOPERATION AGENCY (KOICA)</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="10712">KOREA INTERN. COOPERATION AGENCY (KOICA)</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-05-31">317586</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">366311</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -1683,7 +1701,7 @@
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00074614</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
@@ -1691,7 +1709,7 @@
     <title>Prog Appui à l'Amélioration Qualité des Sces aux Usagers</title>
     <description type="1">Programme d'Amélioration des Prestations rendues aux usagers des Services Publics</description>
     <participating-org role="Implementing" type="10" ref="00654">National Execution</participating-org>
-    <participating-org role="Accountable" type="10" ref="00654">National Execution</participating-org>
+    <participating-org role="Accountable" type="10" ref="00012">United Nations Development Programme</participating-org>
     <participating-org role="Funding" type="40" ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</participating-org>
     <activity-date type="start-planned" iso-date="2013-06-17">2013-06-17</activity-date>
     <activity-date type="start-actual" iso-date="2013-06-17">2013-06-17</activity-date>
@@ -1746,7 +1764,7 @@
       <category code="A10" />
     </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00086929</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00074614" />
@@ -1757,7 +1775,7 @@
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-05-31">256286</value>
+      <value currency="USD" value-date="2015-06-30">336286</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2014-01-01" />
@@ -1771,23 +1789,23 @@
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-05-31">93643</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">99639</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-05-31">256286</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">336286</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -1828,7 +1846,7 @@
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00074619</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
@@ -1836,7 +1854,7 @@
     <title>Amélioration de la résilience des populations</title>
     <description type="1">Contribuer durablement à l'amélioration de la résilience des populations aux effets du changement climatique</description>
     <participating-org role="Implementing" type="10" ref="00654">National Execution</participating-org>
-    <participating-org role="Accountable" type="10" ref="00654">National Execution</participating-org>
+    <participating-org role="Accountable" type="10" ref="00012">United Nations Development Programme</participating-org>
     <participating-org role="Funding" type="10" ref="00141">GOVERNMENT OF JAPAN</participating-org>
     <participating-org role="Funding" type="40" ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</participating-org>
     <activity-date type="start-planned" iso-date="2013-06-17">2013-06-17</activity-date>
@@ -1879,7 +1897,7 @@
       <category code="A10" />
     </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00086930</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00074619" />
@@ -1891,7 +1909,7 @@
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-05-31">399532</value>
+      <value currency="USD" value-date="2015-06-30">399532</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2014-01-01" />
@@ -1905,39 +1923,39 @@
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-05-31">102082</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">113034</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00141">GOVERNMENT OF JAPAN</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00141">GOVERNMENT OF JAPAN</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-05-31">399532</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">399532</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -1978,7 +1996,7 @@
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00074756</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
@@ -1986,7 +2004,7 @@
     <title>Programme d'Appui Plan Action Programme Pays</title>
     <description type="1">Programme d'Appui au Plan Action du Programme Pays</description>
     <participating-org role="Implementing" type="40" ref="99999">UNDP</participating-org>
-    <participating-org role="Accountable" type="40" ref="99999">UNDP</participating-org>
+    <participating-org role="Accountable" type="40" ref="00012">United Nations Development Programme</participating-org>
     <participating-org role="Funding" type="40" ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</participating-org>
     <activity-date type="start-planned" iso-date="2013-06-25">2013-06-25</activity-date>
     <activity-date type="start-actual" iso-date="2013-06-25">2013-06-25</activity-date>
@@ -2003,7 +2021,7 @@
     <default-tied-status code="5">Untied</default-tied-status>
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00087012</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00074756" />
@@ -2014,7 +2032,7 @@
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-05-31">454954</value>
+      <value currency="USD" value-date="2015-06-30">454954</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2014-01-01" />
@@ -2028,23 +2046,23 @@
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-05-31">68028</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">147402</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-05-31">454954</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">454954</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -2085,7 +2103,7 @@
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00083255</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
@@ -2093,7 +2111,7 @@
     <title>A Bottom Up Approach to Access and Benefit Sharing</title>
     <description type="1">Studies and stakeholder consultations undertaken with the view to further develop the approved concept note into a fully formulated project document</description>
     <participating-org role="Implementing" type="40" ref="00659">UNITED NATIONS DEVELOPMENT PRO</participating-org>
-    <participating-org role="Accountable" type="40" ref="00659">UNITED NATIONS DEVELOPMENT PRO</participating-org>
+    <participating-org role="Accountable" type="40" ref="00012">United Nations Development Programme</participating-org>
     <participating-org role="Funding" type="40" ref="10003">Global Environment Fund Truste</participating-org>
     <activity-date type="start-planned" iso-date="2014-09-22">2014-09-22</activity-date>
     <activity-date type="start-actual" iso-date="2014-09-22">2014-09-22</activity-date>
@@ -2115,7 +2133,7 @@
       <category code="A01" />
     </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00091828</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00083255" />
@@ -2126,27 +2144,27 @@
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-05-31">40000</value>
+      <value currency="USD" value-date="2015-06-30">40000</value>
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-05-31">892</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">9710</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-05-31">40000</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">40000</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="10003">Global Environment Fund Truste</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="10003">Global Environment Fund Truste</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -2157,19 +2175,19 @@
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00083637</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00092013" />
-    <title>Renforcement des mécanismes de prévention des crises</title>
+    <title>ClauRenforcement des mécanismes de prévention des crises</title>
     <description type="1">Projet  d’urgence pour le renforcement des  mécanismes de prévention des crises et le développement inclusif de la région de l’extrême Nord du Cameroun</description>
     <participating-org role="Implementing" type="40" ref="00659">UNITED NATIONS DEVELOPMENT PRO</participating-org>
-    <participating-org role="Accountable" type="40" ref="00659">UNITED NATIONS DEVELOPMENT PRO</participating-org>
+    <participating-org role="Accountable" type="40" ref="00012">United Nations Development Programme</participating-org>
     <participating-org role="Funding" type="40" ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</participating-org>
     <activity-date type="start-planned" iso-date="2015-01-01">2015-01-01</activity-date>
     <activity-date type="start-actual" iso-date="2015-01-01">2015-01-01</activity-date>
-    <activity-date type="end-planned" iso-date="2015-12-31">2015-12-31</activity-date>
+    <activity-date type="end-planned" iso-date="2016-12-31">2016-12-31</activity-date>
     <recipient-country code="CM">Cameroon, Republic of</recipient-country>
     <contact-info>
       <email>registry.cm@undp.org</email>
@@ -2191,7 +2209,7 @@
       <category code="A05" />
     </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00092013</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00083637" />
@@ -2202,27 +2220,27 @@
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-05-31">100000</value>
+      <value currency="USD" value-date="2015-06-30">100000</value>
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-05-31">11392</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">32567</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-05-31">100000</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">100000</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -2233,7 +2251,7 @@
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00087154</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
@@ -2241,7 +2259,7 @@
     <title>Rapid Response for Enhancing Resilience in Far North</title>
     <description type="1">Rapid Response for enhancing resilience and conflict prevention in the communities hosting refugees in Far North and Eastern regions of Cameroon</description>
     <participating-org role="Implementing" type="40" ref="00659">UNITED NATIONS DEVELOPMENT PRO</participating-org>
-    <participating-org role="Accountable" type="40" ref="00659">UNITED NATIONS DEVELOPMENT PRO</participating-org>
+    <participating-org role="Accountable" type="40" ref="00012">United Nations Development Programme</participating-org>
     <participating-org role="Funding" type="10" ref="00141">GOVERNMENT OF JAPAN</participating-org>
     <activity-date type="start-planned" iso-date="2015-03-01">2015-03-01</activity-date>
     <activity-date type="start-actual" iso-date="2015-03-01">2015-03-01</activity-date>
@@ -2267,38 +2285,38 @@
       <category code="A05" />
     </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-06-04T21:10:53" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2015-07-09T16:01:55" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00094262</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00087154" />
     <recipient-country code="CM">Cameroon, Republic of</recipient-country>
     <title xml:lang="en">Rapid Response for Enhancing R</title>
-    <description xml:lang="en" type="1">-</description>
+    <description xml:lang="en" type="1">Rapid Response for Enhancing Resilience and conflict prevention in the communities hosting refugees in Far North and Eastern regionss of Cameroon</description>
     <participating-org role="Funding" type="10" ref="00141">GOVERNMENT OF JAPAN</participating-org>
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-05-31">2000000</value>
+      <value currency="USD" value-date="2015-06-30">2000000</value>
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-05-31">646115</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">676580</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-05-31">2000000</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">2000000</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00141">GOVERNMENT OF JAPAN</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-05-31">0</value>
-      <transaction-date iso-date="2015-05-31" />
+      <value currency="USD" value-date="2015-06-30">0</value>
+      <transaction-date iso-date="2015-06-30" />
       <provider-org ref="00141">GOVERNMENT OF JAPAN</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
