@@ -350,8 +350,8 @@ Global = Backbone.Router.extend({
             that.donorsGross = new TopDonors({type: category});
             that.donorsGross.url = 'api/top-donor-gross-index.json';
 
-            that.donorsLocal = new TopDonors({type: 'amount'});
-            that.donorsLocal.url = 'api/top-donor-local-index.json';
+            /*that.donorsLocal = new TopDonors({type: 'amount'});
+            that.donorsLocal.url = 'api/top-donor-local-index.json';*/
 
             that.donorsGross.fetch({
                 success: function () {
@@ -361,14 +361,14 @@ Global = Backbone.Router.extend({
                     });
                 }
             });
-            this.donorsLocal.fetch({
+            /*this.donorsLocal.fetch({
                 success: function () {
                     that.topDonorsLocal = new views.TopDonors({
                         el: '.donor-local-table',
                         collection: that.donorsLocal
                     });
                 }
-            });
+            });*/
 
             window.setTimeout(function () {
                 $('html, body').scrollTop(0);

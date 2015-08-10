@@ -102,8 +102,8 @@ class ProjectsController(Controller):
         self.topdonor_gross.save_json(self.api_path, 'top-donor-gross-index.json')
 
         # Top Donor Local Index
-        self._populate_top_donor_local_index()
-        self.topdonor_local.save_json(self.api_path, 'top-donor-local-index.json')
+        # self._populate_top_donor_local_index()
+        # self.topdonor_local.save_json(self.api_path, 'top-donor-local-index.json')
 
         # Region Index
         self._populate_region_index()

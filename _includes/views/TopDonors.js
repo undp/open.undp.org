@@ -15,7 +15,7 @@ views.TopDonors = Backbone.View.extend({
         var count = 0;
         var that = this,
             cat = that.collection.type,
-            chartModels = that.collection.models.slice(0,20),
+            chartModels = that.collection.models.slice(0,30),
             max = chartModels[0].get(cat);
 
         _(chartModels).each(function(model) {
@@ -41,7 +41,7 @@ views.TopDonors = Backbone.View.extend({
 
         this.collection.sort();
 
-        var chartModels = this.collection.models.slice(0,20);
+        var chartModels = this.collection.models.slice(0,30);
         var max = this.collection.models[0].get(cat);
         
         $('tbody', this.$el).empty();
