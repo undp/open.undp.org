@@ -79,6 +79,7 @@ views.ProjectProfile = Backbone.View.extend({
         	var filterDocNames = this.model.get('document_name')[0];
         	var filterDocUrls = this.model.get('document_name')[1];
         	var filterDocFormats = this.model.get('document_name')[2];
+        	var filterDocPlaces = this.model.get('document_name')[3];
             
             
              if (typeof filterDocNames == "object" && filterDocNames.length !== 0) {
@@ -98,8 +99,19 @@ views.ProjectProfile = Backbone.View.extend({
                 _(filterDocFormats).each(function(d, i) {
                 	documents[i].filetype = d;
                 });
+                _(filterDocPlaces).each(function(d, i) {
+                	documents[i].place = d;
+                });
                 
             }
+             
+             documents.sort(function(a,b){
+        	  if (a.place < b.place)
+    		    return -1;
+    		  if (a.place > b.place)
+    		    return 1;
+    		  return 0;
+             });
         }
 
         window.setTimeout(function() { $('html, body').scrollTop(0); }, 0);
