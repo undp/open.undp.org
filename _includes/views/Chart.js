@@ -189,7 +189,12 @@ function renderRecipientOfficesChart(donor, donorCountrySelected, chartData, vie
         }
     } else {
         $('#chart-' + view.collection.id).append($('#recipientOfficesChartTabbed').html());
-        if (localRows.length > 0 ) addRows($('#chart-' + view.collection.id + ' #localTab .rows'), localRows, view);
+        if (localRows.length > 0 ) {
+        	addRows($('#chart-' + view.collection.id + ' #localTab .rows'), localRows, view);
+        	if (partnerRows.length < 1) {
+        		$('#chart-' + view.collection.id + ' a[href="#localTab"]').trigger('click');
+        	}
+        }
         if (partnerRows.length > 0) addRows($('#chart-' + view.collection.id + ' #partnerTab .rows'), partnerRows, view);
     }
 }
