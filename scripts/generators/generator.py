@@ -103,8 +103,8 @@ class ProjectsController(Controller):
         self.topdonor_gross.save_json(self.api_path, 'top-donor-gross-index.json')
 
         # Top Donor Local Index
-        self._populate_top_donor_local_index()
-        self.topdonor_local.save_json(self.api_path, 'top-donor-local-index.json')
+        # self._populate_top_donor_local_index()
+        # self.topdonor_local.save_json(self.api_path, 'top-donor-local-index.json')
 
         # Region Index
         self._populate_region_index()
@@ -386,6 +386,9 @@ class ProjectsController(Controller):
         # Get sorted units
         report_units = self.get_and_sort(self.undp_export + '/report_units.csv', 'operating_unit')
         
+        # sorting table for documents by importancy
+        docs_sort = ['A02','A03','A04','A05','A01','A07','A08','A09','A06','A11','A10']
+        
         # Loop through each IATI activity in the XML
         for event, p in iter_obj:
 
@@ -412,6 +415,7 @@ class ProjectsController(Controller):
                     names = []
                     links = []
                     format = []
+                    places = []
                     
                     for doc in documents:
                         try:
@@ -427,12 +431,24 @@ class ProjectsController(Controller):
                             else:
                                 format.append(ft.lstrip('.'))
                         else:
-                            format.append('format')
+                            format.append('')
                         
                         for d in doc.iterchildren(tag=obj.document_name.key):
                             names.append(d.text)
+                        
+                        # default place is last
+                        place = 100
+                        for t in doc.iterchildren(tag='category'):
+                            try:
+                                tp = docs_sort.index(t.get('code'))
+                            except ValueError:
+                                tp = 100
+                            if (tp < place):
+                                place = tp
+                                
+                        places.append(place)
 
-                    obj.document_name.value.extend([names, links, format])
+                    obj.document_name.value.extend([names, links, format, places])
 
                 # Find start and end dates
                 obj.start.value = p.find(obj.start.xml_key).text

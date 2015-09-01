@@ -25,21 +25,21 @@ function renderFocusAreaChart(chartData, rootPath, view) {
         var focusName = model.get('name').toLowerCase().toTitleCase();
         var value = _(((model.get('budget') || 0) / totalBudget)).isNaN() ? 0 :
                     ((model.get('budget') || 0) / totalBudget * 100).toFixed(0);
+        if (value > 0) {
+            $el.append(template({
+                id: model.id,
+                path: rootPath + view.collection.id + '-' + model.id,
+                focusName: focusName,
+                focusIconClass: focusIconClass,
+                value: value
+            }))
 
-        $el.append(template({
-            id: model.id,
-            path: rootPath + view.collection.id + '-' + model.id,
-            focusName: focusName,
-            focusIconClass: focusIconClass,
-            value: value
-        }))
-
-        //Set css for each item
-        $('.fa' + (model.id) + ' .pct span')
-        .css('width', value * 2) // the width of the percentage block corresponds to the value visually, times 2 to make it legible
-        .css('background', value === '0' ? '#999' : '')
-        .text(value === '0' ? '<1%' : value + '%');
-        
+            //Set css for each item
+            $('.fa' + (model.id) + ' .pct span')
+            .css('width', value * 2) // the width of the percentage block corresponds to the value visually, times 2 to make it legible
+            .css('background', value === '0' ? '#999' : '')
+            .text(value === '0' ? '<1%' : value + '%');
+        }
     });
 
     //Add title

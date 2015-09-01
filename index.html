@@ -54,10 +54,8 @@
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
   ga('create', 'UA-24131528-32', 'auto');
   ga('send', 'pageview');
-
 </script>
 <div id='container'>
     {% include global-header.html %}
@@ -93,11 +91,6 @@
             <li id='total'><a href='#top-donors/total'>Total</a></li>
           </ul>
           <table class='table table-unstyled donor-gross-table'></table>
-          {% for donor in site.tags['donors-local'] %}
-          <h3>{{donor.title}}</h3>
-          {{donor.content}}
-          {% endfor %}
-          <table class='table table-unstyled donor-local-table'></table>
         </div>
 
         <div id='about' class='col-790 content view'>
