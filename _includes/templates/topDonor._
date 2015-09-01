@@ -2,9 +2,9 @@
 <% if (country === 'EU') { %>
 	<td><a href='#<%= year%>/filter/donors-10159'><%= name %></a></td>
 <% } else { %>
-	<td><a href='#<%= year%>/filter/donor_countries-<%= country %>'><%= name %></a></td>
+	<td><a href='#<%= year%>/filter/donor_countries-<%= country %>'><%= name %><% if (country === 'CAN' || country === 'IND') { %> *<% } %><% if (country === 'AUS') { %> **<% } %></a></td>
 <% } %>
-	<td class='right'><%= accounting.formatMoney(number) %></td>
+	<td class='right'><%= accounting.formatMoney(number, '$', 0) %></td>
 	<td class='data'>
 	    <div style='width:<%= barWidth %>%'></div>
 	</td>
