@@ -64,7 +64,7 @@ function setBudgetHTML(donorInfo, model, notOperatingUnit, pathTo) {
         );
     var budgetWidth = (notOperatingUnit) ? (donorBudget) : (model.get('budget'));
     var expenditureWidth = (notOperatingUnit) ? (donorExpenditure) : (model.get('expenditure'));
-
+    
     if (budget!='$0') {
         return {
             sort: -1 * budgetWidth,
@@ -100,38 +100,76 @@ function addRows(selector, rows, view) {
 function renderBudgetSourcesChart(donor, donorCountrySelected, chartData, view, pathTo) {
    $('#chart-' + view.collection.id + ' .rows').empty();
     var rows = [];
-
+    
     var donorTable = {};
     global.projects.chain().each(function(project) {
         _(project.get('donors')).each(function(donor, idx) {
-            if (donor in donorTable) {
-                donorTable[donor].budget += project.get('donor_budget')[idx];
-                donorTable[donor].expenditure += project.get('donor_expend')[idx];   
-            } else {
-                donorTable[donor] = { 
-                    budget: project.get('donor_budget')[idx], 
-                    expenditure: project.get('donor_expend')[idx]
-                };
-            }
+        	if (!(donor in donorTable)) {
+        		donorTable[donor] = {
+        			budget: 0,
+        			expenditure: 0
+        		};
+        	}
+            donorTable[donor].budget += project.get('donor_budget')[idx];
+            donorTable[donor].expenditure += project.get('donor_expend')[idx];   
         })
     });
+    var groupedSources = {};
     _(chartData).each(function(model) {
-        var donorInfo = { budget: 0, expenditure: 0};
-        donor = model.id;
-        donorInfo.budget = (donor in donorTable)? donorTable[donor].budget : 0;
-        donorInfo.expenditure = (donor in donorTable)? donorTable[donor].expenditure : 0;
+        var donorInfo = {budget: 0, expenditure: 0};
+        var country = model.get('country');
+        var donor = model.id;
         var notOperatingUnit = (donor || donorCountrySelected);
+        
+        if (country.length == 3 && donorCountrySelected !== country) {
+        	
+        	if (!(country in groupedSources)) {
+        		groupedSources[country] = {
+        			budget: 0,
+        			expenditure: 0
+        		};
+        	}
+        	groupedSources[country].budget += (donor in donorTable)? donorTable[donor].budget : 0;
+        	groupedSources[country].expenditure += (donor in donorTable)? donorTable[donor].expenditure : 0;   
+        	
+        } else {
+        	
+            donorInfo.budget = (donor in donorTable)? donorTable[donor].budget : 0;
+            donorInfo.expenditure = (donor in donorTable)? donorTable[donor].expenditure : 0;
+            
+            if (notOperatingUnit) {
+                if (donor) global.projects.map.collection.donorID = false;      
+                global.projects.map.collection.donorBudget[donor] = donorInfo.budget;
+                global.projects.map.collection.donorExpenditure[donor] = donorInfo.expenditure;
+            }   
+            
+            var row = setBudgetHTML(donorInfo, model, notOperatingUnit, pathTo);
+            if (typeof row !== 'undefined') rows.push(row);
 
-        if (notOperatingUnit) {
-            if (donor) global.projects.map.collection.donorID = false;      
-            global.projects.map.collection.donorBudget[donor] = donorInfo.budget;
-            global.projects.map.collection.donorExpenditure[donor] = donorInfo.expenditure;
         }
-
-        var row = setBudgetHTML(donorInfo, model, notOperatingUnit, pathTo);
-        if (typeof row !== 'undefined') rows.push(row);
-    }); 
-    if (rows.length > 0) addRows($('#chart-' + view.collection.id + ' .rows'),rows, view);
+        
+    });
+    
+    // get country models
+    //console.log(groupedSources.length, notOperatingUnit);
+    if (Object.keys(groupedSources).length > 0) {
+	    var facets = new Facets;
+	    facets.filter(function(data){
+	    	return data.get('id') == 'donor_countries';
+	    })[0].subCollection.fetch({
+	    	success: function(collection) {
+	    		_(groupedSources).each(function(source, c) {
+	    	    	var row = setBudgetHTML(source, collection._byId[c], true, pathTo);
+	    	    	if (typeof row !== 'undefined') rows.push(row);    	
+	    	    });
+	    		
+	    		if (rows.length > 0) addRows($('#chart-' + view.collection.id + ' .rows'),rows, view);
+	    	}
+	    });
+    } else {
+    	if (rows.length > 0) addRows($('#chart-' + view.collection.id + ' .rows'),rows, view);
+    }
+    
 }
 
 function renderRecipientOfficesChart(donor, donorCountrySelected, chartData, view, pathTo) {
