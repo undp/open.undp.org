@@ -85,7 +85,7 @@ views.Filters = Backbone.View.extend({
                             //return (model.get('expenditure') > 0);
                         	return (model.get('budget') > 0);
                         })
-                        .first(75)
+                        //.first(75)
                         .value(); // Top 20
                 } else {
                     // Top 20 donors, donor_countries, and operating_unit
@@ -98,7 +98,7 @@ views.Filters = Backbone.View.extend({
                             //return (model.get('expenditure') > 0);
                         	return (model.get('budget') > 0);
                         })
-                        .first(75)
+                        //.first(75)
                         .value(); // Top 20
                 }
             }
@@ -167,7 +167,7 @@ views.Filters = Backbone.View.extend({
     },
     renderFilters: function(keypress){
         if (this.filterModels.length) {
-            this.$el.html(this.template(this)); // pass in the view as the template varible
+            this.$el.html(this.template(this)); // pass in the view as the template variable
 
             _(this.filterModels).each(function(model) {
 
