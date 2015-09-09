@@ -262,21 +262,21 @@ views.ProjectProfile = Backbone.View.extend({
             				c:[
             				   {v: row[1]},
             				   {v: vendor},
-            				   {v: (vendor == 'Consultant') ? vendor + '\'s payment' : row[5]},
+            				   {v: (vendor == 'Consultant') ? vendor + '\'s payment' : (row[6].trim() != '') ? row[6] : 'Purchase of goods/services'},
             				   {v: new Date(row[4])},
             				   {v: Math.round(row[0]*100)/100}
             				]
             			};
             			// Use line description if there is only one record in PO
             			// for multiline POs we are using either PO reference (if provided) or line description of the first item
-            			if (tableData.rows.length > 0 && tableData.rows[tableData.rows.length-1].c[0].v == row[1] && vendor != 'Consultant') {
+            			/*if (tableData.rows.length > 0 && tableData.rows[tableData.rows.length-1].c[0].v == row[1] && vendor != 'Consultant') {
             				if (row[6].trim() != '') {
                 				tableRow.c[2].v = row[6];
                 				tableData.rows[tableData.rows.length-1].c[2].v = row[6];
             				} else {
             					tableRow.c[2].v = tableData.rows[tableData.rows.length-1].c[2].v;
             				}
-            			} 
+            			} */
             			tableData.rows.push(tableRow);
             		});
             		var data = new google.visualization.DataTable(tableData);
