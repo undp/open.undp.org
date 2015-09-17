@@ -170,7 +170,13 @@
     <div id='flickr-images'></div>
   </div>
   <!--/ #flickr -->
-
+  
+<div class='contracts-container hide'>
+  <h2 class='heading-title'>Summary of Purchase orders (contracts) issued over USD 30,000</h2>
+  <p>A single Purchase Order (PO) can be issued to purchase goods or services for one or more projects. For those POs, the amount displayed is for one project only. Thus, there may be entries for less than USD 30,000, even though the total amount of that particular PO is actually more than USD 30,000. The balance amount will be displayed on other relevant project pages.</p>
+  <div id='contracts-table'></div>
+</div>
+ 
   <% if (model.get('outputs')) { %>
   <h2 class='heading-title'>
       <% if (model.get('outputs').length === 1) { %>
