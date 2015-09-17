@@ -229,7 +229,7 @@ views.ProjectProfile = Backbone.View.extend({
     	// requires Google jsapi script already loaded 
     	google.load("visualization", "1", {packages:["table"], 'callback': function(){
         	var apiUrl = 'https://www.googleapis.com/fusiontables/v2/query'; // Google Fusion Table API endpoint
-        	var datasource = '1ax65en-NNrqI71-66QS52uvYTU3sKI6tg9M0KZMA'; // ID of the Fusion Table we are pulling data from
+        	var datasource = '1pLlPUc6Wzqo2u5Xy3PvdODuJgCCp4wJaopWUy99o'; // ID of the Fusion Table we are pulling data from
         	var sql = 'SELECT AMOUNT_USD,PO_ID,VENDOR_NAME,VENDOR_CLASSIFICATION,PO_DT,PO_DESCRIPTION,PO_REF FROM ' + datasource + ' WHERE PROJECT = ' + id + ' ORDER BY PO_DT DESC';
         	var key = 'AIzaSyCu3LqZDIDAj5f7uWzIJaI0BESvOxuAuUg'; // Google API key used for requests attribution
         	var mask = {
@@ -257,17 +257,26 @@ views.ProjectProfile = Backbone.View.extend({
             			"rows": []
             		};
             		$.each(ftable.rows, function(i, row) {
-            			var vendor = (typeof mask[row[3]] !== 'undefined') ? mask[row[3]] : row[2];
+            			var vendor = (row[3] in mask) ? mask[row[3]] : row[2];
             			var tableRow = {
             				c:[
             				   {v: row[1]},
             				   {v: vendor},
-            				   {v: (vendor == 'Consultant') ? vendor + '\'s payment' : (row[6].trim() != '') ? row[6] : 'Purchase of goods/services'},
+            				   {v: (vendor == 'Consultant') ? vendor + '\'s payment' : row[6]},
             				   {v: new Date(row[4])},
             				   {v: Math.round(row[0]*100)/100}
             				]
             			};
-            			// Use line description if there is only one record in PO
+            			// What to show if there is now PO reference  (row[6].trim() != '') ? row[6] : 'Purchase of goods/services'
+            			if (tableRow.c[2].v.trim() == '') {
+            				// deal with one line POs - use line description
+            				if (tableData.rows[tableData.rows.length-1].c[0].v != row[1] && (ftable.rows.length < i || ftable.rows[i+1][1] != row[1])) {
+            					tableRow.c[2].v = row[5];
+            				} else {
+            					tableRow.c[2].v = 'Purchase of goods/services';
+            				}
+            			}
+            			
             			// for multiline POs we are using either PO reference (if provided) or line description of the first item
             			/*if (tableData.rows.length > 0 && tableData.rows[tableData.rows.length-1].c[0].v == row[1] && vendor != 'Consultant') {
             				if (row[6].trim() != '') {
