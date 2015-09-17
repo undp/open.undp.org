@@ -17,6 +17,7 @@ views.ProjectProfile = Backbone.View.extend({
         this.high = 10;
 
         this.render();
+        _.bindAll(this,'contracts');
     },
 
     render: function() {
@@ -177,7 +178,9 @@ views.ProjectProfile = Backbone.View.extend({
             model: this.model,
             embed: this.options.embed,
         });
-
+        
+        this.contracts(this.model.get('id'));
+        
         return this;
     },
 
@@ -220,5 +223,99 @@ views.ProjectProfile = Backbone.View.extend({
         $('.widget-code', el)
             .val(defaultIframe.replace('src="{{site.baseurl}}/','src="' + Backbone.history.location.origin + '/'))
             .select();
+    },
+    
+    contracts: function(id) {
+    	// requires Google jsapi script already loaded 
+    	google.load("visualization", "1", {packages:["table"], 'callback': function(){
+        	var apiUrl = 'https://www.googleapis.com/fusiontables/v2/query'; // Google Fusion Table API endpoint
+        	var datasource = '1pLlPUc6Wzqo2u5Xy3PvdODuJgCCp4wJaopWUy99o'; // ID of the Fusion Table we are pulling data from
+        	var sql = 'SELECT AMOUNT_USD,PO_ID,VENDOR_NAME,VENDOR_CLASSIFICATION,PO_DT,PO_DESCRIPTION,PO_REF FROM ' + datasource + ' WHERE PROJECT = ' + id + ' ORDER BY PO_DT DESC';
+        	var key = 'AIzaSyCu3LqZDIDAj5f7uWzIJaI0BESvOxuAuUg'; // Google API key used for requests attribution
+        	var mask = {
+        		"Beneficiary Family": "Individual",
+        		"Fellow": "Individual",
+        		"Meeting Participant" : "Individual", 
+        		"Service Contract": "Consultant",
+        		"SSA / IC": "Consultant",
+        		"Staff": "Individual",
+        		"UNV": "UNV"
+        	}; // Mapping Vendor names to the neutral terminology - we don't want to expose some details like Consultant names, etc. 
+        	
+        	queue()
+        	.defer($.getJSON, apiUrl + '?sql=' + encodeURI(sql) + '&key=' + key)
+        	.await(function(ftable){
+            	if ('rows' in ftable && ftable.rows.length > 0) {
+            		var tableData = {
+            			"cols": [
+            			    {"label": "PO ID", "type": "string"},
+            			    {"label": "Vendor", "type": "string"},
+            			    {"label": "Description", "type": "string"},
+            			    {"label": "Date", "type": "date"},
+            			    {"label": "Amount (USD)", "type": "number"}
+            			],
+            			"rows": []
+            		};
+            		$.each(ftable.rows, function(i, row) {
+            			var vendor = (row[3] in mask) ? mask[row[3]] : row[2];
+            			var tableRow = {
+            				c:[
+            				   {v: row[1]},
+            				   {v: vendor},
+            				   {v: (vendor == 'Consultant') ? vendor + '\'s payment' : row[6]},
+            				   {v: new Date(row[4])},
+            				   {v: Math.round(row[0]*100)/100}
+            				]
+            			};
+            			// What to show if there is now PO reference  (row[6].trim() != '') ? row[6] : 'Purchase of goods/services'
+            			if (tableRow.c[2].v.trim() == '') {
+            				// deal with one line POs - use line description
+            				if (tableData.rows[tableData.rows.length-1].c[0].v != row[1] && (ftable.rows.length < i || ftable.rows[i+1][1] != row[1])) {
+            					tableRow.c[2].v = row[5];
+            				} else {
+            					tableRow.c[2].v = 'Purchase of goods/services';
+            				}
+            			}
+            			
+            			// for multiline POs we are using either PO reference (if provided) or line description of the first item
+            			/*if (tableData.rows.length > 0 && tableData.rows[tableData.rows.length-1].c[0].v == row[1] && vendor != 'Consultant') {
+            				if (row[6].trim() != '') {
+                				tableRow.c[2].v = row[6];
+                				tableData.rows[tableData.rows.length-1].c[2].v = row[6];
+            				} else {
+            					tableRow.c[2].v = tableData.rows[tableData.rows.length-1].c[2].v;
+            				}
+            			} */
+            			tableData.rows.push(tableRow);
+            		});
+            		var data = new google.visualization.DataTable(tableData);
+            		// aggregate data by PO
+            		var groupedData = google.visualization.data.group(
+        				data, 
+        				[0,1,{"column": 2, "modifier": function(value){return (value.indexOf(") ") > -1) ? value.substring(value.indexOf(") ")+2) : value;}, "type": "string", "label": "Description"},3], 
+        				[{
+        					"column": 4, 
+        					"aggregation": function(values) {
+        						return accounting.formatMoney(values.reduce(function(a,b){return a+b;}))
+        					}, 
+        					"type": "string"
+        				}]
+            		);
+            		var table = new google.visualization.Table(document.getElementById('contracts-table'));
+            		$('.contracts-container').removeClass('hide');
+            		var options = {
+            			showRowNumber: true,
+            			allowHtml: true,
+            			width: '100%'
+            		};
+            		if (groupedData.getNumberOfRows() > 20) {
+            			options.page = 'enable';
+            			options.pageSize = 20;
+            		}
+            		
+            		table.draw(groupedData, options);   
+            	}
+        	});
+        }});
     }
 });
