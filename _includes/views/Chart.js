@@ -121,7 +121,7 @@ function renderBudgetSourcesChart(donor, donorCountrySelected, chartData, view, 
         var donor = model.id;
         var notOperatingUnit = (donor || donorCountrySelected);
         
-        if (country.length == 3 && donorCountrySelected !== country) {
+        if (country.length == 3 && donorCountrySelected !== country && country != 'OTH') {
         	
         	if (!(country in groupedSources)) {
         		groupedSources[country] = {
