@@ -302,8 +302,18 @@ views.ProjectProfile = Backbone.View.extend({
         				}]
             		);
             		var table = new google.visualization.Table(document.getElementById('contracts-table'));
-            		$('.contracts-container > h2').html('Summary of Purchase orders (contracts) issued over USD 30,000').css('margin-bottom', '10px');
-            		table.draw(groupedData, {showRowNumber: true, allowHtml: true, page: 'enable', pageSize: 20, width: '100%'});      
+            		$('.contracts-container').removeClass('hide');
+            		var options = {
+            			showRowNumber: true,
+            			allowHtml: true,
+            			width: '100%'
+            		};
+            		if (groupedData.getNumberOfRows() > 20) {
+            			options.page = 'enable';
+            			options.pageSize = 20;
+            		}
+            		
+            		table.draw(groupedData, options);   
             	}
         	});
         }});
