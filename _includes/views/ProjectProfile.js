@@ -258,12 +258,18 @@ views.ProjectProfile = Backbone.View.extend({
             		};
             		$.each(ftable.rows, function(i, row) {
             			var vendor = (row[3] in mask) ? mask[row[3]] : row[2];
+            			var ts = new Date(row[4]);
+            			// two digit year fix
+            			var year = ts.getFullYear();
+            			if (year < 1990) {
+            				ts.setFullYear(year + 100);
+            			}
             			var tableRow = {
             				c:[
             				   {v: row[1]},
             				   {v: vendor},
             				   {v: (vendor == 'Consultant') ? vendor + '\'s payment' : row[6]},
-            				   {v: new Date(row[4])},
+            				   {v: ts},
             				   {v: Math.round(row[0]*100)/100}
             				]
             			};
