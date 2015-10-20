@@ -417,35 +417,38 @@ class ProjectsController(Controller):
                     places = []
                     
                     for doc in documents:
-                        try:
-                            links.append(urllib2.unquote(doc.get('url')).encode('utf-8').decode('utf-8'))
-                        except UnicodeDecodeError:
-                            links.append(urllib2.unquote(doc.get('url')).decode('utf-8'))
-                        #links.append(doc.get('url'))
                         
-                        if 'application/' in doc.get('format'):
-                            ft = mimetypes.guess_extension(doc.get('format'), False)
-                            if ft is None:
-                                format.append('')
-                            else:
-                                format.append(ft.lstrip('.'))
-                        else:
-                            format.append('')
-                        
-                        for d in doc.iterchildren(tag=obj.document_name.key):
-                            names.append(d.text)
-                        
-                        # default place is last
-                        place = 100
-                        for t in doc.iterchildren(tag='category'):
+                        # avoid adding circular links to the same site/project
+                        if ('open.undp.org/#project/' + obj.project_id.value) not in doc.get('url'):
                             try:
-                                tp = docs_sort.index(t.get('code'))
-                            except ValueError:
-                                tp = 100
-                            if (tp < place):
-                                place = tp
-                                
-                        places.append(place)
+                                links.append(urllib2.unquote(doc.get('url')).encode('utf-8').decode('utf-8'))
+                            except UnicodeDecodeError:
+                                links.append(urllib2.unquote(doc.get('url')).decode('utf-8'))
+                            #links.append(doc.get('url'))
+                            
+                            if 'application/' in doc.get('format'):
+                                ft = mimetypes.guess_extension(doc.get('format'), False)
+                                if ft is None:
+                                    format.append('')
+                                else:
+                                    format.append(ft.lstrip('.'))
+                            else:
+                                format.append('')
+                            
+                            for d in doc.iterchildren(tag=obj.document_name.key):
+                                names.append(d.text)
+                            
+                            # default place is last
+                            place = 100
+                            for t in doc.iterchildren(tag='category'):
+                                try:
+                                    tp = docs_sort.index(t.get('code'))
+                                except ValueError:
+                                    tp = 100
+                                if (tp < place):
+                                    place = tp
+                                    
+                            places.append(place)
 
                     obj.document_name.value.extend([names, links, format, places])
 
