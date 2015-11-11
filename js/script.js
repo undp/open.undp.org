@@ -52,4 +52,11 @@ $(document).ready(function() {
     // Start the application
     global = new Global();
     Backbone.history.start();
+    
+    // Universal Analytics workaround
+    Backbone.history.on("route", function(router, route, params){
+    	if (typeof ga == 'function') {
+    		ga('send', 'pageview', '/' + window.location.hash);
+    	}
+    });
 });
