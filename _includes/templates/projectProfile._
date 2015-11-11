@@ -107,7 +107,6 @@
               q = queue();
           
           q.defer(function(cb) {
-              //console.log(model.get('outputs'))
               donors_id = _.chain(model.get('outputs'))
                   .map(function (o) { return _.zip(_(o.donor_id).sort(), o.donor_short, o.donor_name) })
                   .flatten(true)
@@ -120,17 +119,12 @@
           <p>
             <%
             q.await(function() {
-            var fiscal_year = _(model.attributes.fiscal_year).chain().sort().last().value()
-                if (donors_id.length < 5) {
-                    _.each(donors_id, function(o,i) {  %>
-                <a href='#<%= fiscal_year %>/filter/donors-<%= o.id %>'><%= o.long %></a><% if (i != donors_id.length -1) { %>, <% } %>
+                var fiscal_year = Math.min(_(model.attributes.fiscal_year).chain().sort().last().value(), FISCALYEARS[0]);
+                var title = (donors_id.length <= 5) ? 'long' : 'short';
+                _.each(donors_id, function(o,i) {                
+                %>
+                  <a href='#<%= fiscal_year %>/filter/donors-<%= o.id %>'><%= o[title] %></a><% if (i != donors_id.length -1) { %>, <% } %>
                 <% });
-                } else {
-
-                    _.each(donors_id, function(o,i) { %>
-                <a href='#<%= fiscal_year %>/filter/donors-<%= o.id %>'><%= o.short %></a><% if (i != donors_id.length -1) { %>, <% } %>
-                <% });
-                }
             });
             %>
           </p>
