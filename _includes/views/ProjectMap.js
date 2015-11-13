@@ -10,7 +10,7 @@ views.ProjectMap = Backbone.View.extend({
 
         // photos setup
         this.photos = [];
-        this.flickrAccts = [];
+        //this.flickrAccts = [];
 
         this.nations = new Nationals();
 
@@ -36,7 +36,7 @@ views.ProjectMap = Backbone.View.extend({
 
         if (!this.options.embed) {
             // fire up social media spreadsheet
-            this.loadSocialSpreadsheet(this.nations.models);
+            //this.loadSocialSpreadsheet(this.nations.models);
             // adding faux fullscreen control
            $('#profilemap').append('<div class="full-control"><a href="#" class="icon map-fullscreen"></a></div>');
         }
