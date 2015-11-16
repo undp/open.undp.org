@@ -9,7 +9,7 @@ views.ProjectMap = Backbone.View.extend({
         this.$summaryEl = $('#country-summary'),
 
         // photos setup
-        this.photos = [];
+        //this.photos = [];
         //this.flickrAccts = [];
 
         this.nations = new Nationals();
@@ -18,7 +18,7 @@ views.ProjectMap = Backbone.View.extend({
 
         this.nations.fetch();
 
-        _.bindAll(this,'draw','onEachFeature','photosFromDocument','processSheet');
+        _.bindAll(this,'draw','onEachFeature');//,'photosFromDocument','processSheet'
     },
     render: function() {
         // match project operating unit with operating unit index
@@ -57,9 +57,9 @@ views.ProjectMap = Backbone.View.extend({
 
         this.map.attributionControl.addAttribution('<a href="http://www.undp.org/operations/copyright_and_termsofuse">Disclaimer</a>');
 
-        if (this.model.get('document_name')) {
+        /*if (this.model.get('document_name')) {
             this.photosFromDocument();
-        }
+        }*/
 
         // load in necessary geography
         // and lookup jsons for drawing the map
@@ -204,33 +204,33 @@ views.ProjectMap = Backbone.View.extend({
         $('.country-profile').toggleClass('full');
     },
     photosFromDocument: function(){
-        var files = _.first(this.model.get('document_name')),
-            fileSrc = _.last(this.model.get('document_name'));
-
-        _(files).each(function (file, i) {
-            var filetype,
+        /*var files = _.first(this.model.get('document_name')),
+            fileSrc = _.last(this.model.get('document_name'));*/
+        var files = this.model.get('document_name');
+        _(files[1]).each(function (file, i) {
+            var chopped = file.split('.');
+            var filetype = chopped[chopped.length-1].toLowerCase();
+            /*	filetype,
                 source;
-
+            
             try {
-                filetype = file.split('.')[1].toLowerCase();
+                filetype = chopped[chopped.length-1].toLowerCase();
             }
             catch(err) {
                 filetype = '';
             }
 
-            source = fileSrc[i];
+            source = fileSrc[i];*/
 
             if (filetype === 'jpg' || filetype === 'jpeg' || filetype === 'png' || filetype === 'gif') {
-                // var img = new Image();
-                // img.src = source;
-
                 this.photos.push({
-                    'title': file.split('.')[0],
-                    'source': source,
-                    'url': source
+                    'title': files[0][i],
+                    'source': file,
+                    'url': file
                 });
             }
         },this);
+        console.log(this.photos);
     },
     loadSocialSpreadsheet: function(data) {
         // Get social media google spreadsheet
