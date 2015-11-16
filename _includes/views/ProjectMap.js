@@ -230,7 +230,7 @@ views.ProjectMap = Backbone.View.extend({
                 });
             }
         },this);
-        console.log(this.photos);
+        //console.log(this.photos);
     },
     loadSocialSpreadsheet: function(data) {
         // Get social media google spreadsheet
