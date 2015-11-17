@@ -5,7 +5,6 @@
   <div id='project-heading'>
       <h3 class='heading-title'><%= model.get('project_title').toLowerCase().toTitleCase() %></h3>
       <p id='project-descr' class='heading-desc'><%= model.get('project_descr') %></p>
-      <p id='tweet-button'></p>
   </div>
   <div id='top-stats' class='row-fluid'>
     <div class='span5'>
@@ -130,7 +129,7 @@
           </p>
         </div>
       </div>
-      <% if (!_.isEmpty(documents)) { %>
+      <% var photos = []; if (!_.isEmpty(documents)) { %>
       <div class='row-fluid documents'>
         <div class='span12'>
           <div class='label'>
@@ -144,7 +143,7 @@
                   <span class='icon filetype filetype-<%= doc.filetype %>'></span>
                   <%= doc.title %></a>
                 </li>
-                <% }}); %>
+                <% } else { photos.push(doc); }}); %>
               </ul>
             </div>
           </div>
@@ -153,17 +152,33 @@
       </div>
       <% } %>
     </div>
-  </div>
-
-
+  </div>  
   <!--/ #top-stats -->
-  <div id='flickr' class='row-fluid'>
-    <div class='spin'></div>
-    <h2 class='heading-title'>Project Photos</h2>
-    <div class='spin'></div>
-    <div id='flickr-images'></div>
+  
+  <% if (photos.length > 0) { %>
+  <h2 class="heading-title">Project photos</h2>
+  <div id="slides" class="carousel slide" data-interval="false">
+  <div class="carousel-inner">
+  
+  <% for (var i=0;i<photos.length;i++) {  %>
+  <div class='item<% if (i==0) { %> active<% } %>'>
+  <a href='<%= photos[i].src %>' target='_blank'>
+    <div class='flickr-img clearfix'>
+      <img src='<%= photos[i].src %>' alt='<%= photos[i].title %>' />
+    </div>
+  </a>
+  <div class="carousel-caption"><p><%= photos[i].title %></p></div>
   </div>
-  <!--/ #flickr -->
+  
+  <% }  %>
+  </div>
+  
+  <a class="carousel-control left" href="#slides" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#slides" data-slide="next">&rsaquo;</a>
+  
+  </div> 
+  
+  <% } %>
   
 <div class='contracts-container hide'>
   <h2 class='heading-title'>Summary of Purchase orders (contracts) issued over USD 30,000</h2>

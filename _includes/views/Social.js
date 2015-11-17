@@ -1,22 +1,22 @@
 views.Social = Backbone.View.extend({
 	el: '#unit-contact',
 	template: _.template($('#contactInfo').html()),
-	flickrApi: {
+	/*flickrApi: {
 		base:'https://api.flickr.com/services/rest/?format=json&jsoncallback=?&method=',
 		key:'1da8476bfea197f692c2334997c10c87',//from UNDP's main account (unitednationsdevelopmentprogramme)
 		methodLookupUser:'flickr.urls.lookupUser&api_key=',
 		methodSearch:'flickr.photos.search&api_key=',
 		methodGetInfo: 'flickr.photos.getInfo&api_key='
-	},
+	},*/
 	initialize:function(){
-        this.twitterTemplate = _.template($('#tweetButton').html());
-        this.flickrTemplate = _.template($('#flickrImage').html());
+        //this.twitterTemplate = _.template($('#tweetButton').html());
+        //this.flickrTemplate = _.template($('#flickrImage').html());
 
-        this.$twitterEl = $('#tweet-button'); // orginiated in ProjectProfile.js
-        this.$flickrEl = $('#flickr-images');
+        //this.$twitterEl = $('#tweet-button'); // orginiated in ProjectProfile.js
+        //this.$flickrEl = $('#flickr-images');
 
         this.render();
-        _.bindAll(this,'flickr');
+        //_.bindAll(this);//,'flickr'
 	},
 	render: function(){
 		var unit = this.options.unit;
@@ -26,20 +26,20 @@ views.Social = Backbone.View.extend({
             unit: unit.get('name'),
             website: unit.get('web'),
             email: unit.get('email'),
-            twitter: unit.twitter,
+            //twitter: unit.twitter,
             flickr: unit.flickr,
             facebook: unit.facebook
         }))
         // tweet buttons
-        this.$twitterEl.html(this.twitterTemplate({
+        /*this.$twitterEl.html(this.twitterTemplate({
             'url': BASE_URL + '#project/' + project.get('project_id'),
             'hashtags': 'project' + project.get('project_id'),
             'text': project.get('project_title').toLowerCase().toTitleCase(),
             'via':unit.twitter.length > 0 ? unit.twitter  : 'OpenUNDP',
             'twitter': unit.twitter.length > 0 ? unit.twitter  : 'OpenUNDP'
-        }))
+        }))*/
 
-        this.flickr();
+        //this.flickr();
 	},
     flickr: function(account) {
         var view = this; // this is necessary since there're a lot of async loading

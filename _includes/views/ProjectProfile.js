@@ -276,7 +276,7 @@ views.ProjectProfile = Backbone.View.extend({
             			// What to show if there is now PO reference  (row[6].trim() != '') ? row[6] : 'Purchase of goods/services'
             			if (tableRow.c[2].v.trim() == '') {
             				// deal with one line POs - use line description
-            				if (tableData.rows[tableData.rows.length-1].c[0].v != row[1] && (ftable.rows.length < i || ftable.rows[i+1][1] != row[1])) {
+            				if (tableData.rows[tableData.rows.length-1].c[0].v != row[1] && (ftable.rows.length >= i || ftable.rows[i+1][1] != row[1])) {
             					tableRow.c[2].v = row[5];
             				} else {
             					tableRow.c[2].v = 'Purchase of goods/services';
