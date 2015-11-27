@@ -10,16 +10,16 @@ To setup the site locally:
 
 Clone this repo to a convenient place like your home directory:
 
-    git clone git@github.com:undp/undp.github.com.git
+    git clone git@github.com:undp/open.undp.org.git
 
 Start `jekyll`
 
-    cd undp.github.com
+    cd open.undp.org
     jekyll
 
 The site should be accessible at `http://0.0.0.0:4000` after it has been generated for the first time.
 
-When you push new changes to the `master` branch of the remote repo in GitHub, GitHub will automatically rebuild the site and publish it.
+When you push new changes to the `gh-pages` branch of the remote repo in GitHub, GitHub will automatically rebuild the site and publish it.
 
 
 ## Files
