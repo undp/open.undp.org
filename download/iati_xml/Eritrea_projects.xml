@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2015-12-18T16:20:25" version="1.04">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2016-01-07T17:56:05" version="1.04">
   <!--Eritrea-->
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00037750</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
@@ -47,7 +47,7 @@
       <category code="A09" />
     </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00041360</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00037750" />
@@ -59,11 +59,17 @@
     <country-budget-items vocabulary="1">
       <budget-item code="3.1.1" percentage="100">policy, planning and administration</budget-item>
     </country-budget-items>
+    <capital-spend percentage="5.00" />
     <participating-org role="Funding" type="40" ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</participating-org>
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-11-30">0.000</value>
+      <value currency="USD" value-date="2015-12-31">0.000</value>
+    </budget>
+    <budget type="2">
+      <period-start iso-date="2016-01-01" />
+      <period-end iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">-400980.000</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2014-01-01" />
@@ -82,23 +88,23 @@
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-11-30">8619.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">8619.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-11-30">0.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">0.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-11-30">0.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">0.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -125,6 +131,20 @@
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <policy-marker code="1" vocabulary="DAC" significance="1">Gender Equality</policy-marker>
+    <location ref="ER">
+      <location-id vocabulary="G1" code="448500" />
+      <name>Gash Barka</name>
+      <description>first-order administrative division</description>
+      <activity-description></activity-description>
+      <administrative level="1" code="448500" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>15.250000 37.500000</pos>
+      </point>
+      <exactness code="1" />
+      <location-reach code="2" />
+      <location-class code="1" />
+      <feature-designation code="ADM1" />
+    </location>
     <location ref="ER">
       <location-id vocabulary="G1" code="345050" />
       <name>Adi K’eshi</name>
@@ -182,18 +202,18 @@
       <feature-designation code="ADM1" />
     </location>
     <location ref="ER">
-      <location-id vocabulary="G1" code="448500" />
-      <name>Gash Barka</name>
-      <description>first-order administrative division</description>
+      <location-id vocabulary="G1" code="343300" />
+      <name>Asmara</name>
+      <description>capital of a political entity</description>
       <activity-description></activity-description>
-      <administrative level="1" code="448500" vocabulary="G1" />
+      <administrative level="1" code="343300" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>15.250000 37.500000</pos>
+        <pos>15.338050 38.931840</pos>
       </point>
       <exactness code="1" />
-      <location-reach code="2" />
-      <location-class code="1" />
-      <feature-designation code="ADM1" />
+      <location-reach code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <activity-scope code="5" xml:lang="en">Sub-national: Multi-first-level administrative areas</activity-scope>
     <activity-scope code="8" xml:lang="en">Single Location</activity-scope>
@@ -203,7 +223,7 @@
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00042398</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
@@ -249,8 +269,13 @@
       <language code="en" />
       <category code="A09" />
     </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
+      <title>Request for Procurement</title>
+      <language code="en" />
+      <category code="A10" />
+    </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00048778</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00042398" />
@@ -260,11 +285,12 @@
     <title xml:lang="en">Organizational Effectiveness</title>
     <description xml:lang="en" type="1">-</description>
     <sector code="9" vocabulary="RO">Organizational Results Area 2</sector>
+    <capital-spend percentage="5.00" />
     <participating-org role="Funding" type="40" ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</participating-org>
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-11-30">44000.000</value>
+      <value currency="USD" value-date="2015-12-31">44000.000</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2014-01-01" />
@@ -278,23 +304,23 @@
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-11-30">21367.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">53801.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-11-30">44000.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">44000.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-11-30">0.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">0.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -314,6 +340,20 @@
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <policy-marker code="1" vocabulary="DAC" significance="0">Gender Equality</policy-marker>
+    <location ref="ER">
+      <location-id vocabulary="G1" code="343300" />
+      <name>Asmara</name>
+      <description>capital of a political entity</description>
+      <activity-description></activity-description>
+      <administrative level="1" code="343300" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>15.338050 38.931840</pos>
+      </point>
+      <exactness code="1" />
+      <location-reach code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <activity-scope code="4" xml:lang="en">National</activity-scope>
     <default-flow-type code="10">ODA</default-flow-type>
     <default-aid-type code="C01">Project Type Interventions</default-aid-type>
@@ -321,7 +361,7 @@
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00050469</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00042398" />
@@ -331,11 +371,12 @@
     <title xml:lang="en">SUPPORT TO UN RESIDENT COORDIN</title>
     <description xml:lang="en" type="1">SUPPORT TO RESIDENT UNITED NATIONS COORDINATION OFFICE IN ERITREA</description>
     <sector code="16" vocabulary="RO">Organizational Results Area 9</sector>
+    <capital-spend percentage="0.00" />
     <participating-org role="Funding" type="40" ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</participating-org>
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-11-30">6450.000</value>
+      <value currency="USD" value-date="2015-12-31">6450.000</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2012-01-01" />
@@ -344,23 +385,23 @@
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-11-30">0.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">0.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-11-30">6450.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">6450.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-11-30">0.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">0.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -373,13 +414,27 @@
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <policy-marker code="1" vocabulary="DAC" significance="0">Gender Equality</policy-marker>
+    <location ref="ER">
+      <location-id vocabulary="G1" code="343300" />
+      <name>Asmara</name>
+      <description>capital of a political entity</description>
+      <activity-description></activity-description>
+      <administrative level="1" code="343300" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>15.338050 38.931840</pos>
+      </point>
+      <exactness code="1" />
+      <location-reach code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <default-flow-type code="10">ODA</default-flow-type>
     <default-aid-type code="C01">Project Type Interventions</default-aid-type>
     <collaboration-type code="4">Multilateral outflows</collaboration-type>
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00049674</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00042398" />
@@ -389,43 +444,58 @@
     <title xml:lang="en">DEVELOPMENT SERVICES</title>
     <description xml:lang="en" type="1">Development Support Services</description>
     <sector code="8" vocabulary="RO">Organizational Results Area 1</sector>
+    <capital-spend percentage="0.00" />
     <participating-org role="Funding" type="40" ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</participating-org>
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-11-30">1992.000</value>
+      <value currency="USD" value-date="2015-12-31">1992.000</value>
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-11-30">1732.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">1732.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-11-30">1992.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">1992.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-11-30">0.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">0.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <policy-marker code="1" vocabulary="DAC" significance="0">Gender Equality</policy-marker>
+    <location ref="ER">
+      <location-id vocabulary="G1" code="343300" />
+      <name>Asmara</name>
+      <description>capital of a political entity</description>
+      <activity-description></activity-description>
+      <administrative level="1" code="343300" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>15.338050 38.931840</pos>
+      </point>
+      <exactness code="1" />
+      <location-reach code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <default-flow-type code="10">ODA</default-flow-type>
     <default-aid-type code="C01">Project Type Interventions</default-aid-type>
     <collaboration-type code="4">Multilateral outflows</collaboration-type>
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00047320</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
@@ -470,7 +540,7 @@
       <category code="A09" />
     </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00056800</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00047320" />
@@ -486,12 +556,12 @@
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-11-30">272085.000</value>
+      <value currency="USD" value-date="2015-12-31">272085.000</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">100000.000</value>
+      <value currency="USD" value-date="2016-12-31">50000.000</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2014-01-01" />
@@ -510,23 +580,23 @@
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-11-30">245529.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">271246.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-11-30">272085.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">272085.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-11-30">0.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">0.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -553,6 +623,34 @@
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <policy-marker code="1" vocabulary="DAC" significance="2">Gender Equality</policy-marker>
+    <location ref="ER">
+      <location-id vocabulary="G1" code="448500" />
+      <name>Gash Barka</name>
+      <description>first-order administrative division</description>
+      <activity-description>EMPOWERNMENT OF WOMEN</activity-description>
+      <administrative level="1" code="448500" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>15.250000 37.500000</pos>
+      </point>
+      <exactness code="1" />
+      <location-reach code="1" />
+      <location-class code="1" />
+      <feature-designation code="ADM1" />
+    </location>
+    <location ref="ER">
+      <location-id vocabulary="G1" code="448497" />
+      <name>Anseba Region</name>
+      <description>first-order administrative division</description>
+      <activity-description>WOMEN EMPOWERNMENT</activity-description>
+      <administrative level="1" code="448497" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>16.500000 37.500000</pos>
+      </point>
+      <exactness code="1" />
+      <location-reach code="2" />
+      <location-class code="1" />
+      <feature-designation code="ADM1" />
+    </location>
     <location ref="ER">
       <location-id vocabulary="G1" code="338010" />
       <name>Eritrea</name>
@@ -582,32 +680,18 @@
       <feature-designation code="PPLC" />
     </location>
     <location ref="ER">
-      <location-id vocabulary="G1" code="448497" />
-      <name>Anseba Region</name>
-      <description>first-order administrative division</description>
-      <activity-description>WOMEN EMPOWERNMENT</activity-description>
-      <administrative level="1" code="448497" vocabulary="G1" />
+      <location-id vocabulary="G1" code="343300" />
+      <name>Asmara</name>
+      <description>capital of a political entity</description>
+      <activity-description></activity-description>
+      <administrative level="1" code="343300" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>16.500000 37.500000</pos>
-      </point>
-      <exactness code="1" />
-      <location-reach code="2" />
-      <location-class code="1" />
-      <feature-designation code="ADM1" />
-    </location>
-    <location ref="ER">
-      <location-id vocabulary="G1" code="448500" />
-      <name>Gash Barka</name>
-      <description>first-order administrative division</description>
-      <activity-description>EMPOWERNMENT OF WOMEN</activity-description>
-      <administrative level="1" code="448500" vocabulary="G1" />
-      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>15.250000 37.500000</pos>
+        <pos>15.338050 38.931840</pos>
       </point>
       <exactness code="1" />
       <location-reach code="1" />
-      <location-class code="1" />
-      <feature-designation code="ADM1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <activity-scope code="4" xml:lang="en">National</activity-scope>
     <result type="1" aggregation-status="1">
@@ -656,7 +740,7 @@
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00050222</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
@@ -701,7 +785,7 @@
       <category code="A11" />
     </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00061922</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00050222" />
@@ -717,12 +801,7 @@
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-11-30">174462.000</value>
-    </budget>
-    <budget type="2">
-      <period-start iso-date="2016-01-01" />
-      <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">100000.000</value>
+      <value currency="USD" value-date="2015-12-31">166952.000</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2014-01-01" />
@@ -736,23 +815,23 @@
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-11-30">159803.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">165629.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-11-30">174462.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">166952.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-11-30">0.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">0.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -800,6 +879,20 @@
       <location-class code="2" />
       <feature-designation code="PPLC" />
     </location>
+    <location ref="ER">
+      <location-id vocabulary="G1" code="343300" />
+      <name>Asmara</name>
+      <description>capital of a political entity</description>
+      <activity-description></activity-description>
+      <administrative level="1" code="343300" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>15.338050 38.931840</pos>
+      </point>
+      <exactness code="1" />
+      <location-reach code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <activity-scope code="4" xml:lang="en">National</activity-scope>
     <default-flow-type code="10">ODA</default-flow-type>
     <default-aid-type code="C01">Project Type Interventions</default-aid-type>
@@ -807,7 +900,7 @@
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00050956</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
@@ -862,7 +955,7 @@
       <category code="A09" />
     </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00063220</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00050956" />
@@ -879,7 +972,7 @@
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-11-30">1134614.000</value>
+      <value currency="USD" value-date="2015-12-31">1145970.000</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2014-01-01" />
@@ -893,39 +986,39 @@
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-11-30">260667.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">1100935.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-11-30">400000.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">411356.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-11-30">0.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">0.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-11-30">734614.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">734614.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="10003">Global Environment Fund Truste</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-11-30">0.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">0.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="10003">Global Environment Fund Truste</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -981,6 +1074,20 @@ The project will create enabling environment (policy, capacity, knowledge, alter
       <location-class code="1" />
       <feature-designation code="ADM1" />
     </location>
+    <location ref="ER">
+      <location-id vocabulary="G1" code="343300" />
+      <name>Asmara</name>
+      <description>capital of a political entity</description>
+      <activity-description></activity-description>
+      <administrative level="1" code="343300" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>15.338050 38.931840</pos>
+      </point>
+      <exactness code="1" />
+      <location-reach code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <activity-scope code="6" xml:lang="en">Sub-national: Single first-level administrative area</activity-scope>
     <default-flow-type code="10">ODA</default-flow-type>
     <default-aid-type code="C01">Project Type Interventions</default-aid-type>
@@ -988,7 +1095,7 @@ The project will create enabling environment (policy, capacity, knowledge, alter
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00061576</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
@@ -1043,7 +1150,7 @@ The project will create enabling environment (policy, capacity, knowledge, alter
       <category code="A09" />
     </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00078054</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00061576" />
@@ -1059,12 +1166,12 @@ The project will create enabling environment (policy, capacity, knowledge, alter
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-11-30">877195.000</value>
+      <value currency="USD" value-date="2015-12-31">877195.000</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">1197155.000</value>
+      <value currency="USD" value-date="2016-12-31">122100.000</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2014-01-01" />
@@ -1083,23 +1190,23 @@ The project will create enabling environment (policy, capacity, knowledge, alter
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-11-30">813331.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">861624.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-11-30">877195.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">877195.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="11602">Adaptation Fund  (AF)</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-11-30">0.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">0.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="11602">Adaptation Fund  (AF)</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -1162,6 +1269,20 @@ The project will create enabling environment (policy, capacity, knowledge, alter
       <location-class code="1" />
       <feature-designation code="ADM1" />
     </location>
+    <location ref="ER">
+      <location-id vocabulary="G1" code="343300" />
+      <name>Asmara</name>
+      <description>capital of a political entity</description>
+      <activity-description></activity-description>
+      <administrative level="1" code="343300" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>15.338050 38.931840</pos>
+      </point>
+      <exactness code="1" />
+      <location-reach code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <activity-scope code="4" xml:lang="en">National</activity-scope>
     <default-flow-type code="10">ODA</default-flow-type>
     <default-aid-type code="C01">Project Type Interventions</default-aid-type>
@@ -1169,7 +1290,7 @@ The project will create enabling environment (policy, capacity, knowledge, alter
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00065009</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
@@ -1203,8 +1324,13 @@ The project will create enabling environment (policy, capacity, knowledge, alter
       <language code="en" />
       <category code="A09" />
     </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
+      <title>Request for Procurement</title>
+      <language code="en" />
+      <category code="A10" />
+    </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00081649</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00065009" />
@@ -1213,11 +1339,12 @@ The project will create enabling environment (policy, capacity, knowledge, alter
     <description xml:lang="en" type="1">-</description>
     <sector code="99810" vocabulary="DAC" />
     <sector code="0" vocabulary="RO">SP_NONE_APPLIES</sector>
+    <capital-spend percentage="10.00" />
     <participating-org role="Funding" type="40" ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</participating-org>
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-11-30">0.000</value>
+      <value currency="USD" value-date="2015-12-31">20092.000</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2014-01-01" />
@@ -1226,23 +1353,23 @@ The project will create enabling environment (policy, capacity, knowledge, alter
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-11-30">147.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">4165.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-11-30">0.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">20092.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-11-30">0.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">0.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -1255,13 +1382,27 @@ The project will create enabling environment (policy, capacity, knowledge, alter
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <policy-marker code="1" vocabulary="DAC" significance="0">Gender Equality</policy-marker>
+    <location ref="ER">
+      <location-id vocabulary="G1" code="343300" />
+      <name>Asmara</name>
+      <description>capital of a political entity</description>
+      <activity-description></activity-description>
+      <administrative level="1" code="343300" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>15.338050 38.931840</pos>
+      </point>
+      <exactness code="1" />
+      <location-reach code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <default-flow-type code="10">ODA</default-flow-type>
     <default-aid-type code="C01">Project Type Interventions</default-aid-type>
     <collaboration-type code="4">Multilateral outflows</collaboration-type>
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00072514</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
@@ -1306,7 +1447,7 @@ The project will create enabling environment (policy, capacity, knowledge, alter
       <category code="A09" />
     </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00085581</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00072514" />
@@ -1322,12 +1463,12 @@ The project will create enabling environment (policy, capacity, knowledge, alter
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-11-30">2216082.000</value>
+      <value currency="USD" value-date="2015-12-31">2154480.000</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">600000.000</value>
+      <value currency="USD" value-date="2016-12-31">400000.000</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2014-01-01" />
@@ -1341,23 +1482,23 @@ The project will create enabling environment (policy, capacity, knowledge, alter
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-11-30">551559.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">1996063.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-11-30">2216082.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">2154480.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-11-30">0.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">0.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -1405,6 +1546,20 @@ The project will create enabling environment (policy, capacity, knowledge, alter
       <location-class code="2" />
       <feature-designation code="PPLC" />
     </location>
+    <location ref="ER">
+      <location-id vocabulary="G1" code="343300" />
+      <name>Asmara</name>
+      <description>capital of a political entity</description>
+      <activity-description></activity-description>
+      <administrative level="1" code="343300" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>15.338050 38.931840</pos>
+      </point>
+      <exactness code="1" />
+      <location-reach code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <activity-scope code="4" xml:lang="en">National</activity-scope>
     <default-flow-type code="10">ODA</default-flow-type>
     <default-aid-type code="C01">Project Type Interventions</default-aid-type>
@@ -1412,7 +1567,7 @@ The project will create enabling environment (policy, capacity, knowledge, alter
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00072516</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
@@ -1457,7 +1612,7 @@ The project will create enabling environment (policy, capacity, knowledge, alter
       <category code="A09" />
     </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00085583</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00072516" />
@@ -1468,7 +1623,7 @@ The project will create enabling environment (policy, capacity, knowledge, alter
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-11-30">675000.000</value>
+      <value currency="USD" value-date="2015-12-31">675000.000</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2014-01-01" />
@@ -1477,23 +1632,23 @@ The project will create enabling environment (policy, capacity, knowledge, alter
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-11-30">9429.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">517099.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-11-30">675000.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">675000.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-11-30">0.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">0.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -1534,6 +1689,20 @@ The project will create enabling environment (policy, capacity, knowledge, alter
       <location-class code="1" />
       <feature-designation code="ADM1" />
     </location>
+    <location ref="ER">
+      <location-id vocabulary="G1" code="343300" />
+      <name>Asmara</name>
+      <description>capital of a political entity</description>
+      <activity-description></activity-description>
+      <administrative level="1" code="343300" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>15.338050 38.931840</pos>
+      </point>
+      <exactness code="1" />
+      <location-reach code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <activity-scope code="4" xml:lang="en">National</activity-scope>
     <default-flow-type code="10">ODA</default-flow-type>
     <default-aid-type code="C01">Project Type Interventions</default-aid-type>
@@ -1541,7 +1710,7 @@ The project will create enabling environment (policy, capacity, knowledge, alter
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00074354</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
@@ -1587,7 +1756,7 @@ The project will create enabling environment (policy, capacity, knowledge, alter
       <category code="A09" />
     </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00086801</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00074354" />
@@ -1604,7 +1773,7 @@ The project will create enabling environment (policy, capacity, knowledge, alter
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-11-30">2359594.000</value>
+      <value currency="USD" value-date="2015-12-31">2456162.000</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2016-01-01" />
@@ -1623,39 +1792,39 @@ The project will create enabling environment (policy, capacity, knowledge, alter
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-11-30">1173204.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">2257676.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-11-30">1861479.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">1970159.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-11-30">0.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">0.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-11-30">498115.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">486003.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="11362">UNOCHA/Central Emergency Response Fund, CERF</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-11-30">499992.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">499992.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="11362">UNOCHA/Central Emergency Response Fund, CERF</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -1676,20 +1845,6 @@ The project will create enabling environment (policy, capacity, knowledge, alter
     </transaction>
     <policy-marker code="1" vocabulary="DAC" significance="1">Gender Equality</policy-marker>
     <location ref="ER">
-      <location-id vocabulary="G1" code="448498" />
-      <name>Zoba Debub</name>
-      <description>first-order administrative division</description>
-      <activity-description>Drought affected population.</activity-description>
-      <administrative level="1" code="448498" vocabulary="G1" />
-      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>14.833330 38.833330</pos>
-      </point>
-      <exactness code="1" />
-      <location-reach code="2" />
-      <location-class code="1" />
-      <feature-designation code="ADM1" />
-    </location>
-    <location ref="ER">
       <location-id vocabulary="G1" code="448500" />
       <name>Gash Barka</name>
       <description>first-order administrative division</description>
@@ -1697,6 +1852,20 @@ The project will create enabling environment (policy, capacity, knowledge, alter
       <administrative level="1" code="448500" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
         <pos>15.250000 37.500000</pos>
+      </point>
+      <exactness code="1" />
+      <location-reach code="2" />
+      <location-class code="1" />
+      <feature-designation code="ADM1" />
+    </location>
+    <location ref="ER">
+      <location-id vocabulary="G1" code="448498" />
+      <name>Zoba Debub</name>
+      <description>first-order administrative division</description>
+      <activity-description>Drought affected population.</activity-description>
+      <administrative level="1" code="448498" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>14.833330 38.833330</pos>
       </point>
       <exactness code="1" />
       <location-reach code="2" />
@@ -1717,6 +1886,20 @@ The project will create enabling environment (policy, capacity, knowledge, alter
       <location-class code="1" />
       <feature-designation code="ADM1" />
     </location>
+    <location ref="ER">
+      <location-id vocabulary="G1" code="343300" />
+      <name>Asmara</name>
+      <description>capital of a political entity</description>
+      <activity-description></activity-description>
+      <administrative level="1" code="343300" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>15.338050 38.931840</pos>
+      </point>
+      <exactness code="1" />
+      <location-reach code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <activity-scope code="4" xml:lang="en">National</activity-scope>
     <default-flow-type code="10">ODA</default-flow-type>
     <default-aid-type code="C01">Project Type Interventions</default-aid-type>
@@ -1724,7 +1907,7 @@ The project will create enabling environment (policy, capacity, knowledge, alter
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00078098</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
@@ -1760,7 +1943,7 @@ The project will create enabling environment (policy, capacity, knowledge, alter
       <category code="A09" />
     </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00088549</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00078098" />
@@ -1774,12 +1957,12 @@ The project will create enabling environment (policy, capacity, knowledge, alter
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-11-30">758323.000</value>
+      <value currency="USD" value-date="2015-12-31">617741.000</value>
     </budget>
     <budget type="2">
-      <period-start iso-date="2016-01-01" />
-      <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">273841.000</value>
+      <period-start iso-date="2017-01-01" />
+      <period-end iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">273841.000</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2014-01-01" />
@@ -1788,39 +1971,39 @@ The project will create enabling environment (policy, capacity, knowledge, alter
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-11-30">145390.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">382197.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-11-30">0.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">0.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00004">FOOD AND AGRICULTURE ORGANIZATION OF THE</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-11-30">0.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">0.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00004">FOOD AND AGRICULTURE ORGANIZATION OF THE</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-11-30">758323.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">617741.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-11-30">0.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">0.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -1861,6 +2044,20 @@ The project will create enabling environment (policy, capacity, knowledge, alter
       <location-class code="2" />
       <feature-designation code="PPLC" />
     </location>
+    <location ref="ER">
+      <location-id vocabulary="G1" code="343300" />
+      <name>Asmara</name>
+      <description>capital of a political entity</description>
+      <activity-description></activity-description>
+      <administrative level="1" code="343300" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>15.338050 38.931840</pos>
+      </point>
+      <exactness code="1" />
+      <location-reach code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <activity-scope code="4" xml:lang="en">National</activity-scope>
     <default-flow-type code="10">ODA</default-flow-type>
     <default-aid-type code="C01">Project Type Interventions</default-aid-type>
@@ -1868,7 +2065,7 @@ The project will create enabling environment (policy, capacity, knowledge, alter
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00078854</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
@@ -1924,7 +2121,7 @@ The project will create enabling environment (policy, capacity, knowledge, alter
       <category code="A09" />
     </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00088940</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00078854" />
@@ -1941,12 +2138,22 @@ The project will create enabling environment (policy, capacity, knowledge, alter
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-11-30">287504.000</value>
+      <value currency="USD" value-date="2015-12-31">90246.000</value>
+    </budget>
+    <budget type="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2018-12-31">168000.000</value>
+    </budget>
+    <budget type="2">
+      <period-start iso-date="2017-01-01" />
+      <period-end iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">402357.000</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">578143.000</value>
+      <value currency="USD" value-date="2016-12-31">-524690.000</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2014-01-01" />
@@ -1955,39 +2162,39 @@ The project will create enabling environment (policy, capacity, knowledge, alter
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-11-30">51974.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">76874.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-11-30">15422.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">25140.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-11-30">0.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">0.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-11-30">272082.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">65106.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="10003">Global Environment Fund Truste</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-11-30">0.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">0.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="10003">Global Environment Fund Truste</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -2031,6 +2238,20 @@ The project will create enabling environment (policy, capacity, knowledge, alter
       <location-class code="1" />
       <feature-designation code="ADM1" />
     </location>
+    <location ref="ER">
+      <location-id vocabulary="G1" code="343300" />
+      <name>Asmara</name>
+      <description>capital of a political entity</description>
+      <activity-description></activity-description>
+      <administrative level="1" code="343300" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>15.338050 38.931840</pos>
+      </point>
+      <exactness code="1" />
+      <location-reach code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <activity-scope code="4" xml:lang="en">National</activity-scope>
     <default-flow-type code="10">ODA</default-flow-type>
     <default-aid-type code="C01">Project Type Interventions</default-aid-type>
@@ -2038,15 +2259,15 @@ The project will create enabling environment (policy, capacity, knowledge, alter
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00080573</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00090225" />
     <title>Support to promotion of sustainable livelihoods</title>
     <description type="1">Support to promotion of sustainable livelihoods, community solidarity and resilience  in Eritrea</description>
-    <participating-org role="Implementing" type="40" ref="01148">UNDP (Direct Execution)</participating-org>
-    <participating-org role="Accountable" type="40" ref="00012">United Nations Development Programme</participating-org>
+    <participating-org role="Implementing" type="10" ref="01144">National Execution</participating-org>
+    <participating-org role="Accountable" type="10" ref="00012">United Nations Development Programme</participating-org>
     <participating-org role="Funding" type="40" ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</participating-org>
     <activity-date type="start-planned" iso-date="2014-05-01">2014-05-01</activity-date>
     <activity-date type="start-actual" iso-date="2014-05-01">2014-05-01</activity-date>
@@ -2093,7 +2314,7 @@ The project will create enabling environment (policy, capacity, knowledge, alter
       <category code="A09" />
     </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00090225</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00080573" />
@@ -2109,7 +2330,7 @@ The project will create enabling environment (policy, capacity, knowledge, alter
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-11-30">272037.000</value>
+      <value currency="USD" value-date="2015-12-31">272037.000</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2014-01-01" />
@@ -2118,23 +2339,23 @@ The project will create enabling environment (policy, capacity, knowledge, alter
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-11-30">164103.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">269426.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-11-30">272037.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">272037.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-11-30">0.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">0.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -2161,13 +2382,27 @@ The project will create enabling environment (policy, capacity, knowledge, alter
       <location-class code="1" />
       <feature-designation code="ADM1" />
     </location>
+    <location ref="ER">
+      <location-id vocabulary="G1" code="343300" />
+      <name>Asmara</name>
+      <description>capital of a political entity</description>
+      <activity-description></activity-description>
+      <administrative level="1" code="343300" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>15.338050 38.931840</pos>
+      </point>
+      <exactness code="1" />
+      <location-reach code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <default-flow-type code="10">ODA</default-flow-type>
     <default-aid-type code="C01">Project Type Interventions</default-aid-type>
     <collaboration-type code="4">Multilateral outflows</collaboration-type>
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00084051</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
@@ -2213,7 +2448,7 @@ The project will create enabling environment (policy, capacity, knowledge, alter
       <category code="A09" />
     </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00092244</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00084051" />
@@ -2230,12 +2465,17 @@ The project will create enabling environment (policy, capacity, knowledge, alter
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-11-30">772009.000</value>
+      <value currency="USD" value-date="2015-12-31">663141.000</value>
+    </budget>
+    <budget type="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2018-12-31">100000.000</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">1074280.000</value>
+      <value currency="USD" value-date="2016-12-31">576761.000</value>
     </budget>
     <budget type="2">
       <period-start iso-date="2014-01-01" />
@@ -2244,39 +2484,39 @@ The project will create enabling environment (policy, capacity, knowledge, alter
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-11-30">294203.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">647882.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-11-30">529659.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">624363.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00187">GOVERNMENT OF NORWAY</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-11-30">0.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">0.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00187">GOVERNMENT OF NORWAY</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-11-30">242350.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">38778.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-11-30">0.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">0.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="00012">UNITED NATIONS DEVELOPMENT PROGRAMME</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -2303,13 +2543,27 @@ The project will create enabling environment (policy, capacity, knowledge, alter
       <location-class code="2" />
       <feature-designation code="PPLC" />
     </location>
+    <location ref="ER">
+      <location-id vocabulary="G1" code="343300" />
+      <name>Asmara</name>
+      <description>capital of a political entity</description>
+      <activity-description></activity-description>
+      <administrative level="1" code="343300" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>15.338050 38.931840</pos>
+      </point>
+      <exactness code="1" />
+      <location-reach code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <default-flow-type code="10">ODA</default-flow-type>
     <default-aid-type code="C01">Project Type Interventions</default-aid-type>
     <collaboration-type code="4">Multilateral outflows</collaboration-type>
     <default-finance-type code="110">Grant</default-finance-type>
     <default-tied-status code="5">Untied</default-tied-status>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="1">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-PROJECT-00085501</iati-identifier>
     <activity-status code="2">Implementation</activity-status>
@@ -2353,8 +2607,13 @@ The project will create enabling environment (policy, capacity, knowledge, alter
       <language code="en" />
       <category code="A09" />
     </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
+      <title>Request for Procurement</title>
+      <language code="en" />
+      <category code="A10" />
+    </document-link>
   </iati-activity>
-  <iati-activity last-updated-datetime="2015-12-18T16:18:03" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-01-07T17:53:46" default-currency="USD" xml:lang="en" hierarchy="2">
     <reporting-org ref="XM-DAC-41114" type="40">United Nations Development Programme</reporting-org>
     <iati-identifier>XM-DAC-41114-OUTPUT-00093130</iati-identifier>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00085501" />
@@ -2362,31 +2621,32 @@ The project will create enabling environment (policy, capacity, knowledge, alter
     <title xml:lang="en">FSPj document (GEF/LDCF)</title>
     <description xml:lang="en" type="1">Project proposal that contains interventions such as water shade rehabilitation, climate resilience small scale irrigation and knowledge management to build adaptive capacity prepared.</description>
     <sector code="8" vocabulary="RO">Organizational Results Area 1</sector>
+    <capital-spend percentage="0.00" />
     <participating-org role="Funding" type="40" ref="10003">Global Environment Fund Truste</participating-org>
     <budget type="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-11-30">100000.000</value>
+      <value currency="USD" value-date="2015-12-31">100000.000</value>
     </budget>
     <transaction>
       <transaction-type code="E">Expenditure</transaction-type>
-      <value currency="USD" value-date="2015-11-30">8564.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">43577.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="41114">United Nations development Programme</provider-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="C">Commitment</transaction-type>
-      <value currency="USD" value-date="2015-11-30">100000.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">100000.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="10003">Global Environment Fund Truste</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
     </transaction>
     <transaction>
       <transaction-type code="IF">Incoming funds</transaction-type>
-      <value currency="USD" value-date="2015-11-30">0.000</value>
-      <transaction-date iso-date="2015-11-30" />
+      <value currency="USD" value-date="2015-12-31">0.000</value>
+      <transaction-date iso-date="2015-12-31" />
       <provider-org ref="10003">Global Environment Fund Truste</provider-org>
       <receiver-org ref="41114">United Nations development Programme</receiver-org>
       <disbursement-channel code="2">Money is disbursed directly to the implementing institution and managed through a separate bank account</disbursement-channel>
@@ -2423,6 +2683,20 @@ Ministry of Energy and Mines
       <location-reach code="2" />
       <location-class code="1" />
       <feature-designation code="ADM1" />
+    </location>
+    <location ref="ER">
+      <location-id vocabulary="G1" code="343300" />
+      <name>Asmara</name>
+      <description>capital of a political entity</description>
+      <activity-description></activity-description>
+      <administrative level="1" code="343300" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>15.338050 38.931840</pos>
+      </point>
+      <exactness code="1" />
+      <location-reach code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <default-flow-type code="10">ODA</default-flow-type>
     <default-aid-type code="C01">Project Type Interventions</default-aid-type>
