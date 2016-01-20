@@ -3,7 +3,8 @@ title: 'Open.undp.org'
 tag: 'open'
 category: 'about'
 ---
-Open.undp.org presents UNDP’s 6,000+ development projects and 8,000 outputs in 177 countries and territories worldwide. It represents UNDP’s commitment to publish comprehensive, quality and timely information about aid flows and results. Open.undp.org is a component of our implementation of the [International Aid Transparency Initiative](http://www.aidtransparency.net/) (IATI) to which UNDP is a signatory. IATI is a voluntary multi-stakeholder initiative aimed at making information about aid spending easier to access, understand and use.
+
+Welcome to open.undp.org, which presents detailed information on the UNDP’s 4,000+ development projects in some 170 countries and territories worldwide. Browse the summaries, click a filter on the right, or search through the full list of projects. It represents UNDP’s commitment to publish comprehensive, quality and timely information about aid flows and results. Open.undp.org is a component of our implementation of the [International Aid Transparency Initiative](http://www.aidtransparency.net/) (IATI) to which UNDP is a signatory. IATI is a voluntary multi-stakeholder initiative aimed at making information about aid spending easier to access, understand and use.
 
 Open.undp.org enables users to find project information categorized broadly by location, funding source, and focus areas, and drill down for comprehensive project data, including budget, expenditure, completion status, implementing organization, contribution to gender equality, project documents, and more.  Open.undp.org features current project site images and is integrated with UNDP country office external web sites to enhance knowledge sharing.
 
