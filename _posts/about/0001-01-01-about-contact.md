@@ -9,5 +9,5 @@ The Transparency Team leads the corporate efforts to provide high-quality projec
 
 UNDP is interested in hearing your ideas and comments about open.undp.org.
 
-###Contact information
+### Contact information
 Email: [transparency@undp.org](mailto:transparency@undp.org)

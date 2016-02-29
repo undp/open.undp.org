@@ -15,7 +15,7 @@ UNDP also leads outreach efforts with partner countries and other UN agencies to
 
 In 2013, UNDP started to publish quarterly project-level information, including sub-national geolocation and additional activity-level financial attributes. UNDP reviewed its [Information Disclosure Policy](http://www.undp.org/content/undp/en/home/operations/transparency/information_disclosurepolicy.html) and updated it according to the highest international standards.
 
-###Notes on UNDP work
+### Notes on UNDP work
 
 UNDP partners with people at all levels of society to help build nations that can withstand crisis, and drive and sustain the kind of growth that improves the quality of life for everyone. On the ground in 177 countries and territories, UNDP offers global perspective and local insight to help [empower lives and build resilient nations](http://www.undp.org/content/undp/en/home/ourwork/overview.html).
 

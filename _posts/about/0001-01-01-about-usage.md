@@ -11,7 +11,7 @@ The presentation of  information in open.undp.org do not imply the expression of
 
 All data in open.undp.org can be used free of charge in compliance with the [Creative Commons' Attribution License (CC-BY)](http://iatistandard.org/getting-started/licencing/licence-types). For a list of the terminology and definitions used in open.undp.org, consult the [Glossary](#about/glossary).
 
-###Using the data
+### Using the data
 
 __Download:__ You can <a href='#download' data-toggle='modal'>download data</a> in IATI XML, CSV, and JSON formats, as a whole database or for individual countries, regions, or sectors.
 
