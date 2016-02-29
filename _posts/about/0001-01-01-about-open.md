@@ -8,7 +8,7 @@ Welcome to open.undp.org, which presents detailed information on the UNDP’s 4,
 
 Open.undp.org enables users to find project information categorized broadly by location, funding source, and focus areas, and drill down for comprehensive project data, including budget, expenditure, completion status, implementing organization, contribution to gender equality, project documents, and more.  Open.undp.org features current project site images and is integrated with UNDP country office external web sites to enhance knowledge sharing.
 
-###Working in the open: contributing to better development cooperation and results
+### Working in the open: contributing to better development cooperation and results
 
 By making comprehensive up-to-date information about more than 6,000 projects available to the public, UNDP is contributing to improving the effectiveness and value of development cooperation by increasing:
 
