@@ -62,7 +62,7 @@ class ProjectsController(Controller):
     def generate(self):
         """ Main method. Execute necessary functions and generate json files """
 
-        for files in reversed(sorted(self.get_filenames(settings.IATI_XML_ANNUAL))):
+        for files in reversed(sorted(self.get_filenames(settings.IATI_XML_ANNUAL, 'xml'))):
             self._prepare(files, 'iati-activity', 'projects')
             self._prepare(files, 'iati-activity', 'outputs')
 
@@ -129,9 +129,14 @@ class ProjectsController(Controller):
         op_type -- only two choices available: outputs - projects
 
         """
-
+        # Identify version number of XML file
+        tree = etree.parse(xml_file)
+        root = tree.getroot()
+        version = round(float(root.attrib.get('version', '1')), 2)
+        
         # Get IATI activities XML
         iter_obj = iter(etree.iterparse(xml_file, tag=tag))
+        #iter_obj = root.iter(tag)
 
         # Extract year
         try:
@@ -141,7 +146,7 @@ class ProjectsController(Controller):
             return
         func = getattr(self, '_populate_%s' % op_type)
 
-        func(iter_obj, year)
+        func(iter_obj, year, version)
 
     def _populate_operating_unit_index(self):
 
@@ -365,7 +370,7 @@ class ProjectsController(Controller):
             unit.projects.value.append(unit_project.to_dict())
             self.units.add(project_obj.operating_unit_id.value, unit)
 
-    def _populate_projects(self, iter_obj, yr):
+    def _populate_projects(self, iter_obj, yr, version):
         """Loop through the iter_obj to and sort/clean data based project_id
 
         Produced a list of dictionaries. Sample:
@@ -379,6 +384,7 @@ class ProjectsController(Controller):
 
         Arguments:
         iter_obj - and iteratble etree object
+        version - IATI format version
         """
         counter = 0
         
@@ -398,16 +404,15 @@ class ProjectsController(Controller):
             if hierarchy == '1':
                 obj = Project()
 
-                obj.project_id.value = self._grab_award_id(p[1].text)
+                obj.project_id.value = self._grab_award_id(p[1].text) if (version < 2) else self._grab_award_id(p[0].text)
 
                 # Check if the project_id is unique
                 if obj.project_id.value in self.projects.pks:
                     continue
 
                 obj.fiscal_year.value.append(yr)
-                obj.project_title.value = p.find(obj.project_title.xml_key).text.lower()
-
-                obj.project_descr.value = p.find(obj.project_descr.xml_key).text
+                obj.project_title.value = p.find(obj.project_title.xml_key).text.lower() if (version < 2) else p.find(obj.project_title.xml_key).find('narrative').text.lower()
+                obj.project_descr.value = p.find(obj.project_descr.xml_key).text if (version < 2) else p.find(obj.project_descr.xml_key).find('narrative').text
                 documents = p.findall('./document-link')
 
                 if documents:
@@ -433,7 +438,10 @@ class ProjectsController(Controller):
                             format.append('')
                         
                         for d in doc.iterchildren(tag=obj.document_name.key):
-                            names.append(d.text)
+                            if (version < 2):
+                                names.append(d.text)
+                            else:
+                                names.append(d.find('narrative').text)
                         
                         # default place is last
                         place = 100
@@ -450,8 +458,8 @@ class ProjectsController(Controller):
                     obj.document_name.value.extend([names, links, format, places])
 
                 # Find start and end dates
-                obj.start.value = p.find(obj.start.xml_key).text
-                obj.end.value = p.find(obj.end.xml_key).text
+                obj.start.value = p.find(obj.start.xml_key).text if (version < 2) else p.find('activity-date[@type="2"]').attrib.get('iso-date')
+                obj.end.value = p.find(obj.end.xml_key).text if (version < 2) else p.find('activity-date[@type="3"]').attrib.get('iso-date')
 
                 contact = p.findall('./contact-info')
                 obj.operating_unit_email.value = [e.text for email in contact
@@ -461,7 +469,7 @@ class ProjectsController(Controller):
                 # If recipient country didn't exist look for recipient region
                 try:
                     obj.iati_op_id.value = (p.find(obj.iati_op_id.xml_key).attrib.get('code'))
-                    obj.operating_unit.value = p.find(obj.operating_unit.xml_key).text
+                    obj.operating_unit.value = p.find(obj.operating_unit.xml_key).text if (version < 2) else p.find(obj.operating_unit.xml_key).find('narrative').text 
                     for r in report_units:
                         if (obj.iati_op_id.value == r['iati_operating_unit']
                                 or obj.iati_op_id.value == r['operating_unit']):
@@ -472,7 +480,8 @@ class ProjectsController(Controller):
                     region_unit = p.findall("./recipient-region")
                     for ru in region_unit:
                         for r in report_units:
-                            if type(ru.text) == type(r['ou_descr']) and ru.text == r['ou_descr']: 
+                            ru_text = ru.text if (version < 2) else ru.find('narrative').text
+                            if type(ru_text) == type(r['ou_descr']) and ru_text == r['ou_descr']: 
                                 obj.operating_unit_id.value = r['operating_unit']
                                 obj.operating_unit.value = r['ou_descr']
                     obj.iati_op_id.value = '998'
@@ -483,16 +492,16 @@ class ProjectsController(Controller):
                         for e in email.iterchildren(tag=obj.operating_unit_email.key):
                             obj.operating_unit_email.value = e.text
 
-                    obj.operating_unit_website.value = p.find(obj.operating_unit_website.xml_key).text
+                    obj.operating_unit_website.value = p.find(obj.operating_unit_website.xml_key).text if (version < 2) else  p.find(obj.operating_unit_website.xml_key).find('narrative').text 
                 except:
                     pass
 
                 # Check for implementing organization
                 try:
-                    inst = p.find("./participating-org[@role='Implementing']")
+                    inst = p.find("./participating-org[@role='Implementing']") if (version < 2) else p.find("./participating-org[@role='4']") 
                     obj.inst_id.value = inst.attrib.get(obj.inst_id.key)
                     obj.inst_type_id.value = inst.attrib.get(obj.inst_type_id.key)
-                    obj.inst_descr.value = inst.text
+                    obj.inst_descr.value = inst.text if (version < 2) else inst.find('narrative').text
                 except:
                     pass
 
@@ -506,7 +515,7 @@ class ProjectsController(Controller):
 
         self.log('%s - Project Annuals: %s rows processed' % (yr, counter))
 
-    def _populate_outputs(self, iter_obj, yr):
+    def _populate_outputs(self, iter_obj, yr, version):
 
         counter = 0
 
@@ -524,30 +533,31 @@ class ProjectsController(Controller):
                 obj = Output()
                 crs = Crs()
 
-                obj.output_id.value = self._grab_award_id(o[1].text)
+                obj.output_id.value = self._grab_award_id(o[1].text) if (version < 2) else self._grab_award_id(o[0].text)
 
                 # Check if the project_id is unique
                 if obj.output_id.value in self.outputs.output_ids:
                     continue
 
-                obj.output_title.value = o.find(obj.output_title.xml_key).text
-                obj.output_descr.value = o.find(obj.output_descr.xml_key).text
+                obj.output_title.value = o.find(obj.output_title.xml_key).text if (version < 2) else o.find(obj.output_title.xml_key).find('narrative').text
+                obj.output_descr.value = o.find(obj.output_descr.xml_key).text if (version < 2) else  o.find(obj.output_descr.xml_key).find('narrative').text
 
                 try:
                     obj.gender_id.value = o.find(obj.gender_descr.xml_key).attrib.get(obj.gender_id.key)
-                    obj.gender_descr.value = o.find(obj.gender_descr.xml_key).text
+                    obj.gender_descr.value = o.find(obj.gender_descr.xml_key).text if (version < 2) else  "Gender Equality"
                 except:
                     obj.gender_id.value = "0"
                     obj.gender_descr.value = "None"
 
+                obj_crs_descr = obj.crs_descr.xml_key if (version < 2) else "sector[@vocabulary='1']"
                 try:
-                    obj.crs.value = o.find(obj.crs_descr.xml_key).get(obj.crs.key)
+                    obj.crs.value = o.find(obj_crs_descr).get(obj.crs.key)
                     crs.name.value = obj.crs.value
                 except AttributeError:
                     pass
 
                 try:
-                    obj.crs_descr.value = o.find(obj.crs_descr.xml_key).text
+                    obj.crs_descr.value = o.find(obj_crs_descr).text if (version < 2) else o.find(obj_crs_descr).find('narrative').text
                     crs.id.value = obj.crs_descr.value
                 except AttributeError:
                     pass
@@ -566,25 +576,26 @@ class ProjectsController(Controller):
                     if obj.award_id.value in ss_list:
                         obj.focus_area.value = '8'
                         obj.focus_area_descr.value = 'South-South'
-
+    
                     else:
-                        obj.focus_area.value = o.find(obj.focus_area_descr.xml_key).get(obj.focus_area.key)
-                        if not o.find(obj.focus_area_descr.xml_key).text:
-                            obj.focus_area_descr.value = "-"
-                        else:
-                            obj.focus_area_descr.value = o.find(obj.focus_area_descr.xml_key).text
+                        obj_focus_area_descr = obj.focus_area_descr.xml_key if (version < 2) else "sector[@vocabulary='99']"
+                        obj.focus_area.value = o.find(obj_focus_area_descr).get(obj.focus_area.key)
+                        obj.focus_area_descr.value = o.find(obj_focus_area_descr).text if (version < 2) else o.find(obj_focus_area_descr).find('narrative').text
+                        if not obj.focus_area_descr.value:
+                            obj.focus_area_descr.value = "-"                        
 
                 except:
                     obj.focus_area.value = "-"
                     obj.focus_area_descr.value = "-"
 
-                for donor in o.findall("./participating-org[@role='Funding']"):
+                donorCol = "./participating-org[@role='Funding']" if (version < 2) else "./participating-org[@role='1']"
+                for donor in o.findall(donorCol):
                     ref = donor.get('ref')
                     obj.donor_id.value.add(ref)
                     if ref == '00012':
                         obj.donor_name.value.append('Voluntary Contributions')
                     else:
-                        obj.donor_name.value.append(donor.text)
+                        obj.donor_name.value.append(donor.text if (version < 2) else donor.find('narrative').text)
 
                     for d in sorted_donors:
                         # Check IDs from the CSV against the cntry_donors_sort.
@@ -603,7 +614,8 @@ class ProjectsController(Controller):
 
                 # Use transaction data to get expenditure
                 for tx in o.findall('transaction'):
-                    for expen in tx.findall(obj.expenditure.xml_key):
+                    expenditureCol = obj.expenditure.xml_key if (version < 2) else "transaction-type[@code='4']"
+                    for expen in tx.findall(expenditureCol):
                         for sib in expen.itersiblings():
                             if sib.tag == 'value':
                                 year = int(sib.get('value-date').split('-', 3)[0])
@@ -617,10 +629,10 @@ class ProjectsController(Controller):
                 # Run subnationals
                 locations = o.findall('location')
                 if locations:
-                    self._populate_subnationals(obj.award_id.value, obj, o, locations)
+                    self._populate_subnationals(obj.award_id.value, obj, o, locations, version)
 
                 # Populate Donor Index
-                self._populate_donor_index(o)
+                self._populate_donor_index(o, version)
 
                 counter += 1
                 self.log('Processing: %s' % counter, True)
@@ -628,7 +640,7 @@ class ProjectsController(Controller):
 
         self.log('%s - output Annuals: %s rows processed' % (yr, counter))
 
-    def _populate_subnationals(self, project_id, output_obj, node, locations):
+    def _populate_subnationals(self, project_id, output_obj, node, locations, version):
         """ Populate subnational object. This is dependant on _populate_outputs and cannot be executed separately
 
         project_id - the related project_id
@@ -659,7 +671,7 @@ class ProjectsController(Controller):
                     obj.precision.value = item.get(obj.precision.key)
 
                 if item.tag == 'name':
-                    obj.name.value = item.text
+                    obj.name.value = item.text if (version < 2) else item.find('narrative').text
 
                 if item.tag == 'location-type':
                     obj.type.value = item.get(obj.type.key)
@@ -681,13 +693,14 @@ class ProjectsController(Controller):
 
             self.subnationals.add_update_list(project_id, obj)
 
-    def _populate_donor_index(self, output_obj):
+    def _populate_donor_index(self, output_obj, version):
         """ Populates both donor-index and donor-country-index """
 
         if not self.country_donors:
             self.country_donors = self.get_and_sort(self.undp_export + '/country_donors_updated.csv', 'id')
 
-        for donor in output_obj.findall("./participating-org[@role='Funding']"):
+        donorCol = "./participating-org[@role='Funding']" if (version < 2) else "./participating-org[@role='1']"
+        for donor in output_obj.findall(donorCol):
             obj = Donor()
             country_obj = CountryDonor()
             ref = donor.get(obj.id.key)
@@ -700,7 +713,7 @@ class ProjectsController(Controller):
                         if ref not in self.donorindex.pks:
                             obj.id.value = ref
 
-                            obj.name.value = donor.text or "Unknown"
+                            obj.name.value = donor.text if (version < 2) else donor.find('narrative').text or "Unknown"
 
                             if item['donor_type_lvl1'] == 'PROG CTY' or item['donor_type_lvl1'] == 'NON_PROG CTY':
                                 obj.country.value = item['donor_type_lvl3'].replace(" ", "")
