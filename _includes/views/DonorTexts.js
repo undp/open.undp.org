@@ -9,10 +9,10 @@ views.DonorTexts = Backbone.View.extend({
 
         this.$el.html(this.template());
 
-        var spinTarget = document.getElementById('donor-specific');
+        //var spinTarget = document.getElementById('donor-specific');
         // this.spinner = new Spinner().spin(spinTarget);
 
-        _(this.$el.find('img')).each(function(img){
+        /*_(this.$el.find('img')).each(function(img){
             var caption = $('<p class="photo-caption">'+img.alt+'</p>')
             caption.insertAfter(img);
             caption.prev().andSelf().wrapAll('<div class="slide" />');
@@ -25,6 +25,6 @@ views.DonorTexts = Backbone.View.extend({
                     // that.spinner.stop();
                 }
             }
-        });
+        });*/
     }
 })
