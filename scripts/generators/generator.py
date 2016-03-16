@@ -422,38 +422,49 @@ class ProjectsController(Controller):
                     places = []
                     
                     for doc in documents:
-                        try:
-                            links.append(urllib2.unquote(doc.get('url')).encode('utf-8').decode('utf-8'))
-                        except UnicodeDecodeError:
-                            links.append(urllib2.unquote(doc.get('url')).decode('utf-8'))
-                        #links.append(doc.get('url'))
-                        
-                        if 'application/' in doc.get('format'):
-                            ft = mimetypes.guess_extension(doc.get('format'), False)
-                            if ft is None:
-                                format.append('')
-                            else:
-                                format.append(ft.lstrip('.'))
-                        else:
-                            format.append('')
-                        
-                        for d in doc.iterchildren(tag=obj.document_name.key):
-                            if (version < 2):
-                                names.append(d.text)
-                            else:
-                                names.append(d.find('narrative').text)
-                        
-                        # default place is last
-                        place = 100
-                        for t in doc.iterchildren(tag='category'):
+                        #exclude self-links
+                        if (doc.get('url') != "http://open.undp.org/#project/" + obj.project_id.value):
                             try:
-                                tp = docs_sort.index(t.get('code'))
-                            except ValueError:
-                                tp = 100
-                            if (tp < place):
-                                place = tp
-                                
-                        places.append(place)
+                                links.append(urllib2.unquote(doc.get('url')).encode('utf-8').decode('utf-8'))
+                            except UnicodeDecodeError:
+                                links.append(urllib2.unquote(doc.get('url')).decode('utf-8'))
+                            #links.append(doc.get('url'))
+                            
+                            if 'application/' in doc.get('format'):
+                                ft = mimetypes.guess_extension(doc.get('format'), False)
+                                if ft is None:
+                                    format.append('')
+                                else:
+                                    format.append(ft.lstrip('.'))
+                            else:
+                                format.append('')
+                            
+                            
+                            #doc_tag = doc.find(obj.document_name.key) if (version < 2) else doc.find(obj.document_name.key).find('narrative')
+                            #if doc_tag is not None:
+                            #    doc_name = doc_tag.text
+                            #else:
+                            #    doc_name = ''                            
+                            
+                            #doc.find(obj.document_name.key).text if (version < 2) else doc.find(obj.document_name.key).find('narrative').text
+                            #names.append(doc_name) 
+                            for d in doc.iterchildren(tag=obj.document_name.key):
+                                if (version < 2):
+                                    names.append(d.text)
+                                else:
+                                    names.append(d.find('narrative').text)
+                            
+                            # default place is last
+                            place = 100
+                            for t in doc.iterchildren(tag='category'):
+                                try:
+                                    tp = docs_sort.index(t.get('code'))
+                                except ValueError:
+                                    tp = 100
+                                if (tp < place):
+                                    place = tp
+                                    
+                            places.append(place)
 
                     obj.document_name.value.extend([names, links, format, places])
 
