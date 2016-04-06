@@ -112,13 +112,14 @@ views.App = Backbone.View.extend({
 
         _(this.facets).each(function(view) {
             view.collection.each(function(model) {
-                var name = model.get('name').toLowerCase();
-
-                if (val === '' || name.indexOf(val) >= 0) {
-                    model.set('visible', true);
-                } else {
-                    model.set('visible', false);
-                }
+            	if (model.get('name')) {
+	                var name = model.get('name').toLowerCase();	
+	                if (val === '' || name.indexOf(val) >= 0) {
+	                    model.set('visible', true);
+	                } else {
+	                    model.set('visible', false);
+	                }
+            	}
             });
 
             view.render(true);
