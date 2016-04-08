@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2016-03-23T22:25:03" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2016-04-07T10:37:39" version="2.02">
   <!--Belarus, Republic of-->
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00045865</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -18,6 +18,9 @@
     </participating-org>
     <participating-org role="2" type="10" ref="00012">
       <narrative>United Nations Development Programme</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="10159">
+      <narrative>EUROPEAN COMMISSION</narrative>
     </participating-org>
     <participating-org role="1" type="40" ref="10315">
       <narrative>ORG FOR SECURITY AND COOPERATI</narrative>
@@ -160,6 +163,7 @@
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://undp.by/en/undp/doc/agree2text.html">
@@ -179,7 +183,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00054285" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00054285</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -190,6 +194,9 @@
     <description type="1">
       <narrative>A contribution towards regional stability in Central and Eastern Europe by providing improved physical security SALW in Belarus, thereby reducing the risks of proliferation and improving human security</narrative>
     </description>
+    <participating-org role="1" type="40" ref="10159">
+      <narrative>EUROPEAN COMMISSION</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="10315">
       <narrative>ORG FOR SECURITY AND COOPERATI</narrative>
     </participating-org>
@@ -445,7 +452,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">162739.000</value>
+      <value currency="USD" value-date="2016-03-31">162739.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -469,17 +476,41 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">8224.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">25758.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">162739.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
+      <provider-org type="40" ref="10159">
+        <narrative>EUROPEAN COMMISSION</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
+      <provider-org ref="10159">
+        <narrative>EUROPEAN COMMISSION</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">162739.000</value>
       <provider-org type="40" ref="10315">
         <narrative>ORG FOR SECURITY AND COOPERATI</narrative>
       </provider-org>
@@ -490,8 +521,8 @@
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="10315">
         <narrative>ORG FOR SECURITY AND COOPERATI</narrative>
       </provider-org>
@@ -526,56 +557,8 @@
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00045865" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>1. All infrastructure and physical security improvements at 13 military bases are completed</narrative>
-        </description>
-        <baseline year="2007" value="">
-          <comment>
-            <narrative>5 military units</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>-As part of phase II, support improvements at 2 SALW storages (Homiel and Kolasava).
-- Conduct official opening of the completed Homiel SALW storage.</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>- Infrastructure of 1 SALW storage was fully improved within 2015, partial improvements were made at 1 more SALW storage.
-- Official opening of the completed Homiel SALW storages took place on 17 March 2015 with participation of UNDP, OSCE, EC, Ministry of Defense, Homiel local authorities and mass media representatives. The event was widely covered by mass media.</narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00046413</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -628,6 +611,7 @@
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://undp.by/en/undp/doc/agree2text.html">
@@ -647,7 +631,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00055271" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00055271</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -706,7 +690,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">9943.000</value>
+      <value currency="USD" value-date="2016-03-31">9943.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -731,17 +715,17 @@
     <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">-327.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">1705.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">9943.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">9943.000</value>
       <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -752,8 +736,8 @@
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -788,54 +772,8 @@
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00046413" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative />
-        </description>
-        <baseline year="2007" value="">
-          <comment>
-            <narrative>Support to implementation of Coutry Programme Document in 2007</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00047772</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -995,6 +933,7 @@
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://undp.by/en/undp/doc/agree2text.html">
@@ -1014,7 +953,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00093349" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00093349</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1059,7 +998,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">339660.000</value>
+      <value currency="USD" value-date="2016-03-31">339660.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -1078,17 +1017,17 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">51136.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">64243.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">339660.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">339660.000</value>
       <provider-org type="10" ref="00206">
         <narrative>GOVERNMENT OF RUSSIAN FEDERATION</narrative>
       </provider-org>
@@ -1099,8 +1038,8 @@
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00206">
         <narrative>GOVERNMENT OF RUSSIAN FEDERATION</narrative>
       </provider-org>
@@ -1123,54 +1062,8 @@
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00047772" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative />
-        </description>
-        <baseline year="2014" value="">
-          <comment>
-            <narrative />
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00060930</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1258,6 +1151,7 @@
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://undp.by/en/undp/doc/agree2text.html">
@@ -1277,7 +1171,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00076939" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00076939</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1343,7 +1237,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">254550.000</value>
+      <value currency="USD" value-date="2016-03-31">309503.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -1367,17 +1261,17 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">514222.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">1022215.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">254550.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">309503.000</value>
       <provider-org type="40" ref="00327">
         <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
       </provider-org>
@@ -1388,8 +1282,8 @@
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00327">
         <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
       </provider-org>
@@ -1424,90 +1318,8 @@
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00060930" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>1. Number of new smear-positive TB cases detected under DOTS ;
-2. Number and percentage of new smear-positive TB cases registered under DOTS who are successfully treated;
-3. Number of TB patients reached with social support during directly oserved treatment;
-4. Number of TB patients receiving treatment with first-line drugs;
-5. Number and percentage of TB patients counseled and tested for HIV;
-6. Number of specialists trained in DOTS and DOTS+ ;
-7. Number of TB institutions using an electronic TB recording and reporting system;
-8. Number and percentage of laboratories showing adequate performance among those that received QA for DST out of total number  of TB laboratories in the country;
-9. Number and percentage of laboratories showing adequate performance among those that received QA for culture out of total number  of TB laboratories in the country ;
-10. Total number of MDR-TB patients enrolled in second line treatment;
-11. Number of adherence counsellors trained for patient support programme for MDR-TB patients;
-12. Number of MDR-TB patients on treatment receiving patient support (incentives (food and hygienic parcels)) for better adherence to treatment.</narrative>
-        </description>
-        <baseline year="2011" value="">
-          <comment>
-            <narrative>1.	1520
-2.	74%
-3.	4 915  
-4.	15 850
-5.	&gt;98%
-6.	3 132
-7.	29 (100%)
-8.	22 (100%)
-9.	41 (100%)
-10.	250
-11.	35
-12.	150</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>Number  of MDR-TB cases detected over specified period   1785
-Number of specialists (TB doctors, laboratory specialists, nurses, feldshers, infectious disease doctors)  trained in DOTS and DOTS+  1399
-Confirmed MDR-TB cases enrolled on treatment (all MDR-TB cases including MDR-TB cases treated with the support of the Global Fund) over detected MDR cases  1696/1785/95%
-Number of MDR-TB patients on treatment receiving patient support incentives (tickets, food parcels and hygienic parcels) for better adherence to treatment during outpatient phase 1354
-Coverage with rapid TB laboratory diagnostic methods (Bactec Migit; Hain; GeneXpert-MTB/RIF) of the TB patients from the risk groups for development MDR-TB (smear positive TB cases) 1177/1308 90%
-Proportion of HIV-positive registered TB patients given antiretroviral therapy during TB treatment    225/250 90%
-Proportion of HIV-positive TB patients who receive  co-trimoxazole preventive therapy (CPT)   250/250 100%                                     
-Interim treatment success rate of new MDR-TB patients: number of patients who are smear and culture negative at 6 months after start of treatment (% of the total number of patients in the same registration cohort)	85 % for 2014 MDR TB cohort</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>Number  of MDR-TB cases detected over specified period   1785
-Number of specialists (TB doctors, laboratory specialists, nurses, feldshers, infectious disease doctors)  trained in DOTS and DOTS+  1399
-Confirmed MDR-TB cases enrolled on treatment (all MDR-TB cases including MDR-TB cases treated with the support of the Global Fund) over detected MDR cases  1696/1785/95%
-Number of MDR-TB patients on treatment receiving patient support incentives (tickets, food parcels and hygienic parcels) for better adherence to treatment during outpatient phase 1354
-Coverage with rapid TB laboratory diagnostic methods (Bactec Migit; Hain; GeneXpert-MTB/RIF) of the TB patients from the risk groups for development MDR-TB (smear positive TB cases) 1444/1489 97%
-Proportion of HIV-positive registered TB patients given antiretroviral therapy during TB treatment    203/250 81%
-Proportion of HIV-positive TB patients who receive  co-trimoxazole preventive therapy (CPT)   250/250 100%                                     
-Interim treatment success rate of new MDR-TB patients: number of patients who are smear and culture negative at 6 months after start of treatment (% of the total number of patients in the same registration cohort)	85 % for 2014 MDR TB cohort</narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00061054</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1598,6 +1410,7 @@ Interim treatment success rate of new MDR-TB patients: number of patients who ar
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://erc.undp.org/evaluationadmin/manageevaluation/viewevaluationdetail.html?evalid=7818">
@@ -1673,7 +1486,7 @@ Interim treatment success rate of new MDR-TB patients: number of patients who ar
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00077154" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00077154</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1782,7 +1595,7 @@ Interim treatment success rate of new MDR-TB patients: number of patients who ar
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">910972.000</value>
+      <value currency="USD" value-date="2016-03-31">910972.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -1806,17 +1619,17 @@ Interim treatment success rate of new MDR-TB patients: number of patients who ar
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">220434.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">317446.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">152192.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">152192.000</value>
       <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -1827,8 +1640,8 @@ Interim treatment success rate of new MDR-TB patients: number of patients who ar
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -1838,9 +1651,9 @@ Interim treatment success rate of new MDR-TB patients: number of patients who ar
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">758780.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">758780.000</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -1851,8 +1664,8 @@ Interim treatment success rate of new MDR-TB patients: number of patients who ar
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -1887,65 +1700,6 @@ Interim treatment success rate of new MDR-TB patients: number of patients who ar
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00061054" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>1. Status of the national laws and other regulatory documents controlling the energy consumption of the newly constructed buildings.
-2. Demonstrated capacity of the Belarussian building sector specialist to integrate new EE approaches and measures into the design of the buildings and to implement them in practice.
-3. Status of the demonstration projects.
-4. Status of the planned public outreach activities.</narrative>
-        </description>
-        <baseline year="2012" value="">
-          <comment>
-            <narrative>1. Prescriptive thermal standards adopted in 2010  defining minimum mandatory U-values for the building envelope, corresponding to the average annual heat demand  of  60 kWh/m2 for space heating of typical multi-apartment buildings and 120-130 kWh /m2 together with sanitary hot water preparation.
-2. Non-integrated design of the buildings just complying with the current prescriptive thermal standards in force. 
-Lack of capacity of the public authorities to effectively supervise and enforce the implementation of the planned new, overall energy performance based norms and standards.
-3. No demonstration projects implemented. 
-4. No public outreach activities implemented.</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>1. Revised minimum energy performance standards adopted for new construction and reaching a status of a law by the end of the project with a target of reducing the energy consumption of new residential buildings for space heating and hot water together below 60 kWh/m2. An energy performance certification and labeling scheme for both new and existing buildings adopted and under implementation by the end of the project.
-2. Integrated, energy efficient building design approach together with buildings’ overall energy performance based design principles adopted  into the work of at least 30% of all local design institutes as well as into the curricula of all educational institutes  in Belarus educating new architects and building construction and HVAC engineers. By the end of the project, at least 50 experts from each key professional group (see outputs 2,2-2.6) and 200  university students have taken and successfully passed courses on energy efficient building design and construction. Key public authorities responsible for supervision and enforcement of the planned new norms and regulations trained.
-3. Each of the 3   demonstration buildings constructed on schedule and reaching the target for annual external energy demand for space heating and hot water equal or less than 60 kWh/m2, and their energy consumption and other performance (living comfort etc.) monitored for at least one full year. The baseline costs of the 3 demo buildings is covered in full by the project’s co-financing resources and  the GEF financing for incremental EE measures won’t exceed 15% of the total construction costs of each demo building. 
-4. Planned public outreach activities successfully completed. An entity to follow up and, as applicable, to  continue the activities initiated by the project has been designated  with adequate resources to perform its work. At least 100 hits and  20 downloaded documents per month from the project website by outside visitors.</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>1. The level is still the same as for the baseline. Although the Project helped formulate and draft new technical norms establishing building energy performance below 60 kWh/m2 per year (space heating and hot water supply), which were adopted, but these norms are not required by law.  The Technical Regulations (a law status), which was initiated and drafted by the Project, was approved by TC-14 of Gosstandard, and in 2016 will enter a conciliation procedure. The energy performance certification scheme has been discussed. A number of barriers has been revealed in the course of this study. The Project will continue address the above issues.
-2. In average, more than 50 experts from each of three professional groups (designers, inspectors and policy-makers) have passed related courses. There are already 7 local design institutes (NIPTIS, MAPID, Hrodnagrazhdanproekt, Gomelgrazhdanproekt, Saint-Gobain Construction Product BelRus, Tenth UNR, Minskproekt), i.e., 3% out of ca. 120 design institutes operating in the field of civil construction engineering, which are introducing in their practice design and construction of residential buildings with energy efficiency improvement components developed and advocated by the project.  The level is the same as for the baseline with regard to new curricular for universities, although three leading universities, i.e., Belarusian National Technical University, Belarusian State Technological University and Brest State Technical University have agreed to adopt three new university courses suggested by the Project.
-3. The construction of three pilot buildings in Grodno, Minsk and Mogilev has been started late in 2015).
-4. The level is the same as for the baseline with regard to an entity to follow up the project's activities in the public outreach. The level exceeded the planned target with regard to monthly number of visits (from which about 48% are represented by constant users) and downloading of information from the site, which were r</narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative></narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative></narrative>
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
     <result type="2" aggregation-status="1">
       <title>
         <narrative>Objective</narrative>
@@ -2238,7 +1992,7 @@ In average per month, 190 hits and 1700 documents are being downloaded by outsid
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00066861</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2350,6 +2104,7 @@ In average per month, 190 hits and 1700 documents are being downloaded by outsid
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://undp.by/en/undp/doc/agree2text.html">
@@ -2369,7 +2124,7 @@ In average per month, 190 hits and 1700 documents are being downloaded by outsid
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00082884" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00082884</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2438,12 +2193,12 @@ In average per month, 190 hits and 1700 documents are being downloaded by outsid
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">476118.000</value>
+      <value currency="USD" value-date="2016-03-31">476118.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">330061.000</value>
+      <value currency="USD" value-date="2017-12-31">330961.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -2462,17 +2217,17 @@ In average per month, 190 hits and 1700 documents are being downloaded by outsid
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">40336.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">81923.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">64880.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">64880.000</value>
       <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -2483,8 +2238,8 @@ In average per month, 190 hits and 1700 documents are being downloaded by outsid
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -2494,9 +2249,9 @@ In average per month, 190 hits and 1700 documents are being downloaded by outsid
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">411238.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">411238.000</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -2507,8 +2262,8 @@ In average per month, 190 hits and 1700 documents are being downloaded by outsid
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -2537,61 +2292,6 @@ In average per month, 190 hits and 1700 documents are being downloaded by outsid
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00066861" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>1. Extent of peatland area that is brought under an effective, landscape-based, conservation and/or sustainable use regime under the framework of a National Strategy for Peatlands (NSP).
-2. Cross-sectoral WG for promoting a landscape approach to peatlands conservation and sustainable use.
-3.</narrative>
-        </description>
-        <baseline year="2012" value="">
-          <comment>
-            <narrative>1. Currently there is no National Strategy for Peatlands; there are a few, disparate efforts through past and ongoing donor funded projects to restore, conserve and sustainably use peatlands.
-2. Cross-sectoral working group do not exists at present.
-3. Criteria and methodologies for assessment of peatlands’ state, function and services  exist but they only take into account
-economic benefits.</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>1. Creation of a Cross-sectoral working group for promoting a landscape approach to peatlands conservation and sustainable use.
-2. The implementation of information and communication strategies for the dissemination of results and experiences of the project.
-3. The development of engineering projects for rewetting of project areas.</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>1. Two sessions of the working group were held on 10.03 2015 and 30-31.07.2015.
-2. Information about the project is presented in approximate 20 printed and electronic media sources.
-3. Engineering projects for rewetting of project areas are developed and approved by the local authorities (Mgla, Yurieva, Bobrovka, Sviatoe, Volsinskae).</narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
     <result type="2" aggregation-status="1">
       <title>
         <narrative>Objective</narrative>
@@ -3214,7 +2914,7 @@ The CH4 emission was negligible at all sites</narrative>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00067496</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3288,6 +2988,7 @@ The CH4 emission was negligible at all sites</narrative>
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://undp.by/en/undp/doc/agree2text.html">
@@ -3307,7 +3008,7 @@ The CH4 emission was negligible at all sites</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00083232" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00083232</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3373,7 +3074,7 @@ The CH4 emission was negligible at all sites</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">14107.000</value>
+      <value currency="USD" value-date="2016-03-31">14107.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -3397,17 +3098,17 @@ The CH4 emission was negligible at all sites</narrative>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">12989.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">24400.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">14107.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">14107.000</value>
       <provider-org type="10" ref="00555">
         <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
       </provider-org>
@@ -3418,8 +3119,8 @@ The CH4 emission was negligible at all sites</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00555">
         <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
       </provider-org>
@@ -3454,107 +3155,8 @@ The CH4 emission was negligible at all sites</narrative>
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00067496" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>Component 1:
-1.1. 
-A. Established practices between Belarus and Ukraine on post project analysis in a transboundary context endorsed by both sides. 
-Common approach to transboundary EIA in Belarus and Ukraine developed.
-# of Belarusian specialists trained in post-project analysis within the project.
-
-B. Proposals for legislative and institutional changes required for ratifying and implementing the Protocol endorsed by the Ministry of Environment.
-# of officials representing regional Belarusian authorities trained in SEA within the project 
-
-1.2. Flood risk map for the Pripyt River basin endorsed by the Ministry of Environment 
-# of flood monitoring station installed on the Pripyat River basin within the project
-
-1.3.   # of Belarusian specialists trained in oil pipelines accident preparedness and response, the timely notification of hazardous accidents.
-
-Component 2:
-# of Belarusian universities that have a specialised course on climate in their curricular 
-
-Component 3:
-# no stakeholder meetings held within the project</narrative>
-        </description>
-        <baseline year="2012" value="">
-          <comment>
-            <narrative>Component 1:
-1.1. 
-A. There is no established practices between Belarus and Ukraine on post project analysis in a transboundary context.
-0 of Belarusian specialists trained in post-project analysis within the project
-
-B. Belarus has not ratified the SEA  Protocol.
-0 officials representing regional  Belarusian authorities trained in SEA within the project.
-
-1.2. No flood risk map for the Pripyat River basin
-0 flood monitoring station installed on the Pripyat River basin within the project
-
-1.3. 0 specialists trained on the methods of tackling oil pipelines accidents.
-
-Component 2:
-No Belarusian universities that have a specialised course on climate in their curricular
-
-Component 3:
-No stakeholder meetings on national and regional levels held within the project</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>Component 1:
-1.2.1. Three new monitoring stations in the Pripyat River Basin procured, installated and operational.
-1.2.2. Risks of floods are evaluated and respective flood risk map for the Yasselda River sub-basin is developed and agreed by the MoEnv.
-1.2.3. Awareness of local population and authorities of the issues related to flood risk and flood risk management improved via dissemination of information materials developed and published and workshops about the issues related to flood risk and flood risk management.
-1.3. Not less than 30 representatives from the Ministry of Emergency and MoEnv, research institutes (e.g. Water Institute, BelNIC ECOLOGY), universities (e.g. Pipeline Transport Department of Polotsk State University) and pipeline operators (e.g. Beltransgaz, Navapolatsk and Homel enterprises for oil transport management / ‘Druzhba’ pipeline) are trained in oil pipelines accident preparedness and response. Training in oil pipelines accident preparedness and response, the timely notification of hazardous accidents for Belarusian authorities and industry is organized not later then September. The activity will be implemented in cooperation with NGO "ZOI".
-
-Component 2:
-2.1.1. Informational materials (posters, booklets, booklets for children) on climate change and secirity risks issues developed, printed and disseminated.
-2.1.2. Nation-wide discussion on climate change as a security problem is initiated.
-2.1.3. Climate change topics successfully integrated into the curriculum of professional training for environmental specialists. Recommendations on teaching modern course dedicated to climate change issues, including potential security risks and consequences for Belarus on climate change for environmental specialists are developed and agreed with MoEnv.
-2.1.4. A special course on climate change, including potential security risks and consequences for Belarus, successfully integrated into the university curriculum of the Vitebsk State University named aft</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>Component 1:
-1.2.1. Three automated hydrometeorological stations  for Pripyat River basin procured.
-1.2.2. Risks of floods are evaluated and respective flood risk map for the Yasselda River sub-basin is developed and agreed by the MoEnv.
-1.2.3. Awareness of local population and authorities of the issues related to flood risk and flood risk management improved via dissemination of information materials developed and published and workshop about the issues related to flood risk and flood risk management.
-1.3. 50 representatives of the public authorities in the field of industrial safety, emergency situations and environmental protection (republican bodies and their regional divisions), oil and gas pipelines operators, research organizations, international and Belarusian NGOs, media and foreign experts (Germany, Latvia, Ukraine, and Czech Republic) discussed the aspects of pipelines’ ecological safety in Belarus during the workshop "Environmental safety of gas and oil pipelines of Belarus", organized on  17-18 September, 2015, Minsk, Belarus. Discussion of the assessment "Environmental safety of main pipelines in Belarus" was initiated withing the workshop. Recommendations for improving the legal framework and practices in the field of environmental safety of the main pipelines were elaborated. Study of international good practices to enhance environmental safety and prevent industrial accidents on the pipelines was organized. The workshop was held jointly with Zoï Environment Network on behalf of the United Nations Environment Programme (UNEP).
-
-Component 2:
-2.1.1. Information materials (Brochure for children, , two Posters) on climate change and security  developed in cooperation with NGO "Zoï Environment Network" with the support of the Regional Environment Center for Central and Eastern Europe.
-2.1.2. Nation-wide discussion on climate change as a security problem initiated via round table "Climate change and response strategies in the context of sustainable develop</narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative></narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative></narrative>
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00067546</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3628,6 +3230,7 @@ Component 2:
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://undp.by/en/undp/doc/agree2text.html">
@@ -3654,7 +3257,7 @@ Component 2:
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00083259" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00083259</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3760,7 +3363,7 @@ Component 2:
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">968321.000</value>
+      <value currency="USD" value-date="2016-03-31">968321.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -3779,17 +3382,17 @@ Component 2:
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">34415.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">60953.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">968321.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">968321.000</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -3800,8 +3403,8 @@ Component 2:
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -3830,110 +3433,8 @@ Component 2:
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00067546" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>Component 1: 
-
-1. % of pilot schools acknowledge improved awareness of pupils and their parents on the benefits of rational use of energy and energy efficient measures. 
-2. % of project territories in the region  covered by the information campaign within the project.  
-
-Component 2: 
-1. No. of successfully implemented pilot initiatives demonstrating basic energy-saving measures and innovative energy-saving measures in the area of energy efficiency  in schools. 
-2. No. of completed energy audits. 
-
-Component 3: 
-1. No. of representatives of local stakeholders trained in Area-Based Development participatory practices. 
-2. No. of public hearings conducted in every target region/territory.</narrative>
-        </description>
-        <baseline year="2012" value="">
-          <comment>
-            <narrative>Component 1:
-1. There’s little awareness of and adherence to energy-saving techniques among general population in Belarus.
-
-Component 2: 
-1. The use of energy resources in old public buildings, especially schools, is often characterized by energy waste and increased GHGs emission.
-
-Component 3: 
-1. Local population is not actively involved into sustainable local development planning.</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>Targets as per Component 1:
-
-- The quarterly information newsletter is issued on a regular basis.
-- The project thematic web-site is up-to-date and operational.
-- Elective EE curriculum is introduced in pilot schools.
-- Information stands are installed at all pilot project objects.
-- The information campaign is conducted throughout the year.
-
-Targets as per Component 2:
-
-- The design documentation for pilot sites are developed.
-- The building contractors are selected on a competitive basis.
-- The implementation of the pilot initiatives is started.
-- Information stands are installed at all the project sites.
-- A study tour to Europe is conducted for the key local stakeholders (12 people).
-- At least 3 capacity building trainings for the local stakeholders are conducted.
-- The work on the local resource mobilization is initiated.
-- The grants are disbursed for the pilot projects’ implementation.
-- Project impact monitoring is conducted on a continuous basis.
-- Energy monitoring has started (at least 10 monitoring visits are conducted).
-
-Targets as per Component 3:
-
-- Public Advisory Boards are operational in all target districts.
-- The manuals for local stakeholders on EE and ABD approach are prepared.
-- Town Hall Meetings are conducted in target districts on a regular basis.
-- Participatory monitoring and evaluation system is operational in all the target districts.
-- The work on EE strategies for target districts has started.</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>Resullt as per Component 1:
-
-- 4 quarterly issues of information newsletter are published and disseminated.
-- English version of The Project's website was created and launched. The Project's website is regularly updated in Russian and English.
-- In Educational Establishment "Vitebsk State Vocational College of Mechanical Engineering named after M.F.Shmyrev" energy efficiency elective classes were introduced. State Educational Establishment "Secondary School No.4 of Dzerzhinsk town" didn't introduced energy efficiency elective classes. But Annual Working Plan of work of the Educational Establishment for 2015/2016 academic year contains activities to promote the culture of energy saving among students. The energy efficiency elective classes in State Educational Establishment "Kindergarten No.6 of Oshmiany town" and State Educational Establishment "Kindergarten No.45 of Grodno city" didn't introduce the energy efficiency elective classes because of specific of these educational establishments. Energy efficiency issues are included in the educational process with childrens. Active work in fiels of energy efficiency is cinducts in this direction with both parents, staff of sthe educational establishment and with local communities. Questions of energy efficiency are included in the the Annual Working Plan for 2015/2016 academic year.
-- Four information stands demonstrated the energy efficiency measures applied in pilot schools and the benefits gained from the project are created and installed in targeted schools of Vitebsk, Grodno and Minsk regions.
-- The information campaign is running.
-
-Resullt as per Component 2:
-
-- The design documentations for four pilot sites are developed, approved by state expertise authority and  forwarded to the customers.
-- The General Contractor for three pilot sites (Educational Establishment "Vitebsk State Vocational College of Mechanical Engineering named after M.F.Shmyrev", State Educational Establishment "Kindergarten No.45 of Grodno city</narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative></narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative></narrative>
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00070086</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4050,6 +3551,7 @@ Resullt as per Component 2:
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://undp.by/en/undp/doc/agree2text.html">
@@ -4097,7 +3599,7 @@ Resullt as per Component 2:
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00084272" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00084272</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4184,7 +3686,7 @@ Resullt as per Component 2:
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">141360.000</value>
+      <value currency="USD" value-date="2016-03-31">141360.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -4203,17 +3705,17 @@ Resullt as per Component 2:
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">161498.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">240567.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">141360.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">141360.000</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -4224,8 +3726,8 @@ Resullt as per Component 2:
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -4254,60 +3756,6 @@ Resullt as per Component 2:
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00070086" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative> Belarus is in compliance with the MP obligations for 2015 and 2020, or accelerates the phase-out earlier than MP requirements are enforced</narrative>
-        </description>
-        <baseline year="2012" value="">
-          <comment>
-            <narrative> Approved HCFC phase-out strategy;
- Customs union with the Russian Federation that results in uncontrolled import of HCFCs and HCFC based equipment;
- Gaps in institutional capacity and HCFC use control system;
- Weak HCFC re-use capacity and low-level of technical knowledge and instrumentation to address HCFC in the servicing sector
- Limited technical knowledge relating to good refrigeration practices as egards alternative refrigerants (non-ODS/low GWP such as ammonia, carbon dioxide, etc)
- No current information products and programs 
- Limited availability of technical tools to test gas composition and quality as well
-as to limit emissions of HCFCs during equipment maintenance
- Limited exposure to alternative technologies and understanding of energy-saving aspects of new modern equipment operational on new technologies</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
     <result type="2" aggregation-status="1">
       <title>
         <narrative>Objective 1</narrative>
@@ -8165,7 +7613,7 @@ Mid-term evaluation process is planned for launching in the second half od 2015 
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00070895</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -8300,6 +7748,7 @@ Mid-term evaluation process is planned for launching in the second half od 2015 
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://undp.by/en/undp/doc/agree2text.html">
@@ -8361,7 +7810,7 @@ Mid-term evaluation process is planned for launching in the second half od 2015 
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00084642" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00084642</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -8450,7 +7899,7 @@ Mid-term evaluation process is planned for launching in the second half od 2015 
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">655922.000</value>
+      <value currency="USD" value-date="2016-03-31">655922.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -8464,17 +7913,17 @@ Mid-term evaluation process is planned for launching in the second half od 2015 
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">167826.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">349645.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">655922.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">655922.000</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -8485,8 +7934,8 @@ Mid-term evaluation process is planned for launching in the second half od 2015 
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -8509,63 +7958,8 @@ Mid-term evaluation process is planned for launching in the second half od 2015 
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00070895" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>Output 1 Indicators:
-1) Peatland territory cleared of shrubs, reeds, and trees within the project. 
-2) Amount of biomass harvested from peatlands within the project.
-
-Output 2 Indicators: 
-Ecological integrity of the ecosystem (density of indicator species populations, such as Aquatic Warbler, Curlew, Great Snipe), carbon dividends; volumes of biomass harvested, areas of open peatlands freed of shrubs and undergrowth; and groundwater table dynamics.</narrative>
-        </description>
-        <baseline year="2012" value="">
-          <comment>
-            <narrative>Output 1 Baseline:
-1) 200 ha at Sporovo fen mire under grassy biomass cleared (implemented as part of an ICI project).
-2) 0 tons of biomass harvested within the project.
-Output 2 Baseline: 
-No system for monitoring of the efficiency of biomass harvesting is in place</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00071395</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -8618,6 +8012,7 @@ No system for monitoring of the efficiency of biomass harvesting is in place</na
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://undp.by/en/undp/doc/agree2text.html">
@@ -8637,7 +8032,7 @@ No system for monitoring of the efficiency of biomass harvesting is in place</na
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00084888" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00084888</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -8703,7 +8098,7 @@ No system for monitoring of the efficiency of biomass harvesting is in place</na
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <value currency="USD" value-date="2016-03-31">0.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -8722,17 +8117,17 @@ No system for monitoring of the efficiency of biomass harvesting is in place</na
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">7.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">7.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -8743,8 +8138,8 @@ No system for monitoring of the efficiency of biomass harvesting is in place</na
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -8773,74 +8168,8 @@ No system for monitoring of the efficiency of biomass harvesting is in place</na
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00071395" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>1.	Number of  representatives of stakeholder groups attending the promotion events/presentations on PPP;
-2.	Number of PPP focal points completing intensive training;
-3.	Number of certified PPP instructors/trainers;
-4.	Number of PPP trainings/workshops conducted in the regions/Oblasts;
-5.	Number of promo-publications on PPP delivered;
-6.	Professional organisations established to promote PPPs; 
-7.	Number of PPP Unit staff extensively trained on various PPP models, procedures and applications;
-8.	Concrete proposals made on improving the regulatory framework for PPPs;
-9.	A package of instructional materials prepared to support implementation of PPPs;
-10.	Pre-feasibility study reports on PPP projects;
-11.	The project outcomes communicated to potential investors.</narrative>
-        </description>
-        <baseline year="2013" value="">
-          <comment>
-            <narrative>1.	Awareness of PPPs is low among all stakeholder groups;
-2.	Government agencies/decision makers have insufficient subject matter expertise on PPPs;
-3.	Lack of qualified national consultants/trainers on PPP;
-4.	Regions are not engaged in discussions of PPPs;  
-5.	Shortage of information on PPP;
-6.	No professional PPP unit active in Belarus; 
-7.	Lack of professional expertise on PPPs;
-8.	Further studies are expedient to address select legal aspects of PPP and identify areas in need of further legal regulations on support of the PPP-related legal acts; 
-9.	No methodology has been developed to assist in the preparation of a national infrastructure plan;
-10.	 There is no experience in selection and appraisal of PPP projects;
-11.	 No information channels exist to inform investors about the opportunities of PPPs.</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00071600</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -8910,6 +8239,7 @@ No system for monitoring of the efficiency of biomass harvesting is in place</na
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://undp.by/en/undp/doc/agree2text.html">
@@ -8943,7 +8273,7 @@ No system for monitoring of the efficiency of biomass harvesting is in place</na
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00084973" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00084973</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -9012,7 +8342,7 @@ No system for monitoring of the efficiency of biomass harvesting is in place</na
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">474900.000</value>
+      <value currency="USD" value-date="2016-03-31">474900.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -9031,17 +8361,17 @@ No system for monitoring of the efficiency of biomass harvesting is in place</na
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">57402.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">66203.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">99.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">99.000</value>
       <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -9052,8 +8382,8 @@ No system for monitoring of the efficiency of biomass harvesting is in place</na
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -9063,9 +8393,9 @@ No system for monitoring of the efficiency of biomass harvesting is in place</na
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">474801.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">474801.000</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -9076,8 +8406,8 @@ No system for monitoring of the efficiency of biomass harvesting is in place</na
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -9106,54 +8436,8 @@ No system for monitoring of the efficiency of biomass harvesting is in place</na
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00071600" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative />
-        </description>
-        <baseline year="2013" value="">
-          <comment>
-            <narrative />
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00072461</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -9269,6 +8553,7 @@ No system for monitoring of the efficiency of biomass harvesting is in place</na
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://undp.by/en/undp/doc/agree2text.html">
@@ -9292,10 +8577,24 @@ No system for monitoring of the efficiency of biomass harvesting is in place</na
       <category code="A10" />
       <language code="en" />
     </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=28970">
+      <title>
+        <narrative>UNIVERSAL ACCESS TO HIV TREATMENT CONSOLIDATED</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=28974">
+      <title>
+        <narrative>UNIVERSAL ACCESS TO HIV TREATMENT CONSOLIDATED</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00085539" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00085539</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -9361,7 +8660,7 @@ No system for monitoring of the efficiency of biomass harvesting is in place</na
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">334557.000</value>
+      <value currency="USD" value-date="2016-03-31">334557.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -9380,17 +8679,17 @@ No system for monitoring of the efficiency of biomass harvesting is in place</na
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">516834.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">753813.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">334557.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">334557.000</value>
       <provider-org type="40" ref="00327">
         <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
       </provider-org>
@@ -9401,8 +8700,8 @@ No system for monitoring of the efficiency of biomass harvesting is in place</na
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00327">
         <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
       </provider-org>
@@ -9431,109 +8730,8 @@ No system for monitoring of the efficiency of biomass harvesting is in place</na
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00072461" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>Number of IDUs reached with harm reduction activities	26,250/50,000 - 52,5%	2009
-Number of IDUs screened for TB within harm reduction programs   	N/A	N/A
-Number of IDUs covered with substitution therapy 	72	2008
-Number of FSWs/IDUs reached with prevention programs	N/A	N/A
-Number and percentage of FSWs reached with prevention programmes	6,688/17,000 - 39,3%	2009</narrative>
-        </description>
-        <baseline year="2013" value="">
-          <comment>
-            <narrative>Number of IDUs reached with harm reduction programmes		
-		
-Number of IDUs screened for TB within harm reduction programs   		
-		
-Number of IDUs covered with substitution therapy		
-		
-Number of FSWs/IDUs reached with prevention programs		
-		
-Number of FSWs reached with prevention programs		
-		
-Number of prisoners reached with HIV prevention programmes		
-		
-Number of MSM  reached with prevention programmes		
-		
-		
-"Number of IDUs, MSM and FSWs reached with voluntary HIV counseling and testing (VCT) who received their  test results 
-and were supported with incentive packages"		
-		
-Number of PLHIV receiving care and support through the social support centres and home-based palliative care		
-		
-Number of OVC (orphans and vulnerable children) and children from families affected by PLHIV provided with psycho-social support services		
-		
-Number and percentage of adults, including prisoners, and children with advanced HIV infection currently receiving antiretroviral therapy		
-		
-Number and percentage of HIV infected pregnant women receiving a complete course of ARV prophylaxis to reduce the risk of mother-to-child transmission (MTCT)		
-		
-Number and percentage of medical institutions using the electronic information system for monitoring and forecasting of the healthcare human resources		
-		</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>Number of IDUs reached with harm reduction activities	 23360/75000 31,1%		
-Number of IDUs screened for TB within harm reduction programs   	 2500		
-Number of IDUs covered with substitution therapy 		 1500/18450 8.1%	
-Number of FSWs/IDUs reached with prevention programs	450/7500 6%		
-Number and percentage of FSWs reached with prevention programmes	3400/50000 6.8%		
-Number of prisoners reached with HIV prevention programmes			50%
-Number and percentage of MSM reached with prevention programmes	3.600/60000 6%		
-Number of IDUs, MSM and FSWs reached with voluntary HIV counseling and testing (VCT) who received their  test results			
-Number of PLHIV receiving care and support through the social support centres and home-based palliative care		490	
-Number of OVC (orphans and vulnerable children) and PLHIV provided with psycho-social support services	 270		
-Percentage of individuals receiving OST who received treatment for at least 6 months.	69%		
-Number and percentage of adults, including prisoners, and children with advanced HIV infection currently receiving antiretroviral therapy		6750/7260 93%	
-Number and percentage of HIV infected pregnant women receiving a complete course of ARV prophylaxis to reduce the risk of mother-to-child transmission (MTCT) 110/115/95.7%</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>Number of IDUs reached with harm reduction activities	 23929/75000 31,9%		
-Number of IDUs screened for TB within harm reduction programs   	3185	
-Number of IDUs covered with substitution therapy 		984/18450 8.1%	
-Number of FSWs/IDUs reached with prevention programs	541/7500 7.2%		
-Number and percentage of FSWs reached with prevention programmes	3074/50000 6.1%		
-Number of prisoners reached with HIV prevention programmes			80.5% 30194/37508
-Number and percentage of MSM reached with prevention programmes	3.637/60000 6.1%		
-Number of IDUs, MSM and FSWs reached with voluntary HIV counseling and testing (VCT) who received their  test results			
-Number of PLHIV receiving care and support through the social support centres and home-based palliative care		631
-Number of OVC (orphans and vulnerable children) and PLHIV provided with psycho-social support services	 304
-Percentage of individuals receiving OST who received treatment for at least 6 months.	71.43%		
-Number and percentage of adults, including prisoners, and children with advanced HIV infection currently receiving antiretroviral therapy		6755/7260 93%	
-Number and percentage of HIV infected pregnant women receiving a complete course of ARV prophylaxis to reduce the risk of mother-to-child transmission (MTCT) 111/125/88.8%</narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00073130</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -9589,6 +8787,7 @@ Number and percentage of HIV infected pregnant women receiving a complete course
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://undp.by/en/undp/doc/agree2text.html">
@@ -9609,7 +8808,7 @@ Number and percentage of HIV infected pregnant women receiving a complete course
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00092759" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00086085</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -9738,7 +8937,7 @@ Number and percentage of HIV infected pregnant women receiving a complete course
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">5006255.000</value>
+      <value currency="USD" value-date="2016-03-31">5006255.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -9757,17 +8956,17 @@ Number and percentage of HIV infected pregnant women receiving a complete course
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">322662.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">542787.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">336106.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">336106.000</value>
       <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -9778,8 +8977,8 @@ Number and percentage of HIV infected pregnant women receiving a complete course
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -9789,9 +8988,9 @@ Number and percentage of HIV infected pregnant women receiving a complete course
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">4670149.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">4670149.000</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -9802,8 +9001,8 @@ Number and percentage of HIV infected pregnant women receiving a complete course
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -9833,54 +9032,8 @@ Number and percentage of HIV infected pregnant women receiving a complete course
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00073130" />
     <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00092759" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative />
-        </description>
-        <baseline year="2013" value="">
-          <comment>
-            <narrative />
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00092759</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -9966,7 +9119,7 @@ Number and percentage of HIV infected pregnant women receiving a complete course
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">1055877.000</value>
+      <value currency="USD" value-date="2016-03-31">1055877.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -9980,17 +9133,17 @@ Number and percentage of HIV infected pregnant women receiving a complete course
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">66231.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">120137.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">1055877.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">1055877.000</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -10001,8 +9154,8 @@ Number and percentage of HIV infected pregnant women receiving a complete course
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -10026,54 +9179,8 @@ Number and percentage of HIV infected pregnant women receiving a complete course
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00073130" />
     <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00086085" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative />
-        </description>
-        <baseline year="2013" value="">
-          <comment>
-            <narrative />
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00075891</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -10129,6 +9236,7 @@ Number and percentage of HIV infected pregnant women receiving a complete course
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://undp.by/en/undp/doc/agree2text.html">
@@ -10148,7 +9256,7 @@ Number and percentage of HIV infected pregnant women receiving a complete course
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00087557" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00087557</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -10217,7 +9325,7 @@ Number and percentage of HIV infected pregnant women receiving a complete course
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">633893.000</value>
+      <value currency="USD" value-date="2016-03-31">633893.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
@@ -10236,17 +9344,17 @@ Number and percentage of HIV infected pregnant women receiving a complete course
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">1467.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">1865.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">42228.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">42228.000</value>
       <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -10257,8 +9365,8 @@ Number and percentage of HIV infected pregnant women receiving a complete course
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -10268,9 +9376,9 @@ Number and percentage of HIV infected pregnant women receiving a complete course
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">591665.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">591665.000</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -10281,8 +9389,8 @@ Number and percentage of HIV infected pregnant women receiving a complete course
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -10299,54 +9407,8 @@ Number and percentage of HIV infected pregnant women receiving a complete course
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00075891" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>Installation of at least 25 MW of wind power utilizing market based investments with average net capacity factors over 30% which will produce the objective of generating &gt;1 million MWh of renewable energy and reducing greenhouse gas emissions by &gt; 500,000 tonnes of CO2 equivalent</narrative>
-        </description>
-        <baseline year="2014" value="">
-          <comment>
-            <narrative>Zero; &lt;5 MW</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative></narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative></narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00076413</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -10411,6 +9473,7 @@ Number and percentage of HIV infected pregnant women receiving a complete course
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://undp.by/en/undp/doc/agree2text.html">
@@ -10430,7 +9493,7 @@ Number and percentage of HIV infected pregnant women receiving a complete course
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00087817" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00087817</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -10496,7 +9559,7 @@ Number and percentage of HIV infected pregnant women receiving a complete course
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">137239.000</value>
+      <value currency="USD" value-date="2016-03-31">137239.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -10515,17 +9578,17 @@ Number and percentage of HIV infected pregnant women receiving a complete course
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">7754.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">19956.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">137239.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">137239.000</value>
       <provider-org type="10" ref="00555">
         <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
       </provider-org>
@@ -10536,8 +9599,8 @@ Number and percentage of HIV infected pregnant women receiving a complete course
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00555">
         <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
       </provider-org>
@@ -10566,60 +9629,8 @@ Number and percentage of HIV infected pregnant women receiving a complete course
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00076413" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>1) Draft legislation governing the work of tax advisors, and a package of tax advisor training materials;
-2) Tax advisor training facility is operational; number of trained and certified tax advisors;
-3) New tax advisory model tested in the pilot enterprises from various sectors;
-4) Increased awareness of tax advisory services among business, government authorities and other stakeholders.</narrative>
-        </description>
-        <baseline year="2014" value="">
-          <comment>
-            <narrative>1) No institutional or legal framework in place, no enabling mechanism for tax advisory services exists;
-2) There is no training or certification of consultants;
-3) No experience of outsourcing tax advisory services to third party providers;
-4) Little awareness among the public and private sectors about tax advisory services, little public-private interaction taking place.</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00081657</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -10684,6 +9695,7 @@ Number and percentage of HIV infected pregnant women receiving a complete course
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://undp.by/en/undp/doc/agree2text.html">
@@ -10693,7 +9705,7 @@ Number and percentage of HIV infected pregnant women receiving a complete course
       <category code="A09" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=28079">
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=26544">
       <title>
         <narrative>Green Economy</narrative>
       </title>
@@ -10714,7 +9726,7 @@ Number and percentage of HIV infected pregnant women receiving a complete course
       <category code="A10" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=26544">
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=28079">
       <title>
         <narrative>Green Economy</narrative>
       </title>
@@ -10759,7 +9771,7 @@ Number and percentage of HIV infected pregnant women receiving a complete course
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00090852" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00090852</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -10885,7 +9897,7 @@ Number and percentage of HIV infected pregnant women receiving a complete course
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">2482036.000</value>
+      <value currency="USD" value-date="2016-03-31">2482036.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -10904,17 +9916,17 @@ Number and percentage of HIV infected pregnant women receiving a complete course
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">406942.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">469323.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">2482036.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">2482036.000</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -10925,8 +9937,8 @@ Number and percentage of HIV infected pregnant women receiving a complete course
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -10949,75 +9961,8 @@ Number and percentage of HIV infected pregnant women receiving a complete course
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00081657" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>1. Insufficient knowledge and awareness of the benefits of green production and consumption among the public, NGOs, and business community. Number of unique visitors to the project website and project pages in social networks. 
-2. The potential for greening the economy of the Republic of Belarus is underexploited. Economic empowerment of territories based on green growth principles is required in the areas of waste management, water management, biodiversity conservation, ecotourism, and creation of eco-info centres.</narrative>
-        </description>
-        <baseline year="2014" value="">
-          <comment>
-            <narrative>1. Developing "green" consumption behavior.
-2. Developing Green Economy in the regions through implementation of pilot initiatives.</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>1. Inception workshop.
-2. Media tours for journalists.
-3. Organization of PR-actions.
-4. Social networks.
-5. Development of the "green" map.
-6. Implantation of the green transport.
-7. Development of a network of eco-info centres.
-8. Organization of Eco-forums and topical roundtables.
-9. Information package.
-10. Complementation of preparatory works for practical implementation of the pilot initiatives.
-11. Practical implementation of pilot initiatives.
-12. Contest of green initiatives.
-13. Implementation of green initiatives.
-14.</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>1. Inception workshop was organized in March 2015 in Minsk. More than 80 participants improved their knowledge  on "green" economy principles and concept, "green" behavior and consumption, and were informed on the projects  goals and activities.
-2. Press tour to demonstrate sustainable waste management,  promote  principles of "green" economy and projects goals and  activities was organized in April 2015 to Brest region for  representatives of 7 mass media, including TV companies.
-3. 10 PR actions were organized  by the Project on different topics  and  all over Belarus.
-4. The project activities, goals, results  were  widely publicized on regular basis through established project web-site www.greenlogic.by and  project web-pages in 10 social networks: Facebook, Twitter, ВКонтакте, MySpace, Tumblr, Flickr, Classmates, LinkedIn, Instagram, Google Plus.
-5. Analysis on the  necessity of development new Internet data base "green" map or updating and improving of the available Internet databases was made.  Decision on the improvement of available Internet data base  www.greenmap.by that was established and maintained by the NGO "Centre Ecologicheskih Reshenij" was made.                                                                                                                                                                                                                                  Concept for  further development of  "green" map was prepared based on the study of  the similar products in Belarus and abroad. Cooperation agreement with the  NGO "Centre Ecologicheskih Reshenij" on joint  work on the development of  "green" map  was concluded.   Technical improvements of the "green" map  (www.greenmap.by) were partly completed.
-6. Strategy on "green" transport  introduction and development in Nesvizh Radziwill palace and park ensemble was prepared and  approved by the local executive committee. Implementation of the strategy was started.
-7. Draft Management plan fo</narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00081828</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -11063,7 +10008,7 @@ Number and percentage of HIV infected pregnant women receiving a complete course
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00090983" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00090983</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -11174,7 +10119,7 @@ Development of pilots on energy efficiency in Novogrudok (Investment in LEDs for
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">50800.000</value>
+      <value currency="USD" value-date="2016-03-31">50800.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
@@ -11188,17 +10133,17 @@ Development of pilots on energy efficiency in Novogrudok (Investment in LEDs for
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">50800.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">50800.000</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -11209,8 +10154,8 @@ Development of pilots on energy efficiency in Novogrudok (Investment in LEDs for
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -11221,54 +10166,8 @@ Development of pilots on energy efficiency in Novogrudok (Investment in LEDs for
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00081828" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>Applicable GEF Outcome Indicators: For Program 2: a) Extent to which energy efficiency policies and regulations are adopted and enforced; b) Volume of investment mobilized; c) Tonnes of CO2 equivalent avoided, and for Program 4: a) Number of cities adopting sustainable transport and urban policies and regulations; b) Volume of investment mobilized; c) Tonnes of CO2equivalent avoided</narrative>
-        </description>
-        <baseline year="2015" value="">
-          <comment>
-            <narrative></narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative></narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative></narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00083904</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -11321,6 +10220,7 @@ Development of pilots on energy efficiency in Novogrudok (Investment in LEDs for
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://undp.by/en/undp/doc/agree2text.html">
@@ -11340,7 +10240,7 @@ Development of pilots on energy efficiency in Novogrudok (Investment in LEDs for
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00092147" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00092147</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -11406,7 +10306,7 @@ Development of pilots on energy efficiency in Novogrudok (Investment in LEDs for
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">86374.000</value>
+      <value currency="USD" value-date="2016-03-31">86374.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -11420,17 +10320,17 @@ Development of pilots on energy efficiency in Novogrudok (Investment in LEDs for
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">1399.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">4762.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">86374.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">86374.000</value>
       <provider-org type="40" ref="00327">
         <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
       </provider-org>
@@ -11441,8 +10341,8 @@ Development of pilots on energy efficiency in Novogrudok (Investment in LEDs for
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00327">
         <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
       </provider-org>
@@ -11465,54 +10365,8 @@ Development of pilots on energy efficiency in Novogrudok (Investment in LEDs for
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00083904" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative />
-        </description>
-        <baseline year="2014" value="">
-          <comment>
-            <narrative />
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00087855</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -11534,6 +10388,9 @@ Development of pilots on energy efficiency in Novogrudok (Investment in LEDs for
     </participating-org>
     <participating-org role="1" type="40" ref="10159">
       <narrative>EUROPEAN COMMISSION</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="12337">
+      <narrative>MPTFO JP Belarus BELMED, Preventing non-communicable diseases, promoting healthy lifestyle and support to modernization of the health system in Belarus (JBY00/JBY01)</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2015-05-15" />
@@ -11587,7 +10444,7 @@ Development of pilots on energy efficiency in Novogrudok (Investment in LEDs for
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00094742" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00094742</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -11603,6 +10460,9 @@ Development of pilots on energy efficiency in Novogrudok (Investment in LEDs for
     </participating-org>
     <participating-org role="1" type="40" ref="10159">
       <narrative>EUROPEAN COMMISSION</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="12337">
+      <narrative>MPTFO JP Belarus BELMED, Preventing non-communicable diseases, promoting healthy lifestyle and support to modernization of the health system in Belarus (JBY00/JBY01)</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2015-05-15" />
@@ -11635,21 +10495,21 @@ Development of pilots on energy efficiency in Novogrudok (Investment in LEDs for
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">500000.000</value>
+      <value currency="USD" value-date="2016-03-31">532710.000</value>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">4463.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">40000.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">40000.000</value>
       <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -11660,8 +10520,8 @@ Development of pilots on energy efficiency in Novogrudok (Investment in LEDs for
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -11671,9 +10531,9 @@ Development of pilots on energy efficiency in Novogrudok (Investment in LEDs for
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">460000.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">32710.000</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -11684,8 +10544,8 @@ Development of pilots on energy efficiency in Novogrudok (Investment in LEDs for
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -11694,59 +10554,34 @@ Development of pilots on energy efficiency in Novogrudok (Investment in LEDs for
       </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">460000.000</value>
+      <provider-org type="40" ref="12337">
+        <narrative>MPTFO JP Belarus BELMED, Preventing non-communicable diseases, promoting healthy lifestyle and support to modernization of the health system in Belarus (JBY00/JBY01)</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">375279.000</value>
+      <provider-org ref="12337">
+        <narrative>MPTFO JP Belarus BELMED, Preventing non-communicable diseases, promoting healthy lifestyle and support to modernization of the health system in Belarus (JBY00/JBY01)</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00087855" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>Number of formal partnership arrangements under which local authorities, communities and CSOs work to reduce tobacco and alcohol abuse and promote healthy lifestyles.
-The register for breast cancer screening is developed, installed and used</narrative>
-        </description>
-        <baseline year="2015" value="">
-          <comment>
-            <narrative>Number of formal partnership arrangements under which local authorities, communities and CSOs work to reduce tobacco and alcohol abuse and promote healthy lifestyles.
-Baseline N/A (2014)</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>Number of formal partnership arrangements under which local authorities, communities and CSOs work to reduce tobacco and alcohol abuse and promote healthy lifestyles
-Call for proposals for Local Initiatives is launched</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>n/a, Project has been suspended  the end of the 2015 due to long national registration process</narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00088402</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -11806,6 +10641,7 @@ Call for proposals for Local Initiatives is launched</narrative>
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://undp.by/en/undp/doc/agree2text.html">
@@ -11825,7 +10661,7 @@ Call for proposals for Local Initiatives is launched</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00095081" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00095081</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -11870,7 +10706,7 @@ Call for proposals for Local Initiatives is launched</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">84249.000</value>
+      <value currency="USD" value-date="2016-03-31">84249.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -11879,17 +10715,17 @@ Call for proposals for Local Initiatives is launched</narrative>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">1181.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">13988.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">84249.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">84249.000</value>
       <provider-org type="40" ref="00559">
         <narrative>OFFICE OF THE HIGH COMMISSIONER FOR HUMA</narrative>
       </provider-org>
@@ -11900,8 +10736,8 @@ Call for proposals for Local Initiatives is launched</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00559">
         <narrative>OFFICE OF THE HIGH COMMISSIONER FOR HUMA</narrative>
       </provider-org>
@@ -11918,78 +10754,8 @@ Call for proposals for Local Initiatives is launched</narrative>
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00088402" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>Indicator(s):
-1.	The ITC training programmes updated to reflect the advanced anti-trafficking methods and best practices in response to the existing needs.
-2.	Human rights and gender equality topics integrated in the programme contents.
-3.	Five training courses for 125 law-enforcement professionals conducted in the field of combating trafficking in hu-man beings and related offences.
-Indicators:
-1.	An enhanced system is in place to sup-port coordination and information ex-change on human trafficking and related offences among the law enforcement agencies and other competent authorities of Belarus and the neighbouring states.
-2.	Strengthened human rights focus   of in-ternational cooperation against human trafficking among the members of the Group of Friends and international organi-sations.</narrative>
-        </description>
-        <baseline year="2015" value="">
-          <comment>
-            <narrative>Baseline:  
-The contents of the existing training programmes on combating human trafficking and related of-fences need to be upgraded and updated with regard to the latest trends in the criminal context dynamics. Advanced international anti-trafficking methods, including those for Internet, have to be researched and introduced. The focus to strengthen human rights and gender equality needs to be enhanced.
-Baseline: 
-There is a need to improve the effectiveness of measures to prevent the victimization of women and children, as well as to elaborate a coordinat-ed approach to addressing the root causes of trafficking.
-
-There is a need to improve coordination of the relevant agencies of the Group of Friends to hu-man trafficking to develop more uniform ap-proaches to protecting the human rights of vic-tims of human trafficking.</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>75 professionals from Belarus, the CIS and neighbouring coun-tries have completed training courses in the field of combat-ing trafficking in human beings and related offences.
-Human rights and gender per-spective topics are integrated into the training curriculum.
-Advanced methods of detec-tion, recording and investiga-tion of crimes related to human trafficking have been incorpo-rated in the professional prac-tices of the law enforcement agencies from Belarus, CIS and neighbouring countries repre-sented at the training courses.
-
-30 law-enforcement profession-als and other competent authorities from Belarus, Russia, Lithuania, Estonia, Moldova, Kazakhstan and other countries have taken part in the workshop.
-Exchange of information on anti-trafficking and coordination among the law enforcement agencies and other competent authorities in Belarus and other states in the region have been optimized.
-
-30 representatives of the Mem-ber States of the Group of Friends United against Human Trafficking have taken part in the international workshop.
-A uniform position has been formulated on the application of international human rights standards to protecting the victims of human trafficking and for strengthening law enforcement cooperation against human trafficking among the member states of the Group of Friends and the relevant international organisa-tions.</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>83 professionals from Belarus, the CIS and neighbouring countries have completed training courses in the field of combat-ng trafficking in human beings and related offences.
-Human rights and gender perspective topics were an integral part of the training curriculum.Advanced methods of detection, recording and investigation of crimes related to human trafficking were incorporated in the professional practices of the law enforcement agencies from Belarus, CIS and neighbouring countries represented at the training courses.
-54 law-enforcement professionals and other competent authorities from Belarus, neigbouring countries took part in the workshop.As a result of it, the participants exchanged of experience and best practices of combating human trafficking and other forms of modern slavery
-Exchange of information on anti-trafficking and coordination among the law enforcement agencies and other competent authorities in Belarus and other states in the region have been optimized.
-Based on its successful experience from 2013, UNDP and OHCHR supported global dialogue on trafficking in human beings in the context of human rights. In particular, the second international workshop for representatives of competent authorities of the Member States of the Group of Friends United against Human Trafficking (UN-wide initiative of Belarus) took place in Minsk to spur further cooperation and coordination in the area, with particular focus on children's vulnerability
-42 representatives of the Member States of the Group of Friends United against Human Trafficking have taken part in the international workshop as well as 12 representatives of international organizations.</narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00088793</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -12042,6 +10808,7 @@ Based on its successful experience from 2013, UNDP and OHCHR supported global di
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://undp.by/en/undp/doc/agree2text.html">
@@ -12061,7 +10828,7 @@ Based on its successful experience from 2013, UNDP and OHCHR supported global di
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00095301" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00095301</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -12106,7 +10873,7 @@ Based on its successful experience from 2013, UNDP and OHCHR supported global di
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">53970.000</value>
+      <value currency="USD" value-date="2016-03-31">53970.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -12116,17 +10883,17 @@ Based on its successful experience from 2013, UNDP and OHCHR supported global di
     <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">53970.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">53970.000</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -12137,8 +10904,8 @@ Based on its successful experience from 2013, UNDP and OHCHR supported global di
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -12155,54 +10922,8 @@ Based on its successful experience from 2013, UNDP and OHCHR supported global di
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00088793" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative />
-        </description>
-        <baseline year="2015" value="">
-          <comment>
-            <narrative />
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00089043</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -12255,6 +10976,7 @@ Based on its successful experience from 2013, UNDP and OHCHR supported global di
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://undp.by/en/undp/doc/agree2text.html">
@@ -12274,7 +10996,7 @@ Based on its successful experience from 2013, UNDP and OHCHR supported global di
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00095446" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00095446</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -12319,7 +11041,7 @@ Based on its successful experience from 2013, UNDP and OHCHR supported global di
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">6436.000</value>
+      <value currency="USD" value-date="2016-03-31">6436.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -12328,17 +11050,17 @@ Based on its successful experience from 2013, UNDP and OHCHR supported global di
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">-6034.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">-4988.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">6436.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">6436.000</value>
       <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -12349,8 +11071,8 @@ Based on its successful experience from 2013, UNDP and OHCHR supported global di
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -12367,54 +11089,8 @@ Based on its successful experience from 2013, UNDP and OHCHR supported global di
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00089043" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative />
-        </description>
-        <baseline year="2015" value="">
-          <comment>
-            <narrative />
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00089646</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -12432,7 +11108,7 @@ Based on its successful experience from 2013, UNDP and OHCHR supported global di
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="1" type="10" ref="12583">
-      <narrative>BelRSPCentrMedicalTechnologies</narrative>
+      <narrative>STATE INSTITUTION "REPUBLICAN SCIENTIFIC AND PRACTICAL CENTER FOR MEDICAL TECHNOLOGIES, INFORMATIZATION, ADMINISTRATION AND MANAGEMENT OF HEALTH".</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2016-01-01" />
@@ -12499,7 +11175,7 @@ Based on its successful experience from 2013, UNDP and OHCHR supported global di
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00097484" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00095747</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -12511,7 +11187,7 @@ Based on its successful experience from 2013, UNDP and OHCHR supported global di
       <narrative>Containing the Epidemic of HIV and Decreasing HIV Prevalence and Mortality Rates in Belarus</narrative>
     </description>
     <participating-org role="1" type="10" ref="12583">
-      <narrative>BelRSPCentrMedicalTechnologies</narrative>
+      <narrative>STATE INSTITUTION "REPUBLICAN SCIENTIFIC AND PRACTICAL CENTER FOR MEDICAL TECHNOLOGIES, INFORMATIZATION, ADMINISTRATION AND MANAGEMENT OF HEALTH".</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2016-01-01" />
@@ -12544,23 +11220,23 @@ Based on its successful experience from 2013, UNDP and OHCHR supported global di
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">1663552.000</value>
+      <value currency="USD" value-date="2016-03-31">1663552.000</value>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">1663552.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">1663552.000</value>
       <provider-org type="10" ref="12583">
-        <narrative>BelRSPCentrMedicalTechnologies</narrative>
+        <narrative>STATE INSTITUTION "REPUBLICAN SCIENTIFIC AND PRACTICAL CENTER FOR MEDICAL TECHNOLOGIES, INFORMATIZATION, ADMINISTRATION AND MANAGEMENT OF HEALTH".</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -12569,10 +11245,10 @@ Based on its successful experience from 2013, UNDP and OHCHR supported global di
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">1663552.000</value>
       <provider-org ref="12583">
-        <narrative>BelRSPCentrMedicalTechnologies</narrative>
+        <narrative>STATE INSTITUTION "REPUBLICAN SCIENTIFIC AND PRACTICAL CENTER FOR MEDICAL TECHNOLOGIES, INFORMATIZATION, ADMINISTRATION AND MANAGEMENT OF HEALTH".</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -12582,54 +11258,8 @@ Based on its successful experience from 2013, UNDP and OHCHR supported global di
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00089646" />
     <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00097484" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative />
-        </description>
-        <baseline year="2016" value="">
-          <comment>
-            <narrative />
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00097484</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -12641,7 +11271,7 @@ Based on its successful experience from 2013, UNDP and OHCHR supported global di
       <narrative>Ensuring universal access to rapid laboratory diagnosis of drug resistant tuberculosis (DR-TB) and universal coverage of DR-TB patients with high-quality treatment</narrative>
     </description>
     <participating-org role="1" type="10" ref="12583">
-      <narrative>BelRSPCentrMedicalTechnologies</narrative>
+      <narrative>STATE INSTITUTION "REPUBLICAN SCIENTIFIC AND PRACTICAL CENTER FOR MEDICAL TECHNOLOGIES, INFORMATIZATION, ADMINISTRATION AND MANAGEMENT OF HEALTH".</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2016-01-01" />
@@ -12674,23 +11304,23 @@ Based on its successful experience from 2013, UNDP and OHCHR supported global di
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">3399833.000</value>
+      <value currency="USD" value-date="2016-03-31">3399833.000</value>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">2900.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">3399833.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">3399833.000</value>
       <provider-org type="10" ref="12583">
-        <narrative>BelRSPCentrMedicalTechnologies</narrative>
+        <narrative>STATE INSTITUTION "REPUBLICAN SCIENTIFIC AND PRACTICAL CENTER FOR MEDICAL TECHNOLOGIES, INFORMATIZATION, ADMINISTRATION AND MANAGEMENT OF HEALTH".</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -12699,10 +11329,10 @@ Based on its successful experience from 2013, UNDP and OHCHR supported global di
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">3399833.000</value>
       <provider-org ref="12583">
-        <narrative>BelRSPCentrMedicalTechnologies</narrative>
+        <narrative>STATE INSTITUTION "REPUBLICAN SCIENTIFIC AND PRACTICAL CENTER FOR MEDICAL TECHNOLOGIES, INFORMATIZATION, ADMINISTRATION AND MANAGEMENT OF HEALTH".</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -12712,54 +11342,8 @@ Based on its successful experience from 2013, UNDP and OHCHR supported global di
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00089646" />
     <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00095747" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative />
-        </description>
-        <baseline year="2016" value="">
-          <comment>
-            <narrative />
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00090255</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -12800,6 +11384,7 @@ Based on its successful experience from 2013, UNDP and OHCHR supported global di
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://undp.by/en/undp/doc/agree2text.html">
@@ -12819,7 +11404,7 @@ Based on its successful experience from 2013, UNDP and OHCHR supported global di
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00096108" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00096108</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -12864,7 +11449,7 @@ Based on its successful experience from 2013, UNDP and OHCHR supported global di
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">603920.000</value>
+      <value currency="USD" value-date="2016-03-31">603920.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -12873,17 +11458,17 @@ Based on its successful experience from 2013, UNDP and OHCHR supported global di
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">4422.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">603920.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">603920.000</value>
       <provider-org type="10" ref="00329">
         <narrative>DANIDA: UNCDF ONLY</narrative>
       </provider-org>
@@ -12894,8 +11479,8 @@ Based on its successful experience from 2013, UNDP and OHCHR supported global di
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00329">
         <narrative>DANIDA: UNCDF ONLY</narrative>
       </provider-org>
@@ -12912,51 +11497,5 @@ Based on its successful experience from 2013, UNDP and OHCHR supported global di
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00090255" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative />
-        </description>
-        <baseline year="2015" value="">
-          <comment>
-            <narrative />
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
 </iati-activities>

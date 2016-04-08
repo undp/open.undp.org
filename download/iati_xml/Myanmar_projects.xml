@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2016-03-23T22:16:07" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2016-04-07T10:28:11" version="2.02">
   <!--Myanmar-->
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00013948</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -18,6 +18,9 @@
     </participating-org>
     <participating-org role="2" type="40" ref="00012">
       <narrative>United Nations Development Programme</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="00012">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <participating-org role="1" type="10" ref="00187">
       <narrative>GOVERNMENT OF NORWAY</narrative>
@@ -99,6 +102,7 @@
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
@@ -112,7 +116,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00073436" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00013948</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -123,6 +127,9 @@
     <description type="1">
       <narrative>Integrated Community Development Project</narrative>
     </description>
+    <participating-org role="1" type="40" ref="00012">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="10159">
       <narrative>EUROPEAN COMMISSION</narrative>
     </participating-org>
@@ -171,7 +178,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <value currency="USD" value-date="2016-03-31">6.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -195,17 +202,41 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">-5.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">6.000</value>
+      <provider-org type="40" ref="00012">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
+      <provider-org ref="00012">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -216,8 +247,8 @@
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">-559.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">-559.000</value>
       <provider-org ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -227,9 +258,9 @@
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org type="40" ref="11613">
         <narrative>LIFT_Trust_Fund_Manager</narrative>
       </provider-org>
@@ -240,8 +271,8 @@
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">2672.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">2672.000</value>
       <provider-org ref="11613">
         <narrative>LIFT_Trust_Fund_Manager</narrative>
       </provider-org>
@@ -277,73 +308,8 @@
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00013948" />
     <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00073436" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>Output Indicators for Yr. 2010-Output #1:
-
-(1) # of people having increased knowledge and skills on agricultural, fisheries &amp; livestock raising techniques and vocational skills through training .
-(2) # of trained beneficiaries applying appropriate knowledge and skills acquired from the trainings provided and have increased food production and income.
-(3)# of people having increased knowledge and skills on natural resource management and environment protection.
-(4)% of SRGs and CBOs will have increased knowledge and skills on transparent and accountable organizational development and operate transparently, effectively and efficiently.
-(5)% of SRG and CBO members will have self confidence and improved decision making capacities for their household matters. 
-(6) % of beneficiary hhs applying appropriate knowledge and skills to protect their household and livelihood assets from any kind of disaster/hazards</narrative>
-        </description>
-        <baseline year="1901" value="">
-          <comment>
-            <narrative>42,378 beneficiary hh income increased.
-
-6,872 beneficiary  of landless, poorest and very poor hh income increased.
-
-No baseline data available for SRGs beneficiary hh linkage to MF.
-
-24,195 women SRG members have additional income.
-
-No baseline available for PWD, PLHA.
-
-242 village/communities have access to market.
-
-7,980 jobs created.</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00073436</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -398,7 +364,7 @@ No baseline available for PWD, PLHA.
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <value currency="USD" value-date="2016-03-31">0.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -422,17 +388,17 @@ No baseline available for PWD, PLHA.
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">990.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">990.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org type="10" ref="00187">
         <narrative>GOVERNMENT OF NORWAY</narrative>
       </provider-org>
@@ -443,8 +409,8 @@ No baseline available for PWD, PLHA.
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00187">
         <narrative>GOVERNMENT OF NORWAY</narrative>
       </provider-org>
@@ -480,54 +446,8 @@ No baseline available for PWD, PLHA.
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00013948" />
     <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00013948" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative />
-        </description>
-        <baseline year="2009" value="">
-          <comment>
-            <narrative />
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00042876</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -580,6 +500,7 @@ No baseline available for PWD, PLHA.
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="http://www.mm.undp.org/content/dam/myanmar/docs/Documents/UNDP_MM_CPAP_%20JULY%202013.pdf">
@@ -599,7 +520,7 @@ No baseline available for PWD, PLHA.
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00049803" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00049803</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -658,7 +579,7 @@ No baseline available for PWD, PLHA.
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">85627.000</value>
+      <value currency="USD" value-date="2016-03-31">100016.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -678,17 +599,17 @@ No baseline available for PWD, PLHA.
     <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">85627.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">100016.000</value>
       <provider-org type="10" ref="00551">
         <narrative>DEPARTMENT FOR INTERNATIONAL DEVELOPMENT</narrative>
       </provider-org>
@@ -699,8 +620,8 @@ No baseline available for PWD, PLHA.
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00551">
         <narrative>DEPARTMENT FOR INTERNATIONAL DEVELOPMENT</narrative>
       </provider-org>
@@ -729,58 +650,8 @@ No baseline available for PWD, PLHA.
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00042876" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>Draft joint programme developed, projects formulated, M&amp;E plan produced
-Coordination meetings held and information shared
-Common services in particular areas in place.
-Meetings with key stakeholders.</narrative>
-        </description>
-        <baseline year="2006" value="">
-          <comment>
-            <narrative>Proposal for joint programme on gender, data management system, HIV/AIDS and National HIV/AIDS M&amp;E plan.
-Increased efficient coordination by the Response Coordination Officer and External Affairs Officer.</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00050283</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -886,6 +757,7 @@ Increased efficient coordination by the Response Coordination Officer and Extern
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
@@ -898,7 +770,7 @@ Increased efficient coordination by the Response Coordination Officer and Extern
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00062044" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00062044</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -975,7 +847,7 @@ Increased efficient coordination by the Response Coordination Officer and Extern
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">436702.000</value>
+      <value currency="USD" value-date="2016-03-31">436702.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -1000,17 +872,17 @@ Increased efficient coordination by the Response Coordination Officer and Extern
     <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">84962.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">136077.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">138.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">138.000</value>
       <provider-org type="40" ref="00005">
         <narrative>UNITED NATIONS EDUCATIONAL, SCIENTIFIC &amp; CULTURAL ORGANIZAITON</narrative>
       </provider-org>
@@ -1021,8 +893,8 @@ Increased efficient coordination by the Response Coordination Officer and Extern
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00005">
         <narrative>UNITED NATIONS EDUCATIONAL, SCIENTIFIC &amp; CULTURAL ORGANIZAITON</narrative>
       </provider-org>
@@ -1032,9 +904,9 @@ Increased efficient coordination by the Response Coordination Officer and Extern
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">5.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">5.000</value>
       <provider-org type="10" ref="00187">
         <narrative>GOVERNMENT OF NORWAY</narrative>
       </provider-org>
@@ -1045,8 +917,8 @@ Increased efficient coordination by the Response Coordination Officer and Extern
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00187">
         <narrative>GOVERNMENT OF NORWAY</narrative>
       </provider-org>
@@ -1056,9 +928,9 @@ Increased efficient coordination by the Response Coordination Officer and Extern
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">1040.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">1040.000</value>
       <provider-org type="10" ref="00232">
         <narrative>GOVERNMENT OF SWITZERLAND</narrative>
       </provider-org>
@@ -1069,8 +941,8 @@ Increased efficient coordination by the Response Coordination Officer and Extern
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00232">
         <narrative>GOVERNMENT OF SWITZERLAND</narrative>
       </provider-org>
@@ -1080,9 +952,9 @@ Increased efficient coordination by the Response Coordination Officer and Extern
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">1951.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">1951.000</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -1093,8 +965,8 @@ Increased efficient coordination by the Response Coordination Officer and Extern
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -1104,9 +976,9 @@ Increased efficient coordination by the Response Coordination Officer and Extern
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">108883.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">108883.000</value>
       <provider-org type="40" ref="11724">
         <narrative>European Comm. Humanit. Aid Of</narrative>
       </provider-org>
@@ -1117,8 +989,8 @@ Increased efficient coordination by the Response Coordination Officer and Extern
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">178771.000</value>
       <provider-org ref="11724">
         <narrative>European Comm. Humanit. Aid Of</narrative>
       </provider-org>
@@ -1128,9 +1000,9 @@ Increased efficient coordination by the Response Coordination Officer and Extern
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">323433.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">323433.000</value>
       <provider-org type="10" ref="12113">
         <narrative>The Department of Foreign Affairs, Trade and development - Canada</narrative>
       </provider-org>
@@ -1141,8 +1013,8 @@ Increased efficient coordination by the Response Coordination Officer and Extern
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">620384.000</value>
       <provider-org ref="12113">
         <narrative>The Department of Foreign Affairs, Trade and development - Canada</narrative>
       </provider-org>
@@ -1152,9 +1024,9 @@ Increased efficient coordination by the Response Coordination Officer and Extern
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">1252.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">1252.000</value>
       <provider-org type="70" ref="12369">
         <narrative>Development Alternatives, Inc</narrative>
       </provider-org>
@@ -1165,8 +1037,8 @@ Increased efficient coordination by the Response Coordination Officer and Extern
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="12369">
         <narrative>Development Alternatives, Inc</narrative>
       </provider-org>
@@ -1201,54 +1073,221 @@ Increased efficient coordination by the Response Coordination Officer and Extern
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00050283" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative></narrative>
-        </description>
-        <baseline year="2008" value="">
-          <comment>
-            <narrative></narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative></narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative></narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+    <iati-identifier>XM-DAC-41114-PROJECT-00051177</iati-identifier>
+    <reporting-org ref="XM-DAC-41114" type="40">
+      <narrative>United Nations Development Programme</narrative>
+    </reporting-org>
+    <title>
+      <narrative>Community Development for Remote Townships</narrative>
+    </title>
+    <description type="1">
+      <narrative>Community Development for Remote Townships.</narrative>
+    </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>UNDP</narrative>
+    </participating-org>
+    <participating-org role="2" type="40" ref="00012">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="00012">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
+    <activity-status code="3" />
+    <activity-date type="1" iso-date="2009-01-01" />
+    <activity-date type="2" iso-date="2009-01-01" />
+    <activity-date type="3" iso-date="2015-12-31" />
+    <activity-date type="4" iso-date="2016-03-11" />
+    <contact-info type="1">
+      <email>registry.mm@undp.org</email>
+      <website>http://www.mm.undp.org/</website>
+    </contact-info>
+    <recipient-country code="MM">
+      <narrative>Myanmar</narrative>
+    </recipient-country>
+    <collaboration-type code="1" />
+    <default-flow-type code="10" />
+    <default-finance-type code="110" />
+    <default-aid-type code="A01" />
+    <default-tied-status code="3" />
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MMR/00051177_Communication%20Strategy%20and%20Work%20plan.pdf">
+      <title>
+        <narrative>00051177_Communication Strategy and Work plan</narrative>
+      </title>
+      <category code="A01" />
+      <category code="A02" />
+      <category code="A03" />
+      <category code="A04" />
+      <category code="A05" />
+      <category code="A08" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MMR/00051177_PRODOC-Community%20Development%20for%20Remote%20Townships%20Project.pdf">
+      <title>
+        <narrative>00051177_PRODOCCommunity Development for Remote Townships Project</narrative>
+      </title>
+      <category code="A01" />
+      <category code="A02" />
+      <category code="A03" />
+      <category code="A04" />
+      <category code="A05" />
+      <category code="A08" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="http://open.undp.org/#project/00051177">
+      <title>
+        <narrative>Purchase Order Summary</narrative>
+      </title>
+      <category code="A11" />
+      <category code="A12" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="http://www.mm.undp.org/content/dam/myanmar/docs/Documents/UNDP_MM_CPAP_%20JULY%202013.pdf">
+      <title>
+        <narrative>UNDP_MM_CPAP_%20JULY%202013</narrative>
+      </title>
+      <category code="A09" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
+      <title>
+        <narrative>Request for Procurement</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
+    <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00063580" />
+    <conditions attached="0" />
+  </iati-activity>
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+    <iati-identifier>XM-DAC-41114-OUTPUT-00063580</iati-identifier>
+    <reporting-org ref="XM-DAC-41114" type="40">
+      <narrative>United Nations Development Programme</narrative>
+    </reporting-org>
+    <title>
+      <narrative>Community Dev for Remote Areas</narrative>
+    </title>
+    <description type="1">
+      <narrative>Community Development for Remote Townships Project</narrative>
+    </description>
+    <participating-org role="1" type="40" ref="00012">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
+    <activity-status code="3" />
+    <activity-date type="1" iso-date="2009-01-01" />
+    <activity-date type="2" iso-date="2009-01-01" />
+    <activity-date type="3" iso-date="2015-12-31" />
+    <activity-date type="4" iso-date="2016-03-11" />
+    <contact-info type="1">
+      <email>registry.mm@undp.org</email>
+      <website>http://www.mm.undp.org/</website>
+    </contact-info>
+    <activity-scope code="6" />
+    <recipient-country code="MM">
+      <narrative>Myanmar</narrative>
+    </recipient-country>
+    <location ref="MM">
+      <location-reach code="2" />
+      <location-id vocabulary="G1" code="1321702" />
+      <name>
+        <narrative>Kachin State</narrative>
+      </name>
+      <description>
+        <narrative>first-order administrative division</narrative>
+      </description>
+      <activity-description>
+        <narrative></narrative>
+      </activity-description>
+      <administrative level="1" code="1321702" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>26.000000 97.500000</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="1" />
+      <feature-designation code="ADM1" />
+    </location>
+    <policy-marker vocabulary="1" code="1" significance="1" />
+    <collaboration-type code="4" />
+    <default-flow-type code="10" />
+    <default-finance-type code="110" />
+    <default-aid-type code="A01" />
+    <default-tied-status code="3" />
+    <budget type="2" status="2">
+      <period-start iso-date="2016-01-01" />
+      <period-end iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-03-31">5.000</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2015-01-01" />
+      <period-end iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">0.000</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2013-01-01" />
+      <period-end iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">12300.000</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2012-01-01" />
+      <period-end iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">6746453.000</value>
+    </budget>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">4.000</value>
+      <provider-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">5.000</value>
+      <provider-org type="40" ref="00012">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
+      <provider-org ref="00012">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">1837.000</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">25489.000</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">6027045.000</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <related-activity type="1" ref="XM-DAC-41114-PROJECT-00051177" />
+    <conditions attached="0" />
+  </iati-activity>
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00051335</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1354,6 +1393,7 @@ Increased efficient coordination by the Response Coordination Officer and Extern
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="http://www.mm.undp.org/content/dam/myanmar/docs/Documents/UNDP_MM_CPAP_%20JULY%202013.pdf">
@@ -1380,7 +1420,7 @@ Increased efficient coordination by the Response Coordination Officer and Extern
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00063865" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00063865</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1436,7 +1476,7 @@ Increased efficient coordination by the Response Coordination Officer and Extern
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <value currency="USD" value-date="2016-03-31">0.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -1455,17 +1495,17 @@ Increased efficient coordination by the Response Coordination Officer and Extern
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org type="40" ref="11613">
         <narrative>LIFT_Trust_Fund_Manager</narrative>
       </provider-org>
@@ -1476,8 +1516,8 @@ Increased efficient coordination by the Response Coordination Officer and Extern
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">-2753.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">-2753.000</value>
       <provider-org ref="11613">
         <narrative>LIFT_Trust_Fund_Manager</narrative>
       </provider-org>
@@ -1506,65 +1546,8 @@ Increased efficient coordination by the Response Coordination Officer and Extern
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00051335" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>Indicators for Output#1:
-
-# and amount of MF loans and services provided to MF clients.  
-
-# of SRGs and beneficiary hh linked to micro-finance services to have access to credit.</narrative>
-        </description>
-        <baseline year="2008" value="">
-          <comment>
-            <narrative>Baseline for Output#1:
-
-2.5 million loans and 156 billion kyats .
-
-No baseline available for SRGs and beneficiary hh linkage to micro-finance .
-
-2011 Baseline for Output1
-3,070,436 loans of 223 billion Kyats</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00063637</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1617,6 +1600,7 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="http://www.mm.undp.org/content/dam/myanmar/docs/Documents/UNDP_MM_CPAP_%20JULY%202013.pdf">
@@ -1636,7 +1620,7 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00080622" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00080622</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1691,7 +1675,7 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">18781.000</value>
+      <value currency="USD" value-date="2016-03-31">18781.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -1715,17 +1699,17 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">6846.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">18576.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">18781.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">18781.000</value>
       <provider-org type="40" ref="00327">
         <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
       </provider-org>
@@ -1736,8 +1720,8 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00327">
         <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
       </provider-org>
@@ -1772,54 +1756,8 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00063637" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative />
-        </description>
-        <baseline year="2011" value="">
-          <comment>
-            <narrative />
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00072430</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1878,6 +1816,7 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="http://www.mm.undp.org/content/dam/myanmar/docs/Documents/UNDP_MM_CPAP_%20JULY%202013.pdf">
@@ -1981,7 +1920,7 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00085518" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00085518</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2053,7 +1992,7 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">1106434.000</value>
+      <value currency="USD" value-date="2016-03-31">1106434.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -2072,17 +2011,17 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">-5945.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">66544.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">572831.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">572831.000</value>
       <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -2093,8 +2032,8 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -2104,9 +2043,9 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">321142.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">321142.000</value>
       <provider-org type="10" ref="00110">
         <narrative>GOVERNMENT OF FINLAND</narrative>
       </provider-org>
@@ -2117,8 +2056,8 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00110">
         <narrative>GOVERNMENT OF FINLAND</narrative>
       </provider-org>
@@ -2128,9 +2067,9 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">212461.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">212461.000</value>
       <provider-org type="40" ref="10602">
         <narrative>UN-HABITAT</narrative>
       </provider-org>
@@ -2141,8 +2080,8 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="10602">
         <narrative>UN-HABITAT</narrative>
       </provider-org>
@@ -2171,58 +2110,8 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00072430" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>1.	Level of progress of the core indicator for HFA Priority Action 1 (i.e. National policy and legal framework for disaster risk reduction exists with decentralized responsibilities and capacities at all levels)
-2.	Disaster Risk Management Plans at township level developed that are using the results of the Multi-Hazard Risk Assessment as a basis</narrative>
-        </description>
-        <baseline year="2013" value="">
-          <comment>
-            <narrative>1.	Level of Progress “2” in Core Indicator 1 of the HFA Priority 1
-2.	Disaster Risk Management Plan at two townships (Laputta and PaThein) used the result of the Multi Hazard Risk Assessment as a Basis</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>1.Level of progress '3' in core indicator 1 of the HFA priority 1.
-2.Disaster Risk Management plan at three township used the results of the Multi-Hazard Risk Assessments as a basis.</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>1.Level of progress '3' in core indicator 1 of the HFA priority 1.
-2.Disaster Risk Management plan at three township used the results of the Multi-Hazard Risk Assessments as a basis. (Laputta and PaThein)</narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00074036</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2300,6 +2189,7 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="http://www.mm.undp.org/content/dam/myanmar/docs/Documents/UNDP_MM_CPAP_%20JULY%202013.pdf">
@@ -2307,6 +2197,13 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
         <narrative>UNDP_MM_CPAP_%20JULY%202013</narrative>
       </title>
       <category code="A09" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=25897">
+      <title>
+        <narrative>Development Effectiveness</narrative>
+      </title>
+      <category code="A10" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=26303">
@@ -2330,21 +2227,7 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
       <category code="A10" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=25897">
-      <title>
-        <narrative>Development Effectiveness</narrative>
-      </title>
-      <category code="A10" />
-      <language code="en" />
-    </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=25600">
-      <title>
-        <narrative>Development Effectiveness</narrative>
-      </title>
-      <category code="A10" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=25370">
       <title>
         <narrative>Development Effectiveness</narrative>
       </title>
@@ -2358,7 +2241,7 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
       <category code="A10" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=23643">
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=25370">
       <title>
         <narrative>Development Effectiveness</narrative>
       </title>
@@ -2379,10 +2262,17 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
       <category code="A10" />
       <language code="en" />
     </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=23643">
+      <title>
+        <narrative>Development Effectiveness</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00086606" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00086606</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2447,7 +2337,7 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">1408185.000</value>
+      <value currency="USD" value-date="2016-03-31">1408185.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -2466,17 +2356,17 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">-28030.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">73431.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">675000.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">675000.000</value>
       <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -2487,8 +2377,8 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -2498,9 +2388,9 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">164392.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">164392.000</value>
       <provider-org type="10" ref="00110">
         <narrative>GOVERNMENT OF FINLAND</narrative>
       </provider-org>
@@ -2511,8 +2401,8 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">-324660.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">-324660.000</value>
       <provider-org ref="00110">
         <narrative>GOVERNMENT OF FINLAND</narrative>
       </provider-org>
@@ -2522,9 +2412,9 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">568793.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">568793.000</value>
       <provider-org type="10" ref="00551">
         <narrative>DEPARTMENT FOR INTERNATIONAL DEVELOPMENT</narrative>
       </provider-org>
@@ -2535,8 +2425,8 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">17997.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">17997.000</value>
       <provider-org ref="00551">
         <narrative>DEPARTMENT FOR INTERNATIONAL DEVELOPMENT</narrative>
       </provider-org>
@@ -2565,64 +2455,8 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00074036" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>- Number of national and regional plans using newly available data 
-- Availability of up to date gender disaggregated poverty data
-- Clear institutional set-up for planning in place at the national and regional level 
-- Number of national and regional plans with specific policy to reduce negative socio-environmental impacts of private investment and capacity building with regulatory tools for implementation 
-- Standard Operating Procedures and preferences for aid modalities in place
-- AIMS developed and in place</narrative>
-        </description>
-        <baseline year="2013" value="">
-          <comment>
-            <narrative>- 0 national and regional plans using newly available data
-- Last IHCLA survey conducted in 2010 and no system of national accounts
-- Planning system centralized at the moment and to shift to an integrated planning and budget system
-- Limited policy and laws, and capacity and regulatory tools reflected in national and regional plans to manage socio-environmental impacts of private investment
-- No standard operating procedure/regulatory manual in place for managing aid modalities
-- No Aid Management System (AIMS) in place</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00074039</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2641,6 +2475,9 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </participating-org>
     <participating-org role="1" type="40" ref="00012">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="00095">
+      <narrative>GOVERNMENT OF DENMARK</narrative>
     </participating-org>
     <participating-org role="1" type="10" ref="00551">
       <narrative>DEPARTMENT FOR INTERNATIONAL DEVELOPMENT</narrative>
@@ -2693,6 +2530,7 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="http://www.mm.undp.org/content/dam/myanmar/docs/Documents/UNDP_MM_CPAP_%20JULY%202013.pdf">
@@ -2768,7 +2606,7 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00086607" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00086607</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2781,6 +2619,9 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </description>
     <participating-org role="1" type="40" ref="00012">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="00095">
+      <narrative>GOVERNMENT OF DENMARK</narrative>
     </participating-org>
     <participating-org role="1" type="10" ref="00551">
       <narrative>DEPARTMENT FOR INTERNATIONAL DEVELOPMENT</narrative>
@@ -2829,7 +2670,7 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">706747.000</value>
+      <value currency="USD" value-date="2016-03-31">706747.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -2848,17 +2689,17 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">-13818.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">28955.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">501360.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">501360.000</value>
       <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -2869,8 +2710,8 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -2880,9 +2721,33 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
+      <provider-org type="10" ref="00095">
+        <narrative>GOVERNMENT OF DENMARK</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
+      <provider-org ref="00095">
+        <narrative>GOVERNMENT OF DENMARK</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org type="10" ref="00551">
         <narrative>DEPARTMENT FOR INTERNATIONAL DEVELOPMENT</narrative>
       </provider-org>
@@ -2893,8 +2758,8 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">-289217.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">-289217.000</value>
       <provider-org ref="00551">
         <narrative>DEPARTMENT FOR INTERNATIONAL DEVELOPMENT</narrative>
       </provider-org>
@@ -2904,9 +2769,9 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">205387.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">205387.000</value>
       <provider-org type="10" ref="00555">
         <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
       </provider-org>
@@ -2917,8 +2782,8 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">-70984.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">-70984.000</value>
       <provider-org ref="00555">
         <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
       </provider-org>
@@ -2947,62 +2812,8 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00074039" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>-	Number of pilot public administration reform activities developed (Indicator 01)
--	Number of opportunities where government counterparts can learn from other public administration reform experiences, especially south-south experiences (Indicator 02)
--	Multi-year UCSB training programme developed for civil servants (Indicator 01)
--	Effectiveness of the usage of equipment provided to training institutes (as measured through surveys completed by training beneficiaries) (Indicator 02)
--	Number of reports and pieces of information on the civil service posted on the UCSB website (Indicator 03)</narrative>
-        </description>
-        <baseline year="2013" value="">
-          <comment>
-            <narrative>-	0 (TBC) pilot public administration reform activities developed (Indicator 01)
--	0 (TBC) learning and south-south cooperation opportunities within government on public administration and public administration reform initiatives (Indicator 02)
--	No Multi-year UCSB training programme developed for civil servants (Indicator 01)
--	Training environments and equipment are not in line with modern international practice (Indicator 02)
--	TBD. Number of reports and pieces of information on the civil service posted on the UCSB website (Indicator 03)</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00074042</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3067,6 +2878,7 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="http://www.mm.undp.org/content/dam/myanmar/docs/Documents/UNDP_MM_CPAP_%20JULY%202013.pdf">
@@ -3156,7 +2968,7 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00086608" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00086608</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3234,7 +3046,7 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">1830772.000</value>
+      <value currency="USD" value-date="2016-03-31">1830772.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -3253,17 +3065,17 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">16404.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">223137.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">665000.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">665000.000</value>
       <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -3274,8 +3086,8 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -3285,9 +3097,9 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org type="10" ref="00095">
         <narrative>GOVERNMENT OF DENMARK</narrative>
       </provider-org>
@@ -3298,8 +3110,8 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00095">
         <narrative>GOVERNMENT OF DENMARK</narrative>
       </provider-org>
@@ -3309,9 +3121,9 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">182473.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">182473.000</value>
       <provider-org type="10" ref="00110">
         <narrative>GOVERNMENT OF FINLAND</narrative>
       </provider-org>
@@ -3322,8 +3134,8 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">81216.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">81216.000</value>
       <provider-org ref="00110">
         <narrative>GOVERNMENT OF FINLAND</narrative>
       </provider-org>
@@ -3333,9 +3145,9 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">983299.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">983299.000</value>
       <provider-org type="10" ref="00551">
         <narrative>DEPARTMENT FOR INTERNATIONAL DEVELOPMENT</narrative>
       </provider-org>
@@ -3346,8 +3158,8 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">953380.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">953380.000</value>
       <provider-org ref="00551">
         <narrative>DEPARTMENT FOR INTERNATIONAL DEVELOPMENT</narrative>
       </provider-org>
@@ -3357,9 +3169,9 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org type="10" ref="00555">
         <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
       </provider-org>
@@ -3370,8 +3182,8 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">-22018.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">-22018.000</value>
       <provider-org ref="00555">
         <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
       </provider-org>
@@ -3400,98 +3212,8 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00074042" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>-	2.1 Percentage of surveyed committees at the Union level reporting satisfaction with administrative, technical support, and procedural advice provided by staff. 
--	2.2 Strategic plan used to guide the vision and mission of the parliament in regards to legislation, representation, and oversight functions. 
--	2.3 Percentage of MPs and staff at the union level reporting improved core and specialized skills as a result of Learning Centre Trainings. 
--	2.4 Number of committees at the union level that request information and/or research from research and library services . 
--	2.5 Percentage of target users/ units at the union level using the ICT system for information management, research, and communication. 
--	2.6 Increase in the number of hearings by targeted committees  at the union level that scrutinize policies regarding the protection of the rights of women, children, and vulnerable groups. 
--	2.7 Number of committees at the union level conducting outreach activities (e.g. field visits, community consultations, and information bulletins). 
--	2.8 Strategic plan used to guide the vision and mission of selected state and regional parliaments in regards to legislation, representation, and oversight functions.  
--	2.9 Number of committees in selected state and region Hluttaws   holding broad consultations on draft legislation. 
--	2.10 Number of committee hearings related to oversight of state and regional governments. 
--	2.11 Number of hluttaw dialogues on peace building with local communities and stakeholders. 
--	2.12 Percentage of MPs and staff members in selected state and regional Hluttaws reporting benefitting from each capacity development activity during a post-training assessment.</narrative>
-        </description>
-        <baseline year="2013" value="">
-          <comment>
-            <narrative>-	2.1 0% of committees surveyed; there is no evaluation of administrative, technical support, and procedural advice.
--	2.2 No strategic development plan.
--	2.3 There is no Learning Centre, and no strategy for the long term development and training of MPs and staff.
--	2.4 No research and library services exist, so no committees can request information and research.
--	2.5 No ICT system used for information management, research, and communication
--	2.6 There are no hearings by targeted committees regarding the protection of the rights of women, children and vulnerable groups.
--	2.7 No outreach activities conducted by committees
--	2.8 No strategic development plans in place at region and state level.
--	2.9 Consultations organized but no broad participation of stakeholders.
--	2.10 None
--	2.11 State and regional parliaments’ do not play any role in peace building and do not play a function in facilitating dialogue (No dialogues held.)
--	2.12 0%- region state parliaments did not receive training by UNDP in 2013.</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>-	2.1 25% of surveyed committees.
--	2.2 Strategic Development Plan referred to in Parliaments work plans and capacity related support and assistance from outside.
--	2.3 30% of MPs and staff surveyed.
--	2.4 Six committees.
--	2.5 25% of target users/units.
--	2.6 Three hearings by target committees.
--	2.7 Two committees.
--	2.8 Strategic plan is used in 50% of selected state and regional parliaments.
--	2.9  Two committees
--	2.10 Two committees.
--	2.11 No target; preparatory work completed.
--	2.12 50% of responding MPs and staff members.</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>The Parliament continued to show leadership of its reform process, launching a Learning Centre and expanding capacity of committees and committee staff.
-- 2.1 22% of MPs reported satisfaction. UNDP's survey of 60 MPs shows that services have advanced and expanded over time in a process strongly supported by MPs, but that MPs feel services currently available in the Hluttaw still need to be strengthened.
-- 2.2 Departmental workplans showing the practical steps towards the achievement of the strategic plan, with indicators and targets, developed and implemented jointly by staff and MPs. Development partners refer to Strategic Plan.
-- 2.3 94% of 278 surveyed staff trained in the Learning Centre report improvement. Learning Centre trained 1,099 people in 13 subjects since launch in March (most towards the end of the year, so haven't been surveyed.)
-- 2.4 5 of 100 surveyed MPs used research services for drafting and reviewing bills. The survey showed that most MPs highly value the research services offered and their political impartiality.
-- 2.5 No users are yet using the system, as the installment of ICT infrastructure has not been completed.
-- 2.6 6 mock hearings by target committees held. MPs engaged in consultations on the legal aid law, child law, and prevention of violence against women law.
-- 2.7 and 2.9 work in these areas was post-poned at committees’ request.
-- 2.8 Strategic plan developed in 5 parliaments.
-- 2.10 4 Committees from 4 parliaments held mock hearings.
-- 2.11 Not done.
-- 2.12 97% of 44MPs and staff found technical support and trainings useful. 10 MPs and staff were female.</narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00074044</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3563,6 +3285,7 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="http://www.mm.undp.org/content/dam/myanmar/docs/Documents/UNDP_MM_CPAP_%20JULY%202013.pdf">
@@ -3635,10 +3358,24 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
       <category code="A10" />
       <language code="en" />
     </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=28868">
+      <title>
+        <narrative>Rule of Law and Access to Justice</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=28923">
+      <title>
+        <narrative>Rule of Law and Access to Justice</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00086610" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00086610</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3716,7 +3453,7 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">1764114.000</value>
+      <value currency="USD" value-date="2016-03-31">1764114.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -3735,17 +3472,17 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">16477.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">170012.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">800000.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">800000.000</value>
       <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -3756,8 +3493,8 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -3767,9 +3504,9 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">244248.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">244248.000</value>
       <provider-org type="10" ref="00110">
         <narrative>GOVERNMENT OF FINLAND</narrative>
       </provider-org>
@@ -3780,8 +3517,8 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">243444.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">243444.000</value>
       <provider-org ref="00110">
         <narrative>GOVERNMENT OF FINLAND</narrative>
       </provider-org>
@@ -3791,9 +3528,9 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">254000.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">254000.000</value>
       <provider-org type="10" ref="00182">
         <narrative>GOVERNMENT OF NETHERLANDS</narrative>
       </provider-org>
@@ -3804,8 +3541,8 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00182">
         <narrative>GOVERNMENT OF NETHERLANDS</narrative>
       </provider-org>
@@ -3815,9 +3552,9 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">271337.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">271337.000</value>
       <provider-org type="10" ref="00551">
         <narrative>DEPARTMENT FOR INTERNATIONAL DEVELOPMENT</narrative>
       </provider-org>
@@ -3828,8 +3565,8 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">271337.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">271337.000</value>
       <provider-org ref="00551">
         <narrative>DEPARTMENT FOR INTERNATIONAL DEVELOPMENT</narrative>
       </provider-org>
@@ -3839,9 +3576,9 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">194529.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">194529.000</value>
       <provider-org type="10" ref="00555">
         <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
       </provider-org>
@@ -3852,8 +3589,8 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">93002.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">93002.000</value>
       <provider-org ref="00555">
         <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
       </provider-org>
@@ -3882,82 +3619,8 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00074044" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>-	3.1 Number of mid-level officials from justice institutions (the Supreme Court and Attorney General’s Office) trained to develop and deliver training programs to meet the needs of justice sector reform.
--	3.2 Number of university law departments that include clinical legal education in their curricula. 
--	3.3 Percentage of trainees (in both justice institutions and law departments) reporting the relevance of training for practical use. 
--	3.4 Number of actions taken by justice institutions to promote consultative and participatory legislative development.
--	3.5 Use of new approaches to raise legal awareness of vulnerable groups in targeted areas. 
--	3.6  Number of examples in which justice sector actors  have responded to the priority justice needs of vulnerable people  (e.g. action in specific cases or development of protocols/strategies)
--	3.7 Number of justice sector policies/plans initiated to improve coordination on crosscutting justice concerns. 
--	3.8 Justice sector institutional capacity development plans produced and steps toward implementation undertaken</narrative>
-        </description>
-        <baseline year="2013" value="">
-          <comment>
-            <narrative>-	3.1  None – there  was no system for training of trainers (TOT)           
--	3.2 No university law department in Myanmar has a clinic legal education in its curricula. 
--	3.3 Justice sector actors have expressed the need for knowledge and skill based-training.
--	3.4 There have been no consultative and legislative participatory developments; legal drafting is closed.
--	3.5 There are no special measures designed to increase legal awareness of vulnerable groups.
--	3.6 Mapping study (December 2013) documents provide few examples in which justice sector actors have responded to priority needs of vulnerable people (e.g. in land registration disputes or cases of SGBV).
--	3.7 None. There are no justice sector policies/plans which promote coordination on crosscutting justice concerns.
--	3.8 No existing capacity development plans for justice sector actors (initial milestones to be identified once capacity development plans developed).</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>-	3.1 Fifteen, through at least five mentoring sessions to support (i) curriculum development on fair trail principles and (ii) teaching skills.
--	3.2 Four university law departments.
--	3.3  60% of justice actors trained by UNDP and law departments reporting relevance of training for practical use.
--	3.4 Two consultations.
--	3.5 One or more of the following approaches utilized: mobile clinics, multiple reinforcement, small-group training, and community-based support groups; and at least totalling six times per target area per year.
--	3.6 Two examples of justice sector actor responses.
--	3.7 One policy/plan initiated.
--	3.8 One capacity development plan from the second justice institution.</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>'- 3.1 Training departments in the Union Attorney General's Office and Office of the Supreme Court of the Union benefit from mentoring on curriculum development, but no training of trainers on fair trial standards conducted.
-- 3.2 18 universities apply Clinical Legal Education teaching modalities and principles in parts of curricula.
-- 3.3 72% of  25 TOT trainees, 87% of 57 CSO representative trainees, and 100% of 12 law professors report improved skills as a result of Rule of Law Centres and Clinical Legal Education programmes, noting relevance of training.
-- 3.4 Three national consultations held on draft laws (legal aid, prevention of violence against women, child law), and a handbook for legislative development drafted that makes provision for public participation in future drafting processes.
-- 3.5 Small group training and community forums used to raise legal awareness. 4 local level roundtables discussed draft laws and women's rights issues; 2 Rule of Law Centres trained academics and civil society in Shan, Mandalay and Kachin on justice issues over a 6 month period, including through mock trials.
-- 3.6 Three draft laws address justice needs (Legal Aid, Prevention of Violence Against Women, and the Child laws). In Shan and Mandalay, justice actors discussed gender-based violence with communities, gaining insight on how to better respond to the needs of vulnerable groups. 
-- 3.7 2. UAGO Strategic Plan developed through a participatory process, and launched. UAGO and the OSCU met jointly with the Central Statistics Office to discuss a coordinated justice sector ICT strategy for case information management.
-- 3.8 UAGO Strategic Plan includes objectives for reviewing and strengthening training curricula. UNDP and IDLO are supporting the UAGO and OSCU to conduct training curriculum reviews in line with the training needs of judicial officers, law officers and institutional staff.</narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00074064</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3976,6 +3639,9 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </participating-org>
     <participating-org role="1" type="40" ref="00012">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="00021">
+      <narrative>ECONOMIC COMMISSION FOR LATIN AMERICA AN</narrative>
     </participating-org>
     <participating-org role="1" type="10" ref="00110">
       <narrative>GOVERNMENT OF FINLAND</narrative>
@@ -4037,6 +3703,7 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://erc.undp.org/evaluationadmin/manageevaluation/viewevaluationdetail.html?evalid=7020">
@@ -4140,7 +3807,7 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00086621" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00086621</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4153,6 +3820,9 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </description>
     <participating-org role="1" type="40" ref="00012">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="00021">
+      <narrative>ECONOMIC COMMISSION FOR LATIN AMERICA AN</narrative>
     </participating-org>
     <participating-org role="1" type="10" ref="00110">
       <narrative>GOVERNMENT OF FINLAND</narrative>
@@ -4212,7 +3882,7 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">658269.000</value>
+      <value currency="USD" value-date="2016-03-31">658269.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -4231,17 +3901,17 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">23205.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">77637.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">332000.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">332000.000</value>
       <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -4252,8 +3922,8 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -4263,9 +3933,33 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">294169.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
+      <provider-org type="40" ref="00021">
+        <narrative>ECONOMIC COMMISSION FOR LATIN AMERICA AN</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
+      <provider-org ref="00021">
+        <narrative>ECONOMIC COMMISSION FOR LATIN AMERICA AN</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">294169.000</value>
       <provider-org type="10" ref="00110">
         <narrative>GOVERNMENT OF FINLAND</narrative>
       </provider-org>
@@ -4276,8 +3970,8 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00110">
         <narrative>GOVERNMENT OF FINLAND</narrative>
       </provider-org>
@@ -4287,9 +3981,9 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">32100.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">32100.000</value>
       <provider-org type="10" ref="00187">
         <narrative>GOVERNMENT OF NORWAY</narrative>
       </provider-org>
@@ -4300,8 +3994,8 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00187">
         <narrative>GOVERNMENT OF NORWAY</narrative>
       </provider-org>
@@ -4330,58 +4024,8 @@ No baseline available for SRGs and beneficiary hh linkage to micro-finance .
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00074064" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>- # of submitted EIA proposals agreed by the EIA Review Committee which is in line with the rules and regulations of EIA guideline
-- # of Forest User Groups who have already been granted the land lease certificate
-- # of Forest User Groups having been granted land lease certificates and managing that land [and proportion of women in forest user groups]</narrative>
-        </description>
-        <baseline year="2013" value="">
-          <comment>
-            <narrative>Formation of EIA Review Committee is on going
-National Level 597 Forest User Group in December 2011
-National Level 115208 acre has been transferred to Forest User Group in December 2011</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00074116</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4403,6 +4047,9 @@ National Level 115208 acre has been transferred to Forest User Group in December
     </participating-org>
     <participating-org role="1" type="10" ref="00095">
       <narrative>GOVERNMENT OF DENMARK</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="00110">
+      <narrative>GOVERNMENT OF FINLAND</narrative>
     </participating-org>
     <participating-org role="1" type="10" ref="00555">
       <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
@@ -4468,6 +4115,7 @@ National Level 115208 acre has been transferred to Forest User Group in December
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="http://www.mm.undp.org/content/dam/myanmar/docs/Documents/UNDP_MM_CPAP_%20JULY%202013.pdf">
@@ -4529,7 +4177,7 @@ National Level 115208 acre has been transferred to Forest User Group in December
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00086662" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00086662</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4545,6 +4193,9 @@ National Level 115208 acre has been transferred to Forest User Group in December
     </participating-org>
     <participating-org role="1" type="10" ref="00095">
       <narrative>GOVERNMENT OF DENMARK</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="00110">
+      <narrative>GOVERNMENT OF FINLAND</narrative>
     </participating-org>
     <participating-org role="1" type="10" ref="00555">
       <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
@@ -4601,7 +4252,7 @@ National Level 115208 acre has been transferred to Forest User Group in December
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">700448.000</value>
+      <value currency="USD" value-date="2016-03-31">700448.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -4620,17 +4271,17 @@ National Level 115208 acre has been transferred to Forest User Group in December
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">29886.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">79555.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">442883.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">442883.000</value>
       <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -4641,8 +4292,8 @@ National Level 115208 acre has been transferred to Forest User Group in December
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -4652,9 +4303,9 @@ National Level 115208 acre has been transferred to Forest User Group in December
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org type="10" ref="00095">
         <narrative>GOVERNMENT OF DENMARK</narrative>
       </provider-org>
@@ -4665,8 +4316,8 @@ National Level 115208 acre has been transferred to Forest User Group in December
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00095">
         <narrative>GOVERNMENT OF DENMARK</narrative>
       </provider-org>
@@ -4676,9 +4327,33 @@ National Level 115208 acre has been transferred to Forest User Group in December
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">257565.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
+      <provider-org type="10" ref="00110">
+        <narrative>GOVERNMENT OF FINLAND</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
+      <provider-org ref="00110">
+        <narrative>GOVERNMENT OF FINLAND</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">257565.000</value>
       <provider-org type="10" ref="00555">
         <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
       </provider-org>
@@ -4689,8 +4364,8 @@ National Level 115208 acre has been transferred to Forest User Group in December
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00555">
         <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
       </provider-org>
@@ -4719,67 +4394,8 @@ National Level 115208 acre has been transferred to Forest User Group in December
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00074116" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>- Country wide baseline of sub-national governance and service delivery established [in 13 States/regions and at least 1 District and 1 Township in each State]
-- # of usages (by government officials and MPs) of the mapping findings for local development reform (# of downloads of the baseline study, # of mentions in speeches or documents, etc.)
-- Improved public expenditure management cycle tested in targeted pilot townships
-- Mechanisms and guidelines for citizens’ participation and increased horizontal coordination for development planning at township level developed and implemented 
-- # of townships (out of 12) improving their performance in delivering pro-poor services and infrastructure projects based on the performance based grant system</narrative>
-        </description>
-        <baseline year="2013" value="">
-          <comment>
-            <narrative>- No mapping exists as of 2012
-- No public expenditure management system at township level
-- Basic participatory structures at township and village tract level established but not yet fully functional
-- Performance based system for townships service delivery not introduced yet</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>2. At least 5 usages of the mapping findings in local development reform
-3. Guidelines/manuals developed as a basis for implementation and training in targeted areas (6 states and regions)
-4. Mechanisms and guidelines for citizens participation and increased horizontal coordination for development planning at township level developed and tested in at least 12 townships in 2 states
-5. Improved public expenditure management cycle tested in at least 12 townships in at least 2 states</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>2. Mapping reports used by Government; (in establishment of OSS) Reference in Minister's speech at the PAR Forum; Development agencies in their programming (UNFPA; WWF; EU/VNG Int) DRD/WB and Mercy Corps. 
-3. Ongoing work. Guidelines/manuals for the One stop shop's (present in 14 States/regions)under development, draft is ready. Training manuals developed. 
-4. N/A (UNCDF part of the program which never materialized) . 
-5. N/A (UNCDFs part of the program which never materialized).</narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00074117</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4798,6 +4414,9 @@ National Level 115208 acre has been transferred to Forest User Group in December
     </participating-org>
     <participating-org role="1" type="40" ref="00012">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="00110">
+      <narrative>GOVERNMENT OF FINLAND</narrative>
     </participating-org>
     <participating-org role="1" type="10" ref="00555">
       <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
@@ -4866,6 +4485,7 @@ National Level 115208 acre has been transferred to Forest User Group in December
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="http://www.mm.undp.org/content/dam/myanmar/docs/Documents/UNDP_MM_CPAP_%20JULY%202013.pdf">
@@ -4941,7 +4561,7 @@ National Level 115208 acre has been transferred to Forest User Group in December
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00086663" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00086663</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4954,6 +4574,9 @@ National Level 115208 acre has been transferred to Forest User Group in December
     </description>
     <participating-org role="1" type="40" ref="00012">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="00110">
+      <narrative>GOVERNMENT OF FINLAND</narrative>
     </participating-org>
     <participating-org role="1" type="10" ref="00555">
       <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
@@ -5013,7 +4636,7 @@ National Level 115208 acre has been transferred to Forest User Group in December
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">1314886.000</value>
+      <value currency="USD" value-date="2016-03-31">1314886.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -5032,17 +4655,17 @@ National Level 115208 acre has been transferred to Forest User Group in December
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">63375.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">195721.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">1036536.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">1036536.000</value>
       <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -5053,8 +4676,8 @@ National Level 115208 acre has been transferred to Forest User Group in December
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -5064,9 +4687,33 @@ National Level 115208 acre has been transferred to Forest User Group in December
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">278350.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
+      <provider-org type="10" ref="00110">
+        <narrative>GOVERNMENT OF FINLAND</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
+      <provider-org ref="00110">
+        <narrative>GOVERNMENT OF FINLAND</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">278350.000</value>
       <provider-org type="10" ref="00555">
         <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
       </provider-org>
@@ -5077,8 +4724,8 @@ National Level 115208 acre has been transferred to Forest User Group in December
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00555">
         <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
       </provider-org>
@@ -5088,9 +4735,9 @@ National Level 115208 acre has been transferred to Forest User Group in December
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org type="10" ref="11140">
         <narrative>Japanese international Cooperation Agency</narrative>
       </provider-org>
@@ -5101,8 +4748,8 @@ National Level 115208 acre has been transferred to Forest User Group in December
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="11140">
         <narrative>Japanese international Cooperation Agency</narrative>
       </provider-org>
@@ -5131,71 +4778,8 @@ National Level 115208 acre has been transferred to Forest User Group in December
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00074117" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative># of TCCs/CMCs established (01)
-# of consultations with citizens, CSOs and CBOs at Township level on service delivery(02)
-% of women participating in consultations on local governance issues (02A)
-# of Media support initiatives provided by UNDP (03) 
-% of SRG groups sensitized for registrations and or cooperative formation engaging in registration an/or formation of cooperatives (04)
-% of women with increased status, income, employment opportunities, and responsibilities as a result of UNDP leadership training (05)
-% of community members in targeted communities reporting increased information, understanding, and/or participation in local peace-building initiatives (06)</narrative>
-        </description>
-        <baseline year="2013" value="">
-          <comment>
-            <narrative>Zero TCCs/CMCs established (01)
-Zero consultations have taken place with citizens, CSOs and CBOs at Township level on service delivery (02)
-Very low levels of women's participation in local governance consultations and decisionmaking (02A)
-Zero (no media support training has been organized by UNDP) (03)
-0 (No leadership training has been provided to women at Township level by UNDP) (05)
-Minimal levels of community information, understanding and participation in local peace building initiatives (06)</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>6 additional TCCs/CMCs established (cumulative total 12 TCCs/CMCs established) (01)
-2 consultations with citizens, CSOs and CBOs on service delivery per targeted township (02)
-At least 30% women participating in civil society-led consultations on local governance issues (02A)
-Media support initiatives provided in at least 2 additional states (cumulative total media support initiatives in 4 states) (03)
-At least 20% of 5000 UNDP supported SRG groups engaged in registration process [cumulative total after years 1 and 2, no further target for this year] (04)
-15% of women having benefited from UNDP leadership training have increased their status, income, employment opportunities, and responsibilities as a result (05)
-25% of community members in targeted communities reporting increased information, understanding, and/or participation in local peace-building initiatives (06)</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative></narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00074121</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -5412,6 +4996,7 @@ At least 20% of 5000 UNDP supported SRG groups engaged in registration process [
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=21051">
@@ -5446,7 +5031,7 @@ At least 20% of 5000 UNDP supported SRG groups engaged in registration process [
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00086667" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00086666</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -5512,7 +5097,7 @@ At least 20% of 5000 UNDP supported SRG groups engaged in registration process [
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">15944.000</value>
+      <value currency="USD" value-date="2016-03-31">15944.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -5531,17 +5116,17 @@ At least 20% of 5000 UNDP supported SRG groups engaged in registration process [
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">8532.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">15584.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">15944.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">15944.000</value>
       <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -5552,8 +5137,8 @@ At least 20% of 5000 UNDP supported SRG groups engaged in registration process [
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -5583,54 +5168,8 @@ At least 20% of 5000 UNDP supported SRG groups engaged in registration process [
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00074121" />
     <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00086667" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>Number of vocational training institutions’ capacities assessed and strengthened.</narrative>
-        </description>
-        <baseline year="2013" value="">
-          <comment>
-            <narrative>Zero number of vocational training institutions’ capacities assessed and strengthened.</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00086667</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -5717,7 +5256,7 @@ At least 20% of 5000 UNDP supported SRG groups engaged in registration process [
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <value currency="USD" value-date="2016-03-31">0.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -5736,17 +5275,17 @@ At least 20% of 5000 UNDP supported SRG groups engaged in registration process [
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org type="40" ref="11613">
         <narrative>LIFT_Trust_Fund_Manager</narrative>
       </provider-org>
@@ -5757,8 +5296,8 @@ At least 20% of 5000 UNDP supported SRG groups engaged in registration process [
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">81.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">81.000</value>
       <provider-org ref="11613">
         <narrative>LIFT_Trust_Fund_Manager</narrative>
       </provider-org>
@@ -5788,54 +5327,8 @@ At least 20% of 5000 UNDP supported SRG groups engaged in registration process [
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00074121" />
     <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00086666" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>Micro-finance operations and ownership transferred to the selected financial intermediary</narrative>
-        </description>
-        <baseline year="2013" value="">
-          <comment>
-            <narrative>Microfinance operations and ownership is currently with UNDP</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00074124</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -5857,6 +5350,9 @@ At least 20% of 5000 UNDP supported SRG groups engaged in registration process [
     </participating-org>
     <participating-org role="1" type="10" ref="00095">
       <narrative>GOVERNMENT OF DENMARK</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="00110">
+      <narrative>GOVERNMENT OF FINLAND</narrative>
     </participating-org>
     <participating-org role="1" type="10" ref="11140">
       <narrative>Japanese international Cooperation Agency</narrative>
@@ -5934,6 +5430,7 @@ At least 20% of 5000 UNDP supported SRG groups engaged in registration process [
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="http://www.mm.undp.org/content/dam/myanmar/docs/Documents/UNDP_MM_CPAP_%20JULY%202013.pdf">
@@ -6044,7 +5541,7 @@ At least 20% of 5000 UNDP supported SRG groups engaged in registration process [
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00086669" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00086669</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6060,6 +5557,9 @@ At least 20% of 5000 UNDP supported SRG groups engaged in registration process [
     </participating-org>
     <participating-org role="1" type="10" ref="00095">
       <narrative>GOVERNMENT OF DENMARK</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="00110">
+      <narrative>GOVERNMENT OF FINLAND</narrative>
     </participating-org>
     <participating-org role="1" type="10" ref="11140">
       <narrative>Japanese international Cooperation Agency</narrative>
@@ -6116,7 +5616,7 @@ At least 20% of 5000 UNDP supported SRG groups engaged in registration process [
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">1459766.000</value>
+      <value currency="USD" value-date="2016-03-31">1459766.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -6135,17 +5635,17 @@ At least 20% of 5000 UNDP supported SRG groups engaged in registration process [
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">211966.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">556241.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">1459766.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">1459766.000</value>
       <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -6156,8 +5656,8 @@ At least 20% of 5000 UNDP supported SRG groups engaged in registration process [
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -6167,9 +5667,9 @@ At least 20% of 5000 UNDP supported SRG groups engaged in registration process [
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org type="10" ref="00095">
         <narrative>GOVERNMENT OF DENMARK</narrative>
       </provider-org>
@@ -6180,8 +5680,8 @@ At least 20% of 5000 UNDP supported SRG groups engaged in registration process [
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00095">
         <narrative>GOVERNMENT OF DENMARK</narrative>
       </provider-org>
@@ -6191,9 +5691,33 @@ At least 20% of 5000 UNDP supported SRG groups engaged in registration process [
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
+      <provider-org type="10" ref="00110">
+        <narrative>GOVERNMENT OF FINLAND</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">2741228.000</value>
+      <provider-org ref="00110">
+        <narrative>GOVERNMENT OF FINLAND</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org type="10" ref="11140">
         <narrative>Japanese international Cooperation Agency</narrative>
       </provider-org>
@@ -6204,8 +5728,8 @@ At least 20% of 5000 UNDP supported SRG groups engaged in registration process [
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="11140">
         <narrative>Japanese international Cooperation Agency</narrative>
       </provider-org>
@@ -6311,7 +5835,7 @@ Indicator 11. Integration of ER principles in at least 2 humanitarian sector/ cl
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00079682</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6391,6 +5915,7 @@ Indicator 11. Integration of ER principles in at least 2 humanitarian sector/ cl
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="http://www.mm.undp.org/content/dam/myanmar/docs/Documents/UNDP_MM_CPAP_%20JULY%202013.pdf">
@@ -6408,6 +5933,13 @@ Indicator 11. Integration of ER principles in at least 2 humanitarian sector/ cl
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=26564">
+      <title>
+        <narrative>Climate Change Risks-Water Resources &amp; Food Security DZ</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=28717">
       <title>
         <narrative>Climate Change Risks-Water Resources &amp; Food Security DZ</narrative>
       </title>
@@ -6459,7 +5991,7 @@ Indicator 11. Integration of ER principles in at least 2 humanitarian sector/ cl
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00089618" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00089618</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6508,7 +6040,7 @@ Myanmar</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">2326399.000</value>
+      <value currency="USD" value-date="2016-03-31">2326399.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
@@ -6532,17 +6064,17 @@ Myanmar</narrative>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">19988.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">49975.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">137569.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">137569.000</value>
       <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -6553,8 +6085,8 @@ Myanmar</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -6564,9 +6096,9 @@ Myanmar</narrative>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">2188830.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">2188830.000</value>
       <provider-org type="40" ref="11602">
         <narrative>Adaptation Fund  (AF)</narrative>
       </provider-org>
@@ -6577,8 +6109,8 @@ Myanmar</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="11602">
         <narrative>Adaptation Fund  (AF)</narrative>
       </provider-org>
@@ -6601,61 +6133,8 @@ Myanmar</narrative>
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00079682" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>1. Number of households in target site implementing climate change adaptation livelihood measures introduced by the project.
-2. Number of Dry Zone farmers using climate risk information to adjust their livelihood behavior.</narrative>
-        </description>
-        <baseline year="2014" value="">
-          <comment>
-            <narrative>1. data not available – to be collected in 2016 
-
-2.data not available – to be collected in 2016</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>1. Project launched through engagement of key government counterparts and involvement of stakeholders
-2. Project target villages selected through a participatory process involving all the stakeholders 
-3. Project inception workshop conducted and inception report submitted 
-4. Project Steering Committee meeting conducted and Annual Work Plan for 2015 endorsed by the PSC 
-5. Preparatory activities for project implementation completed</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>All targets achieved, except for target 5, where work is still ongoing.</narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00083188</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6708,6 +6187,7 @@ Myanmar</narrative>
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="http://www.mm.undp.org/content/dam/myanmar/docs/Documents/UNDP_MM_CPAP_%20JULY%202013.pdf">
@@ -6727,7 +6207,7 @@ Myanmar</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00091797" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00091797</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6761,7 +6241,7 @@ Myanmar</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">1366729.000</value>
+      <value currency="USD" value-date="2016-03-31">1366729.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
@@ -6780,17 +6260,17 @@ Myanmar</narrative>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">1642.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">1781.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">1366729.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">1366729.000</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -6801,8 +6281,8 @@ Myanmar</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -6819,54 +6299,8 @@ Myanmar</narrative>
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00083188" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative></narrative>
-        </description>
-        <baseline year="2015" value="">
-          <comment>
-            <narrative></narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00085255</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6919,6 +6353,7 @@ Myanmar</narrative>
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="http://www.mm.undp.org/content/dam/myanmar/docs/Documents/UNDP_MM_CPAP_%20JULY%202013.pdf">
@@ -6942,14 +6377,14 @@ Myanmar</narrative>
       <category code="A10" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=25609">
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=25611">
       <title>
         <narrative>Targeted Support to Myanmar REDD+</narrative>
       </title>
       <category code="A10" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=25611">
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=25609">
       <title>
         <narrative>Targeted Support to Myanmar REDD+</narrative>
       </title>
@@ -7005,10 +6440,17 @@ Myanmar</narrative>
       <category code="A10" />
       <language code="en" />
     </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=28563">
+      <title>
+        <narrative>Targeted Support to Myanmar REDD+</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00092964" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00092964</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -7053,7 +6495,7 @@ Myanmar</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">315139.000</value>
+      <value currency="USD" value-date="2016-03-31">315139.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -7062,17 +6504,17 @@ Myanmar</narrative>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">26154.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">67113.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">315139.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">315139.000</value>
       <provider-org type="40" ref="10714">
         <narrative>UNDP AS ADMINISTRATIVE AGENT FOR A JOINT PROGRAMME PASS THROUGH ARRANGEMENT</narrative>
       </provider-org>
@@ -7083,8 +6525,8 @@ Myanmar</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="10714">
         <narrative>UNDP AS ADMINISTRATIVE AGENT FOR A JOINT PROGRAMME PASS THROUGH ARRANGEMENT</narrative>
       </provider-org>
@@ -7148,7 +6590,7 @@ Myanmar</narrative>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00089100</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -7207,6 +6649,7 @@ Myanmar</narrative>
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="http://www.mm.undp.org/content/dam/myanmar/docs/Documents/UNDP_MM_CPAP_%20JULY%202013.pdf">
@@ -7226,7 +6669,7 @@ Myanmar</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00095484" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00095484</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -7266,7 +6709,7 @@ Myanmar</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">29790.000</value>
+      <value currency="USD" value-date="2016-03-31">348026.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -7275,17 +6718,17 @@ Myanmar</narrative>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">816.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">22362.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">29790.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">29790.000</value>
       <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -7296,8 +6739,8 @@ Myanmar</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -7307,9 +6750,9 @@ Myanmar</narrative>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">318236.000</value>
       <provider-org type="10" ref="00248">
         <narrative>GOVERNMENT OF UNITED KINGDOM</narrative>
       </provider-org>
@@ -7320,8 +6763,8 @@ Myanmar</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00248">
         <narrative>GOVERNMENT OF UNITED KINGDOM</narrative>
       </provider-org>
@@ -7331,9 +6774,9 @@ Myanmar</narrative>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org type="10" ref="00551">
         <narrative>DEPARTMENT FOR INTERNATIONAL DEVELOPMENT</narrative>
       </provider-org>
@@ -7344,8 +6787,8 @@ Myanmar</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">-953498.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">-953498.000</value>
       <provider-org ref="00551">
         <narrative>DEPARTMENT FOR INTERNATIONAL DEVELOPMENT</narrative>
       </provider-org>
@@ -7362,55 +6805,8 @@ Myanmar</narrative>
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00089100" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>Acceptance of results by MM political parties
-Acceptance of process by domestic and international observers</narrative>
-        </description>
-        <baseline year="2015" value="">
-          <comment>
-            <narrative>Previous Myanmar elections did not meet international standards</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>Improved electoral process for 2015 elections</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative></narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00089428</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -7463,6 +6859,7 @@ Acceptance of process by domestic and international observers</narrative>
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="http://www.mm.undp.org/content/dam/myanmar/docs/Documents/UNDP_MM_CPAP_%20JULY%202013.pdf">
@@ -7473,13 +6870,6 @@ Acceptance of process by domestic and international observers</narrative>
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=24483">
-      <title>
-        <narrative>PPG PIMS 5427 R2R Myanmar</narrative>
-      </title>
-      <category code="A10" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=24486">
       <title>
         <narrative>PPG PIMS 5427 R2R Myanmar</narrative>
       </title>
@@ -7500,10 +6890,17 @@ Acceptance of process by domestic and international observers</narrative>
       <category code="A10" />
       <language code="en" />
     </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=24486">
+      <title>
+        <narrative>PPG PIMS 5427 R2R Myanmar</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00095674" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00095674</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -7537,7 +6934,7 @@ Acceptance of process by domestic and international observers</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">121790.000</value>
+      <value currency="USD" value-date="2016-03-31">121790.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -7547,17 +6944,17 @@ Acceptance of process by domestic and international observers</narrative>
     <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">19096.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">23124.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">121790.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">121790.000</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -7568,8 +6965,8 @@ Acceptance of process by domestic and international observers</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -7586,51 +6983,5 @@ Acceptance of process by domestic and international observers</narrative>
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00089428" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>Project Document Developed and submiited to GEF</narrative>
-        </description>
-        <baseline year="2015" value="">
-          <comment>
-            <narrative>No Project Document</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>Baseline information for preparation of project document is collected</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative></narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
 </iati-activities>

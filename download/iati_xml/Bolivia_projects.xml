@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2016-03-23T22:30:27" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2016-04-07T10:43:23" version="2.02">
   <!--Bolivia-->
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00044296</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -319,6 +319,7 @@
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="http://www.bo.undp.org/content/dam/bolivia/docs/undp-bo-cpap.pdf">
@@ -336,9 +337,10 @@
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00092778" />
+    <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00098468" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00092778</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -383,7 +385,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">408678.000</value>
+      <value currency="USD" value-date="2016-03-31">408678.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -392,17 +394,17 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">131981.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">272678.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">408678.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">408678.000</value>
       <provider-org type="40" ref="00327">
         <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
       </provider-org>
@@ -413,8 +415,8 @@
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">166162.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">166162.000</value>
       <provider-org ref="00327">
         <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
       </provider-org>
@@ -430,83 +432,104 @@
       <disbursement-channel code="2" />
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00044296" />
+    <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00098468" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>1.- 100.000 Casos sospechosos a quienes se realiza test de microscopia por personal de salud.
-2-. 3.000 personas con un cuadro no complicado o severo de malaria recibiendo tratamiento antimalárico de acuerdo a las regulaciones nacionales.
-3.- 3.000 mujeres embarazadas en regiones de alto riesgo quienes reciben un mosquitero tratado con insecticida.
-4.-12.580 de hogares en alto riesgo de trasmisión de malaria, que han sido rociadas en campaña en los ultimos 12 meses.
-5.- 12.662 mosquiteros tratados con insecticida distribuidos en la población en áreas de alto y medio riesgo de malaria dentro de las 36 regiones incluidas en la propuesta.
-6.- 10,000 pruebas de detección rápida de casos de malaria realizados por colaboradores voluntarios.
-7.-  1,000 personas con fiebre recibiendo tratamiento anti-malaria con con la ayuda de colaboradores voluntarios en las áreas de la zafra castañera (Brazil nut) en la región amazónica de acuerdo a las regulaciones nacionales.
-8.- 4,200 mosquiteros tratados con insecticidas distribuidos en los trabajadores de la zafra de castaña (Brazil nut) en la región amazónica.</narrative>
-        </description>
-        <baseline year="2015" value="">
-          <comment>
-            <narrative>1.- 97.464 casos sospechosos de malaria que reciben tests parasitologicos (2014 acumulativo anualmente)
-2-. 8.207 personas con un cuadro no complicado o severo de malaria recibiendo tratamiento antimalárico de acuerdo a las regulaciones nacionales.
-3.- 2.747 mujeres embarazadas en regiones de alto riesgo quienes reciben un mosquitero tratado con insecticida.
-4.-16,119 de hogares en alto riesgo de trasmisión de malaria, que han sido rociadas en campaña en los ultimos 12 meses (2014 acumulativo, anualmente).
-5.- 13.387 mosquiteros tratados con insecticida distribuidos en la población en áreas de alto y medio riesgo de malaria dentro de las 36 regiones incluidas en la propuesta.
-6.- 11,158 pruebas de detección rápida de casos de malaria realizados por colaboradores voluntarios.(2014 acumulativo, anualmente)
-7.-  1,258 personas con fiebre recibiendo tratamiento anti-malaria con con la ayuda de colaboradores voluntarios en las áreas de la zafra castañera (Brazil nut) en la región amazónica de acuerdo a las regulaciones nacionales (2014 acumulativo anualmente).
-8.- 4,635 mosquiteros tratados con insecticidas distribuidos en los trabajadores de la zafra de castaña (Brazil nut) en la región amazónica (2014 acumulado anualmente).</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>1.- 100.000 casos sospechosos a quienes se realiza test de microscopia por personal de salud.
-2-. 3.000 personas con un cuadro no complicado o severo de malaria recibiendo tratamiento antimalárico de acuerdo a las regulaciones nacionales.
-3.- 3.500 mujeres embarazadas en regiones de alto riesgo quienes reciben un mosquitero tratado con insecticida.
-4.-12,580 de hogares en alto riesgo de trasmisión de malaria, que han sido rociadas en campaña en los ultimos 12 meses.
-5.- 12.662 mosquiteros tratados con insecticida distribuidos en la población en áreas de alto y medio riesgo de malaria dentro de las 36 regiones incluidas en la propuesta.
-6.- 10,000 pruebas de detección rápida de casos de malaria realizados por colaboradores voluntarios.
-7.- 1,000 personas con fiebre recibiendo tratamiento anti-malaria con con la ayuda de colaboradores voluntarios en las áreas de la zafra castañera (Brazil nut) en la región amazónica de acuerdo a las regulaciones nacionales.
-8.- 4,200 mosquiteros tratados con insecticidas distribuidos en los trabajadores de la zafra de castaña (Brazil nut) en la región amazónica.</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>1.- 100.000 casos sospechosos a quienes se realiza test de microscopia por personal de salud.
-2-. 7.461 personas con un cuadro no complicado o severo de malaria recibiendo tratamiento antimalárico de acuerdo a las regulaciones nacionales.
-3.- 3.500 mujeres embarazadas en regiones de alto riesgo quienes reciben un mosquitero tratado con insecticida.
-4.-15,874 de hogares en alto riesgo de trasmisión de malaria, que han sido rociadas en campaña en los ultimos 12 meses.
-5.- 12.662 mosquiteros tratados con insecticida distribuidos en la población en áreas de alto y medio riesgo de malaria dentro de las 36 regiones incluidas en la propuesta.
-6.- 10,000 pruebas de detección rápida de casos de malaria realizados por colaboradores voluntarios.
-7.- 902 personas con fiebre recibiendo tratamiento anti-malaria con con la ayuda de colaboradores voluntarios en las áreas de la zafra castañera (Brazil nut) en la región amazónica de acuerdo a las regulaciones nacionales.
-8.- 4,200 mosquiteros tratados con insecticidas distribuidos en los trabajadores de la zafra de castaña (Brazil nut) en la región amazónica.</narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+    <iati-identifier>XM-DAC-41114-OUTPUT-00098468</iati-identifier>
+    <reporting-org ref="XM-DAC-41114" type="40">
+      <narrative>United Nations Development Programme</narrative>
+    </reporting-org>
+    <title>
+      <narrative>Bolivia Libre de Malaria</narrative>
+    </title>
+    <description type="1">
+      <narrative>El Objetivo General es de “Reducir la ocurrencia de casos de Malaria en un 50% en Bolivia y eliminar la ocurrencia de casos autóctonos de Malaria por P. falciparum a nivel nacional”</narrative>
+    </description>
+    <participating-org role="1" type="40" ref="00327">
+      <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
+    </participating-org>
+    <activity-status code="2" />
+    <activity-date type="1" iso-date="2016-03-01" />
+    <activity-date type="2" iso-date="2016-03-01" />
+    <activity-date type="3" iso-date="2019-12-31" />
+    <contact-info type="1">
+      <email>registry.bo@undp.org</email>
+      <website>http://www.bo.undp.org/</website>
+    </contact-info>
+    <recipient-country code="BO">
+      <narrative>Bolivia</narrative>
+    </recipient-country>
+    <sector vocabulary="1" code="13040" />
+    <sector vocabulary="99" code="3">
+      <narrative>Responsive Institutions</narrative>
+    </sector>
+    <country-budget-items vocabulary="1">
+      <budget-item code="5.1.1" percentage="100">
+        <description>
+          <narrative>Health - policy, planning and administration</narrative>
+        </description>
+      </budget-item>
+    </country-budget-items>
+    <policy-marker vocabulary="1" code="1" significance="2" />
+    <collaboration-type code="4" />
+    <default-flow-type code="10" />
+    <default-finance-type code="110" />
+    <default-aid-type code="A01" />
+    <default-tied-status code="3" />
+    <budget type="2" status="2">
+      <period-start iso-date="2016-01-01" />
+      <period-end iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-03-31">4150579.000</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2018-12-31">3148812.000</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2017-01-01" />
+      <period-end iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">3033928.000</value>
+    </budget>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
+      <provider-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">4150579.000</value>
+      <provider-org type="40" ref="00327">
+        <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">1890374.000</value>
+      <provider-org ref="00327">
+        <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <related-activity type="1" ref="XM-DAC-41114-PROJECT-00044296" />
+    <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00092778" />
+    <conditions attached="0" />
+  </iati-activity>
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00050089</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -526,14 +549,26 @@
     <participating-org role="1" type="40" ref="00012">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
+    <participating-org role="1" type="40" ref="00032">
+      <narrative>UNITED NATIONS DEVELOPMENT FUND FOR WOME</narrative>
+    </participating-org>
     <participating-org role="1" type="10" ref="00137">
       <narrative>GOVERNMENT OF ITALY</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="00250">
+      <narrative>UNDETERMINED</narrative>
     </participating-org>
     <participating-org role="1" type="22" ref="00556">
       <narrative>SNV NETHERLANDS DEVELOPMENT ORGANISATION</narrative>
     </participating-org>
     <participating-org role="1" type="10" ref="10216">
       <narrative>AGENCIA ESPANOLA DE COOPERACION INTERNACIONAL</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="10565">
+      <narrative>GOBIERNO VASCO</narrative>
+    </participating-org>
+    <participating-org role="1" type="22" ref="11821">
+      <narrative>Profetto Svilppo Liguria</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2008-05-16" />
@@ -862,6 +897,7 @@
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="http://www.bo.undp.org/content/dam/bolivia/docs/undp-bo-cpap.pdf">
@@ -883,7 +919,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00097198" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00061689</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -897,11 +933,23 @@
     <participating-org role="1" type="40" ref="00012">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
+    <participating-org role="1" type="40" ref="00032">
+      <narrative>UNITED NATIONS DEVELOPMENT FUND FOR WOME</narrative>
+    </participating-org>
     <participating-org role="1" type="10" ref="00137">
       <narrative>GOVERNMENT OF ITALY</narrative>
     </participating-org>
+    <participating-org role="1" type="40" ref="00250">
+      <narrative>UNDETERMINED</narrative>
+    </participating-org>
     <participating-org role="1" type="10" ref="10216">
       <narrative>AGENCIA ESPANOLA DE COOPERACION INTERNACIONAL</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="10565">
+      <narrative>GOBIERNO VASCO</narrative>
+    </participating-org>
+    <participating-org role="1" type="22" ref="11821">
+      <narrative>Profetto Svilppo Liguria</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2008-05-16" />
@@ -968,17 +1016,17 @@
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">69350.000</value>
+      <value currency="USD" value-date="2016-03-31">107833.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">603816.000</value>
+      <value currency="USD" value-date="2015-12-31">495732.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2014-01-01" />
       <period-end iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">523044.000</value>
+      <value currency="USD" value-date="2014-12-31">508966.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2013-01-01" />
@@ -992,17 +1040,17 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">7054.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">11525.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">69350.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">69350.000</value>
       <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -1013,8 +1061,8 @@
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -1024,9 +1072,33 @@
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
+      <provider-org type="40" ref="00032">
+        <narrative>UNITED NATIONS DEVELOPMENT FUND FOR WOME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
+      <provider-org ref="00032">
+        <narrative>UNITED NATIONS DEVELOPMENT FUND FOR WOME</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">3417.000</value>
       <provider-org type="10" ref="00137">
         <narrative>GOVERNMENT OF ITALY</narrative>
       </provider-org>
@@ -1037,8 +1109,8 @@
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00137">
         <narrative>GOVERNMENT OF ITALY</narrative>
       </provider-org>
@@ -1048,9 +1120,33 @@
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">2584.000</value>
+      <provider-org type="40" ref="00250">
+        <narrative>UNDETERMINED</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
+      <provider-org ref="00250">
+        <narrative>UNDETERMINED</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">19092.000</value>
       <provider-org type="10" ref="10216">
         <narrative>AGENCIA ESPANOLA DE COOPERACION INTERNACIONAL</narrative>
       </provider-org>
@@ -1061,10 +1157,58 @@
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="10216">
         <narrative>AGENCIA ESPANOLA DE COOPERACION INTERNACIONAL</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">10572.000</value>
+      <provider-org type="10" ref="10565">
+        <narrative>GOBIERNO VASCO</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
+      <provider-org ref="10565">
+        <narrative>GOBIERNO VASCO</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">2818.000</value>
+      <provider-org type="22" ref="11821">
+        <narrative>Profetto Svilppo Liguria</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
+      <provider-org ref="11821">
+        <narrative>Profetto Svilppo Liguria</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -1099,70 +1243,8 @@
     <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00081400" />
     <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00097198" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>2013) Numero de grupos de trabajo conformados.
-2014)  Al menos cuatro grupos de trabajo consolidados a nivel territorial. Apoyados dos organismos de desarrollo económico local en funcionamiento.
-2015) Al menos cuatro alianzas de Cooperación Sur Sur y/o Triangular realizadas, con beneficios de desarrollo medibles y sostenibles para los participantes</narrative>
-        </description>
-        <baseline year="2008" value="">
-          <comment>
-            <narrative>2008-2012-1)Mecanismo de articulación entre gobierno central, autoridades locales y cooperación internacional débil o inexistente.
-2008-2012-2) Presencia de cooperación descentralizada escasas o desarticuladas en las áreas del Programa.
-2013)  Dos grupos de trabajo incipientes a nivel territorial.
-2014)  Cuatro grupos de trabajo incipientes a nivel territorial. Dos organismos de desarrollo económico local en funcionamiento.
-2015) Consejos de Coordinación Sectorial en Desarrollo productivo (COSDEPRO) consolidados; cuatro grupos de trabajo consolidados a nivel territorial; dos organismos de desarrollo económico local consolidados.</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>Al menos dos plataformas de comercio apoyadas en su proceso de articulación. 
-Un Diplomado en DEL formulado. 
-Una Estrategia de Desarrollo de la Mancomunidad Chiquitana presentada. 
-Experiencia de la ADEL Sistematizada. 
-Al menos 4 intercambios de cooperación realizados.</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>Se han creado y/o fortalecido mecanismos de coordinación multinivel y articulación entre entidades públicas, privadas y de la sociedad civil con el fin de promover el desarrollo de la economía plural en 4 regiones de Bolivia. 
-
-1) En el marco del trabajo con el Vice Ministerio de Comercio Interno y Exportaciones, y conjuntamente con los actores locales, cabe destacar el apoyo a los procesos de conformación de 3 Plataformas de promoción del Comercio en sectores productivos estratégicos para la reducción de la pobreza (quinua, camélidos y uvas, vinos y singanis), las cuales han tenido una amplia participación de las instituciones competentes del nivel nacional en distintos sectores, promoviendo la concurrencia dentro del sector público a varios niveles y con el sector privado y comunitario, en función a las necesidades priorizadas. Las plataformas promueven la inclusión de pequeños productores (mismos que representan más del 50% de los participantes), a los cuales se han proporcionado herramientas técnicas y legales para que sus planes de comercialización puedan resultar sostenibles y competitivos. 
-2) Se ha contribuido a la reflexión sobre el tema de Fortalecimiento de Políticas Públicas de Desarrollo Económico Local y su territorialización en Bolivia, con el fin de generar empleo sostenible, fomentar y promover una economía inclusiva, plural, solidaria y distributiva. En complementación a estas actividades, se ha diseñado y se lanzará a finales de 2015 un Diplomado Internacional en Desarrollo Económico y Gobernanza, en articulación con una Universidad pública, que busca generar una red de profesionales capacitados con herramientas prácticas, para que cada uno pueda contribuir al DET dentro de su área específica. 
-3) Se ha finalizado una propuesta preliminar de Estrategia de Desarrollo de la Mancomunidad de Municipios Chiquitanos, pero no se ha socializado debido a las elecciones subnacionales y a los resultados de las mismas. Para continuar el proceso con las nuevas</narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative>1) Acompañado un proceso de creación de agendas de desarrollo departamental, que incluyan el aterrizaje de los ODS y articulen los niveles central y sub-nacional
-2) Acompañado un proceso de diálogo para el desarrollo de agendas productivas y de empleo 
-3) Transferidas experiencias, buenas prácticas y lecciones aprendidas de socios de Cooperación Sur-Sur y Norte-Sur y establecidas nuevas alianzas</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative></narrative>
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00081400</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1231,7 +1313,7 @@ Al menos 4 intercambios de cooperación realizados.</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">35208.000</value>
+      <value currency="USD" value-date="2016-03-31">35208.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -1250,17 +1332,17 @@ Al menos 4 intercambios de cooperación realizados.</narrative>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">32595.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">32595.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">33807.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">33807.000</value>
       <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -1271,8 +1353,8 @@ Al menos 4 intercambios de cooperación realizados.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -1282,9 +1364,9 @@ Al menos 4 intercambios de cooperación realizados.</narrative>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">1401.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">1401.000</value>
       <provider-org type="22" ref="00556">
         <narrative>SNV NETHERLANDS DEVELOPMENT ORGANISATION</narrative>
       </provider-org>
@@ -1295,8 +1377,8 @@ Al menos 4 intercambios de cooperación realizados.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00556">
         <narrative>SNV NETHERLANDS DEVELOPMENT ORGANISATION</narrative>
       </provider-org>
@@ -1327,55 +1409,8 @@ Al menos 4 intercambios de cooperación realizados.</narrative>
     <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00061689" />
     <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00097198" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>N° de modelos de negocios basados en sociedades de economía plural, mixta y solidaria, susceptibles de aplicación y replica en complejos productivos nacionales tipo emergentes, consolidados y estratégicos, desarrollados</narrative>
-        </description>
-        <baseline year="2011" value="">
-          <comment>
-            <narrative></narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>- 3 modelos de negocio de los complejos productivos más relevantes y de mayor impacto en el país en el marco de las políticas nacionales de fomento al desarrollo económico productivo y modelo de Economía Plural para su aplicación e implementación como política pública.
-- 3 modelos genéricos basados en sociedades de economía plural, mixta y solidaria, susceptibles de aplicación y replica en complejos productivos nacionales tipo emergentes, consolidados y estratégicos.</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>Priorizados complejos de amaranto, trigo y maní como los de mayor potencialidad ajustados / actualizados al modelo de negocio e implementación considerando las dinámicas de la coyuntura actual. En base a la experiencia desarrollada con los complejos productivos seleccionados, diseño de tres modelos de negocios genéricos aplicables y replicables para cualquiera de los complejos productivos en etapa de desarrollo constituidos en emergentes, consolidados y estratégicos.</narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative></narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative></narrative>
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00097198</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1420,7 +1455,7 @@ Al menos 4 intercambios de cooperación realizados.</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">1035768.000</value>
+      <value currency="USD" value-date="2016-03-31">1035768.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -1429,17 +1464,17 @@ Al menos 4 intercambios de cooperación realizados.</narrative>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">7955.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">23672.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">1035768.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">1035768.000</value>
       <provider-org type="10" ref="00137">
         <narrative>GOVERNMENT OF ITALY</narrative>
       </provider-org>
@@ -1450,8 +1485,8 @@ Al menos 4 intercambios de cooperación realizados.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00137">
         <narrative>GOVERNMENT OF ITALY</narrative>
       </provider-org>
@@ -1470,61 +1505,8 @@ Al menos 4 intercambios de cooperación realizados.</narrative>
     <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00061689" />
     <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00081400" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>1) N° de Planes Maestro de integración turística basado en el patrimonio eco-cultural del Qhapaq Ñam. N° proyectos priorizados de forma conjunta por los tres países 
-2) N° Foros Regionales desarrollados; Grupo de trabajo conformado; Realización de al menos 3 reuniones sectoriales/temáticas.
-3) N° personas capacitadas en la recuperación y conservación del patrimonio, desarrollo de proyectos turísticos comunitarios y la gestión del turismo comunitario patrimonial. N° talleres de capacitación realizados.</narrative>
-        </description>
-        <baseline year="2015" value="">
-          <comment>
-            <narrative>1) Existen políticas y planes nacionales de manejo del patrimonio cultural, pero no en los tres países respecto al Qhapaq Ñam, ni un grupo de trabajo para la promoción de la ruta compartida. No existe un catálogo que reúna el conjunto de conexiones turísticas y ofertas de servicios actuales. No existe un plan maestro de integración del turismo comunitario regional en la ruta compartida del Qhapaq Ñan.
-2) En la actualidad el Qhapaq Ñan no es percibido como un único camino sino como un conjunto de pequeñas rutas desconectadas.
-3) Muchos centros arqueológicos del recorrido carecen de conservación y preservación. Los servicios turísticos presentan deficiencias.</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>Se ha lanzado el proyecto y aprobado un cronograma conjunto entre los 3 países.</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>El proyecto ha empezado a implementar sus actividades en Diciembre de 2015. 
-Se ha aprobado un cronograma de trabajo conjunto entre los tres países.</narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative>1) Elaborado un Plan maestro de integración del turismo comunitario regional en la ruta compartida del Qhapaq Ñan.
-2) Realización de dos Foros Regionales y encuentros sectoriales/temáticos para sentar las bases del desarrollo y la promoción del Qhapaq Ñan. Acciones de promoción de las propuestas turísticas integradas.
-3) Desarrollo de capacidades locales para la promoción del turismo y la elaboración de proyectos de desarrollo económico local. Recuperación del patrimonio local a partir de las comunidades.</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative></narrative>
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00058572</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1759,6 +1741,7 @@ Se ha aprobado un cronograma de trabajo conjunto entre los tres países.</narrat
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://erc.undp.org/evaluationadmin/manageevaluation/viewevaluationdetail.html?evalid=6629">
@@ -1778,7 +1761,7 @@ Se ha aprobado un cronograma de trabajo conjunto entre los tres países.</narrat
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00072785" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00072785</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1844,7 +1827,7 @@ Se ha aprobado un cronograma de trabajo conjunto entre los tres países.</narrat
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">189740.000</value>
+      <value currency="USD" value-date="2016-03-31">189740.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -1868,17 +1851,17 @@ Se ha aprobado un cronograma de trabajo conjunto entre los tres países.</narrat
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">15027.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">23000.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">189740.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">189740.000</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -1889,8 +1872,8 @@ Se ha aprobado un cronograma de trabajo conjunto entre los tres países.</narrat
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -1925,86 +1908,8 @@ Se ha aprobado un cronograma de trabajo conjunto entre los tres países.</narrat
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00058572" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>plan de trabajo formulado - equipo ejecutor instalado - convenios interinstitucionales - arranque del plan de implementación</narrative>
-        </description>
-        <baseline year="2010" value="">
-          <comment>
-            <narrative>vacios de marcos regulatorios - ausencia de información sobre degradación de tierras -</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>1.1 Generar mecanismos de coordinación interinstitucional entre los actores clave fortalecidos.
-1.2 Armonizar y completar el marco político y regulatorio, tomando en cuenta las  variables de conservación de cambio climático y de biodiversidad.
-1.3 Desarrollar e implementar un programa de fortalecimiento de las capacidades para afianzar los instrumentos técnicos y financieros de MST y MFS.
-2.1. Realizar estudios técnicos y una propuesta para incorporar la Reserva del Quebracho Colorado, Cabo Juan en el SERNAP y el Plan de Gestión para la Reserva Aguarague.
-2.3.  Proyectos demostrativo implementados en MST/MSB (SITIOS PILOTO) de acuerdo a los convenios firmados con:
-CEPAC - Sitio Piloto Monteagudo
-NATIVA -Sitio Piloto Villamontes
-PROMETA-Sitio Piloto Yacuiba
-CIAT - Sitio Piloto Charagua</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>1.1 Se realizaron reuniones de coordinación con autoridades nacionales y locales: Universidades, PERTT, Gobiernos Municipales, Subgobernaciones. Como resultado, se dispone de acuerdos con las universidades de los tres departamentos, se tiene recursos humanos capacitados y se han establecido compromisos par continuar con las acciones de investigación y ejecución de varios componentes del proyecto. Se dispone de convenios, informes de viaje y memorias. Avance acumulado de 70%.
-1.2 Normativa ambiental boliviana para la protección de la biodiversidad en el chaco, elaborada y disponible para su implementación en tres municipios del Chaco boliviano.100% de avance.
-1.3 Se desarrollaron dos cursos de capacitación en mediciones de biomasa (Tarija y Yacuiba) dirigido a docentes y estudiantes universitarios y técnicos de entidades especializadas. 60% de avance.
-2.1  El SERNAP ha iniciado el contacto con los habitantes del parque Aguarague, se dispone de un cronograma de trabajo. 35% de avance acumulado.
-2.3 Se dio continuidad a la implementación de los 4 sitios piloto de acuerdo al siguiente detalle: (Ver adjuntos in extenso)
-1. Sucre - Monteagudo
-Entidad implementadora: CEPAC
-N° Desembolsos:  2
-% Desembolsos: 40%
-% Avance de resultados: 84,59%
-2. Tarija - Villamontes 
-Entidad implementadora: NATIVA
-N° Desembolsos: 2
-% Desembolsos: 40%
-% Avance de resultados: 78,01%
-3. Tarija - Yacuiba
-Entidad implementadora: PROMETA
-N° Desembolsos: 2
-% Desembolsos: 40%
-% Avance de resultados: 89,44%
-4. Santa Cruz - Charagua
-Entidad implementadora: CIAT
-N° Desembolsos: 2
-% Desembolsos: 31,52%
-% Avance de resultados: 78,18%</narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00062429</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2106,6 +2011,7 @@ N° Desembolsos: 2
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
@@ -2118,7 +2024,7 @@ N° Desembolsos: 2
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00079912" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00079912</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2163,7 +2069,7 @@ N° Desembolsos: 2
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">2964703.000</value>
+      <value currency="USD" value-date="2016-03-31">2964703.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -2187,17 +2093,17 @@ N° Desembolsos: 2
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">43343.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">130886.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">2964703.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">2964703.000</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -2208,8 +2114,8 @@ N° Desembolsos: 2
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -2238,86 +2144,6 @@ N° Desembolsos: 2
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00062429" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>1. Incremento de empresas de silvicultura (CFEs) que asignen recursos a la conservación de la BD e implementen medidas específicas relacionadas a la biodiversidad, medibles como a) # de comunidades que aplican el sistema de monitoreo de la BD, B) # de has. sujetas a planes de gestión forestal, c) # de indicadores de especies que mantienen sus poblaciones a nivel del paisaje, d) tasa de cambio en la diversidad floral del bosque en el sitio de estudio de impacto del proyecto, e) tasa de deforestación y degradación en los sitios de estudio de impacto del proyecto, f) áreas destinadas bajo estrictas medidas de protección.
-2. Incremento en la competitividad de las comunidades que permite mayores inversiones en la conservación de la BD, medido a través de: a) incremento en los ingresos de las comunidades; b) incremento de inversiones en medidas de monitoreo de la BD.
-3. Nivel de participación de mujeres y hombres en las operaciones de las CFEs en los sitios de estudio de impacto del proyecto.</narrative>
-        </description>
-        <baseline year="2011" value="">
-          <comment>
-            <narrative>Existen por lo menos 3 experiencias de monitoreo de la BD (FAN, WCS e Instituto de Ecología), ninguna adaptada al contexto de comunidades</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>1. Propuesta del plan operativo para la Gestión Integral de los Bosques presentada y adoptada por el Gobierno
-2. Certificación simplificada de normas de FSC aprobadas por FSC
-3. Plan operativo de la Gestión Integral de bosques eeficazmente integra directrices para protección de la biodiversidad y la implementación de una herramienta para BD
-4.  Una política nacional que prioriza la adquisición de productos forestales certificados es aprobada a e implementada, por lo menos dos municipios
-5. Por lo menos dos normas de planes de gestión aprobadas para otros NTFPs
-6. A medio término del proyecto, la efectividad de las operaciones contra madera ilegal ha tenido un incremento de 40%.
-7. Dos equipos móviles de inspección conformados y en funcionamiento 
-8. Tres planes municipales de gestión y desarrollo forestal formulados y ligados a los PDMs
-9. A medio término del proyecto, la efectividad de las operaciones contra madera ilegal ha tenido un incremento de 40%.
-10. Un equipo de auditoría técnica interna (silvicultura) en funcionamiento para el área de Ixiamas.( ABT, UFM, NGOs)
-11. 8 CFEs adicionales con planes de gestión de los bosques y 5 CFEs adicionales cuentan con planes de gestión de NTFP 
-12. 5 comunidades dentro del AMC (comunidades conjuntas de CIPTA) con Certificación FSC para productos maderables. 5 comunidades con certificación de otro tipo para NTPF. 
-13. 20 comunidades participan en la elaboración de la estrategia de protección territorial contra actividades ilegales de extracción maderera y la aplican en 100.000 Has.
-14. 30.000 nuevas hectáreas con planes de gestión logradas por el proyecto.
-15.  Por lo menos 5 comunidades (15.000 has) con planes de gestión
-16. 20 CFEs con capacidades de aplicar el sistema de monitoreo de BD.
-17. Una línea de crédito del gobierno dirigida y adaptada a actividades forestales.
-18. Por lo menos una alianza establecida con entidades financieras para apalancar fondos (relación 3 a 1 para la gestión forestal)</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>1.1 Formulación de lineamientos de la política nacional forestal y preparación del pacto social por los bosques. Avance 5%
-2.1 0 % de avance
-3.1 Identificación de necesidad de establer de un automonitoreo de uso de fauna en la TCO Leco Larecaja,
-Avance 1,4%
-4.1 Firma de convenios con municipios y TCOs. Avance 15%
-5.1 Enálisis de la directriz del PGIBT. Avance 2,5
-6.1. 0% de avance 
-7.1. Tres UBOTs fortalecidas con el apoyo de consultores finaanciadas por el proyecto.  Proyecto. Equipamiento con una computadora. Avance de 23%
-8.1 Acercamiento a los municipios: comunicación del proyecto y establecimiento de líneas de trabajo,
-Firma de convenios de convenios marcos bajo los lineamientos del proyecto. Elaboración del plan de trabajo específico con seguimiento trimestral, Implementación del plan de trabajo: entrega de equipos, fortalecimiento del PDM, COM, PMOT, capacitaciones específicas, transmisión de los lineamientos del MMAyA para el desarrollo de la Gestión Forestal 
-Avance de 17%. Avance de 47%
-9.1. Ejecución de foros ambientales en los municipios de Guanay y Palos Blanos. Apoyo al PDM de Ixiamas. Avance 5,4%.
-10.1 Identificación de las OFCs aptas para la certificación, Acompañamiento a las OFC en la gestión de su Plan de Manejo (APIAT), 10%. Capacitación en certificación a las OFCs
-11.1 Identificación de rubros productivos que requieren planes de manejo. Desarrollado criterios de selección de áreas a ser beneficiadas con planes de manejo. Conclusión del PGM de madera y asai en la comunidad de Carmen Pecha. Selección de organización económica y áreas de productos. En proceso de contratación la elaboración de 5 PGIBT en los municipios de Alto Beni y Palos Blancos. Avance 14%.
-12.1 Identificación de rubros productivos para la certificación. Ejecución de actividades de inducción y capacitación en certificación. Avance 3%
-13.1 Identificación de comunidades de la TCOs Lecos Larecaja. Acercamiento y planificación con la TCO Lecos Larecaja y Tacana l. Firm</narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
     <result type="2" aggregation-status="1">
       <title>
         <narrative>Objective</narrative>
@@ -3094,7 +2920,7 @@ d) Amount over US$ 2,000,000</narrative>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00066077</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3230,6 +3056,7 @@ d) Amount over US$ 2,000,000</narrative>
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="http://www.bo.undp.org/content/dam/bolivia/docs/undp-bo-cpap.pdf">
@@ -3249,7 +3076,7 @@ d) Amount over US$ 2,000,000</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00082341" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00082341</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3315,7 +3142,7 @@ d) Amount over US$ 2,000,000</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">23681.000</value>
+      <value currency="USD" value-date="2016-03-31">23681.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -3339,17 +3166,17 @@ d) Amount over US$ 2,000,000</narrative>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">3910.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">16093.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">23681.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">23681.000</value>
       <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -3360,8 +3187,8 @@ d) Amount over US$ 2,000,000</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -3396,54 +3223,8 @@ d) Amount over US$ 2,000,000</narrative>
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00066077" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative />
-        </description>
-        <baseline year="2012" value="">
-          <comment>
-            <narrative />
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00068335</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3550,6 +3331,7 @@ d) Amount over US$ 2,000,000</narrative>
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://erc.undp.org/evaluationadmin/manageevaluation/viewevaluationdetail.html?evalid=6631">
@@ -3568,7 +3350,7 @@ d) Amount over US$ 2,000,000</narrative>
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=22180">
       <title>
-        <narrative>Programa Peque\xF1as Donaciones 5ta. Fase Operacional GEF</narrative>
+        <narrative>Programa PequeÒas Donaciones 5ta. Fase Operacional GEF</narrative>
       </title>
       <category code="A10" />
       <language code="en" />
@@ -3576,7 +3358,7 @@ d) Amount over US$ 2,000,000</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00083591" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00083591</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3642,7 +3424,7 @@ d) Amount over US$ 2,000,000</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">197202.000</value>
+      <value currency="USD" value-date="2016-03-31">197202.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -3666,17 +3448,17 @@ d) Amount over US$ 2,000,000</narrative>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">197202.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">197202.000</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -3687,8 +3469,8 @@ d) Amount over US$ 2,000,000</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -3723,81 +3505,8 @@ d) Amount over US$ 2,000,000</narrative>
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00068335" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative></narrative>
-        </description>
-        <baseline year="2012" value="">
-          <comment>
-            <narrative>1. 51.696 Has. en el área geográfica manejada sosteniblemente por comunidades. 
-2. Las inversiones en EE en la región del Chaco son muy bajas, casi nulas en la mayoría de las localidades. La  GIZ ha invertido aproximadamente  US$ 216.000 en sistemas fotovoltaicos.
-3. 11.585.590 Has. de bosque en el Chaco. Los índices de deforestación  para el  período 1993 – 2000 en las municipalidades del área del Chaco varían entre  un mínimo de 0.1 y un máximo de 7.8 por ciento. El índice general de deforestación   durante  el mismo período para las 11 municipalidades en el Chaco para el que existe información disponible (BOLFOR) es de  2%, que  es equivalente  a 231.754 Has. de bosques.
-4.  Las estadísticas  nacionales sobre degradación de la tierra son : 41%  del territorio nacional tiene algún grado de degradación, es decir, más de 45 millones de Has., incluyendo una gran parte de los  departamentos de Oruro, Potosí, Chuquisaca y Tarija, 32% del departamento de  La Paz, 46% de Cochabamba y 33% de Santa Cruz. No existen datos específicos  para la eco-región del Chaco; sin embargo se sabe que existen problemas serios de degradación y desertificación, un déficit de recursos hídricos, uso no sostenible de recursos naturales, y baja diversificación  de producción agrícola, causas para la degradación de la tierra y pérdida de la biodiversidad.
-5. 75% de la población del Chaco, vive en la pobreza. Muy pocos proyectos  financiados en la región del Chaco toman en cuenta  la equidad de género.
-6. La capacidad de las communidades locales para entender cuestiones ambientales globales  es muy escasa en la eco-región del Chaco. 
-7.  A pesar de los esfuerzos previos del PPD y de otras ONG, la conciencia del público en general continúa siendo baja.
-8. Contadas comunidades locales en el Chaco han ejecutado proyectos financiados por donadores internacionales  o instituciones con sistemas complejos de evaluación y monitoreo, por eso, las capacidades para el M&amp;E son extremadamente bajas.</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>1.1.1  666.760 Has. de las 4 AP's y tierras comunitarias con prácticas de conservación y manejo sostenible de la BD por comunidades locales. 
-1.1.2  Al menos el 20% de las aplicaciones alcanzan la certificación durante la vida del proyecto.
-2.1.1 432.000 $us de inversiones en energía renovable  con  las contribuciones de al menos 25 organizaciones a parte de GIZ, con 900 familias beneficiadas
-3.1.1 25.000 t/CO2 e evitadas en 4 años a través de aplicaciones de  ER en el área del Chaco
-4.1.1 60 Has. de tierras comunitarias  con  prácticas de manejo sostenible que reducen la degradación de la tierra incluyendo cubierta de vegetación.
-4.2.1 Por lo menos  30% de la tierra  de las comunidades  apoyadas por el PPD muestra productividad mejorada.
-5.1.1 Al  menos 20% de las iniciativas apoyadas por el PPD son manejadas por grupos de mujeres generando ingresos provenientes del uso sostenible de productos  no madereros  y prácticas sostenibles en paisajes de producción alrededor de las AP. 
-6.1.1 70% de los miembros de las comunidades que  participan (hombres y mujeres) podrán describir la relación  entre la intervención apoyada por el PPD y los beneficios ambientales globales  que ésta genera.
-6.1.2 Al  menos el  80% de los proyectos  será evaluado como satisfactorio o más alto en lo que respecta al logro de sus objetivos.
-7.1.1 El 30% de las intervenciones financiadas por el PPD serán presentadas por los medios locales y nacionales.
-8.1.1 Por lo menos  80% de los beneficiarios del PPD muestran  la aplicación  de gestión adaptable  a sus proyectos  como resultado de actividades de M&amp;E, reúnen y mantienen datos relevantes (social, económico y ambiental), y sus informes satisfacen las normas del FMAM/PPD.</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>1.1.1.1 624.163 Has. bajo gestión sostenible con practicas de conservacion y manejo sostenible de la BD por comunidades locales.
-1.2.1.1 No existe el marco político, normativo y procedimental en el país para alcanzar la certificación 
-2.1.1.1 437.500 $us de inversiones en energía renovable  con  las contribuciones de al menos 40 organizaciones a parte de GIZ, con 1251 familias beneficiadas 
-3.1.1.1 Aun no se han efectuado los calculos del monitoreo del año 3
-4.1.1.1 3977 Has. de tierras comunitarias con prácticas de manejo sostenible que reducen la degradación de tierras: (1) 320 Has. de Prácticas Agrícolas sostenibles: Fincas Integrales, Sistemas Agroforestales y Silvopasturas, Manejo sostenible de bosques; (2) 3470 Has con cobertura vegetal mejorada: Cerramientos y plantaciones forestales 
-(3) 187 Has. con control de erosión 
-4.2.1.1  26% del total de las comunidades (108) ubicadas en las Áreas Naturales de Manejo Integrado de las AP realizan diferentes prácticas de gestión sostenible de la tierra que contribuyen a mejorar la productividad en sus parcelas.
-5.1.1.1 En 15 iniciativas (17%): las mujeres están involucradas de manera directa o indirecta en la gestión de los proyectos. En 20 iniciativas: 97 mujeres han desarrollado capacidades de liderazgo y habilidades de gestión sobre las actividades productivas que vienen desarrollando.   33 de 88 iniciativas implementadas por ONG’s/OCB’s/II´s son dirigidas por mujeres.  Todos los proyectos incluyen la participación de mujeres y hombres en todas las fases de implementación. 
-6.1.1.1  El 75%  de la población en las comunidades beneficiarias en el periodo de reporte  (10191 personas) donde se están implementando proyectos, conocen a cerca del alcance de estos, y como trabaja el PPD.
-6.2.1.1  El 90% de los proyectos considerados en este periodo es calificado como satisfactorio por el cumplimiento de sus objetivos, producto del Seguimiento y Evaluación efectuado. 
-7.1.1.1 El 22 % de las iniciativas apoyadas por</narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00069765</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3930,6 +3639,7 @@ d) Amount over US$ 2,000,000</narrative>
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="http://www.bo.undp.org/content/dam/bolivia/docs/undp-bo-cpap.pdf">
@@ -3949,7 +3659,7 @@ d) Amount over US$ 2,000,000</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00084142" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00084142</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4015,12 +3725,12 @@ d) Amount over US$ 2,000,000</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">100000.000</value>
+      <value currency="USD" value-date="2016-03-31">107000.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">27487.000</value>
+      <value currency="USD" value-date="2015-12-31">837.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2014-01-01" />
@@ -4039,17 +3749,17 @@ d) Amount over US$ 2,000,000</narrative>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">100000.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">107000.000</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -4060,8 +3770,8 @@ d) Amount over US$ 2,000,000</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -4096,54 +3806,8 @@ d) Amount over US$ 2,000,000</narrative>
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00069765" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative />
-        </description>
-        <baseline year="2012" value="">
-          <comment>
-            <narrative />
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00070701</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4256,6 +3920,7 @@ d) Amount over US$ 2,000,000</narrative>
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="http://www.bo.undp.org/content/dam/bolivia/docs/undp-bo-cpap.pdf">
@@ -4275,7 +3940,7 @@ d) Amount over US$ 2,000,000</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00084558" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00084558</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4354,7 +4019,7 @@ d) Amount over US$ 2,000,000</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">20428.000</value>
+      <value currency="USD" value-date="2016-03-31">20428.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -4374,17 +4039,17 @@ d) Amount over US$ 2,000,000</narrative>
     <capital-spend percentage="1.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">19953.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">19519.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">20428.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">20428.000</value>
       <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -4395,8 +4060,8 @@ d) Amount over US$ 2,000,000</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -4425,56 +4090,8 @@ d) Amount over US$ 2,000,000</narrative>
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00070701" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>1) Informe Nacional de Desarrollo Humano para areas urbanas que promuevan debate y den lineamientos de políticas urbanas en el ámbtio social.
-2) Un diagnóstico de las nueve gobernaciones existentes en Bolivia.</narrative>
-        </description>
-        <baseline year="2012" value="">
-          <comment>
-            <narrative>1) No existe al momento lineamientos de políticas de desarrollo humano para areas urbanas.
-2) No existe diagnostico de capacidades institucionales de Gobernaciones en Bolivia.</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00074392</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4600,6 +4217,7 @@ d) Amount over US$ 2,000,000</narrative>
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
@@ -4612,7 +4230,7 @@ d) Amount over US$ 2,000,000</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00086830" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00086830</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4678,12 +4296,12 @@ d) Amount over US$ 2,000,000</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">15000.000</value>
+      <value currency="USD" value-date="2016-03-31">26850.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">170536.000</value>
+      <value currency="USD" value-date="2015-12-31">106971.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2014-01-01" />
@@ -4697,17 +4315,17 @@ d) Amount over US$ 2,000,000</narrative>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">6862.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">13994.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">15000.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">26850.000</value>
       <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -4718,8 +4336,8 @@ d) Amount over US$ 2,000,000</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -4748,54 +4366,8 @@ d) Amount over US$ 2,000,000</narrative>
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00074392" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative />
-        </description>
-        <baseline year="2013" value="">
-          <comment>
-            <narrative />
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00074969</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4918,6 +4490,7 @@ d) Amount over US$ 2,000,000</narrative>
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
@@ -4930,7 +4503,7 @@ d) Amount over US$ 2,000,000</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00087104" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00087104</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4996,7 +4569,7 @@ d) Amount over US$ 2,000,000</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <value currency="USD" value-date="2016-03-31">0.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -5015,17 +4588,17 @@ d) Amount over US$ 2,000,000</narrative>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org type="70" ref="10224">
         <narrative>INTERCHURCH ORG FOR DEVELOPMEN</narrative>
       </provider-org>
@@ -5036,8 +4609,8 @@ d) Amount over US$ 2,000,000</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">-24.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">1.000</value>
       <provider-org ref="10224">
         <narrative>INTERCHURCH ORG FOR DEVELOPMEN</narrative>
       </provider-org>
@@ -5066,54 +4639,8 @@ d) Amount over US$ 2,000,000</narrative>
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00074969" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative />
-        </description>
-        <baseline year="2013" value="">
-          <comment>
-            <narrative />
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00075509</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -5208,6 +4735,7 @@ d) Amount over US$ 2,000,000</narrative>
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="http://www.bo.undp.org/content/dam/bolivia/docs/undp-bo-cpap.pdf">
@@ -5248,7 +4776,7 @@ d) Amount over US$ 2,000,000</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00087369" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00087369</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -5314,7 +4842,7 @@ d) Amount over US$ 2,000,000</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">633608.000</value>
+      <value currency="USD" value-date="2016-03-31">633608.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -5333,17 +4861,17 @@ d) Amount over US$ 2,000,000</narrative>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">85554.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">109689.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">633608.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">633608.000</value>
       <provider-org type="10" ref="00232">
         <narrative>GOVERNMENT OF SWITZERLAND</narrative>
       </provider-org>
@@ -5354,8 +4882,8 @@ d) Amount over US$ 2,000,000</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">333463.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">342540.000</value>
       <provider-org ref="00232">
         <narrative>GOVERNMENT OF SWITZERLAND</narrative>
       </provider-org>
@@ -5384,78 +4912,8 @@ d) Amount over US$ 2,000,000</narrative>
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00075509" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>Los tiempos y la calidad de la atención a la población responden a estándares internacionales y son más eficientes que los actuales, al cabo del proyecto.</narrative>
-        </description>
-        <baseline year="2013" value="">
-          <comment>
-            <narrative>1. No existe un sistema de administración de crisis
-2. Actores de primera respuesta desarticulados y confrontados, especíalmente las fuerzas policial y la militar
-3. No existen protocolos de actuación ni de coordinación para la primera respuesta
-4. No existen condiciones para participación de las mujeres en la primera respuesta</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>1.1 Conformacion de tres mesas departamentales en La Paz, Cochabamba y SantaCruz, con planes operativos, actas de constitución y TDRs aprobados por las autoridades departamentales.
-1.2.Intercambio de experiencias con dos países, establecimiento de acuerdos de cooperación sur-sur y seguimiento a las actividades.
-1.3. Implementación y desarrollo de Sistema de Comando de Incidentes en los tres departamentos radio de acción del proyecto. Esto incluye la implementación de las 5 fases de implementación de SCI establecidas a nivel internacional.
-1.3.1. Actualización del análisis de la normativa sobre primera respuesta y atención de emergencias.
-1.3.2. Implementar la estrategia de gestión de la conflictividad entre actores de primera respuesta 
-1.3.3 Realizar la clarificación de roles de los equipos de primera respuesta
-1.4. Construcción participativa de protocolos y procedimientos operativos de coordinación, capacitación y formación a nivel departamental 
-2.1 Mejorar los sistemas de formación en primera respuesta y cualificación de recursos humanos en el tema
-2.2 Construcción de la malla curricular unificada para la formación de operadores de primera respuesta
-2.3. Realizar el TOT II con el apoyo del bacstopper de COSUDE
-2.4. Implementación de la fase de sensibilización de la estrategia de género con el fin de impulsar la participacion de mujeres en los equipos de primera respuesta.
-2.5. Adquisicion de equipamiento de formacion para la formacion de los actores de primera respuesta.
-2.6 Participación de representantes de Primera Respuesta Bolivianos en ejercicios de simulación y simulacros
-2.7. Elaborar e implementar una estrategia de comunicacion con el fin de posicionar a los equipos de primera respuesta ante las autoridades departamentales y de la opinión pública</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>1.1 Mesas departamentales conformadas en La Paz, Cochabamba y Santa Cruz
-1.2.Intercambios con Chile para la formación de SCI Intermedio y apoyara el desarrollo de Documentos de protocolos de coordinacion y procedimientos de actuacion elaborado, con el fin de que quien y como se da la primera respuesta.
-3. Estrategia de genero elaborada con el fin de impulsar la participacion de mujeres en los equipos de primera respuesta.
-4. Estrategia de comunicacion implementada con el fin de posicionar a los equipos de primera respuesta
-5. Malla curricular unificada elaborada
-6. Equipamiento de formacion para la formacion de los actores de primera respuesta adquirido.
-7. Documento de analisis de la normativa sobre primera respuesta y atencion de emergencias elaborado.
-8. Documento de snalisis de conflicto entre actores y gestion de conflicto entre los actores involucrados elaborado
-9. Documento de clarificacion de roles de los equipos de primera respuesta elaborado</narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00075682</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -5571,6 +5029,7 @@ d) Amount over US$ 2,000,000</narrative>
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="http://www.bo.undp.org/content/dam/bolivia/docs/undp-bo-cpap.pdf">
@@ -5590,7 +5049,7 @@ d) Amount over US$ 2,000,000</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00087454" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00087454</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -5656,7 +5115,7 @@ d) Amount over US$ 2,000,000</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">95477.000</value>
+      <value currency="USD" value-date="2016-03-31">95477.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -5680,17 +5139,17 @@ d) Amount over US$ 2,000,000</narrative>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">6227.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">10139.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">95477.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">95477.000</value>
       <provider-org type="40" ref="00327">
         <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
       </provider-org>
@@ -5701,8 +5160,8 @@ d) Amount over US$ 2,000,000</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">100000.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">100000.000</value>
       <provider-org ref="00327">
         <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
       </provider-org>
@@ -5731,54 +5190,8 @@ d) Amount over US$ 2,000,000</narrative>
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00075682" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative />
-        </description>
-        <baseline year="2013" value="">
-          <comment>
-            <narrative />
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00077325</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -5871,6 +5284,7 @@ d) Amount over US$ 2,000,000</narrative>
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="http://www.bo.undp.org/content/dam/bolivia/docs/undp-bo-cpap.pdf">
@@ -5890,7 +5304,7 @@ d) Amount over US$ 2,000,000</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00088177" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00088177</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -5907,7 +5321,7 @@ d) Amount over US$ 2,000,000</narrative>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-11-19" />
     <activity-date type="2" iso-date="2013-11-19" />
-    <activity-date type="3" iso-date="2016-03-31" />
+    <activity-date type="3" iso-date="2016-12-31" />
     <contact-info type="1">
       <email>registry.bo@undp.org</email>
       <website>http://www.bo.undp.org/</website>
@@ -5935,7 +5349,7 @@ d) Amount over US$ 2,000,000</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">10537.000</value>
+      <value currency="USD" value-date="2016-03-31">10537.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -5954,17 +5368,17 @@ d) Amount over US$ 2,000,000</narrative>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">3117.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">8167.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">10537.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">10537.000</value>
       <provider-org type="10" ref="10870">
         <narrative>MINISTRY  OF FOREIGN AFFAIRS &amp; COOPERATION OF SPAIN</narrative>
       </provider-org>
@@ -5975,8 +5389,8 @@ d) Amount over US$ 2,000,000</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="10870">
         <narrative>MINISTRY  OF FOREIGN AFFAIRS &amp; COOPERATION OF SPAIN</narrative>
       </provider-org>
@@ -6005,54 +5419,8 @@ d) Amount over US$ 2,000,000</narrative>
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00077325" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative />
-        </description>
-        <baseline year="2013" value="">
-          <comment>
-            <narrative />
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00077561</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6194,6 +5562,7 @@ d) Amount over US$ 2,000,000</narrative>
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
@@ -6206,7 +5575,7 @@ d) Amount over US$ 2,000,000</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00088264" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00088264</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6251,17 +5620,17 @@ d) Amount over US$ 2,000,000</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">50883.000</value>
+      <value currency="USD" value-date="2016-03-31">100000.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">868192.000</value>
+      <value currency="USD" value-date="2015-12-31">819059.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2014-01-01" />
       <period-end iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">987627.000</value>
+      <value currency="USD" value-date="2014-12-31">986861.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2013-01-01" />
@@ -6270,17 +5639,17 @@ d) Amount over US$ 2,000,000</narrative>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">24465.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">72894.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">50883.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">100000.000</value>
       <provider-org type="10" ref="00555">
         <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
       </provider-org>
@@ -6291,8 +5660,8 @@ d) Amount over US$ 2,000,000</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00555">
         <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
       </provider-org>
@@ -6321,74 +5690,8 @@ d) Amount over US$ 2,000,000</narrative>
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00077561" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>Seis organizaciones políticas nacionales participantes en las elecciones nacionales y subnacionales cuentan con capacidades en control electoral, programas de gobierno y dirigentes capacitados en gestión electoral
-Diez organizaciones políticas nacionales y subnacionales fortalecidas cuentan con estatutos actualizados, programas de capacitación de militantes y estructuras territoriales
-300 candidatas  mujeres, candidatos jóvenes e indígenas capacitados en programas de gobierno y derechos políticos
- En cuatro departamentos (La Paz, Cochabamba, Santa Cruz y Tarija) se promueven espacios nacionales y departamentales de diálogo democrático</narrative>
-        </description>
-        <baseline year="2013" value="">
-          <comment>
-            <narrative>Cuatro organizaciones políticas participantes en las elecciones nacionales y subnacionales cuentan con capacidades en control electoral, programas de gobierno y dirigentes capacitados en gestión electoral
-Seis organizaciones políticas nacionales y subnacionales fortalecidas cuentan con estatutos actualizados, programas de capacitación de militantes y estructuras territoriales 
-200 candidatas mujeres, candidatos jóvenes e indígenas capacitados en programas de gobierno y derechos políticos
-En dos departamentos (La Paz y Cochabamba) se promueven espacios nacionales y departamentales de diálogo democrático</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>10 organizaciones políticas del nivel subnacional cuentan con capacidades de dirección partidaria.
-90% de dirigentes y militantes de 10 organizaciones políticas participan en los programas de capacitación y formación política.
-80% de candidatos, dirigentes y militantes de  organizaciones políticas habilitadas para las elecciones subnacionales,  conocen sus programas de gobierno y las normas de control electoral en cuatro departamentos seleccionados.
-10 organizaciones políticas organizan eventos (reuniones, capacitación) sobre derechos políticos de las mujeres, jóvenes e indígenas .
-Mujeres, jóvenes e indígenas incrementan su participación en instancias de decisión y representación de la estructura partidaria de 10 partidos políticos.
-Cinco organizaciones políticas ejecutan talleres y capacitaciones de activismo juvenil.
-Número de candidatos, representantes electos y dirigentes políticos conocen y debaten asuntos de  democracia plural y políticas de desarrollo departamental y municipal en cuatro regiones seleccionadas.
-10 organizaciones políticas conocen y manejan información estadística y de geografía electoral.</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>7 organizaciones políticas del nivel subnacional cuentan con capacidades de dirección partidaria.
-70% de dirigentes y militantes de 10 organizaciones políticas participan en los programas de capacitación y formación política.
-70% de candidatos, dirigentes y militantes de  organizaciones políticas habilitadas para las elecciones subnacionales,  conocen sus programas de gobierno y las normas de control electoral en cuatro departamentos seleccionados.
-9 de candidatos, dirigentes y militantes de  organizaciones políticas habilitadas para las elecciones subnacionales,  conocen sus programas de gobierno y las normas de control electoral en cuatro departamentos seleccionados.
-De 9 organizaciones políticas 4 de ellas han incrementado su participación en relación a mujeres y jóvenes  en instancias de representación de la estructura partidaria,.
-3  organizaciones políticas ejecutan talleres y capacitaciones de activismo juvenil.
-50 candidatos, representantes electos y dirigentes políticos conocen y debaten asuntos de  democracia plural y políticas de desarrollo departamental y municipal en cuatro regiones seleccionadas.
-6 organizaciones políticas conocen y manejan información estadística y de geografía electoral.</narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00081043</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6464,6 +5767,7 @@ De 9 organizaciones políticas 4 de ellas han incrementado su participación en 
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="http://www.bo.undp.org/content/dam/bolivia/docs/undp-bo-cpap.pdf">
@@ -6483,7 +5787,7 @@ De 9 organizaciones políticas 4 de ellas han incrementado su participación en 
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00090501" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00090501</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6528,7 +5832,7 @@ De 9 organizaciones políticas 4 de ellas han incrementado su participación en 
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">7854.000</value>
+      <value currency="USD" value-date="2016-03-31">7854.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -6542,17 +5846,17 @@ De 9 organizaciones políticas 4 de ellas han incrementado su participación en 
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">7854.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">7854.000</value>
       <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -6563,8 +5867,8 @@ De 9 organizaciones políticas 4 de ellas han incrementado su participación en 
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -6587,63 +5891,8 @@ De 9 organizaciones políticas 4 de ellas han incrementado su participación en 
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00081043" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>1.1 Espacios de coordinación y participación de los tomadores de decisión y actores involucrados
-1.2 Formulación y presentación de un marco de recuperación de los departamentos afectados
-
-2.1 Análisis de capacidades previo y post proyecto.</narrative>
-        </description>
-        <baseline year="2014" value="">
-          <comment>
-            <narrative>1) - Un marco Estratégico de Recuperación (2006)
-- Dos evaluaciones de impacto CEPAL (2007 y 2008)
-- Un DALA Banco Mundial (2015)
-
-2) Un proceso de generación de capacidades preparativo para la recuperación (2012)</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>1) 5 departamentos de Bolivia cuentan con un proceso articulado multinivel de recuperación post desastre centrado en medios de vida e infraestructura social comunitaria.
-2) 400 técnicos de  instituciones y líderes locales, cuentan con  capacidades fortalecidas para gerenciar la recuperación post desastres y adaptación al cambio climático.</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>1) 5 departamentos de Bolivia cuentan con un proceso articulado multinivel de recuperación post desastre centrado en medios de vida e infraestructura social comunitaria. Se han elaborado 5 agendas para la adaptación al cambio climático en 5 Departamentos de Bolivia y un documento metodológico de las articulaciones políticas publico/privadas para la adaptación al cambio climático y recuperación post desastre. Asimismo, se ha implementado una metodología de evaluación de daños post desastre en 45 Municipios de los departamentos de La Paz, Oruro, Cochabamba, Beni y Pando en 2015, y priorizado 7 proyectos de desarrollo con enfoque de reducción de desastre y adaptación al cambio climático. 
-2) Se ha realizado un diplomado en Paradigmas civilizatorios, Cambio Climático y Recuperación de la Madre Tierra en el marco del Vivir Bien, con alrededor de 1400 participantes, de los cuales 1000 son profesionales y 400 líderes, con el fin de fortalecer las capacidades para gerenciar la recuperación post desastres y adaptación al cambio climático.</narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00082163</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6710,6 +5959,7 @@ De 9 organizaciones políticas 4 de ellas han incrementado su participación en 
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="http://www.bo.undp.org/content/dam/bolivia/docs/undp-bo-cpap.pdf">
@@ -6729,7 +5979,7 @@ De 9 organizaciones políticas 4 de ellas han incrementado su participación en 
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00091196" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00091196</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6774,7 +6024,7 @@ De 9 organizaciones políticas 4 de ellas han incrementado su participación en 
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">1368736.000</value>
+      <value currency="USD" value-date="2016-03-31">1368736.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -6794,17 +6044,17 @@ De 9 organizaciones políticas 4 de ellas han incrementado su participación en 
     <capital-spend percentage="40.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">55972.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">170955.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">1368736.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">1368736.000</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -6815,8 +6065,8 @@ De 9 organizaciones políticas 4 de ellas han incrementado su participación en 
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -6839,66 +6089,8 @@ De 9 organizaciones políticas 4 de ellas han incrementado su participación en 
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00082163" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>Un sistema integrado de gestión de pasivos ambientales mineros e hidrocarburíferos en áreas protegidas.</narrative>
-        </description>
-        <baseline year="2014" value="">
-          <comment>
-            <narrative>• Un reporte de actividades mineras e hidrocarburíferas en Áreas Protegidas (2012) - SERNAP
-• Una inventariación de actividades mineras en el  ANMIN Apolobamba (2008) - SERNAP
-• Existe una línea de base parcial de pasivos ambientales mineros al 2013, que no indica su pertenencia o no a Áreas Protegidas. - SERGEOTECMIN 
-• Existe una línea de base preliminar sobre pasivos ambientales del sector hidrocarburos al 2013 que indica su pertenencia al PN- ANMI Serranía del Aguaragüe. - MHE 
-• Aproximadamente 3000 distritos mineros identificados, sin conocimiento específico de la cantidad de pasivos ambientales - SERGEOTECMIN. 
-• Un informe sobre Determinación de la incidencia de la contaminación por pasivos ambientales e identificación de medidas de mitigación y o remediación en la microcuenca de la RNFA Eduardo Avaroa,  - SERNAP</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>Conformacion del equipo del proyecto
-Definición de la metodología de trabajo 
-Análisis de información secundaria y trabajo de gabinete
-Socialización de información de inventariación y caracterización de pasivos ambientales entre todos los actores del proyecto
-Planificación de misiones de campo</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>Equipo del proyecto conformado con 20 profesionales
-70% de avance de la metodología de trabajo
-Borrador de boletines de información para socializar las actividades de inventariación y caracterización de pasivos ambientales
-Diseño de la planificación de misión de campo</narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00082505</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6914,6 +6106,9 @@ Diseño de la planificación de misión de campo</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="00012">
       <narrative>United Nations Development Programme</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="00012">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <participating-org role="1" type="10" ref="00069">
       <narrative>GOVERNMENT OF BOLIVIA</narrative>
@@ -6986,6 +6181,7 @@ Diseño de la planificación de misión de campo</narrative>
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="http://www.bo.undp.org/content/dam/bolivia/docs/undp-bo-cpap.pdf">
@@ -7005,7 +6201,7 @@ Diseño de la planificación de misión de campo</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00091403" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00091403</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -7016,6 +6212,9 @@ Diseño de la planificación de misión de campo</narrative>
     <description type="1">
       <narrative>Fortalecimiento Institucional de la Comisión Nacional de la Micro y Pequeña Empresa (CONAMYPE) para sentar las bases de Asociativismo Exportador y para ampliar el acceso de sus afiliados a los servicios públicos y privados para la exportación.</narrative>
     </description>
+    <participating-org role="1" type="40" ref="00012">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
     <participating-org role="1" type="10" ref="00069">
       <narrative>GOVERNMENT OF BOLIVIA</narrative>
     </participating-org>
@@ -7050,26 +6249,50 @@ Diseño de la planificación de misión de campo</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">11375.000</value>
+      <value currency="USD" value-date="2016-03-31">73117.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">183221.000</value>
+      <value currency="USD" value-date="2015-12-31">117196.000</value>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">9858.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">37333.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">11375.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">25977.000</value>
+      <provider-org type="40" ref="00012">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
+      <provider-org ref="00012">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">47140.000</value>
       <provider-org type="10" ref="00069">
         <narrative>GOVERNMENT OF BOLIVIA</narrative>
       </provider-org>
@@ -7080,8 +6303,8 @@ Diseño de la planificación de misión de campo</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00069">
         <narrative>GOVERNMENT OF BOLIVIA</narrative>
       </provider-org>
@@ -7098,74 +6321,8 @@ Diseño de la planificación de misión de campo</narrative>
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00082505" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>1) N° Planes Estratégicos de Fortalecimiento Institucional para promover la exportación del micro y pequeño productor para CONAMYPE y FEDEMYPES.
-2a) N° de usuarios registrados para un sistema informático el registro de afiliados de CONAMYPE 
-2b) N° de puntos de información para los afiliados de CONAMYPE en sus federaciones departamentales. 
-2c) N° de productores afiliados a la esfera de CONAMYPE que acceden a servicios para la exportación de  PROMUEVE y PROEX.
-2d) N° de acuerdos y convenios de colaboración entre CONAMYPE y otras instituciones que mejoren su vinculación.</narrative>
-        </description>
-        <baseline year="2014" value="">
-          <comment>
-            <narrative>1) CONAMYPE y FEDERMYPES no disponen de una visión y misión estratégica consensuada
-2) La CONAMYPE tiene dificultades para ofrecer a sus afiliados servicios de apoyo a la exportación.
-2a)  No existe un sistema informático para el registro de afilados
-2b) no existen puntos de información
-2c) los micro y pequeños productores no benefician de servicios de apoyo a la exportación brindado por CONAMYPE.
-2d) no existen convenios entre CONAMYPE e instituciones privadas de fomento a la exportación</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>1) Un Plan Estratégico diseñado y validado de manera participativa. 
-2) La CONAMYPE se encuentra fortalecida en su capacidad de ofrecer servicios de apoyo a la exportación  a sus afiliados.
-2a) Al menos 300 usuarios registrados en una base de datos/ registro de afiliados y productos para la exportación. 
-2b) Al menos 3 puntos de información establecidos en 3 departamentos.
-2c) Al menos 500 afiliados benefician del acceso a un inventario de servicios y programas públicos y privados de fomento a la exportación.
-2d) al menos 2 convenios entre CONAMYPE y FEDEMYPES con instituciones privadas de fomento a la exportación.</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>1) Se ha diseñado un Plan Estratégico de manera participativa. Asimismo, se ha producido un documento de priorización de necesidades para el desarrollo de las MYPEs en los sectores textil, alimentos, metalmecánica, madera y cuero. 
-2) La CONAMYPE se encuentra fortalecida en su capacidad de ofrecer servicios de apoyo a la exportación  a sus afiliados.
-2a) Se han registrado 300 usuarios en un registro de afiliados y productos para la exportación.
-2b) Se han establecido 3 puntos de información en 3 departamentos.
-2c) 700 afiliados a CONAMYPE y FEDEMYPES benefician del acceso a un inventario de servicios y programas públicos y privados de fomento a la exportación.
-2d) Se han firmado 2 convenios entre CONAMYPE y FEDEMYPES con instituciones privadas de fomento a la exportación.</narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative>1) Un Plan Estratégico validado de manera participativa. 
-2) La CONAMYPE se encuentra fortalecida en su capacidad de ofrecer servicios de apoyo a la exportación  a sus afiliados.</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative></narrative>
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00082995</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -7304,6 +6461,7 @@ Diseño de la planificación de misión de campo</narrative>
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="http://www.bo.undp.org/content/dam/bolivia/docs/undp-bo-cpap.pdf">
@@ -7365,7 +6523,7 @@ Diseño de la planificación de misión de campo</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00091655" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00091655</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -7410,7 +6568,7 @@ Diseño de la planificación de misión de campo</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">14682.000</value>
+      <value currency="USD" value-date="2016-03-31">14682.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -7420,17 +6578,17 @@ Diseño de la planificación de misión de campo</narrative>
     <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">14682.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">14682.000</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -7441,8 +6599,8 @@ Diseño de la planificación de misión de campo</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -7459,54 +6617,8 @@ Diseño de la planificación de misión de campo</narrative>
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00082995" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>El documento de proyecto completo formulado y aprobado por el GEF.</narrative>
-        </description>
-        <baseline year="2014" value="">
-          <comment>
-            <narrative>Se cuenta con un PIF aprobado por el GEF  - PIMS 4383</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>100% de avance en la formulación del documento de proyecto completo para ser sometido a la aprobación del GEF.</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>100% de avance en la formulación del documento de proyecto completo para ser sometido a la aprobación del GEF.</narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00087968</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -7559,6 +6671,7 @@ Diseño de la planificación de misión de campo</narrative>
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
+      <category code="A12" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="http://www.bo.undp.org/content/dam/bolivia/docs/undp-bo-cpap.pdf">
@@ -7578,7 +6691,7 @@ Diseño de la planificación de misión de campo</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00094831" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00094831</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -7637,7 +6750,7 @@ Diseño de la planificación de misión de campo</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">78245.000</value>
+      <value currency="USD" value-date="2016-03-31">78245.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -7646,17 +6759,17 @@ Diseño de la planificación de misión de campo</narrative>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">24035.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">53255.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">78245.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">78245.000</value>
       <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -7667,8 +6780,8 @@ Diseño de la planificación de misión de campo</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -7685,54 +6798,8 @@ Diseño de la planificación de misión de campo</narrative>
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00087968" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative />
-        </description>
-        <baseline year="2015" value="">
-          <comment>
-            <narrative />
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00093937</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -7783,6 +6850,18 @@ Diseño de la planificación de misión de campo</narrative>
       <category code="A08" />
       <language code="es" />
     </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/BOL/PRODOC%20ACTUALIZADO.PDF">
+      <title>
+        <narrative>PRODOC ACTUALIZADO BOL/98216 - AW 93937</narrative>
+      </title>
+      <category code="A01" />
+      <category code="A02" />
+      <category code="A03" />
+      <category code="A04" />
+      <category code="A05" />
+      <category code="A08" />
+      <language code="en" />
+    </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
       <title>
         <narrative>Request for Procurement</narrative>
@@ -7793,7 +6872,7 @@ Diseño de la planificación de misión de campo</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00098216" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00098216</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -7841,7 +6920,7 @@ Diseño de la planificación de misión de campo</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-02-29">450162.000</value>
+      <value currency="USD" value-date="2016-03-31">450162.000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -7850,17 +6929,17 @@ Diseño de la planificación de misión de campo</narrative>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">5892.000</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">15900.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">15900.000</value>
       <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -7871,8 +6950,8 @@ Diseño de la planificación de misión de campo</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">0.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">0.000</value>
       <provider-org ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -7882,9 +6961,9 @@ Diseño de la planificación de misión de campo</narrative>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">434262.000</value>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">434262.000</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -7895,8 +6974,8 @@ Diseño de la planificación de misión de campo</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-02-29" />
-      <value currency="USD" value-date="2016-02-29">566703.000</value>
+      <transaction-date iso-date="2016-03-31" />
+      <value currency="USD" value-date="2016-03-31">566703.000</value>
       <provider-org ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -7907,73 +6986,5 @@ Diseño de la planificación de misión de campo</narrative>
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00093937" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>R 1.1.1: Mejora en la calidad del apoyo legislativo en la Asamblea Legislativa Plurinacional
-R1.2.1: 6 diagnósticos especializados encargados y entregados
-R 1.2.2: .6 proyectos de ley que cuentan con el apoyo técnico legal  para su formulación, análisis, discusión y tratamiento.
-R 1.3.1: 8 documentos que incorporan  y/o hacen seguimiento al enfoque de género, interculturalidad y derechos humanos en las funciones de legislación, gestión y fiscalización
-R 2.1.1: 80% de Asambleístas satisfechos con las capacitaciones  recibidas
-R 2.1.2: 60% de asambleístas con capacidades mejoradas en género, interculturalidad y derechos humanos
-R 2.2.1: 2 documentos técnicos para su aprobación
-R 2.3.1: 2 herramientas e instrumentos tecnológicos dispuestos para el funcionamiento.</narrative>
-        </description>
-        <baseline year="2016" value="">
-          <comment>
-            <narrative>R 1.1.1: Línea Base = 0 Reportes de Capacidades
-R1.2.1: Línea base = 5 Documentos de diagnósticos
-R 1.2.2: Línea base = 5 Proyectos de Ley revisados, ajustados y/o elaborados
-R 1.3.1: Línea base = 5 Documentos de propuesta de mejora generados
-R 2.1.1: Línea base = 0 Encuestas de percepción
-R 2.1.2: Línea base = 0 Entrevistas a  Presidentes de Cámara
-R 2.2.1 Línea base = 0 Documentos de Propuesta
-R 2.3.1 Línea base = 0 Informes de aplicacion de herramientas tecnologicas aplicadas</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
-          <target value="">
-            <comment>
-              <narrative>1. Al menos tres diagnósticos y 3 proyectos de ley elaborados
-2. Un diagnostico organizacional de la dirección de desarrollo legislativo en Vicepresidencia
-3. Diagnostico organizacional de la Asamblea legislativa
-4. Una propuesta de mejora de capacidades en la asamblea 
-5. Una herramienta tecnológica de apoyo a la gestión en la asamblea probada para su uso</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>1. Capacidades técnicas instauradas en las instancias de apoyo legislativo a la ALP.
-2. Mejora de la calidad de los proyectos de ley elaborados y/o ajustados
-3. Desarrollo de capacidades para el ejercicio de las funciones de legislación, gestión y fiscalización con enfoque de género, interculturalidad y derechos humanos.
-4. Implementación y puesta en marcha de instrumentos y herramientas tecnológicas para el ejercicio de las funciones legislativas.
-5. Normas y procedimientos mejorados para el desarrollo de las funciones de la ALP.</narrative>
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
 </iati-activities>
