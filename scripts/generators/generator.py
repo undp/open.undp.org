@@ -6,6 +6,7 @@ from lxml import etree
 import copy
 import json
 import mimetypes
+import zipfile
 
 from controller import Controller
 import config as settings
@@ -119,6 +120,9 @@ class ProjectsController(Controller):
         # Save Operating Unit Index
         self._populate_operating_unit_index()
         self.operating_unit_index.save_json(self.api_path, 'operating-unit-index.json')
+        
+        # generate zipped version of the files
+        #self.zipdata(settings.UNDP_EXPORT, settings.BASE_DIR + '/download', 'undp-project-data.zip')
 
     def _prepare(self, xml_file, tag, op_type):
         """Prepares and executes other methods to prepare the data.
