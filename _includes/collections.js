@@ -107,7 +107,6 @@ Filters = Backbone.Collection.extend({
                 })
             }
         });
-
         this.update();
         global.projects.on('update', this.update, this);
     },
@@ -117,11 +116,12 @@ Filters = Backbone.Collection.extend({
 
         //Add the project count to the country's projects if it's part of the core fund
         if (collection.id === 'donor_countries' && _(global.coreFund).contains(model.get('id'))) {
-            var donorCountryCoreProjectCount = 0;
-            if(typeof this.coreProjectDonors[model.get('id')] !== 'undefined') {
-                donorCountryCoreProjectCount = this.coreProjectDonors[model.get('id')]
+            if(typeof this.coreProjectDonors[model.get('id')] !== 'undefined' && !isNaN(this.coreProjectDonors[model.get('id')])) {
+            	count -= this.coreProjectDonors[model.get('id')];
             }
-            count = count + this.coreProjectDonors['MULTI_AGY'] - donorCountryCoreProjectCount;
+            if (typeof this.coreProjectDonors['MULTI_AGY'] !== 'undefined' && !isNaN(this.coreProjectDonors['MULTI_AGY'])) {
+            	count += this.coreProjectDonors['MULTI_AGY'];
+            }
         }
         return {
             count: count,
@@ -200,7 +200,7 @@ Projects = Backbone.Collection.extend({
         // the sum of donor countries
         // donor countries is an array associated with a project
         var allDonorCountires = this.pluck('donor_countries'); // returns arrays
-
+        
         var sumDonorCountries = _.chain(allDonorCountires)
             .map(function(donorId){ return _.uniq(donorId);})
             .flatten()
@@ -282,7 +282,7 @@ Projects = Backbone.Collection.extend({
         this['region'] = this.getSumValuesOfFacet('region')
         this['operating_unit'] = this.getSumValuesOfFacet('operating_unit')
         this['donor_countries'] = this.getDonorCountires();
-
+        
         // "Budget Sources" in summary
         this['operating_unitSources'] = this.getUnitSources();
 
@@ -302,7 +302,8 @@ Projects = Backbone.Collection.extend({
                 }, 0);
 
                 setTimeout(function() {
-                    collection.getBudgetAndExpenseOfFacet(collection,facet,'expenditure');                        if (subStatus === subProcesses) {
+                    collection.getBudgetAndExpenseOfFacet(collection,facet,'expenditure');
+                    if (subStatus === subProcesses) {
                         subCallback();
                     } else {
                         subStatus++;
