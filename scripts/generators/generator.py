@@ -316,8 +316,8 @@ class ProjectsController(Controller):
 
                             if item['donor_type_lvl1'] == 'PROG CTY' or item['donor_type_lvl1'] == 'NON_PROG CTY':
                                 country[item['donorID']]['name'] = item['donor_type_lvl3'].replace(" ", "")
-                            elif item['donor_type_lvl1'] == 'MULTI_AGY':
-                                country[item['donorID']]['name'] = item['donor_type_lvl1'].replace(" ", "")
+                            elif item['donor_type_lvl1'] == 'MULTI_AGY' or item['donor_type_lvl1'] == 'NON_GOVERNMENT':
+                                country[item['donorID']]['name'] = 'MULTI_AGY'
                             else:
                                 country[item['donorID']]['name'] = 'OTH'
 

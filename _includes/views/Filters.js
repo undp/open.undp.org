@@ -14,8 +14,7 @@ views.Filters = Backbone.View.extend({
             view.chartModels = [];
 
             var isThereDonorCountry = _(global.processedFacets).findWhere({ collection: 'donor_countries' }),
-                activeFilter = view.collection.findWhere({active:true});
-
+                activeFilter = view.collection.findWhere({active:true});            
             $('#' + view.collection.id).toggleClass('filtered', false);
 
             if (activeFilter) {
