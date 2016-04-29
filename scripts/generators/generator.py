@@ -186,6 +186,7 @@ class ProjectsController(Controller):
                         obj.project_count.value += 1
                         obj.budget_sum.value += round(project.budget.value, 2)
                         obj.expenditure_sum.value += round(project.expenditure.value, 2)
+                        #obj.disbursement_sum.value += round(project.disbursement.value, 2)
                         for item in project.donors.value:
                             funding_source.add(item)
 
@@ -312,6 +313,7 @@ class ProjectsController(Controller):
                         if int(item['fiscal_year']) == int(year) and item['donorID']:
                             country[item['donorID']]['budget'] += float(item['budget'])
                             country[item['donorID']]['expenditure'] += float(item['expenditure'])
+                            #country[item['donorID']]['disbursement'] += float(item['disbursement'])
                             country[item['donorID']]['type'] = item['donor_type_lvl1'].replace(" ", "")
 
                             if item['donor_type_lvl1'] == 'PROG CTY' or item['donor_type_lvl1'] == 'NON_PROG CTY':
@@ -330,6 +332,7 @@ class ProjectsController(Controller):
                         obj.donor_countries.value.append(value['name'])
                         obj.donor_budget.value.append(value['budget'])
                         obj.donor_expend.value.append(value['expenditure'])
+                        #obj.donor_disbur.value.append(value['disbursement'])
                         obj.donor_types.value.append(value['type'])
                         obj.donors.value.append(key)
 
@@ -338,6 +341,7 @@ class ProjectsController(Controller):
                     pass
 
                 obj.expenditure.value = sum(obj.donor_expend.value)
+                #obj.disbursement.value = sum(obj.donor_disbur.value)
                 obj.budget.value = sum(obj.donor_budget.value)
 
                 # Get other information from outputs
@@ -630,16 +634,23 @@ class ProjectsController(Controller):
                 # Use transaction data to get expenditure
                 for tx in o.findall('transaction'):
                     expenditureCol = obj.expenditure.xml_key if (version < 2) else "transaction-type[@code='4']"
+                    disbursementCol = obj.disbursement.xml_key if (version < 2) else "transaction-type[@code='3']"
                     for expen in tx.findall(expenditureCol):
                         for sib in expen.itersiblings():
                             if sib.tag == 'value':
                                 year = int(sib.get('value-date').split('-', 3)[0])
                                 budget_expend[year]['expenditure'] = float(sib.text)
+                    for disb in tx.findall(disbursementCol):
+                        for sib in disb.itersiblings():
+                            if sib.tag == 'value':
+                                year = int(sib.get('value-date').split('-', 3)[0])
+                                budget_expend[year]['disbursement'] = float(sib.text)
 
                 for key, value in budget_expend.iteritems():
                     obj.fiscal_year.value.append(key)
                     obj.budget.value.append(value['budget'])
-                    obj.expenditure.value.append(value['expenditure'])
+                    obj.expenditure.value.append(value['expenditure']+value['disbursement'])
+                    #obj.disbursement.value.append(value['disbursement'])
 
                 # Run subnationals
                 locations = o.findall('location')
