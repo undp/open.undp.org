@@ -109,6 +109,7 @@ class Projects(Collection):
                 "output_descr": "Preservation of biodiversity and long-lasting resources in Algeria.",
                 "donor_short": ["UNDP", "GEFTrustee"],
                 "expenditure": [],
+                "disbursement": [],
                 "crs_descr": "Environmental policy and administrative management",
                 "focus_area_descr": "Environment & sustainable development"
             }],
@@ -131,6 +132,7 @@ class Projects(Collection):
             "start": "2002-01-01",
             "operating_unit_id": "DZA",
             "expenditure": 0.0,
+            "disbursement": 0.0,
             "document_name": [
                 ["UNDP-DZ-CPAP2012-2014"],
                 ["http://www.dz.undp.org/_jcr_content/centerparsys/download_3/file.res/UNDP-DZ-CPAP2012-2014.pdf"]
@@ -154,6 +156,7 @@ class Projects(Collection):
 
                     self.collection[pid].budget.value += sum(item.budget.value)
                     self.collection[pid].expenditure.value += sum(item.expenditure.value)
+                    #self.collection[pid].disbursement.value += sum(item.disbursement.value)
                     for year in item.fiscal_year.value:
                         if year not in self.collection[pid].fiscal_year.value:
                             self.collection[pid].fiscal_year.value.append(year)
