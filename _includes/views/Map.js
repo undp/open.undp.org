@@ -49,10 +49,6 @@ views.Map = Backbone.View.extend({
         
         this.map.legendControl.addLegend($("#homemap-legend").html());
         
-        //L.control.attribution({prefix: false}).addTo(this.map)
-        //.addAttribution('© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a><div class="map-disclaimer">* The boundaries and names shown and the designations used on this map do not imply official endorsement or acceptance by the United Nations.</div>');
-        
-
         // create circle or cluster based on the operating unit filter
         if (global.unit){
             this.markers = new L.MarkerClusterGroup({
