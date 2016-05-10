@@ -55,7 +55,7 @@ views.ProjectMap = Backbone.View.extend({
             legendControl: false
         });
 
-        this.map.attributionControl.addAttribution('<a href="http://www.undp.org/operations/copyright_and_termsofuse">Disclaimer</a>');
+        //this.map.attributionControl.addAttribution('<a href="http://www.undp.org/operations/copyright_and_termsofuse">Disclaimer</a>');
 
         /*if (this.model.get('document_name')) {
             this.photosFromDocument();

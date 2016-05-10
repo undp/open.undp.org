@@ -11,11 +11,13 @@
       <div class='row-fluid'>
         <div class='label visible-phone'>Location</div>
         <div id='profilemap' class='map'></div>
+        
         <!-- Country at a Glance -->
         <div class='row-fluid country-profile'>
           <div class='inner'>
             <h3><%= model.get('operating_unit')%> at a glance in <%= model.get('fiscal_year')[0] %></h3>
             <div id='country-summary'></div>
+            <div class="map-disclaimer">* The boundaries and names shown and the designations used on this map do not imply official endorsement or acceptance by the United Nations.</div>
           </div>
         </div>
       </div>
