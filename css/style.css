@@ -491,7 +491,7 @@ input[readonly] {
   border-bottom:1px solid #ddd;
   }
 /* keep the map attribution on left */
-.leaflet-control.map-legends{
+/* .leaflet-control.map-legends{
   margin-bottom:35px;
   width:120px;
   }
@@ -506,7 +506,7 @@ input[readonly] {
   }
 .leaflet-bottom.leaflet-right {
   float:left;
-  }
+  } */
 /* main */
 #mainnav .main {
   width: 85%;
@@ -2047,4 +2047,18 @@ body.ie8 #chart-hdi .details { display: none; }
     width: 960px;
     margin: 0 auto;
     position: relative;
+}
+.map-disclaimer, .leaflet-control-attribution {
+	  font-size: 0.8em;
+}
+.country-profile .map-disclaimer {
+	line-height: 1em;
+}
+.legend-icon {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    float: left;
+    margin: 4px 8px 0 0;
+    opacity: 0.7;
 }

@@ -41,7 +41,7 @@ views.Map = Backbone.View.extend({
             minZoom: 2,
             maxZoom: 10,
             scrollWheelZoom: this.options.embed ? false : true,
-            attributionControl: false,
+            attributionControl: {compact: true},
             legendControl: {
                 position: 'bottomleft'
             }
@@ -49,8 +49,8 @@ views.Map = Backbone.View.extend({
         
         this.map.legendControl.addLegend($("#homemap-legend").html());
         
-        L.control.attribution({prefix: false}).addTo(this.map)
-        .addAttribution('<a href="https://www.mapbox.com/about/maps/" target="_blank">© Mapbox</a> <a href="http://www.openstreetmap.org/about/" target="_blank">© OpenStreetMap</a> <a class="mapbox-improve-map" href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a><div style="font-size:0.8em">* The boundaries and names shown and the designations used on this map do not imply official endorsement or acceptance by the United Nations.</div>');
+        //L.control.attribution({prefix: false}).addTo(this.map)
+        //.addAttribution('© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a><div class="map-disclaimer">* The boundaries and names shown and the designations used on this map do not imply official endorsement or acceptance by the United Nations.</div>');
         
 
         // create circle or cluster based on the operating unit filter

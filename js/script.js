@@ -12,6 +12,8 @@ $(document).ready(function() {
     if (IE) {var IE_VERSION = parseInt($.browser.version);} // should return an integer
 
     var views = {};
+    
+    L.mapbox.accessToken = 'pk.eyJ1IjoidW5kcG9yZyIsImEiOiJjaWc5cmJmcWwwMDRxdjJrcjgxbnczaThvIn0.J-5uk4LED0EgvK1raqCJmg';
 
     {% include models.js %}
     {% include collections.js %}
