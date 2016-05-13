@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2016-04-07T10:30:52" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2016-05-12T18:26:21" version="2.02">
   <!--Tuvalu-->
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00058214</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -33,10 +33,10 @@
     <recipient-country code="TV">
       <narrative>Tuvalu</narrative>
     </recipient-country>
-    <collaboration-type code="1" />
+    <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/TUV/00058214_Tuvalu%20NAPA%20-%20Prodoc%20(Project%2000072222).pdf">
       <title>
@@ -82,7 +82,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00072222" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00072222</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -132,50 +132,62 @@
     <sector vocabulary="99" code="1">
       <narrative>Inclusive &amp; Sustainable Growth</narrative>
     </sector>
-    <policy-marker vocabulary="1" code="1" significance="0" />
+    <policy-marker vocabulary="1" code="1" significance="1" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-03-31">250309.000</value>
+      <value currency="USD" value-date="2016-04-30">250309</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">453125.000</value>
+      <value currency="USD" value-date="2015-12-31">453125</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2014-01-01" />
       <period-end iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">936025.000</value>
+      <value currency="USD" value-date="2014-12-31">936025</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2013-01-01" />
       <period-end iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">768529.000</value>
+      <value currency="USD" value-date="2013-12-31">768529</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2012-01-01" />
       <period-end iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">391145.000</value>
+      <value currency="USD" value-date="2012-12-31">391145</value>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">87308.000</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">95846</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
+      <transaction-type code="3" />
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">10061</value>
+      <provider-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="">
+        <narrative>Government of Tuvalu</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">250309.000</value>
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">391145</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -185,13 +197,49 @@
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">0.000</value>
-      <provider-org ref="10003">
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">768529</value>
+      <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">936025</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">453125</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">250309</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -199,25 +247,25 @@
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">452394.000</value>
+      <value currency="USD" value-date="2015-12-31">452394</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">874946.000</value>
+      <value currency="USD" value-date="2014-12-31">874946</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">748179.000</value>
+      <value currency="USD" value-date="2013-12-31">748179</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">391120.000</value>
+      <value currency="USD" value-date="2012-12-31">391120</value>
       <disbursement-channel code="2" />
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00058214" />
@@ -555,7 +603,7 @@ Planners, policy makers, Kaupule, and vulnerable communities are unable to antic
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00070401</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -586,10 +634,10 @@ Planners, policy makers, Kaupule, and vulnerable communities are unable to antic
     <recipient-country code="TV">
       <narrative>Tuvalu</narrative>
     </recipient-country>
-    <collaboration-type code="1" />
+    <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/TUV/Tuv_Trade_00084412.pdf">
       <title>
@@ -670,7 +718,7 @@ Planners, policy makers, Kaupule, and vulnerable communities are unable to antic
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00084412" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00084412</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -681,6 +729,9 @@ Planners, policy makers, Kaupule, and vulnerable communities are unable to antic
     <description type="1">
       <narrative>Tuvalu EIF Tier 1 Trade Capacity Development and Institutional Building Project</narrative>
     </description>
+    <participating-org role="1" type="40" ref="00012">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="11445">
       <narrative>Enhanced Integrated Framework for Trade  related  Technical Assistance  to LDC's Trust Fund manager</narrative>
     </participating-org>
@@ -731,41 +782,77 @@ Planners, policy makers, Kaupule, and vulnerable communities are unable to antic
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-03-31">261740.000</value>
+      <value currency="USD" value-date="2016-04-30">261740</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">515000.000</value>
+      <value currency="USD" value-date="2015-12-31">515000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2014-01-01" />
       <period-end iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">391066.000</value>
+      <value currency="USD" value-date="2014-12-31">391066</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2013-01-01" />
       <period-end iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">315000.000</value>
+      <value currency="USD" value-date="2013-12-31">315000</value>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">76576.000</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">96544</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
+      <transaction-type code="3" />
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">16146</value>
+      <provider-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="">
+        <narrative>Government of Tuvalu</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">261740.000</value>
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">15000</value>
+      <provider-org type="40" ref="00012">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">15000</value>
+      <provider-org type="40" ref="00012">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">300000</value>
       <provider-org type="40" ref="11445">
         <narrative>Enhanced Integrated Framework for Trade  related  Technical Assistance  to LDC's Trust Fund manager</narrative>
       </provider-org>
@@ -776,8 +863,8 @@ Planners, policy makers, Kaupule, and vulnerable communities are unable to antic
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">0.000</value>
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">300000</value>
       <provider-org ref="11445">
         <narrative>Enhanced Integrated Framework for Trade  related  Technical Assistance  to LDC's Trust Fund manager</narrative>
       </provider-org>
@@ -787,27 +874,87 @@ Planners, policy makers, Kaupule, and vulnerable communities are unable to antic
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">391066</value>
+      <provider-org type="40" ref="11445">
+        <narrative>Enhanced Integrated Framework for Trade  related  Technical Assistance  to LDC's Trust Fund manager</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">300000</value>
+      <provider-org ref="11445">
+        <narrative>Enhanced Integrated Framework for Trade  related  Technical Assistance  to LDC's Trust Fund manager</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">500000</value>
+      <provider-org type="40" ref="11445">
+        <narrative>Enhanced Integrated Framework for Trade  related  Technical Assistance  to LDC's Trust Fund manager</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">500000</value>
+      <provider-org ref="11445">
+        <narrative>Enhanced Integrated Framework for Trade  related  Technical Assistance  to LDC's Trust Fund manager</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">261740</value>
+      <provider-org type="40" ref="11445">
+        <narrative>Enhanced Integrated Framework for Trade  related  Technical Assistance  to LDC's Trust Fund manager</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">263208.000</value>
+      <value currency="USD" value-date="2015-12-31">263208</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">335079.000</value>
+      <value currency="USD" value-date="2014-12-31">335079</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">146316.000</value>
+      <value currency="USD" value-date="2013-12-31">146316</value>
       <disbursement-channel code="2" />
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00070401" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00073054</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -838,10 +985,10 @@ Planners, policy makers, Kaupule, and vulnerable communities are unable to antic
     <recipient-country code="TV">
       <narrative>Tuvalu</narrative>
     </recipient-country>
-    <collaboration-type code="1" />
+    <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/TUV/Tuvalu_NAPA_00086021.pdf">
       <title>
@@ -880,7 +1027,7 @@ Planners, policy makers, Kaupule, and vulnerable communities are unable to antic
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00086021" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00086021</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -902,9 +1049,30 @@ Planners, policy makers, Kaupule, and vulnerable communities are unable to antic
       <email>registry.fj@undp.org</email>
       <website>http://www.fj.undp.org/</website>
     </contact-info>
+    <activity-scope code="4" />
     <recipient-country code="TV">
       <narrative>Tuvalu</narrative>
     </recipient-country>
+    <location ref="TV">
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="2110297" />
+      <name>
+        <narrative>Tuvalu</narrative>
+      </name>
+      <description>
+        <narrative>independent political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative></narrative>
+      </activity-description>
+      <administrative level="0" code="2110297" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>-8.517190 179.144780</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="1" />
+      <feature-designation code="PCLI" />
+    </location>
     <sector vocabulary="1" code="15110" />
     <sector vocabulary="99" code="1">
       <narrative>Inclusive &amp; Sustainable Growth</narrative>
@@ -916,45 +1084,57 @@ Planners, policy makers, Kaupule, and vulnerable communities are unable to antic
         </description>
       </budget-item>
     </country-budget-items>
-    <policy-marker vocabulary="1" code="1" significance="0" />
+    <policy-marker vocabulary="1" code="1" significance="1" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-03-31">1192181.000</value>
+      <value currency="USD" value-date="2016-04-30">1192181</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1016050.000</value>
+      <value currency="USD" value-date="2017-12-31">1016050</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">1912942.000</value>
+      <value currency="USD" value-date="2015-12-31">1912942</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2014-01-01" />
       <period-end iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">225758.000</value>
+      <value currency="USD" value-date="2014-12-31">225758</value>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">-49216.000</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">-96063</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
+      <transaction-type code="3" />
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">135800</value>
+      <provider-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="">
+        <narrative>Government of Tuvalu</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">1192181.000</value>
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">225758</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -964,13 +1144,25 @@ Planners, policy makers, Kaupule, and vulnerable communities are unable to antic
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">0.000</value>
-      <provider-org ref="10003">
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">1912942</value>
+      <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">1192181</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -978,13 +1170,13 @@ Planners, policy makers, Kaupule, and vulnerable communities are unable to antic
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">1671557.000</value>
+      <value currency="USD" value-date="2015-12-31">1671557</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">78828.000</value>
+      <value currency="USD" value-date="2014-12-31">78828</value>
       <disbursement-channel code="2" />
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00073054" />
@@ -1205,7 +1397,7 @@ A (KAP) Knowledge, Attitude and Practices household survey to target Funafuti an
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00086015</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1236,10 +1428,10 @@ A (KAP) Knowledge, Attitude and Practices household survey to target Funafuti an
     <recipient-country code="TV">
       <narrative>Tuvalu</narrative>
     </recipient-country>
-    <collaboration-type code="1" />
+    <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <document-link format="text/html" url="http://open.undp.org/#project/00086015">
       <title>
@@ -1266,7 +1458,7 @@ A (KAP) Knowledge, Attitude and Practices household survey to target Funafuti an
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00093437" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00093437</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1288,9 +1480,30 @@ A (KAP) Knowledge, Attitude and Practices household survey to target Funafuti an
       <email>registry.fj@undp.org</email>
       <website>http://www.fj.undp.org/</website>
     </contact-info>
+    <activity-scope code="4" />
     <recipient-country code="TV">
       <narrative>Tuvalu</narrative>
     </recipient-country>
+    <location ref="TV">
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="2110297" />
+      <name>
+        <narrative>Tuvalu</narrative>
+      </name>
+      <description>
+        <narrative>independent political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative></narrative>
+      </activity-description>
+      <administrative level="0" code="2110297" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>-8.517190 179.144780</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="1" />
+      <feature-designation code="PCLI" />
+    </location>
     <sector vocabulary="1" code="41010" />
     <sector vocabulary="99" code="2">
       <narrative>Democratic Governance</narrative>
@@ -1306,32 +1519,37 @@ A (KAP) Knowledge, Attitude and Practices household survey to target Funafuti an
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-03-31">577800.000</value>
+      <value currency="USD" value-date="2016-04-30">577800</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2019-01-01" />
+      <period-end iso-date="2019-12-31" />
+      <value currency="USD" value-date="2019-12-31">763257</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-12-31">785963.000</value>
+      <value currency="USD" value-date="2018-12-31">785963</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">820230.000</value>
+      <value currency="USD" value-date="2017-12-31">820230</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">72000.000</value>
+      <value currency="USD" value-date="2015-12-31">72000</value>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">0.000</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">0</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -1339,8 +1557,8 @@ A (KAP) Knowledge, Attitude and Practices household survey to target Funafuti an
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">577800.000</value>
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">72000</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -1350,13 +1568,13 @@ A (KAP) Knowledge, Attitude and Practices household survey to target Funafuti an
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">0.000</value>
-      <provider-org ref="10003">
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">577800</value>
+      <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1364,13 +1582,13 @@ A (KAP) Knowledge, Attitude and Practices household survey to target Funafuti an
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">47188.000</value>
+      <value currency="USD" value-date="2015-12-31">47188</value>
       <disbursement-channel code="2" />
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00086015" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00091772</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1401,10 +1619,10 @@ A (KAP) Knowledge, Attitude and Practices household survey to target Funafuti an
     <recipient-country code="TV">
       <narrative>Tuvalu</narrative>
     </recipient-country>
-    <collaboration-type code="1" />
+    <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
       <title>
@@ -1416,7 +1634,7 @@ A (KAP) Knowledge, Attitude and Practices household survey to target Funafuti an
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00096808" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00096808</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1449,17 +1667,17 @@ A (KAP) Knowledge, Attitude and Practices household survey to target Funafuti an
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-03-31">100000.000</value>
+      <value currency="USD" value-date="2016-04-30">100000</value>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">5914.000</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">14930</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -1467,24 +1685,12 @@ A (KAP) Knowledge, Attitude and Practices household survey to target Funafuti an
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">100000.000</value>
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">100000</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">0.000</value>
-      <provider-org ref="10003">
-        <narrative>Global Environment Fund Truste</narrative>
-      </provider-org>
-      <receiver-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />

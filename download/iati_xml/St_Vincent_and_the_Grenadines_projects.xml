@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2016-04-07T10:52:26" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2016-05-12T18:26:51" version="2.02">
   <!--St. Vincent and the Grenadines-->
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00080915</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -33,10 +33,10 @@
     <recipient-country code="VC">
       <narrative>St. Vincent and the Grenadines</narrative>
     </recipient-country>
-    <collaboration-type code="1" />
+    <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/VCT/Draft%20ProDoc%20PIMS%205146%20SVG%20PACES%20(MAS).doc">
       <title>
@@ -99,7 +99,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00090426" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00090426</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -153,42 +153,54 @@
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-03-31">1031441.000</value>
+      <value currency="USD" value-date="2016-04-30">1031441</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-12-31">243984.000</value>
+      <value currency="USD" value-date="2018-12-31">243984</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">291900.000</value>
+      <value currency="USD" value-date="2017-12-31">291900</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">159159.000</value>
+      <value currency="USD" value-date="2015-12-31">159159</value>
     </budget>
     <capital-spend percentage="16.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">125367.000</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">108052</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
+      <transaction-type code="3" />
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">25834</value>
+      <provider-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="">
+        <narrative>Government of St. Vincent and the Grenadines</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">1031441.000</value>
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">159159</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -198,13 +210,13 @@
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">0.000</value>
-      <provider-org ref="10003">
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">1031441</value>
+      <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -212,13 +224,13 @@
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">153085.000</value>
+      <value currency="USD" value-date="2015-12-31">153085</value>
       <disbursement-channel code="2" />
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00080915" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00089257</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -252,10 +264,10 @@
     <recipient-country code="VC">
       <narrative>St. Vincent and the Grenadines</narrative>
     </recipient-country>
-    <collaboration-type code="1" />
+    <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/VCT/Signed%20Project%20Doc%20INDC%20SVG.pdf">
       <title>
@@ -294,7 +306,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00095586" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00095586</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -319,9 +331,30 @@
       <email>registry.bb@undp.org</email>
       <website>http://www.bb.undp.org/</website>
     </contact-info>
+    <activity-scope code="4" />
     <recipient-country code="VC">
       <narrative>St. Vincent and the Grenadines</narrative>
     </recipient-country>
+    <location ref="VC">
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="3577815" />
+      <name>
+        <narrative>Saint Vincent and the Grenadines</narrative>
+      </name>
+      <description>
+        <narrative>independent political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative></narrative>
+      </activity-description>
+      <administrative level="0" code="3577815" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>13.083330 -61.200000</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="1" />
+      <feature-designation code="PCLI" />
+    </location>
     <sector vocabulary="1" code="51010" />
     <sector vocabulary="99" code="1">
       <narrative>Inclusive &amp; Sustainable Growth</narrative>
@@ -330,22 +363,22 @@
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-03-31">99799.000</value>
+      <value currency="USD" value-date="2016-04-30">99799</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">60701.000</value>
+      <value currency="USD" value-date="2015-12-31">60701</value>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">0.000</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">0</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -353,8 +386,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">7500.000</value>
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">60701</value>
       <provider-org type="40" ref="00280">
         <narrative>EUROPEAN ECONOMIC COMMUNITY</narrative>
       </provider-org>
@@ -364,21 +397,21 @@
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">0.000</value>
-      <provider-org ref="00280">
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">14299</value>
+      <provider-org type="40" ref="00280">
         <narrative>EUROPEAN ECONOMIC COMMUNITY</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">92299.000</value>
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">85500</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -388,21 +421,9 @@
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">0.000</value>
-      <provider-org ref="10159">
-        <narrative>EUROPEAN COMMISSION</narrative>
-      </provider-org>
-      <receiver-org ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">60701.000</value>
+      <value currency="USD" value-date="2015-12-31">60701</value>
       <disbursement-channel code="2" />
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00089257" />

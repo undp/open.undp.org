@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2016-04-07T10:20:56" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2016-05-12T18:26:05" version="2.02">
   <!--Seychelles-->
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00045015</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -36,10 +36,10 @@
     <recipient-country code="SC">
       <narrative>Seychelles</narrative>
     </recipient-country>
-    <collaboration-type code="1" />
+    <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SYC/00045015_Seychelles%20Mainstreaming%20BD%20Full%20ProDoc%20final%20version.pdf">
       <title>
@@ -85,7 +85,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00053107" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00053107</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -149,46 +149,58 @@
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-03-31">72140.000</value>
+      <value currency="USD" value-date="2016-04-30">72140</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">209828.000</value>
+      <value currency="USD" value-date="2015-12-31">209828</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2014-01-01" />
       <period-end iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">682527.000</value>
+      <value currency="USD" value-date="2014-12-31">682527</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2013-01-01" />
       <period-end iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">622659.000</value>
+      <value currency="USD" value-date="2013-12-31">622659</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2012-01-01" />
       <period-end iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">586933.000</value>
+      <value currency="USD" value-date="2012-12-31">586933</value>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">65990.000</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">0</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
+      <transaction-type code="3" />
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">65990</value>
+      <provider-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="">
+        <narrative>Government of Seychelles</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">2184.000</value>
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">586933</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -198,21 +210,57 @@
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">0.000</value>
-      <provider-org ref="10003">
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">622659</value>
+      <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">69956.000</value>
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">633692</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">133163</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">2184</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">48835</value>
       <provider-org type="22" ref="12192">
         <narrative>Common Market for Eastern and Southern Africa (COMESA)</narrative>
       </provider-org>
@@ -223,8 +271,8 @@
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">0.000</value>
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">165930</value>
       <provider-org ref="12192">
         <narrative>Common Market for Eastern and Southern Africa (COMESA)</narrative>
       </provider-org>
@@ -234,33 +282,57 @@
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">76665</value>
+      <provider-org type="22" ref="12192">
+        <narrative>Common Market for Eastern and Southern Africa (COMESA)</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">69956</value>
+      <provider-org type="22" ref="12192">
+        <narrative>Common Market for Eastern and Southern Africa (COMESA)</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">187868.000</value>
+      <value currency="USD" value-date="2015-12-31">187868</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">678761.000</value>
+      <value currency="USD" value-date="2014-12-31">678761</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">622659.000</value>
+      <value currency="USD" value-date="2013-12-31">622659</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">586933.000</value>
+      <value currency="USD" value-date="2012-12-31">586933</value>
       <disbursement-channel code="2" />
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00045015" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00057862</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -291,10 +363,10 @@
     <recipient-country code="SC">
       <narrative>Seychelles</narrative>
     </recipient-country>
-    <collaboration-type code="1" />
+    <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SYC/Seychelles%20CPD%20-%202012-2016.pdf">
       <title>
@@ -333,7 +405,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00071620" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00071620</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -347,6 +419,9 @@
     <participating-org role="1" type="40" ref="00012">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
+    <participating-org role="1" type="10" ref="00212">
+      <narrative>GOVERNMENT OF SEYCHELLES</narrative>
+    </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2009-07-07" />
     <activity-date type="2" iso-date="2009-07-07" />
@@ -355,9 +430,30 @@
       <email>registry.mu@undp.org</email>
       <website>http://www.mu.undp.org/</website>
     </contact-info>
+    <activity-scope code="8" />
     <recipient-country code="SC">
       <narrative>Seychelles</narrative>
     </recipient-country>
+    <location ref="SC">
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="241131" />
+      <name>
+        <narrative>Victoria</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative></narrative>
+      </activity-description>
+      <administrative level="1" code="241131" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>-4.616670 55.450000</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <sector vocabulary="1" code="99810" />
     <sector vocabulary="99" code="0">
       <narrative>SP_NONE_APPLIES</narrative>
@@ -366,27 +462,27 @@
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-03-31">50000.000</value>
+      <value currency="USD" value-date="2016-04-30">50000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">20284.000</value>
+      <value currency="USD" value-date="2015-12-31">20284</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2014-01-01" />
       <period-end iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">5492.000</value>
+      <value currency="USD" value-date="2014-12-31">5492</value>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">1902.000</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">1902</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -394,8 +490,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">50000.000</value>
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">20284</value>
       <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -405,13 +501,25 @@
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">0.000</value>
-      <provider-org ref="00012">
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">50000</value>
+      <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">5492</value>
+      <provider-org type="10" ref="00212">
+        <narrative>GOVERNMENT OF SEYCHELLES</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -419,19 +527,19 @@
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">13838.000</value>
+      <value currency="USD" value-date="2015-12-31">13838</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">-1.000</value>
+      <value currency="USD" value-date="2014-12-31">-1</value>
       <disbursement-channel code="2" />
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00057862" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00060844</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -462,10 +570,10 @@
     <recipient-country code="SC">
       <narrative>Seychelles</narrative>
     </recipient-country>
-    <collaboration-type code="1" />
+    <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/SYC/00060844_PA%20PRODOC.docx">
       <title>
@@ -518,7 +626,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00076774" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00076774</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -579,46 +687,58 @@
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-03-31">94.000</value>
+      <value currency="USD" value-date="2016-04-30">94</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">249584.000</value>
+      <value currency="USD" value-date="2015-12-31">249584</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2014-01-01" />
       <period-end iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">639945.000</value>
+      <value currency="USD" value-date="2014-12-31">639945</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2013-01-01" />
       <period-end iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">700934.000</value>
+      <value currency="USD" value-date="2013-12-31">700934</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2012-01-01" />
       <period-end iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">759610.000</value>
+      <value currency="USD" value-date="2012-12-31">759610</value>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">94.000</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">0</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
+      <transaction-type code="3" />
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">94</value>
+      <provider-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="">
+        <narrative>Government of Seychelles</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">94.000</value>
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">759610</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -628,13 +748,49 @@
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">0.000</value>
-      <provider-org ref="10003">
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">700934</value>
+      <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">639945</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">249584</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">94</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -642,31 +798,31 @@
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">249490.000</value>
+      <value currency="USD" value-date="2015-12-31">249490</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">588724.000</value>
+      <value currency="USD" value-date="2014-12-31">588724</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">689137.000</value>
+      <value currency="USD" value-date="2013-12-31">689137</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">408244.000</value>
+      <value currency="USD" value-date="2012-12-31">408244</value>
       <disbursement-channel code="2" />
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00060844" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00065515</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -697,10 +853,10 @@
     <recipient-country code="SC">
       <narrative>Seychelles</narrative>
     </recipient-country>
-    <collaboration-type code="1" />
+    <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/SYC/PIMS%204331%20Seychelles%20PV%20ProDoc%20150412%20Final_resubmission.doc">
       <title>
@@ -746,7 +902,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00081971" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00081971</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -800,46 +956,58 @@
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-03-31">94235.000</value>
+      <value currency="USD" value-date="2016-04-30">94235</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">343999.000</value>
+      <value currency="USD" value-date="2015-12-31">343999</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2014-01-01" />
       <period-end iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">593237.000</value>
+      <value currency="USD" value-date="2014-12-31">593237</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2013-01-01" />
       <period-end iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">163049.000</value>
+      <value currency="USD" value-date="2013-12-31">163049</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2012-01-01" />
       <period-end iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">3608.000</value>
+      <value currency="USD" value-date="2012-12-31">3608</value>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">736.000</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">736</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
+      <transaction-type code="3" />
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">13445</value>
+      <provider-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="">
+        <narrative>Government of Seychelles</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">94235.000</value>
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">3608</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -849,13 +1017,49 @@
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">0.000</value>
-      <provider-org ref="10003">
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">163049</value>
+      <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">593237</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">343999</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">94235</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -863,25 +1067,25 @@
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">343998.000</value>
+      <value currency="USD" value-date="2015-12-31">343998</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">555110.000</value>
+      <value currency="USD" value-date="2014-12-31">555110</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">163048.000</value>
+      <value currency="USD" value-date="2013-12-31">163048</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">3609.000</value>
+      <value currency="USD" value-date="2012-12-31">3609</value>
       <disbursement-channel code="2" />
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00065515" />
@@ -1353,7 +1557,7 @@ In addition, the Government is in the process of designing a large project for p
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00075876</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1384,10 +1588,10 @@ In addition, the Government is in the process of designing a large project for p
     <recipient-country code="SC">
       <narrative>Seychelles</narrative>
     </recipient-country>
-    <collaboration-type code="1" />
+    <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/SYC/PIMS%204529%20PRODOC%20Seychelles%20Outer%20Islands_FINAL_for%20signature_250714%20(2).docx">
       <title>
@@ -1426,7 +1630,7 @@ In addition, the Government is in the process of designing a large project for p
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00087541" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00087541</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1448,9 +1652,30 @@ In addition, the Government is in the process of designing a large project for p
       <email>registry.mu@undp.org</email>
       <website>http://www.mu.undp.org/</website>
     </contact-info>
+    <activity-scope code="8" />
     <recipient-country code="SC">
       <narrative>Seychelles</narrative>
     </recipient-country>
+    <location ref="SC">
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="241131" />
+      <name>
+        <narrative>Victoria</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative></narrative>
+      </activity-description>
+      <administrative level="1" code="241131" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>-4.616670 55.450000</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <sector vocabulary="1" code="15110" />
     <sector vocabulary="99" code="1">
       <narrative>Inclusive &amp; Sustainable Growth</narrative>
@@ -1466,46 +1691,58 @@ In addition, the Government is in the process of designing a large project for p
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-03-31">656686.000</value>
+      <value currency="USD" value-date="2016-04-30">656686</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-12-31">216229.000</value>
+      <value currency="USD" value-date="2018-12-31">216229</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">233135.000</value>
+      <value currency="USD" value-date="2017-12-31">233135</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">450000.000</value>
+      <value currency="USD" value-date="2015-12-31">450000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2014-01-01" />
       <period-end iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">229451.000</value>
+      <value currency="USD" value-date="2014-12-31">229451</value>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">1413.000</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">4178</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
+      <transaction-type code="3" />
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">42459</value>
+      <provider-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="">
+        <narrative>Government of Seychelles</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">656686.000</value>
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">229451</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -1515,13 +1752,25 @@ In addition, the Government is in the process of designing a large project for p
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">0.000</value>
-      <provider-org ref="10003">
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">450000</value>
+      <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">656686</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1529,19 +1778,19 @@ In addition, the Government is in the process of designing a large project for p
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">397680.000</value>
+      <value currency="USD" value-date="2015-12-31">397680</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">204198.000</value>
+      <value currency="USD" value-date="2014-12-31">204198</value>
       <disbursement-channel code="2" />
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00075876" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00079923</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1572,10 +1821,10 @@ In addition, the Government is in the process of designing a large project for p
     <recipient-country code="SC">
       <narrative>Seychelles</narrative>
     </recipient-country>
-    <collaboration-type code="1" />
+    <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/SYC/PIMS%204913_Seychelles%20EE%20MSP%20Prodoc_290514_FINAL.doc">
       <title>
@@ -1614,7 +1863,7 @@ In addition, the Government is in the process of designing a large project for p
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00089789" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00089789</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1636,9 +1885,30 @@ In addition, the Government is in the process of designing a large project for p
       <email>registry.mu@undp.org</email>
       <website>http://www.mu.undp.org/</website>
     </contact-info>
+    <activity-scope code="8" />
     <recipient-country code="SC">
       <narrative>Seychelles</narrative>
     </recipient-country>
+    <location ref="SC">
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="241131" />
+      <name>
+        <narrative>Victoria</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative></narrative>
+      </activity-description>
+      <administrative level="1" code="241131" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>-4.616670 55.450000</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <sector vocabulary="1" code="51010" />
     <sector vocabulary="99" code="1">
       <narrative>Inclusive &amp; Sustainable Growth</narrative>
@@ -1647,41 +1917,53 @@ In addition, the Government is in the process of designing a large project for p
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-03-31">688650.000</value>
+      <value currency="USD" value-date="2016-04-30">688650</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">649200.000</value>
+      <value currency="USD" value-date="2017-12-31">649200</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">400000.000</value>
+      <value currency="USD" value-date="2015-12-31">400000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2014-01-01" />
       <period-end iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">32150.000</value>
+      <value currency="USD" value-date="2014-12-31">32150</value>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">9085.000</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">9085</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
+      <transaction-type code="3" />
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">31017</value>
+      <provider-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="">
+        <narrative>Government of Seychelles</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">688650.000</value>
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">32150</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -1691,13 +1973,25 @@ In addition, the Government is in the process of designing a large project for p
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">0.000</value>
-      <provider-org ref="10003">
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">400000</value>
+      <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">688650</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1705,13 +1999,13 @@ In addition, the Government is in the process of designing a large project for p
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">319726.000</value>
+      <value currency="USD" value-date="2015-12-31">319726</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">14990.000</value>
+      <value currency="USD" value-date="2014-12-31">14990</value>
       <disbursement-channel code="2" />
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00079923" />
@@ -2209,7 +2503,7 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00080054</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2240,10 +2534,10 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     <recipient-country code="SC">
       <narrative>Seychelles</narrative>
     </recipient-country>
-    <collaboration-type code="1" />
+    <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/SYC/PRODOC-%20PIMS%204775-%20EBA_Seychelles-%2026%20MAY%202014%20-1.doc">
       <title>
@@ -2282,7 +2576,7 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00089895" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00089895</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2304,9 +2598,30 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
       <email>registry.mu@undp.org</email>
       <website>http://www.mu.undp.org/</website>
     </contact-info>
+    <activity-scope code="8" />
     <recipient-country code="SC">
       <narrative>Seychelles</narrative>
     </recipient-country>
+    <location ref="SC">
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="241131" />
+      <name>
+        <narrative>Victoria</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative></narrative>
+      </activity-description>
+      <administrative level="1" code="241131" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>-4.616670 55.450000</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <sector vocabulary="1" code="51010" />
     <sector vocabulary="99" code="1">
       <narrative>Inclusive &amp; Sustainable Growth</narrative>
@@ -2315,36 +2630,48 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-03-31">433869.000</value>
+      <value currency="USD" value-date="2016-04-30">433869</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">454000.000</value>
+      <value currency="USD" value-date="2015-12-31">454000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2014-01-01" />
       <period-end iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">301000.000</value>
+      <value currency="USD" value-date="2014-12-31">301000</value>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">29319.000</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">54870</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
+      <transaction-type code="3" />
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">169722</value>
+      <provider-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="">
+        <narrative>Government of Seychelles</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">433869.000</value>
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">301000</value>
       <provider-org type="40" ref="11602">
         <narrative>Adaptation Fund  (AF)</narrative>
       </provider-org>
@@ -2354,13 +2681,25 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">0.000</value>
-      <provider-org ref="11602">
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">454000</value>
+      <provider-org type="40" ref="11602">
         <narrative>Adaptation Fund  (AF)</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">433869</value>
+      <provider-org type="40" ref="11602">
+        <narrative>Adaptation Fund  (AF)</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2368,19 +2707,19 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">426277.000</value>
+      <value currency="USD" value-date="2015-12-31">426277</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">124737.000</value>
+      <value currency="USD" value-date="2014-12-31">124737</value>
       <disbursement-channel code="2" />
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00080054" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00084466</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2411,10 +2750,10 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     <recipient-country code="SC">
       <narrative>Seychelles</narrative>
     </recipient-country>
-    <collaboration-type code="1" />
+    <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/SYC/5483%20Mercury%20ProDoc_Seychelles.docx">
       <title>
@@ -2453,7 +2792,7 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00092454" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00092454</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2475,9 +2814,30 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
       <email>registry.mu@undp.org</email>
       <website>http://www.mu.undp.org/</website>
     </contact-info>
+    <activity-scope code="8" />
     <recipient-country code="SC">
       <narrative>Seychelles</narrative>
     </recipient-country>
+    <location ref="SC">
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="241131" />
+      <name>
+        <narrative>Victoria</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative></narrative>
+      </activity-description>
+      <administrative level="1" code="241131" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>-4.616670 55.450000</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <sector vocabulary="1" code="15110" />
     <sector vocabulary="99" code="1">
       <narrative>Inclusive &amp; Sustainable Growth</narrative>
@@ -2493,31 +2853,43 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-03-31">149100.000</value>
+      <value currency="USD" value-date="2016-04-30">149100</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">50000.000</value>
+      <value currency="USD" value-date="2015-12-31">50000</value>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">33082.000</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">12165</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
+      <transaction-type code="3" />
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">36855</value>
+      <provider-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="">
+        <narrative>Government of Seychelles</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">149100.000</value>
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">50000</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -2527,13 +2899,13 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">0.000</value>
-      <provider-org ref="10003">
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">149100</value>
+      <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2541,13 +2913,127 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">40711.000</value>
+      <value currency="USD" value-date="2015-12-31">40711</value>
       <disbursement-channel code="2" />
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00084466" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+    <iati-identifier>XM-DAC-41114-PROJECT-00088837</iati-identifier>
+    <reporting-org ref="XM-DAC-41114" type="40">
+      <narrative>United Nations Development Programme</narrative>
+    </reporting-org>
+    <title>
+      <narrative>Seychelles Protected Area Finance Project</narrative>
+    </title>
+    <description type="1">
+      <narrative>Seychelles’ Protected Areas Finance Project</narrative>
+    </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>UNDP</narrative>
+    </participating-org>
+    <participating-org role="2" type="40" ref="00012">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="10003">
+      <narrative>Global Environment Fund Truste</narrative>
+    </participating-org>
+    <activity-status code="2" />
+    <activity-date type="1" iso-date="2016-01-01" />
+    <activity-date type="2" iso-date="2016-01-01" />
+    <activity-date type="3" iso-date="2020-12-31" />
+    <contact-info type="1">
+      <email>registry.mu@undp.org</email>
+      <website>http://www.mu.undp.org/</website>
+    </contact-info>
+    <recipient-country code="SC">
+      <narrative>Seychelles</narrative>
+    </recipient-country>
+    <collaboration-type code="4" />
+    <default-flow-type code="10" />
+    <default-finance-type code="110" />
+    <default-aid-type code="C01" />
+    <default-tied-status code="3" />
+    <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00095320" />
+    <conditions attached="0" />
+  </iati-activity>
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+    <iati-identifier>XM-DAC-41114-OUTPUT-00095320</iati-identifier>
+    <reporting-org ref="XM-DAC-41114" type="40">
+      <narrative>United Nations Development Programme</narrative>
+    </reporting-org>
+    <title>
+      <narrative>Seychelles Protected Area Fina</narrative>
+    </title>
+    <description type="1">
+      <narrative>-</narrative>
+    </description>
+    <participating-org role="1" type="40" ref="10003">
+      <narrative>Global Environment Fund Truste</narrative>
+    </participating-org>
+    <activity-status code="2" />
+    <activity-date type="1" iso-date="2016-01-01" />
+    <activity-date type="2" iso-date="2016-01-01" />
+    <activity-date type="3" iso-date="2020-12-31" />
+    <contact-info type="1">
+      <email>registry.mu@undp.org</email>
+      <website>http://www.mu.undp.org/</website>
+    </contact-info>
+    <recipient-country code="SC">
+      <narrative>Seychelles</narrative>
+    </recipient-country>
+    <policy-marker vocabulary="1" code="1" significance="0" />
+    <collaboration-type code="4" />
+    <default-flow-type code="10" />
+    <default-finance-type code="110" />
+    <default-aid-type code="C01" />
+    <default-tied-status code="3" />
+    <budget type="2" status="2">
+      <period-start iso-date="2016-01-01" />
+      <period-end iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-04-30">823618</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2019-01-01" />
+      <period-end iso-date="2019-12-31" />
+      <value currency="USD" value-date="2019-12-31">268816</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2018-12-31">579075</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2017-01-01" />
+      <period-end iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">962923</value>
+    </budget>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">0</value>
+      <provider-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">823618</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <related-activity type="1" ref="XM-DAC-41114-PROJECT-00088837" />
+    <conditions attached="0" />
+  </iati-activity>
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00092970</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2578,10 +3064,10 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     <recipient-country code="SC">
       <narrative>Seychelles</narrative>
     </recipient-country>
-    <collaboration-type code="1" />
+    <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/SYC/Annex%20I%20Description%20of%20the%20Action.doc">
       <title>
@@ -2627,7 +3113,7 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00097444" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2016-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00097444</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2660,31 +3146,43 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
-    <default-aid-type code="A01" />
+    <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-03-31">273683.000</value>
+      <value currency="USD" value-date="2016-04-30">273683</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">0.000</value>
+      <value currency="USD" value-date="2015-12-31">0</value>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">569.000</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">758</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">270945</value>
+      <provider-org ref="10159">
+        <narrative>EUROPEAN COMMISSION</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">273683.000</value>
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">273683</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -2695,8 +3193,8 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-03-31" />
-      <value currency="USD" value-date="2016-03-31">8601.000</value>
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">8601</value>
       <provider-org ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -2708,7 +3206,7 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">1186.000</value>
+      <value currency="USD" value-date="2015-12-31">1186</value>
       <disbursement-channel code="2" />
     </transaction>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00092970" />
