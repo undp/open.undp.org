@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2016-05-12T18:26:07" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2016-05-20T23:10:08" version="2.02">
   <!--Uganda-->
   <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00046225</iati-identifier>
@@ -19,7 +19,7 @@
     <participating-org role="2" type="40" ref="00012">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -93,11 +93,11 @@
     <description type="1">
       <narrative>Ensuring Coordination, Evidence Based Programming, and Monitoring of UN Recovery and peace building programmes and Projects in Uganda. This are funded by PBF and BCPR</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="40" ref="11363">
       <narrative>Peacebuilding Fund</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-01-01" />
@@ -179,34 +179,10 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">369000</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
       <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">204316</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">309907</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      <value currency="USD" value-date="2014-12-31">503</value>
+      <provider-org type="40" ref="11363">
+        <narrative>Peacebuilding Fund</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -229,7 +205,7 @@
       <transaction-type code="1" />
       <transaction-date iso-date="2013-12-31" />
       <value currency="USD" value-date="2013-12-31">36501</value>
-      <provider-org ref="11363">
+      <provider-org ref="11363" type="40">
         <narrative>Peacebuilding Fund</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
@@ -239,10 +215,34 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">309907</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
       <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">503</value>
-      <provider-org type="40" ref="11363">
-        <narrative>Peacebuilding Fund</narrative>
+      <value currency="USD" value-date="2014-12-31">204316</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">369000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -287,11 +287,11 @@
     <participating-org role="2" type="40" ref="00012">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="40" ref="10714">
       <narrative>UNDP AS ADMINISTRATIVE AGENT FOR A JOINT PROGRAMME PASS THROUGH ARRANGEMENT</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2009-01-01" />
@@ -378,11 +378,11 @@
     <description type="1">
       <narrative>The Joint UN Programme of Support on AIDS responsive planning,budgeting and programme management</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="40" ref="10714">
       <narrative>UNDP AS ADMINISTRATIVE AGENT FOR A JOINT PROGRAMME PASS THROUGH ARRANGEMENT</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2009-01-01" />
@@ -549,34 +549,10 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">84405</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">602522</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">516431</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">20040</value>
+      <provider-org type="40" ref="10714">
+        <narrative>UNDP AS ADMINISTRATIVE AGENT FOR A JOINT PROGRAMME PASS THROUGH ARRANGEMENT</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -586,19 +562,7 @@
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">135000</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">511700</value>
+      <value currency="USD" value-date="2015-12-31">173166</value>
       <provider-org type="40" ref="10714">
         <narrative>UNDP AS ADMINISTRATIVE AGENT FOR A JOINT PROGRAMME PASS THROUGH ARRANGEMENT</narrative>
       </provider-org>
@@ -609,33 +573,9 @@
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">267709</value>
-      <provider-org ref="10714">
-        <narrative>UNDP AS ADMINISTRATIVE AGENT FOR A JOINT PROGRAMME PASS THROUGH ARRANGEMENT</narrative>
-      </provider-org>
-      <receiver-org ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">126852</value>
-      <provider-org type="40" ref="10714">
-        <narrative>UNDP AS ADMINISTRATIVE AGENT FOR A JOINT PROGRAMME PASS THROUGH ARRANGEMENT</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">98758</value>
-      <provider-org ref="10714">
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">169009</value>
+      <provider-org ref="10714" type="40">
         <narrative>UNDP AS ADMINISTRATIVE AGENT FOR A JOINT PROGRAMME PASS THROUGH ARRANGEMENT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
@@ -659,7 +599,7 @@
       <transaction-type code="1" />
       <transaction-date iso-date="2014-12-31" />
       <value currency="USD" value-date="2014-12-31">151512</value>
-      <provider-org ref="10714">
+      <provider-org ref="10714" type="40">
         <narrative>UNDP AS ADMINISTRATIVE AGENT FOR A JOINT PROGRAMME PASS THROUGH ARRANGEMENT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
@@ -669,8 +609,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">173166</value>
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">126852</value>
       <provider-org type="40" ref="10714">
         <narrative>UNDP AS ADMINISTRATIVE AGENT FOR A JOINT PROGRAMME PASS THROUGH ARRANGEMENT</narrative>
       </provider-org>
@@ -681,9 +621,9 @@
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">169009</value>
-      <provider-org ref="10714">
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">98758</value>
+      <provider-org ref="10714" type="40">
         <narrative>UNDP AS ADMINISTRATIVE AGENT FOR A JOINT PROGRAMME PASS THROUGH ARRANGEMENT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
@@ -693,10 +633,70 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">20040</value>
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">511700</value>
       <provider-org type="40" ref="10714">
         <narrative>UNDP AS ADMINISTRATIVE AGENT FOR A JOINT PROGRAMME PASS THROUGH ARRANGEMENT</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">267709</value>
+      <provider-org ref="10714" type="40">
+        <narrative>UNDP AS ADMINISTRATIVE AGENT FOR A JOINT PROGRAMME PASS THROUGH ARRANGEMENT</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">135000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">516431</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">602522</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">84405</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -809,11 +809,11 @@
     <participating-org role="2" type="10" ref="00012">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2010-01-01" />
@@ -900,11 +900,11 @@
     <description type="1">
       <narrative>Project focuses on developing national institutions capacity to develop policies and systems for sustainable environment and natural resources management as well as mainstream and pilot initiatives for climate change adaptation and mitigation.</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2010-01-01" />
@@ -1023,46 +1023,10 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">5210</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">150300</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">133500</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">30000</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">35036</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -1083,20 +1047,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">35036</value>
-      <provider-org type="40" ref="10003">
-        <narrative>Global Environment Fund Truste</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">407639</value>
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">639998</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -1119,10 +1071,58 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">639998</value>
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">407639</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">30000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">133500</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">150300</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">5210</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -1173,11 +1173,11 @@
     <participating-org role="2" type="40" ref="00012">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
-    <participating-org role="1" type="10" ref="00117">
-      <narrative>GOVERNMENT OF GERMANY</narrative>
-    </participating-org>
     <participating-org role="1" type="40" ref="00280">
       <narrative>EUROPEAN ECONOMIC COMMUNITY</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="DE-1">
+      <narrative>GOVERNMENT OF GERMANY</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2011-07-01" />
@@ -1276,11 +1276,11 @@
     <description type="1">
       <narrative>This project is a low emission capacity building project  focuses on strengthening Uganda’s technical and institutional capacity in the development of Green House Gas inventory systems and Nationally Appropriate Mitigation Actions.</narrative>
     </description>
-    <participating-org role="1" type="10" ref="00117">
-      <narrative>GOVERNMENT OF GERMANY</narrative>
-    </participating-org>
     <participating-org role="1" type="40" ref="00280">
       <narrative>EUROPEAN ECONOMIC COMMUNITY</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="DE-1">
+      <narrative>GOVERNMENT OF GERMANY</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2011-07-01" />
@@ -1372,56 +1372,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">215450</value>
-      <provider-org type="10" ref="00117">
-        <narrative>GOVERNMENT OF GERMANY</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">116845</value>
-      <provider-org type="10" ref="00117">
-        <narrative>GOVERNMENT OF GERMANY</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">1390</value>
-      <provider-org type="40" ref="00280">
-        <narrative>EUROPEAN ECONOMIC COMMUNITY</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">195140</value>
-      <provider-org type="40" ref="00280">
-        <narrative>EUROPEAN ECONOMIC COMMUNITY</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">172177</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">158023</value>
       <provider-org type="40" ref="00280">
         <narrative>EUROPEAN ECONOMIC COMMUNITY</narrative>
       </provider-org>
@@ -1444,10 +1396,58 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">158023</value>
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">172177</value>
       <provider-org type="40" ref="00280">
         <narrative>EUROPEAN ECONOMIC COMMUNITY</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">195140</value>
+      <provider-org type="40" ref="00280">
+        <narrative>EUROPEAN ECONOMIC COMMUNITY</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">1390</value>
+      <provider-org type="40" ref="00280">
+        <narrative>EUROPEAN ECONOMIC COMMUNITY</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">116845</value>
+      <provider-org type="10" ref="DE-1">
+        <narrative>GOVERNMENT OF GERMANY</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">215450</value>
+      <provider-org type="10" ref="DE-1">
+        <narrative>GOVERNMENT OF GERMANY</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -1707,8 +1707,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">93539</value>
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">25577</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -1719,8 +1719,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">25577</value>
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">93539</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -1764,7 +1764,7 @@
     <participating-org role="1" type="40" ref="00001">
       <narrative>UN DEPT OF ECONOMIC AND SOCIAL AFFAIRS</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -1860,7 +1860,7 @@
     <participating-org role="1" type="40" ref="00001">
       <narrative>UN DEPT OF ECONOMIC AND SOCIAL AFFAIRS</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -1953,33 +1953,9 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">1078953</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">324100</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">105110</value>
-      <provider-org type="40" ref="00012">
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">15600</value>
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -1991,7 +1967,7 @@
       <transaction-type code="2" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">140000</value>
-      <provider-org type="40" ref="00012">
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -2001,9 +1977,33 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">15600</value>
-      <provider-org type="40" ref="00012">
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">105110</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">324100</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">1078953</value>
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -2124,7 +2124,7 @@ A diplomatic institute put in place.
     <participating-org role="2" type="10" ref="00012">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -2224,7 +2224,7 @@ A diplomatic institute put in place.
     <description type="1">
       <narrative>The project focuses on 1.strengthening legal, policy and administrative frameworks 2.enhance national capacity. 3 .Support PPP framework for enhancing service delivery. 4 support the institutionalization of Gender Equitable Governance</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -2312,33 +2312,9 @@ A diplomatic institute put in place.
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">955328</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">1000000</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">756951</value>
-      <provider-org type="40" ref="00012">
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">43611</value>
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -2350,7 +2326,7 @@ A diplomatic institute put in place.
       <transaction-type code="2" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">400000</value>
-      <provider-org type="40" ref="00012">
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -2360,9 +2336,33 @@ A diplomatic institute put in place.
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">43611</value>
-      <provider-org type="40" ref="00012">
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">756951</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">1000000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">955328</value>
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -2483,7 +2483,7 @@ iv. 24 LGs acquired PPP Policy framework and target surpassed.LG Women Leadershi
     <participating-org role="2" type="10" ref="00012">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -2583,7 +2583,7 @@ iv. 24 LGs acquired PPP Policy framework and target surpassed.LG Women Leadershi
     <description type="1">
       <narrative>The project addresses the challenges of service delivery, learning and accountability by strengthening monitoring capacities in Ugandan Public institutions. The duration of the project is 2011-2014.</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -2666,21 +2666,9 @@ iv. 24 LGs acquired PPP Policy framework and target surpassed.LG Women Leadershi
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">410767</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">350110</value>
-      <provider-org type="40" ref="00012">
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">7500</value>
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -2692,7 +2680,7 @@ iv. 24 LGs acquired PPP Policy framework and target surpassed.LG Women Leadershi
       <transaction-type code="2" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">367801</value>
-      <provider-org type="40" ref="00012">
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -2702,9 +2690,21 @@ iv. 24 LGs acquired PPP Policy framework and target surpassed.LG Women Leadershi
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">7500</value>
-      <provider-org type="40" ref="00012">
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">350110</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">410767</value>
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -2750,7 +2750,7 @@ iv. 24 LGs acquired PPP Policy framework and target surpassed.LG Women Leadershi
     <participating-org role="2" type="10" ref="00012">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -2845,7 +2845,7 @@ iv. 24 LGs acquired PPP Policy framework and target surpassed.LG Women Leadershi
     <description type="1">
       <narrative>Support to Development of Inclusive Markets in Tourism.Implementing agency is Uganda Tourism Board with Enterprise Uganda as the RP. The duration of the project is 2011-2015.</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -2933,33 +2933,9 @@ iv. 24 LGs acquired PPP Policy framework and target surpassed.LG Women Leadershi
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">254850</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">351668</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">496535</value>
-      <provider-org type="40" ref="00012">
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">180001</value>
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -2971,7 +2947,7 @@ iv. 24 LGs acquired PPP Policy framework and target surpassed.LG Women Leadershi
       <transaction-type code="2" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">352630</value>
-      <provider-org type="40" ref="00012">
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -2981,9 +2957,33 @@ iv. 24 LGs acquired PPP Policy framework and target surpassed.LG Women Leadershi
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">180001</value>
-      <provider-org type="40" ref="00012">
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">496535</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">351668</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">254850</value>
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -3095,7 +3095,7 @@ iv. 24 LGs acquired PPP Policy framework and target surpassed.LG Women Leadershi
     <participating-org role="2" type="10" ref="00012">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -3190,14 +3190,14 @@ iv. 24 LGs acquired PPP Policy framework and target surpassed.LG Women Leadershi
     <description type="1">
       <narrative>IMPROVING POLICIES AND STRATEGIES FOR SUSTAINABLE ENVIRONMENT, NATURAL RESOURCES AND CLIMATE RISK MITIGATION</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="40" ref="00041">
       <narrative>UNITED NATIONS ENVIRONMENT PROGRAMME</narrative>
     </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2011-08-01" />
@@ -3284,33 +3284,9 @@ iv. 24 LGs acquired PPP Policy framework and target surpassed.LG Women Leadershi
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">396178</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">894367</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">438944</value>
-      <provider-org type="40" ref="00012">
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">149815</value>
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -3322,7 +3298,7 @@ iv. 24 LGs acquired PPP Policy framework and target surpassed.LG Women Leadershi
       <transaction-type code="2" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">686868</value>
-      <provider-org type="40" ref="00012">
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -3332,9 +3308,33 @@ iv. 24 LGs acquired PPP Policy framework and target surpassed.LG Women Leadershi
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">149815</value>
-      <provider-org type="40" ref="00012">
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">438944</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">894367</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">396178</value>
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -3456,7 +3456,7 @@ iv. 24 LGs acquired PPP Policy framework and target surpassed.LG Women Leadershi
     <participating-org role="2" type="10" ref="00012">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -3523,14 +3523,14 @@ iv. 24 LGs acquired PPP Policy framework and target surpassed.LG Women Leadershi
     <description type="1">
       <narrative>Pilot Initiatives project focuses on Strengthening sustainable environment and natural resource management, climate change adaptation and mitigation in Uganda</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="40" ref="00032">
       <narrative>UNITED NATIONS DEVELOPMENT FUND FOR WOME</narrative>
     </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2011-08-01" />
@@ -3617,21 +3617,9 @@ iv. 24 LGs acquired PPP Policy framework and target surpassed.LG Women Leadershi
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">460267</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">920000</value>
-      <provider-org type="40" ref="00012">
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">318559</value>
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -3643,7 +3631,7 @@ iv. 24 LGs acquired PPP Policy framework and target surpassed.LG Women Leadershi
       <transaction-type code="2" />
       <transaction-date iso-date="2014-12-31" />
       <value currency="USD" value-date="2014-12-31">679919</value>
-      <provider-org type="40" ref="00012">
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -3653,9 +3641,21 @@ iv. 24 LGs acquired PPP Policy framework and target surpassed.LG Women Leadershi
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">318559</value>
-      <provider-org type="40" ref="00012">
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">920000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">460267</value>
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -3956,32 +3956,8 @@ iv. 24 LGs acquired PPP Policy framework and target surpassed.LG Women Leadershi
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">227809</value>
-      <provider-org type="40" ref="00041">
-        <narrative>UNITED NATIONS ENVIRONMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">335418</value>
-      <provider-org type="40" ref="00041">
-        <narrative>UNITED NATIONS ENVIRONMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">380652</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">306218</value>
       <provider-org type="40" ref="00041">
         <narrative>UNITED NATIONS ENVIRONMENT PROGRAMME</narrative>
       </provider-org>
@@ -4004,8 +3980,32 @@ iv. 24 LGs acquired PPP Policy framework and target surpassed.LG Women Leadershi
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">306218</value>
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">380652</value>
+      <provider-org type="40" ref="00041">
+        <narrative>UNITED NATIONS ENVIRONMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">335418</value>
+      <provider-org type="40" ref="00041">
+        <narrative>UNITED NATIONS ENVIRONMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">227809</value>
       <provider-org type="40" ref="00041">
         <narrative>UNITED NATIONS ENVIRONMENT PROGRAMME</narrative>
       </provider-org>
@@ -4058,7 +4058,7 @@ iv. 24 LGs acquired PPP Policy framework and target surpassed.LG Women Leadershi
     <participating-org role="2" type="10" ref="00012">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -4133,7 +4133,7 @@ iv. 24 LGs acquired PPP Policy framework and target surpassed.LG Women Leadershi
     <description type="1">
       <narrative>Enhancing the capacity of national and local institutions in Uganda to conduct evidence-based analytical studies that inform the formulation of pro-poor policies which promote human development and the attainment of the MDGs in Uganda,</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -4221,33 +4221,9 @@ iv. 24 LGs acquired PPP Policy framework and target surpassed.LG Women Leadershi
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">450400</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">341337</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">527841</value>
-      <provider-org type="40" ref="00012">
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">20000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -4259,7 +4235,7 @@ iv. 24 LGs acquired PPP Policy framework and target surpassed.LG Women Leadershi
       <transaction-type code="2" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">873848</value>
-      <provider-org type="40" ref="00012">
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -4269,9 +4245,33 @@ iv. 24 LGs acquired PPP Policy framework and target surpassed.LG Women Leadershi
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">20000</value>
-      <provider-org type="40" ref="00012">
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">527841</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">341337</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">450400</value>
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -4393,7 +4393,7 @@ iv. Four Evidence Based Studies disseminated to inform policy formulation and im
     <participating-org role="2" type="10" ref="00012">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -4474,11 +4474,11 @@ iv. Four Evidence Based Studies disseminated to inform policy formulation and im
     <description type="1">
       <narrative>Enhancing the capacity of Aid Liaison Department (ALD), Implementing Partners and UNDP to be better placed to deliver respectively: Effective and efficient aid coordination, CPAP Outcomes and Project Quality Assurance.</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2011-10-01" />
@@ -4558,33 +4558,9 @@ iv. Four Evidence Based Studies disseminated to inform policy formulation and im
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">699000</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">831231</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">1210432</value>
-      <provider-org type="40" ref="00012">
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">3031273</value>
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -4596,7 +4572,7 @@ iv. Four Evidence Based Studies disseminated to inform policy formulation and im
       <transaction-type code="2" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">1439553</value>
-      <provider-org type="40" ref="00012">
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -4606,9 +4582,33 @@ iv. Four Evidence Based Studies disseminated to inform policy formulation and im
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">3031273</value>
-      <provider-org type="40" ref="00012">
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">1210432</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">831231</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">699000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -4724,7 +4724,7 @@ Inadequate knowledge of best practices to coordinate aid
     <participating-org role="2" type="40" ref="00012">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -4791,11 +4791,11 @@ Inadequate knowledge of best practices to coordinate aid
     <description type="1">
       <narrative>Improving Policies and Regulations to Support Development of Markets in Tourism. The implementing partner is the Ministry of Tourism Wildlife and Heritage. The duration of the project is 2012 - 2015.</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="40" ref="11445">
       <narrative>Enhanced Integrated Framework for Trade  related  Technical Assistance  to LDC's Trust Fund manager</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2012-01-02" />
@@ -4882,10 +4882,22 @@ Inadequate knowledge of best practices to coordinate aid
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">872734</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">49962</value>
+      <provider-org type="40" ref="11445">
+        <narrative>Enhanced Integrated Framework for Trade  related  Technical Assistance  to LDC's Trust Fund manager</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">654630</value>
+      <provider-org type="40" ref="11445">
+        <narrative>Enhanced Integrated Framework for Trade  related  Technical Assistance  to LDC's Trust Fund manager</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -4894,10 +4906,10 @@ Inadequate knowledge of best practices to coordinate aid
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">654630</value>
-      <provider-org ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">654630</value>
+      <provider-org ref="11445" type="40">
+        <narrative>Enhanced Integrated Framework for Trade  related  Technical Assistance  to LDC's Trust Fund manager</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -4906,9 +4918,33 @@ Inadequate knowledge of best practices to coordinate aid
     </transaction>
     <transaction>
       <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">174373</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">384267</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
       <transaction-date iso-date="2013-12-31" />
       <value currency="USD" value-date="2013-12-31">702747</value>
-      <provider-org type="40" ref="00012">
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -4920,7 +4956,7 @@ Inadequate knowledge of best practices to coordinate aid
       <transaction-type code="1" />
       <transaction-date iso-date="2013-12-31" />
       <value currency="USD" value-date="2013-12-31">-654630</value>
-      <provider-org ref="00012">
+      <provider-org ref="XM-DAC-41114" provider-activity-id="64827" type="40">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
@@ -4930,34 +4966,10 @@ Inadequate knowledge of best practices to coordinate aid
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">384267</value>
-      <provider-org type="40" ref="00012">
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">872734</value>
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">174373</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">654630</value>
-      <provider-org type="40" ref="11445">
-        <narrative>Enhanced Integrated Framework for Trade  related  Technical Assistance  to LDC's Trust Fund manager</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -4966,24 +4978,12 @@ Inadequate knowledge of best practices to coordinate aid
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">654630</value>
-      <provider-org ref="11445">
-        <narrative>Enhanced Integrated Framework for Trade  related  Technical Assistance  to LDC's Trust Fund manager</narrative>
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">654630</value>
+      <provider-org ref="XM-DAC-41114" provider-activity-id="64827" type="40">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">49962</value>
-      <provider-org type="40" ref="11445">
-        <narrative>Enhanced Integrated Framework for Trade  related  Technical Assistance  to LDC's Trust Fund manager</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -5032,14 +5032,14 @@ Inadequate knowledge of best practices to coordinate aid
     <participating-org role="2" type="40" ref="00012">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="00231">
       <narrative>GOVERNMENT OF SWEDEN</narrative>
     </participating-org>
-    <participating-org role="1" type="70" ref="12000">
+    <participating-org role="1" type="70" ref="GB-COH-2732176">
       <narrative>Adam Smith International</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2012-07-01" />
@@ -5175,17 +5175,17 @@ Inadequate knowledge of best practices to coordinate aid
     <description type="1">
       <narrative>Project focuses on Strengthening Uganda’s Disaster Preparedness and Management Capacities</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="00141">
       <narrative>GOVERNMENT OF JAPAN</narrative>
     </participating-org>
     <participating-org role="1" type="10" ref="00231">
       <narrative>GOVERNMENT OF SWEDEN</narrative>
     </participating-org>
-    <participating-org role="1" type="70" ref="12000">
+    <participating-org role="1" type="70" ref="GB-COH-2732176">
       <narrative>Adam Smith International</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-07-01" />
@@ -5267,46 +5267,10 @@ Inadequate knowledge of best practices to coordinate aid
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">532255</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">776440</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
       <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">870806</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">426000</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      <value currency="USD" value-date="2015-12-31">584733</value>
+      <provider-org type="10" ref="00141">
+        <narrative>GOVERNMENT OF JAPAN</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -5327,32 +5291,8 @@ Inadequate knowledge of best practices to coordinate aid
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">584733</value>
-      <provider-org type="10" ref="00141">
-        <narrative>GOVERNMENT OF JAPAN</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">50000</value>
-      <provider-org type="10" ref="00231">
-        <narrative>GOVERNMENT OF SWEDEN</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">249805</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">125404</value>
       <provider-org type="10" ref="00231">
         <narrative>GOVERNMENT OF SWEDEN</narrative>
       </provider-org>
@@ -5375,10 +5315,70 @@ Inadequate knowledge of best practices to coordinate aid
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">125404</value>
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">249805</value>
       <provider-org type="10" ref="00231">
         <narrative>GOVERNMENT OF SWEDEN</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">50000</value>
+      <provider-org type="10" ref="00231">
+        <narrative>GOVERNMENT OF SWEDEN</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">426000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">870806</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">776440</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">532255</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -5481,7 +5481,7 @@ Inadequate knowledge of best practices to coordinate aid
     <participating-org role="2" type="40" ref="00012">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -5548,11 +5548,11 @@ Inadequate knowledge of best practices to coordinate aid
     <description type="1">
       <narrative>Peace Architecture for Conflict Transformation Framework  focuses on building Mediation and dialogue capacities to facilitate policy, governance settlements as well as  internal dialogue to influence the political reform agenda</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="40" ref="00280">
       <narrative>EUROPEAN ECONOMIC COMMUNITY</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2014-05-30" />
@@ -5629,9 +5629,9 @@ Inadequate knowledge of best practices to coordinate aid
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">312220</value>
-      <provider-org type="40" ref="00012">
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">1500000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -5643,7 +5643,7 @@ Inadequate knowledge of best practices to coordinate aid
       <transaction-type code="2" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">1475397</value>
-      <provider-org type="40" ref="00012">
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -5653,9 +5653,9 @@ Inadequate knowledge of best practices to coordinate aid
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">1500000</value>
-      <provider-org type="40" ref="00012">
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">312220</value>
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -5786,7 +5786,7 @@ Inadequate knowledge of best practices to coordinate aid
     <participating-org role="2" type="10" ref="00012">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -5853,7 +5853,7 @@ Inadequate knowledge of best practices to coordinate aid
     <description type="1">
       <narrative>Support to the development of National development Plan and Capacity building of of selected Local Governments and oversight entities to deliver accountable, inclusive and demand driven social and economic services.</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -5946,33 +5946,9 @@ Inadequate knowledge of best practices to coordinate aid
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">654500</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">861000</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">1098074</value>
-      <provider-org type="40" ref="00012">
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">50000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -5984,7 +5960,7 @@ Inadequate knowledge of best practices to coordinate aid
       <transaction-type code="2" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">337604</value>
-      <provider-org type="40" ref="00012">
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -5994,9 +5970,33 @@ Inadequate knowledge of best practices to coordinate aid
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">50000</value>
-      <provider-org type="40" ref="00012">
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">1098074</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">861000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">654500</value>
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -6105,14 +6105,14 @@ Inadequate knowledge of best practices to coordinate aid
     <participating-org role="2" type="10" ref="00012">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
-    <participating-org role="1" type="10" ref="00095">
-      <narrative>GOVERNMENT OF DENMARK</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="00555">
       <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="10008">
+    <participating-org role="1" type="40" ref="41AAA">
       <narrative>UN Office for Project Services</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="DK-1">
+      <narrative>GOVERNMENT OF DENMARK</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-01-01" />
@@ -6285,17 +6285,17 @@ Inadequate knowledge of best practices to coordinate aid
     <description type="1">
       <narrative>Support to Kampala Pulse Lab Initiative</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
-    <participating-org role="1" type="10" ref="00095">
-      <narrative>GOVERNMENT OF DENMARK</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="00555">
       <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="10008">
+    <participating-org role="1" type="40" ref="41AAA">
       <narrative>UN Office for Project Services</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="DK-1">
+      <narrative>GOVERNMENT OF DENMARK</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-01-01" />
@@ -6371,22 +6371,22 @@ Inadequate knowledge of best practices to coordinate aid
     </transaction>
     <transaction>
       <transaction-type code="2" />
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">53598</value>
+      <provider-org type="10" ref="00555">
+        <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
       <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">150000</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">48170</value>
-      <provider-org type="10" ref="00095">
-        <narrative>GOVERNMENT OF DENMARK</narrative>
+      <value currency="USD" value-date="2015-12-31">267889</value>
+      <provider-org type="10" ref="00555">
+        <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -6395,10 +6395,10 @@ Inadequate knowledge of best practices to coordinate aid
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">513963</value>
-      <provider-org ref="00095">
-        <narrative>GOVERNMENT OF DENMARK</narrative>
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">267889</value>
+      <provider-org ref="00555" type="10">
+        <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -6407,10 +6407,10 @@ Inadequate knowledge of best practices to coordinate aid
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">520716</value>
-      <provider-org type="10" ref="00095">
-        <narrative>GOVERNMENT OF DENMARK</narrative>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">470538</value>
+      <provider-org type="40" ref="41AAA">
+        <narrative>UN Office for Project Services</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -6419,12 +6419,24 @@ Inadequate knowledge of best practices to coordinate aid
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">364498</value>
-      <provider-org ref="00095">
-        <narrative>GOVERNMENT OF DENMARK</narrative>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">673543</value>
+      <provider-org ref="41AAA" type="40">
+        <narrative>UN Office for Project Services</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">63911</value>
+      <provider-org type="10" ref="DK-1">
+        <narrative>GOVERNMENT OF DENMARK</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -6433,7 +6445,7 @@ Inadequate knowledge of best practices to coordinate aid
       <transaction-type code="2" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">422290</value>
-      <provider-org type="10" ref="00095">
+      <provider-org type="10" ref="DK-1">
         <narrative>GOVERNMENT OF DENMARK</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -6445,7 +6457,7 @@ Inadequate knowledge of best practices to coordinate aid
       <transaction-type code="1" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">32000</value>
-      <provider-org ref="00095">
+      <provider-org ref="DK-1" type="10">
         <narrative>GOVERNMENT OF DENMARK</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
@@ -6455,9 +6467,9 @@ Inadequate knowledge of best practices to coordinate aid
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">63911</value>
-      <provider-org type="10" ref="00095">
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">520716</value>
+      <provider-org type="10" ref="DK-1">
         <narrative>GOVERNMENT OF DENMARK</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -6466,23 +6478,11 @@ Inadequate knowledge of best practices to coordinate aid
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">267889</value>
-      <provider-org type="10" ref="00555">
-        <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">267889</value>
-      <provider-org ref="00555">
-        <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">364498</value>
+      <provider-org ref="DK-1" type="10">
+        <narrative>GOVERNMENT OF DENMARK</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -6491,22 +6491,10 @@ Inadequate knowledge of best practices to coordinate aid
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">53598</value>
-      <provider-org type="10" ref="00555">
-        <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">470538</value>
-      <provider-org type="40" ref="10008">
-        <narrative>UN Office for Project Services</narrative>
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">48170</value>
+      <provider-org type="10" ref="DK-1">
+        <narrative>GOVERNMENT OF DENMARK</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -6515,12 +6503,24 @@ Inadequate knowledge of best practices to coordinate aid
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">673543</value>
-      <provider-org ref="10008">
-        <narrative>UN Office for Project Services</narrative>
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">513963</value>
+      <provider-org ref="DK-1" type="10">
+        <narrative>GOVERNMENT OF DENMARK</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">150000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -6740,20 +6740,8 @@ Inadequate knowledge of best practices to coordinate aid
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">50000</value>
-      <provider-org type="40" ref="10003">
-        <narrative>Global Environment Fund Truste</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">366983</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">772386</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -6776,8 +6764,20 @@ Inadequate knowledge of best practices to coordinate aid
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">772386</value>
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">366983</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">50000</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -7390,14 +7390,14 @@ UWA carries our regular monitoring to detect illegal activities such as poaching
     <participating-org role="2" type="10" ref="00012">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
-    <participating-org role="1" type="10" ref="00117">
-      <narrative>GOVERNMENT OF GERMANY</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="00141">
       <narrative>GOVERNMENT OF JAPAN</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="DE-1">
+      <narrative>GOVERNMENT OF GERMANY</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-01-01" />
@@ -7513,7 +7513,7 @@ UWA carries our regular monitoring to detect illegal activities such as poaching
     <description type="1">
       <narrative>Support to Recovery and Development of Northern Uganda</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -7599,7 +7599,7 @@ UWA carries our regular monitoring to detect illegal activities such as poaching
       <transaction-type code="2" />
       <transaction-date iso-date="2013-12-31" />
       <value currency="USD" value-date="2013-12-31">223400</value>
-      <provider-org type="40" ref="00012">
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -7640,14 +7640,14 @@ UWA carries our regular monitoring to detect illegal activities such as poaching
     <description type="1">
       <narrative>Local Development and Social Cohesion in Northern Uganda</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
-    <participating-org role="1" type="10" ref="00117">
-      <narrative>GOVERNMENT OF GERMANY</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="00141">
       <narrative>GOVERNMENT OF JAPAN</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="DE-1">
+      <narrative>GOVERNMENT OF GERMANY</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-01-01" />
@@ -7729,10 +7729,22 @@ UWA carries our regular monitoring to detect illegal activities such as poaching
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">1345000</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">1000000</value>
+      <provider-org type="10" ref="00141">
+        <narrative>GOVERNMENT OF JAPAN</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">30100</value>
+      <provider-org type="10" ref="DE-1">
+        <narrative>GOVERNMENT OF GERMANY</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -7742,8 +7754,20 @@ UWA carries our regular monitoring to detect illegal activities such as poaching
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">1049040</value>
-      <provider-org type="40" ref="00012">
+      <value currency="USD" value-date="2014-12-31">125000</value>
+      <provider-org type="10" ref="DE-1">
+        <narrative>GOVERNMENT OF GERMANY</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">622000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -7755,19 +7779,7 @@ UWA carries our regular monitoring to detect illegal activities such as poaching
       <transaction-type code="2" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">1352361</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">622000</value>
-      <provider-org type="40" ref="00012">
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -7778,9 +7790,9 @@ UWA carries our regular monitoring to detect illegal activities such as poaching
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">125000</value>
-      <provider-org type="10" ref="00117">
-        <narrative>GOVERNMENT OF GERMANY</narrative>
+      <value currency="USD" value-date="2014-12-31">1049040</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -7789,22 +7801,10 @@ UWA carries our regular monitoring to detect illegal activities such as poaching
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">30100</value>
-      <provider-org type="10" ref="00117">
-        <narrative>GOVERNMENT OF GERMANY</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">1000000</value>
-      <provider-org type="10" ref="00141">
-        <narrative>GOVERNMENT OF JAPAN</narrative>
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">1345000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -8009,8 +8009,8 @@ UWA carries our regular monitoring to detect illegal activities such as poaching
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">150000</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">1169397</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -8033,8 +8033,8 @@ UWA carries our regular monitoring to detect illegal activities such as poaching
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">1169397</value>
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">150000</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -8393,11 +8393,11 @@ Outcome 3.2 SLM/SFM knowledge effectively transferred from ongoing SLM Best Prac
     <participating-org role="2" type="40" ref="00012">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-12-01" />
@@ -8519,11 +8519,11 @@ Outcome 3.2 SLM/SFM knowledge effectively transferred from ongoing SLM Best Prac
     <description type="1">
       <narrative>Strengthen climate information and early warning systems in Africa for climate resilient development and adaptation to climate change – Uganda</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-12-01" />
@@ -8600,44 +8600,8 @@ Outcome 3.2 SLM/SFM knowledge effectively transferred from ongoing SLM Best Prac
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">20000</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">50000</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">50000</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">354730</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">2055300</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -8660,10 +8624,46 @@ Outcome 3.2 SLM/SFM knowledge effectively transferred from ongoing SLM Best Prac
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">2055300</value>
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">354730</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">50000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">50000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">20000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -9091,24 +9091,12 @@ Female: 3,700,000
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">290000</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">64191</value>
       <provider-org type="22" ref="12192">
         <narrative>Common Market for Eastern and Southern Africa (COMESA)</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">592000</value>
-      <provider-org ref="12192">
-        <narrative>Common Market for Eastern and Southern Africa (COMESA)</narrative>
-      </provider-org>
-      <receiver-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -9129,7 +9117,7 @@ Female: 3,700,000
       <transaction-type code="1" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">148000</value>
-      <provider-org ref="12192">
+      <provider-org ref="12192" type="22">
         <narrative>Common Market for Eastern and Southern Africa (COMESA)</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
@@ -9139,12 +9127,24 @@ Female: 3,700,000
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">64191</value>
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">290000</value>
       <provider-org type="22" ref="12192">
         <narrative>Common Market for Eastern and Southern Africa (COMESA)</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">592000</value>
+      <provider-org ref="12192" type="22">
+        <narrative>Common Market for Eastern and Southern Africa (COMESA)</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -9411,6 +9411,18 @@ Female: 3,700,000
     </transaction>
     <transaction>
       <transaction-type code="2" />
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">391000</value>
+      <provider-org type="40" ref="10714">
+        <narrative>UNDP AS ADMINISTRATIVE AGENT FOR A JOINT PROGRAMME PASS THROUGH ARRANGEMENT</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">2068</value>
       <provider-org type="40" ref="10714">
@@ -9425,22 +9437,10 @@ Female: 3,700,000
       <transaction-type code="1" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">643070</value>
-      <provider-org ref="10714">
+      <provider-org ref="10714" type="40">
         <narrative>UNDP AS ADMINISTRATIVE AGENT FOR A JOINT PROGRAMME PASS THROUGH ARRANGEMENT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">391000</value>
-      <provider-org type="40" ref="10714">
-        <narrative>UNDP AS ADMINISTRATIVE AGENT FOR A JOINT PROGRAMME PASS THROUGH ARRANGEMENT</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -9471,11 +9471,11 @@ Female: 3,700,000
     <participating-org role="2" type="40" ref="00012">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2015-08-01" />
@@ -9542,11 +9542,11 @@ Female: 3,700,000
     <description type="1">
       <narrative>Fostering Sustainability resilience for food security in Karamoja sub-region-project preparatory grant to prepare full size project</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2015-08-01" />
@@ -9581,10 +9581,10 @@ Female: 3,700,000
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">7200</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">200000</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -9593,10 +9593,10 @@ Female: 3,700,000
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">200000</value>
-      <provider-org type="40" ref="10003">
-        <narrative>Global Environment Fund Truste</narrative>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">7200</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -9623,11 +9623,11 @@ Female: 3,700,000
     <participating-org role="2" type="40" ref="00012">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2015-10-01" />
@@ -9680,11 +9680,11 @@ Female: 3,700,000
     <description type="1">
       <narrative>NAMA on Integrated Waste Management and Biogas in Uganda</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2015-10-01" />
@@ -9730,10 +9730,10 @@ Female: 3,700,000
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">50000</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">100000</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -9742,10 +9742,10 @@ Female: 3,700,000
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">100000</value>
-      <provider-org type="40" ref="10003">
-        <narrative>Global Environment Fund Truste</narrative>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">50000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -9866,8 +9866,8 @@ Female: 3,700,000
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">50000</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">50000</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2016-05-12T18:26:50" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2016-05-20T23:10:52" version="2.02">
   <!--Panama-->
   <iati-activity last-updated-datetime="2016-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00014300</iati-identifier>
@@ -195,8 +195,32 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">7070551</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">1410000</value>
+      <provider-org type="10" ref="01070">
+        <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">2239786</value>
+      <provider-org type="10" ref="01070">
+        <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">1012190</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -207,9 +231,9 @@
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">5547386</value>
-      <provider-org ref="01070">
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">125375</value>
+      <provider-org ref="01070" type="10">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
@@ -233,7 +257,7 @@
       <transaction-type code="1" />
       <transaction-date iso-date="2013-12-31" />
       <value currency="USD" value-date="2013-12-31">6737762</value>
-      <provider-org ref="01070">
+      <provider-org ref="01070" type="10">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
@@ -243,8 +267,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">1012190</value>
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">7070551</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -255,36 +279,12 @@
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">125375</value>
-      <provider-org ref="01070">
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">5547386</value>
+      <provider-org ref="01070" type="10">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">2239786</value>
-      <provider-org type="10" ref="01070">
-        <narrative>PAN-GOVT</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">1410000</value>
-      <provider-org type="10" ref="01070">
-        <narrative>PAN-GOVT</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -435,11 +435,11 @@
     <description type="1">
       <narrative>Fortalecimiento de los procesos de Investigación, Educación e Innovación Tecnológica.</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="01070">
       <narrative>PAN-GOVT</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2005-08-18" />
@@ -526,10 +526,10 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">38310</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">10113508</value>
+      <provider-org type="10" ref="01070">
+        <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -538,8 +538,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">5422210</value>
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">3403802</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -550,33 +550,9 @@
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">3595639</value>
-      <provider-org ref="01070">
-        <narrative>PAN-GOVT</narrative>
-      </provider-org>
-      <receiver-org ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">4199607</value>
-      <provider-org type="10" ref="01070">
-        <narrative>PAN-GOVT</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">5345024</value>
-      <provider-org ref="01070">
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">5692768</value>
+      <provider-org ref="01070" type="10">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
@@ -600,7 +576,7 @@
       <transaction-type code="1" />
       <transaction-date iso-date="2014-12-31" />
       <value currency="USD" value-date="2014-12-31">10000000</value>
-      <provider-org ref="01070">
+      <provider-org ref="01070" type="10">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
@@ -610,8 +586,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">3403802</value>
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">4199607</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -622,9 +598,9 @@
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">5692768</value>
-      <provider-org ref="01070">
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">5345024</value>
+      <provider-org ref="01070" type="10">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
@@ -634,10 +610,34 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">10113508</value>
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">5422210</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">3595639</value>
+      <provider-org ref="01070" type="10">
+        <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">38310</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -890,8 +890,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">476095</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">640426</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -902,57 +902,9 @@
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">417000</value>
-      <provider-org ref="01070">
-        <narrative>PAN-GOVT</narrative>
-      </provider-org>
-      <receiver-org ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">539076</value>
-      <provider-org type="10" ref="01070">
-        <narrative>PAN-GOVT</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">457000</value>
-      <provider-org ref="01070">
-        <narrative>PAN-GOVT</narrative>
-      </provider-org>
-      <receiver-org ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">665423</value>
-      <provider-org type="10" ref="01070">
-        <narrative>PAN-GOVT</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">457000</value>
-      <provider-org ref="01070">
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">676329</value>
+      <provider-org ref="01070" type="10">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
@@ -976,7 +928,7 @@
       <transaction-type code="1" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">500000</value>
-      <provider-org ref="01070">
+      <provider-org ref="01070" type="10">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
@@ -986,8 +938,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">640426</value>
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">665423</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -998,9 +950,57 @@
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">676329</value>
-      <provider-org ref="01070">
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">457000</value>
+      <provider-org ref="01070" type="10">
+        <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">539076</value>
+      <provider-org type="10" ref="01070">
+        <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">457000</value>
+      <provider-org ref="01070" type="10">
+        <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">476095</value>
+      <provider-org type="10" ref="01070">
+        <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">417000</value>
+      <provider-org ref="01070" type="10">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
@@ -1207,32 +1207,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">1380749</value>
-      <provider-org type="10" ref="01070">
-        <narrative>PAN-GOVT</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">1828918</value>
-      <provider-org type="10" ref="01070">
-        <narrative>PAN-GOVT</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">499905</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">4028475</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -1255,8 +1231,32 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">4028475</value>
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">499905</value>
+      <provider-org type="10" ref="01070">
+        <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">1828918</value>
+      <provider-org type="10" ref="01070">
+        <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">1380749</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -1478,32 +1478,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">251713</value>
-      <provider-org type="40" ref="10003">
-        <narrative>Global Environment Fund Truste</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">509970</value>
-      <provider-org type="40" ref="10003">
-        <narrative>Global Environment Fund Truste</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">575000</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">749366</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -1526,8 +1502,32 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">749366</value>
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">575000</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">509970</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">251713</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -2598,14 +2598,14 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     <participating-org role="2" type="40" ref="00012">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00031">
-      <narrative>UNITED NATIONS POPULATION FUND</narrative>
-    </participating-org>
-    <participating-org role="1" type="40" ref="00035">
-      <narrative>UNITED NATIONS CHILDREN'S FUND</narrative>
-    </participating-org>
     <participating-org role="1" type="40" ref="00041">
       <narrative>UNITED NATIONS ENVIRONMENT PROGRAMME</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="41119">
+      <narrative>UNITED NATIONS POPULATION FUND</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="41122">
+      <narrative>UNITED NATIONS CHILDREN'S FUND</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2010-01-08" />
@@ -2662,23 +2662,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     <participating-org role="1" type="40" ref="00004">
       <narrative>FOOD AND AGRICULTURE ORGANIZATION OF THE</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
-    <participating-org role="1" type="40" ref="00031">
-      <narrative>UNITED NATIONS POPULATION FUND</narrative>
-    </participating-org>
     <participating-org role="1" type="40" ref="00032">
       <narrative>UNITED NATIONS DEVELOPMENT FUND FOR WOME</narrative>
-    </participating-org>
-    <participating-org role="1" type="40" ref="00035">
-      <narrative>UNITED NATIONS CHILDREN'S FUND</narrative>
-    </participating-org>
-    <participating-org role="1" type="40" ref="00037">
-      <narrative>WORLD FOOD PROGRAMME</narrative>
-    </participating-org>
-    <participating-org role="1" type="40" ref="00038">
-      <narrative>UNOCHA (Formerly UNDRO)</narrative>
     </participating-org>
     <participating-org role="1" type="40" ref="00040">
       <narrative>UN HIGH COMMISSIONER FOR REFUGEES</narrative>
@@ -2698,11 +2683,26 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     <participating-org role="1" type="40" ref="01865">
       <narrative>United Nations Information Centre</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="10008">
-      <narrative>UN Office for Project Services</narrative>
-    </participating-org>
     <participating-org role="1" type="40" ref="10238">
       <narrative>UNITED NATIONS INTER-AGENCY SECRETARIAT FOR THE INTERNATIONAL STRATEGY FOR DISASTER REDUCTION.</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="41119">
+      <narrative>UNITED NATIONS POPULATION FUND</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="41122">
+      <narrative>UNITED NATIONS CHILDREN'S FUND</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="41127">
+      <narrative>UNOCHA (Formerly UNDRO)</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="41140">
+      <narrative>WORLD FOOD PROGRAMME</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="41AAA">
+      <narrative>UN Office for Project Services</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2010-01-08" />
@@ -2786,105 +2786,9 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">3000</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">2000</value>
-      <provider-org type="40" ref="00031">
-        <narrative>UNITED NATIONS POPULATION FUND</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">5000</value>
-      <provider-org type="40" ref="00031">
-        <narrative>UNITED NATIONS POPULATION FUND</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">1000</value>
       <provider-org type="40" ref="00032">
         <narrative>UNITED NATIONS DEVELOPMENT FUND FOR WOME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">5000</value>
-      <provider-org type="40" ref="00035">
-        <narrative>UNITED NATIONS CHILDREN'S FUND</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">8500</value>
-      <provider-org type="40" ref="00035">
-        <narrative>UNITED NATIONS CHILDREN'S FUND</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">2500</value>
-      <provider-org type="40" ref="00037">
-        <narrative>WORLD FOOD PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">500</value>
-      <provider-org type="40" ref="00038">
-        <narrative>UNOCHA (Formerly UNDRO)</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">3000</value>
-      <provider-org type="40" ref="00040">
-        <narrative>UN HIGH COMMISSIONER FOR REFUGEES</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -2906,9 +2810,9 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">7000</value>
-      <provider-org type="40" ref="00041">
-        <narrative>UNITED NATIONS ENVIRONMENT PROGRAMME</narrative>
+      <value currency="USD" value-date="2014-12-31">3000</value>
+      <provider-org type="40" ref="00040">
+        <narrative>UN HIGH COMMISSIONER FOR REFUGEES</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -2919,6 +2823,18 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
       <transaction-type code="2" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">14385</value>
+      <provider-org type="40" ref="00041">
+        <narrative>UNITED NATIONS ENVIRONMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">7000</value>
       <provider-org type="40" ref="00041">
         <narrative>UNITED NATIONS ENVIRONMENT PROGRAMME</narrative>
       </provider-org>
@@ -2979,8 +2895,80 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
       <transaction-type code="2" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">1000</value>
-      <provider-org type="40" ref="10008">
-        <narrative>UN Office for Project Services</narrative>
+      <provider-org type="40" ref="10238">
+        <narrative>UNITED NATIONS INTER-AGENCY SECRETARIAT FOR THE INTERNATIONAL STRATEGY FOR DISASTER REDUCTION.</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">5000</value>
+      <provider-org type="40" ref="41119">
+        <narrative>UNITED NATIONS POPULATION FUND</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">2000</value>
+      <provider-org type="40" ref="41119">
+        <narrative>UNITED NATIONS POPULATION FUND</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">8500</value>
+      <provider-org type="40" ref="41122">
+        <narrative>UNITED NATIONS CHILDREN'S FUND</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">5000</value>
+      <provider-org type="40" ref="41122">
+        <narrative>UNITED NATIONS CHILDREN'S FUND</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">500</value>
+      <provider-org type="40" ref="41127">
+        <narrative>UNOCHA (Formerly UNDRO)</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">2500</value>
+      <provider-org type="40" ref="41140">
+        <narrative>WORLD FOOD PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -2991,8 +2979,20 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
       <transaction-type code="2" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">1000</value>
-      <provider-org type="40" ref="10238">
-        <narrative>UNITED NATIONS INTER-AGENCY SECRETARIAT FOR THE INTERNATIONAL STRATEGY FOR DISASTER REDUCTION.</narrative>
+      <provider-org type="40" ref="41AAA">
+        <narrative>UN Office for Project Services</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">3000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -3245,8 +3245,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">30000</value>
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">1</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -3269,8 +3269,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">1</value>
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">30000</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -3281,8 +3281,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">436483</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">63244</value>
       <provider-org type="40" ref="10714">
         <narrative>UNDP AS ADMINISTRATIVE AGENT FOR A JOINT PROGRAMME PASS THROUGH ARRANGEMENT</narrative>
       </provider-org>
@@ -3292,21 +3292,9 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">-1161060</value>
-      <provider-org ref="10714">
-        <narrative>UNDP AS ADMINISTRATIVE AGENT FOR A JOINT PROGRAMME PASS THROUGH ARRANGEMENT</narrative>
-      </provider-org>
-      <receiver-org ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">490708</value>
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">605114</value>
       <provider-org type="40" ref="10714">
         <narrative>UNDP AS ADMINISTRATIVE AGENT FOR A JOINT PROGRAMME PASS THROUGH ARRANGEMENT</narrative>
       </provider-org>
@@ -3331,7 +3319,7 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
       <transaction-type code="1" />
       <transaction-date iso-date="2014-12-31" />
       <value currency="USD" value-date="2014-12-31">1161060</value>
-      <provider-org ref="10714">
+      <provider-org ref="10714" type="40">
         <narrative>UNDP AS ADMINISTRATIVE AGENT FOR A JOINT PROGRAMME PASS THROUGH ARRANGEMENT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
@@ -3341,8 +3329,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">605114</value>
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">490708</value>
       <provider-org type="40" ref="10714">
         <narrative>UNDP AS ADMINISTRATIVE AGENT FOR A JOINT PROGRAMME PASS THROUGH ARRANGEMENT</narrative>
       </provider-org>
@@ -3353,12 +3341,24 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">63244</value>
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">436483</value>
       <provider-org type="40" ref="10714">
         <narrative>UNDP AS ADMINISTRATIVE AGENT FOR A JOINT PROGRAMME PASS THROUGH ARRANGEMENT</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">-1161060</value>
+      <provider-org ref="10714" type="40">
+        <narrative>UNDP AS ADMINISTRATIVE AGENT FOR A JOINT PROGRAMME PASS THROUGH ARRANGEMENT</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -3542,11 +3542,11 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     <description type="1">
       <narrative>Fortalecer y brindar un espacio de diálogo político para población en estado y/o riesgo de vulnerabilidad para acceder al escenario político.</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="01070">
       <narrative>PAN-GOVT</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2012-03-16" />
@@ -3633,56 +3633,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">123658</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">12831</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">446780</value>
-      <provider-org type="10" ref="01070">
-        <narrative>PAN-GOVT</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">239998</value>
-      <provider-org type="10" ref="01070">
-        <narrative>PAN-GOVT</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">251822</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">6072</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -3705,10 +3657,58 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">6072</value>
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">251822</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">239998</value>
+      <provider-org type="10" ref="01070">
+        <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">446780</value>
+      <provider-org type="10" ref="01070">
+        <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">12831</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">123658</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -4025,20 +4025,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">435000</value>
-      <provider-org type="40" ref="10003">
-        <narrative>Global Environment Fund Truste</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">400000</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">64883</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -4061,8 +4049,20 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">64883</value>
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">400000</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">435000</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -4745,32 +4745,20 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">5992520</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">4899109</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">2476491</value>
-      <provider-org ref="01070">
-        <narrative>PAN-GOVT</narrative>
-      </provider-org>
-      <receiver-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">5195725</value>
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">1456080</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -4781,9 +4769,9 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">2216624</value>
-      <provider-org ref="01070">
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">2000000</value>
+      <provider-org ref="01070" type="10">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
@@ -4807,7 +4795,7 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
       <transaction-type code="1" />
       <transaction-date iso-date="2014-12-31" />
       <value currency="USD" value-date="2014-12-31">2223978</value>
-      <provider-org ref="01070">
+      <provider-org ref="01070" type="10">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
@@ -4817,8 +4805,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">1456080</value>
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">5195725</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -4829,9 +4817,9 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">2000000</value>
-      <provider-org ref="01070">
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">2216624</value>
+      <provider-org ref="01070" type="10">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
@@ -4841,12 +4829,24 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">4899109</value>
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">5992520</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">2476491</value>
+      <provider-org ref="01070" type="10">
+        <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -4895,11 +4895,11 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     <participating-org role="2" type="40" ref="00012">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="01070">
       <narrative>PAN-GOVT</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2012-03-01" />
@@ -4961,11 +4961,11 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     <description type="1">
       <narrative>Informe Nacional de Desarrollo Humano - Fase IV</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="01070">
       <narrative>PAN-GOVT</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2012-03-01" />
@@ -5046,80 +5046,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">61700</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">139800</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">105488</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">90168</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">433518</value>
-      <provider-org type="10" ref="01070">
-        <narrative>PAN-GOVT</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">561229</value>
-      <provider-org type="10" ref="01070">
-        <narrative>PAN-GOVT</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">403400</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">452512</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -5142,10 +5070,82 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">452512</value>
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">403400</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">561229</value>
+      <provider-org type="10" ref="01070">
+        <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">433518</value>
+      <provider-org type="10" ref="01070">
+        <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">90168</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">105488</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">139800</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">61700</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -5332,8 +5332,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">1975125</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">331993</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -5344,57 +5344,9 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">34500</value>
-      <provider-org ref="01070">
-        <narrative>PAN-GOVT</narrative>
-      </provider-org>
-      <receiver-org ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">2441761</value>
-      <provider-org type="10" ref="01070">
-        <narrative>PAN-GOVT</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">200438</value>
-      <provider-org ref="01070">
-        <narrative>PAN-GOVT</narrative>
-      </provider-org>
-      <receiver-org ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">712003</value>
-      <provider-org type="10" ref="01070">
-        <narrative>PAN-GOVT</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">860237</value>
-      <provider-org ref="01070">
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">340000</value>
+      <provider-org ref="01070" type="10">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
@@ -5418,7 +5370,7 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
       <transaction-type code="1" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">38000</value>
-      <provider-org ref="01070">
+      <provider-org ref="01070" type="10">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
@@ -5428,8 +5380,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">331993</value>
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">712003</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -5440,9 +5392,57 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">340000</value>
-      <provider-org ref="01070">
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">860237</value>
+      <provider-org ref="01070" type="10">
+        <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">2441761</value>
+      <provider-org type="10" ref="01070">
+        <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">200438</value>
+      <provider-org ref="01070" type="10">
+        <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">1975125</value>
+      <provider-org type="10" ref="01070">
+        <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">34500</value>
+      <provider-org ref="01070" type="10">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
@@ -5642,32 +5642,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">70000</value>
-      <provider-org type="40" ref="10009">
-        <narrative>MONTREAL PROTOCOL</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">136042</value>
-      <provider-org type="40" ref="10009">
-        <narrative>MONTREAL PROTOCOL</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">137800</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">7045</value>
       <provider-org type="40" ref="10009">
         <narrative>MONTREAL PROTOCOL</narrative>
       </provider-org>
@@ -5690,8 +5666,32 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">7045</value>
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">137800</value>
+      <provider-org type="40" ref="10009">
+        <narrative>MONTREAL PROTOCOL</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">136042</value>
+      <provider-org type="40" ref="10009">
+        <narrative>MONTREAL PROTOCOL</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">70000</value>
       <provider-org type="40" ref="10009">
         <narrative>MONTREAL PROTOCOL</narrative>
       </provider-org>
@@ -5887,17 +5887,14 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     <description type="1">
       <narrative>Apoyo a la Implementacion, Seguimiento y Evaluacion del Programa de Pais 2012-2015</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
-    <participating-org role="1" type="40" ref="00327">
-      <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
-    </participating-org>
-    <participating-org role="1" type="40" ref="01010">
-      <narrative>CUB-GLOBAL FUND TO FIGHT AIDS,</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="01070">
       <narrative>PAN-GOVT</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="47045">
+      <narrative>CUB-GLOBAL FUND TO FIGHT AIDS,</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-01-01" />
@@ -5971,56 +5968,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">44500</value>
-      <provider-org type="40" ref="00327">
-        <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">44527</value>
-      <provider-org ref="00327">
-        <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
-      </provider-org>
-      <receiver-org ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">32362</value>
-      <provider-org ref="00327">
-        <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
-      </provider-org>
-      <receiver-org ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">277853</value>
-      <provider-org type="10" ref="01070">
-        <narrative>PAN-GOVT</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">395370</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">205965</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -6043,12 +5992,60 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">205965</value>
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">395370</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">277853</value>
+      <provider-org type="10" ref="01070">
+        <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">32362</value>
+      <provider-org ref="47045" type="40">
+        <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">44500</value>
+      <provider-org type="40" ref="47045">
+        <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">44527</value>
+      <provider-org ref="47045" type="40">
+        <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -6165,11 +6162,11 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     <description type="1">
       <narrative>Promover el dialogo intercultural entre entidades de gobierno y  pueblos indigenas fortaleciendo la gobernabilidad democratica  al generar espacios para las demandas de inclusion, ciudadania, y reconocimiento de sus derechos culturales y colectivos.</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="01070">
       <narrative>PAN-GOVT</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-01-01" />
@@ -6251,32 +6248,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">200000</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">70000</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">968205</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">39744</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -6286,13 +6259,13 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">550995</value>
-      <provider-org ref="01070">
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">281663</value>
+      <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -6313,7 +6286,7 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
       <transaction-type code="1" />
       <transaction-date iso-date="2014-12-31" />
       <value currency="USD" value-date="2014-12-31">449005</value>
-      <provider-org ref="01070">
+      <provider-org ref="01070" type="10">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
@@ -6323,8 +6296,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">281663</value>
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">968205</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -6334,11 +6307,35 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">39744</value>
-      <provider-org type="10" ref="01070">
+      <transaction-type code="1" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">550995</value>
+      <provider-org ref="01070" type="10">
         <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">70000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">200000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -6464,11 +6461,11 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     <description type="1">
       <narrative>Logro de los ODM, reducción de inequidad y generación de inclusión productiva</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="01070">
       <narrative>PAN-GOVT</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-01-23" />
@@ -6543,20 +6540,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">30243</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">349742</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">15759</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -6566,13 +6551,13 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">141313</value>
-      <provider-org ref="01070">
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">137393</value>
+      <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -6593,7 +6578,7 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
       <transaction-type code="1" />
       <transaction-date iso-date="2014-12-31" />
       <value currency="USD" value-date="2014-12-31">129125</value>
-      <provider-org ref="01070">
+      <provider-org ref="01070" type="10">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
@@ -6603,8 +6588,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">137393</value>
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">349742</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -6614,11 +6599,23 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">15759</value>
-      <provider-org type="10" ref="01070">
+      <transaction-type code="1" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">141313</value>
+      <provider-org ref="01070" type="10">
         <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">30243</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -6858,32 +6855,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">119862</value>
-      <provider-org type="10" ref="01070">
-        <narrative>PAN-GOVT</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">32404</value>
-      <provider-org ref="01070">
-        <narrative>PAN-GOVT</narrative>
-      </provider-org>
-      <receiver-org ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">235614</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">50866</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -6906,12 +6879,36 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">50866</value>
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">235614</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">119862</value>
+      <provider-org type="10" ref="01070">
+        <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">32404</value>
+      <provider-org ref="01070" type="10">
+        <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -6954,7 +6951,7 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     <participating-org role="2" type="40" ref="00012">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
-    <participating-org role="1" type="10" ref="10239">
+    <participating-org role="1" type="10" ref="DE-1">
       <narrative>FEDERAL MINISTRY FOR THE ENVIRONMENT, NATURE CONVSERVATION AND NUCLEAR SAFETY.</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -7114,7 +7111,7 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     <description type="1">
       <narrative>Fortalecimiento del SINAP, y zonas especiales de manejo: Demarcación física, marco legal revisado y análisis de necesidades y oportunidades de financiamiento</narrative>
     </description>
-    <participating-org role="1" type="10" ref="10239">
+    <participating-org role="1" type="10" ref="DE-1">
       <narrative>FEDERAL MINISTRY FOR THE ENVIRONMENT, NATURE CONVSERVATION AND NUCLEAR SAFETY.</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -7195,48 +7192,12 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">599203</value>
-      <provider-org type="10" ref="10239">
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">578609</value>
+      <provider-org type="10" ref="DE-1">
         <narrative>FEDERAL MINISTRY FOR THE ENVIRONMENT, NATURE CONVSERVATION AND NUCLEAR SAFETY.</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">1278030</value>
-      <provider-org ref="10239">
-        <narrative>FEDERAL MINISTRY FOR THE ENVIRONMENT, NATURE CONVSERVATION AND NUCLEAR SAFETY.</narrative>
-      </provider-org>
-      <receiver-org ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">154603</value>
-      <provider-org type="10" ref="10239">
-        <narrative>FEDERAL MINISTRY FOR THE ENVIRONMENT, NATURE CONVSERVATION AND NUCLEAR SAFETY.</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">1098263</value>
-      <provider-org ref="10239">
-        <narrative>FEDERAL MINISTRY FOR THE ENVIRONMENT, NATURE CONVSERVATION AND NUCLEAR SAFETY.</narrative>
-      </provider-org>
-      <receiver-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -7245,7 +7206,7 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
       <transaction-type code="2" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">213925</value>
-      <provider-org type="10" ref="10239">
+      <provider-org type="10" ref="DE-1">
         <narrative>FEDERAL MINISTRY FOR THE ENVIRONMENT, NATURE CONVSERVATION AND NUCLEAR SAFETY.</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -7257,7 +7218,7 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
       <transaction-type code="1" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">333560</value>
-      <provider-org ref="10239">
+      <provider-org ref="DE-1" type="10">
         <narrative>FEDERAL MINISTRY FOR THE ENVIRONMENT, NATURE CONVSERVATION AND NUCLEAR SAFETY.</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
@@ -7267,12 +7228,48 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">578609</value>
-      <provider-org type="10" ref="10239">
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">154603</value>
+      <provider-org type="10" ref="DE-1">
         <narrative>FEDERAL MINISTRY FOR THE ENVIRONMENT, NATURE CONVSERVATION AND NUCLEAR SAFETY.</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">1098263</value>
+      <provider-org ref="DE-1" type="10">
+        <narrative>FEDERAL MINISTRY FOR THE ENVIRONMENT, NATURE CONVSERVATION AND NUCLEAR SAFETY.</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">599203</value>
+      <provider-org type="10" ref="DE-1">
+        <narrative>FEDERAL MINISTRY FOR THE ENVIRONMENT, NATURE CONVSERVATION AND NUCLEAR SAFETY.</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">1278030</value>
+      <provider-org ref="DE-1" type="10">
+        <narrative>FEDERAL MINISTRY FOR THE ENVIRONMENT, NATURE CONVSERVATION AND NUCLEAR SAFETY.</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -7311,7 +7308,7 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     <description type="1">
       <narrative>Actividades de investigación para comprender el rol de los manglares en el secuestro de carbono</narrative>
     </description>
-    <participating-org role="1" type="10" ref="10239">
+    <participating-org role="1" type="10" ref="DE-1">
       <narrative>FEDERAL MINISTRY FOR THE ENVIRONMENT, NATURE CONVSERVATION AND NUCLEAR SAFETY.</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -7387,9 +7384,9 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">480423</value>
-      <provider-org type="10" ref="10239">
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">497498</value>
+      <provider-org type="10" ref="DE-1">
         <narrative>FEDERAL MINISTRY FOR THE ENVIRONMENT, NATURE CONVSERVATION AND NUCLEAR SAFETY.</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -7401,7 +7398,7 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
       <transaction-type code="2" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">190019</value>
-      <provider-org type="10" ref="10239">
+      <provider-org type="10" ref="DE-1">
         <narrative>FEDERAL MINISTRY FOR THE ENVIRONMENT, NATURE CONVSERVATION AND NUCLEAR SAFETY.</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -7411,9 +7408,9 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">497498</value>
-      <provider-org type="10" ref="10239">
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">480423</value>
+      <provider-org type="10" ref="DE-1">
         <narrative>FEDERAL MINISTRY FOR THE ENVIRONMENT, NATURE CONVSERVATION AND NUCLEAR SAFETY.</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -7449,7 +7446,7 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     <description type="1">
       <narrative>Desarrollo de capacidades para la gestion local de manglares</narrative>
     </description>
-    <participating-org role="1" type="10" ref="10239">
+    <participating-org role="1" type="10" ref="DE-1">
       <narrative>FEDERAL MINISTRY FOR THE ENVIRONMENT, NATURE CONVSERVATION AND NUCLEAR SAFETY.</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -7530,21 +7527,9 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">208440</value>
-      <provider-org type="10" ref="10239">
-        <narrative>FEDERAL MINISTRY FOR THE ENVIRONMENT, NATURE CONVSERVATION AND NUCLEAR SAFETY.</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">225824</value>
-      <provider-org type="10" ref="10239">
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">468926</value>
+      <provider-org type="10" ref="DE-1">
         <narrative>FEDERAL MINISTRY FOR THE ENVIRONMENT, NATURE CONVSERVATION AND NUCLEAR SAFETY.</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -7556,7 +7541,7 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
       <transaction-type code="2" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">313500</value>
-      <provider-org type="10" ref="10239">
+      <provider-org type="10" ref="DE-1">
         <narrative>FEDERAL MINISTRY FOR THE ENVIRONMENT, NATURE CONVSERVATION AND NUCLEAR SAFETY.</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -7566,9 +7551,21 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">468926</value>
-      <provider-org type="10" ref="10239">
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">225824</value>
+      <provider-org type="10" ref="DE-1">
+        <narrative>FEDERAL MINISTRY FOR THE ENVIRONMENT, NATURE CONVSERVATION AND NUCLEAR SAFETY.</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">208440</value>
+      <provider-org type="10" ref="DE-1">
         <narrative>FEDERAL MINISTRY FOR THE ENVIRONMENT, NATURE CONVSERVATION AND NUCLEAR SAFETY.</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -7829,8 +7826,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">349014</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">823000</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -7855,7 +7852,7 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
       <transaction-type code="1" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">911995</value>
-      <provider-org ref="01070">
+      <provider-org ref="01070" type="10">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
@@ -7865,8 +7862,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">823000</value>
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">349014</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -8048,8 +8045,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">65709</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">208328</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -8060,9 +8057,9 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">40000</value>
-      <provider-org ref="01070">
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">329179</value>
+      <provider-org ref="01070" type="10">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
@@ -8084,8 +8081,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">208328</value>
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">65709</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -8096,9 +8093,9 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">329179</value>
-      <provider-org ref="01070">
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">40000</value>
+      <provider-org ref="01070" type="10">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
@@ -8276,8 +8273,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">34390</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">38649</value>
       <provider-org type="40" ref="10009">
         <narrative>MONTREAL PROTOCOL</narrative>
       </provider-org>
@@ -8300,8 +8297,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">38649</value>
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">34390</value>
       <provider-org type="40" ref="10009">
         <narrative>MONTREAL PROTOCOL</narrative>
       </provider-org>
@@ -8582,8 +8579,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">1015</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">109350</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -8594,8 +8591,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">109350</value>
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">1015</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -8754,8 +8751,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">37800</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">1889677</value>
       <provider-org type="40" ref="12100">
         <narrative>Forest Carbon Partnership Facility Trustee</narrative>
       </provider-org>
@@ -8766,8 +8763,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">1889677</value>
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">37800</value>
       <provider-org type="40" ref="12100">
         <narrative>Forest Carbon Partnership Facility Trustee</narrative>
       </provider-org>
@@ -8960,8 +8957,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">25836</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">646947</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -8972,8 +8969,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">646947</value>
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">25836</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -9151,6 +9148,18 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">12540</value>
+      <provider-org type="10" ref="01070">
+        <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">241395</value>
       <provider-org type="10" ref="01070">
@@ -9165,22 +9174,10 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
       <transaction-type code="1" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">241395</value>
-      <provider-org ref="01070">
+      <provider-org ref="01070" type="10">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">12540</value>
-      <provider-org type="10" ref="01070">
-        <narrative>PAN-GOVT</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -9269,20 +9266,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">305000</value>
-      <provider-org type="10" ref="01070">
-        <narrative>PAN-GOVT</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">114950</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">114950</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -9293,12 +9278,24 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">250000</value>
-      <provider-org ref="01070">
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">250000</value>
+      <provider-org ref="01070" type="10">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">305000</value>
+      <provider-org type="10" ref="01070">
+        <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -9366,6 +9363,30 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">75000</value>
+      <provider-org type="10" ref="01070">
+        <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">15000</value>
+      <provider-org ref="01070" type="10">
+        <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">150000</value>
       <provider-org type="10" ref="01070">
@@ -9380,31 +9401,7 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
       <transaction-type code="1" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">60000</value>
-      <provider-org ref="01070">
-        <narrative>PAN-GOVT</narrative>
-      </provider-org>
-      <receiver-org ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">75000</value>
-      <provider-org type="10" ref="01070">
-        <narrative>PAN-GOVT</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">15000</value>
-      <provider-org ref="01070">
+      <provider-org ref="01070" type="10">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
@@ -9586,8 +9583,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">328653</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">328653</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -9811,6 +9808,18 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">6651574</value>
+      <provider-org type="10" ref="01070">
+        <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">2809750</value>
       <provider-org type="10" ref="01070">
@@ -9825,22 +9834,10 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
       <transaction-type code="1" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">5476424</value>
-      <provider-org ref="01070">
+      <provider-org ref="01070" type="10">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">6651574</value>
-      <provider-org type="10" ref="01070">
-        <narrative>PAN-GOVT</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -10012,8 +10009,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">43890</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">344734</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -10038,7 +10035,7 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
       <transaction-type code="1" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">926497</value>
-      <provider-org ref="01070">
+      <provider-org ref="01070" type="10">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
@@ -10048,8 +10045,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">344734</value>
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">43890</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -10251,6 +10248,18 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">160000</value>
+      <provider-org type="10" ref="01070">
+        <narrative>PAN-GOVT</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">640774</value>
       <provider-org type="10" ref="01070">
@@ -10265,22 +10274,10 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
       <transaction-type code="1" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">640774</value>
-      <provider-org ref="01070">
+      <provider-org ref="01070" type="10">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">160000</value>
-      <provider-org type="10" ref="01070">
-        <narrative>PAN-GOVT</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -10473,8 +10470,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">114330</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">114330</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -10620,8 +10617,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">114800</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">114800</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -10650,11 +10647,11 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     <participating-org role="2" type="40" ref="00012">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00327">
-      <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="01070">
       <narrative>PAN-GOVT</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="47045">
+      <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2015-03-23" />
@@ -10769,11 +10766,11 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     <description type="1">
       <narrative>Aumento de las capacidades y los espacios de debate sobre Inclusión y Servicios de Salud de calidad para VIH – SIDA y TB mediante el fortalecimiento del MCdP PANAMA.</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00327">
-      <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="01070">
       <narrative>PAN-GOVT</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="47045">
+      <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2015-03-23" />
@@ -10845,48 +10842,12 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">106284</value>
-      <provider-org type="40" ref="00327">
-        <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">29670</value>
+      <provider-org type="10" ref="01070">
+        <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">49610</value>
-      <provider-org ref="00327">
-        <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
-      </provider-org>
-      <receiver-org ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">42547</value>
-      <provider-org type="40" ref="00327">
-        <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">20000</value>
-      <provider-org ref="00327">
-        <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
-      </provider-org>
-      <receiver-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -10905,12 +10866,48 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">29670</value>
-      <provider-org type="10" ref="01070">
-        <narrative>PAN-GOVT</narrative>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">42547</value>
+      <provider-org type="40" ref="47045">
+        <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">20000</value>
+      <provider-org ref="47045" type="40">
+        <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">106284</value>
+      <provider-org type="40" ref="47045">
+        <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">49610</value>
+      <provider-org ref="47045" type="40">
+        <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -11022,11 +11019,11 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     <description type="1">
       <narrative>La transformación de la matriz energética de Panamá hacia el uso de fuentes renovables ha sido facilitada por la construcción participativa de un  diagnóstico sobre la situación actual del sistema energético de Panamá.</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="01070">
       <narrative>PAN-GOVT</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2015-06-01" />
@@ -11098,10 +11095,10 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">85900</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">49885</value>
+      <provider-org type="10" ref="01070">
+        <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -11122,10 +11119,10 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">49885</value>
-      <provider-org type="10" ref="01070">
-        <narrative>PAN-GOVT</narrative>
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">85900</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -11225,11 +11222,11 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     <description type="1">
       <narrative>Ministerio de Desarrollo Social (MIDES) requiere la asistencia técnica y acompañamiento en el proceso de implementación de la hoja de ruta.</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="01070">
       <narrative>PAN-GOVT</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2015-06-22" />
@@ -11294,10 +11291,10 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">42625</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">17598</value>
+      <provider-org type="10" ref="01070">
+        <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -11318,10 +11315,10 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">17598</value>
-      <provider-org type="10" ref="01070">
-        <narrative>PAN-GOVT</narrative>
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">42625</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -11354,11 +11351,11 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     <participating-org role="2" type="40" ref="00012">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="01070">
       <narrative>PAN-GOVT</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2015-08-20" />
@@ -11431,11 +11428,11 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     <description type="1">
       <narrative>El INAMU cuenta con una estructura organizacional del 2009 que no le permite dar cuenta de sus compromisos ni cumplir con sus responsabilidades establecidas en la legislación nacional.</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="01070">
       <narrative>PAN-GOVT</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2015-08-20" />
@@ -11507,22 +11504,10 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">27750</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">824</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">87356</value>
+      <provider-org type="10" ref="01070">
+        <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -11543,10 +11528,22 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">87356</value>
-      <provider-org type="10" ref="01070">
-        <narrative>PAN-GOVT</narrative>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">824</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">27750</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -11579,7 +11576,7 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     <participating-org role="2" type="40" ref="00012">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -11653,11 +11650,11 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     <description type="1">
       <narrative>El PNUD se propone llevar a cabo un plan de iniciación que contribuya con la Autoridad de la Micro, Pequeña y Mediana Empresa en la mejora de la capacidad institucional del AMPYME para que promueve el desarrollo de una cultura de fomento empresarial.</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="01070">
       <narrative>PAN-GOVT</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2015-09-03" />
@@ -11724,7 +11721,7 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
       <transaction-type code="2" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">45000</value>
-      <provider-org type="40" ref="00012">
+      <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -11864,8 +11861,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">423050</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">423050</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -11978,8 +11975,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">75000</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">75000</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -12087,11 +12084,11 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     <description type="1">
       <narrative>Asistir técnicamente a la DPC con metodologías y herramientas para la generación de información básica sobre los actores que ya están organizados e identificados.</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="01070">
       <narrative>PAN-GOVT</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2015-10-01" />
@@ -12163,10 +12160,10 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">15000</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">58781</value>
+      <provider-org type="10" ref="01070">
+        <narrative>PAN-GOVT</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -12175,10 +12172,10 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">58781</value>
-      <provider-org type="10" ref="01070">
-        <narrative>PAN-GOVT</narrative>
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">15000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -12306,8 +12303,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">244008</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">244008</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -12336,7 +12333,7 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     <participating-org role="2" type="10" ref="00012">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00327">
+    <participating-org role="1" type="40" ref="47045">
       <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -12403,7 +12400,7 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     <description type="1">
       <narrative>Propuesta conjunta con el objetivo de fortalecer la coordinación entre los dos programas tanto para el manejo de la coinfección como para aprovechar sinergias programáticas en la ejecución de los dos componentes TB y VIH.</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00327">
+    <participating-org role="1" type="40" ref="47045">
       <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -12455,21 +12452,9 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">91970</value>
-      <provider-org type="40" ref="00327">
-        <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">2537031</value>
-      <provider-org type="40" ref="00327">
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">2537031</value>
+      <provider-org type="40" ref="47045">
         <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -12479,12 +12464,24 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">1927755</value>
-      <provider-org ref="00327">
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">1927755</value>
+      <provider-org ref="47045" type="40">
         <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">91970</value>
+      <provider-org type="40" ref="47045">
+        <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -12613,8 +12610,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">75971</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">75971</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -12748,8 +12745,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">600000</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">600000</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
@@ -12871,8 +12868,8 @@ Some 70% of the tourists surveyed spent two days on Isla Contadora. On a daily b
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">347116</value>
+      <transaction-date iso-date="2016-04-30" />
+      <value currency="USD" value-date="2016-04-30">347116</value>
       <provider-org type="10" ref="01070">
         <narrative>PAN-GOVT</narrative>
       </provider-org>
