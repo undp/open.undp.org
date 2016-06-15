@@ -323,10 +323,6 @@ class FocusAreaIndex(Collection):
                 "color": "0082B2",
                 "id": "7",
                 "name": "Development Impact & Effectiveness"
-            }, {
-                "color": "0066a0",
-                "id": "8",
-                "name": "South-South"
             }
         ]
 
