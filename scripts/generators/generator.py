@@ -543,7 +543,7 @@ class ProjectsController(Controller):
 
         # Get South-South projects
 
-        ss_list = self.get_and_list(self.undp_export + '/SSCprojects_IDlist.csv', 'projectid')
+        #ss_list = self.get_and_list(self.undp_export + '/SSCprojects_IDlist.csv', 'projectid')
 
         for event, o in iter_obj:
             hierarchy = o.attrib['hierarchy']
@@ -592,16 +592,16 @@ class ProjectsController(Controller):
                     obj.award_id.value = self._grab_award_id(o.find("./related-activity[@type='2']").get('ref'))
 
                 try:
-                    if obj.award_id.value in ss_list:
-                        obj.focus_area.value = '8'
-                        obj.focus_area_descr.value = 'South-South'
+                    #if obj.award_id.value in ss_list:
+                    #    obj.focus_area.value = '8'
+                    #    obj.focus_area_descr.value = 'South-South'
     
-                    else:
-                        obj_focus_area_descr = obj.focus_area_descr.xml_key if (version < 2) else "sector[@vocabulary='99']"
-                        obj.focus_area.value = o.find(obj_focus_area_descr).get(obj.focus_area.key)
-                        obj.focus_area_descr.value = o.find(obj_focus_area_descr).text if (version < 2) else o.find(obj_focus_area_descr).find('narrative').text
-                        if not obj.focus_area_descr.value:
-                            obj.focus_area_descr.value = "-"                        
+                    #else:
+                    obj_focus_area_descr = obj.focus_area_descr.xml_key if (version < 2) else "sector[@vocabulary='99']"
+                    obj.focus_area.value = o.find(obj_focus_area_descr).get(obj.focus_area.key)
+                    obj.focus_area_descr.value = o.find(obj_focus_area_descr).text if (version < 2) else o.find(obj_focus_area_descr).find('narrative').text
+                    if not obj.focus_area_descr.value:
+                        obj.focus_area_descr.value = "-"                        
 
                 except:
                     obj.focus_area.value = "-"
