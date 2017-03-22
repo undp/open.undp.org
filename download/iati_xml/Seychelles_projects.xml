@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2017-02-17T19:39:53" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2017-03-06T21:53:48" version="2.02">
   <!--Seychelles-->
-  <iati-activity last-updated-datetime="2017-02-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00057862</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -19,11 +19,11 @@
     <participating-org role="2" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
+    <participating-org role="1" type="40" ref="00012">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
     <participating-org role="1" type="10" ref="00212">
       <narrative>GOVERNMENT OF SEYCHELLES</narrative>
-    </participating-org>
-    <participating-org role="1" type="40" ref="XM-DAC-41114">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2009-07-07" />
@@ -60,6 +60,13 @@
       <category code="A09" />
       <language code="en" />
     </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
+      <title>
+        <narrative>Request for Procurement</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
     <document-link format="text/html" url="http://open.undp.org/#project/00057862">
       <title>
         <narrative>Purchase Order Summary</narrative>
@@ -71,7 +78,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00071620" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-02-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00071620</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -82,11 +89,11 @@
     <description type="1">
       <narrative>Development support services</narrative>
     </description>
+    <participating-org role="1" type="40" ref="00012">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
     <participating-org role="1" type="10" ref="00212">
       <narrative>GOVERNMENT OF SEYCHELLES</narrative>
-    </participating-org>
-    <participating-org role="1" type="40" ref="XM-DAC-41114">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2009-07-07" />
@@ -133,7 +140,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-01-31">50000</value>
+      <value currency="USD" value-date="2017-02-28">50000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -152,8 +159,8 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-01-31" />
-      <value currency="USD" value-date="2017-01-31">2560</value>
+      <transaction-date iso-date="2017-02-28" />
+      <value currency="USD" value-date="2017-02-28">3445</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -161,21 +168,9 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">5492</value>
-      <provider-org type="10" ref="00212">
-        <narrative>GOVERNMENT OF SEYCHELLES</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2017-01-31" />
-      <value currency="USD" value-date="2017-01-31">50000</value>
-      <provider-org type="40" ref="XM-DAC-41114">
+      <transaction-date iso-date="2017-02-28" />
+      <value currency="USD" value-date="2017-02-28">50000</value>
+      <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -187,7 +182,7 @@
       <transaction-type code="11" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">50000</value>
-      <provider-org type="40" ref="XM-DAC-41114">
+      <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -199,8 +194,20 @@
       <transaction-type code="11" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">20284</value>
-      <provider-org type="40" ref="XM-DAC-41114">
+      <provider-org type="40" ref="00012">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">5492</value>
+      <provider-org type="10" ref="00212">
+        <narrative>GOVERNMENT OF SEYCHELLES</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
@@ -234,7 +241,7 @@
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00057862" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-02-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00065515</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -310,6 +317,13 @@
       <category code="A09" />
       <language code="en" />
     </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
+      <title>
+        <narrative>Request for Procurement</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
     <document-link format="text/html" url="http://open.undp.org/#project/00065515">
       <title>
         <narrative>Purchase Order Summary</narrative>
@@ -321,7 +335,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00081971" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-02-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00081971</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -380,7 +394,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-01-31">4046</value>
+      <value currency="USD" value-date="2017-02-28">4046</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -409,17 +423,29 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-01-31" />
-      <value currency="USD" value-date="2017-01-31">0</value>
+      <transaction-date iso-date="2017-02-28" />
+      <value currency="USD" value-date="2017-02-28">0</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
+      <transaction-type code="3" />
+      <transaction-date iso-date="2017-02-28" />
+      <value currency="USD" value-date="2017-02-28">4016</value>
+      <provider-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="">
+        <narrative>Government of Seychelles</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-01-31" />
-      <value currency="USD" value-date="2017-01-31">4046</value>
+      <transaction-date iso-date="2017-02-28" />
+      <value currency="USD" value-date="2017-02-28">4046</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -985,7 +1011,7 @@ In addition, the Government is in the process of designing a large project for p
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-02-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00075876</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1058,7 +1084,7 @@ In addition, the Government is in the process of designing a large project for p
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00087541" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-02-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00087541</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1124,12 +1150,12 @@ In addition, the Government is in the process of designing a large project for p
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-01-31">636291</value>
+      <value currency="USD" value-date="2017-02-28">636291</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-01-31">216229</value>
+      <value currency="USD" value-date="2017-02-28">216229</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -1148,8 +1174,8 @@ In addition, the Government is in the process of designing a large project for p
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-01-31" />
-      <value currency="USD" value-date="2017-01-31">6657</value>
+      <transaction-date iso-date="2017-02-28" />
+      <value currency="USD" value-date="2017-02-28">28243</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -1157,8 +1183,8 @@ In addition, the Government is in the process of designing a large project for p
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-01-31" />
-      <value currency="USD" value-date="2017-01-31">636291</value>
+      <transaction-date iso-date="2017-02-28" />
+      <value currency="USD" value-date="2017-02-28">636291</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -1230,7 +1256,7 @@ In addition, the Government is in the process of designing a large project for p
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00075876" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-02-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00079923</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1310,7 +1336,7 @@ In addition, the Government is in the process of designing a large project for p
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00089789" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-02-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00089789</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1369,12 +1395,12 @@ In addition, the Government is in the process of designing a large project for p
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-01-31">548850</value>
+      <value currency="USD" value-date="2017-02-28">548850</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-01-31">300000</value>
+      <value currency="USD" value-date="2017-02-28">300000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -1393,8 +1419,8 @@ In addition, the Government is in the process of designing a large project for p
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-01-31" />
-      <value currency="USD" value-date="2017-01-31">11080</value>
+      <transaction-date iso-date="2017-02-28" />
+      <value currency="USD" value-date="2017-02-28">18610</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -1402,8 +1428,8 @@ In addition, the Government is in the process of designing a large project for p
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-01-31" />
-      <value currency="USD" value-date="2017-01-31">548850</value>
+      <transaction-date iso-date="2017-02-28" />
+      <value currency="USD" value-date="2017-02-28">548850</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -1777,7 +1803,7 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-02-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00080054</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1794,7 +1820,7 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     <participating-org role="2" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="47111">
+    <participating-org role="1" type="40" ref="11602">
       <narrative>Adaptation Fund  (AF)</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -1850,7 +1876,7 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00089895" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-02-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00089895</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1861,7 +1887,7 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     <description type="1">
       <narrative>The overall goal of the project is to ensure that development in the Seychelles is sustainable, and resilient to anticipated climate change effects.</narrative>
     </description>
-    <participating-org role="1" type="40" ref="47111">
+    <participating-org role="1" type="40" ref="11602">
       <narrative>Adaptation Fund  (AF)</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -1929,7 +1955,7 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-01-31">753728</value>
+      <value currency="USD" value-date="2017-02-28">753728</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -1948,8 +1974,8 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-01-31" />
-      <value currency="USD" value-date="2017-01-31">34321</value>
+      <transaction-date iso-date="2017-02-28" />
+      <value currency="USD" value-date="2017-02-28">51241</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -1957,9 +1983,9 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-01-31" />
-      <value currency="USD" value-date="2017-01-31">753728</value>
-      <provider-org type="40" ref="47111">
+      <transaction-date iso-date="2017-02-28" />
+      <value currency="USD" value-date="2017-02-28">753728</value>
+      <provider-org type="40" ref="11602">
         <narrative>Adaptation Fund  (AF)</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -1971,7 +1997,7 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
       <transaction-type code="11" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">824740</value>
-      <provider-org type="40" ref="47111">
+      <provider-org type="40" ref="11602">
         <narrative>Adaptation Fund  (AF)</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -1983,7 +2009,7 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
       <transaction-type code="11" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">454000</value>
-      <provider-org type="40" ref="47111">
+      <provider-org type="40" ref="11602">
         <narrative>Adaptation Fund  (AF)</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -1995,7 +2021,7 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
       <transaction-type code="11" />
       <transaction-date iso-date="2014-12-31" />
       <value currency="USD" value-date="2014-12-31">301000</value>
-      <provider-org type="40" ref="47111">
+      <provider-org type="40" ref="11602">
         <narrative>Adaptation Fund  (AF)</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114">
@@ -2030,7 +2056,7 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00080054" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-02-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00084466</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2085,6 +2111,13 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
       <category code="A09" />
       <language code="en" />
     </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
+      <title>
+        <narrative>Request for Procurement</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
     <document-link format="text/html" url="http://open.undp.org/#project/00084466">
       <title>
         <narrative>Purchase Order Summary</narrative>
@@ -2096,7 +2129,7 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00092454" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-02-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00092454</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2162,7 +2195,7 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-01-31">7909</value>
+      <value currency="USD" value-date="2017-02-28">7909</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -2176,8 +2209,8 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-01-31" />
-      <value currency="USD" value-date="2017-01-31">0</value>
+      <transaction-date iso-date="2017-02-28" />
+      <value currency="USD" value-date="2017-02-28">0</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -2185,8 +2218,8 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-01-31" />
-      <value currency="USD" value-date="2017-01-31">7909</value>
+      <transaction-date iso-date="2017-02-28" />
+      <value currency="USD" value-date="2017-02-28">7909</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -2240,7 +2273,7 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00084466" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-02-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00088837</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2302,6 +2335,13 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
       <category code="A09" />
       <language code="en" />
     </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
+      <title>
+        <narrative>Request for Procurement</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
     <document-link format="text/html" url="http://open.undp.org/#project/00088837">
       <title>
         <narrative>Purchase Order Summary</narrative>
@@ -2313,7 +2353,7 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00095320" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-02-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00095320</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2368,17 +2408,17 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-01-31">1302541</value>
+      <value currency="USD" value-date="2017-02-28">1302541</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2017-01-31">268816</value>
+      <value currency="USD" value-date="2017-02-28">268816</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-01-31">713075</value>
+      <value currency="USD" value-date="2017-02-28">713075</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -2387,8 +2427,8 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-01-31" />
-      <value currency="USD" value-date="2017-01-31">7825</value>
+      <transaction-date iso-date="2017-02-28" />
+      <value currency="USD" value-date="2017-02-28">7825</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -2396,8 +2436,8 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-01-31" />
-      <value currency="USD" value-date="2017-01-31">1302541</value>
+      <transaction-date iso-date="2017-02-28" />
+      <value currency="USD" value-date="2017-02-28">1302541</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -2433,7 +2473,7 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00088837" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-02-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00092970</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2495,14 +2535,14 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
       <category code="A09" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=33894">
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=33949">
       <title>
         <narrative>Global Climate Change Alliance Seychelles Programme</narrative>
       </title>
       <category code="A10" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=33949">
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=33894">
       <title>
         <narrative>Global Climate Change Alliance Seychelles Programme</narrative>
       </title>
@@ -2520,7 +2560,7 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00097444" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-02-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00097444</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2579,7 +2619,7 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-01-31">228683</value>
+      <value currency="USD" value-date="2017-02-28">228683</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -2593,8 +2633,8 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-01-31" />
-      <value currency="USD" value-date="2017-01-31">164</value>
+      <transaction-date iso-date="2017-02-28" />
+      <value currency="USD" value-date="2017-02-28">7142</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -2602,8 +2642,8 @@ The consultant also proposed a new reduction in the target of SEEREP – from 8,
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-01-31" />
-      <value currency="USD" value-date="2017-01-31">228683</value>
+      <transaction-date iso-date="2017-02-28" />
+      <value currency="USD" value-date="2017-02-28">228683</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
