@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2017-03-06T21:53:50" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2017-04-10T11:50:59" version="2.02">
   <!--Swaziland-->
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00061097</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -22,7 +22,7 @@
     <participating-org role="1" type="40" ref="00004">
       <narrative>FOOD AND AGRICULTURE ORGANIZATION OF THE</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -36,6 +36,7 @@
     <recipient-country code="SZ">
       <narrative>Swaziland</narrative>
     </recipient-country>
+    <sector vocabulary="1" code="15160" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -99,7 +100,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00077239" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00077239</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -113,7 +114,7 @@
     <participating-org role="1" type="40" ref="00004">
       <narrative>FOOD AND AGRICULTURE ORGANIZATION OF THE</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -168,7 +169,22 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-02-28">155500</value>
+      <value currency="USD" value-date="2017-03-31">155500</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2019-01-01" />
+      <period-end iso-date="2019-12-31" />
+      <value currency="USD" value-date="2017-03-31">188405</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2019-01-01" />
+      <period-end iso-date="2019-12-31" />
+      <value currency="USD" value-date="2017-03-31">195000</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-03-31">239746.85</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -197,8 +213,8 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">18904</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">30363</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -206,12 +222,12 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">155500</value>
-      <provider-org type="40" ref="00012">
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">155500</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00061097">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077239">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -220,10 +236,10 @@
       <transaction-type code="11" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">232356</value>
-      <provider-org type="40" ref="00012">
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00061097">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077239">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -232,10 +248,10 @@
       <transaction-type code="11" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">161872</value>
-      <provider-org type="40" ref="00012">
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00061097">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077239">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -244,10 +260,10 @@
       <transaction-type code="11" />
       <transaction-date iso-date="2014-12-31" />
       <value currency="USD" value-date="2014-12-31">151524</value>
-      <provider-org type="40" ref="00012">
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00061097">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077239">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -256,10 +272,10 @@
       <transaction-type code="11" />
       <transaction-date iso-date="2013-12-31" />
       <value currency="USD" value-date="2013-12-31">253594</value>
-      <provider-org type="40" ref="00012">
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00061097">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077239">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -268,10 +284,10 @@
       <transaction-type code="11" />
       <transaction-date iso-date="2012-12-31" />
       <value currency="USD" value-date="2012-12-31">383192</value>
-      <provider-org type="40" ref="00012">
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00061097">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077239">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -315,7 +331,7 @@
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00061097" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00061307</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -332,11 +348,11 @@
     <participating-org role="2" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="00230">
       <narrative>GOVERNMENT OF SWAZILAND</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2011-01-01" />
@@ -349,6 +365,7 @@
     <recipient-country code="SZ">
       <narrative>Swaziland</narrative>
     </recipient-country>
+    <sector vocabulary="1" code="15110" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -405,7 +422,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00077632" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00077632</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -416,11 +433,11 @@
     <description type="1">
       <narrative>Development of national frameworks including policies, systems and processes that promote the access and effective utilization of productive resources by the poor is key in the project implementation.</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="00230">
       <narrative>GOVERNMENT OF SWAZILAND</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2011-01-01" />
@@ -474,7 +491,22 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-02-28">365000</value>
+      <value currency="USD" value-date="2017-03-31">365000</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2019-01-01" />
+      <period-end iso-date="2019-12-31" />
+      <value currency="USD" value-date="2017-03-31">167614</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2019-01-01" />
+      <period-end iso-date="2019-12-31" />
+      <value currency="USD" value-date="2017-03-31">167614</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-03-31">206076.56</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -503,8 +535,8 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">18765</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">54313</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -512,84 +544,12 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">145000</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">74600</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">118470</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">176859</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">356968</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">72875</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">220000</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">220000</value>
       <provider-org type="10" ref="00230">
         <narrative>GOVERNMENT OF SWAZILAND</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077632">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -601,7 +561,7 @@
       <provider-org type="10" ref="00230">
         <narrative>GOVERNMENT OF SWAZILAND</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077632">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -613,7 +573,7 @@
       <provider-org ref="00230" type="10">
         <narrative>GOVERNMENT OF SWAZILAND</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00077632">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -625,7 +585,7 @@
       <provider-org type="10" ref="00230">
         <narrative>GOVERNMENT OF SWAZILAND</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077632">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -637,7 +597,7 @@
       <provider-org ref="00230" type="10">
         <narrative>GOVERNMENT OF SWAZILAND</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00077632">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -649,7 +609,7 @@
       <provider-org type="10" ref="00230">
         <narrative>GOVERNMENT OF SWAZILAND</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077632">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -661,7 +621,7 @@
       <provider-org ref="00230" type="10">
         <narrative>GOVERNMENT OF SWAZILAND</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00077632">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -673,7 +633,7 @@
       <provider-org type="10" ref="00230">
         <narrative>GOVERNMENT OF SWAZILAND</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077632">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -685,7 +645,7 @@
       <provider-org ref="00230" type="10">
         <narrative>GOVERNMENT OF SWAZILAND</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00077632">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -697,7 +657,7 @@
       <provider-org type="10" ref="00230">
         <narrative>GOVERNMENT OF SWAZILAND</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077632">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -709,7 +669,79 @@
       <provider-org ref="00230" type="10">
         <narrative>GOVERNMENT OF SWAZILAND</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00077632">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">145000</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00061307">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077632">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">74600</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00061307">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077632">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">118470</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00061307">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077632">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">176859</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00061307">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077632">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">356968</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00061307">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077632">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">72875</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00061307">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077632">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -753,7 +785,814 @@
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00061307" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+    <iati-identifier>XM-DAC-41114-PROJECT-00061373</iati-identifier>
+    <reporting-org ref="XM-DAC-41114" type="40">
+      <narrative>United Nations Development Programme</narrative>
+    </reporting-org>
+    <title>
+      <narrative>Adaptation and Transboundary Waters Resource Management</narrative>
+    </title>
+    <description type="1">
+      <narrative>Adapting national and transboundary water resource management in Swaziland to manage the expected impacts of climate change</narrative>
+    </description>
+    <participating-org role="4" type="10" ref="02897">
+      <narrative>National Execution</narrative>
+    </participating-org>
+    <participating-org role="2" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="10003">
+      <narrative>Global Environment Fund Truste</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
+    <activity-status code="2" />
+    <activity-date type="1" iso-date="2012-01-01" />
+    <activity-date type="2" iso-date="2012-01-01" />
+    <activity-date type="3" iso-date="2016-12-31" />
+    <contact-info type="1">
+      <email>registry.sz@undp.org</email>
+      <website>http://www.sz.undp.org/</website>
+    </contact-info>
+    <recipient-country code="SZ">
+      <narrative>Swaziland</narrative>
+    </recipient-country>
+    <sector vocabulary="1" code="74010" />
+    <collaboration-type code="4" />
+    <default-flow-type code="10" />
+    <default-finance-type code="110" />
+    <default-aid-type code="C01" />
+    <default-tied-status code="3" />
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SWZ/Adapting%20national%20and%20trans-boundary%20water%20resource%20management%20Project%20Document.pdf">
+      <title>
+        <narrative>Adapting national and trans-boundary water resource management Project Document</narrative>
+      </title>
+      <category code="A01" />
+      <category code="A02" />
+      <category code="A03" />
+      <category code="A04" />
+      <category code="A05" />
+      <category code="A08" />
+      <language code="en" />
+    </document-link>
+    <document-link format="image/jpeg" url="https://info.undp.org/docs/pdc/Documents/SWZ/Sand%20Dam%20Construction.jpg">
+      <title>
+        <narrative>Photo - Sand Dam Construction</narrative>
+      </title>
+      <category code="A03" />
+      <language code="en" />
+    </document-link>
+    <document-link format="image/jpeg" url="https://info.undp.org/docs/pdc/Documents/SWZ/Constructed%20tap%20for%20provision%20of%20drinking%20water%20to%20school(s).jpg">
+      <title>
+        <narrative>Constructed tap for provision of drinking water to school(s)- Adapatation National and Transboundary Water Resources Management in Swaziland to manage the expected impacts to climate change</narrative>
+      </title>
+      <category code="A03" />
+      <language code="en" />
+    </document-link>
+    <document-link format="image/jpeg" url="https://info.undp.org/docs/pdc/Documents/SWZ/Construction%20Sand%20Dam.jpg">
+      <title>
+        <narrative>Photo - Construction Sand Dam</narrative>
+      </title>
+      <category code="A03" />
+      <language code="en" />
+    </document-link>
+    <document-link format="image/jpeg" url="https://info.undp.org/docs/pdc/Documents/SWZ/Sand%20Dams_006%20(2).jpg">
+      <title>
+        <narrative>Sand Dams_006 2</narrative>
+      </title>
+      <category code="A03" />
+      <language code="en" />
+    </document-link>
+    <document-link format="image/jpeg" url="https://info.undp.org/docs/pdc/Documents/SWZ/Sand%20Dams_008.jpg">
+      <title>
+        <narrative>Sand Dams_008</narrative>
+      </title>
+      <category code="A03" />
+      <language code="en" />
+    </document-link>
+    <document-link format="image/jpeg" url="https://info.undp.org/docs/pdc/Documents/SWZ/Sand%20Dams_003.jpg">
+      <title>
+        <narrative>Sand Dams_003</narrative>
+      </title>
+      <category code="A03" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="https://erc.undp.org/evaluation/evaluations/detail/5141">
+      <title>
+        <narrative>Adaptaing national and Transboundary water resource management in Swaziland to manage the expected impacts of climate change</narrative>
+      </title>
+      <category code="A07" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="https://erc.undp.org/evaluation/evaluations/detail/8630">
+      <title>
+        <narrative>Adapting National and Transboundary Water Resources Management to Manage Expected Impacts of Climate Change in Swaziland</narrative>
+      </title>
+      <category code="A07" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SWZ/Swaziland%20SCCF%20PID%20July%202010%20FINAL.pdf">
+      <title>
+        <narrative>Project Information Document for Swaziland SCCF CCA Project</narrative>
+      </title>
+      <category code="A08" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="http://www.sz.undp.org/content/dam/swaziland/docs/documents/UNDP_SZ_Country_Programme_Action_Plan_2011_2015.pdf">
+      <title>
+        <narrative>UNDP_SZ_Country_Programme_Action_Plan_2011_2015</narrative>
+      </title>
+      <category code="A09" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
+      <title>
+        <narrative>Request for Procurement</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="http://open.undp.org/#project/00061373">
+      <title>
+        <narrative>Purchase Order Summary</narrative>
+      </title>
+      <category code="A11" />
+      <category code="A12" />
+      <language code="en" />
+    </document-link>
+    <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00077723" />
+    <conditions attached="0" />
+  </iati-activity>
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+    <iati-identifier>XM-DAC-41114-OUTPUT-00077723</iati-identifier>
+    <reporting-org ref="XM-DAC-41114" type="40">
+      <narrative>United Nations Development Programme</narrative>
+    </reporting-org>
+    <title>
+      <narrative>Adapting and transboundary wat</narrative>
+    </title>
+    <description type="1">
+      <narrative>Adapting national and transboundary water resource management in Swaziland to manage the expected impacts of climate change.</narrative>
+    </description>
+    <participating-org role="1" type="40" ref="10003">
+      <narrative>Global Environment Fund Truste</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
+    <activity-status code="2" />
+    <activity-date type="1" iso-date="2012-01-01" />
+    <activity-date type="2" iso-date="2012-01-01" />
+    <activity-date type="3" iso-date="2016-12-31" />
+    <contact-info type="1">
+      <email>registry.sz@undp.org</email>
+      <website>http://www.sz.undp.org/</website>
+    </contact-info>
+    <activity-scope code="4" />
+    <recipient-country code="SZ">
+      <narrative>Swaziland</narrative>
+    </recipient-country>
+    <location ref="SZ">
+      <location-reach code="2" />
+      <location-id vocabulary="G1" code="934841" />
+      <name>
+        <narrative>Kingdom of Swaziland</narrative>
+      </name>
+      <description>
+        <narrative>independent political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative></narrative>
+      </activity-description>
+      <administrative level="0" code="934841" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>-26.500000 31.500000</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="1" />
+      <feature-designation code="PCLI" />
+    </location>
+    <sector vocabulary="1" code="74010" />
+    <sector vocabulary="99" code="5">
+      <narrative>Climate Change &amp; Disaster Resilience</narrative>
+    </sector>
+    <country-budget-items vocabulary="1">
+      <budget-item code="5.4.11" percentage="100">
+        <description>
+          <narrative>Social Protection, Land Housing and Community Amenities - disaster prevention and preparedness</narrative>
+        </description>
+      </budget-item>
+    </country-budget-items>
+    <policy-marker vocabulary="1" code="1" significance="1" />
+    <collaboration-type code="4" />
+    <default-flow-type code="10" />
+    <default-finance-type code="110" />
+    <default-aid-type code="C01" />
+    <default-tied-status code="3" />
+    <budget type="2" status="2">
+      <period-start iso-date="2017-01-01" />
+      <period-end iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-03-31">0</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2016-01-01" />
+      <period-end iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">141596</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2015-01-01" />
+      <period-end iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">370217</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2014-01-01" />
+      <period-end iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">905643</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2013-01-01" />
+      <period-end iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">369113</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2012-01-01" />
+      <period-end iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">91035</value>
+    </budget>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">0</value>
+      <provider-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">74626</value>
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 3603">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077723">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">366973</value>
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 3603">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077723">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">821242</value>
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 3603">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077723">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">366714</value>
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 3603">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077723">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">91035</value>
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 3603">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077723">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">66970</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00061373">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077723">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">3244</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00061373">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077723">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">84401</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00061373">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077723">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">2399</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00061373">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077723">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">125602</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">368715</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">886614</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">371730</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">30888</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <document-link format="text/html" url="http://open.undp.org/#project/00061373">
+      <title>
+        <narrative>Activity web page</narrative>
+      </title>
+      <category code="A12" />
+    </document-link>
+    <related-activity type="1" ref="XM-DAC-41114-PROJECT-00061373" />
+    <conditions attached="0" />
+    <result type="2" aggregation-status="1">
+      <title>
+        <narrative>-</narrative>
+      </title>
+      <description>
+        <narrative>-</narrative>
+      </description>
+      <indicator measure="1" ascending="0">
+        <title>
+          <narrative>Indicator 1</narrative>
+        </title>
+        <description>
+          <narrative>1.3: Institutional needs for inter-sectoral cooperation identified (through national dialogue - Output 1.2), appropriate national  inter-sectoral coordination mechanism clearly defined, establishment/ strengthening of national coordination mechanism supported and capacity of key staff/ stakeholders strengthened through at least three (3) targeted training courses on inter-sectoral coordination</narrative>
+        </description>
+        <baseline year="2012" value="0">
+          <comment>
+            <narrative>1.3 Inter-sectoral coordination needs and mechanisms not clearly defined, National Climate Change Committee not gazetted and with limited competencies to guide adaptation option in the country.</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2012-01-01" />
+          <period-end iso-date="2015-06-30" />
+          <target value="0">
+            <comment>
+              <narrative>1.3: Institutional needs for inter-sectoral cooperation identified (through national dialogue - Output 1.2), appropriate national  inter-sectoral coordination mechanism clearly defined, establishment/ strengthening of national coordination mechanism supported and capacity of key staff/ stakeholders strengthened through at least three (3) targeted training courses on inter-sectoral coordination</narrative>
+            </comment>
+          </target>
+          <actual value="0">
+            <comment>
+              <narrative>The key outputs of this activity were mostly achieved in the 2014/15 reporting period.
+During this reporting period, the Project has facilitated greater integration of the water sector issues in the work of the National Climate Change Committee and further develop plans to incorporate climate change in a sector wide approach.
+The project has strengthened the coordination and inclusion of climate change into the sector wide approach within the Ministry of Natural Resources and Energy.
+The Ministry of Natural Resources and Energy has further established a coordinated reporting system for which climate change is one of the key pillars feeding into the National Planning and Reporting Processes and frameworks in the Ministry of Natural Resources and Energy.</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
+    <result type="2" aggregation-status="1">
+      <title>
+        <narrative>Objective</narrative>
+      </title>
+      <description>
+        <narrative>Promote the implementation of national and trans-boundary integrated water resource management that is sustainable and equitable given expected climate change.</narrative>
+      </description>
+      <indicator measure="1" ascending="0">
+        <title>
+          <narrative>Indicator 1</narrative>
+        </title>
+        <description>
+          <narrative />
+        </description>
+        <baseline year="2012" value="0">
+          <comment>
+            <narrative />
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2012-01-01" />
+          <period-end iso-date="2015-06-30" />
+          <target value="0">
+            <comment>
+              <narrative />
+            </comment>
+          </target>
+          <actual value="0">
+            <comment>
+              <narrative />
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
+    <result type="2" aggregation-status="1">
+      <title>
+        <narrative>Outcome 1</narrative>
+      </title>
+      <description>
+        <narrative>Institutional capacity for climate change adaptation strengthened through the integration of climate change risks into national water resources management policies and the establishment of inter-sectoral- coordination mechanims based on inclusive and informed national dialogue</narrative>
+      </description>
+      <indicator measure="1" ascending="0">
+        <title>
+          <narrative>Indicator 1</narrative>
+        </title>
+        <description>
+          <narrative>1.1: Key scientific knowledge gaps on climate change impacts within the water sector defined, targeted research to fill knowledge gaps carried out, climate change response options identified, and main findings and strategic recommendations disseminated to at least twenty (20) relevant organisations across sectors (incl. KOBWA, MNRE, MoA, MoEPD, MoF, MoH, MoPSI, MTEA, NCCC, NDMA, NMS, NWA, RBAs, SEA, SWADE, SZWP, TPTC)</narrative>
+        </description>
+        <baseline year="2012" value="0">
+          <comment>
+            <narrative>1.1 Information in Swaziland on climate change risks and possible impacts is scarce, particularly regarding flood vulnerability, groundwater potential and crop diversification options</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2012-01-01" />
+          <period-end iso-date="2015-06-30" />
+          <target value="0">
+            <comment>
+              <narrative>1.1: Key scientific knowledge gaps on climate change impacts within the water sector defined, targeted research to fill knowledge gaps carried out, climate change response options identified, and main findings and strategic recommendations disseminated to at least twenty (20) relevant organisations across sectors (incl. KOBWA, MNRE, MoA, MoEPD, MoF, MoH, MoPSI, MTEA, NCCC, NDMA, NMS, NWA, RBAs, SEA, SWADE, SZWP, TPTC)</narrative>
+            </comment>
+          </target>
+          <actual value="0">
+            <comment>
+              <narrative>The key baseline studies and knowledge gaps on climate change impacts for the water sector were conducted and completed during the 2013/14 reporting period. The Third National Communications to the UNFCCC for Swaziland supported by UNEP analytic base has already benefitted from the 2014 CC Vulnerability Assessment Report facilitated by the Project. Information packaging is currently underway through the development of abridged versions and new products for different users in particular, decision makers, the various technical institutions, vulnerable community members and women. These will be shared with stakeholders in various platforms such as meetings, public offices, electronically and through the webpage. The products include:
+
+Summarized versions of all the key project reports (the vulnerability assessment, crop diversification study, groundwater study and policy and institutional dialogues report)
+
+Project Policy brief report based on report outcomes.
+
+Lessons learnt report
+
+Technical Knowledge sharing products in both English and local language (Siswati): through pamphlets, brochures for sand dams, rainwater harvesting and ecosystem restoration
+
+Development of a video on sand dams construction, maintenance and use.
+
+Development of a scientific paper on sand dams technology for information sharing with the academia and other partners.
+
+This will increase the visibility of the project and spread the successful story of the project impacts. The Outputs will also be shared in both the UNDP website and the Government (DWA) new project website currently being developed. The targeted institutions include: KOBWA, MNRE, MoA, MoEPD, MoF, MoH, MoPSI, MTEA, NCCC, NDMA, NMS, NWA, RBAs, SEA, SWADE, SZWP, TPTC). Some of the products will target other stakeholders like communities and local traditional leaders.</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+      <indicator measure="1" ascending="0">
+        <title>
+          <narrative>Indicator 2</narrative>
+        </title>
+        <description>
+          <narrative>1.2: A set of tailor-made climate change response measures related to national (and trans-boundary) water management identified and integrated into at least three (3) national level policies related to water resources management (e.g. NWP, IWRMP, draft National Climate Change Policy) through a series of national policy dialogue workshops (incl. with organisations  listed under Output 1.1 and using strategic recommendations from that output)</narrative>
+        </description>
+        <baseline year="2012" value="0">
+          <comment>
+            <narrative>1.2 Key national policies do not, or not adequately, consider climate change</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2012-01-01" />
+          <period-end iso-date="2015-06-30" />
+          <target value="0">
+            <comment>
+              <narrative>1.2: A set of tailor-made climate change response measures related to national (and trans-boundary) water management identified and integrated into at least three (3) national level policies related to water resources management (e.g. NWP, IWRMP, draft National Climate Change Policy) through a series of national policy dialogue workshops (incl. with organisations  listed under Output 1.1 and using strategic recommendations from that output)</narrative>
+            </comment>
+          </target>
+          <actual value="0">
+            <comment>
+              <narrative>1.2.1 - The project has facilitated climate change issues in the water sector in overall. The climate change response measures that were identified in a participatory manner involving all key stakeholders culminated into the drafting of policy statements for inclusion in the water sector related policies. The scientific evidence and outputs of the project vulnerability assessments were used as a reference point in the formulation of the following policies:
+
+Final draft of the Climate Change Policy developed in 2014.
+
+Climate Change Strategy and Action Plan 2014-2018 incorporating adaptation measures for the water sector completed in 2013/14.
+
+Policy statements on climate change adaptation for inclusion in the following water sector strategic documents were developed: 2003 National Water Policy and the IWRM Master Plan. These statement briefs are utilized by the DWA in a review process for integration of climate change through an EU funded project. The Emergency Preparedness Plans for the major dams in Swaziland Reports were produced .These are currently being utilized by the DWA to inform the new country Dam Safety Regulations that are under formulation. The project outputs have also been instrumental in informing the drafting of the Third National Communication to the UNFCCC and the Intended National Determined Contributions (INDCs) Report to be submitted to UN in October. The PMU serves in the technical working group to facilitate supply of climate change adaptation and mitigation information for the water sector.</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
+    <result type="2" aggregation-status="1">
+      <title>
+        <narrative>Outcome 2</narrative>
+      </title>
+      <description>
+        <narrative>Climate change risk management measures integrated into national water and agricultural programmes and implemented in pilot projects to promote adaptation on the ground</narrative>
+      </description>
+      <indicator measure="1" ascending="0">
+        <title>
+          <narrative>Indicator 1</narrative>
+        </title>
+        <description>
+          <narrative>2.1: Guidelines for mainstreaming climate change risks into key national policies (NWP, IWRMP, NCCP) developed, toolkits on practical application of climate change response measures (identified through Output 1.2) developed and at least five (5) targeted training courses on toolkit application delivered</narrative>
+        </description>
+        <baseline year="2012" value="0">
+          <comment>
+            <narrative>2.1 Key national policies do not, or not adequately, consider climate change and inadequate knowledge on practical implementation of climate change response measures</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2012-01-01" />
+          <period-end iso-date="2015-06-30" />
+          <target value="0">
+            <comment>
+              <narrative>2.1: Guidelines for mainstreaming climate change risks into key national policies (NWP, IWRMP, NCCP) developed, toolkits on practical application of climate change response measures (identified through Output 1.2) developed and at least five (5) targeted training courses on toolkit application delivered</narrative>
+            </comment>
+          </target>
+          <actual value="0">
+            <comment>
+              <narrative>2.1.1 - 2.1.3 The final guidelines for mainstreaming climate change and toolkits for practical implementation of climate for the water and land use sector were developed and finalised in collaboration with the key stakeholders. Recommendations for Policy statements for climate change mainstreaming were developed for inclusion into the following national policies:
+
+Water sector policies (IWRM Master Plan, National Water Policy
+
+National Land Policy
+
+Review of the Environment Impact Assessment Regulatory Framework
+
+Comprehensive Agricultural Sector Policy
+In addition, various tools for practical application of climate change response measures for water and land use were developed. The tools included: Digital agriculture &amp; amp; Land use Toolkit – Version 1.0 – December 2014; The Climate Mapper; CRISTAL; Climate Vulnerability and Capacity Analysis Tool (cvca); Climate Change  Monitoring Tool; WEAP; Mike Basin; SCADA; and,Standard Precipitation Index 40. Upon validation of the reports, stakeholders were engaged in a training on the practical use of these tools to foster understanding and technical skilling.</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+      <indicator measure="1" ascending="0">
+        <title>
+          <narrative>Indicator 2</narrative>
+        </title>
+        <description>
+          <narrative>2.2: Programme/ project specific climate change risks and tailor-made response measures identified and integrated into at least three (3) major management/ investment plans implemented in Swaziland (incl. KDDP, LUSIP and CDPs developed under the FAO-GEF SLM programme implemented by SWADE)</narrative>
+        </description>
+        <baseline year="2012" value="0">
+          <comment>
+            <narrative>2.2 Climate change risks and possible response measures at present not considered in national management/ investment plans</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2012-01-01" />
+          <period-end iso-date="2015-06-30" />
+          <target value="0">
+            <comment>
+              <narrative>2.2: Programme/ project specific climate change risks and tailor-made response measures identified and integrated into at least three (3) major management/ investment plans implemented in Swaziland (incl. KDDP, LUSIP and CDPs developed under the FAO-GEF SLM programme implemented by SWADE)</narrative>
+            </comment>
+          </target>
+          <actual value="0">
+            <comment>
+              <narrative>Increased resilience for the sugar industry, which accounts for a significant proportion of the GDP (18-21% of the GDP) has been climate-proofed.  The project has successfully identified specific climate change risks and tailor made response measures for the three major investments in Swaziland through the development of Emergency Preparedness Plans (drought and floods) for the three major dam infrastructures in Swaziland; Maguga, Mjoli and Lubovane Dams for KOBWA, Komati Downstream Development Project (KDDP) and the LUSIP project, respectively.
+
+The intervention aimed at building the capacities for risk management with focus on improving the technical staff and downstream communities’ awareness on the future anticipated impacts of climate change. This has culminated into the development of Dam Safety Regulations for the major Dams operated by the three institutions, highlighted above.
+
+Through the project interventions, climate change tailor made response measures were recommended for the two SWADE projects (LUSIP and KDDP) and also for the LUSIP-GEF project community Development Plans. A number of climate change recommendations for each investment plan was identified for implementation by SWADE and other key stakeholders. These recommendations were discussed with senior management of SWADE in order to develop an action plan to address a responsive undertaking towards mitigating potential impacts. The commitment demonstrated by SWADE to address the recommendations was evident in translating lessons into the development of the chiefdom development plans and environment mitigation plans.</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+      <indicator measure="1" ascending="0">
+        <title>
+          <narrative>Indicator 3</narrative>
+        </title>
+        <description>
+          <narrative>2.3: Capacity of key stakeholders and water resources management and/or agricultural development practitioners to integrate climate change risks into their activities strengthened by incorporating the climate risks/responses measures (identified under Output 2.2) into the ongoing training courses offerd as part of ongoing national programmes (e.g. KDDP, LUSIP).</narrative>
+        </description>
+        <baseline year="2012" value="0">
+          <comment>
+            <narrative>2.3 Knowledge and awareness of climate change risks is very low and climate change risk is not adequately considered in ongoing implementation of ongoing activities</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2012-01-01" />
+          <period-end iso-date="2015-06-30" />
+          <target value="0">
+            <comment>
+              <narrative>2.3: i) Climate change adaptation modules developed for train-the-trainers courses based on risks/responses identified under Output 2.2 to raise trainers awareness and capacity on CCA;  ii) at least two forthcoming training courses are strengthened through the inclusion of CCA modules in the training materials, and iii) strengthened training courses offered to build awareness and capacity of practitioners</narrative>
+            </comment>
+          </target>
+          <actual value="0">
+            <comment>
+              <narrative>Fifteen (15) new climate change adaptation modules were developed under Output 2.2. About 13 of the modules are dealing with agricultural extension and agribusiness, incorporating climate smart agriculture (CSA) practices and new agronomic practices in the light of climate change. The modules also focus on the key cash crops that are produced in the country in light of the diversification options: Cassava, vegetables etc.  Some of the modules focused on IWRM management and improving irrigation efficiency at the farm level as well as rainwater harvesting in and outside the farm. An environmental module was also developed focusing on the environmental aspects in the project.
+A consultative approach was utilised in the development of the climate smart modules  to be utilised through a Training of Trainers modality, however some modules would have to facilitate a contact modality, in particular training of the farmers. Thirty-five (35) SWADE Trainers, composed of community environmental officers and SWADE agricultural extension officers were trained on the modules which was also open for the communities' lead farmers. The trainings were not only limited to the modules but also covered the aspects of revised chiefdom development plans guidelines taking into account climate change impacts.</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+      <indicator measure="1" ascending="0">
+        <title>
+          <narrative>Indicator 4</narrative>
+        </title>
+        <description>
+          <narrative>2.4: Community based climate resilience projects implemented in pilot sites, including the installation of rainwater harvesting systems in at least four (4) identified communities/ areas and rainwater infiltration improvement schemes (incl. reforestation) in at least four (4) communities/areas</narrative>
+        </description>
+        <baseline year="2012" value="0">
+          <comment>
+            <narrative>2.4 Climate change risk awareness and adaptation capacity at community level is very low</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2012-01-01" />
+          <period-end iso-date="2015-06-30" />
+          <target value="0">
+            <comment>
+              <narrative>2.4: Rainwater harvesting systems installed and rainwater infiltration measures (reforestation etc.) applied at the following four sites:  i. Komati River Basin at pilot schools enrolled in the KOBWA programme
+
+ii. Mkhiweni Inkhudla in the Umbulezi River Basin at pilot schools/clinics/Tinkhundlaâ€™s/NCPs;
+
+iii. Kashewula community in the Umbulezi River Basin at pilot schools/clinics/Tinkhundlaâ€™s/NCPs;
+
+iv. Ngwavuma River Basin in the Maputo Basin at pilot schools/clinics/Tinkhundlaâ€™s/NCPs.</narrative>
+            </comment>
+          </target>
+          <actual value="0">
+            <comment>
+              <narrative>2.4.1/2: The impacts of the rainwater harvesting systems installed in schools and communities were monitored during the reporting period together with the lessons documentation. The activities also included training in six (6) schools for teachers, students, school committees, constituency leaders, community health motivators, community water management committees and traditional community leaders. In total there were 256 trained people of which 58% were women. The training did not only focus on rainwater harvesting but also considered an integrated approach to environmental and natural resources management. Knowledge sharing  and good practice was instilled among the school children through establishment of schools water, sanitation and environmental groups to champion the management of the harvested water and productive use of excess and waste water through fruit tree growing (the trees were also provided by the project)
+
+Key impacts that are monitored include:  improvement on sanitation issues (diahorreal reports at neighboring clinics), absenteeism’s due to water related challenges, and this will also be included in the lessons learnt documentation under development.
+2.4.3/5: The community capacities for ecosystem restoration continue being enabled on the ground. The activities achieved and completed so far include: Integrated approach to removal of Alien invasive plans covering an area more than 50ha; Artificial means to improve rainwater infiltration through trenching and terracing; Establishment of livelihood projects that are climate smart and less dependent on natural resources such as, establishment of vegetable nursery, fruit tree plantation integrated with bee keeping, and; 5ha drip irrigation and fish production.
+
+Ownership of the intervention continues being embedded in community participation. Partnership with other institutions such as the National Agricultural Marketing Board (NAMBoard) has been established to provide sustainable extension and marketing services to the community schemes as well as Ministry of Agriculture extension department and non-government organization - World Vision for continued providing of support to the community.  The project is also providing continuous training in leadership to foster sustainability, in particular for the participating women.</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+      <indicator measure="1" ascending="0">
+        <title>
+          <narrative>Indicator 5</narrative>
+        </title>
+        <description>
+          <narrative>Outcome 2</narrative>
+        </description>
+        <baseline year="2012" value="0">
+          <comment>
+            <narrative />
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2012-01-01" />
+          <period-end iso-date="2015-06-30" />
+          <target value="0">
+            <comment>
+              <narrative>Install Basic Weather Station at LUSIP Phase 1 and KDDP</narrative>
+            </comment>
+          </target>
+          <actual value="0">
+            <comment>
+              <narrative>2.4.6  -The installation of the automated weather stations at the two project sites (LUSIP 1 and KDDP) was completed 2013/14. The purpose of the stations was to expand the data availability to farmers can use for planning for climate change and also provide data for early warning systems. The collected data has been linked to National Grid at the National Meteorological Service (MET) and has contributed to the expansion of the national weather stations network. The stations have generated reliable climate and weather data for the past two years, increasing MET's capacity to provide consistent meteorological services to its users in particular as the country intends to conduct modelling scenarios. The stations have also been coded and linked with the South African Weather stations and these are known as (Sihhoye and Lubovane Weather Stations). The Data that is obtained from these stations include: Temperature, Sunshine, Relative humidity, Pressure, Rainfall, Wind speed and direction and evaporation data. All the data is automated except for the evaporation data. A data backup system has also been upgraded by the project at the National Meteorological Service through the mobile network, making it easier and more cost-effective to collect and monitor inconsistences. The MET technicians have been trained on the system and linked to the South African Weather Service for continuous support and maintenance of the stations. The Government of Swaziland has also set aside a budget for the continuous maintenance of the system. In addition to the installed instruments, the project provided additional spare parts tools that can run the system for the next 5 years.
+2.4.7 The development of curriculum for schools has been left as a prerogative of the National Meteorological Office which is responsible for climate change coordination at National Level. The Project Board and Technical Committee recommended that this activity be led by the NMS and the project provide the resources.  The MTR recommended that if the NMS is not able to utilize the funds by year end, the resources will be re-allocated to another activity. The Project however has continued to lobby the NMS to conduct the activity. The National Curriculum Centre provisionally agreed to engage on this activity and the process is at its infancy.</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+      <indicator measure="1" ascending="0">
+        <title>
+          <narrative>Indicator 6</narrative>
+        </title>
+        <description>
+          <narrative>OUTCOME 2</narrative>
+        </description>
+        <baseline year="2012" value="0">
+          <comment>
+            <narrative>No CCA measures that increase water security by the utilization of a sand dam have been tested in Swaziland.</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2012-01-01" />
+          <period-end iso-date="2015-06-30" />
+          <target value="0">
+            <comment>
+              <narrative>Determine feasibility sites for the installation of sand dams and to construct at least 5 pilot dams</narrative>
+            </comment>
+          </target>
+          <actual value="0">
+            <comment>
+              <narrative>2.4.2 - The project has successfully piloted 5 sand dams across the driest areas in the Lowveld of Swaziland. The two outstanding Dams at Sitilo and Sigwe were completed during the reporting period. The total estimated beneficiaries are 6,711 of which 52% are women. The sand dams have been very key in highlighting CCA in the country. Close collaboration with the Ministry of Agriculture (MOA) and Department of Water Affairs (DWA) as well as with the five communities that participated and contributed towards their establishment in both monetary contributions and providing labor. The existing collaboration of the MOA and DWA has yielded positively on the impact even at political levels. The Minister of Agriculture and Minister of Natural Resources and Energy have officially embraced this technology through an official opening during the 2015 World Water Day Commemoration event that was held at the Mafutseni (for the KaBhudla Sand Dam) where there was demonstrated linkages between the water and health sectors. The sand dams has facilitated water supply to the newly constructed KaBhudla Clinic. The DWA is continuing to provide the necessary monitoring of the water quality through laboratory analysis of the water and also monitoring the water quantity.  The communities are being assisted to put up a proposal for Government to fund pumping of the water from the dams and provide it for both establishment drip irrigated gardens and for potable water supply to the various surrounding communities.
+
+The lessons learnt and full scale impact including a gender analysis report is still being conducted for future reporting.</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
+    <result type="2" aggregation-status="1">
+      <title>
+        <narrative>Outcome 3</narrative>
+      </title>
+      <description>
+        <narrative>Negotiations on trans-boundary water management for the Incomati, Maputo and Umbeluzi river basins informed by climate change risk analysis.</narrative>
+      </description>
+      <indicator measure="1" ascending="0">
+        <title>
+          <narrative>Indicator 1</narrative>
+        </title>
+        <description>
+          <narrative>3.1: Climate change impacts on trans-boundary water resource management (TWRM) and negotiation options assessed, tailor-made  (short-, mid- and long-term) TWRM strategy paper for Swaziland developed through consultations with key stakeholders (as integral part of national policy dialogue - Output 1.2) and position paper for Swaziland TWRM negotation team(s) jointly developed (with negotiators)</narrative>
+        </description>
+        <baseline year="2012" value="0">
+          <comment>
+            <narrative>3.1 Present water agreements (on Incomati, Maputo) do not adequately address climate change and adaptation</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2012-01-01" />
+          <period-end iso-date="2015-06-30" />
+          <target value="0">
+            <comment>
+              <narrative>3.1: Climate change impacts on trans-boundary water resource management (TWRM) and negotiation options assessed, tailor-made  (short-, mid- and long-term) TWRM strategy paper for Swaziland developed through consultations with key stakeholders (as integral part of national policy dialogue - Output 1.2) and position paper for Swaziland TWRM negotation team(s) jointly developed (with negotiators)</narrative>
+            </comment>
+          </target>
+          <actual value="0">
+            <comment>
+              <narrative>3.1.1 - 3.2.2 The project has continued to engage with the TPTC and negotiating bodies at national level. A consensus has been reached that this component is very essential both within the country and at the transboundary level. The project has facilitated the engagement of both local and international consultants to assist in developing the position and strategy paper informing the delegation to the TPTC. A model for water and demand management is currently being established for the three major basins (Komati, Mbuluzi and Usuthu). Data collection is underway among the various entities and institutions. The inception phase of the study has been completed. The team of consultants are currently working on the modelling of various climate change scenarios that will inform the position of the country and further inform the strategy that will focus the country on CCA IWRM, as well as conducting stakeholder’s consultation at various levels including the transboundary levels. The final outputs are expected in October 2015, upon which the engagement of the riparian countries to discuss the outcome will be solicited. The process has received political support from the Minister of Natural Resources and Energy. The capacity of the TPTC negotiating team will also be built through training through utilization of the project outputs like the climate change vulnerability assessment for the water sector and infrastructure.</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+      <indicator measure="1" ascending="0">
+        <title>
+          <narrative>Indicator 2</narrative>
+        </title>
+        <description>
+          <narrative>3.2: Targeted information briefs on projected climate change impacts on TWRM developed and disseminated to senior decision-makers in at least twenty (20) relevant organisations, including key water user groups</narrative>
+        </description>
+        <baseline year="2012" value="0">
+          <comment>
+            <narrative>3.2 Stakeholder knowledge and awareness on climate change impacts on TWRM is very limited</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2012-01-01" />
+          <period-end iso-date="2015-06-30" />
+          <target value="0">
+            <comment>
+              <narrative>3.2: Targeted information briefs on projected climate change impacts on TWRM developed and disseminated to senior decision-makers in at least twenty (20) relevant organisations, including key water user groups</narrative>
+            </comment>
+          </target>
+          <actual value="0">
+            <comment>
+              <narrative>3.2.1 -3.2.2 – The project has continued to provide the necessary information briefs to the government, key institutions and national stakeholders. Leadership of the 2015 World Water Day by DWA was facilitated through by Project resulting in information through pamphlets, print media articles on the importance of water to the achievement of MDGs and sustainable development. The project has developed a lessons learnt report that has been shared with the key stakeholders. A consultant has been engaged to focus on the development and packaging of the information sharing documents. The Inception report for the communication strategy has been adopted. The project will develop abridged versions of all the reports produced by the project consultants and document lessons from all the project interventions for sharing with stakeholders at various levels and platforms. Information will also be shared electronically through a webpage, and on Facebook, YouTube and twitter.  A scientific research paper on the sand dams work done by the project is also being packaged as part of the information sharing to stakeholders.</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
+  </iati-activity>
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00065695</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -770,11 +1609,11 @@
     <participating-org role="2" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2012-03-15" />
@@ -787,6 +1626,7 @@
     <recipient-country code="SZ">
       <narrative>Swaziland</narrative>
     </recipient-country>
+    <sector vocabulary="1" code="74010" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -829,7 +1669,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00082076" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00082076</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -840,11 +1680,11 @@
     <description type="1">
       <narrative>Improved enabling environment for climate change  and risks integration.</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2012-03-15" />
@@ -898,7 +1738,22 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-02-28">35000</value>
+      <value currency="USD" value-date="2017-03-31">35000</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2019-01-01" />
+      <period-end iso-date="2019-12-31" />
+      <value currency="USD" value-date="2017-03-31">100000</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2019-01-01" />
+      <period-end iso-date="2019-12-31" />
+      <value currency="USD" value-date="2017-03-31">100000</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-03-31">122947.11</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -927,8 +1782,8 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">22966</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">43190</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -936,12 +1791,12 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">35000</value>
-      <provider-org type="40" ref="00012">
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">35000</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00065695">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00082076">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -950,10 +1805,10 @@
       <transaction-type code="11" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">87390</value>
-      <provider-org type="40" ref="00012">
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00065695">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00082076">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -962,10 +1817,10 @@
       <transaction-type code="11" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">182625</value>
-      <provider-org type="40" ref="00012">
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00065695">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00082076">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -974,10 +1829,10 @@
       <transaction-type code="11" />
       <transaction-date iso-date="2014-12-31" />
       <value currency="USD" value-date="2014-12-31">49715</value>
-      <provider-org type="40" ref="00012">
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00065695">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00082076">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -986,10 +1841,10 @@
       <transaction-type code="11" />
       <transaction-date iso-date="2013-12-31" />
       <value currency="USD" value-date="2013-12-31">120320</value>
-      <provider-org type="40" ref="00012">
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00065695">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00082076">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -998,10 +1853,10 @@
       <transaction-type code="11" />
       <transaction-date iso-date="2012-12-31" />
       <value currency="USD" value-date="2012-12-31">65570</value>
-      <provider-org type="40" ref="00012">
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00065695">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00082076">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1045,7 +1900,1035 @@
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00065695" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+    <iati-identifier>XM-DAC-41114-PROJECT-00071253</iati-identifier>
+    <reporting-org ref="XM-DAC-41114" type="40">
+      <narrative>United Nations Development Programme</narrative>
+    </reporting-org>
+    <title>
+      <narrative>Women in Informal Cross Border Trade- Swaziland</narrative>
+    </title>
+    <description type="1">
+      <narrative>Women in Informal Cross Border Trade- Swaziland: Aims to create wealth and reduce poverty among women in cross border trade.</narrative>
+    </description>
+    <participating-org role="4" type="10" ref="02897">
+      <narrative>National Execution</narrative>
+    </participating-org>
+    <participating-org role="2" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="00032">
+      <narrative>UNITED NATIONS DEVELOPMENT FUND FOR WOME</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
+    <activity-status code="2" />
+    <activity-date type="1" iso-date="2012-01-01" />
+    <activity-date type="2" iso-date="2012-01-01" />
+    <activity-date type="3" iso-date="2017-05-31" />
+    <contact-info type="1">
+      <email>registry.sz@undp.org</email>
+      <website>http://www.sz.undp.org/</website>
+    </contact-info>
+    <recipient-country code="SZ">
+      <narrative>Swaziland</narrative>
+    </recipient-country>
+    <sector vocabulary="1" code="15170" />
+    <collaboration-type code="4" />
+    <default-flow-type code="10" />
+    <default-finance-type code="110" />
+    <default-aid-type code="C01" />
+    <default-tied-status code="3" />
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SWZ/WICBT%20Project%20document%2020110929%20(2).pdf">
+      <title>
+        <narrative>WICBT Project Document</narrative>
+      </title>
+      <category code="A01" />
+      <category code="A02" />
+      <category code="A03" />
+      <category code="A04" />
+      <category code="A05" />
+      <category code="A08" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/SWZ/Women%20In%20Cross%20Border%20Trade.jpg.docx">
+      <title>
+        <narrative>Women in Cross Boarder Trade - Photo</narrative>
+      </title>
+      <category code="A03" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SWZ/LOA%20UN%20Women%20UNDP%20WICBT.pdf">
+      <title>
+        <narrative>LOA UN Women UNDP WICBT</narrative>
+      </title>
+      <category code="A09" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
+      <title>
+        <narrative>Request for Procurement</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="http://open.undp.org/#project/00071253">
+      <title>
+        <narrative>Purchase Order Summary</narrative>
+      </title>
+      <category code="A11" />
+      <category code="A12" />
+      <language code="en" />
+    </document-link>
+    <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00084838" />
+    <conditions attached="0" />
+  </iati-activity>
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+    <iati-identifier>XM-DAC-41114-OUTPUT-00084838</iati-identifier>
+    <reporting-org ref="XM-DAC-41114" type="40">
+      <narrative>United Nations Development Programme</narrative>
+    </reporting-org>
+    <title>
+      <narrative>Women in Informal Cross Border</narrative>
+    </title>
+    <description type="1">
+      <narrative>The project aims at building capacity for women in informal cross boarder trade.</narrative>
+    </description>
+    <participating-org role="1" type="40" ref="00032">
+      <narrative>UNITED NATIONS DEVELOPMENT FUND FOR WOME</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
+    <activity-status code="2" />
+    <activity-date type="1" iso-date="2012-01-01" />
+    <activity-date type="2" iso-date="2012-01-01" />
+    <activity-date type="3" iso-date="2017-12-31" />
+    <contact-info type="1">
+      <email>registry.sz@undp.org</email>
+      <website>http://www.sz.undp.org/</website>
+    </contact-info>
+    <activity-scope code="4" />
+    <recipient-country code="SZ">
+      <narrative>Swaziland</narrative>
+    </recipient-country>
+    <location ref="SZ">
+      <location-reach code="2" />
+      <location-id vocabulary="G1" code="934841" />
+      <name>
+        <narrative>Kingdom of Swaziland</narrative>
+      </name>
+      <description>
+        <narrative>independent political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative></narrative>
+      </activity-description>
+      <administrative level="0" code="934841" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>-26.500000 31.500000</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="1" />
+      <feature-designation code="PCLI" />
+    </location>
+    <sector vocabulary="1" code="15170" />
+    <sector vocabulary="99" code="4">
+      <narrative>Gender Equality</narrative>
+    </sector>
+    <country-budget-items vocabulary="1">
+      <budget-item code="5.4.5" percentage="100">
+        <description>
+          <narrative>Social Protection, Land Housing and Community Amenities - social services (incl youth development and women+ children)</narrative>
+        </description>
+      </budget-item>
+    </country-budget-items>
+    <policy-marker vocabulary="1" code="1" significance="2" />
+    <collaboration-type code="4" />
+    <default-flow-type code="10" />
+    <default-finance-type code="110" />
+    <default-aid-type code="C01" />
+    <default-tied-status code="3" />
+    <budget type="2" status="2">
+      <period-start iso-date="2017-01-01" />
+      <period-end iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-03-31">1</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2015-01-01" />
+      <period-end iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">175</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2014-01-01" />
+      <period-end iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">5620</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2013-01-01" />
+      <period-end iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">96000</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2012-01-01" />
+      <period-end iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">0</value>
+    </budget>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">0</value>
+      <provider-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">1</value>
+      <provider-org type="40" ref="00032">
+        <narrative>UNITED NATIONS DEVELOPMENT FUND FOR WOME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00084838">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">175</value>
+      <provider-org type="40" ref="00032">
+        <narrative>UNITED NATIONS DEVELOPMENT FUND FOR WOME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00084838">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">2808</value>
+      <provider-org type="40" ref="00032">
+        <narrative>UNITED NATIONS DEVELOPMENT FUND FOR WOME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00084838">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">96000</value>
+      <provider-org type="40" ref="00032">
+        <narrative>UNITED NATIONS DEVELOPMENT FUND FOR WOME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00084838">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">96000</value>
+      <provider-org ref="00032" type="40">
+        <narrative>UNITED NATIONS DEVELOPMENT FUND FOR WOME</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00084838">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">2812</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00084838">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">-2201</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">18447</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">82467</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">0</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <document-link format="text/html" url="http://open.undp.org/#project/00071253">
+      <title>
+        <narrative>Activity web page</narrative>
+      </title>
+      <category code="A12" />
+    </document-link>
+    <related-activity type="1" ref="XM-DAC-41114-PROJECT-00071253" />
+    <conditions attached="0" />
+  </iati-activity>
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+    <iati-identifier>XM-DAC-41114-PROJECT-00074508</iati-identifier>
+    <reporting-org ref="XM-DAC-41114" type="40">
+      <narrative>United Nations Development Programme</narrative>
+    </reporting-org>
+    <title>
+      <narrative>Strengthening National and Community DRR System</narrative>
+    </title>
+    <description type="1">
+      <narrative>Strengthening National and Community Systems for Effective Disaster Risk Management</narrative>
+    </description>
+    <participating-org role="4" type="10" ref="02897">
+      <narrative>National Execution</narrative>
+    </participating-org>
+    <participating-org role="2" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="XM-DAC-701-8">
+      <narrative>Japanese international Cooperation Agency</narrative>
+    </participating-org>
+    <activity-status code="2" />
+    <activity-date type="1" iso-date="2013-05-17" />
+    <activity-date type="2" iso-date="2013-05-17" />
+    <activity-date type="3" iso-date="2017-05-31" />
+    <contact-info type="1">
+      <email>registry.sz@undp.org</email>
+      <website>http://www.sz.undp.org/</website>
+    </contact-info>
+    <recipient-country code="SZ">
+      <narrative>Swaziland</narrative>
+    </recipient-country>
+    <sector vocabulary="1" code="74010" />
+    <collaboration-type code="4" />
+    <default-flow-type code="10" />
+    <default-finance-type code="110" />
+    <default-aid-type code="C01" />
+    <default-tied-status code="3" />
+    <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/SWZ/UNDP%20Swaziland%20CO%20DRM%20project%20FINAL%20(2).doc">
+      <title>
+        <narrative>UNDP Swaziland CO DRM project FINAL 2</narrative>
+      </title>
+      <category code="A01" />
+      <category code="A02" />
+      <category code="A03" />
+      <category code="A04" />
+      <category code="A05" />
+      <category code="A08" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/SWZ/UNDP%20Swaziland%20CO%20DRM%20project%20FINAL.doc">
+      <title>
+        <narrative>Project Document</narrative>
+      </title>
+      <category code="A01" />
+      <category code="A02" />
+      <category code="A03" />
+      <category code="A04" />
+      <category code="A05" />
+      <category code="A08" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SWZ/UNDP%20donates%20E3%208million%20equipment%20to%20government.pdf">
+      <title>
+        <narrative>UNDP donates E3 8million equipment to government</narrative>
+      </title>
+      <category code="A03" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SWZ/DRR%20AWP%20Jan-Apr%202014.pdf">
+      <title>
+        <narrative>Annual Work-Plan</narrative>
+      </title>
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/SWZ/Swaziland%20Distaster%20Risk%20%20Management%20Project%20Progress%20Report%2013%2005%202014-final.docx">
+      <title>
+        <narrative>Swaziland Distaster Risk  Management Project Progress Report</narrative>
+      </title>
+      <category code="A08" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SWZ/LOA%20-%20UNDP%20and%20NDMA.pdf">
+      <title>
+        <narrative>Letter of Agreement</narrative>
+      </title>
+      <category code="A09" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
+      <title>
+        <narrative>Request for Procurement</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="http://open.undp.org/#project/00074508">
+      <title>
+        <narrative>Purchase Order Summary</narrative>
+      </title>
+      <category code="A11" />
+      <category code="A12" />
+      <language code="en" />
+    </document-link>
+    <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00086885" />
+    <conditions attached="0" />
+  </iati-activity>
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+    <iati-identifier>XM-DAC-41114-OUTPUT-00086885</iati-identifier>
+    <reporting-org ref="XM-DAC-41114" type="40">
+      <narrative>United Nations Development Programme</narrative>
+    </reporting-org>
+    <title>
+      <narrative>Streg.National Comm.DRR System</narrative>
+    </title>
+    <description type="1">
+      <narrative>The project is aimed at establishing early warning systems and capacities to monitor and manage disaster risks at the national, regional and community levels.</narrative>
+    </description>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="XM-DAC-701-8">
+      <narrative>Japanese international Cooperation Agency</narrative>
+    </participating-org>
+    <activity-status code="2" />
+    <activity-date type="1" iso-date="2013-05-17" />
+    <activity-date type="2" iso-date="2013-05-17" />
+    <activity-date type="3" iso-date="2014-12-31" />
+    <contact-info type="1">
+      <email>registry.sz@undp.org</email>
+      <website>http://www.sz.undp.org/</website>
+    </contact-info>
+    <activity-scope code="4" />
+    <recipient-country code="SZ">
+      <narrative>Swaziland</narrative>
+    </recipient-country>
+    <location ref="SZ">
+      <location-reach code="2" />
+      <location-id vocabulary="G1" code="934841" />
+      <name>
+        <narrative>Kingdom of Swaziland</narrative>
+      </name>
+      <description>
+        <narrative>independent political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative>Project focused on institutional Strengthening of NDMA and Community profiling</narrative>
+      </activity-description>
+      <administrative level="0" code="934841" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>-26.500000 31.500000</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="1" />
+      <feature-designation code="PCLI" />
+    </location>
+    <sector vocabulary="1" code="74010" />
+    <sector vocabulary="99" code="5">
+      <narrative>Climate Change &amp; Disaster Resilience</narrative>
+    </sector>
+    <country-budget-items vocabulary="1">
+      <budget-item code="5.4.11" percentage="100">
+        <description>
+          <narrative>Social Protection, Land Housing and Community Amenities - disaster prevention and preparedness</narrative>
+        </description>
+      </budget-item>
+    </country-budget-items>
+    <policy-marker vocabulary="1" code="1" significance="0" />
+    <collaboration-type code="4" />
+    <default-flow-type code="10" />
+    <default-finance-type code="110" />
+    <default-aid-type code="C01" />
+    <default-tied-status code="3" />
+    <budget type="2" status="2">
+      <period-start iso-date="2017-01-01" />
+      <period-end iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-03-31">1</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2016-01-01" />
+      <period-end iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">0</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2015-01-01" />
+      <period-end iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">242273</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2014-01-01" />
+      <period-end iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">182673</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2013-01-01" />
+      <period-end iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">534986</value>
+    </budget>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">0</value>
+      <provider-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">3667</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00086885">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">1</value>
+      <provider-org type="10" ref="XM-DAC-701-8">
+        <narrative>Japanese international Cooperation Agency</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00086885">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">238606</value>
+      <provider-org type="10" ref="XM-DAC-701-8">
+        <narrative>Japanese international Cooperation Agency</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00086885">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">182673</value>
+      <provider-org type="10" ref="XM-DAC-701-8">
+        <narrative>Japanese international Cooperation Agency</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00086885">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">534986</value>
+      <provider-org type="10" ref="XM-DAC-701-8">
+        <narrative>Japanese international Cooperation Agency</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00086885">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">910891</value>
+      <provider-org ref="XM-DAC-701-8" type="10">
+        <narrative>Japanese international Cooperation Agency</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00086885">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">-166</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">233590</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">169119</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">509740</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <document-link format="text/html" url="http://open.undp.org/#project/00074508">
+      <title>
+        <narrative>Activity web page</narrative>
+      </title>
+      <category code="A12" />
+    </document-link>
+    <related-activity type="1" ref="XM-DAC-41114-PROJECT-00074508" />
+    <conditions attached="0" />
+  </iati-activity>
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+    <iati-identifier>XM-DAC-41114-PROJECT-00081957</iati-identifier>
+    <reporting-org ref="XM-DAC-41114" type="40">
+      <narrative>United Nations Development Programme</narrative>
+    </reporting-org>
+    <title>
+      <narrative>Strengthening National Protected Areas System</narrative>
+    </title>
+    <description type="1">
+      <narrative>To strengthen the management effectiveness of the Protected Area system of Swaziland to ensure a viable set of representative samples of the country’s full range of natural ecosystems are conserved, through a network of PAs.</narrative>
+    </description>
+    <participating-org role="4" type="10" ref="02898">
+      <narrative>Government of SWAZILAND</narrative>
+    </participating-org>
+    <participating-org role="2" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="10003">
+      <narrative>Global Environment Fund Truste</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
+    <activity-status code="2" />
+    <activity-date type="1" iso-date="2014-02-01" />
+    <activity-date type="2" iso-date="2014-02-01" />
+    <activity-date type="3" iso-date="2020-02-29" />
+    <contact-info type="1">
+      <email>registry.sz@undp.org</email>
+      <website>http://www.sz.undp.org/</website>
+    </contact-info>
+    <recipient-country code="SZ">
+      <narrative>Swaziland</narrative>
+    </recipient-country>
+    <sector vocabulary="1" code="74010" />
+    <collaboration-type code="4" />
+    <default-flow-type code="10" />
+    <default-finance-type code="110" />
+    <default-aid-type code="C01" />
+    <default-tied-status code="3" />
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SWZ/Swaziland%20Protected%20Areas%20PRODOC.pdf">
+      <title>
+        <narrative>Swaziland Protected Areas PRODOC</narrative>
+      </title>
+      <category code="A01" />
+      <category code="A02" />
+      <category code="A03" />
+      <category code="A04" />
+      <category code="A05" />
+      <category code="A08" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SWZ/LOA_UNDP_and_SNTC_for%20support%20services%20to%20NIM%20new.pdf">
+      <title>
+        <narrative>LOA UNDP SNTC</narrative>
+      </title>
+      <category code="A09" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SWZ/4932%20Swaziland%20BGP%20SNTC%20MoU%20Final%20signed%20copy.pdf">
+      <title>
+        <narrative>4932 Swaziland BGP SNTC MoU Final signed copy</narrative>
+      </title>
+      <category code="A09" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
+      <title>
+        <narrative>Request for Procurement</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="http://open.undp.org/#project/00081957">
+      <title>
+        <narrative>Purchase Order Summary</narrative>
+      </title>
+      <category code="A11" />
+      <category code="A12" />
+      <language code="en" />
+    </document-link>
+    <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00091061" />
+    <conditions attached="0" />
+  </iati-activity>
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+    <iati-identifier>XM-DAC-41114-OUTPUT-00091061</iati-identifier>
+    <reporting-org ref="XM-DAC-41114" type="40">
+      <narrative>United Nations Development Programme</narrative>
+    </reporting-org>
+    <title>
+      <narrative>Strengthening National PAs</narrative>
+    </title>
+    <description type="1">
+      <narrative>To strengthen the management effectiveness of the Protected Area system of Swaziland to ensure a viable set of representative samples of the country’s full range of natural ecosystems are conserved, through a network of PAs.</narrative>
+    </description>
+    <participating-org role="1" type="40" ref="10003">
+      <narrative>Global Environment Fund Truste</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
+    <activity-status code="2" />
+    <activity-date type="1" iso-date="2014-02-01" />
+    <activity-date type="2" iso-date="2014-02-01" />
+    <activity-date type="3" iso-date="2020-02-29" />
+    <contact-info type="1">
+      <email>registry.sz@undp.org</email>
+      <website>http://www.sz.undp.org/</website>
+    </contact-info>
+    <recipient-country code="SZ">
+      <narrative>Swaziland</narrative>
+    </recipient-country>
+    <sector vocabulary="1" code="74010" />
+    <sector vocabulary="99" code="5">
+      <narrative>Climate Change &amp; Disaster Resilience</narrative>
+    </sector>
+    <country-budget-items vocabulary="1">
+      <budget-item code="5.4.11" percentage="100">
+        <description>
+          <narrative>Social Protection, Land Housing and Community Amenities - disaster prevention and preparedness</narrative>
+        </description>
+      </budget-item>
+    </country-budget-items>
+    <policy-marker vocabulary="1" code="1" significance="1" />
+    <collaboration-type code="4" />
+    <default-flow-type code="10" />
+    <default-finance-type code="110" />
+    <default-aid-type code="C01" />
+    <default-tied-status code="3" />
+    <budget type="2" status="2">
+      <period-start iso-date="2017-01-01" />
+      <period-end iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-03-31">2029356</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2019-01-01" />
+      <period-end iso-date="2019-12-31" />
+      <value currency="USD" value-date="2017-03-31">374142.29</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2019-01-01" />
+      <period-end iso-date="2019-12-31" />
+      <value currency="USD" value-date="2017-03-31">861208.11</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-03-31">1174252.27</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2016-01-01" />
+      <period-end iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">831169</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2015-01-01" />
+      <period-end iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">223893</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2014-01-01" />
+      <period-end iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">68205</value>
+    </budget>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">2146</value>
+      <provider-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">1979356</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00091061">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">783004</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00091061">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">199467</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00091061">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">50000</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00091061">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">50000</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00081957">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00091061">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">48165</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00081957">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00091061">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">24426</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00081957">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00091061">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">18205</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00081957">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00091061">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">746547</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">230495</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">66666</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <document-link format="text/html" url="http://open.undp.org/#project/00081957">
+      <title>
+        <narrative>Activity web page</narrative>
+      </title>
+      <category code="A12" />
+    </document-link>
+    <related-activity type="1" ref="XM-DAC-41114-PROJECT-00081957" />
+    <conditions attached="0" />
+  </iati-activity>
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+    <iati-identifier>XM-DAC-41114-PROJECT-00091933</iati-identifier>
+    <reporting-org ref="XM-DAC-41114" type="40">
+      <narrative>United Nations Development Programme</narrative>
+    </reporting-org>
+    <title>
+      <narrative>GCF Readiness and Preparatory Support</narrative>
+    </title>
+    <description type="1">
+      <narrative>Establish GFC national mgt arrangements and guidelines, including identification of roles and responsibilities for the partnerships for GVT, private sector, parastatals, NGOs, and development partners in the programming of GCF prioritized interventions.</narrative>
+    </description>
+    <participating-org role="4" type="10" ref="02898">
+      <narrative>Government of SWAZILAND</narrative>
+    </participating-org>
+    <participating-org role="2" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="12526">
+      <narrative>GREEN CLIMATE FUND</narrative>
+    </participating-org>
+    <activity-status code="2" />
+    <activity-date type="1" iso-date="2016-11-01" />
+    <activity-date type="2" iso-date="2016-11-01" />
+    <activity-date type="3" iso-date="2018-04-30" />
+    <contact-info type="1">
+      <email>registry.sz@undp.org</email>
+      <website>http://www.sz.undp.org/</website>
+    </contact-info>
+    <recipient-country code="SZ">
+      <narrative>Swaziland</narrative>
+    </recipient-country>
+    <collaboration-type code="4" />
+    <default-flow-type code="10" />
+    <default-finance-type code="110" />
+    <default-aid-type code="C01" />
+    <default-tied-status code="3" />
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SWZ/Signed%20GFC%20Readiness%20Pro%20Doc.pdf">
+      <title>
+        <narrative>Signed GFC Readiness Pro Doc</narrative>
+      </title>
+      <category code="A01" />
+      <category code="A02" />
+      <category code="A03" />
+      <category code="A04" />
+      <category code="A05" />
+      <category code="A08" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
+      <title>
+        <narrative>Request for Procurement</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
+    <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00096887" />
+    <conditions attached="0" />
+  </iati-activity>
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+    <iati-identifier>XM-DAC-41114-OUTPUT-00096887</iati-identifier>
+    <reporting-org ref="XM-DAC-41114" type="40">
+      <narrative>United Nations Development Programme</narrative>
+    </reporting-org>
+    <title>
+      <narrative>GCF Readiness and PrepSupport</narrative>
+    </title>
+    <description type="1">
+      <narrative>Establishment of the Green Climate Fund (GCF) national management arrangements and guidelines.</narrative>
+    </description>
+    <participating-org role="1" type="40" ref="12526">
+      <narrative>GREEN CLIMATE FUND</narrative>
+    </participating-org>
+    <activity-status code="2" />
+    <activity-date type="1" iso-date="2016-11-01" />
+    <activity-date type="2" iso-date="2016-11-01" />
+    <activity-date type="3" iso-date="2018-04-30" />
+    <contact-info type="1">
+      <email>registry.sz@undp.org</email>
+      <website>http://www.sz.undp.org/</website>
+    </contact-info>
+    <recipient-country code="SZ">
+      <narrative>Swaziland</narrative>
+    </recipient-country>
+    <collaboration-type code="4" />
+    <default-flow-type code="10" />
+    <default-finance-type code="110" />
+    <default-aid-type code="C01" />
+    <default-tied-status code="3" />
+    <budget type="2" status="2">
+      <period-start iso-date="2017-01-01" />
+      <period-end iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-03-31">150000</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-03-31">150000</value>
+    </budget>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">0</value>
+      <provider-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">150000</value>
+      <provider-org type="40" ref="12526">
+        <narrative>GREEN CLIMATE FUND</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00096887">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <document-link format="text/html" url="http://open.undp.org/#project/00091933">
+      <title>
+        <narrative>Activity web page</narrative>
+      </title>
+      <category code="A12" />
+    </document-link>
+    <related-activity type="1" ref="XM-DAC-41114-PROJECT-00091933" />
+    <conditions attached="0" />
+  </iati-activity>
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00095112</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1062,11 +2945,11 @@
     <participating-org role="2" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="00141">
       <narrative>GOVERNMENT OF JAPAN</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2016-03-15" />
@@ -1079,18 +2962,12 @@
     <recipient-country code="SZ">
       <narrative>Swaziland</narrative>
     </recipient-country>
+    <sector vocabulary="1" code="73010" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
     <default-aid-type code="C01" />
     <default-tied-status code="3" />
-    <document-link format="application/pdf" url="http://www.sz.undp.org/content/dam/swaziland/docs/documents/UNDP_SZ_Country_Programme_Action_Plan_2011_2015.pdf">
-      <title>
-        <narrative>UNDP_SZ_Country_Programme_Action_Plan_2011_2015</narrative>
-      </title>
-      <category code="A09" />
-      <language code="en" />
-    </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
       <title>
         <narrative>Request for Procurement</narrative>
@@ -1098,18 +2975,10 @@
       <category code="A10" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00095112">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00099142" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00099142</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1120,11 +2989,11 @@
     <description type="1">
       <narrative>El Nino Drought Coordination through the implementation of the NERMAP.</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="00141">
       <narrative>GOVERNMENT OF JAPAN</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2016-03-15" />
@@ -1157,7 +3026,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-02-28">29659</value>
+      <value currency="USD" value-date="2017-03-31">29659</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -1166,8 +3035,8 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">5466</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">19596</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -1175,12 +3044,12 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">29659</value>
-      <provider-org type="40" ref="00012">
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">29659</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00095112">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00099142">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1189,10 +3058,10 @@
       <transaction-type code="11" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">90000</value>
-      <provider-org type="40" ref="00012">
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00095112">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00099142">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1212,7 +3081,7 @@
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00095112" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00096815</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1229,11 +3098,11 @@
     <participating-org role="2" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="00230">
       <narrative>GOVERNMENT OF SWAZILAND</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2016-01-01" />
@@ -1246,6 +3115,7 @@
     <recipient-country code="SZ">
       <narrative>Swaziland</narrative>
     </recipient-country>
+    <sector vocabulary="1" code="15110" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -1263,13 +3133,6 @@
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="application/pdf" url="http://www.sz.undp.org/content/dam/swaziland/docs/documents/UNDP_SZ_Country_Programme_Action_Plan_2011_2015.pdf">
-      <title>
-        <narrative>UNDP_SZ_Country_Programme_Action_Plan_2011_2015</narrative>
-      </title>
-      <category code="A09" />
-      <language code="en" />
-    </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
       <title>
         <narrative>Request for Procurement</narrative>
@@ -1277,18 +3140,10 @@
       <category code="A10" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00096815">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00100718" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00100718</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1299,11 +3154,11 @@
     <description type="1">
       <narrative>Research, policy ideas and production of advisory and technical notes for policy impact</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="00230">
       <narrative>GOVERNMENT OF SWAZILAND</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2016-01-01" />
@@ -1336,7 +3191,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-02-28">23353</value>
+      <value currency="USD" value-date="2017-03-31">23353</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -1345,8 +3200,8 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">7868</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">18639</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -1354,36 +3209,12 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">15000</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">70830</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">8353</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">8353</value>
       <provider-org type="10" ref="00230">
         <narrative>GOVERNMENT OF SWAZILAND</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00100718">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1395,7 +3226,31 @@
       <provider-org type="10" ref="00230">
         <narrative>GOVERNMENT OF SWAZILAND</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00100718">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">15000</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00096815">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00100718">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">70830</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00096815">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00100718">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />

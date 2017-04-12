@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2017-03-06T21:54:23" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2017-04-10T11:51:37" version="2.02">
   <!--Russian Federation-->
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00048772</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -19,14 +19,14 @@
     <participating-org role="2" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
-    <participating-org role="1" type="10" ref="00117">
-      <narrative>GOVERNMENT OF GERMANY</narrative>
-    </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
     </participating-org>
     <participating-org role="1" type="40" ref="10159">
       <narrative>EUROPEAN COMMISSION</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="DE-1">
+      <narrative>GOVERNMENT OF GERMANY</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2008-07-22" />
@@ -39,6 +39,7 @@
     <recipient-country code="RU">
       <narrative>Russian Federation</narrative>
     </recipient-country>
+    <sector vocabulary="1" code="23010" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -116,7 +117,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00059042" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00059042</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -127,14 +128,14 @@
     <description type="1">
       <narrative>Strengthening Protected Area System of the Komi Republic to Conserve Virgin Forest Biodiversity in the Pechora River Headwaters Region</narrative>
     </description>
-    <participating-org role="1" type="10" ref="00117">
-      <narrative>GOVERNMENT OF GERMANY</narrative>
-    </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
     </participating-org>
     <participating-org role="1" type="40" ref="10159">
       <narrative>EUROPEAN COMMISSION</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="DE-1">
+      <narrative>GOVERNMENT OF GERMANY</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2008-07-22" />
@@ -188,7 +189,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-02-28">251555</value>
+      <value currency="USD" value-date="2017-03-31">251555</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -217,35 +218,11 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">23273</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">33830</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">1230923</value>
-      <provider-org type="10" ref="00117">
-        <narrative>GOVERNMENT OF GERMANY</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">1198261</value>
-      <provider-org type="10" ref="00117">
-        <narrative>GOVERNMENT OF GERMANY</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -255,7 +232,7 @@
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00059042">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -267,7 +244,7 @@
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00059042">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -279,7 +256,7 @@
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00059042">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -291,19 +268,19 @@
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00059042">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">251555</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">251555</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00059042">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -315,7 +292,7 @@
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00059042">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -327,7 +304,7 @@
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00059042">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -339,7 +316,7 @@
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00059042">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -351,7 +328,31 @@
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00059042">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">1230923</value>
+      <provider-org type="10" ref="DE-1">
+        <narrative>GOVERNMENT OF GERMANY</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00059042">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">1198261</value>
+      <provider-org type="10" ref="DE-1">
+        <narrative>GOVERNMENT OF GERMANY</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00059042">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -395,7 +396,7 @@
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00048772" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00057337</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -426,6 +427,7 @@
     <recipient-country code="RU">
       <narrative>Russian Federation</narrative>
     </recipient-country>
+    <sector vocabulary="1" code="23030" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -475,7 +477,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00070781" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00070781</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -541,7 +543,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-02-28">255525</value>
+      <value currency="USD" value-date="2017-03-31">255525</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -570,21 +572,33 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">17323</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">26358</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
+      <transaction-type code="3" />
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">3194</value>
+      <provider-org ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="">
+        <narrative>Government of Russian Federation</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">255525</value>
-      <provider-org type="40" ref="10003">
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">255525</value>
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 3550">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00070781">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -593,10 +607,10 @@
       <transaction-type code="11" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">2030290</value>
-      <provider-org type="40" ref="10003">
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 3550">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00070781">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -605,10 +619,10 @@
       <transaction-type code="11" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">1577593</value>
-      <provider-org type="40" ref="10003">
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 3550">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00070781">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -617,10 +631,10 @@
       <transaction-type code="11" />
       <transaction-date iso-date="2014-12-31" />
       <value currency="USD" value-date="2014-12-31">1022678</value>
-      <provider-org type="40" ref="10003">
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 3550">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00070781">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -629,10 +643,10 @@
       <transaction-type code="11" />
       <transaction-date iso-date="2013-12-31" />
       <value currency="USD" value-date="2013-12-31">996080</value>
-      <provider-org type="40" ref="10003">
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 3550">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00070781">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -641,10 +655,10 @@
       <transaction-type code="11" />
       <transaction-date iso-date="2012-12-31" />
       <value currency="USD" value-date="2012-12-31">871239</value>
-      <provider-org type="40" ref="10003">
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 3550">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00070781">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1513,7 +1527,7 @@ Market monitoring mechanism.</narrative>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00058254</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1547,14 +1561,15 @@ Market monitoring mechanism.</narrative>
     <recipient-country code="RU">
       <narrative>Russian Federation</narrative>
     </recipient-country>
+    <sector vocabulary="1" code="23010" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
     <default-aid-type code="C01" />
     <default-tied-status code="3" />
-    <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/RUS/4194%20Russia%20Steppe%20SPAProDoc_070909.docx">
+    <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/RUS/00058254_4194%20Russia%20Steppe%20SPAProDoc_070909%20for%20MNRE.docx">
       <title>
-        <narrative>prodoc</narrative>
+        <narrative>FINANCING PLAN (IN US$):</narrative>
       </title>
       <category code="A01" />
       <category code="A02" />
@@ -1564,9 +1579,9 @@ Market monitoring mechanism.</narrative>
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/RUS/00058254_4194%20Russia%20Steppe%20SPAProDoc_070909%20for%20MNRE.docx">
+    <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/RUS/4194%20Russia%20Steppe%20SPAProDoc_070909.docx">
       <title>
-        <narrative>FINANCING PLAN (IN US$):</narrative>
+        <narrative>prodoc</narrative>
       </title>
       <category code="A01" />
       <category code="A02" />
@@ -1622,7 +1637,7 @@ Market monitoring mechanism.</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00072294" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00072294</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1691,7 +1706,7 @@ Market monitoring mechanism.</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-02-28">194680</value>
+      <value currency="USD" value-date="2017-03-31">194680</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -1720,8 +1735,8 @@ Market monitoring mechanism.</narrative>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">12676</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">18691</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -1734,7 +1749,7 @@ Market monitoring mechanism.</narrative>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00072294">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1746,7 +1761,7 @@ Market monitoring mechanism.</narrative>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00072294">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1758,7 +1773,7 @@ Market monitoring mechanism.</narrative>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00072294">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1770,7 +1785,7 @@ Market monitoring mechanism.</narrative>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00072294">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1782,19 +1797,19 @@ Market monitoring mechanism.</narrative>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00072294">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">194680</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">194680</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00072294">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1806,7 +1821,7 @@ Market monitoring mechanism.</narrative>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00072294">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1818,7 +1833,7 @@ Market monitoring mechanism.</narrative>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00072294">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1830,7 +1845,7 @@ Market monitoring mechanism.</narrative>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00072294">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1842,7 +1857,7 @@ Market monitoring mechanism.</narrative>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00072294">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -3521,7 +3536,7 @@ Summer months reduce visiting rate, so there is 11,198 visits a month for the pe
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00058420</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3552,6 +3567,7 @@ Summer months reduce visiting rate, so there is 11,198 visits a month for the pe
     <recipient-country code="RU">
       <narrative>Russian Federation</narrative>
     </recipient-country>
+    <sector vocabulary="1" code="23030" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -3608,7 +3624,7 @@ Summer months reduce visiting rate, so there is 11,198 visits a month for the pe
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00072576" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00072576</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3674,7 +3690,7 @@ Summer months reduce visiting rate, so there is 11,198 visits a month for the pe
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-02-28">739870</value>
+      <value currency="USD" value-date="2017-03-31">739870</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -3703,8 +3719,8 @@ Summer months reduce visiting rate, so there is 11,198 visits a month for the pe
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">46588</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">247046</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -3712,12 +3728,12 @@ Summer months reduce visiting rate, so there is 11,198 visits a month for the pe
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">739870</value>
-      <provider-org type="40" ref="10003">
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">739870</value>
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 4160">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00072576">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -3726,10 +3742,10 @@ Summer months reduce visiting rate, so there is 11,198 visits a month for the pe
       <transaction-type code="11" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">1992700</value>
-      <provider-org type="40" ref="10003">
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 4160">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00072576">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -3738,10 +3754,10 @@ Summer months reduce visiting rate, so there is 11,198 visits a month for the pe
       <transaction-type code="11" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">1516490</value>
-      <provider-org type="40" ref="10003">
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 4160">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00072576">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -3750,10 +3766,10 @@ Summer months reduce visiting rate, so there is 11,198 visits a month for the pe
       <transaction-type code="11" />
       <transaction-date iso-date="2014-12-31" />
       <value currency="USD" value-date="2014-12-31">686891</value>
-      <provider-org type="40" ref="10003">
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 4160">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00072576">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -3762,10 +3778,10 @@ Summer months reduce visiting rate, so there is 11,198 visits a month for the pe
       <transaction-type code="11" />
       <transaction-date iso-date="2013-12-31" />
       <value currency="USD" value-date="2013-12-31">705949</value>
-      <provider-org type="40" ref="10003">
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 4160">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00072576">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -3774,10 +3790,10 @@ Summer months reduce visiting rate, so there is 11,198 visits a month for the pe
       <transaction-type code="11" />
       <transaction-date iso-date="2012-12-31" />
       <value currency="USD" value-date="2012-12-31">701247</value>
-      <provider-org type="40" ref="10003">
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 4160">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00072576">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -4504,7 +4520,7 @@ The Project continues its activities in searching new sites for replication of p
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00059438</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4535,6 +4551,7 @@ The Project continues its activities in searching new sites for replication of p
     <recipient-country code="RU">
       <narrative>Russian Federation</narrative>
     </recipient-country>
+    <sector vocabulary="1" code="23030" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -4591,7 +4608,7 @@ The Project continues its activities in searching new sites for replication of p
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00074315" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00074315</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4657,7 +4674,7 @@ The Project continues its activities in searching new sites for replication of p
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-02-28">848850</value>
+      <value currency="USD" value-date="2017-03-31">848850</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -4686,8 +4703,8 @@ The Project continues its activities in searching new sites for replication of p
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">14645</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">84652</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -4695,12 +4712,12 @@ The Project continues its activities in searching new sites for replication of p
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">848850</value>
-      <provider-org type="40" ref="10003">
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">848850</value>
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 4131">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00074315">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -4709,10 +4726,10 @@ The Project continues its activities in searching new sites for replication of p
       <transaction-type code="11" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">1715162</value>
-      <provider-org type="40" ref="10003">
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 4131">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00074315">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -4721,10 +4738,10 @@ The Project continues its activities in searching new sites for replication of p
       <transaction-type code="11" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">1248224</value>
-      <provider-org type="40" ref="10003">
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 4131">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00074315">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -4733,10 +4750,10 @@ The Project continues its activities in searching new sites for replication of p
       <transaction-type code="11" />
       <transaction-date iso-date="2014-12-31" />
       <value currency="USD" value-date="2014-12-31">453196</value>
-      <provider-org type="40" ref="10003">
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 4131">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00074315">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -4745,10 +4762,10 @@ The Project continues its activities in searching new sites for replication of p
       <transaction-type code="11" />
       <transaction-date iso-date="2013-12-31" />
       <value currency="USD" value-date="2013-12-31">798127</value>
-      <provider-org type="40" ref="10003">
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 4131">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00074315">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -4757,10 +4774,10 @@ The Project continues its activities in searching new sites for replication of p
       <transaction-type code="11" />
       <transaction-date iso-date="2012-12-31" />
       <value currency="USD" value-date="2012-12-31">725904</value>
-      <provider-org type="40" ref="10003">
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 4131">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00074315">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -5026,7 +5043,7 @@ Note: Following the MTR the indicator was reformulated with a specific reference
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00060984</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -5069,6 +5086,7 @@ Note: Following the MTR the indicator was reformulated with a specific reference
     <recipient-country code="RU">
       <narrative>Russian Federation</narrative>
     </recipient-country>
+    <sector vocabulary="1" code="23010" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -5125,7 +5143,7 @@ Note: Following the MTR the indicator was reformulated with a specific reference
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00077026" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00077026</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -5203,7 +5221,7 @@ Note: Following the MTR the indicator was reformulated with a specific reference
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-02-28">1736655</value>
+      <value currency="USD" value-date="2017-03-31">1736655</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -5232,8 +5250,8 @@ Note: Following the MTR the indicator was reformulated with a specific reference
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">52817</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">118215</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -5241,12 +5259,12 @@ Note: Following the MTR the indicator was reformulated with a specific reference
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">1736655</value>
-      <provider-org type="40" ref="10003">
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">1736655</value>
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 4241">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077026">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -5255,10 +5273,10 @@ Note: Following the MTR the indicator was reformulated with a specific reference
       <transaction-type code="11" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">1976083</value>
-      <provider-org type="40" ref="10003">
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 4241">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077026">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -5267,10 +5285,10 @@ Note: Following the MTR the indicator was reformulated with a specific reference
       <transaction-type code="11" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">1966821</value>
-      <provider-org type="40" ref="10003">
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 4241">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077026">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -5279,10 +5297,10 @@ Note: Following the MTR the indicator was reformulated with a specific reference
       <transaction-type code="11" />
       <transaction-date iso-date="2014-12-31" />
       <value currency="USD" value-date="2014-12-31">1203670</value>
-      <provider-org type="40" ref="10003">
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 4241">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077026">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -5291,10 +5309,10 @@ Note: Following the MTR the indicator was reformulated with a specific reference
       <transaction-type code="11" />
       <transaction-date iso-date="2013-12-31" />
       <value currency="USD" value-date="2013-12-31">484284</value>
-      <provider-org type="40" ref="10003">
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 4241">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077026">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -5303,10 +5321,10 @@ Note: Following the MTR the indicator was reformulated with a specific reference
       <transaction-type code="11" />
       <transaction-date iso-date="2012-12-31" />
       <value currency="USD" value-date="2012-12-31">25868</value>
-      <provider-org type="40" ref="10003">
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 4241">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077026">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -5318,7 +5336,7 @@ Note: Following the MTR the indicator was reformulated with a specific reference
       <provider-org type="70" ref="11506">
         <narrative>Sakhalin Energy Investment Company Ltd</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077026">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -5330,7 +5348,7 @@ Note: Following the MTR the indicator was reformulated with a specific reference
       <provider-org type="70" ref="11506">
         <narrative>Sakhalin Energy Investment Company Ltd</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077026">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -5342,7 +5360,7 @@ Note: Following the MTR the indicator was reformulated with a specific reference
       <provider-org type="70" ref="11506">
         <narrative>Sakhalin Energy Investment Company Ltd</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077026">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -5354,7 +5372,7 @@ Note: Following the MTR the indicator was reformulated with a specific reference
       <provider-org type="70" ref="11506">
         <narrative>Sakhalin Energy Investment Company Ltd</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077026">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -5366,7 +5384,7 @@ Note: Following the MTR the indicator was reformulated with a specific reference
       <provider-org ref="11506" type="70">
         <narrative>Sakhalin Energy Investment Company Ltd</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00077026">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -5378,7 +5396,7 @@ Note: Following the MTR the indicator was reformulated with a specific reference
       <provider-org type="70" ref="11681">
         <narrative>OJSC-OC ROSNEFT</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077026">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -5390,7 +5408,7 @@ Note: Following the MTR the indicator was reformulated with a specific reference
       <provider-org type="70" ref="11681">
         <narrative>OJSC-OC ROSNEFT</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077026">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -5402,7 +5420,7 @@ Note: Following the MTR the indicator was reformulated with a specific reference
       <provider-org type="70" ref="11681">
         <narrative>OJSC-OC ROSNEFT</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077026">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -5414,7 +5432,7 @@ Note: Following the MTR the indicator was reformulated with a specific reference
       <provider-org type="70" ref="11702">
         <narrative>JSFC "Sistema"</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077026">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -5426,7 +5444,7 @@ Note: Following the MTR the indicator was reformulated with a specific reference
       <provider-org type="70" ref="11702">
         <narrative>JSFC "Sistema"</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077026">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -5438,7 +5456,7 @@ Note: Following the MTR the indicator was reformulated with a specific reference
       <provider-org type="70" ref="11702">
         <narrative>JSFC "Sistema"</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077026">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -5450,7 +5468,7 @@ Note: Following the MTR the indicator was reformulated with a specific reference
       <provider-org type="70" ref="12212">
         <narrative>OJSC IC RUSS-INVEST</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077026">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -5462,7 +5480,7 @@ Note: Following the MTR the indicator was reformulated with a specific reference
       <provider-org type="70" ref="12212">
         <narrative>OJSC IC RUSS-INVEST</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077026">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -5474,7 +5492,7 @@ Note: Following the MTR the indicator was reformulated with a specific reference
       <provider-org ref="12212" type="70">
         <narrative>OJSC IC RUSS-INVEST</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00077026">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -5486,7 +5504,7 @@ Note: Following the MTR the indicator was reformulated with a specific reference
       <provider-org type="70" ref="12212">
         <narrative>OJSC IC RUSS-INVEST</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00077026">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -5498,7 +5516,7 @@ Note: Following the MTR the indicator was reformulated with a specific reference
       <provider-org ref="12212" type="70">
         <narrative>OJSC IC RUSS-INVEST</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00077026">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -6677,7 +6695,7 @@ Score = 3/6
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00063176</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6708,6 +6726,7 @@ Score = 3/6
     <recipient-country code="RU">
       <narrative>Russian Federation</narrative>
     </recipient-country>
+    <sector vocabulary="1" code="23030" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -6757,7 +6776,7 @@ Score = 3/6
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00080462" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00080462</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6823,7 +6842,7 @@ Score = 3/6
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-02-28">1362878</value>
+      <value currency="USD" value-date="2017-03-31">1362878</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -6847,8 +6866,8 @@ Score = 3/6
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">84530</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">171945</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -6856,12 +6875,12 @@ Score = 3/6
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">1362878</value>
-      <provider-org type="40" ref="10003">
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">1362878</value>
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 4304">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00080462">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -6870,10 +6889,10 @@ Score = 3/6
       <transaction-type code="11" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">1462890</value>
-      <provider-org type="40" ref="10003">
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 4304">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00080462">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -6882,10 +6901,10 @@ Score = 3/6
       <transaction-type code="11" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">1160658</value>
-      <provider-org type="40" ref="10003">
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 4304">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00080462">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -6894,10 +6913,10 @@ Score = 3/6
       <transaction-type code="11" />
       <transaction-date iso-date="2014-12-31" />
       <value currency="USD" value-date="2014-12-31">1010280</value>
-      <provider-org type="40" ref="10003">
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 4304">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00080462">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -6906,10 +6925,10 @@ Score = 3/6
       <transaction-type code="11" />
       <transaction-date iso-date="2013-12-31" />
       <value currency="USD" value-date="2013-12-31">573783</value>
-      <provider-org type="40" ref="10003">
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 4304">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00080462">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />

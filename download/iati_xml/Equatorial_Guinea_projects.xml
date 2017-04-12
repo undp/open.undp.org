@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2017-03-06T21:53:38" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2017-04-10T11:50:46" version="2.02">
   <!--Equatorial Guinea-->
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00034311</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -56,7 +56,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00071495" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00071495</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -114,7 +114,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-02-28">21000</value>
+      <value currency="USD" value-date="2017-03-31">21000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -128,8 +128,8 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">6169</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">9422</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -137,12 +137,12 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">21000</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">21000</value>
       <provider-org type="10" ref="00103">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00071495">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -154,7 +154,7 @@
       <provider-org type="10" ref="00103">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00071495">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -166,7 +166,7 @@
       <provider-org ref="00103" type="10">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00071495">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -192,7 +192,7 @@
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00034311" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00060590</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -209,14 +209,14 @@
     <participating-org role="2" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="00103">
       <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
     </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2010-09-17" />
@@ -229,14 +229,15 @@
     <recipient-country code="GQ">
       <narrative>Equatorial Guinea</narrative>
     </recipient-country>
+    <sector vocabulary="1" code="74010" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
     <default-aid-type code="C01" />
     <default-tied-status code="3" />
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/GNQ/PRODOC%20PNUD%20GE%20Areas%20Protegidas%202013.pdf">
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/GNQ/DISEÑO%20CONCEPTUAl%20SNAP%20GUINEA%20ECUATORIAL.pdf">
       <title>
-        <narrative>PRODOC AREAS PROTEGIDAS</narrative>
+        <narrative>DISEÑO CONCEPTUAL SISTEMA DE AREAS PROTEGIDAS DE GUINEA ECUATORIAL</narrative>
       </title>
       <category code="A01" />
       <category code="A02" />
@@ -246,9 +247,9 @@
       <category code="A08" />
       <language code="es" />
     </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/GNQ/DISEÑO%20CONCEPTUAl%20SNAP%20GUINEA%20ECUATORIAL.pdf">
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/GNQ/PRODOC%20PNUD%20GE%20Areas%20Protegidas%202013.pdf">
       <title>
-        <narrative>DISEÑO CONCEPTUAL SISTEMA DE AREAS PROTEGIDAS DE GUINEA ECUATORIAL</narrative>
+        <narrative>PRODOC AREAS PROTEGIDAS</narrative>
       </title>
       <category code="A01" />
       <category code="A02" />
@@ -290,7 +291,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00076342" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00076342</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -301,14 +302,14 @@
     <description type="1">
       <narrative>4185 STRENGTHENING THE NATIONAL SYSTEM OF PROTECTED AREAS IN EQUATORIAL GUINEA FOR THE EFFECTIVE CONSERVATION OF REPRESENTATIVE ECOSYSTEMS AND GLOBALLY SIGNIFICANT BIODIVERSITY</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="00103">
       <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
     </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2010-09-17" />
@@ -382,7 +383,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-02-28">300317</value>
+      <value currency="USD" value-date="2017-03-31">300317</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -406,23 +407,11 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">26028</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">52091</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">22000</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -432,19 +421,19 @@
       <provider-org type="10" ref="00103">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00076342">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">300317</value>
-      <provider-org type="40" ref="10003">
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">300317</value>
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 4185">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00076342">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -453,10 +442,10 @@
       <transaction-type code="11" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">711620</value>
-      <provider-org type="40" ref="10003">
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 4185">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00076342">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -465,10 +454,10 @@
       <transaction-type code="11" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">465044</value>
-      <provider-org type="40" ref="10003">
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 4185">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00076342">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -477,10 +466,10 @@
       <transaction-type code="11" />
       <transaction-date iso-date="2014-12-31" />
       <value currency="USD" value-date="2014-12-31">251554</value>
-      <provider-org type="40" ref="10003">
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 4185">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00076342">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -489,10 +478,22 @@
       <transaction-type code="11" />
       <transaction-date iso-date="2013-12-31" />
       <value currency="USD" value-date="2013-12-31">146941</value>
-      <provider-org type="40" ref="10003">
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 4185">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00076342">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">22000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00076342">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1147,7 +1148,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00064023</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1158,17 +1159,17 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <description type="1">
       <narrative>Programa que engloba todos los proyectos de Gestion de la Oficina.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
-      <narrative>UNDP</narrative>
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
+      <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="00103">
       <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2012-01-01" />
@@ -1181,6 +1182,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <recipient-country code="GQ">
       <narrative>Equatorial Guinea</narrative>
     </recipient-country>
+    <sector vocabulary="1" code="99810" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -1205,7 +1207,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00088053" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00083209</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1216,7 +1218,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <description type="1">
       <narrative>Utilization of Fund 11888</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
@@ -1243,7 +1245,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-02-28">36669</value>
+      <value currency="USD" value-date="2017-03-31">45288</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -1257,8 +1259,8 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">16861</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">35473</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -1266,24 +1268,24 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">36669</value>
-      <provider-org type="40" ref="00012">
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">45288</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00064023">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00083209">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">43884</value>
-      <provider-org ref="00012" provider-activity-id="64023" type="40">
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">33931</value>
+      <provider-org ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00064023" type="40">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00083209">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1292,10 +1294,10 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <transaction-type code="11" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">43884</value>
-      <provider-org type="40" ref="00012">
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00064023">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00083209">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1304,10 +1306,10 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <transaction-type code="1" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">-48543</value>
-      <provider-org ref="00012" provider-activity-id="64023" type="40">
+      <provider-org ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00064023" type="40">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00083209">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1316,10 +1318,10 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <transaction-type code="11" />
       <transaction-date iso-date="2012-12-31" />
       <value currency="USD" value-date="2012-12-31">43231</value>
-      <provider-org type="40" ref="00012">
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00064023">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00083209">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1346,7 +1348,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00088053" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00088053</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1357,11 +1359,11 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <description type="1">
       <narrative>Se trata de asegurar que la Autoridad Autónoma de Aviación Civil tiene el personal requerido, tanto en cantidad como en calidad.</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="00103">
       <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-03-01" />
@@ -1408,7 +1410,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-02-28">371800</value>
+      <value currency="USD" value-date="2017-03-31">371800</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -1433,8 +1435,8 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">1421</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">8314</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -1442,24 +1444,12 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">15000</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">371800</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">371800</value>
       <provider-org type="10" ref="00103">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00088053">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1471,7 +1461,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org type="10" ref="00103">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00088053">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1483,7 +1473,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org type="10" ref="00103">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00088053">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1495,7 +1485,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org type="10" ref="00103">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00088053">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1507,7 +1497,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org ref="00103" type="10">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00088053">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1519,7 +1509,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org type="10" ref="00103">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00088053">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1531,7 +1521,19 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org ref="00103" type="10">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00088053">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">15000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00088053">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1570,7 +1572,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00083209" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00074787</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1587,11 +1589,11 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <participating-org role="2" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="00103">
       <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-01-01" />
@@ -1639,7 +1641,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00087033" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00087033</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1650,11 +1652,11 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <description type="1">
       <narrative>El Proyecto pretende apoyar la producción de las estadisticas relacionadas a los ODM, ya que para el año 2014 el País tiene que elaborar el informe de seguimiento de los ODM para la cumbre de 2015.</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="00103">
       <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-01-01" />
@@ -1720,7 +1722,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-02-28">235000</value>
+      <value currency="USD" value-date="2017-03-31">235000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -1744,8 +1746,8 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">19302</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">123487</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -1753,48 +1755,12 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">28000</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">209750</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">71250</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">235000</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">235000</value>
       <provider-org type="10" ref="00103">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00087033">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1806,7 +1772,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org type="10" ref="00103">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00087033">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1818,7 +1784,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org type="10" ref="00103">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00087033">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1830,7 +1796,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org ref="00103" type="10">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00087033">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1842,7 +1808,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org type="10" ref="00103">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00087033">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1854,7 +1820,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org ref="00103" type="10">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00087033">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1866,7 +1832,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org type="10" ref="00103">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00087033">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1878,7 +1844,43 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org ref="00103" type="10">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00087033">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">28000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00087033">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">209750</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00087033">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">71250</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00087033">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1916,7 +1918,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00074787" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00076211</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1933,11 +1935,11 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <participating-org role="2" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="00103">
       <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-01-01" />
@@ -1950,6 +1952,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <recipient-country code="GQ">
       <narrative>Equatorial Guinea</narrative>
     </recipient-country>
+    <sector vocabulary="1" code="99810" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -1997,7 +2000,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00087721" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00087721</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2008,11 +2011,11 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <description type="1">
       <narrative>El proyecto trata de apoyar al Ministerio de Economia, Planificacion e Inversiones Públicas en la implementacion y seguimiento del PNDES y cuestiones transversales de desarrollo.</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="00103">
       <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-01-01" />
@@ -2079,7 +2082,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-02-28">707476</value>
+      <value currency="USD" value-date="2017-03-31">707476</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -2103,8 +2106,8 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">48795</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">52207</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -2112,60 +2115,12 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">50000</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">135000</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">95000</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">51850</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">707476</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">707476</value>
       <provider-org type="10" ref="00103">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00087721">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2177,7 +2132,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org type="10" ref="00103">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00087721">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2189,7 +2144,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org type="10" ref="00103">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00087721">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2201,7 +2156,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org ref="00103" type="10">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00087721">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2213,7 +2168,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org type="10" ref="00103">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00087721">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2225,7 +2180,55 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org ref="00103" type="10">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00087721">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">50000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00087721">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">135000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00087721">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">95000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00087721">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">51850</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00087721">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2263,7 +2266,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00076211" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00084099</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2280,11 +2283,11 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <participating-org role="2" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="00103">
       <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2014-04-15" />
@@ -2297,6 +2300,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <recipient-country code="GQ">
       <narrative>Equatorial Guinea</narrative>
     </recipient-country>
+    <sector vocabulary="1" code="13040" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -2332,7 +2336,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00092281" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00092281</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2343,11 +2347,11 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <description type="1">
       <narrative>Esta  propuesta es la segunda fase del proyecto del JFIT sobre la formación de los profesores de ciencias.</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="00103">
       <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2014-04-15" />
@@ -2401,7 +2405,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-02-28">565662</value>
+      <value currency="USD" value-date="2017-03-31">565662</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -2420,8 +2424,8 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">22430</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">46030</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -2429,36 +2433,12 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">11000</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">8500</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">565662</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">565662</value>
       <provider-org type="10" ref="00103">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00092281">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2470,7 +2450,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org type="10" ref="00103">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00092281">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2482,7 +2462,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org type="10" ref="00103">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00092281">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2494,7 +2474,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org ref="00103" type="10">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00092281">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2506,7 +2486,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org type="10" ref="00103">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00092281">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2518,7 +2498,31 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org ref="00103" type="10">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00092281">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">11000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00092281">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">8500</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00092281">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2550,7 +2554,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00084099" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00084692</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2567,11 +2571,11 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <participating-org role="2" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="00103">
       <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2014-01-01" />
@@ -2584,6 +2588,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <recipient-country code="GQ">
       <narrative>Equatorial Guinea</narrative>
     </recipient-country>
+    <sector vocabulary="1" code="15110" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -2619,7 +2624,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00092593" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00092593</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2630,11 +2635,11 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <description type="1">
       <narrative>Strenthening of local development capacities and strategies.</narrative>
     </description>
-    <participating-org role="1" type="40" ref="00012">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
     <participating-org role="1" type="10" ref="00103">
       <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2014-01-01" />
@@ -2688,7 +2693,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-02-28">0</value>
+      <value currency="USD" value-date="2017-03-31">0</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -2707,35 +2712,11 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">-2053</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">-2053</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">-563</value>
-      <provider-org ref="00012" type="40">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">38000</value>
-      <provider-org type="40" ref="00012">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations development Programme</narrative>
-      </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -2745,7 +2726,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org type="10" ref="00103">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00092593">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2757,7 +2738,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org type="10" ref="00103">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00092593">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2769,7 +2750,31 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org ref="00103" type="10">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00092593">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">-563</value>
+      <provider-org ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00084692" type="40">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00092593">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">38000</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00084692">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00092593">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2801,7 +2806,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00084692" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00086814</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2832,6 +2837,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <recipient-country code="GQ">
       <narrative>Equatorial Guinea</narrative>
     </recipient-country>
+    <sector vocabulary="1" code="13040" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -2849,9 +2855,9 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <category code="A08" />
       <language code="es" />
     </document-link>
-    <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=36612">
       <title>
-        <narrative>Request for Procurement</narrative>
+        <narrative>?Apoyo a la Unidad de Referencia de Enfermedades Infecci</narrative>
       </title>
       <category code="A10" />
       <language code="en" />
@@ -2867,7 +2873,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00094016" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00094016</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2933,7 +2939,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-02-28">750000</value>
+      <value currency="USD" value-date="2017-03-31">750000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -2947,8 +2953,8 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">833782</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">894682</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -2956,12 +2962,12 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">750000</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">750000</value>
       <provider-org type="10" ref="00103">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00094016">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2973,7 +2979,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org type="10" ref="00103">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00094016">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2985,7 +2991,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org ref="00103" type="10">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00094016">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2997,7 +3003,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org type="10" ref="00103">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00094016">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -3009,7 +3015,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org ref="00103" type="10">
         <narrative>GOVERNMENT OF EQUATORIAL GUINEA</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114">
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00094016">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -3035,7 +3041,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00086814" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00094909</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3058,7 +3064,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <activity-status code="2" />
     <activity-date type="1" iso-date="2016-05-01" />
     <activity-date type="2" iso-date="2016-05-01" />
-    <activity-date type="3" iso-date="2020-04-30" />
+    <activity-date type="3" iso-date="2020-12-31" />
     <contact-info type="1">
       <email>registry.gq@undp.org</email>
       <website></website>
@@ -3066,11 +3072,50 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <recipient-country code="GQ">
       <narrative>Equatorial Guinea</narrative>
     </recipient-country>
+    <sector vocabulary="1" code="74010" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
     <default-aid-type code="C01" />
     <default-tied-status code="3" />
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/GNQ/PIMS%205143%20EqGuinea%20SE4ALL%20-%20PRODOC%20Final%2009032016_doc%20final.pdf">
+      <title>
+        <narrative>FSP SE4ALL Project Document</narrative>
+      </title>
+      <category code="A01" />
+      <category code="A02" />
+      <category code="A03" />
+      <category code="A04" />
+      <category code="A05" />
+      <category code="A08" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/GNQ/Proyecto%20Energía%20Sostenible17.pdf">
+      <title>
+        <narrative>Detailed 2017 AWP SE4ALL PROJECT</narrative>
+      </title>
+      <category code="A01" />
+      <category code="A02" />
+      <category code="A03" />
+      <category code="A04" />
+      <category code="A05" />
+      <category code="A08" />
+      <language code="es" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/GNQ/AWP%202017%20coverr%20page.pdf">
+      <title>
+        <narrative>SE4ALL Project 2017 AWP COVER PAGE</narrative>
+      </title>
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/GNQ/Multiyear%20budgets%202017-2020.pdf">
+      <title>
+        <narrative>ATLAS Multiyear Budgets SE4ALL</narrative>
+      </title>
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
       <title>
         <narrative>Request for Procurement</narrative>
@@ -3078,18 +3123,10 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <category code="A10" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00094909">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00098972" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00098972</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3155,7 +3192,22 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-02-28">1025412</value>
+      <value currency="USD" value-date="2017-03-31">1181185</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2019-01-01" />
+      <period-end iso-date="2019-12-31" />
+      <value currency="USD" value-date="2017-03-31">782704.71</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2019-01-01" />
+      <period-end iso-date="2019-12-31" />
+      <value currency="USD" value-date="2017-03-31">1188054.04</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-03-31">1311307.9</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -3164,8 +3216,8 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">0</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">0</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -3173,12 +3225,12 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-02-28" />
-      <value currency="USD" value-date="2017-02-28">1025412</value>
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">1181185</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00098972">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -3190,7 +3242,7 @@ the plans of management of resources natural: Monte Alen and reserve a scientifi
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00098972">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
