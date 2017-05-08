@@ -31,6 +31,7 @@ views.DonorCharts = Backbone.View.extend({
             specialActivities: collection.findWhere({'name': 'special activities'}).get('value'),
             trustFunds: collection.findWhere({'name': 'trust funds'}).get('value'),
             thematicTrustFunds: collection.findWhere({'name': 'thematic trust funds'}).get('value'),
+            other: collection.findWhere({'name': 'other'}).get('value'),
 
             // total contributions in each category
             coreTotal: total.findWhere({'name': 'core'}).get('value'),
@@ -40,6 +41,7 @@ views.DonorCharts = Backbone.View.extend({
             specialActivitiesTotal: total.findWhere({'name': 'special activities'}).get('value'),
             trustFundsTotal: total.findWhere({'name': 'trust funds'}).get('value'),
             thematicTrustFundsTotal: total.findWhere({'name': 'thematic trust funds'}).get('value'),
+            otherTotal: total.findWhere({'name': 'other'}).get('value'),
           };
 
         var calc = {
@@ -54,6 +56,7 @@ views.DonorCharts = Backbone.View.extend({
             specialActivitiesAllocation: base.specialActivities / nonCore,
             trustFundsAllocation: base.trustFunds / nonCore,
             thematicTrustFundsAllocation: base.thematicTrustFunds / nonCore,
+            otherAllocation: base.other / nonCore,
 
             // donor's percentage of the total UNDP funds in each category
             corePct: core / base.coreTotal,
@@ -62,7 +65,8 @@ views.DonorCharts = Backbone.View.extend({
             unvPct: base.unv / base.unvTotal,
             specialActivitiesPct: base.specialActivities / base.specialActivitiesTotal,
             trustFundsPct: base.trustFunds / base.trustFundsTotal,
-            thematicTrustFundsPct: base.thematicTrustFunds / base.thematicTrustFundsTotal
+            thematicTrustFundsPct: base.thematicTrustFunds / base.thematicTrustFundsTotal,
+            otherPct: base.other / base.otherTotal,
         };
 
         for (var key in calc) {
