@@ -109,6 +109,26 @@
         </div>
       </td>
     </tr>
+    
+    <tr>
+      <td>Other</td>
+      <td>$<%= util.abbreviateNumber(other)%></td>
+      <td>
+        <div class='left'><%= otherAllocation %>%</div>
+        <div class='right data wide'>
+          <div class='subdata' style='width: 100%;'></div>
+          <div class='fund' fund-percent=<%= otherAllocation %>  style='width: <%= otherAllocation %>%;'></div>
+        </div>
+      </td>
+      <td>$<%= util.abbreviateNumber(otherTotal) %></td>
+      <td>
+        <div class='left'><%= otherPct %>%</div>
+        <div class='right data wide'>
+          <div class='subdata' style='width: 100%;'></div>
+          <div class='fund' fund-percent=<%= otherPct %>  style='width: <%= otherPct %>%;'></div>
+        </div>
+      </td>
+    </tr>
 
   </tbody>
 </table>

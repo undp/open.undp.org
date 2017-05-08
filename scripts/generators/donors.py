@@ -57,7 +57,8 @@ def donors():
         "Cost Sharing": 0,
         "UNV": 0,
         "Thematic Trust Funds": 0,
-        "Trust Funds": 0
+        "Trust Funds": 0,
+        "Other": 0
     }
 
     # Get a list of all donors in the non-core donors list
@@ -99,7 +100,8 @@ def donors():
             "Cost Sharing": 0,
             "UNV": 0,
             "Thematic Trust Funds": 0,
-            "Trust Funds": 0
+            "Trust Funds": 0,
+            "Other": 0
         }
 
       # Contributions from non-core donors
