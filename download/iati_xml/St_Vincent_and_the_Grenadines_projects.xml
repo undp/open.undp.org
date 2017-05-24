@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2017-04-10T11:51:56" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2017-05-23T10:57:40" version="2.02">
   <!--St. Vincent and the Grenadines-->
-  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00080915</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -33,14 +33,15 @@
     <recipient-country code="VC">
       <narrative>St. Vincent and the Grenadines</narrative>
     </recipient-country>
+    <sector vocabulary="1" code="51010" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
     <default-aid-type code="C01" />
     <default-tied-status code="3" />
-    <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/VCT/Draft%20ProDoc%20PIMS%205146%20SVG%20PACES%20(MAS).doc">
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/VCT/PAC%20Minutes%20SVG%20PACES.pdf">
       <title>
-        <narrative>PACES Project Document</narrative>
+        <narrative>PAC Minutes SVG PACES</narrative>
       </title>
       <category code="A01" />
       <category code="A02" />
@@ -50,9 +51,9 @@
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/VCT/PAC%20Minutes%20SVG%20PACES.pdf">
+    <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/VCT/Draft%20ProDoc%20PIMS%205146%20SVG%20PACES%20(MAS).doc">
       <title>
-        <narrative>PAC Minutes SVG PACES</narrative>
+        <narrative>PACES Project Document</narrative>
       </title>
       <category code="A01" />
       <category code="A02" />
@@ -113,7 +114,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00090426" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00090426</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -172,12 +173,12 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-03-31">933456</value>
+      <value currency="USD" value-date="2017-04-30">933456</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-03-31">293628</value>
+      <value currency="USD" value-date="2017-04-30">293628</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -192,8 +193,8 @@
     <capital-spend percentage="16.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">28395</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">32912</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -201,12 +202,24 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">933456</value>
+      <transaction-date iso-date="2018-12-31" />
+      <value currency="USD" value-date="2018-12-31">293628</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00090426">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00090426">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">933456</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00090426">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -218,7 +231,7 @@
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00090426">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00090426">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -230,7 +243,7 @@
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00090426">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00090426">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -255,8 +268,77 @@
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00080915" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>Cumulative direct and direct post-project CO2 emission reductions resulting from the RE technical assistance and investments by end-of-project (EOP), ktons CO2
+% share of RE in the power  generation mix of SVG by EOP
+Number of on-grid RETs approved based on studies of improved RE policy and tariffs and RE grid integration
+Number of RE development project proponents that were assisted by staff from the Energy Unit and VINLEC in the technical design of their projects
+Number of managers in VINLEC and Energy Unit dedicated to promoting of RE investments
+Number of technical personnel in VINLEC, Energy Unit and in the private sector who can provide technical oversight on RE project development in SVG and other OECS countries
+Number of tradespersons who have local certification to construct, assemble, operate and maintain RE technologies
+Number of RE projects that are financed through RE funds where VINLEC has involvement in operationalization by EOP 
+Number of privately-financed RE projects connected to VINLEC electricity grid by EOP
+MW of RE on-grid projects installed by EOP
+MW capacity of RE generation projects (on-grid and off-grid) in planning and design stages by EOP
+% reduction in electricity drawn from the grid for each household with on-grid rooftop solar-PV panels</narrative>
+        </description>
+        <baseline year="2015" value="">
+          <comment>
+            <narrative>High relative per capita CO2 emissions
+Limited integration and share of RE in the power generation mix
+Limited penetration of RE technologies
+Low levels of public awareness of RE technologies 
+Low levels of technical capacity to implement RE technology systems
+Limited availability of low-cost capital for RE investment</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2015-01-01" />
+          <period-end iso-date="2015-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1. Procure an energy efficient vehicle with training and supporting infrastructure to undertake feasibility assessment</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>1. An electric car and accompanying 5kW charging station were procured and training was provided for two technicians in service and repair. A template was developed for data collection and tracking the vehicle's performance.</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2016-01-01" />
+          <period-end iso-date="2016-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1. Implement 2 projects that are financed through RE funds where VINLEC has involvement
+2. Undertake review of the macro-fiscal, technical and legal framework for RE integration
+3. Undertake workshop for primary and secondary level students on RE
+4. Undertake a public awareness and sensitization programme</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>1. The project team, together with the Energy Unit in the Ministry of National Security and VINLEC completed the installation of a 50kW solar PV system at the Belle Isle Correctional Facility in October. An assessment of the proposed site for the second solar PV system at the Argyle International Airport was undertaken in Q1 and the procurement process was launched in Q2. While the procurement of the 155kW system has been completed, the project team is awaiting confirmation from the Attorney General on the contract and from the ECCA for final approval of the proposed installation site.
+
+2. An electric Mobility Conference was held in June to identify the scope for sustainable transport in SVG. The results of a preliminary macro-economic review were presented and regional energy stakeholders discussed the prospects for SVG to sustain electric vehicles. An international RE specialist was contracted to undertake the macro-economic analysis. Data has been collected to develop scenarios for EV uptake in SVG and recommendations for appropriate incentives.
+
+3. The Ministry of Education in collaboration with the PACES Project would be conducting a workshop on Renewable Energy for lower level teachers that will create awareness on sustainable energy and offer valuable lessons that will instruct them on practical approaches to teaching energy topics.A suitable consultant has been selected based and is being contracted.</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00089257</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -290,6 +372,7 @@
     <recipient-country code="VC">
       <narrative>St. Vincent and the Grenadines</narrative>
     </recipient-country>
+    <sector vocabulary="1" code="51010" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -332,7 +415,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00095586" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00095586</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -373,7 +456,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-03-31">70222</value>
+      <value currency="USD" value-date="2017-04-30">70222</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -387,8 +470,8 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">14985</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">16034</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -396,12 +479,12 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">8947</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">8947</value>
       <provider-org type="40" ref="00280">
         <narrative>EUROPEAN ECONOMIC COMMUNITY</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00095586">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00095586">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -413,7 +496,7 @@
       <provider-org type="40" ref="00280">
         <narrative>EUROPEAN ECONOMIC COMMUNITY</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00095586">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00095586">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -425,19 +508,19 @@
       <provider-org type="40" ref="00280">
         <narrative>EUROPEAN ECONOMIC COMMUNITY</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00095586">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00095586">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">61275</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">61275</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00095586">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00095586">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -449,7 +532,7 @@
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00095586">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00095586">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -474,5 +557,58 @@
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00089257" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>Annual emissions of carbon dioxide (in metric tons) to be reduced or avoided described in the INDC
+% of electricity to be generated from renewable energy sources described in the INDC</narrative>
+        </description>
+        <baseline year="2015" value="">
+          <comment>
+            <narrative>Greenhouse gas emissions 182,680tCO2e (2004)
+25% of electricity generated from hydropower in 2013</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2015-01-01" />
+          <period-end iso-date="2015-12-31" />
+          <target value="">
+            <comment>
+              <narrative>60% of electricity to be generated from renewable energy sources by 2020 described in the INDC</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>St Vincent intends to achieve the following as articulated in its NDC:
+
+An unconditional, economy-wide reduction in greenhouse gas (GHG) emissions of 22% compared to its business as usual (BAU) scenario by 2025. This represents approx 125 GgCO2e.
+
+Renewable energy: the plans for renewable energy generation centre on the development of the country’s proposed geothermal power plant (planned to be completed in 2018). The facility, when complete, will generate approximately 50% of the national annual electricity consumption needs. Within the energy sector, approximately 50% of emissions can be attributed to energy generation.
+Energy efficiency: there is an objective to achieve a 15% reduction in national electricity consumption compared to a BAU scenario by 2025.</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2016-01-01" />
+          <period-end iso-date="2016-12-31" />
+          <target value="">
+            <comment>
+              <narrative>Development of national monitoring, reporting and verification (MRV) system for tracking the implementation of the NDC</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>Multi-sector consultations underway; draft online MRV system being populated.</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
 </iati-activities>

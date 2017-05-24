@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2017-04-10T11:51:20" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2017-05-23T10:57:23" version="2.02">
   <!--Bahrain-->
-  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00044245</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -13,7 +13,7 @@
     <description type="1">
       <narrative>Bahrain Institute for Political Development - Supporting Political Reform in Partnership with the Bahrain Institute for Political Development (BIPD)</narrative>
     </description>
-    <participating-org role="4" type="" ref="00186">
+    <participating-org role="4" type="40" ref="00186">
       <narrative>Bah. Institute Political Devpt</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -54,13 +54,6 @@
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/BHR/UNDP_Yearly_Progress_2014_Signed.pdf">
-      <title>
-        <narrative>Yearly Progress 2014 Signed</narrative>
-      </title>
-      <category code="A08" />
-      <language code="en" />
-    </document-link>
     <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/BHR/Progress%20Report%20BIPD%202014%20Q2.docx">
       <title>
         <narrative>Progress Report BIPD 2014 Q2</narrative>
@@ -78,6 +71,13 @@
     <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/BHR/Progress%20Report%20BIPD%202014%20Q4.docx">
       <title>
         <narrative>Progress Report BIPD 2014 Q4</narrative>
+      </title>
+      <category code="A08" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/BHR/UNDP_Yearly_Progress_2014_Signed.pdf">
+      <title>
+        <narrative>Yearly Progress 2014 Signed</narrative>
       </title>
       <category code="A08" />
       <language code="en" />
@@ -107,7 +107,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00051910" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00051910</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -176,17 +176,22 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-03-31">469466</value>
+      <value currency="USD" value-date="2017-04-30">469466</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2020-01-01" />
+      <period-end iso-date="2020-12-31" />
+      <value currency="USD" value-date="2017-04-30">81953</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2017-03-31">81952</value>
+      <value currency="USD" value-date="2017-04-30">81952</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-03-31">320655</value>
+      <value currency="USD" value-date="2017-04-30">320655</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -216,8 +221,8 @@
     <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">25521</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">33130</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -225,12 +230,48 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">354147</value>
+      <transaction-date iso-date="2020-12-31" />
+      <value currency="USD" value-date="2020-12-31">81953</value>
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00051910">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00051910">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2019-12-31" />
+      <value currency="USD" value-date="2019-12-31">81952</value>
+      <provider-org type="10" ref="00058">
+        <narrative>GOVERNMENT OF BAHRAIN</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00051910">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2018-12-31" />
+      <value currency="USD" value-date="2018-12-31">320655</value>
+      <provider-org type="10" ref="00058">
+        <narrative>GOVERNMENT OF BAHRAIN</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00051910">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">354147</value>
+      <provider-org type="10" ref="00058">
+        <narrative>GOVERNMENT OF BAHRAIN</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00051910">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -242,7 +283,7 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00051910">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00051910">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -254,7 +295,7 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00051910">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00051910">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -266,7 +307,7 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00051910">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00051910">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -278,19 +319,19 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00051910">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00051910">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">115319</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">115319</value>
       <provider-org type="10" ref="12154">
         <narrative>Bahrain Institute for Politica</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00051910">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00051910">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -302,7 +343,7 @@
       <provider-org type="10" ref="12154">
         <narrative>Bahrain Institute for Politica</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00051910">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00051910">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -314,7 +355,7 @@
       <provider-org type="10" ref="12154">
         <narrative>Bahrain Institute for Politica</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00051910">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00051910">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -338,7 +379,7 @@
       <provider-org type="10" ref="12154">
         <narrative>Bahrain Institute for Politica</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00051910">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00051910">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -405,8 +446,83 @@
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00044245" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>democratic principles and notions in newspapers and public debates</narrative>
+        </description>
+        <baseline year="2006" value="">
+          <comment>
+            <narrative>Lack of awareness and censuses on the ongoing national political reform.</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2015-01-01" />
+          <period-end iso-date="2015-12-31" />
+          <target value="">
+            <comment>
+              <narrative>- Completing phase 2 of the website revamp
+- Studying feasibility of e-library
+- Studying feasibility of Data Management System
+- Completing e-mail system upgrade
+- Developing content for the website</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>- Website revamp informative phase completed
+- Physical and virtual database center created with the acceptable security data protection measures
+- e-mail system implementation phase 2 completed
+- New content developed on: Gulf Forum, Contest of Political Speech, and the National Competition for the website
+- Document Management System procurement process started by IP</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2016-01-01" />
+          <period-end iso-date="2016-12-31" />
+          <target value="">
+            <comment>
+              <narrative>•	Implement phase 2 of the BIPD website revamp 
+•	Develop new video content to be used on the website and BIPD training/awareness events
+•	Establish e-Library to be used for BIPD users and end customers
+•	Implement a document management system for all BIPD archives to be accessible by users and end customers of BIPD</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>•	Implement phase 2 of the BIPD website revamp 
+
+-	Website phase 1 completed June 2016
+-	Requirement gathering for phase 2 completed
+-	RFP issued, currently evaluating vendors.
+
+•	Develop new video content to be used on the website and BIPD training/awareness events
+
+On hold due to change in management. Will decide on action required early 2017.
+
+•	Establish e-Library to be used for BIPD users and end customers
+
+UNDP consultant completed assessment of technologies to be used and provided full input to develop RFP to establish and implement an e-library system.
+
+•	Implement a document management system for all BIPD archives to be accessible by users and end customers of BIPD 
+
+-	Physical archiving of documents completed for all BIPD departments.
+-	Requirements gathering completed 
+-	RFP issued and vendor selection completed</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00059750</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -417,7 +533,7 @@
     <description type="1">
       <narrative>Ministry of Commerce &amp;amp; Industry - Support to Enhancing Institutional Capacity for Global Economic Environment and Governance</narrative>
     </description>
-    <participating-org role="4" type="" ref="00190">
+    <participating-org role="4" type="40" ref="00190">
       <narrative>Min. of Industry &amp; Commerce</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -499,7 +615,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00075438" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00074889</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -538,7 +654,7 @@
         <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
-        <narrative></narrative>
+        <narrative />
       </activity-description>
       <administrative level="1" code="290340" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
@@ -561,7 +677,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-03-31">23317</value>
+      <value currency="USD" value-date="2017-04-30">23317</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -590,8 +706,8 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">0</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">0</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -599,12 +715,12 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">20050</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">20050</value>
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00074889">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00074889">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -616,7 +732,7 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00074889">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00074889">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -628,7 +744,7 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00074889">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00074889">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -640,7 +756,7 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00074889">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00074889">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -652,7 +768,7 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00074889">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00074889">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -664,19 +780,19 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00074889">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00074889">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">3267</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">3267</value>
       <provider-org type="10" ref="11608">
         <narrative>Ministry of Industry and Commerce,Kingdom of Bahrain</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00074889">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00074889">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -688,7 +804,7 @@
       <provider-org type="10" ref="11608">
         <narrative>Ministry of Industry and Commerce,Kingdom of Bahrain</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00074889">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00074889">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -700,7 +816,7 @@
       <provider-org type="10" ref="11608">
         <narrative>Ministry of Industry and Commerce,Kingdom of Bahrain</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00074889">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00074889">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -712,7 +828,7 @@
       <provider-org type="10" ref="11608">
         <narrative>Ministry of Industry and Commerce,Kingdom of Bahrain</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00074889">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00074889">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -736,7 +852,7 @@
       <provider-org type="10" ref="11608">
         <narrative>Ministry of Industry and Commerce,Kingdom of Bahrain</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00074889">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00074889">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -781,8 +897,81 @@
     <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00075437" />
     <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00075438" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>Enhanced inter-ministrial coordination for Trade and Development and better consolidation of trade efforts</narrative>
+        </description>
+        <baseline year="2010" value="">
+          <comment>
+            <narrative>Limited inter-minisetrial coordination in governmental efforts in the areas of Trade and Development</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2015-01-01" />
+          <period-end iso-date="2015-12-31" />
+          <target value="">
+            <comment>
+              <narrative>- Technical Advice on Bahrain’s obligations under different WTO agreements including Notifications, Tobacco Renegotiations, DDA and TPR issues.
+- Translation of the final version of the Trade Facilitation Agreement
+- Assessment and evaluation of Trade Facilitation Measures under Category B, and Category C of Bahraini FTA Measures, and TACB requirements.
+- Holding of Bahrain Export Development Forum and Seminars and dissemination of studies under the project
+- Finalization of the Trade Policy Support System
+- Arranging a mission of UNCTAD, ITC and UNDP Regional Programme for the development of a framework and policy options on trade issues and follow-up on the recommendations of the mission</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative />
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2016-01-01" />
+          <period-end iso-date="2016-12-31" />
+          <target value="">
+            <comment>
+              <narrative>- Technical advice provided on Bahrain’s obligations under different WTO agreements
+- Recommendations made to enhance the utilization of Bahrain-US FTA
+- Economic and trade operational plan proposed
+- Technical advice on Bahrain’s commitments under the TFA provided
+- Awareness and capacity of key stakeholders enhanced on TFA requirements and issues</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>- Technical advice was provided on Bahrain’s obligations under different WTO agreements and the outcome of the Nairobi - WTO Ministerial held in December 2015 as well as on a number of related issues
+- Clear recommendations were made to enhance the utilization of Bahrain-US FTA
+- In collaboration with UNCTAD expert, economic and trade operational plan was proposed
+- Technical advice on Bahrain’s commitments under the TFA was provided
+- Awareness and capacity of key stakeholders was enhanced on TFA requirements and issues</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative />
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative />
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00075437</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -821,7 +1010,7 @@
         <narrative>independent political entity</narrative>
       </description>
       <activity-description>
-        <narrative></narrative>
+        <narrative />
       </activity-description>
       <administrative level="0" code="290291" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
@@ -844,7 +1033,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-03-31">453</value>
+      <value currency="USD" value-date="2017-04-30">453</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -874,8 +1063,8 @@
     <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">0</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">0</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -883,12 +1072,12 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">80</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">80</value>
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075437">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075437">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -900,7 +1089,7 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075437">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075437">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -912,7 +1101,7 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075437">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075437">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -924,7 +1113,7 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075437">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075437">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -936,7 +1125,7 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075437">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075437">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -948,19 +1137,19 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075437">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075437">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">373</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">373</value>
       <provider-org type="10" ref="11608">
         <narrative>Ministry of Industry and Commerce,Kingdom of Bahrain</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075437">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075437">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -972,7 +1161,7 @@
       <provider-org type="10" ref="11608">
         <narrative>Ministry of Industry and Commerce,Kingdom of Bahrain</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075437">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075437">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -984,7 +1173,7 @@
       <provider-org type="10" ref="11608">
         <narrative>Ministry of Industry and Commerce,Kingdom of Bahrain</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075437">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075437">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -996,7 +1185,7 @@
       <provider-org type="10" ref="11608">
         <narrative>Ministry of Industry and Commerce,Kingdom of Bahrain</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075437">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075437">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1008,7 +1197,7 @@
       <provider-org type="10" ref="11608">
         <narrative>Ministry of Industry and Commerce,Kingdom of Bahrain</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075437">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075437">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1020,7 +1209,7 @@
       <provider-org type="10" ref="11608">
         <narrative>Ministry of Industry and Commerce,Kingdom of Bahrain</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075437">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075437">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1065,8 +1254,69 @@
     <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00074889" />
     <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00075438" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>Establishment of partnerships and engagement of stakeholders to formulate functioning Stakeholder Standing committee for Trade Implementation in Bahrain</narrative>
+        </description>
+        <baseline year="2010" value="">
+          <comment>
+            <narrative>Limited role of stakeholder standing committee for Trade Implementation in Bahrain</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2015-01-01" />
+          <period-end iso-date="2015-12-31" />
+          <target value="">
+            <comment>
+              <narrative>- Preparation of Explanatory Memorandum for Patent Law and UPOV Law
+- Finalization of the Pricing Study for IP</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative />
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2016-01-01" />
+          <period-end iso-date="2016-12-31" />
+          <target value="">
+            <comment>
+              <narrative>National capacity related to different Industrial Property (IP) issues and procedures enhanced</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>Support was provided for IP participation at the Technical workshop in Riyadh, as well as the enhancement of the Ministry’s capacity related to different Industrial Property (IP) issues and procedures.</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative />
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative />
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00075438</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1105,7 +1355,7 @@
         <narrative>independent political entity</narrative>
       </description>
       <activity-description>
-        <narrative></narrative>
+        <narrative />
       </activity-description>
       <administrative level="0" code="290291" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
@@ -1128,7 +1378,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-03-31">8805</value>
+      <value currency="USD" value-date="2017-04-30">8805</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -1157,8 +1407,8 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">0</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">0</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -1166,12 +1416,12 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">6399</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">6399</value>
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075438">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075438">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1183,7 +1433,7 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075438">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075438">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1195,7 +1445,7 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075438">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075438">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1207,7 +1457,7 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075438">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075438">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1219,7 +1469,7 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075438">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075438">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1231,19 +1481,19 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075438">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075438">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">2406</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">2406</value>
       <provider-org type="10" ref="11608">
         <narrative>Ministry of Industry and Commerce,Kingdom of Bahrain</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075438">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075438">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1255,7 +1505,7 @@
       <provider-org type="10" ref="11608">
         <narrative>Ministry of Industry and Commerce,Kingdom of Bahrain</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075438">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075438">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1267,7 +1517,7 @@
       <provider-org type="10" ref="11608">
         <narrative>Ministry of Industry and Commerce,Kingdom of Bahrain</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075438">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075438">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1279,7 +1529,7 @@
       <provider-org type="10" ref="11608">
         <narrative>Ministry of Industry and Commerce,Kingdom of Bahrain</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075438">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075438">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1291,7 +1541,7 @@
       <provider-org type="10" ref="11608">
         <narrative>Ministry of Industry and Commerce,Kingdom of Bahrain</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075438">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075438">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1337,7 +1587,7 @@
     <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00075437" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00060062</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1348,7 +1598,7 @@
     <description type="1">
       <narrative>Ministry of Social Development - Support to the Development of the National Childhood Strategy and the National Strategy for Persons with Disabilities for the Kingdom of Bahrain</narrative>
     </description>
-    <participating-org role="4" type="" ref="00192">
+    <participating-org role="4" type="40" ref="00192">
       <narrative>Ministry of Social Development</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -1433,7 +1683,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00075426" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00075426</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1472,7 +1722,7 @@
         <narrative>independent political entity</narrative>
       </description>
       <activity-description>
-        <narrative></narrative>
+        <narrative />
       </activity-description>
       <administrative level="0" code="290291" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
@@ -1502,7 +1752,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-03-31">42407</value>
+      <value currency="USD" value-date="2017-04-30">42467</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -1532,8 +1782,8 @@
     <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">0</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">0</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -1541,12 +1791,12 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">944</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">944</value>
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075426">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075426">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1558,7 +1808,7 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075426">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075426">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1570,7 +1820,7 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075426">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075426">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1582,19 +1832,19 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075426">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075426">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">41463</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">41523</value>
       <provider-org type="10" ref="11527">
         <narrative>Ministry of  Social  developme</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075426">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075426">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1606,7 +1856,7 @@
       <provider-org type="10" ref="11527">
         <narrative>Ministry of  Social  developme</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075426">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075426">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1618,7 +1868,7 @@
       <provider-org type="10" ref="11527">
         <narrative>Ministry of  Social  developme</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075426">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075426">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1630,7 +1880,7 @@
       <provider-org type="10" ref="11527">
         <narrative>Ministry of  Social  developme</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075426">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075426">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1654,7 +1904,7 @@
       <provider-org type="10" ref="11527">
         <narrative>Ministry of  Social  developme</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075426">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075426">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1666,7 +1916,7 @@
       <provider-org type="10" ref="11527">
         <narrative>Ministry of  Social  developme</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00075426">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00075426">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1709,8 +1959,87 @@
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00060062" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>National Childhood Strategy is produced and approved by all line Ministries.</narrative>
+        </description>
+        <baseline year="2010" value="">
+          <comment>
+            <narrative>National Childhood Strategy (NCS)  for Bahrain is not available</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2015-01-01" />
+          <period-end iso-date="2015-12-31" />
+          <target value="">
+            <comment>
+              <narrative>-Develop a database of all stakeholders related to the areas of childhood, disability and elderly, and produce an analysis of the functions and roles that each stakeholder plays (policy making, service provision, advocacy, coordination, etc.) and identify relationships between them.
+- Conduct an assessment of existing mechanisms or plans (including the work done during the formulation of the three strategies) for the implementation of the three strategies.
+- Conduct a review of best international practices in the establishment and functioning of “research and analysis units” in the areas of child, disability, elderly and other social issues.
+-  Identify and catalogue social services provided by the Government and NGOs in Bahrain and develop a Client Services Charter.
+- Develop a set of examples (two or three good examples) of the practice framework for the delivery of child, disability and elderly services in countries which have set high standards in social service delivery, and organize a workshop with the participation of MoSD, Centers and NGOs to discuss the practice framework used in Bahrain compared with the international examples.
+
+-</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>- mapping exercise that links the strategies to the National government plan, as well as the SDGs, has been completed. 
+- An assessment of existing mechanisms or plans (including the work done during the formulation of the three strategies) for the implementation of the three strategies has been conducted.
+- Stocktaking exercise for all NGOs, government, and Private institutions working on programmes, projects and initiatives related to childhood, disability and elderly in Bahrain has been completed.  
+- Three examples of the practice framework for the delivery of child, disability and elderly services from Slovakia and the UK have been shared with senior management of MoSD, and a workshop with the participation of MoSD, Centers and NGOs to discuss the practice framework used in Bahrain compared with the international examples will be conducted during the first quarter of 2016.
+- A first draft of a database content of all stakeholders related to the areas of childhood, disability and elderly has been developed.  
+- A review of best international practices in the establishment and functioning of “research and analysis units” in the areas of child, disability, elderly and other social issues has been conducted.</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2016-01-01" />
+          <period-end iso-date="2016-12-31" />
+          <target value="">
+            <comment>
+              <narrative>- Finalize the  database of all stakeholders related to the areas of childhood, disability and elderly, and produce a report  that maps who is doing what on the national level. 
+-Start drafting the National disability periodic report, which should be finalized by end of March 2017. 
+- Submit  review of best international practices in the establishment and functioning of “research and analysis units” in the areas of child, disability, elderly and other social issues.
+- present a thorough paper to the office of the Minister, showcasing three good examples of the practice framework for the delivery of child, disability and elderly services in countries which have set high standards in social service delivery
+- initiate the process of drafting the Childhood Periodic Report</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>- A database of all stakeholders related to the areas of childhood, disability and elderly, and produce a report  that maps who is doing what on the national level has been developed. 
+- About 80% of the first draft of the National disability periodic report, which should be finalized by end of March 2017 is completed and shared with MoLSD. 
+- Review of best international practices in the establishment and functioning of “research and analysis units” in the areas of child, disability, elderly and other social issues has been shared with MoLSD
+- A thorough paper presenting three good examples of the practice framework for the delivery of child, disability and elderly services in countries to set high standards in social service delivery has been submitted to the Minister's office. . 
+- The process of drafting the Childhood Periodic Report has been initiated, a consultant has been hired to do draft it..</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative />
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative />
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00061812</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1721,7 +2050,7 @@
     <description type="1">
       <narrative>Bahrain Institute for Public Administration (BIPA) - Establishing a Capacity Development Facility at BIPA in the Kingdom of Bahrain</narrative>
     </description>
-    <participating-org role="4" type="" ref="00189">
+    <participating-org role="4" type="40" ref="00189">
       <narrative>Bah. Institute of Public Admin</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -1762,6 +2091,13 @@
       <category code="A08" />
       <language code="en" />
     </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/BHR/2012ProgressReportCDF.pdf">
+      <title>
+        <narrative>2012ProgressReportCDF</narrative>
+      </title>
+      <category code="A08" />
+      <language code="en" />
+    </document-link>
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/BHR/Progress%20Report%20Q1%202014.pdf">
       <title>
         <narrative>Progress Report Q1 2014</narrative>
@@ -1779,13 +2115,6 @@
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/BHR/Progress%20Report%20Q4%202014.PDF">
       <title>
         <narrative>Progress Report Q4 2014</narrative>
-      </title>
-      <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/BHR/2012ProgressReportCDF.pdf">
-      <title>
-        <narrative>2012ProgressReportCDF</narrative>
       </title>
       <category code="A08" />
       <language code="en" />
@@ -1808,7 +2137,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00078585" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00078585</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1847,7 +2176,7 @@
         <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
-        <narrative></narrative>
+        <narrative />
       </activity-description>
       <administrative level="1" code="290340" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
@@ -1877,7 +2206,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-03-31">5446</value>
+      <value currency="USD" value-date="2017-04-30">5446</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -1906,8 +2235,8 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">0</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">0</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -1915,12 +2244,12 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">3857</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">3857</value>
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00078585">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00078585">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1932,7 +2261,7 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00078585">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00078585">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1944,7 +2273,7 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00078585">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00078585">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1956,7 +2285,7 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00078585">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00078585">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1968,7 +2297,7 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00078585">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00078585">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1980,19 +2309,19 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00078585">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00078585">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">1589</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">1589</value>
       <provider-org type="10" ref="11376">
         <narrative>The institute of public administration</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00078585">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00078585">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2004,7 +2333,7 @@
       <provider-org type="10" ref="11376">
         <narrative>The institute of public administration</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00078585">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00078585">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2016,7 +2345,7 @@
       <provider-org type="10" ref="11376">
         <narrative>The institute of public administration</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00078585">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00078585">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2028,7 +2357,7 @@
       <provider-org type="10" ref="11376">
         <narrative>The institute of public administration</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00078585">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00078585">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2052,7 +2381,7 @@
       <provider-org type="10" ref="11376">
         <narrative>The institute of public administration</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00078585">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00078585">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2064,7 +2393,7 @@
       <provider-org type="10" ref="11376">
         <narrative>The institute of public administration</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00078585">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00078585">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2119,8 +2448,71 @@
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00061812" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>Specialized Capacity Development Unit (CDF) with clear manadate  is in existence at BIPA.</narrative>
+        </description>
+        <baseline year="2011" value="">
+          <comment>
+            <narrative>No specialized unit for Capacity Assessment/ Development and staff in the field at BIPA.</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2015-01-01" />
+          <period-end iso-date="2015-12-31" />
+          <target value="">
+            <comment>
+              <narrative>- Develop a research portfolio for BIPA that span all the research objectives and subsequent implementation.
+-Develop training materials for all signature services that have already been offered and/or developed by BIPA as part of its consulting offerings.  
+- Plan and execute a research project for the development of a research agenda for Bahrain public administration and other Arab countries during the first quarter of 2015.
+-Develop the CSOM (Consulting Services Operational Manual) to include all necessary templates and processes to deliver BIPA consulting end to end. Extract and develop a training manual/material based on the CSOM to reach out to the public sector through a portfolio of trainings on BIPA consulting methodology.   
+- conduct a preparatory meeting to develop research agenda for public administration research in the MENA Region. The aggregated results of the research will be presented at a dedicated session of the MENAPAR second conference due in October 2015. 
+- Organize the Second Annual Conference of MENAPAR to facilitate exchange of knowledge and experiences among countries and partners in the Arab States in October 2015 in Tunisia.
+- conduct a final evaluation</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>- A research portfolio for BIPA that span all the research objectives and subsequent implementation was develop.
+- Training materials for all signature services that have already been offered and/or developed by BIPA as part of its consulting offerings were developed.  
+- Research project for the development of a research agenda for Bahrain public administration and other Arab countries during the first quarter of 2015 were planned and executed. 
+- Consulting Services Operational Manual (CSOM) to include all necessary templates and processes to deliver BIPA consulting end to end was developed. 
+- The Second Annual Conference of MENAPAR to facilitate exchange of knowledge and experiences among countries and partners in the Arab States was organized in October 2015 in Tunisia.
+- A preparatory meeting to develop research agenda for public administration research in the MENA Region was developed. The aggregated results of the research was presented at a dedicated session of the MENAPAR second conference in October 2015.</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2016-01-01" />
+          <period-end iso-date="2016-12-31" />
+          <target value="">
+            <comment>
+              <narrative>- Conduct the Second MENAPAR Conference in Muscat, Oman.  
+- Showcase best practices from different Arab countries prior to the second MENAPAR Conference. 
+- Present the results of the six public administration studies conducted in 6 Arab countries in the MENAPAR Conference. 
+- Develop new PD for a new pipeline project to institutionalize the MENAPAR.</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>- The Second MENAPAR Conference was conducted in Muscat, Oman.  
+- Best practices from different Arab countries were showcased prior to the second MENAPAR Conference. 
+- The results of the six public administration studies were presented  in the MENAPAR Conference. 
+- New PD for a new pipeline project to institutionalize the MENAPAR was prepared and submitted to Gov.</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00079213</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2131,7 +2523,7 @@
     <description type="1">
       <narrative>Establishment of Centre for Sustainable Energy</narrative>
     </description>
-    <participating-org role="4" type="" ref="00188">
+    <participating-org role="4" type="40" ref="00188">
       <narrative>Officeof theMinister of Energy</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -2172,7 +2564,7 @@
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=36547">
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=34057">
       <title>
         <narrative>Bahrain Unit for Sustainable Energy</narrative>
       </title>
@@ -2186,7 +2578,7 @@
       <category code="A10" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=34057">
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=36547">
       <title>
         <narrative>Bahrain Unit for Sustainable Energy</narrative>
       </title>
@@ -2204,7 +2596,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00089268" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00089268</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2273,17 +2665,17 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-03-31">1063155</value>
+      <value currency="USD" value-date="2017-04-30">1063155</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2017-03-31">2200000</value>
+      <value currency="USD" value-date="2017-04-30">2200000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-03-31">1000000</value>
+      <value currency="USD" value-date="2017-04-30">1000000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -2298,8 +2690,8 @@
     <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">42836</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">95539</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -2307,20 +2699,44 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">420218</value>
+      <transaction-date iso-date="2019-12-31" />
+      <value currency="USD" value-date="2019-12-31">1064826</value>
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00089268">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00089268">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2018-12-31" />
+      <value currency="USD" value-date="2018-12-31">256400</value>
+      <provider-org type="10" ref="00058">
+        <narrative>GOVERNMENT OF BAHRAIN</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00089268">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">420218</value>
+      <provider-org type="10" ref="00058">
+        <narrative>GOVERNMENT OF BAHRAIN</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00089268">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">660556</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">660556</value>
       <provider-org ref="00058" type="10">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
@@ -2336,7 +2752,7 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00089268">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00089268">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2348,27 +2764,51 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00089268">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00089268">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">642937</value>
+      <transaction-date iso-date="2019-12-31" />
+      <value currency="USD" value-date="2019-12-31">1135174</value>
       <provider-org type="10" ref="12330">
         <narrative>Office of Minister of Energy</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00089268">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00089268">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2018-12-31" />
+      <value currency="USD" value-date="2018-12-31">743600</value>
+      <provider-org type="10" ref="12330">
+        <narrative>Office of Minister of Energy</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00089268">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">642937</value>
+      <provider-org type="10" ref="12330">
+        <narrative>Office of Minister of Energy</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00089268">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">325236</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">325236</value>
       <provider-org ref="12330" type="10">
         <narrative>Office of Minister of Energy</narrative>
       </provider-org>
@@ -2384,7 +2824,7 @@
       <provider-org type="10" ref="12330">
         <narrative>Office of Minister of Energy</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00089268">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00089268">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2396,7 +2836,7 @@
       <provider-org type="10" ref="12330">
         <narrative>Office of Minister of Energy</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00089268">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00089268">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2433,8 +2873,79 @@
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00079213" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>Energy Efficiency/ Renewable Energy Strategy/ Policy/ Action Plan in place with nationally adopted targets</narrative>
+        </description>
+        <baseline year="2015" value="">
+          <comment>
+            <narrative>Currently the country does not have a coherent approach to address issues of sustainable energy; mainly energy efficiency and renewable energy. There is no National Energy Policy Paper; Energy Efficiency Strategy nor Renewable Energy Strategy. There are no national targets for energy efficiency or renewable energy.</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2015-01-01" />
+          <period-end iso-date="2015-12-31" />
+          <target value="">
+            <comment>
+              <narrative>- Development of year 1 work plan
+- Producing draft Unit organogram and staffing needs and TORs
+- Development of roadmap for National Energy Efficiency Action Plan (NEEAP)
+- Development of roadmap for National Renewable Energy Action Plan (NREAP)/ Nationally Appropriate Mitigation Actions (NAMAs)
+- Development of TORs for experts to lead on NEEAP and NREAP/ NAMAs</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>- 2015 Work Plan developed
+- Draft organogram and staffing of the unit prepared
+- Roadmaps for the NEEAP and NREAP developed and experts recruited. Inception workshop for NEEAP and NREAP held and stakeholder consultations started.
+- Updating of 2010 Gap Analysis started</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2016-01-01" />
+          <period-end iso-date="2016-12-31" />
+          <target value="">
+            <comment>
+              <narrative>-	Development of two draft national policies on the NEEAP and NREAP
+-	Updating one paper on the Gap Analysis
+-	Proposing structure for SEU</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>- National Energy Action Plan (NEEAP) and National Renewable Energy Action Plan (NREAP) were developed.
+- Gap Analysis was updated.
+- A proposed organigram for SEU was developed.</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative />
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative />
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00080256</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2445,7 +2956,7 @@
     <description type="1">
       <narrative>This project aims to enhance capacity of the Special Investigation Unit (SIU) at the Public Prosecutor's Office to perform its role and assume its responsibilities in an efficient manner and according to international standards.</narrative>
     </description>
-    <participating-org role="4" type="" ref="00187">
+    <participating-org role="4" type="40" ref="00187">
       <narrative>Public Prosecution/SIU</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -2507,7 +3018,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00090029" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00090029</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2579,17 +3090,17 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-03-31">122923</value>
+      <value currency="USD" value-date="2017-04-30">122923</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2017-03-31">50000</value>
+      <value currency="USD" value-date="2017-04-30">50000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-03-31">100000</value>
+      <value currency="USD" value-date="2017-04-30">100000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -2608,8 +3119,8 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">0</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">0</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -2622,19 +3133,43 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00090029">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00090029">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">122923</value>
+      <transaction-date iso-date="2019-12-31" />
+      <value currency="USD" value-date="2019-12-31">50000</value>
       <provider-org type="10" ref="12241">
         <narrative>Public Prosecution, Kingdom of</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00090029">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00090029">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2018-12-31" />
+      <value currency="USD" value-date="2018-12-31">100000</value>
+      <provider-org type="10" ref="12241">
+        <narrative>Public Prosecution, Kingdom of</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00090029">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">122923</value>
+      <provider-org type="10" ref="12241">
+        <narrative>Public Prosecution, Kingdom of</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00090029">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2646,7 +3181,7 @@
       <provider-org type="10" ref="12241">
         <narrative>Public Prosecution, Kingdom of</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00090029">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00090029">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2658,7 +3193,7 @@
       <provider-org type="10" ref="12241">
         <narrative>Public Prosecution, Kingdom of</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00090029">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00090029">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2682,7 +3217,7 @@
       <provider-org type="10" ref="XM-DAC-7">
         <narrative>GOVERNMENT OF NETHERLANDS</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00090029">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00090029">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2694,7 +3229,7 @@
       <provider-org type="10" ref="XM-DAC-7">
         <narrative>GOVERNMENT OF NETHERLANDS</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00090029">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00090029">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2725,8 +3260,87 @@
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00080256" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>1- Improved roles and responsibilities at SIU.
+2- Case management System in place that provides real time information on case status and statistics
+3- Internal and external communication and coordination enhanced</narrative>
+        </description>
+        <baseline year="2014" value="">
+          <comment>
+            <narrative>• SIU established with basic structure and capacities
+• No database for SIU case management
+• No technical expertise available
+• No communication strategy</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2015-01-01" />
+          <period-end iso-date="2015-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1- Develop a Concept Note to organize an Intl Conference on International Standards of the Criminal Investigations against Torture in November 204.  
+2- Plan a study tour for the SIU IT department on Case-Management database and automated functions.
+3- Develop a training plan for the judicial police in cooperation with the British-Joint project with the SIU.
+4- Review of the Case-Management data-base system developed by the SIU.
+5- Assess procedures and capacities of the forensic lab.
+6- Develop an Outreach and Media Strategy.
+7- Awareness workshop on Istanbul Protocols for SIU partners working in the same field.</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>1-	A detailed Concept Note was prepared in both Arabic and English for the planned Intl Conference on the International Standards of the Criminal Investigations against Torture. The Note included content of thematic areas for each session of the Conference along with the type of speakers and specialists and the required experience for the topics. It also included which Intl organizations to be invited for delivering speeches and the countries which have reputable experience and best practices to be presented at the Conference. The planned Conference was postponed to 2016. 
+2-	A study-tour plan was developed for the IT specialist to visit UK to improve the existing technology platform at the SIU and the content of the case management system which is has been developed.  The plan not only emphasizes on the management of the cases and information for organizational, statistical and administrative purposes, but also on reports to be published depicting the progress of the cases as well as cross-analysis of the information (intelligence).
+3-	A training plan was developed for the Judicial Police with hand-on practical training to be undertaken in Northern Ireland. The plan emphasizes on techniques and issues criminal investigations and gathering and use of scientific evidence including interview strategies, human rights of the defendants, cases and guarantees in which the interviews can be or must be audio/video recorded. Also the use of intelligence databases and its analysis in investigations and standards of cases of use and eventual abuse of force by police officers in demonstrations with peaceful and/or hostile demonstrators are also included.  Emphasis is also being pit on ethic standards of Police forces and treatment and protection to be provided to victims, their families and witnesses.
+4-	The Case Management System that has been developed internally by the SIU IT specialist was reviewed by the SPA. Recommendations were on the provision of report producing funct</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2016-01-01" />
+          <period-end iso-date="2016-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1. Building the communication capacity of the SIU. 
+2. Support SIU in publishing the first annual report.
+3. Improve data analysis process.
+4. Continue capacity building for the SIU Prosecutors and Police Officers.</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>The SIU is sustainably following the Istanbul Protocol.
+There has been a focus on building the communication capacity of the SIU. An assistance was provided to carry out SIU’s first annual report highlighting their work in carrying out the BICI recommendations. Through the expert’s support, recommendations were provided and worked on to enhance the data analysis process utilize it in the documentation process during report preparations and publications process.
+A partnership with the British Embassy has been established to support the unit, where a joint capacity building program has been initiated to train the SIU Prosecutors and Police Officers on the processes of Witness Protection, as the unit is building its own witness relations department.</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative />
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative />
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00097390</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2770,10 +3384,18 @@
       <category code="A10" />
       <language code="en" />
     </document-link>
+    <document-link format="text/html" url="http://open.undp.org/#project/00097390">
+      <title>
+        <narrative>Purchase Order Summary</narrative>
+      </title>
+      <category code="A11" />
+      <category code="A12" />
+      <language code="en" />
+    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00101147" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-05-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00101147</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2820,9 +3442,6 @@
       <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="99810" />
-    <sector vocabulary="99" code="0">
-      <narrative>SP_NONE_APPLIES</narrative>
-    </sector>
     <policy-marker vocabulary="1" code="1" significance="1" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
@@ -2832,7 +3451,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-03-31">64549</value>
+      <value currency="USD" value-date="2017-04-30">599657</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -2841,8 +3460,8 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">0</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">0</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -2850,12 +3469,12 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">64549</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">599657</value>
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00101147">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00101147">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2867,7 +3486,7 @@
       <provider-org type="10" ref="00058">
         <narrative>GOVERNMENT OF BAHRAIN</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00101147">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00101147">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />

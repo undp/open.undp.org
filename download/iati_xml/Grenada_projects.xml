@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2017-04-10T11:51:49" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2017-05-23T10:57:37" version="2.02">
   <!--Grenada-->
-  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00040128</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -33,6 +33,7 @@
     <recipient-country code="GD">
       <narrative>Grenada</narrative>
     </recipient-country>
+    <sector vocabulary="1" code="51010" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -82,7 +83,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00045243" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00045243</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -118,7 +119,7 @@
         <narrative>independent political entity</narrative>
       </description>
       <activity-description>
-        <narrative></narrative>
+        <narrative />
       </activity-description>
       <administrative level="0" code="3580239" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
@@ -141,7 +142,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-03-31">63944</value>
+      <value currency="USD" value-date="2017-04-30">63944</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -155,8 +156,8 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">49</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">49</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -164,12 +165,12 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">63944</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">63944</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00045243">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00045243">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -181,7 +182,7 @@
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00045243">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00045243">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -193,7 +194,7 @@
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00045243">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00045243">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -218,8 +219,42 @@
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00040128" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>The Second national Communication report posted on the UNFCCC website. The GHG and V&amp;A reports available in the Ministry of economic affairs. 
+Frequency of public messages and media articles addressing climate change and its impacts.
+Climate change impacts addressed in disaster and development plans..</narrative>
+        </description>
+        <baseline year="2005" value="">
+          <comment>
+            <narrative>Grenada's First National Communication, technology needs assessment and vulnerability reports are currently available at the Ministry of Economic Affairs. There is a cadre of trained persons available to conduct the GHG and V&amp;A assessments.</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2015-01-01" />
+          <period-end iso-date="2015-12-31" />
+          <target value="">
+            <comment>
+              <narrative>Completion of the SNC report</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative />
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00073003</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -250,6 +285,7 @@
     <recipient-country code="GD">
       <narrative>Grenada</narrative>
     </recipient-country>
+    <sector vocabulary="1" code="51010" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -267,13 +303,6 @@
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="image/jpeg" url="https://info.undp.org/docs/pdc/Documents/GRD/IMG_0583.JPG">
-      <title>
-        <narrative>Petitie Martinique Community Meeting - September</narrative>
-      </title>
-      <category code="A03" />
-      <language code="en" />
-    </document-link>
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/GRD/ICCAS%20Billboard%20(5).pdf">
       <title>
         <narrative>Awareness Billboard</narrative>
@@ -284,6 +313,13 @@
     <document-link format="image/jpeg" url="https://info.undp.org/docs/pdc/Documents/GRD/10954483_362762490589305_3089853445758356036_o.jpg">
       <title>
         <narrative>Launch of the Community Liaison Network</narrative>
+      </title>
+      <category code="A03" />
+      <language code="en" />
+    </document-link>
+    <document-link format="image/jpeg" url="https://info.undp.org/docs/pdc/Documents/GRD/IMG_0583.JPG">
+      <title>
+        <narrative>Petitie Martinique Community Meeting - September</narrative>
       </title>
       <category code="A03" />
       <language code="en" />
@@ -323,27 +359,6 @@
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/GRD/August%202014%20Project%20Report.docx">
-      <title>
-        <narrative>UNDP-ICCAS Monthly Report</narrative>
-      </title>
-      <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/GRD/June%20-%20July%202014%20Project%20Report.docx">
-      <title>
-        <narrative>UNDP-ICCAS Monthly Report</narrative>
-      </title>
-      <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/GRD/2014%20July%20-%20September.docx">
-      <title>
-        <narrative>UNDP-ICCAS Quarterly Report</narrative>
-      </title>
-      <category code="A08" />
-      <language code="en" />
-    </document-link>
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/GRD/(5th-8th)%20Grenada%20Mission.pdf">
       <title>
         <narrative>UNDP Mission to Grenada</narrative>
@@ -361,6 +376,27 @@
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/GRD/(22nd-26th)%20Grenada.pdf">
       <title>
         <narrative>UNDP-ICCAS Mission to Grenada</narrative>
+      </title>
+      <category code="A08" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/GRD/August%202014%20Project%20Report.docx">
+      <title>
+        <narrative>UNDP-ICCAS Monthly Report</narrative>
+      </title>
+      <category code="A08" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/GRD/June%20-%20July%202014%20Project%20Report.docx">
+      <title>
+        <narrative>UNDP-ICCAS Monthly Report</narrative>
+      </title>
+      <category code="A08" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/GRD/2014%20July%20-%20September.docx">
+      <title>
+        <narrative>UNDP-ICCAS Quarterly Report</narrative>
       </title>
       <category code="A08" />
       <language code="en" />
@@ -453,7 +489,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00085959" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00085959</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -489,7 +525,7 @@
         <narrative>independent political entity</narrative>
       </description>
       <activity-description>
-        <narrative></narrative>
+        <narrative />
       </activity-description>
       <administrative level="0" code="3580239" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
@@ -512,7 +548,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-03-31">801100</value>
+      <value currency="USD" value-date="2017-04-30">801100</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -536,8 +572,8 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">39109</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">46199</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -545,8 +581,8 @@
     </transaction>
     <transaction>
       <transaction-type code="3" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">31977</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">31977</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -557,20 +593,20 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">801100</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">801100</value>
       <provider-org type="10" ref="DE-1">
         <narrative>FEDERAL MINISTRY FOR THE ENVIRONMENT, NATURE CONVSERVATION AND NUCLEAR SAFETY.</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00085959">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00085959">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">86906</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">86906</value>
       <provider-org ref="DE-1" type="10">
         <narrative>FEDERAL MINISTRY FOR THE ENVIRONMENT, NATURE CONVSERVATION AND NUCLEAR SAFETY.</narrative>
       </provider-org>
@@ -586,7 +622,7 @@
       <provider-org type="10" ref="DE-1">
         <narrative>FEDERAL MINISTRY FOR THE ENVIRONMENT, NATURE CONVSERVATION AND NUCLEAR SAFETY.</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00085959">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00085959">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -610,7 +646,7 @@
       <provider-org type="10" ref="DE-1">
         <narrative>FEDERAL MINISTRY FOR THE ENVIRONMENT, NATURE CONVSERVATION AND NUCLEAR SAFETY.</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00085959">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00085959">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -634,7 +670,7 @@
       <provider-org type="10" ref="DE-1">
         <narrative>FEDERAL MINISTRY FOR THE ENVIRONMENT, NATURE CONVSERVATION AND NUCLEAR SAFETY.</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00085959">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00085959">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -720,6 +756,35 @@ Caribbean Planning for Adaptation to Climate Change (CPACC) implemented 1997-200
           </comment>
         </baseline>
         <period>
+          <period-start iso-date="2015-01-01" />
+          <period-end iso-date="2015-12-31" />
+          <target value="">
+            <comment>
+              <narrative>- 65% of trained CBOs/NGOs implementing approved projects
+- 40% of target population participating in adaptation and risk awareness activities
+- 60% of CCCAF disbursed
+- 2,000 website visits
+- 60% of stakeholders represented 
+- 8 lessons learned and good practices disseminated
+- 100 contributions
+- 4 PSC meetings convened
+- 65% delivery</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>- 25% of CBOs/NGOs implementing approved projects
+- 40% of target population participating in adaptation and risk awareness activities
+- 60% of CCCAF disbursed
+- 7,000 social media visits (website, Facebook, YouTube included)
+- 35 % of stakeholders represented 
+- 0 contributions in online discussions
+- 1PSC meetings convened
+- 65% delivery</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
           <period-start iso-date="2016-01-01" />
           <period-end iso-date="2016-12-31" />
           <target value="">
@@ -747,24 +812,10 @@ Caribbean Planning for Adaptation to Climate Change (CPACC) implemented 1997-200
             </comment>
           </actual>
         </period>
-        <period>
-          <period-start iso-date="2017-01-01" />
-          <period-end iso-date="2017-12-31" />
-          <target value="">
-            <comment>
-              <narrative />
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative />
-            </comment>
-          </actual>
-        </period>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00082951</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -795,14 +846,15 @@ Caribbean Planning for Adaptation to Climate Change (CPACC) implemented 1997-200
     <recipient-country code="GD">
       <narrative>Grenada</narrative>
     </recipient-country>
+    <sector vocabulary="1" code="51010" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
     <default-aid-type code="C01" />
     <default-tied-status code="3" />
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/BRB/R2R%20Prodoc%20Signed.pdf">
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/GRD/GRN%20GEF%20FSP%20Annexes-27June2014%20-%20RCU%2011Dec2014.pdf">
       <title>
-        <narrative>R2R Prodoc Signed</narrative>
+        <narrative>Annexes</narrative>
       </title>
       <category code="A01" />
       <category code="A02" />
@@ -824,9 +876,9 @@ Caribbean Planning for Adaptation to Climate Change (CPACC) implemented 1997-200
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/GRD/GRN%20GEF%20FSP%20Annexes-27June2014%20-%20RCU%2011Dec2014.pdf">
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/BRB/R2R%20Prodoc%20Signed.pdf">
       <title>
-        <narrative>Annexes</narrative>
+        <narrative>R2R Prodoc Signed</narrative>
       </title>
       <category code="A01" />
       <category code="A02" />
@@ -901,7 +953,7 @@ Caribbean Planning for Adaptation to Climate Change (CPACC) implemented 1997-200
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00091627" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00091627</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -939,17 +991,17 @@ Caribbean Planning for Adaptation to Climate Change (CPACC) implemented 1997-200
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-03-31">846492</value>
+      <value currency="USD" value-date="2017-04-30">846492</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2017-03-31">416938</value>
+      <value currency="USD" value-date="2017-04-30">416938</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-03-31">896677</value>
+      <value currency="USD" value-date="2017-04-30">896677</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -963,8 +1015,8 @@ Caribbean Planning for Adaptation to Climate Change (CPACC) implemented 1997-200
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">22879</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">31778</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -972,8 +1024,8 @@ Caribbean Planning for Adaptation to Climate Change (CPACC) implemented 1997-200
     </transaction>
     <transaction>
       <transaction-type code="3" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">1970</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">1970</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -984,12 +1036,36 @@ Caribbean Planning for Adaptation to Climate Change (CPACC) implemented 1997-200
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">846492</value>
+      <transaction-date iso-date="2019-12-31" />
+      <value currency="USD" value-date="2019-12-31">416938</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00091627">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00091627">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2018-12-31" />
+      <value currency="USD" value-date="2018-12-31">896677</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00091627">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">846492</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00091627">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1001,7 +1077,7 @@ Caribbean Planning for Adaptation to Climate Change (CPACC) implemented 1997-200
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00091627">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00091627">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1013,7 +1089,7 @@ Caribbean Planning for Adaptation to Climate Change (CPACC) implemented 1997-200
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00091627">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00091627">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1038,8 +1114,116 @@ Caribbean Planning for Adaptation to Climate Change (CPACC) implemented 1997-200
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00082951" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>OUTCOME 1
+Institutional framework for management effectiveness in and around PAs 
+Regulatory and legal framework for management effectiveness in and around PAs
+Expansion of protected areas system
+Measurable Threat Reduction:
+-	Forest cover
+-	Direct Carbon benefits 
+-	Indirect Carbon benefits
+-	Mangrove, seagrass bed and coral reef areas
+Management of expanded PA network institutionalized
+PA network infrastructure and services
+Community involvement in PA management through conservation and sustainable use of natural resources
+Benefits/profitability from conservation/ sustainable-use resource-based livelihood opportunities
+
+OUTCOME 2
+Planning and management framework for SLM/INRM
+Community participation in SFM.
+Direct carbon benefits through avoided deforestation; forest enrichment; and planting in the Beausejour watershed.
+Turbidity
+Levels/ sediment buildup at two MPAs downstream of Beausejour
+Pesticide and fertilizer levels at two MPAs downstream of Beausejour.
+Application of gender and community-sensitive SLM and SFM practices in 6 communities (Beausejour,  Happy  Hill,  Granville  Vale, New Hampshire,  Annandale  and Vendome)
+Impact of Soil erosion/stability on household incomes of famers within the Beausejour watershed 
+Education and awareness levels</narrative>
+        </description>
+        <baseline year="2014" value="">
+          <comment>
+            <narrative>OUTCOME 1
+- No formal National Parks Advisory Council
+- Forestry Division administers 8 TPAs under suboptimal conditions
+- Fisheries Division administers 3 MPAs.
+- Forestry policy does not include INRM.
+- Fisheries division does not use INRM in its administration of MPAs
+- 3,711 ha of bio-diverse landscapes/seascapes formally recognized and facing multiple threats
+       - 8 TPAs managed under suboptimal conditions and 5 mini TPAs with no management mechanism.
+             - TPAs cover 1,931 ha.
+       - 3 MPAs management suboptimal conditions 
+             - MPAs cover 1,780 ha
+- Continuous deforestation threatens 10,012 hectares
+- 81,652.5 tC (Direct
+- 322,158.3 tC (Indirect)
+- Continuous destruction of 231 Ha of mangrove, 1301 Ha of seagrass and 5095 Ha of reef areas
+- No PA System Business Plan exists
+- No coral Reef resilience program (protocol) in place
+-	No systematic SFM program in place
+
+-	No staff trained in planning accounting, bio principal monitoring, enforcement, fire management and co-management
+-	Inconsistent infrastructure and facilities and services across TPAs and MPAs.
+-	0 communities adjacent to MPAs engaged in PA co-management 
+-	0 communities adjacent to TPAs engaged on PA co-management
+-	No systematic collaboration for INRM linked to livelihood  opportunities 
+-	Minimal benefits from resources based livelihoods
+
+OUTCOME 2
+-	No LUP regulations limiting agriculture and housing.
+-	National Forestry Policy does not consider C sequestration.
+-	No intersectoral body or committee in place for implementing a watershed 
+management plan using INRM approaches.
+-	Stakeholders not engaged in community-based rule-making with respect to applying INRM practices.
+-	No systematic monitoring for water quality/quantity, sediment and pollution impacts
+-	No involvement of local stakeholders in initiatives to review and update the National Forest Policy (NFP) to consider carbon sequestration.
+-	9,613tC sequestration by 3337.3 ha. of private forest
+-	4,320tC seques</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2015-01-01" />
+          <period-end iso-date="2015-12-31" />
+          <target value="">
+            <comment>
+              <narrative>-	Intersectoral committee established within Year 1</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative />
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2016-01-01" />
+          <period-end iso-date="2016-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1. Construction and deployment of 5 FADS on the Western side of Grenada
+2. Establishment of coral nurseries at approved locations
+3. Implementation of Terrestrial Protected Areas education and awareness campaigns</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>1. Due to sudden changes within the administration of the Fisheries Division, the program was put on hold.
+2. During the period of July to November, coral nurseries were established in Grand Anse. 14 coral tables were constructed with the assistance of 4 fishermen volunteers selected.
+3. An education consultant has conducted the following activities: production of outreach materials and five PSAs for radio and TV; school visits; and production of 4 articles for the local media.</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00088191</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1070,6 +1254,7 @@ Caribbean Planning for Adaptation to Climate Change (CPACC) implemented 1997-200
     <recipient-country code="GD">
       <narrative>Grenada</narrative>
     </recipient-country>
+    <sector vocabulary="1" code="41010" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -1087,16 +1272,16 @@ Caribbean Planning for Adaptation to Climate Change (CPACC) implemented 1997-200
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/GRD/Annual%20Work%20Plan%202015.pdf">
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/GRD/2016%20ATLAS%20AWP.pdf">
       <title>
-        <narrative>Annual Work Plan 2015</narrative>
+        <narrative>2016 ATLAS AWP</narrative>
       </title>
       <category code="A05" />
       <language code="en" />
     </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/GRD/2016%20ATLAS%20AWP.pdf">
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/GRD/Annual%20Work%20Plan%202015.pdf">
       <title>
-        <narrative>2016 ATLAS AWP</narrative>
+        <narrative>Annual Work Plan 2015</narrative>
       </title>
       <category code="A05" />
       <language code="en" />
@@ -1113,6 +1298,13 @@ Caribbean Planning for Adaptation to Climate Change (CPACC) implemented 1997-200
         <narrative>UNDAF%20Barbados%20and%20OECS%202012-2016</narrative>
       </title>
       <category code="A09" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=30002">
+      <title>
+        <narrative>Support to Referendum on Constitutional Reform in Grenad</narrative>
+      </title>
+      <category code="A10" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=30006">
@@ -1136,13 +1328,6 @@ Caribbean Planning for Adaptation to Climate Change (CPACC) implemented 1997-200
       <category code="A10" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=30002">
-      <title>
-        <narrative>Support to Referendum on Constitutional Reform in Grenad</narrative>
-      </title>
-      <category code="A10" />
-      <language code="en" />
-    </document-link>
     <document-link format="text/html" url="http://open.undp.org/#project/00088191">
       <title>
         <narrative>Purchase Order Summary</narrative>
@@ -1154,7 +1339,7 @@ Caribbean Planning for Adaptation to Climate Change (CPACC) implemented 1997-200
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00094963" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00094963</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1199,7 +1384,7 @@ Caribbean Planning for Adaptation to Climate Change (CPACC) implemented 1997-200
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-03-31">0</value>
+      <value currency="USD" value-date="2017-04-30">0</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -1213,8 +1398,8 @@ Caribbean Planning for Adaptation to Climate Change (CPACC) implemented 1997-200
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-03-31" />
-      <value currency="USD" value-date="2017-03-31">36</value>
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">56</value>
       <provider-org ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -1227,7 +1412,7 @@ Caribbean Planning for Adaptation to Climate Change (CPACC) implemented 1997-200
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00088191">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00094963">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00094963">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1239,7 +1424,7 @@ Caribbean Planning for Adaptation to Climate Change (CPACC) implemented 1997-200
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00088191">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="00094963">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00094963">
         <narrative>United Nations development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -1264,5 +1449,74 @@ Caribbean Planning for Adaptation to Climate Change (CPACC) implemented 1997-200
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00088191" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>-	Iterative drafting process undertaken, producing revisions following advice
+-	Civic education programme designed and implemented
+-	At least 2 civic education forums targeted at youth and women
+-	Ballots printed
+-	Voter education undertaken
+-	Public Referendum undertaken</narrative>
+        </description>
+        <baseline year="2015" value="">
+          <comment>
+            <narrative>-	Draft Bills initiated by CRAC and under review
+-	Some public consultations undertaken by CRAC
+-	NAM reviewed electoral laws and identified deficiencies
+-      Limited public awareness and knowledge of the constitutional reform process
+-      Limited public knowledge on proposed amendments to the constitution</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2015-01-01" />
+          <period-end iso-date="2015-12-31" />
+          <target value="">
+            <comment>
+              <narrative>-Finalised amendments bills tabled in parliament
+- # of CSO organised engaging in public education and outreach programmes
+- Finalised electoral laws</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>Seven (6) amendments bills have been approved by cabinet.  The first reading is scheduled to take place on  Friday, 4th December 2015.
+
+25 civil society organisation have been invited to an initial training workshop to take place on the 3 - 4 December 2015.
+
+The American Bar Association is currently in the process of reviewing existing legislation and making recommendations for how it could be amended for referendum.  Recruitment is ongoing for a national consultant to draft the referendum law.
+
+A  knowledge and perceptions survey methodology is currently being developed  in order to establish baseline data to inform public education strategies and positioning of the United Nations System in supporting the constitutional reform process moving forward.</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2016-01-01" />
+          <period-end iso-date="2016-12-31" />
+          <target value="">
+            <comment>
+              <narrative>-	At least 10 civil society organisations delivering civic education covering all of Grenada.
+-	100% of poll clerks trained.
+-	Voter education strategy implemented in all of Grenada.</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>9 civil society organisations were awarded small grants in order to conduct civic education around the proposed amendments to the constitutions.  A lessons learnt workshop is planned for the 9th December, where CSOs will deliberate around the impact and effectiveness of the workshops. 
+
+The creation of an ICT platform that will be used by the Parliamentary Elections Office for a more efficient, transparent and rapid communication of referendum results.  In supporting of the rollout of an ICT base platform in order to improve the efficiency of the tallying of votes for the Grenada Referendum. End User training was conducted over a five (5) week period.  All Representatives from participating polling divisions  have the capacity to utilize the software and they were able to manage the activities on referendum day.  Additionally, IT staff in the office of the Supervisor of Elections have the capacity to manage the system from a technical and administrative aspects.
+
+UNDP support to the voter education strategy through the creation of voter education video to support public education as well as the production of a booklet and flyers  around the seven amendment bills and the flyers.</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
 </iati-activities>
