@@ -238,6 +238,7 @@ views.ProjectProfile = Backbone.View.extend({
         		"Meeting Participant" : "Individual", 
         		"Service Contract": "Consultant",
         		"SSA / IC": "Consultant",
+            "SSA / IC / RLA": "Consultant",
         		"Staff": "Individual",
         		"UNV": "UNV"
         	}; // Mapping Vendor names to the neutral terminology - we don't want to expose some details like Consultant names, etc. 
