@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2017-08-05T09:17:41" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2017-09-26T18:30:11" version="2.02">
   <!--Gambia-->
-  <iati-activity last-updated-datetime="2017-08-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00048132</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -25,7 +25,7 @@
     <activity-status code="2" />
     <activity-date type="1" iso-date="2007-09-24" />
     <activity-date type="2" iso-date="2007-09-24" />
-    <activity-date type="3" iso-date="2016-12-31" />
+    <activity-date type="3" iso-date="2017-12-31" />
     <contact-info type="1">
       <email>registry.gm@undp.org</email>
       <website>http://www.gm.undp.org/</website>
@@ -33,7 +33,6 @@
     <recipient-country code="GM">
       <narrative>Gambia</narrative>
     </recipient-country>
-    <sector vocabulary="1" code="99810" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -83,7 +82,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00058143" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-08-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00058143</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -100,7 +99,7 @@
     <activity-status code="2" />
     <activity-date type="1" iso-date="2007-11-06" />
     <activity-date type="2" iso-date="2007-11-06" />
-    <activity-date type="3" iso-date="2013-12-31" />
+    <activity-date type="3" iso-date="2017-12-31" />
     <contact-info type="1">
       <email>registry.gm@undp.org</email>
       <website>http://www.gm.undp.org/</website>
@@ -109,7 +108,26 @@
     <recipient-country code="GM">
       <narrative>Gambia</narrative>
     </recipient-country>
-    <sector vocabulary="1" code="99810" />
+    <location ref="GM">
+      <location-reach code="2" />
+      <location-id vocabulary="G1" code="2413876" />
+      <name>
+        <narrative>Banjul</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative />
+      </activity-description>
+      <administrative level="1" code="2413876" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>13.452740 -16.578030</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <policy-marker vocabulary="1" code="1" significance="0" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
@@ -119,7 +137,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-07-31">0</value>
+      <value currency="USD" value-date="2017-08-31">200</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -148,11 +166,23 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">9</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">9</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">200</value>
+      <provider-org type="10" ref="ES-DIR3-E04585801">
+        <narrative>GOVERNMENT OF SPAIN</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00058143">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -242,7 +272,268 @@
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00048132" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-08-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+    <iati-identifier>XM-DAC-41114-PROJECT-00048225</iati-identifier>
+    <reporting-org ref="XM-DAC-41114" type="40">
+      <narrative>United Nations Development Programme</narrative>
+    </reporting-org>
+    <title>
+      <narrative>Adoptation to climate change Responding to coastline cha</narrative>
+    </title>
+    <description type="1">
+      <narrative>Adaptation to climate change responding to coastline change in its human dimensions in West Africa through integrated coastal area management (ACCC)</narrative>
+    </description>
+    <participating-org role="4" type="10" ref="01252">
+      <narrative>National Execution</narrative>
+    </participating-org>
+    <participating-org role="2" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="10003">
+      <narrative>Global Environment Fund Truste</narrative>
+    </participating-org>
+    <activity-status code="2" />
+    <activity-date type="1" iso-date="2008-01-01" />
+    <activity-date type="2" iso-date="2008-01-01" />
+    <activity-date type="3" iso-date="2017-12-31" />
+    <contact-info type="1">
+      <email>registry.gm@undp.org</email>
+      <website>http://www.gm.undp.org/</website>
+    </contact-info>
+    <recipient-country code="GM">
+      <narrative>Gambia</narrative>
+    </recipient-country>
+    <sector vocabulary="1" code="99810" />
+    <collaboration-type code="4" />
+    <default-flow-type code="10" />
+    <default-finance-type code="110" />
+    <default-aid-type code="C01" />
+    <default-tied-status code="3" />
+    <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/GMB/ACCC%20prodoc.doc">
+      <title>
+        <narrative>Adoptation to Climate Change Responding to Coastline Change in its Human Dimensions in West Africa through Integrated Coastal Area Manangement (ACCC)</narrative>
+      </title>
+      <category code="A01" />
+      <category code="A02" />
+      <category code="A03" />
+      <category code="A04" />
+      <category code="A05" />
+      <category code="A08" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="https://erc.undp.org/evaluation/evaluations/detail/6047">
+      <title>
+        <narrative>Terminal Evaluation of PIMS 3341 - Adaptation to Climate and Coastline Change (ACCC)</narrative>
+      </title>
+      <category code="A07" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="http://www.gm.undp.org/content/dam/gambia/docs/GMB_UNDP_Signed%20Copy%20of%20CPAP%202012%20-%202016.pdf">
+      <title>
+        <narrative>GMB_UNDP_Signed%20Copy%20of%20CPAP%202012%20-%202016</narrative>
+      </title>
+      <category code="A09" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
+      <title>
+        <narrative>Request for Procurement</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="http://open.undp.org/#project/00048225">
+      <title>
+        <narrative>Purchase Order Summary</narrative>
+      </title>
+      <category code="A11" />
+      <category code="A12" />
+      <language code="en" />
+    </document-link>
+    <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00058255" />
+    <conditions attached="0" />
+  </iati-activity>
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+    <iati-identifier>XM-DAC-41114-OUTPUT-00058255</iati-identifier>
+    <reporting-org ref="XM-DAC-41114" type="40">
+      <narrative>United Nations Development Programme</narrative>
+    </reporting-org>
+    <title>
+      <narrative>Adoptation to Climate change R</narrative>
+    </title>
+    <description type="1">
+      <narrative>Adaptation to Climate Change- Responding to Coastline Change in its human dimensions in West Africa through Integrated Coastal Area Management (ACCC)</narrative>
+    </description>
+    <participating-org role="1" type="40" ref="10003">
+      <narrative>Global Environment Fund Truste</narrative>
+    </participating-org>
+    <activity-status code="2" />
+    <activity-date type="1" iso-date="2008-01-01" />
+    <activity-date type="2" iso-date="2008-01-01" />
+    <activity-date type="3" iso-date="2013-12-31" />
+    <contact-info type="1">
+      <email>registry.gm@undp.org</email>
+      <website>http://www.gm.undp.org/</website>
+    </contact-info>
+    <activity-scope code="8" />
+    <recipient-country code="GM">
+      <narrative>Gambia</narrative>
+    </recipient-country>
+    <location ref="GM">
+      <location-reach code="2" />
+      <location-id vocabulary="G1" code="2413106" />
+      <name>
+        <narrative>Kanifing</narrative>
+      </name>
+      <description>
+        <narrative>populated place</narrative>
+      </description>
+      <activity-description>
+        <narrative />
+      </activity-description>
+      <administrative level="1" code="2413106" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>13.446390 -16.674440</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPL" />
+    </location>
+    <sector vocabulary="1" code="99810" />
+    <policy-marker vocabulary="1" code="1" significance="1" />
+    <collaboration-type code="4" />
+    <default-flow-type code="10" />
+    <default-finance-type code="110" />
+    <default-aid-type code="C01" />
+    <default-tied-status code="3" />
+    <budget type="2" status="2">
+      <period-start iso-date="2017-01-01" />
+      <period-end iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-08-31">10</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2016-01-01" />
+      <period-end iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">10</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2014-01-01" />
+      <period-end iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">1400</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2013-01-01" />
+      <period-end iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">1000</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2012-01-01" />
+      <period-end iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">41774</value>
+    </budget>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">0</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">10</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00058255">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">10</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00058255">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">1400</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00058255">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">1000</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00058255">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">41774</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00058255">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">0</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">-95</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">95</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2012-12-31" />
+      <value currency="USD" value-date="2012-12-31">41749</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <document-link format="text/html" url="http://open.undp.org/#project/00048225">
+      <title>
+        <narrative>Activity web page</narrative>
+      </title>
+      <category code="A12" />
+    </document-link>
+    <related-activity type="1" ref="XM-DAC-41114-PROJECT-00048225" />
+    <conditions attached="0" />
+  </iati-activity>
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00065058</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -311,7 +602,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00081685" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-08-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00081685</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -349,7 +640,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-07-31">10400</value>
+      <value currency="USD" value-date="2017-08-31">10400</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -358,8 +649,8 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">8509</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">8786</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -367,8 +658,8 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">10400</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">10400</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00065058">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -404,7 +695,7 @@
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00065058" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-08-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00066971</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -551,9 +842,6 @@
           <target value="3">
             <location ref="GM" />
           </target>
-          <actual value="3">
-            <location ref="GM" />
-          </actual>
         </period>
       </indicator>
       <indicator ascending="0" measure="1">
@@ -580,9 +868,6 @@
           <target value="2694">
             <location ref="GM" />
           </target>
-          <actual value="1890">
-            <location ref="GM" />
-          </actual>
         </period>
       </indicator>
       <indicator ascending="0" measure="1">
@@ -612,10 +897,6 @@
             <location ref="GM" />
             <dimension name="sex" value="female" />
           </target>
-          <actual value="5022">
-            <location ref="GM" />
-            <dimension name="sex" value="female" />
-          </actual>
         </period>
       </indicator>
       <indicator ascending="0" measure="1">
@@ -642,9 +923,6 @@
           <target value="5472">
             <location ref="GM" />
           </target>
-          <actual value="6912">
-            <location ref="GM" />
-          </actual>
         </period>
       </indicator>
       <indicator ascending="0" measure="1">
@@ -671,9 +949,6 @@
           <target value="882">
             <location ref="GM" />
           </target>
-          <actual value="542">
-            <location ref="GM" />
-          </actual>
         </period>
       </indicator>
       <indicator ascending="0" measure="1">
@@ -703,10 +978,6 @@
             <location ref="GM" />
             <dimension name="sex" value="female" />
           </target>
-          <actual value="2084">
-            <location ref="GM" />
-            <dimension name="sex" value="female" />
-          </actual>
         </period>
       </indicator>
       <indicator ascending="0" measure="1">
@@ -733,14 +1004,11 @@
           <target value="1882">
             <location ref="GM" />
           </target>
-          <actual value="2626">
-            <location ref="GM" />
-          </actual>
         </period>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-08-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00082966</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -811,7 +1079,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-07-31">728593</value>
+      <value currency="USD" value-date="2017-08-31">728593</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -841,8 +1109,8 @@
     <capital-spend percentage="2.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">354932</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">417581</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -874,8 +1142,8 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">728593</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">728593</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00066971">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -1091,7 +1359,7 @@
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-08-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00082967</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1150,7 +1418,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-07-31">100000</value>
+      <value currency="USD" value-date="2017-08-31">74000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -1179,8 +1447,8 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">8010</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">26646</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -1188,8 +1456,8 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">100000</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">74000</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00066971">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -1389,7 +1657,7 @@ Indicators:
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-08-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00082968</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1455,7 +1723,7 @@ Indicators:
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-07-31">700750</value>
+      <value currency="USD" value-date="2017-08-31">700750</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -1485,8 +1753,8 @@ Indicators:
     <capital-spend percentage="5.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">509749</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">382934</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -1494,8 +1762,8 @@ Indicators:
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">700750</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">700750</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00066971">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -1704,7 +1972,7 @@ Indicators:
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-08-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00082969</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1770,7 +2038,7 @@ Indicators:
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-07-31">5000</value>
+      <value currency="USD" value-date="2017-08-31">31000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -1799,8 +2067,8 @@ Indicators:
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">-192</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">29832</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -1808,8 +2076,8 @@ Indicators:
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">5000</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">31000</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00066971">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -2001,7 +2269,7 @@ Indicators:
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-08-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00082970</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2060,7 +2328,7 @@ Indicators:
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-07-31">50000</value>
+      <value currency="USD" value-date="2017-08-31">190000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -2089,8 +2357,8 @@ Indicators:
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">56</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">56</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -2098,8 +2366,8 @@ Indicators:
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">50000</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">190000</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00066971">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -2282,7 +2550,7 @@ Indicators:
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-08-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00082978</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2351,7 +2619,7 @@ Indicators:
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-07-31">150000</value>
+      <value currency="USD" value-date="2017-08-31">150000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -2381,8 +2649,8 @@ Indicators:
     <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">12766</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">12766</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -2414,8 +2682,8 @@ Indicators:
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">150000</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">150000</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00066971">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -2528,7 +2796,7 @@ Indicators:
     <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00082970" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-08-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00067001</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2599,6 +2867,13 @@ Indicators:
       <category code="A08" />
       <language code="en" />
     </document-link>
+    <document-link format="text/html" url="https://erc.undp.org/evaluation/evaluations/detail/8881">
+      <title>
+        <narrative>SONGHAI terminal evaluation</narrative>
+      </title>
+      <category code="A07" />
+      <language code="en" />
+    </document-link>
     <document-link format="application/pdf" url="http://www.gm.undp.org/content/dam/gambia/docs/GMB_UNDP_Signed%20Copy%20of%20CPAP%202012%20-%202016.pdf">
       <title>
         <narrative>GMB_UNDP_Signed%20Copy%20of%20CPAP%202012%20-%202016</narrative>
@@ -2659,10 +2934,6 @@ Indicators:
             <location ref="GM" />
             <dimension name="sex" value="female" />
           </target>
-          <actual value="239">
-            <location ref="GM" />
-            <dimension name="sex" value="female" />
-          </actual>
         </period>
       </indicator>
       <indicator ascending="0" measure="1">
@@ -2686,12 +2957,9 @@ Indicators:
         <period>
           <period-start iso-date="2017-01-01" />
           <period-end iso-date="2017-12-31" />
-          <target value="243">
+          <target value="300">
             <location ref="GM" />
           </target>
-          <actual value="518">
-            <location ref="GM" />
-          </actual>
         </period>
       </indicator>
       <indicator ascending="0" measure="1">
@@ -2715,12 +2983,9 @@ Indicators:
         <period>
           <period-start iso-date="2017-01-01" />
           <period-end iso-date="2017-12-31" />
-          <target value="467">
+          <target value="524">
             <location ref="GM" />
           </target>
-          <actual value="757">
-            <location ref="GM" />
-          </actual>
         </period>
       </indicator>
       <indicator ascending="0" measure="1">
@@ -2750,10 +3015,6 @@ Indicators:
             <location ref="GM" />
             <dimension name="sex" value="female" />
           </target>
-          <actual value="4018">
-            <location ref="GM" />
-            <dimension name="sex" value="female" />
-          </actual>
         </period>
       </indicator>
       <indicator ascending="0" measure="1">
@@ -2780,9 +3041,6 @@ Indicators:
           <target value="3026">
             <location ref="GM" />
           </target>
-          <actual value="2096">
-            <location ref="GM" />
-          </actual>
         </period>
       </indicator>
       <indicator ascending="0" measure="1">
@@ -2809,9 +3067,6 @@ Indicators:
           <target value="8239">
             <location ref="GM" />
           </target>
-          <actual value="7351">
-            <location ref="GM" />
-          </actual>
         </period>
       </indicator>
       <indicator ascending="0" measure="1">
@@ -2838,9 +3093,6 @@ Indicators:
           <target value="3">
             <location ref="GM" />
           </target>
-          <actual value="3">
-            <location ref="GM" />
-          </actual>
         </period>
       </indicator>
       <indicator ascending="0" measure="1">
@@ -2867,9 +3119,6 @@ Indicators:
           <target value="2694">
             <location ref="GM" />
           </target>
-          <actual value="1890">
-            <location ref="GM" />
-          </actual>
         </period>
       </indicator>
       <indicator ascending="0" measure="1">
@@ -2899,10 +3148,6 @@ Indicators:
             <location ref="GM" />
             <dimension name="sex" value="female" />
           </target>
-          <actual value="5022">
-            <location ref="GM" />
-            <dimension name="sex" value="female" />
-          </actual>
         </period>
       </indicator>
       <indicator ascending="0" measure="1">
@@ -2929,9 +3174,6 @@ Indicators:
           <target value="5472">
             <location ref="GM" />
           </target>
-          <actual value="6912">
-            <location ref="GM" />
-          </actual>
         </period>
       </indicator>
       <indicator ascending="0" measure="1">
@@ -2958,9 +3200,6 @@ Indicators:
           <target value="882">
             <location ref="GM" />
           </target>
-          <actual value="542">
-            <location ref="GM" />
-          </actual>
         </period>
       </indicator>
       <indicator ascending="0" measure="1">
@@ -2990,10 +3229,6 @@ Indicators:
             <location ref="GM" />
             <dimension name="sex" value="female" />
           </target>
-          <actual value="2084">
-            <location ref="GM" />
-            <dimension name="sex" value="female" />
-          </actual>
         </period>
       </indicator>
       <indicator ascending="0" measure="1">
@@ -3020,14 +3255,11 @@ Indicators:
           <target value="1882">
             <location ref="GM" />
           </target>
-          <actual value="2626">
-            <location ref="GM" />
-          </actual>
         </period>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-08-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00082979</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3093,7 +3325,7 @@ Indicators:
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-07-31">450000</value>
+      <value currency="USD" value-date="2017-08-31">450000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -3122,8 +3354,8 @@ Indicators:
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">109937</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">114231</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -3131,8 +3363,8 @@ Indicators:
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">450000</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">450000</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00067001">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -3323,7 +3555,7 @@ Indicators:
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-08-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00082980</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3395,7 +3627,7 @@ Indicators:
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-07-31">450000</value>
+      <value currency="USD" value-date="2017-08-31">450000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -3424,8 +3656,8 @@ Indicators:
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">95411</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">113360</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -3433,8 +3665,8 @@ Indicators:
     </transaction>
     <transaction>
       <transaction-type code="3" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">259004</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">259004</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -3493,8 +3725,8 @@ Indicators:
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">450000</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">450000</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00067001">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -3703,7 +3935,7 @@ Indicators:
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-08-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00082981</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3772,7 +4004,7 @@ Indicators:
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-07-31">0</value>
+      <value currency="USD" value-date="2017-08-31">0</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -3801,8 +4033,8 @@ Indicators:
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">95</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">95</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -3982,7 +4214,7 @@ Indicators:
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-08-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00074214</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4118,10 +4350,6 @@ Indicators:
             <location ref="GM" />
             <dimension name="sex" value="female" />
           </target>
-          <actual value="239">
-            <location ref="GM" />
-            <dimension name="sex" value="female" />
-          </actual>
         </period>
       </indicator>
       <indicator ascending="0" measure="1">
@@ -4145,12 +4373,9 @@ Indicators:
         <period>
           <period-start iso-date="2017-01-01" />
           <period-end iso-date="2017-12-31" />
-          <target value="243">
+          <target value="300">
             <location ref="GM" />
           </target>
-          <actual value="518">
-            <location ref="GM" />
-          </actual>
         </period>
       </indicator>
       <indicator ascending="0" measure="1">
@@ -4174,12 +4399,9 @@ Indicators:
         <period>
           <period-start iso-date="2017-01-01" />
           <period-end iso-date="2017-12-31" />
-          <target value="467">
+          <target value="524">
             <location ref="GM" />
           </target>
-          <actual value="757">
-            <location ref="GM" />
-          </actual>
         </period>
       </indicator>
       <indicator ascending="0" measure="1">
@@ -4209,10 +4431,6 @@ Indicators:
             <location ref="GM" />
             <dimension name="sex" value="female" />
           </target>
-          <actual value="4018">
-            <location ref="GM" />
-            <dimension name="sex" value="female" />
-          </actual>
         </period>
       </indicator>
       <indicator ascending="0" measure="1">
@@ -4239,9 +4457,6 @@ Indicators:
           <target value="3026">
             <location ref="GM" />
           </target>
-          <actual value="2096">
-            <location ref="GM" />
-          </actual>
         </period>
       </indicator>
       <indicator ascending="0" measure="1">
@@ -4268,14 +4483,11 @@ Indicators:
           <target value="8239">
             <location ref="GM" />
           </target>
-          <actual value="7351">
-            <location ref="GM" />
-          </actual>
         </period>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-08-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00086726</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4323,7 +4535,7 @@ Indicators:
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-07-31">3715912</value>
+      <value currency="USD" value-date="2017-08-31">3548890</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -4342,8 +4554,8 @@ Indicators:
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">160817</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">718759</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -4351,8 +4563,8 @@ Indicators:
     </transaction>
     <transaction>
       <transaction-type code="3" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">205255</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">205255</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -4363,8 +4575,8 @@ Indicators:
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">3284063</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">3117041</value>
       <provider-org type="40" ref="10003" provider-activity-id="PIMS 4782">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -4411,8 +4623,8 @@ Indicators:
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">431849</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">431849</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00074214">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -4766,7 +4978,7 @@ More than 1500 families expected to benefit at the completion and operation of t
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-08-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00083699</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4847,7 +5059,7 @@ More than 1500 families expected to benefit at the completion and operation of t
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00092043" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-08-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00092043</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4885,12 +5097,12 @@ More than 1500 families expected to benefit at the completion and operation of t
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-07-31">1249697</value>
+      <value currency="USD" value-date="2017-08-31">1249697</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-07-31">344900</value>
+      <value currency="USD" value-date="2017-08-31">344900</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -4904,8 +5116,8 @@ More than 1500 families expected to benefit at the completion and operation of t
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">250420</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">395336</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -4925,8 +5137,8 @@ More than 1500 families expected to benefit at the completion and operation of t
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">1249697</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">1249697</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -5081,7 +5293,7 @@ IC- flood modelling/forecasting/risk management
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-08-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00086794</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -5185,12 +5397,9 @@ IC- flood modelling/forecasting/risk management
         <period>
           <period-start iso-date="2017-01-01" />
           <period-end iso-date="2017-12-31" />
-          <target value="1">
+          <target value="2">
             <location ref="GM" />
           </target>
-          <actual value="8">
-            <location ref="GM" />
-          </actual>
         </period>
       </indicator>
       <indicator ascending="0" measure="1">
@@ -5217,9 +5426,6 @@ IC- flood modelling/forecasting/risk management
           <target value="8">
             <location ref="GM" />
           </target>
-          <actual value="8">
-            <location ref="GM" />
-          </actual>
         </period>
       </indicator>
       <indicator ascending="0" measure="1">
@@ -5246,14 +5452,11 @@ IC- flood modelling/forecasting/risk management
           <target value="8">
             <location ref="GM" />
           </target>
-          <actual value="8">
-            <location ref="GM" />
-          </actual>
         </period>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-08-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00093990</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -5301,7 +5504,7 @@ IC- flood modelling/forecasting/risk management
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-07-31">16434</value>
+      <value currency="USD" value-date="2017-08-31">16434</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -5316,8 +5519,8 @@ IC- flood modelling/forecasting/risk management
     <capital-spend percentage="17.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">5950</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">5950</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -5325,8 +5528,8 @@ IC- flood modelling/forecasting/risk management
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">16434</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">16434</value>
       <provider-org type="10" ref="00141">
         <narrative>GOVERNMENT OF JAPAN</narrative>
       </provider-org>
@@ -5453,7 +5656,7 @@ IC- flood modelling/forecasting/risk management
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-08-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00089259</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -5561,7 +5764,7 @@ IC- flood modelling/forecasting/risk management
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00095587" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-08-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00095587</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -5602,12 +5805,12 @@ IC- flood modelling/forecasting/risk management
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-07-31">541411</value>
+      <value currency="USD" value-date="2017-08-31">541411</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-07-31">293354</value>
+      <value currency="USD" value-date="2017-08-31">293354</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -5621,8 +5824,8 @@ IC- flood modelling/forecasting/risk management
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">81615</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">185072</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -5642,8 +5845,8 @@ IC- flood modelling/forecasting/risk management
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">511411</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">511411</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -5678,8 +5881,8 @@ IC- flood modelling/forecasting/risk management
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">30000</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">30000</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00089259">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -5733,7 +5936,7 @@ IC- flood modelling/forecasting/risk management
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00089259" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-08-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00096128</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -5785,6 +5988,18 @@ IC- flood modelling/forecasting/risk management
       <category code="A08" />
       <language code="en" />
     </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/GMB/Signed%20document.pdf">
+      <title>
+        <narrative>Support to the Gambia Electoral Cycle</narrative>
+      </title>
+      <category code="A01" />
+      <category code="A02" />
+      <category code="A03" />
+      <category code="A04" />
+      <category code="A05" />
+      <category code="A08" />
+      <language code="en" />
+    </document-link>
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/GMB/Election%20Cover%20page.pdf">
       <title>
         <narrative>Signed Cover Page</narrative>
@@ -5817,7 +6032,7 @@ IC- flood modelling/forecasting/risk management
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00100109" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-08-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00100109</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -5865,12 +6080,12 @@ IC- flood modelling/forecasting/risk management
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-07-31">345000</value>
+      <value currency="USD" value-date="2017-08-31">437558</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-07-31">10000</value>
+      <value currency="USD" value-date="2017-08-31">10000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -5879,17 +6094,29 @@ IC- flood modelling/forecasting/risk management
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">177929</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">178016</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">232558</value>
+      <provider-org type="40" ref="10159">
+        <narrative>EUROPEAN COMMISSION</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00100109">
+        <narrative>United Nations development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">232558</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">232558</value>
       <provider-org ref="10159" type="40">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -5912,8 +6139,8 @@ IC- flood modelling/forecasting/risk management
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">345000</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">205000</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00096128">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -5949,7 +6176,7 @@ IC- flood modelling/forecasting/risk management
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00096128" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-08-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00098934</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6023,7 +6250,7 @@ IC- flood modelling/forecasting/risk management
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00102117" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-08-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00102117</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6068,12 +6295,12 @@ IC- flood modelling/forecasting/risk management
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-07-31">17500</value>
+      <value currency="USD" value-date="2017-08-31">17500</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-07-31">25000</value>
+      <value currency="USD" value-date="2017-08-31">25000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -6082,8 +6309,8 @@ IC- flood modelling/forecasting/risk management
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">0</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">0</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -6103,8 +6330,8 @@ IC- flood modelling/forecasting/risk management
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">17500</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">17500</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00098934">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -6140,7 +6367,7 @@ IC- flood modelling/forecasting/risk management
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00098934" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-08-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00103813</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6228,7 +6455,7 @@ IC- flood modelling/forecasting/risk management
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00105687" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-08-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00105686</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6237,7 +6464,7 @@ IC- flood modelling/forecasting/risk management
       <narrative>Support to SSR in Gambia</narrative>
     </title>
     <description type="1">
-      <narrative>support to development of SSR policy and implementation frameowrk</narrative>
+      <narrative>support to development of SSR policy and implementation framework</narrative>
     </description>
     <participating-org role="1" type="40" ref="11363">
       <narrative>Peacebuilding Fund</narrative>
@@ -6273,12 +6500,12 @@ IC- flood modelling/forecasting/risk management
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-07-31">980000</value>
+      <value currency="USD" value-date="2017-08-31">980000</value>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">0</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">45398</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -6286,8 +6513,8 @@ IC- flood modelling/forecasting/risk management
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">980000</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">980000</value>
       <provider-org type="40" ref="11363">
         <narrative>Peacebuilding Fund</narrative>
       </provider-org>
@@ -6298,8 +6525,8 @@ IC- flood modelling/forecasting/risk management
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">980000</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">980000</value>
       <provider-org ref="11363" type="40">
         <narrative>Peacebuilding Fund</narrative>
       </provider-org>
@@ -6318,7 +6545,7 @@ IC- flood modelling/forecasting/risk management
     <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00105687" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-08-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-09-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00105687</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6363,12 +6590,12 @@ IC- flood modelling/forecasting/risk management
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-07-31">770400</value>
+      <value currency="USD" value-date="2017-08-31">770400</value>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">0</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">158977</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations development Programme</narrative>
       </provider-org>
@@ -6376,8 +6603,8 @@ IC- flood modelling/forecasting/risk management
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">770400</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">770400</value>
       <provider-org type="40" ref="11363">
         <narrative>Peacebuilding Fund</narrative>
       </provider-org>
@@ -6388,8 +6615,8 @@ IC- flood modelling/forecasting/risk management
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2017-07-31" />
-      <value currency="USD" value-date="2017-07-31">720000</value>
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">720000</value>
       <provider-org ref="11363" type="40">
         <narrative>Peacebuilding Fund</narrative>
       </provider-org>
