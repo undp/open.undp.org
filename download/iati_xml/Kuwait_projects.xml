@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2017-11-21T10:37:39" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2017-12-06T17:44:11" version="2.02">
   <!--Kuwait-->
-  <iati-activity last-updated-datetime="2017-11-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00058316</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -34,6 +34,7 @@ National Traffic and Transport Sector Strategy for Kuwait.</narrative>
     <recipient-country code="KW">
       <narrative>Kuwait</narrative>
     </recipient-country>
+    <sector vocabulary="1" code="15110" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -351,8 +352,97 @@ National Traffic and Transport Sector Strategy for Kuwait.</narrative>
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00072396" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Integrated Results and Resources Framework (IRRF)</narrative>
+      </title>
+      <description>
+        <narrative>The IRRF is UNDP’s results framework to monitor and report on its achievements against the Strategic Plan 2014-2017. UNDP publishes country level IRRF results that UNDP’s projects contributed to</narrative>
+      </description>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator 1.1.1.A.1.1</narrative>
+        </title>
+        <description>
+          <narrative>number of new full-time equivalent jobs created for women 15+ years old</narrative>
+        </description>
+        <baseline year="2013" value="0" />
+        <period>
+          <period-start iso-date="2016-01-01" />
+          <period-end iso-date="2016-12-31" />
+          <target value="38">
+            <location ref="KW" />
+            <dimension name="sex" value="female" />
+          </target>
+          <actual value="38">
+            <location ref="KW" />
+            <dimension name="sex" value="female" />
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="38">
+            <location ref="KW" />
+            <dimension name="sex" value="female" />
+          </target>
+        </period>
+      </indicator>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator 1.1.1.A.2.1</narrative>
+        </title>
+        <description>
+          <narrative>number of new full-time equivalent jobs created for men 15+ years old</narrative>
+        </description>
+        <baseline year="2013" value="0" />
+        <period>
+          <period-start iso-date="2016-01-01" />
+          <period-end iso-date="2016-12-31" />
+          <target value="0">
+            <location ref="KW" />
+          </target>
+          <actual value="0">
+            <location ref="KW" />
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="0">
+            <location ref="KW" />
+          </target>
+        </period>
+      </indicator>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator 1.1.1.A.3.1</narrative>
+        </title>
+        <description>
+          <narrative>total number of new full-time equivalent jobs created</narrative>
+        </description>
+        <baseline year="2013" value="0" />
+        <period>
+          <period-start iso-date="2016-01-01" />
+          <period-end iso-date="2016-12-31" />
+          <target value="38">
+            <location ref="KW" />
+          </target>
+          <actual value="38">
+            <location ref="KW" />
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="38">
+            <location ref="KW" />
+          </target>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-11-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00072396</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -382,11 +472,14 @@ National Traffic and Transport Sector Strategy for Kuwait.</narrative>
       <location-reach code="2" />
       <location-id vocabulary="G1" code="285570" />
       <name>
-        <narrative>State of Kuwait</narrative>
+        <narrative>Kuwait</narrative>
       </name>
       <description>
         <narrative>independent political entity</narrative>
       </description>
+      <activity-description>
+        <narrative />
+      </activity-description>
       <administrative level="0" code="285570" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
         <pos>29.500000 47.750000</pos>
@@ -395,6 +488,17 @@ National Traffic and Transport Sector Strategy for Kuwait.</narrative>
       <location-class code="1" />
       <feature-designation code="PCLI" />
     </location>
+    <sector vocabulary="1" code="15110" />
+    <sector vocabulary="99" code="1">
+      <narrative>Inclusive &amp; Sustainable Growth</narrative>
+    </sector>
+    <country-budget-items vocabulary="1">
+      <budget-item code="3.1.1" percentage="100">
+        <description>
+          <narrative>policy, planning and administration</narrative>
+        </description>
+      </budget-item>
+    </country-budget-items>
     <policy-marker vocabulary="1" code="1" significance="0" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
@@ -404,12 +508,12 @@ National Traffic and Transport Sector Strategy for Kuwait.</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-10-31">2841570</value>
+      <value currency="USD" value-date="2017-11-30">2841570</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-10-31">2703695</value>
+      <value currency="USD" value-date="2017-11-30">2703695</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -438,8 +542,8 @@ National Traffic and Transport Sector Strategy for Kuwait.</narrative>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">1658554</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">1688901</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -447,8 +551,8 @@ National Traffic and Transport Sector Strategy for Kuwait.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">2703695</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">2703695</value>
       <provider-org type="10" ref="00145">
         <narrative>GOVERNMENT OF KUWAIT</narrative>
       </provider-org>
@@ -459,8 +563,8 @@ National Traffic and Transport Sector Strategy for Kuwait.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">2841570</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">2841570</value>
       <provider-org type="10" ref="00145">
         <narrative>GOVERNMENT OF KUWAIT</narrative>
       </provider-org>
@@ -543,8 +647,8 @@ National Traffic and Transport Sector Strategy for Kuwait.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">9543620</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">9543620</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -588,95 +692,8 @@ National Traffic and Transport Sector Strategy for Kuwait.</narrative>
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00058316" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>Output 1:
-- Centralized / integrated electronic information system developed.
-- Capacity of GDT enhanced. 
-- Information – specific cadres selected and trained.
-
-Output 2:
-- Modern blackspot and road safety system established.
-- Accident investigation procedures enhanced.
-- Safety conscious - road design system established. 
-- Specialised cadres in blackspot and road safety selected and trained.
-
-Output 3:
-- Appropriate implementation process of the approved NTTS established nationwide.
-- Progress achieved toward implementation of the required institutional reform and staff training.
-- Centres of Excellence and new units established within the GDT.
-- Link with the private sector and stakeholders established to tackle traffic problems. 
-- M  E system established.</narrative>
-        </description>
-        <baseline year="2009" value="">
-          <comment>
-            <narrative>Output 1:
-- No centralized / integrated electronic information system available. 
-- Inadequate capacity of the GDT to provide traffic-related services for the stakeholders. 
-- Lack of information expertise.
-
-Output 2:
-- Absence of modern blackspot and road safety system.
-- Unavailability of modern accident investigation procedures.
-- Lack of accident documentations.
-- Shortage of specialised skills in blackspot and road safety. 
-- Unavailability of safety conscious- road design system.
-
-Output 3:
-- Lack of implementation of the Government approved NTTS by relevant Ministries.
-- Slow progress toward implementation of the required institutional reform to enhance capacity and optimize the use of resources.
-- Lack of efficient sector-specific skills.
-- Unavailability of equipment, software, systems, devices and guidelines.</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>Output 1: - Fully operational system in place and linked with relevant GDT Directorates - Protocol to download electronic data and collect data from various sources established - User manual and guidelines developed and disseminated to relevant GDT staff - Project website established and access provided to decision makers, practitioners and stakeholders - Operation police in all Governorates provided with iPAD for data collection - Relevant GDT Directorates provided with equipment and socialized software, and institutional management enhanced - 100 police officers, engineers and technician trained on the use of the system.
-
-Output 2: - Uniform blackspot and road safety system in use in the 6 Governorates - National blackspot guidelines developed and disseminated within the GDT and for relevant Ministries - Accident investigation guidelines developed and disseminated within the GDT and General Directorate of Investigation - Identification and treatment of 50 blackspots locations per annum - Reduction of road traffic fatalities to below 460 - Reduction of fatality rate per 100,000 populations to below 14 - 160 National cadres trained in use of the system.
-
-Output 3: - Efficient system established with support of the Supreme Traffic Council and Deputy Ministers to ensure implementation of the NTTS by relevant Ministries - Capacity of the GDT enhanced, and new transport authority approved by the National Assembly in July 2014 and established by the Government in October 2014, and operational support provided during 2015 - Organisational structures developed for the new Centres of Excellence and equipment and devises provided on time - Guidelines in traffic operations, awareness and driving license developed and disseminated - 2 International workshops for training of the national cadres in areas which are not available nationally   addressed by the Ministers and attended by over 450 people - 80 women trained in specialized areas - Joint programs with the stakeholders,</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>Output 1:
-- Continuation of building the NTIS system.
-- Continuation of assessment of traffic congestion and plotting of GIS map data – ongoing task.
-- Coordination with General Directorate of Traffic and relevant departments for information system design, development and interfacing of relevant data - ongoing task.
-- Installation of GIS hardware and software in new Project Office with the networking datasets – ongoing task.
-- Scanning of GIS / AutoCAD maps received from Ministry of Electricity and Water (MEW) is in progress for identifying electricity poles location in Kuwait which will be used in the “Out of the Box” software system – ongoing task.
-- ArcGIS Personal Geodatabase for electricity poles location is under progress from the AutoCAD maps - ongoing task.
-- Settlements of TRL Team in Strategy Project office at GDT HQ.
-- Identification of required software, system and information for the successful bidder of the “Out of the Box” software.
-- Maps scanning and plotting of important landmarks by using A0 scanner – ongoing task.
-- Continuation of the Project Team in the development of Accidents, Traffic, Offences and other relevant information and system using the available resources.
-- Project Initiation Meeting with TRL team Conducted on 2nd Aug 2015 on the Project overview.
-- Accident Reporting Form (ARF) review discussion meeting with TRL team on 11 Aug 2015, TRL provided a live demo of the iMAAP system to MOI  UNDP and demonstrated various features of iMAAP.
-- Accident Reporting Form has been completed by TRL as per the planned activities and approved by GDT with slight modifications.
-- Various progress meetings have been conducted by Project Team and Project coordinators, GDT-MOI as mentioned below.
-
-Output 2:
-- Continuation of assessment of traffic congestion and preparation of GIS maps – ongoing task.
-- Continuation of study of black spot data.
-- Coordination with General Directorate of Traffic and relevant departments for database design  developmen</narrative>
-            </comment>
-          </actual>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-11-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00066516</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -685,7 +702,7 @@ Output 2:
       <narrative>Support the State Audit Bureau to develop a performance</narrative>
     </title>
     <description type="1">
-      <narrative>Support the State Audit Bureau to develop a performance management framework</narrative>
+      <narrative>Support the State Audit Bureau to develop a performance management framework to increase effectiveness of monitoring and control of various government entities' performance.</narrative>
     </description>
     <participating-org role="4" type="10" ref="01752">
       <narrative>National Execution</narrative>
@@ -739,13 +756,6 @@ Output 2:
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="application/pdf" url="http://www.kw.undp.org/content/kuwait/en/home/operations/legal_framework/_jcr_content/centerparsys/download_3/file.res/090330-CPAP-V0-2013%20(CPD%201).pdf">
-      <title>
-        <narrative>090330-CPAP-V0-2013%20(CPD%201)</narrative>
-      </title>
-      <category code="A09" />
-      <language code="en" />
-    </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
       <title>
         <narrative>Request for Procurement</narrative>
@@ -764,7 +774,7 @@ Output 2:
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00082681" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-11-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00082681</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -773,7 +783,7 @@ Output 2:
       <narrative>Support the State Audit Bureau</narrative>
     </title>
     <description type="1">
-      <narrative>Improved transparency and accountability at the National level</narrative>
+      <narrative>Improved institutional transparency, accountability and national capacities at the National level.</narrative>
     </description>
     <participating-org role="1" type="10" ref="00145">
       <narrative>GOVERNMENT OF KUWAIT</narrative>
@@ -794,11 +804,14 @@ Output 2:
       <location-reach code="2" />
       <location-id vocabulary="G1" code="285570" />
       <name>
-        <narrative>State of Kuwait</narrative>
+        <narrative>Kuwait</narrative>
       </name>
       <description>
         <narrative>independent political entity</narrative>
       </description>
+      <activity-description>
+        <narrative />
+      </activity-description>
       <administrative level="0" code="285570" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
         <pos>29.500000 47.750000</pos>
@@ -827,7 +840,7 @@ Output 2:
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-10-31">740602</value>
+      <value currency="USD" value-date="2017-11-30">740602</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -851,8 +864,8 @@ Output 2:
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">304629</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">304629</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -860,8 +873,8 @@ Output 2:
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">740602</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">740602</value>
       <provider-org type="10" ref="00145">
         <narrative>GOVERNMENT OF KUWAIT</narrative>
       </provider-org>
@@ -920,8 +933,8 @@ Output 2:
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">1083744</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">1083744</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -1008,7 +1021,7 @@ advertisement of  RFP started on 26 Nov 2015</narrative>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-11-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00087622</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1017,7 +1030,7 @@ advertisement of  RFP started on 26 Nov 2015</narrative>
       <narrative>Support to Public Authority of Manpower</narrative>
     </title>
     <description type="1">
-      <narrative>PAM is partnering with UNDP, IOM ILO to improve the labor conditions. This prog aims to support PAM to develop internal capacity in reporting on its own performance, on labor movement  on compliance with int'l labor standards.</narrative>
+      <narrative>PAM is partnering with UNDP, IOM&amp;amp; ILO to improve the labor conditions. This prog aims to support PAM to develop internal capacity in reporting on its own performance, on labor movement &amp;amp; on compliance with int'l labor standards.</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -1285,13 +1298,6 @@ advertisement of  RFP started on 26 Nov 2015</narrative>
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="application/pdf" url="http://www.kw.undp.org/content/kuwait/en/home/operations/legal_framework/_jcr_content/centerparsys/download_3/file.res/090330-CPAP-V0-2013%20(CPD%201).pdf">
-      <title>
-        <narrative>090330-CPAP-V0-2013%20(CPD%201)</narrative>
-      </title>
-      <category code="A09" />
-      <language code="en" />
-    </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=31083">
       <title>
         <narrative>Support to Public Authority of Manpower</narrative>
@@ -1399,7 +1405,7 @@ advertisement of  RFP started on 26 Nov 2015</narrative>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-11-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00094565</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1429,7 +1435,7 @@ advertisement of  RFP started on 26 Nov 2015</narrative>
     </recipient-country>
     <sector vocabulary="1" code="15110" />
     <sector vocabulary="99" code="1">
-      <narrative>Inclusive  Sustainable Growth</narrative>
+      <narrative>Inclusive &amp; Sustainable Growth</narrative>
     </sector>
     <country-budget-items vocabulary="1">
       <budget-item code="3.1.1" percentage="100">
@@ -1447,7 +1453,7 @@ advertisement of  RFP started on 26 Nov 2015</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-10-31">1130369</value>
+      <value currency="USD" value-date="2017-11-30">1130369</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -1461,8 +1467,8 @@ advertisement of  RFP started on 26 Nov 2015</narrative>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">344622</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">344662</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -1470,8 +1476,8 @@ advertisement of  RFP started on 26 Nov 2015</narrative>
     </transaction>
     <transaction>
       <transaction-type code="3" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">749240</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">749240</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -1482,8 +1488,8 @@ advertisement of  RFP started on 26 Nov 2015</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">1130369</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">1130369</value>
       <provider-org type="10" ref="00145">
         <narrative>GOVERNMENT OF KUWAIT</narrative>
       </provider-org>
@@ -1530,8 +1536,8 @@ advertisement of  RFP started on 26 Nov 2015</narrative>
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">2412626</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">2412626</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -1588,7 +1594,7 @@ Output 3.4:
 - Number of capacity building workshops held on ILS implementation for parliamentarians.
 Output 4.1:
 1- Number of Employees of Public Authority of Manpower leadership team trained.
-2-Number of Enforcement Priorities established  Enforcement Plan developed.
+2-Number of Enforcement Priorities established &amp; Enforcement Plan developed.
 Output 4.2:
 - Assessment and recommendations completed
 Output 4.3:
@@ -1674,7 +1680,7 @@ Output 2:
 - PAM staff trained on shelter management- 50
 - Study tour to share best practices- 1
 - Technical roundtable- 1
-- Pre  post feasibility assessment on AVRR- 2
+- Pre &amp; post feasibility assessment on AVRR- 2
 - Migrants provided with AVRR- 75
 Output 3:
 - At least 8 Government, 8 Employers and 8 Workers representatives participated in a Standards training course in the ILO Training Centre in Turin.
@@ -1737,7 +1743,7 @@ SOPs developed for the shelter, Yes.
 
 Output 3.1: # of Government, Employers and Workers representatives participated in a Standards training course in the ILO Training Centre in Turin and Kuwait. 23.
 Output 4.1: Number of Employees of Public Authority of Manpower leadership team trained, 13.
-Number of Enforcement Priorities established  Enforcement Plan developed, 9.
+Number of Enforcement Priorities established &amp; Enforcement Plan developed, 9.
 Output 4.5: % of national OSH policy and profile produced, 40%.
 Output 4.6: Number of training courses are conducted on basic OSH and risk assessment, 3
 Output 5.1: Data gathering team established  (Y/N), Yes
@@ -1794,7 +1800,7 @@ The role of the civil society organizations has been also strengt</narrative>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-11-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00091562</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1841,13 +1847,6 @@ The role of the civil society organizations has been also strengt</narrative>
       <category code="A04" />
       <category code="A05" />
       <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="application/pdf" url="http://www.kw.undp.org/content/kuwait/en/home/operations/legal_framework/_jcr_content/centerparsys/download_3/file.res/090330-CPAP-V0-2013%20(CPD%201).pdf">
-      <title>
-        <narrative>090330-CPAP-V0-2013%20(CPD%201)</narrative>
-      </title>
-      <category code="A09" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=27559">
@@ -1962,6 +1961,27 @@ The role of the civil society organizations has been also strengt</narrative>
       <category code="A10" />
       <language code="en" />
     </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=42566">
+      <title>
+        <narrative>ICDI / KNDP</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=42894">
+      <title>
+        <narrative>ICDI / KNDP</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=42970">
+      <title>
+        <narrative>ICDI / KNDP</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
     <document-link format="text/html" url="http://open.undp.org/#project/00091562">
       <title>
         <narrative>Purchase Order Summary</narrative>
@@ -1973,7 +1993,7 @@ The role of the civil society organizations has been also strengt</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00096707" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-11-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00096707</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1995,12 +2015,33 @@ The role of the civil society organizations has been also strengt</narrative>
       <email>registry.kw@undp.org</email>
       <website>http://www.kw.undp.org/</website>
     </contact-info>
+    <activity-scope code="8" />
     <recipient-country code="KW">
       <narrative>Kuwait</narrative>
     </recipient-country>
+    <location ref="KW">
+      <location-reach code="2" />
+      <location-id vocabulary="G1" code="285787" />
+      <name>
+        <narrative>Kuwait City</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative>GSSCPD Kuwait</narrative>
+      </activity-description>
+      <administrative level="1" code="285787" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>29.369720 47.978330</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <sector vocabulary="1" code="99810" />
     <sector vocabulary="99" code="7">
-      <narrative>Development Impact  Effectiveness</narrative>
+      <narrative>Development Impact &amp; Effectiveness</narrative>
     </sector>
     <policy-marker vocabulary="1" code="1" significance="0" />
     <collaboration-type code="4" />
@@ -2011,12 +2052,12 @@ The role of the civil society organizations has been also strengt</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-10-31">6817257</value>
+      <value currency="USD" value-date="2017-11-30">6817257</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-10-31">9066551</value>
+      <value currency="USD" value-date="2017-11-30">9066551</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -2028,10 +2069,11 @@ The role of the civil society organizations has been also strengt</narrative>
       <period-end iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">994697</value>
     </budget>
+    <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">5186296</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">5602686</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -2039,8 +2081,8 @@ The role of the civil society organizations has been also strengt</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">9066551</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">9066551</value>
       <provider-org type="10" ref="00145">
         <narrative>GOVERNMENT OF KUWAIT</narrative>
       </provider-org>
@@ -2051,8 +2093,8 @@ The role of the civil society organizations has been also strengt</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">6817257</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">6817257</value>
       <provider-org type="10" ref="00145">
         <narrative>GOVERNMENT OF KUWAIT</narrative>
       </provider-org>
@@ -2063,8 +2105,8 @@ The role of the civil society organizations has been also strengt</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">12750000</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">12750000</value>
       <provider-org ref="00145" type="10">
         <narrative>GOVERNMENT OF KUWAIT</narrative>
       </provider-org>
@@ -2111,8 +2153,8 @@ The role of the civil society organizations has been also strengt</narrative>
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">22811035</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">22811035</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -2169,7 +2211,7 @@ Provision of demand-based recruitment of technical experts for public entities</
           <actual value="">
             <comment>
               <narrative>Creation of a Human Resources Strategy 2015-2025 for GSSCPD, informed by the institutional skills audit with an HR database, executive plan, SOPs and a staff capacity development plan (skills)
-Creation of an effective ME mechanism based on an assessment, gaps analysis that includes necessary database, systems or tools
+Creation of an effective M&amp;E mechanism based on an assessment, gaps analysis that includes necessary database, systems or tools
 Delivery of the action plan with development of 12 generic profiles as a first stage for the establishment of  a consultancy roster 
 Technical support through Experts to the development of the CSB 1. indicators; 2.sampling and survey techniques;3.assess and monitor KOPSII;4.International/Foreign Trade;5.Labour Market Statistics for National indicators for economic development 
 Technical Experts were provided to the following national entities to assist in developing sectorial plans linked to the NMRDP.</narrative>
@@ -2192,7 +2234,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-11-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00091631</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2239,13 +2281,6 @@ Development of teh establioshed demand-based recruitment of technical experts fo
       <category code="A04" />
       <category code="A05" />
       <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="application/pdf" url="http://www.kw.undp.org/content/kuwait/en/home/operations/legal_framework/_jcr_content/centerparsys/download_3/file.res/090330-CPAP-V0-2013%20(CPD%201).pdf">
-      <title>
-        <narrative>090330-CPAP-V0-2013%20(CPD%201)</narrative>
-      </title>
-      <category code="A09" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=36699">
@@ -2308,7 +2343,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00096747" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-11-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00096747</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2330,12 +2365,33 @@ Development of teh establioshed demand-based recruitment of technical experts fo
       <email>registry.kw@undp.org</email>
       <website>http://www.kw.undp.org/</website>
     </contact-info>
+    <activity-scope code="4" />
     <recipient-country code="KW">
       <narrative>Kuwait</narrative>
     </recipient-country>
+    <location ref="KW">
+      <location-reach code="2" />
+      <location-id vocabulary="G1" code="285570" />
+      <name>
+        <narrative>Kuwait</narrative>
+      </name>
+      <description>
+        <narrative>independent political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative>Support the Public Authority for Disabled Affairs (PADA) to achieve Kuwait 2035 Vision Towards Persons with Disability</narrative>
+      </activity-description>
+      <administrative level="0" code="285570" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>29.500000 47.750000</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="1" />
+      <feature-designation code="PCLI" />
+    </location>
     <sector vocabulary="1" code="16010" />
     <sector vocabulary="99" code="1">
-      <narrative>Inclusive  Sustainable Growth</narrative>
+      <narrative>Inclusive &amp; Sustainable Growth</narrative>
     </sector>
     <country-budget-items vocabulary="1">
       <budget-item code="5.4.1" percentage="100">
@@ -2353,12 +2409,12 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-10-31">813007</value>
+      <value currency="USD" value-date="2017-11-30">799410</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-10-31">1185114</value>
+      <value currency="USD" value-date="2017-11-30">1185114</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -2367,8 +2423,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">272883</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">287184</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -2376,8 +2432,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">1185114</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">1185114</value>
       <provider-org type="10" ref="00145">
         <narrative>GOVERNMENT OF KUWAIT</narrative>
       </provider-org>
@@ -2388,8 +2444,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">813007</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">799410</value>
       <provider-org type="10" ref="00145">
         <narrative>GOVERNMENT OF KUWAIT</narrative>
       </provider-org>
@@ -2412,8 +2468,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">1999999</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">1986402</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -2434,7 +2490,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00091631" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-11-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00091766</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2471,14 +2527,26 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <default-finance-type code="110" />
     <default-aid-type code="C01" />
     <default-tied-status code="3" />
-    <document-link format="application/pdf" url="http://www.kw.undp.org/content/kuwait/en/home/operations/legal_framework/_jcr_content/centerparsys/download_3/file.res/090330-CPAP-V0-2013%20(CPD%201).pdf">
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/KWT/Environment_KEGI%20_%20PRODOC.pdf">
       <title>
-        <narrative>090330-CPAP-V0-2013%20(CPD%201)</narrative>
+        <narrative>Support KEPA with the New Environmental Law</narrative>
       </title>
-      <category code="A09" />
+      <category code="A01" />
+      <category code="A02" />
+      <category code="A03" />
+      <category code="A04" />
+      <category code="A05" />
+      <category code="A08" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=42363">
+      <title>
+        <narrative>Support KEPA with the New Environmental Law</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=42969">
       <title>
         <narrative>Support KEPA with the New Environmental Law</narrative>
       </title>
@@ -2585,7 +2653,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-11-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00096804</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2607,12 +2675,33 @@ Development of teh establioshed demand-based recruitment of technical experts fo
       <email>registry.kw@undp.org</email>
       <website>http://www.kw.undp.org/</website>
     </contact-info>
+    <activity-scope code="8" />
     <recipient-country code="KW">
       <narrative>Kuwait</narrative>
     </recipient-country>
+    <location ref="KW">
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="285787" />
+      <name>
+        <narrative>Kuwait City</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative>Kuwait</narrative>
+      </activity-description>
+      <administrative level="1" code="285787" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>29.369720 47.978330</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <sector vocabulary="1" code="15110" />
     <sector vocabulary="99" code="1">
-      <narrative>Inclusive  Sustainable Growth</narrative>
+      <narrative>Inclusive &amp; Sustainable Growth</narrative>
     </sector>
     <country-budget-items vocabulary="1">
       <budget-item code="3.1.1" percentage="100">
@@ -2630,17 +2719,18 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-10-31">406482</value>
+      <value currency="USD" value-date="2017-11-30">406482</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-10-31">1593517</value>
+      <value currency="USD" value-date="2017-11-30">1593517</value>
     </budget>
+    <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">39038</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">40981</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -2648,8 +2738,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">1593517</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">1593517</value>
       <provider-org type="10" ref="00145">
         <narrative>GOVERNMENT OF KUWAIT</narrative>
       </provider-org>
@@ -2660,8 +2750,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">406482</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">406482</value>
       <provider-org type="10" ref="00145">
         <narrative>GOVERNMENT OF KUWAIT</narrative>
       </provider-org>
@@ -2672,8 +2762,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">1999999</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">1999999</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -2688,7 +2778,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00091766" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-11-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00091868</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2725,13 +2815,6 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <default-finance-type code="110" />
     <default-aid-type code="C01" />
     <default-tied-status code="3" />
-    <document-link format="application/pdf" url="http://www.kw.undp.org/content/kuwait/en/home/operations/legal_framework/_jcr_content/centerparsys/download_3/file.res/090330-CPAP-V0-2013%20(CPD%201).pdf">
-      <title>
-        <narrative>090330-CPAP-V0-2013%20(CPD%201)</narrative>
-      </title>
-      <category code="A09" />
-      <language code="en" />
-    </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=36829">
       <title>
         <narrative>National Drug Use Prevention Policy and Management</narrative>
@@ -2757,7 +2840,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00096863" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-11-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00096863</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2766,7 +2849,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
       <narrative>Prevention of Drug Abuse and A</narrative>
     </title>
     <description type="1">
-      <narrative>The project aim is the eradication of the drug problem in Kuwait with prominence on all stages of prevention, treatment, and relapse avoidance.</narrative>
+      <narrative>Improved in depth knowledge of drug use prevention related services and national situation, and establishment of national policy and management body for national streamlined efforts.</narrative>
     </description>
     <participating-org role="1" type="10" ref="00145">
       <narrative>GOVERNMENT OF KUWAIT</narrative>
@@ -2784,7 +2867,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </recipient-country>
     <sector vocabulary="1" code="16010" />
     <sector vocabulary="99" code="1">
-      <narrative>Inclusive  Sustainable Growth</narrative>
+      <narrative>Inclusive &amp; Sustainable Growth</narrative>
     </sector>
     <country-budget-items vocabulary="1">
       <budget-item code="5.4.1" percentage="100">
@@ -2793,7 +2876,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
         </description>
       </budget-item>
     </country-budget-items>
-    <policy-marker vocabulary="1" code="1" significance="1" />
+    <policy-marker vocabulary="1" code="1" significance="0" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -2802,17 +2885,18 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-10-31">150000</value>
+      <value currency="USD" value-date="2017-11-30">150000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-10-31">1850000</value>
+      <value currency="USD" value-date="2017-11-30">1850000</value>
     </budget>
+    <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">29938</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">29299</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -2820,8 +2904,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">1850000</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">1850000</value>
       <provider-org type="10" ref="00145">
         <narrative>GOVERNMENT OF KUWAIT</narrative>
       </provider-org>
@@ -2832,8 +2916,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">150000</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">150000</value>
       <provider-org type="10" ref="00145">
         <narrative>GOVERNMENT OF KUWAIT</narrative>
       </provider-org>
@@ -2844,8 +2928,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">2000000</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">2000000</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -2860,7 +2944,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00091868" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-11-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00097274</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2907,13 +2991,6 @@ Development of teh establioshed demand-based recruitment of technical experts fo
       <category code="A04" />
       <category code="A05" />
       <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="application/pdf" url="http://www.kw.undp.org/content/kuwait/en/home/operations/legal_framework/_jcr_content/centerparsys/download_3/file.res/090330-CPAP-V0-2013%20(CPD%201).pdf">
-      <title>
-        <narrative>090330-CPAP-V0-2013%20(CPD%201)</narrative>
-      </title>
-      <category code="A09" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
@@ -3023,7 +3100,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-11-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00101063</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3045,12 +3122,33 @@ Development of teh establioshed demand-based recruitment of technical experts fo
       <email>registry.kw@undp.org</email>
       <website>http://www.kw.undp.org/</website>
     </contact-info>
+    <activity-scope code="8" />
     <recipient-country code="KW">
       <narrative>Kuwait</narrative>
     </recipient-country>
+    <location ref="KW">
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="285787" />
+      <name>
+        <narrative>Kuwait City</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative>Kuwait City</narrative>
+      </activity-description>
+      <administrative level="1" code="285787" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>29.369720 47.978330</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <sector vocabulary="1" code="15110" />
     <sector vocabulary="99" code="1">
-      <narrative>Inclusive  Sustainable Growth</narrative>
+      <narrative>Inclusive &amp; Sustainable Growth</narrative>
     </sector>
     <country-budget-items vocabulary="1">
       <budget-item code="3.1.1" percentage="100">
@@ -3068,17 +3166,18 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-10-31">229625</value>
+      <value currency="USD" value-date="2017-11-30">25175</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-10-31">270375</value>
+      <value currency="USD" value-date="2017-11-30">270375</value>
     </budget>
+    <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">24138</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">24961</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -3086,8 +3185,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">270375</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">270375</value>
       <provider-org type="10" ref="00145">
         <narrative>GOVERNMENT OF KUWAIT</narrative>
       </provider-org>
@@ -3098,8 +3197,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">229625</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">25175</value>
       <provider-org type="10" ref="00145">
         <narrative>GOVERNMENT OF KUWAIT</narrative>
       </provider-org>
@@ -3110,8 +3209,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">500000</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">295550</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -3126,7 +3225,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00097274" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-11-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00097664</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3135,7 +3234,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
       <narrative>Support to Public Authority for Sport</narrative>
     </title>
     <description type="1">
-      <narrative>The project will support the implementation of Kuwait’s sports development plan  to support the Public Authority for Sport (PAS) to provide the proper grounds to develop youth socially, emotionally  physically, by providing sports for all ages.</narrative>
+      <narrative>The project will support the implementation of Kuwait’s sports development plan &amp;amp; to support the Public Authority for Sport (PAS) to provide the proper grounds to develop youth socially, emotionally &amp;amp; physically, by providing sports for all ages.</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -3175,13 +3274,6 @@ Development of teh establioshed demand-based recruitment of technical experts fo
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="application/pdf" url="http://www.kw.undp.org/content/kuwait/en/home/operations/legal_framework/_jcr_content/centerparsys/download_3/file.res/090330-CPAP-V0-2013%20(CPD%201).pdf">
-      <title>
-        <narrative>090330-CPAP-V0-2013%20(CPD%201)</narrative>
-      </title>
-      <category code="A09" />
-      <language code="en" />
-    </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
       <title>
         <narrative>Request for Procurement</narrative>
@@ -3200,7 +3292,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00101305" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-11-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00101305</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3222,6 +3314,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
       <email>registry.kw@undp.org</email>
       <website>http://www.kw.undp.org/</website>
     </contact-info>
+    <activity-scope code="8" />
     <recipient-country code="KW">
       <narrative>Kuwait</narrative>
     </recipient-country>
@@ -3245,12 +3338,12 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-10-31">1010430</value>
+      <value currency="USD" value-date="2017-11-30">1010430</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-10-31">1000000</value>
+      <value currency="USD" value-date="2017-11-30">1000000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -3259,8 +3352,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">412386</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">453669</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -3268,8 +3361,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">1000000</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">1000000</value>
       <provider-org type="10" ref="00145">
         <narrative>GOVERNMENT OF KUWAIT</narrative>
       </provider-org>
@@ -3280,8 +3373,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">1010430</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">1010430</value>
       <provider-org type="10" ref="00145">
         <narrative>GOVERNMENT OF KUWAIT</narrative>
       </provider-org>
@@ -3304,8 +3397,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">2057367</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">2057367</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -3386,7 +3479,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-11-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00098909</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3445,13 +3538,6 @@ Development of teh establioshed demand-based recruitment of technical experts fo
       <category code="A04" />
       <category code="A05" />
       <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="application/pdf" url="http://www.kw.undp.org/content/kuwait/en/home/operations/legal_framework/_jcr_content/centerparsys/download_3/file.res/090330-CPAP-V0-2013%20(CPD%201).pdf">
-      <title>
-        <narrative>090330-CPAP-V0-2013%20(CPD%201)</narrative>
-      </title>
-      <category code="A09" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=36629">
@@ -3556,7 +3642,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00102106" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-11-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00102106</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3578,9 +3664,30 @@ Development of teh establioshed demand-based recruitment of technical experts fo
       <email>registry.kw@undp.org</email>
       <website>http://www.kw.undp.org/</website>
     </contact-info>
+    <activity-scope code="8" />
     <recipient-country code="KW">
       <narrative>Kuwait</narrative>
     </recipient-country>
+    <location ref="KW">
+      <location-reach code="2" />
+      <location-id vocabulary="G1" code="285787" />
+      <name>
+        <narrative>Kuwait City</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative>GSSCPD Kuwait</narrative>
+      </activity-description>
+      <administrative level="1" code="285787" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>29.369720 47.978330</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <sector vocabulary="1" code="41010" />
     <sector vocabulary="99" code="2">
       <narrative>Democratic Governance</narrative>
@@ -3601,17 +3708,17 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-10-31">613565</value>
+      <value currency="USD" value-date="2017-11-30">613565</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-10-31">2419785</value>
+      <value currency="USD" value-date="2017-11-30">2419785</value>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">207371</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">308052</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -3619,8 +3726,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">2419785</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">2419785</value>
       <provider-org type="10" ref="00145">
         <narrative>GOVERNMENT OF KUWAIT</narrative>
       </provider-org>
@@ -3631,8 +3738,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">613565</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">613565</value>
       <provider-org type="10" ref="00145">
         <narrative>GOVERNMENT OF KUWAIT</narrative>
       </provider-org>
@@ -3643,8 +3750,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">3033350</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">3033350</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -3659,7 +3766,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00098909" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-11-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00098910</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3708,13 +3815,6 @@ Development of teh establioshed demand-based recruitment of technical experts fo
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="application/pdf" url="http://www.kw.undp.org/content/kuwait/en/home/operations/legal_framework/_jcr_content/centerparsys/download_3/file.res/090330-CPAP-V0-2013%20(CPD%201).pdf">
-      <title>
-        <narrative>090330-CPAP-V0-2013%20(CPD%201)</narrative>
-      </title>
-      <category code="A09" />
-      <language code="en" />
-    </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
       <title>
         <narrative>Request for Procurement</narrative>
@@ -3733,7 +3833,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00102107" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-11-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00102107</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3755,9 +3855,30 @@ Development of teh establioshed demand-based recruitment of technical experts fo
       <email>registry.kw@undp.org</email>
       <website>http://www.kw.undp.org/</website>
     </contact-info>
+    <activity-scope code="8" />
     <recipient-country code="KW">
       <narrative>Kuwait</narrative>
     </recipient-country>
+    <location ref="KW">
+      <location-reach code="2" />
+      <location-id vocabulary="G1" code="285787" />
+      <name>
+        <narrative>Kuwait City</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative>GSSCPD Kuwait</narrative>
+      </activity-description>
+      <administrative level="1" code="285787" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>29.369720 47.978330</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <sector vocabulary="1" code="15170" />
     <sector vocabulary="99" code="4">
       <narrative>Gender Equality</narrative>
@@ -3778,17 +3899,18 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-10-31">159124</value>
+      <value currency="USD" value-date="2017-11-30">159124</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-10-31">340876</value>
+      <value currency="USD" value-date="2017-11-30">340876</value>
     </budget>
+    <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">42158</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">42376</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -3796,8 +3918,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">340876</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">340876</value>
       <provider-org type="10" ref="00145">
         <narrative>GOVERNMENT OF KUWAIT</narrative>
       </provider-org>
@@ -3808,8 +3930,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">159124</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">159124</value>
       <provider-org type="10" ref="00145">
         <narrative>GOVERNMENT OF KUWAIT</narrative>
       </provider-org>
@@ -3820,8 +3942,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">500000</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">500000</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -3836,7 +3958,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00098910" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-11-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00099129</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3873,11 +3995,28 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <default-finance-type code="110" />
     <default-aid-type code="C01" />
     <default-tied-status code="3" />
-    <document-link format="application/pdf" url="http://www.kw.undp.org/content/kuwait/en/home/operations/legal_framework/_jcr_content/centerparsys/download_3/file.res/090330-CPAP-V0-2013%20(CPD%201).pdf">
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/KWT/20170417.SDG5_PRODOC_Final_Eng.pdf">
       <title>
-        <narrative>090330-CPAP-V0-2013%20(CPD%201)</narrative>
+        <narrative>SDG 5 Project Document - English</narrative>
       </title>
-      <category code="A09" />
+      <category code="A01" />
+      <category code="A02" />
+      <category code="A03" />
+      <category code="A04" />
+      <category code="A05" />
+      <category code="A08" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/KWT/20170417.SDG5_PRODOC_Final_Arb.pdf">
+      <title>
+        <narrative>SDG5 Project Document Arabic</narrative>
+      </title>
+      <category code="A01" />
+      <category code="A02" />
+      <category code="A03" />
+      <category code="A04" />
+      <category code="A05" />
+      <category code="A08" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
@@ -3993,7 +4132,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-11-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00102365</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4002,7 +4141,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
       <narrative>Kuwait implementation of SDG5</narrative>
     </title>
     <description type="1">
-      <narrative>The focus is on three key areas: 1) the enhancement of women’s participation in political and public life; 2) women’s participation in all sectors and 3) Making data available to support elaboration of a comprehensive national plan to address VAW.</narrative>
+      <narrative>The focus is on three key areas: 1) political empowerment; 2) economic empowerment 3) Making data available to support elaboration of a comprehensive national plan to address violence against women.</narrative>
     </description>
     <participating-org role="1" type="10" ref="00145">
       <narrative>GOVERNMENT OF KUWAIT</narrative>
@@ -4015,6 +4154,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
       <email>registry.kw@undp.org</email>
       <website>http://www.kw.undp.org/</website>
     </contact-info>
+    <activity-scope code="8" />
     <recipient-country code="KW">
       <narrative>Kuwait</narrative>
     </recipient-country>
@@ -4038,17 +4178,18 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-10-31">600000</value>
+      <value currency="USD" value-date="2017-11-30">151908</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-10-31">2256716</value>
+      <value currency="USD" value-date="2017-11-30">2256716</value>
     </budget>
+    <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">39065</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">38555</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -4056,8 +4197,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">2256716</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">2256716</value>
       <provider-org type="10" ref="00145">
         <narrative>GOVERNMENT OF KUWAIT</narrative>
       </provider-org>
@@ -4068,8 +4209,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">600000</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">151908</value>
       <provider-org type="10" ref="00145">
         <narrative>GOVERNMENT OF KUWAIT</narrative>
       </provider-org>
@@ -4080,8 +4221,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">2856716</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">2408624</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -4096,16 +4237,16 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00099129" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-11-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00099130</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
     </reporting-org>
     <title>
-      <narrative>Preservation  Promotion of Kwt’s Cultural Heritage</narrative>
+      <narrative>Preservation &amp; Promotion of Kwt’s Cultural Heritage</narrative>
     </title>
     <description type="1">
-      <narrative>This project aims to preserve  promote Kuwait's Cultural Heritage through the support of the National Council for Culture, the Arts and Literature (NCCAL).</narrative>
+      <narrative>This project aims to preserve &amp;amp; promote Kuwait's Cultural Heritage through the support of the National Council for Culture, the Arts and Literature (NCCAL).</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -4133,13 +4274,6 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <default-finance-type code="110" />
     <default-aid-type code="C01" />
     <default-tied-status code="3" />
-    <document-link format="application/pdf" url="http://www.kw.undp.org/content/kuwait/en/home/operations/legal_framework/_jcr_content/centerparsys/download_3/file.res/090330-CPAP-V0-2013%20(CPD%201).pdf">
-      <title>
-        <narrative>090330-CPAP-V0-2013%20(CPD%201)</narrative>
-      </title>
-      <category code="A09" />
-      <language code="en" />
-    </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
       <title>
         <narrative>Request for Procurement</narrative>
@@ -4158,7 +4292,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00102378" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-11-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00102378</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4167,7 +4301,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
       <narrative>Kuwait’s Cultural Heritage</narrative>
     </title>
     <description type="1">
-      <narrative>This project aims to preserve  promote Kuwait's Cultural Heritage through the support of the National Council for Culture, the Arts and Literature (NCCAL).</narrative>
+      <narrative>This project aims to preserve &amp;amp; promote Kuwait's Cultural Heritage through the support of the National Council for Culture, the Arts and Literature (NCCAL).</narrative>
     </description>
     <participating-org role="1" type="10" ref="00145">
       <narrative>GOVERNMENT OF KUWAIT</narrative>
@@ -4185,7 +4319,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </recipient-country>
     <sector vocabulary="1" code="99810" />
     <sector vocabulary="99" code="7">
-      <narrative>Development Impact  Effectiveness</narrative>
+      <narrative>Development Impact &amp; Effectiveness</narrative>
     </sector>
     <policy-marker vocabulary="1" code="1" significance="1" />
     <collaboration-type code="4" />
@@ -4196,17 +4330,18 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-10-31">150000</value>
+      <value currency="USD" value-date="2017-11-30">150000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-10-31">850000</value>
+      <value currency="USD" value-date="2017-11-30">850000</value>
     </budget>
+    <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">2924</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">2924</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -4214,8 +4349,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="3" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">6513</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">6513</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -4226,8 +4361,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">850000</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">850000</value>
       <provider-org type="10" ref="00145">
         <narrative>GOVERNMENT OF KUWAIT</narrative>
       </provider-org>
@@ -4238,8 +4373,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">150000</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">150000</value>
       <provider-org type="10" ref="00145">
         <narrative>GOVERNMENT OF KUWAIT</narrative>
       </provider-org>
@@ -4250,8 +4385,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">1000000</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">1000000</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -4266,7 +4401,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00099130" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-11-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00100028</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4275,7 +4410,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
       <narrative>Youth Empowerment in Kuwait</narrative>
     </title>
     <description type="1">
-      <narrative>Strengthen the capacities of MoSYA  PAY to enable them to better harness the energy  power of youth  their ability to achieve the SDGs. And to position KWT to play a leadership role in the area of youth empowerment at the regional and int'l levels</narrative>
+      <narrative>Strengthen the capacities of MoSYA &amp;amp; PAY to enable them to better harness the energy &amp;amp; power of youth &amp;amp; their ability to achieve the SDGs. And to position KWT to play a leadership role in the area of youth empowerment at the regional and int'l levels</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -4303,16 +4438,21 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <default-finance-type code="110" />
     <default-aid-type code="C01" />
     <default-tied-status code="3" />
-    <document-link format="application/pdf" url="http://www.kw.undp.org/content/kuwait/en/home/operations/legal_framework/_jcr_content/centerparsys/download_3/file.res/090330-CPAP-V0-2013%20(CPD%201).pdf">
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/KWT/Youth%20Empowerment%20in%20Kuwait%20_%20PRODOC.pdf">
       <title>
-        <narrative>090330-CPAP-V0-2013%20(CPD%201)</narrative>
+        <narrative>Youth Empowerment in Kuwait</narrative>
       </title>
-      <category code="A09" />
+      <category code="A01" />
+      <category code="A02" />
+      <category code="A03" />
+      <category code="A04" />
+      <category code="A05" />
+      <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=42891">
       <title>
-        <narrative>Request for Procurement</narrative>
+        <narrative>Youth Empowerment in Kuwait</narrative>
       </title>
       <category code="A10" />
       <language code="en" />
@@ -4328,7 +4468,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00103195" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-11-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00103195</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4337,7 +4477,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
       <narrative>Youth Empowerment in Kuwait</narrative>
     </title>
     <description type="1">
-      <narrative>Strengthen the capacities of MoSYA  PAY to enable them to better harness the energy  power of youth  their ability to achieve the SDGs. And to position KWT to play a leadership role in the area of youth empowerment at the regional and int'l levels</narrative>
+      <narrative>Strengthen the capacities of MoSYA &amp;amp; PAY to enable them to better harness the energy &amp;amp; power of youth &amp;amp; their ability to achieve the SDGs. And to position KWT to play a leadership role in the area of youth empowerment at the regional and int'l levels</narrative>
     </description>
     <participating-org role="1" type="10" ref="00145">
       <narrative>GOVERNMENT OF KUWAIT</narrative>
@@ -4350,9 +4490,30 @@ Development of teh establioshed demand-based recruitment of technical experts fo
       <email>registry.kw@undp.org</email>
       <website>http://www.kw.undp.org/</website>
     </contact-info>
+    <activity-scope code="8" />
     <recipient-country code="KW">
       <narrative>Kuwait</narrative>
     </recipient-country>
+    <location ref="KW">
+      <location-reach code="2" />
+      <location-id vocabulary="G1" code="285787" />
+      <name>
+        <narrative>Kuwait City</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative>Ministry Of Youth - Hamra Tower - Kuwait</narrative>
+      </activity-description>
+      <administrative level="1" code="285787" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>29.369720 47.978330</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <sector vocabulary="1" code="15160" />
     <sector vocabulary="99" code="2">
       <narrative>Democratic Governance</narrative>
@@ -4373,17 +4534,18 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-10-31">300000</value>
+      <value currency="USD" value-date="2017-11-30">300000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-10-31">487950</value>
+      <value currency="USD" value-date="2017-11-30">487950</value>
     </budget>
+    <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">0</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">0</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -4391,8 +4553,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">487950</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">487950</value>
       <provider-org type="10" ref="00145">
         <narrative>GOVERNMENT OF KUWAIT</narrative>
       </provider-org>
@@ -4403,8 +4565,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">300000</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">300000</value>
       <provider-org type="10" ref="00145">
         <narrative>GOVERNMENT OF KUWAIT</narrative>
       </provider-org>
@@ -4415,8 +4577,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">787950</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">787950</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -4431,7 +4593,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00100028" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-11-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00103299</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4440,7 +4602,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
       <narrative>MPU_Demo Project</narrative>
     </title>
     <description type="1">
-      <narrative>Project involve install of air-con equip in selected locations in residential areas in Kwt with HCFC free low-GWP tech over 2 seasons of summer  dissemination of test results to other interested stakeholders – both national  int'l.</narrative>
+      <narrative>Project involve install of air-con equip in selected locations in residential areas in Kwt with HCFC free low-GWP tech over 2 seasons of summer &amp;amp; dissemination of test results to other interested stakeholders – both national &amp;amp; int'l.</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -4468,11 +4630,16 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <default-finance-type code="110" />
     <default-aid-type code="C01" />
     <default-tied-status code="3" />
-    <document-link format="application/pdf" url="http://www.kw.undp.org/content/kuwait/en/home/operations/legal_framework/_jcr_content/centerparsys/download_3/file.res/090330-CPAP-V0-2013%20(CPD%201).pdf">
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/KWT/MPU_DemoProj_Signed%20PRODOC.pdf">
       <title>
-        <narrative>090330-CPAP-V0-2013%20(CPD%201)</narrative>
+        <narrative>MPU_DemoProj_Signed PRODOC</narrative>
       </title>
-      <category code="A09" />
+      <category code="A01" />
+      <category code="A02" />
+      <category code="A03" />
+      <category code="A04" />
+      <category code="A05" />
+      <category code="A08" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
@@ -4493,7 +4660,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00105316" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-11-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00105316</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4502,7 +4669,7 @@ Development of teh establioshed demand-based recruitment of technical experts fo
       <narrative>MPU_Demo Project</narrative>
     </title>
     <description type="1">
-      <narrative>Project involve install of air-con equip in selected locations in residential areas in Kwt with HCFC free low-GWP tech over 2 seasons of summer  dissemination of test results to other interested stakeholders – both national  int'l.</narrative>
+      <narrative>Project involve install of air-con equip in selected locations in residential areas in Kwt with HCFC free low-GWP tech over 2 seasons of summer &amp;amp; dissemination of test results to other interested stakeholders – both national &amp;amp; int'l.</narrative>
     </description>
     <participating-org role="1" type="40" ref="10009">
       <narrative>MONTREAL PROTOCOL</narrative>
@@ -4515,12 +4682,33 @@ Development of teh establioshed demand-based recruitment of technical experts fo
       <email>registry.kw@undp.org</email>
       <website>http://www.kw.undp.org/</website>
     </contact-info>
+    <activity-scope code="8" />
     <recipient-country code="KW">
       <narrative>Kuwait</narrative>
     </recipient-country>
+    <location ref="KW">
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="285787" />
+      <name>
+        <narrative>Kuwait City</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative>Kuwait</narrative>
+      </activity-description>
+      <administrative level="1" code="285787" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>29.369720 47.978330</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <sector vocabulary="1" code="74010" />
     <sector vocabulary="99" code="5">
-      <narrative>Climate Change  Disaster Resilience</narrative>
+      <narrative>Climate Change &amp; Disaster Resilience</narrative>
     </sector>
     <country-budget-items vocabulary="1">
       <budget-item code="5.4.11" percentage="100">
@@ -4538,17 +4726,18 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-10-31">163000</value>
+      <value currency="USD" value-date="2017-11-30">163000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-10-31">130000</value>
+      <value currency="USD" value-date="2017-11-30">130000</value>
     </budget>
+    <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">0</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">0</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -4556,8 +4745,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">130000</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">130000</value>
       <provider-org type="40" ref="10009">
         <narrative>MONTREAL PROTOCOL</narrative>
       </provider-org>
@@ -4568,8 +4757,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">163000</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">163000</value>
       <provider-org type="40" ref="10009">
         <narrative>MONTREAL PROTOCOL</narrative>
       </provider-org>
@@ -4580,8 +4769,8 @@ Development of teh establioshed demand-based recruitment of technical experts fo
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-10-31" />
-      <value currency="USD" value-date="2017-10-31">293000</value>
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">293000</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
