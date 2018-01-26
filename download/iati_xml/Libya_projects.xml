@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2017-12-06T17:44:13" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2018-01-26T04:07:40" version="2.02">
   <!--Libya-->
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00032431</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -11,7 +11,7 @@
       <narrative>DAS &amp; DSS for Libya CO</narrative>
     </title>
     <description type="1">
-      <narrative>Development support and advisory services for Libya CO</narrative>
+      <narrative>Development support and advisory services for Libya CO in order to support the programmatic initiatives devised for the stabilization of the country</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -42,14 +42,19 @@
     <default-finance-type code="110" />
     <default-aid-type code="C01" />
     <default-tied-status code="3" />
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/LBY/Donor%20Cost%20Sharing%20Agreements/Financial%20Reports(Budget%20Revision%20-%20CDR%20-%20Ledgers)/AWP%2032431%20-%202015.pdf">
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/LBY/Donor%20Cost%20Sharing%20Agreements/Project%20Document%20-%20Profiles%20-%20Fact%20sheets%20-%20Project%20O/AWP%2032431%20-%202015.pdf">
       <title>
-        <narrative>AWP 32431  2015</narrative>
+        <narrative>DAS-DSS project</narrative>
       </title>
+      <category code="A01" />
+      <category code="A02" />
+      <category code="A03" />
+      <category code="A04" />
       <category code="A05" />
+      <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
+    <document-link format="text/html" url="1">
       <title>
         <narrative>Request for Procurement</narrative>
       </title>
@@ -67,7 +72,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00033321" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00033321</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -76,8 +81,11 @@
       <narrative>DSS &amp; DAS for Libya CO</narrative>
     </title>
     <description type="1">
-      <narrative>Development support and advisory services for Libya CO</narrative>
+      <narrative>Development support and advisory services for Libya CO  in order to support the programmatic initiatives devised for the stabilization of the country</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="10" ref="00151">
       <narrative>GOVERNMENT OF LIBYAN ARAB JAMAHIRIYA</narrative>
     </participating-org>
@@ -126,7 +134,12 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">110000</value>
+      <value currency="USD" value-date="2017-12-31">110000</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">100</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -141,8 +154,8 @@
     <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">19494</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">79771</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -162,8 +175,20 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">110000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">100</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00032431">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00033321">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">110000</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00032431">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -186,8 +211,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">133445</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">133545</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -213,8 +238,68 @@
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00032431" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>none</narrative>
+        </description>
+        <baseline year="2004" value="">
+          <comment>
+            <narrative>none administrative projects</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2015-01-01" />
+          <period-end iso-date="2015-12-31" />
+          <target value="">
+            <comment>
+              <narrative>management  project</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>management  project</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2016-01-01" />
+          <period-end iso-date="2016-12-31" />
+          <target value="">
+            <comment>
+              <narrative>management  project</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>management  project</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>management  project</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>management  project</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00038108</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -223,7 +308,7 @@
       <narrative>Management Plan</narrative>
     </title>
     <description type="1">
-      <narrative>Management Plan</narrative>
+      <narrative>Management Plan project seeks to enable UNDP Lybia Country Office to plan and implement the development initiatives supporting the country's  stabilization  after the conflict crisis</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -255,7 +340,12 @@
       <title>
         <narrative>Management projects</narrative>
       </title>
+      <category code="A01" />
+      <category code="A02" />
+      <category code="A03" />
+      <category code="A04" />
       <category code="A05" />
+      <category code="A08" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=21603">
@@ -396,7 +486,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00041925" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00041924</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -405,8 +495,11 @@
       <narrative>Libya -Programme Effect UN Sup</narrative>
     </title>
     <description type="1">
-      <narrative>Libya Staff costs management</narrative>
+      <narrative>Libya Staff costs management to ensure HR and logistics  services effectively delivered for program implementation supporting the country's  stabilization  after the conflict crisis</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
@@ -432,7 +525,7 @@
         <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
-        <narrative>tripoli</narrative>
+        <narrative>Also capital</narrative>
       </activity-description>
       <administrative level="1" code="2210247" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
@@ -455,7 +548,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">1643</value>
+      <value currency="USD" value-date="2017-12-31">1643</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -475,8 +568,8 @@
     <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">0</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1444</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -484,8 +577,8 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1643</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1643</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -532,8 +625,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1317842</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1317842</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -566,8 +659,68 @@
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00038108" />
     <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00041925" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>na</narrative>
+        </description>
+        <baseline year="2005" value="">
+          <comment>
+            <narrative>na</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2015-01-01" />
+          <period-end iso-date="2015-12-31" />
+          <target value="">
+            <comment>
+              <narrative>services delivered</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>services delivered</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2016-01-01" />
+          <period-end iso-date="2016-12-31" />
+          <target value="">
+            <comment>
+              <narrative>services delivered</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>services delivered</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>services delivered</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>services delivered</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00041925</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -576,8 +729,11 @@
       <narrative>Organizational Effectiveness</narrative>
     </title>
     <description type="1">
-      <narrative>Libya Office cost management</narrative>
+      <narrative>Libya Office cost management fit for purpose supporting effective program implementation supporting the country's  stabilization  after the conflict crisis</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
@@ -589,9 +745,30 @@
       <email>registry.ly@undp.org</email>
       <website>http://www.ly.undp.org/</website>
     </contact-info>
+    <activity-scope code="8" />
     <recipient-country code="LY">
       <narrative>Libya</narrative>
     </recipient-country>
+    <location ref="LY">
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="2210247" />
+      <name>
+        <narrative>Tripoli</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative>also capital</narrative>
+      </activity-description>
+      <administrative level="1" code="2210247" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>32.875190 13.187460</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <sector vocabulary="1" code="91010" />
     <sector vocabulary="99" code="12">
       <narrative>Organizational Results Area 5</narrative>
@@ -605,12 +782,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">20070</value>
-    </budget>
-    <budget type="2" status="2">
-      <period-start iso-date="2018-01-01" />
-      <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-11-30">90000</value>
+      <value currency="USD" value-date="2017-12-31">20070</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -630,8 +802,8 @@
     <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">6105</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">6105</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -639,20 +811,8 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">90000</value>
-      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00038108">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00041925">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">20070</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">20070</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00038108">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -699,8 +859,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">827024</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">827024</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -733,8 +893,68 @@
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00038108" />
     <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00041924" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>na</narrative>
+        </description>
+        <baseline year="2005" value="">
+          <comment>
+            <narrative>na</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2015-01-01" />
+          <period-end iso-date="2015-12-31" />
+          <target value="">
+            <comment>
+              <narrative>services delivered</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>services delivered</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2016-01-01" />
+          <period-end iso-date="2016-12-31" />
+          <target value="">
+            <comment>
+              <narrative>services delivered</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>services delivered</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>services delivered</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>services delivered</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00059458</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -955,6 +1175,20 @@ undertake pilot assessments and develop strategic response plans.</narrative>
       <category code="A08" />
       <language code="en" />
     </document-link>
+    <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/LBY/CSI%20Progress%20Report%20Jan%20to%20July%202012%20Final%20(2).docx">
+      <title>
+        <narrative>Country:</narrative>
+      </title>
+      <category code="A08" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/LBY/CSI%20annual%20report%202013.docx">
+      <title>
+        <narrative>CSI Lessons learnt Report</narrative>
+      </title>
+      <category code="A08" />
+      <language code="en" />
+    </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=28447">
       <title>
         <narrative>Capacity Strengthening Initiative in Libya</narrative>
@@ -987,7 +1221,7 @@ undertake pilot assessments and develop strategic response plans.</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00074351" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00074351</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -998,6 +1232,9 @@ undertake pilot assessments and develop strategic response plans.</narrative>
     <description type="1">
       <narrative>Capacity Strengthening Initiative by conducting government  needs assessment and providing them with a roster of national and international experts in different development affairs.</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="10" ref="00151">
       <narrative>GOVERNMENT OF LIBYAN ARAB JAMAHIRIYA</narrative>
     </participating-org>
@@ -1007,7 +1244,7 @@ undertake pilot assessments and develop strategic response plans.</narrative>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2010-01-01" />
     <activity-date type="2" iso-date="2010-01-01" />
-    <activity-date type="3" iso-date="2019-12-31" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.ly@undp.org</email>
       <website>http://www.ly.undp.org/</website>
@@ -1025,9 +1262,6 @@ undertake pilot assessments and develop strategic response plans.</narrative>
       <description>
         <narrative>independent political entity</narrative>
       </description>
-      <activity-description>
-        <narrative />
-      </activity-description>
       <administrative level="0" code="2215636" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
         <pos>28.000000 17.000000</pos>
@@ -1056,7 +1290,12 @@ undertake pilot assessments and develop strategic response plans.</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">595161</value>
+      <value currency="USD" value-date="2017-12-31">595161</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">964412</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -1085,8 +1324,8 @@ undertake pilot assessments and develop strategic response plans.</narrative>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">244013</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">241439</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -1094,8 +1333,8 @@ undertake pilot assessments and develop strategic response plans.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">99718</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">99718</value>
       <provider-org type="10" ref="00151">
         <narrative>GOVERNMENT OF LIBYAN ARAB JAMAHIRIYA</narrative>
       </provider-org>
@@ -1166,8 +1405,20 @@ undertake pilot assessments and develop strategic response plans.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">495443</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">964412</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00059458">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00074351">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">495443</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00059458">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -1190,8 +1441,8 @@ undertake pilot assessments and develop strategic response plans.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">2413548</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">3377960</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -1311,10 +1562,22 @@ Moreover, the UNDP support to Line ministries related to Government Programme Pl
             </comment>
           </actual>
         </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1.	Type of capacity needs identified and type of support required 
+2.	Number of government officials trained 
+3.	Type of sectors benefiting from specialized expertise
+4.	Nb of experts made available (days per year per sector per activity)</narrative>
+            </comment>
+          </target>
+        </period>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00063268</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1396,7 +1659,7 @@ Moreover, the UNDP support to Line ministries related to Government Programme Pl
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00080491" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00080491</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1405,8 +1668,11 @@ Moreover, the UNDP support to Line ministries related to Government Programme Pl
       <narrative>Support to Civic Engagement</narrative>
     </title>
     <description type="1">
-      <narrative>Support to Civic Engagement in</narrative>
+      <narrative>Support to Civic Engagement by including active citizen participation initiatives and awareness raising to facilitate the democratic transition of the nation, with the Ministries of Planning, Culture &amp;amp; Civil Society and Higher Education.</narrative>
     </description>
+    <participating-org role="4" type="40" ref="01867">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="10" ref="00151">
       <narrative>GOVERNMENT OF LIBYAN ARAB JAMAHIRIYA</narrative>
     </participating-org>
@@ -1446,9 +1712,6 @@ Moreover, the UNDP support to Line ministries related to Government Programme Pl
       <description>
         <narrative>independent political entity</narrative>
       </description>
-      <activity-description>
-        <narrative />
-      </activity-description>
       <administrative level="0" code="2215636" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
         <pos>28.000000 17.000000</pos>
@@ -1468,7 +1731,7 @@ Moreover, the UNDP support to Line ministries related to Government Programme Pl
         </description>
       </budget-item>
     </country-budget-items>
-    <policy-marker vocabulary="1" code="1" significance="0" />
+    <policy-marker vocabulary="1" code="1" significance="1" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -1477,7 +1740,7 @@ Moreover, the UNDP support to Line ministries related to Government Programme Pl
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">141128</value>
+      <value currency="USD" value-date="2017-12-31">141128</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -1506,8 +1769,8 @@ Moreover, the UNDP support to Line ministries related to Government Programme Pl
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">46212</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">46218</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -1515,8 +1778,8 @@ Moreover, the UNDP support to Line ministries related to Government Programme Pl
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">108396</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">108396</value>
       <provider-org type="10" ref="00151">
         <narrative>GOVERNMENT OF LIBYAN ARAB JAMAHIRIYA</narrative>
       </provider-org>
@@ -1623,8 +1886,8 @@ Moreover, the UNDP support to Line ministries related to Government Programme Pl
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">10040</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">10040</value>
       <provider-org type="10" ref="00555">
         <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
       </provider-org>
@@ -1719,8 +1982,8 @@ Moreover, the UNDP support to Line ministries related to Government Programme Pl
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1</value>
       <provider-org type="40" ref="11363">
         <narrative>Peacebuilding Fund</narrative>
       </provider-org>
@@ -1791,8 +2054,8 @@ Moreover, the UNDP support to Line ministries related to Government Programme Pl
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">22691</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">22691</value>
       <provider-org type="10" ref="GB-3">
         <narrative>Foreign common wealth ofice</narrative>
       </provider-org>
@@ -1887,8 +2150,8 @@ Moreover, the UNDP support to Line ministries related to Government Programme Pl
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">6418493</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">6418493</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -2050,10 +2313,32 @@ A total of approximately 209 activities were implemented under the 13 grant fund
             </comment>
           </actual>
         </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>Civic Engagement Grant Fund Phase 3: Twelve sub-grants are provided to CS organisations to implement Output 2-4 activities  over a 4 month period
+•  Twelve key CS organizations will be targeted with capacity development and mentoring in proposal development, financial management and the implementation of activities supported through sub-grants
+•  A national Web Portal/Mobile on Civil Society in Libya will be designed and managed and updated monthly
+• Training: Libyan CSO capacity for civic education and engagement will be developed through the Civic Engagement Grant Fund through targeted training based on capacity assessment  for  32 CSOs
+• CSO implemented activities under  Grant Fund in
+1-	Women &amp; girls civic education and engagement, 
+2-	Youth leadership &amp; engagement, 
+3-	Conflict analysis and dialogue facilitation 
+4-	Promoting dialogue and responsiveness &amp; accountability of Municipalities to citizen engagement in supporting effective services;
+• Development of CSO Toolkits in:
+- Women &amp; Girls Civic education
+- Youth Engagement &amp; Leadership
+- Conflict Analysis and Dialogue
+-  Civic engagement with Municipalities</narrative>
+            </comment>
+          </target>
+        </period>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00065426</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2193,7 +2478,7 @@ A total of approximately 209 activities were implemented under the 13 grant fund
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00081933" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00081933</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2204,6 +2489,9 @@ A total of approximately 209 activities were implemented under the 13 grant fund
     <description type="1">
       <narrative>core activities with HNEC such as civic and voter education, support to electoral dispute resolution, assistance with planning electoral security, support with out-of-country voting, and procurement.</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="10" ref="00187">
       <narrative>GOVERNMENT OF NORWAY</narrative>
     </participating-org>
@@ -2252,9 +2540,6 @@ A total of approximately 209 activities were implemented under the 13 grant fund
       <description>
         <narrative>independent political entity</narrative>
       </description>
-      <activity-description>
-        <narrative />
-      </activity-description>
       <administrative level="0" code="2215636" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
         <pos>28.000000 17.000000</pos>
@@ -2283,7 +2568,7 @@ A total of approximately 209 activities were implemented under the 13 grant fund
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">163641</value>
+      <value currency="USD" value-date="2017-12-31">163641</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -2312,8 +2597,8 @@ A total of approximately 209 activities were implemented under the 13 grant fund
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">55364</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">75383</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -2333,8 +2618,8 @@ A total of approximately 209 activities were implemented under the 13 grant fund
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">12553</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">12553</value>
       <provider-org type="10" ref="00555">
         <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
       </provider-org>
@@ -2429,8 +2714,8 @@ A total of approximately 209 activities were implemented under the 13 grant fund
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">79707</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">79707</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -2645,8 +2930,8 @@ A total of approximately 209 activities were implemented under the 13 grant fund
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">4000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">4000</value>
       <provider-org type="10" ref="GB-3">
         <narrative>Foreign common wealth ofice</narrative>
       </provider-org>
@@ -2729,8 +3014,8 @@ A total of approximately 209 activities were implemented under the 13 grant fund
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">40000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">40000</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00065426">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -2753,8 +3038,8 @@ A total of approximately 209 activities were implemented under the 13 grant fund
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">27381</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">27381</value>
       <provider-org type="10" ref="XM-DAC-7">
         <narrative>GOVERNMENT OF NETHERLANDS</narrative>
       </provider-org>
@@ -2789,8 +3074,8 @@ A total of approximately 209 activities were implemented under the 13 grant fund
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">24797285</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">24797285</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -2889,10 +3174,28 @@ A total of approximately 209 activities were implemented under the 13 grant fund
             </comment>
           </actual>
         </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1) HNEC's organisational, management, and technical capacities to plan, prepare and manage successive credible and transparent elections are strengthened.
+2) awareness and knowledge of critical electoral issues strengthened.</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>1) supporting the HNEC with voter registration software training 
+2)  working closely with IFES with HNEC senior management on designing a plan for voter education and public outreach strategy for potential referendum event.
+
+As per the external evaluation, the overall conclusion on the UNDP’s election assistance project is that it was generally successful, in that it assisted the HNEC and other Libyan stakeholders in organizing three well-regarded elections in a fairly short time, in a country which did not at all have a history of electoral democracy.</narrative>
+            </comment>
+          </actual>
+        </period>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00066680</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2901,7 +3204,7 @@ A total of approximately 209 activities were implemented under the 13 grant fund
       <narrative>Support to Transitional Governance Structures in Libya</narrative>
     </title>
     <description type="1">
-      <narrative>Support to Transitional Governance Structures in Libya</narrative>
+      <narrative>the project provides targeted technical support to assist the Government to build the capacity of transitional governance structures. Priorities are: the decentralization, rule of law programs and elections and constitution formulation</narrative>
     </description>
     <participating-org role="4" type="40" ref="01867">
       <narrative>United Nations Development Programme</narrative>
@@ -2968,8 +3271,8 @@ A total of approximately 209 activities were implemented under the 13 grant fund
     <recipient-country code="LY">
       <narrative>Libya</narrative>
     </recipient-country>
+    <sector vocabulary="1" code="15113" />
     <sector vocabulary="1" code="15150" />
-    <sector vocabulary="1" code="15151" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -3135,7 +3438,7 @@ A total of approximately 209 activities were implemented under the 13 grant fund
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00094645" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00082787</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3146,6 +3449,9 @@ A total of approximately 209 activities were implemented under the 13 grant fund
     <description type="1">
       <narrative>Targeted technical support to assist the Government of Libya to build the capacity of transitional governance structures.</narrative>
     </description>
+    <participating-org role="4" type="40" ref="01867">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="10" ref="00141">
       <narrative>GOVERNMENT OF JAPAN</narrative>
     </participating-org>
@@ -3188,9 +3494,6 @@ A total of approximately 209 activities were implemented under the 13 grant fund
       <description>
         <narrative>independent political entity</narrative>
       </description>
-      <activity-description>
-        <narrative />
-      </activity-description>
       <administrative level="0" code="2215636" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
         <pos>28.000000 17.000000</pos>
@@ -3199,14 +3502,14 @@ A total of approximately 209 activities were implemented under the 13 grant fund
       <location-class code="1" />
       <feature-designation code="PCLI" />
     </location>
-    <sector vocabulary="1" code="15151" />
+    <sector vocabulary="1" code="15113" />
     <sector vocabulary="99" code="2">
       <narrative>Democratic Governance</narrative>
     </sector>
     <country-budget-items vocabulary="1">
-      <budget-item code="1.8.1" percentage="100">
+      <budget-item code="2.1.8" percentage="100">
         <description>
-          <narrative>Elections - elections</narrative>
+          <narrative>Anti corruption</narrative>
         </description>
       </budget-item>
     </country-budget-items>
@@ -3219,7 +3522,7 @@ A total of approximately 209 activities were implemented under the 13 grant fund
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">2217</value>
+      <value currency="USD" value-date="2017-12-31">2217</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -3248,8 +3551,8 @@ A total of approximately 209 activities were implemented under the 13 grant fund
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">2351</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">2351</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -3317,8 +3620,8 @@ A total of approximately 209 activities were implemented under the 13 grant fund
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">2216</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">2216</value>
       <provider-org type="10" ref="00151">
         <narrative>GOVERNMENT OF LIBYAN ARAB JAMAHIRIYA</narrative>
       </provider-org>
@@ -3497,8 +3800,8 @@ A total of approximately 209 activities were implemented under the 13 grant fund
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1</value>
       <provider-org type="10" ref="DK-1">
         <narrative>GOVERNMENT OF DENMARK</narrative>
       </provider-org>
@@ -3557,8 +3860,8 @@ A total of approximately 209 activities were implemented under the 13 grant fund
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">10568127</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">10568127</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -3654,7 +3957,7 @@ Lack of clear procedures which contribute to slowness in processing cases; lack 
           </target>
           <actual value="">
             <comment>
-              <narrative>XXXX</narrative>
+              <narrative>Provision of technical support to Constitutional Drafting Assembly (CDA) and stakeholders, including advice on procedures and content .</narrative>
             </comment>
           </actual>
         </period>
@@ -3673,14 +3976,30 @@ Lack of clear procedures which contribute to slowness in processing cases; lack 
           </target>
           <actual value="">
             <comment>
-              <narrative>XXXX</narrative>
+              <narrative>The CDA  provided with the means to implement public consultation and outreach process for receiving public consultation.</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1.The CDA provided with assistance in media and communication.  
+2.Libyan population receive informed messages on the constitution making process and substance.
+3.Libyan academia and other key stakeholders have been engaged in the constitution-making process through the production of papers, organization of public debates and workshops. Libyan population engaged in the constitution-making through participation in targeted survey.</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>results to be updated at the beginning of 2018</narrative>
             </comment>
           </actual>
         </period>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00094645</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3691,6 +4010,9 @@ Lack of clear procedures which contribute to slowness in processing cases; lack 
     <description type="1">
       <narrative>The dialogue seeks to discuss steps to advance a transitional justice process that includes reparations and the safe and dignified return of Internally Displaced Persons (IDPs).</narrative>
     </description>
+    <participating-org role="4" type="40" ref="01867">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="10" ref="00137">
       <narrative>GOVERNMENT OF ITALY</narrative>
     </participating-org>
@@ -3708,6 +4030,9 @@ Lack of clear procedures which contribute to slowness in processing cases; lack 
     </participating-org>
     <participating-org role="1" type="10" ref="DE-1">
       <narrative>GOVERNMENT OF GERMANY</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="DK-1">
+      <narrative>GOVERNMENT OF DENMARK</narrative>
     </participating-org>
     <participating-org role="1" type="10" ref="GB-3">
       <narrative>Foreign common wealth ofice</narrative>
@@ -3730,6 +4055,26 @@ Lack of clear procedures which contribute to slowness in processing cases; lack 
     <recipient-country code="LY">
       <narrative>Libya</narrative>
     </recipient-country>
+    <location ref="LY">
+      <location-reach code="2" />
+      <location-id vocabulary="G1" code="2215636" />
+      <name>
+        <narrative>Libya</narrative>
+      </name>
+      <description>
+        <narrative>independent political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative>at the national level</narrative>
+      </activity-description>
+      <administrative level="0" code="2215636" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>28.000000 17.000000</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="1" />
+      <feature-designation code="PCLI" />
+    </location>
     <sector vocabulary="1" code="15150" />
     <sector vocabulary="99" code="2">
       <narrative>Democratic Governance</narrative>
@@ -3750,12 +4095,12 @@ Lack of clear procedures which contribute to slowness in processing cases; lack 
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">3264501</value>
+      <value currency="USD" value-date="2017-12-31">3264501</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-11-30">1637911</value>
+      <value currency="USD" value-date="2017-12-31">1637911</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -3769,8 +4114,8 @@ Lack of clear procedures which contribute to slowness in processing cases; lack 
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">2527989</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">2904908</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -3778,8 +4123,8 @@ Lack of clear procedures which contribute to slowness in processing cases; lack 
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">145130</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">145130</value>
       <provider-org type="10" ref="00137">
         <narrative>GOVERNMENT OF ITALY</narrative>
       </provider-org>
@@ -3790,12 +4135,24 @@ Lack of clear procedures which contribute to slowness in processing cases; lack 
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">725783</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">725783</value>
       <provider-org type="10" ref="00137">
         <narrative>GOVERNMENT OF ITALY</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00094645">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">710900</value>
+      <provider-org ref="00137" type="10">
+        <narrative>GOVERNMENT OF ITALY</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00094645">
         <narrative>United Nations Development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -3850,8 +4207,8 @@ Lack of clear procedures which contribute to slowness in processing cases; lack 
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">802</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">802</value>
       <provider-org type="10" ref="00161">
         <narrative>GOVERNMENT OF MALTA</narrative>
       </provider-org>
@@ -3898,8 +4255,8 @@ Lack of clear procedures which contribute to slowness in processing cases; lack 
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">191330</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">191330</value>
       <provider-org type="10" ref="00187">
         <narrative>GOVERNMENT OF NORWAY</narrative>
       </provider-org>
@@ -3946,8 +4303,8 @@ Lack of clear procedures which contribute to slowness in processing cases; lack 
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1492781</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1492781</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -3958,8 +4315,8 @@ Lack of clear procedures which contribute to slowness in processing cases; lack 
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1295110</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1295110</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -4006,8 +4363,8 @@ Lack of clear procedures which contribute to slowness in processing cases; lack 
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">54773</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">54773</value>
       <provider-org type="10" ref="CH-4">
         <narrative>GOVERNMENT OF SWITZERLAND</narrative>
       </provider-org>
@@ -4066,8 +4423,8 @@ Lack of clear procedures which contribute to slowness in processing cases; lack 
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1</value>
       <provider-org type="10" ref="DE-1">
         <narrative>GOVERNMENT OF GERMANY</narrative>
       </provider-org>
@@ -4125,9 +4482,21 @@ Lack of clear procedures which contribute to slowness in processing cases; lack 
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">37992</value>
+      <provider-org ref="DK-1" type="10">
+        <narrative>GOVERNMENT OF DENMARK</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00094645">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">2686</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">2686</value>
       <provider-org type="10" ref="GB-3">
         <narrative>Foreign common wealth ofice</narrative>
       </provider-org>
@@ -4174,8 +4543,8 @@ Lack of clear procedures which contribute to slowness in processing cases; lack 
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">992044</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">992044</value>
       <provider-org type="10" ref="US-USAGOV">
         <narrative>US Department of State, Office to monitor &amp; combat Tracking in persons.</narrative>
       </provider-org>
@@ -4198,8 +4567,8 @@ Lack of clear procedures which contribute to slowness in processing cases; lack 
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1972</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1972</value>
       <provider-org type="10" ref="XM-DAC-7" provider-activity-id="XM-DAC-7-PPR-27935">
         <narrative>GOVERNMENT OF NETHERLANDS</narrative>
       </provider-org>
@@ -4246,8 +4615,8 @@ Lack of clear procedures which contribute to slowness in processing cases; lack 
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">7892237</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">7892237</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -4351,10 +4720,29 @@ c)	The UNDP support created an enabling environment for Libyans to discuss the c
             </comment>
           </actual>
         </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1.	Main political dialogue process towards implementation supported
+2.	Incorporation of women's demands into draft political agreement
+3.	Safe and neutral platform for inter-tribal political dialogue provided
+4.	Dialogues towards improved security supported
+5.	National priorities for GNA identified for project support in selected institutions identified
+6.	Core government functions re-established</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>Dialogue between the Misrata and Tawergha communities resulted in an agreement to negotiate on implementing the right to voluntary return of the Tawerghans to Misrata. A Joint Committee with representatives from both groups agreed to a roadmap. Aan agreement was signed addressing the return of the displaced, and compensation for those affected. The roadmap for reparations, voluntary return of internally displaced persons and framework for reparations represents significant progress towards transitional justice.</narrative>
+            </comment>
+          </actual>
+        </period>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00087620</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4403,7 +4791,7 @@ c)	The UNDP support created an enabling environment for Libyans to discuss the c
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
+    <document-link format="text/html" url="1">
       <title>
         <narrative>Request for Procurement</narrative>
       </title>
@@ -4421,7 +4809,7 @@ c)	The UNDP support created an enabling environment for Libyans to discuss the c
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00094563" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00094563</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4432,6 +4820,9 @@ c)	The UNDP support created an enabling environment for Libyans to discuss the c
     <description type="1">
       <narrative>the output seeks to develop a deeper, localized and iterative analysis of the Libyan conflict by conducting data collection and community surveys to identify conflict drivers and address them with specific initiatives towards reconciliation.</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
@@ -4480,7 +4871,7 @@ c)	The UNDP support created an enabling environment for Libyans to discuss the c
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">0</value>
+      <value currency="USD" value-date="2017-12-31">0</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -4494,8 +4885,8 @@ c)	The UNDP support created an enabling environment for Libyans to discuss the c
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">-75000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">-75000</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -4527,8 +4918,8 @@ c)	The UNDP support created an enabling environment for Libyans to discuss the c
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">472936</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">472936</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -4589,11 +4980,44 @@ c)	The UNDP support created an enabling environment for Libyans to discuss the c
 - one-year Local Resilience &amp; Recovery Plans (LRRPs) developed.</narrative>
             </comment>
           </target>
+          <actual value="">
+            <comment>
+              <narrative>programme initiation plan completed</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2016-01-01" />
+          <period-end iso-date="2016-12-31" />
+          <target value="">
+            <comment>
+              <narrative>The projects seeks to put the country on a more robust development path by helping the local authorities to restore security, essential services delivery and livelihoods opportunities.</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>programme initiation plan completed</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>The projects seeks to put the country on a more robust development path by helping the local authorities to restore security, essential services delivery and livelihoods opportunities.</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>programme initiation plan completed</narrative>
+            </comment>
+          </actual>
         </period>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00094616</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4676,7 +5100,12 @@ c)	The UNDP support created an enabling environment for Libyans to discuss the c
       <title>
         <narrative>SFL project</narrative>
       </title>
+      <category code="A01" />
+      <category code="A02" />
       <category code="A03" />
+      <category code="A04" />
+      <category code="A05" />
+      <category code="A08" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/LBY/20170313%20SFL%20monthly%20update%20march_April%20%202017%20Final.pdf">
@@ -5113,6 +5542,20 @@ c)	The UNDP support created an enabling environment for Libyans to discuss the c
       <category code="A10" />
       <language code="en" />
     </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=43190">
+      <title>
+        <narrative>Immediate Stabilization Facility for Libya</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=43191">
+      <title>
+        <narrative>Immediate Stabilization Facility for Libya</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
     <document-link format="text/html" url="http://open.undp.org/#project/00094616">
       <title>
         <narrative>Purchase Order Summary</narrative>
@@ -5124,7 +5567,7 @@ c)	The UNDP support created an enabling environment for Libyans to discuss the c
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00098720" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00098720</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -5137,6 +5580,9 @@ c)	The UNDP support created an enabling environment for Libyans to discuss the c
 Output 2: Immediate capacity of municipalities boosted. 
 Output 3: Local conflict analysis, facilitation and mediation strengthened.</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="10" ref="00137">
       <narrative>GOVERNMENT OF ITALY</narrative>
     </participating-org>
@@ -5268,12 +5714,12 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">15000000</value>
+      <value currency="USD" value-date="2017-12-31">15000000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-11-30">11228240</value>
+      <value currency="USD" value-date="2017-12-31">11228240</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -5282,8 +5728,8 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">8195273</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">9329419</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -5291,8 +5737,8 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="3" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">635656</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1301983</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -5303,8 +5749,8 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">949966</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1149966</value>
       <provider-org type="10" ref="00137">
         <narrative>GOVERNMENT OF ITALY</narrative>
       </provider-org>
@@ -5315,8 +5761,8 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">973107</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">773107</value>
       <provider-org type="10" ref="00137">
         <narrative>GOVERNMENT OF ITALY</narrative>
       </provider-org>
@@ -5351,8 +5797,8 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1401558</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1401558</value>
       <provider-org type="10" ref="00141">
         <narrative>GOVERNMENT OF JAPAN</narrative>
       </provider-org>
@@ -5363,8 +5809,8 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1484132</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1484132</value>
       <provider-org type="10" ref="00187">
         <narrative>GOVERNMENT OF NORWAY</narrative>
       </provider-org>
@@ -5375,8 +5821,8 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">743072</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">743072</value>
       <provider-org type="10" ref="00187">
         <narrative>GOVERNMENT OF NORWAY</narrative>
       </provider-org>
@@ -5387,8 +5833,8 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1184133</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1184133</value>
       <provider-org ref="00187" type="10">
         <narrative>GOVERNMENT OF NORWAY</narrative>
       </provider-org>
@@ -5411,8 +5857,8 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">800001</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">530001</value>
       <provider-org type="10" ref="00717">
         <narrative>CPR-THE GOVERMENT OF KOREA</narrative>
       </provider-org>
@@ -5423,8 +5869,8 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">200001</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">470001</value>
       <provider-org type="10" ref="00717">
         <narrative>CPR-THE GOVERMENT OF KOREA</narrative>
       </provider-org>
@@ -5435,8 +5881,8 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1000000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1000000</value>
       <provider-org ref="00717" type="10">
         <narrative>CPR-THE GOVERMENT OF KOREA</narrative>
       </provider-org>
@@ -5459,8 +5905,20 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">2776409</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">200000</value>
+      <provider-org type="40" ref="10159">
+        <narrative>EUROPEAN COMMISSION</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00098720">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">2576409</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -5483,8 +5941,8 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">900000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">900000</value>
       <provider-org type="10" ref="CA-3">
         <narrative>The Department of Foreign Affairs, Trade and development - Canada</narrative>
       </provider-org>
@@ -5495,8 +5953,8 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">215242</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">215242</value>
       <provider-org type="10" ref="CA-3">
         <narrative>The Department of Foreign Affairs, Trade and development - Canada</narrative>
       </provider-org>
@@ -5507,8 +5965,8 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1115242</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1115242</value>
       <provider-org ref="CA-3" type="10">
         <narrative>The Department of Foreign Affairs, Trade and development - Canada</narrative>
       </provider-org>
@@ -5519,12 +5977,24 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">417935</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">417935</value>
       <provider-org type="10" ref="CH-4">
         <narrative>GOVERNMENT OF SWITZERLAND</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00098720">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">200000</value>
+      <provider-org ref="CH-4" type="10">
+        <narrative>GOVERNMENT OF SWITZERLAND</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00098720">
         <narrative>United Nations Development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -5555,8 +6025,8 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">595981</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">-580000</value>
       <provider-org type="10" ref="DE-1">
         <narrative>GOVERNMENT OF GERMANY</narrative>
       </provider-org>
@@ -5567,8 +6037,32 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">5230126</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">595981</value>
+      <provider-org type="10" ref="DE-1">
+        <narrative>GOVERNMENT OF GERMANY</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00098720">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1184834</value>
+      <provider-org ref="DE-1" type="10">
+        <narrative>GOVERNMENT OF GERMANY</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00098720">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">5230126</value>
       <provider-org type="10" ref="DE-1">
         <narrative>KREDITANSTALT FUR WIEDERAUFBAU</narrative>
       </provider-org>
@@ -5579,8 +6073,8 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">5230126</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">5230126</value>
       <provider-org ref="DE-1" type="10">
         <narrative>KREDITANSTALT FUR WIEDERAUFBAU</narrative>
       </provider-org>
@@ -5615,8 +6109,8 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1530456</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1530456</value>
       <provider-org type="10" ref="DK-1">
         <narrative>GOVERNMENT OF DENMARK</narrative>
       </provider-org>
@@ -5627,8 +6121,8 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1530456</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1530456</value>
       <provider-org ref="DK-1" type="10">
         <narrative>GOVERNMENT OF DENMARK</narrative>
       </provider-org>
@@ -5639,8 +6133,8 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">300001</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">170001</value>
       <provider-org type="10" ref="FR-3">
         <narrative>GOVERNMENT OF FRANCE</narrative>
       </provider-org>
@@ -5651,12 +6145,24 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">691168</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">821168</value>
       <provider-org type="10" ref="FR-3">
         <narrative>GOVERNMENT OF FRANCE</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00098720">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1045296</value>
+      <provider-org ref="FR-3" type="10">
+        <narrative>GOVERNMENT OF FRANCE</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00098720">
         <narrative>United Nations Development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -5675,8 +6181,8 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">3037502</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">3027502</value>
       <provider-org type="10" ref="GB-3">
         <narrative>Foreign common wealth ofice</narrative>
       </provider-org>
@@ -5687,8 +6193,8 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">91453</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">101453</value>
       <provider-org type="10" ref="GB-3">
         <narrative>Foreign common wealth ofice</narrative>
       </provider-org>
@@ -5699,8 +6205,8 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1342282</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1342282</value>
       <provider-org ref="GB-3" type="10">
         <narrative>Foreign common wealth ofice</narrative>
       </provider-org>
@@ -5723,8 +6229,8 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1726182</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1451182</value>
       <provider-org type="10" ref="US-USAGOV">
         <narrative>UNITED STATES AGENCY FOR INTERNATIONAL DEVELOPMENT (USAID)</narrative>
       </provider-org>
@@ -5735,8 +6241,20 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">160086</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">285000</value>
+      <provider-org type="10" ref="US-USAGOV">
+        <narrative>US Department of State, Office to monitor &amp; combat Tracking in persons.</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00098720">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">435086</value>
       <provider-org type="10" ref="US-USAGOV">
         <narrative>UNITED STATES AGENCY FOR INTERNATIONAL DEVELOPMENT (USAID)</narrative>
       </provider-org>
@@ -5747,8 +6265,8 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">830862</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">545862</value>
       <provider-org type="10" ref="US-USAGOV">
         <narrative>US Department of State, Office to monitor &amp; combat Tracking in persons.</narrative>
       </provider-org>
@@ -5759,8 +6277,8 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">-110937</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">-110937</value>
       <provider-org ref="US-USAGOV" type="10">
         <narrative>US Department of State, Office to monitor &amp; combat Tracking in persons.</narrative>
       </provider-org>
@@ -5795,8 +6313,8 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">500000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">500000</value>
       <provider-org type="10" ref="XM-DAC-7">
         <narrative>GOVERNMENT OF NETHERLANDS</narrative>
       </provider-org>
@@ -5807,12 +6325,24 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">673000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">673000</value>
       <provider-org type="10" ref="XM-DAC-7">
         <narrative>GOVERNMENT OF NETHERLANDS</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00098720">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">999980</value>
+      <provider-org ref="XM-DAC-7" type="10">
+        <narrative>GOVERNMENT OF NETHERLANDS</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00098720">
         <narrative>United Nations Development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -5831,8 +6361,8 @@ Output 3: Local conflict analysis, facilitation and mediation strengthened.</nar
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">31586677</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">31586677</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -5944,10 +6474,55 @@ O. 3
             </comment>
           </actual>
         </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>O. 1
+1.	Five assessments completed. 
+2.	Benghazi: 60% (6/10) 
+Kikla: 100% (4/4) 
+Obari: 60% (4/7) 
+Sebha: 20% (1/5)
+Sirte: 13% (3/23)
+TOTAL: 36% (18/49)
+
+3.	Benghazi: 55% (5/9) 
+Kikla: 100% (14/14) 
+Obari: 100% (5/5) 
+Sebha: 15% (2/13)
+Sirte: 13% (3/23)
+TOTAL: 45% (29/64)
+
+O.2 
+1.	4/5 municipalities underwent a capacity assessment. 
+2.	4/5 municipalities have a technical expert embedded in the municipal office.
+3.	4/5 municipalities report their needs as substantially reduced
+
+O.3
+1.	–
+
+2.	Social Peace Partnerships in place and meeting at least quarterly. 
+3. Benghazi: 100; W:5; Y:10
+    Kikla:         100; W:5; Y:10
+Obari:        200; W:5; Y:10
+Sebha:       100; W:5; Y:10
+Sirte:          100; W:5; Y:10
+4. At least five conflicts addressed by peace structures in each community in 2018. 
+5. At least three municipalities where social peace structures report a decline in number of incidents.</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>on track report  available in January 2018</narrative>
+            </comment>
+          </actual>
+        </period>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00094644</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6031,7 +6606,7 @@ O. 3
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00098740" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00098740</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6042,6 +6617,9 @@ O. 3
     <description type="1">
       <narrative>This output seeks to enable the key parties to the disputes from displaced communities to continue the dialogue process on transitional justice and return of IDPs.</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="10" ref="00137">
       <narrative>GOVERNMENT OF ITALY</narrative>
     </participating-org>
@@ -6100,12 +6678,12 @@ O. 3
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">700000</value>
+      <value currency="USD" value-date="2017-12-31">700000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-11-30">1160832</value>
+      <value currency="USD" value-date="2017-12-31">1160832</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -6114,8 +6692,8 @@ O. 3
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">418955</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">531975</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -6123,8 +6701,8 @@ O. 3
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">963104</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">963104</value>
       <provider-org type="10" ref="00137">
         <narrative>GOVERNMENT OF ITALY</narrative>
       </provider-org>
@@ -6135,8 +6713,8 @@ O. 3
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">434287</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">434287</value>
       <provider-org type="10" ref="00137">
         <narrative>GOVERNMENT OF ITALY</narrative>
       </provider-org>
@@ -6171,8 +6749,8 @@ O. 3
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">197728</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">197728</value>
       <provider-org type="10" ref="DE-1">
         <narrative>GOVERNMENT OF GERMANY</narrative>
       </provider-org>
@@ -6183,8 +6761,8 @@ O. 3
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">265713</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">265713</value>
       <provider-org type="10" ref="DE-1">
         <narrative>GOVERNMENT OF GERMANY</narrative>
       </provider-org>
@@ -6195,8 +6773,8 @@ O. 3
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">714105</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">714105</value>
       <provider-org ref="DE-1" type="10">
         <narrative>GOVERNMENT OF GERMANY</narrative>
       </provider-org>
@@ -6231,8 +6809,8 @@ O. 3
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1984731</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1984731</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -6252,8 +6830,95 @@ O. 3
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00094644" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>Output 1
+a) Implementation plan for the roadmap developed for the Misrata/ Tawergha dialogue process (Y/N)
+b) % respondents at the community level indicating increase in levels of confidence in returning to their communities (M/F)
+c) # of communities that enter into dialogue processes
+
+Output 2
+
+a) Transitional justice strategies developed for the different dialogue processes, including action plan for reparations for Misrata/Tawergha
+b) Increased awareness of options for transitional justice mechanism at the national level
+c) # of conflict affected populations provided legal and psychosocial support for Misrata/Tawergha (M/F)
+
+output 3
+
+a) # of negotiated community security plans in target communities
+b) Perception of level of safety and security among the returning IDP population (age and gender disaggregated)</narrative>
+        </description>
+        <baseline year="2016" value="">
+          <comment>
+            <narrative>output 1
+a) Newly negotiated roadmap exists for Tawergha and Misrata
+b) No baselines exist assessing perceptions of IDP communities on confidence in returning to their communities
+c) Misrata and Tawergha have entered into a dialogue process
+output 2
+a)  Misrata/Tawergha Road Map
+b) No transitional justice mechanism exists at national or local level
+d) No assessment of the legal and psychosocial support needed for Misrata/Tawergha
+output 3
+a) No community security plan in place
+b) Basic assessments on community security in targeted areas (perception survey)</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2016-01-01" />
+          <period-end iso-date="2016-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1- a)	Dialogue with Misrata and Twaergha continues and the Joint Committee agree on an implementation plan for the roadmap (Y1)
+
+2 - Increase in level of confidence in IDPs returning to their communities
+
+3- A transitional justice strategy is developed for all the dialogue processes, including on reparations, building on the Misrata/Tawergha Road Map and  through a broad consultative process</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>Signing of the “Misrata-Tawergha Agreement on the Return of the Displaced and Compensation of those Affected”, 30 August 2016 provides for the:
+¥	Establishment of a Joint Committee for Misrata and Tawergha
+¥	The development of a Road Map agreement for reparations and return of IDPs
+¥	Preparation of a framework for reparations for victims by the Joint Committee
+¥	A plan to implement the right of IDPs from Tawergha to return to their city and the implementation of a reparations programme for victims.
+With the signature of the Road Map agreement the project helped mobilize support for UNDP’s Transitional Justice project.</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>Output 1
+1) A comprehensive data base of IDPs disaggregated by sex and IDP camps is established (Tawergha and Misrata). 
+2) The implementation of the roadmap and operational plan at the community level for the Misrata/Tawergha is continously supported
+
+Output 2 
+1) The development of a transitional justice strategy / roadmap for the Mashasyah / Zinta conflict is supported. 2)The capacity of the judiciay at local level (Tawergha / Misrata) in reducing backlog of cases of detainees and missing persons is on strategic level strengthened. 3) A plan to establish psychosocial support center for the Tawergha and Misrata communities is devised and its implemenation supported
+
+Output 3 
+A plan to increase the level of confidence of IDPS for returning of the targeted popolution of Tawergha and Misrata is developed.</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>on tract to be reported in early 2018</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00096051</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6323,6 +6988,48 @@ O. 3
       <category code="A10" />
       <language code="en" />
     </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=43189">
+      <title>
+        <narrative>Strengthening Local Capacities for Resilience and Recove</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=43310">
+      <title>
+        <narrative>Strengthening Local Capacities for Resilience and Recove</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=43311">
+      <title>
+        <narrative>Strengthening Local Capacities for Resilience and Recove</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=43313">
+      <title>
+        <narrative>Strengthening Local Capacities for Resilience and Recove</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=43566">
+      <title>
+        <narrative>Strengthening Local Capacities for Resilience and Recove</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=43567">
+      <title>
+        <narrative>Strengthening Local Capacities for Resilience and Recove</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
     <document-link format="text/html" url="http://open.undp.org/#project/00096051">
       <title>
         <narrative>Purchase Order Summary</narrative>
@@ -6334,7 +7041,7 @@ O. 3
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00100067" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00100067</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6347,6 +7054,9 @@ O. 3
 Output 2: Local authorities and administration supported in enforcing stability and security.
 Output 3: Local economic recovery supported.</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="XM-OCHA-CERF">
       <narrative>UNOCHA/Central Emergency Response Fund, CERF</narrative>
     </participating-org>
@@ -6402,7 +7112,7 @@ Output 3: Local economic recovery supported.</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">0</value>
+      <value currency="USD" value-date="2017-12-31">0</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -6411,8 +7121,8 @@ Output 3: Local economic recovery supported.</narrative>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">213340</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">216963</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -6444,8 +7154,8 @@ Output 3: Local economic recovery supported.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">783038</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">783038</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -6499,18 +7209,41 @@ d) No municipalities using gender-specific indicators or tools in policy-making 
           <period-end iso-date="2016-12-31" />
           <target value="">
             <comment>
-              <narrative>2016 Targets:
-a)6
+              <narrative>a)6
 b) 25%
 c) 20% of population (30% among
-women and 40% among POCs)64 d) 20%</narrative>
+women and 40% among POCs)64 
+d) 20%</narrative>
             </comment>
           </target>
+          <actual value="">
+            <comment>
+              <narrative>a)6
+b) 25%
+c) 20% of population (30% among
+women and 40% among POCs)64 
+d) 20%</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>PIP closure</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>PIP closure</narrative>
+            </comment>
+          </actual>
         </period>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00096112</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6623,7 +7356,7 @@ women and 40% among POCs)64 d) 20%</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00100105" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00100105</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6635,6 +7368,9 @@ women and 40% among POCs)64 d) 20%</narrative>
       <narrative>Output 1: Gender mainstreaming and integration of women's rights in transitional institutions strengthened. 
 Output 2: Participation of Libyan women in the transition process enhanced.</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="10" ref="CH-4">
       <narrative>GOVERNMENT OF SWITZERLAND</narrative>
     </participating-org>
@@ -6652,30 +7388,10 @@ Output 2: Participation of Libyan women in the transition process enhanced.</nar
       <email>registry.ly@undp.org</email>
       <website>http://www.ly.undp.org/</website>
     </contact-info>
-    <activity-scope code="7" />
+    <activity-scope code="8" />
     <recipient-country code="LY">
       <narrative>Libya</narrative>
     </recipient-country>
-    <location ref="LY">
-      <location-reach code="1" />
-      <location-id vocabulary="G1" code="2210247" />
-      <name>
-        <narrative>Tripoli</narrative>
-      </name>
-      <description>
-        <narrative>capital of a political entity</narrative>
-      </description>
-      <activity-description>
-        <narrative>Tripoli</narrative>
-      </activity-description>
-      <administrative level="1" code="2210247" vocabulary="G1" />
-      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>32.875190 13.187460</pos>
-      </point>
-      <exactness code="1" />
-      <location-class code="2" />
-      <feature-designation code="PPLC" />
-    </location>
     <location ref="LY">
       <location-reach code="2" />
       <location-id vocabulary="G1" code="2210247" />
@@ -6716,12 +7432,12 @@ Output 2: Participation of Libyan women in the transition process enhanced.</nar
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">666596</value>
+      <value currency="USD" value-date="2017-12-31">666596</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-11-30">187336</value>
+      <value currency="USD" value-date="2017-12-31">194960</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -6730,8 +7446,8 @@ Output 2: Participation of Libyan women in the transition process enhanced.</nar
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">417074</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">470499</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -6739,8 +7455,8 @@ Output 2: Participation of Libyan women in the transition process enhanced.</nar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">79929</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">118004</value>
       <provider-org type="10" ref="CH-4">
         <narrative>GOVERNMENT OF SWITZERLAND</narrative>
       </provider-org>
@@ -6751,8 +7467,8 @@ Output 2: Participation of Libyan women in the transition process enhanced.</nar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">121428</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">121428</value>
       <provider-org type="10" ref="CH-4">
         <narrative>GOVERNMENT OF SWITZERLAND</narrative>
       </provider-org>
@@ -6787,20 +7503,8 @@ Output 2: Participation of Libyan women in the transition process enhanced.</nar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">107407</value>
-      <provider-org type="10" ref="DE-1">
-        <narrative>GOVERNMENT OF GERMANY</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00100105">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">350401</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">350401</value>
       <provider-org type="10" ref="DE-1">
         <narrative>GOVERNMENT OF GERMANY</narrative>
       </provider-org>
@@ -6811,8 +7515,8 @@ Output 2: Participation of Libyan women in the transition process enhanced.</nar
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">355583</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">355583</value>
       <provider-org ref="DE-1" type="10">
         <narrative>GOVERNMENT OF GERMANY</narrative>
       </provider-org>
@@ -6847,8 +7551,20 @@ Output 2: Participation of Libyan women in the transition process enhanced.</nar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">194767</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">76956</value>
+      <provider-org type="10" ref="XM-DAC-7">
+        <narrative>GOVERNMENT OF NETHERLANDS</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00100105">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">194767</value>
       <provider-org type="10" ref="XM-DAC-7">
         <narrative>GOVERNMENT OF NETHERLANDS</narrative>
       </provider-org>
@@ -6871,8 +7587,8 @@ Output 2: Participation of Libyan women in the transition process enhanced.</nar
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1062913</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1070537</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -6962,11 +7678,30 @@ Campaign on peace co-existence launched all over Libya.
 Youth and community based organizations join the campaign.</narrative>
             </comment>
           </target>
+          <actual value="">
+            <comment>
+              <narrative>1.1.	Female member of the House of Representatives trained on how to develop strategies, legislation and action plan so as to establish “Women’s Caucus in the Parliament”
+
+1.2.	Libyan Women’s Forum for Constitution and Laws was established and revised all Libyan laws and the constitution from a gender perspective, and made recommendations to amend the existing laws and to enact new laws that promote and protect women’s rights. 
+
+1.3.	(23) men from the House of the Representatives and Higher National Council of Election trained on “Gender Sensitive Budgeting”.
+
+1.4.	 Civil Society Organizations were supported to engage with the UN senior leadership in the UN Women Peace and Security Open Day.
+
+1.5.	 (70) Libyan Women attended “Libyan Women’s Peace Follow UP Conference” that resulted in the development of “Peace Campaign Plan” to be launched in 8 cities in Libya.
+
+2.1.	“Peace Campaign Design and Planning” meetings were held for a group of Civil Society Organizations that resulted in the development of “Peace Libya Campaign” to be launched in 8 cities in Libya. 
+
+2.2.	 Seven (7) Focal Points trained on culture of peace and reconciliation so as to company and launch Peace Campaign in 8 cities in Libya
+
+2.3.	Seven (7) Steering Committees were established in four locations in Libya so as to company and launch Peace Campaign in Libya</narrative>
+            </comment>
+          </actual>
         </period>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00099570</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -7003,6 +7738,18 @@ Youth and community based organizations join the campaign.</narrative>
     <default-finance-type code="110" />
     <default-aid-type code="C01" />
     <default-tied-status code="3" />
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/LBY/PBF%20prodoc%20signed.pdf">
+      <title>
+        <narrative>Towards national reconciliation in Libya</narrative>
+      </title>
+      <category code="A01" />
+      <category code="A02" />
+      <category code="A03" />
+      <category code="A04" />
+      <category code="A05" />
+      <category code="A08" />
+      <language code="en" />
+    </document-link>
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/LBY/signed%20LPAC.pdf">
       <title>
         <narrative>LPAC</narrative>
@@ -7049,7 +7796,7 @@ Youth and community based organizations join the campaign.</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00102866" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00102866</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -7061,6 +7808,9 @@ Youth and community based organizations join the campaign.</narrative>
       <narrative>Output 1: National reconciliation strategy developed through a consultative and inclusive process. 
 Output 2: Bottom-up reconciliation processes strengthened and relevant civil society actors, in particular youth, capacitated.</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="11363">
       <narrative>Peacebuilding Fund</narrative>
     </participating-org>
@@ -7116,22 +7866,17 @@ Output 2: Bottom-up reconciliation processes strengthened and relevant civil soc
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">1090000</value>
+      <value currency="USD" value-date="2017-12-31">1090000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-11-30">1041171</value>
-    </budget>
-    <budget type="2" status="2">
-      <period-start iso-date="2016-01-01" />
-      <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">0</value>
+      <value currency="USD" value-date="2017-12-31">1041171</value>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">787748</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">948827</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -7139,8 +7884,8 @@ Output 2: Bottom-up reconciliation processes strengthened and relevant civil soc
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1041171</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1041171</value>
       <provider-org type="40" ref="11363">
         <narrative>Peacebuilding Fund</narrative>
       </provider-org>
@@ -7151,8 +7896,8 @@ Output 2: Bottom-up reconciliation processes strengthened and relevant civil soc
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1090000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1090000</value>
       <provider-org type="40" ref="11363">
         <narrative>Peacebuilding Fund</narrative>
       </provider-org>
@@ -7175,8 +7920,8 @@ Output 2: Bottom-up reconciliation processes strengthened and relevant civil soc
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">2131171</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">2131171</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -7196,8 +7941,74 @@ Output 2: Bottom-up reconciliation processes strengthened and relevant civil soc
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00099570" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>1. a. Percent of participant stakeholders who rate the consultations as useful. 
+1. b. Percent of participant stakeholders who rate the consultations as inclusive.  
+1. c. Percent of Libyans surveyed who view the national reconciliation process as fair and transparent.  
+1. d. Percent of Libyans surveyed who approve of the national reconciliation strategy. 
+1.1.1. Progress towards adoption of national strategy for reconciliation (scale from 0 to 5): 1. Technical advisory committee is established; 2. Roadmap is agreed; 3. Consultations (thematic, geographic, and with youth and women) take place; 4. Draft strategy is finalized with inputs from all stakeholders; 5. National strategy is approved.  
+1.1.2. Number of qualitative interactions between national and local level reconciliation actors. 
+1.2.1. Progress towards completion of study on perceptions and understandings of reconciliation and social cohesion. (scale 0 to 5): 0. No activities started; 1. TORs of study developed; 2. RFP published; 3. Contractor selected; 4. Survey conducted; 5. First report published.
+1.2.2. Number of social media activists, bloggers and media actors trained on conducting outreach and awareness campaigns on reconciliation. 
+1.2.3. Number of media activities supported on the topic reconciliation. 
+1.2.4. Number of people reached through media campaign: 
+a. estimated population reached through documentaries. 
+b. estimated population reached through TV spots.
+c. weekly number of social media impressions generated in Facebook and Twitter. 
+d. estimated audience reached via TV/radio shows.
+1.3.1. Number of identified stakeholders capacitated to engage in issues of mediation, dialogue, restorative justice, gender, as well as collaborative leadership. 
+1.3.2. Number of people successfully trained as local facilitators and mediators. 
+1.3.3. Number of research papers developed on reconciliation mechanisms and initiatives.
+2. a. Percent of Libyans surveyed who have a positive impression of the o</narrative>
+        </description>
+        <baseline year="2017" value="">
+          <comment>
+            <narrative>No reconciliation strategy exists and no consultations have taken place. 
+No outreach and awareness campaign exists. 
+Bottom-up initiatives are few and uncoordinated. 
+Perception survey of Libyan citizens on attitudes towards reconciliation has not taken place. 
+No studies capturing Libyan citizens views and mechanisms in use for reconciliation.</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>Technical advisory committee is established and operational. 
+A roadmap for the elaboration of the national strategy has been agreed. 
+5 thematic, 6 regional and 2 youth and women consultation meetings. 
+Perception study on Libyan attitudes towards reconciliation has taken place and first report published.
+2 trainings of social media actors have taken place. 
+Production of 2 documentaries, 4 media spots and 5 radio shows on reconciliation has been supported.
+Awareness campaign has been launched.  
+2 stakeholder trainings have been conducted. 
+2 meetings of local facilitators supported.
+Analysis of traditional reconciliation mechanisms finalized and report published. 
+2 micro-capital grant contracts awarded to CSOs working in reconciliation. 
+3 meetings with local reconciliation actors held. 
+1 micro-capital grant contract awarded to awareness campaign NGO partner.
+2 youth dialogues held.</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>To be completed early 2018</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00099586</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -7249,7 +8060,7 @@ Output 2: Bottom-up reconciliation processes strengthened and relevant civil soc
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
+    <document-link format="text/html" url="1">
       <title>
         <narrative>Request for Procurement</narrative>
       </title>
@@ -7267,7 +8078,7 @@ Output 2: Bottom-up reconciliation processes strengthened and relevant civil soc
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00102882" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00102882</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -7280,6 +8091,9 @@ Output 2: Bottom-up reconciliation processes strengthened and relevant civil soc
 Output 2: General population knowledge on the new constitution enhanced. 
 Output 3: Civil society engagement in the constitution-making process strengthened.</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="10" ref="DK-1">
       <narrative>GOVERNMENT OF DENMARK</narrative>
     </participating-org>
@@ -7338,12 +8152,12 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">335511</value>
+      <value currency="USD" value-date="2017-12-31">335511</value>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">104197</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">80276</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -7351,8 +8165,8 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">325511</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">325511</value>
       <provider-org type="10" ref="DK-1">
         <narrative>GOVERNMENT OF DENMARK</narrative>
       </provider-org>
@@ -7363,8 +8177,8 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">10000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">10000</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00099586">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -7375,8 +8189,8 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">335511</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">335511</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -7390,8 +8204,98 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00099586" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>The adoption and implementation of a consultative and public outreach process by the CDA, and the ability of CSOs to access the CDA. 
+Media/communication strategy for CDA put in place
+
+Activities implemented based on academic contributions, and the targeted population through media messages on constitutional process.
+
+Translation of draft constitutional documentation into all proposed national languages for Libya.
+-	Number of candidates to the CDA trained in media. 
+
+The engagement of CSO's supported by the UNDP in the Libyan constitution-making process.
+The capacity development of different Libyan components and categories's and CSOs to discuss the daft constitution.   
+  
+The number of small MCGs awarded through competitive and transparent process to organize outreach campaign</narrative>
+        </description>
+        <baseline year="2016" value="">
+          <comment>
+            <narrative>The CDA in place with very low communication and outreach capacities.
+
+1 constitutional survey carried out. 17 constitutional debates organised.
+
+Constitutional Dialogues organised by a CSO across the country. Facilitators for constitutional dialogues trained. Funding mechanism for CSO grantees working on constitution launched.</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2016-01-01" />
+          <period-end iso-date="2016-12-31" />
+          <target value="">
+            <comment>
+              <narrative>The CDA has been provided with the means to implement public consultation and outreach process for receiving public consultations.
+
+Media/communication strategy for the CDA put in place, the CDA to be provided with assistance in media and communication. 
+ 
+Libyan population receive informed messages on the constitution making process and substance, and population engaged in the constitution-making through participation in targeted survey
+
+Libyan academia and other key stakeholders have been engaged in the constitution-making process through the production of papers, organization of public debates and workshops. 
+
+Enhanced coordination between Libyan and international actors in the constitution-making process.
+
+CSOs/NGOs are equipped with the necessary tools, instruments and capacity to effectively engage media and outreach campaign</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>Communications conducted for CDA media presence 
+Follow up with some CSos
+
+The project moved the remaining indicator to the AWP 2017</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>O1 
+Number of studies, periodicals, legal texts in Arabic language disseminated to the CDA.
+Media/communication strategy for CDA put in place
+- No. of CDA outreach activities implemented
+- Ability of CSOs to access the CDA
+- No. of the CDA members benefiting from technical
+workshop
+
+O2
+Number of workshops based on academic contributions
+Number of population targeted by media messages on constitutional process and substance
+Translation of draft constitutional documentation into all proposed national languages for Libya
+Number of persons receiving draft legal documents
+
+03
+ Number of CSOs supported by UNDP to foster their engagement and inclusion in the Libyan constitution-making
+process,</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>to be reported when project closure is ready by early 2018</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00101889</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -7411,6 +8315,9 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     <participating-org role="1" type="10" ref="US-USAGOV">
       <narrative>US Int'l Narcotics &amp; Law Enfmn</narrative>
     </participating-org>
+    <participating-org role="1" type="10" ref="XM-DAC-7">
+      <narrative>GOVERNMENT OF NETHERLANDS</narrative>
+    </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2017-10-01" />
     <activity-date type="2" iso-date="2017-10-01" />
@@ -7428,7 +8335,19 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     <default-finance-type code="110" />
     <default-aid-type code="C01" />
     <default-tied-status code="3" />
-    <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/LBY/UNSMIL_UNDP_JP%20(signed).pdf">
+      <title>
+        <narrative>Policing and Secuirty</narrative>
+      </title>
+      <category code="A01" />
+      <category code="A02" />
+      <category code="A03" />
+      <category code="A04" />
+      <category code="A05" />
+      <category code="A08" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="1">
       <title>
         <narrative>Request for Procurement</narrative>
       </title>
@@ -7446,7 +8365,7 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00104136" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00104136</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -7457,8 +8376,14 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     <description type="1">
       <narrative>Structure, roles and resourcing of local police and criminal justice institutions clarified and prioritised according to identified needs in Tripoli</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="10" ref="US-USAGOV">
       <narrative>US Int'l Narcotics &amp; Law Enfmn</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="XM-DAC-7">
+      <narrative>GOVERNMENT OF NETHERLANDS</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2017-10-01" />
@@ -7472,6 +8397,26 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     <recipient-country code="LY">
       <narrative>Libya</narrative>
     </recipient-country>
+    <location ref="LY">
+      <location-reach code="2" />
+      <location-id vocabulary="G1" code="2210247" />
+      <name>
+        <narrative>Tripoli</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative>The project will be implemented in Tripoli</narrative>
+      </activity-description>
+      <administrative level="1" code="2210247" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>32.875190 13.187460</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <sector vocabulary="1" code="51010" />
     <sector vocabulary="99" code="2">
       <narrative>Democratic Governance</narrative>
@@ -7485,18 +8430,23 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">249480</value>
+      <value currency="USD" value-date="2017-12-31">249480</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2019-01-01" />
+      <period-end iso-date="2019-12-31" />
+      <value currency="USD" value-date="2017-12-31">100</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-11-30">1700520</value>
+      <value currency="USD" value-date="2017-12-31">1700520</value>
     </budget>
     <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">0</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">10842</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -7504,8 +8454,8 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1700520</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">100</value>
       <provider-org type="10" ref="US-USAGOV">
         <narrative>US Int'l Narcotics &amp; Law Enfmn</narrative>
       </provider-org>
@@ -7516,8 +8466,8 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">249480</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1700520</value>
       <provider-org type="10" ref="US-USAGOV">
         <narrative>US Int'l Narcotics &amp; Law Enfmn</narrative>
       </provider-org>
@@ -7527,9 +8477,33 @@ Output 3: Civil society engagement in the constitution-making process strengthen
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">249480</value>
+      <provider-org type="10" ref="US-USAGOV">
+        <narrative>US Int'l Narcotics &amp; Law Enfmn</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00104136">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1000000</value>
+      <provider-org ref="XM-DAC-7" type="10">
+        <narrative>GOVERNMENT OF NETHERLANDS</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00104136">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1950000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1950000</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -7543,8 +8517,51 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00101889" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>Indicator 1: Criminal justice and law enforcement institutions in Tripoli have clear and updated organisational structures in place.
+Indicator 2: De facto cooperation exists between judicial police and MOI/police to address security needs in Tripoli</narrative>
+        </description>
+        <baseline year="2017" value="">
+          <comment>
+            <narrative>Indicator 1: None 
+Indicator 2: None</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>ndicator 1: Criminal justice and law enforcement institutions in Tripoli have clear and updated organisational structures in place.
+Indicator 2: De facto cooperation exists between judicial police and MOI/police to address security needs in Tripoli</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>Prodoc signed in September 2017. Tracking of indicators to begin in early 2018. Following activities started in January 2017: 
+
+Core government functions assessment on policing and security completed was conducted for debriefing the UNSMIL and the donor community. Agreement between UNSMIL and UNDP Libya on the project scope of work decided under the Global Focal Point Arrangements . Concept note and PRODOC being devised.
+
+Technical adviser hired in late March 2017 to support concept note and project document development in Q2/Q3. Libyan government invited in April to brief UNDP on specific needs to be address by the project and subsequently to provide feedback on the fist draft of the project concept note. Two Global Focal Point missions were deployed to Libya facilitated by the Technical Adviser for further analyse the concept note and to facilitate the Joint Programme arrangement between UNSMIL and UNDP.  During this quarter the Tripoli Security Plan was signed by the Libyan Government and UNSMIL which enabled project planning to proceed.
+
+Project  manager sourced and hired in August 2017. Stakeholder engagement with MOI and police initiated in August 2017. First donor funding agreement (INL State Department, $1.95m) secured. Donation of $1m funding from UNDP BPPS secured. Project document and budget finalised by project manager and technical adviser. Project document signed jointly by UNDP Libya, UNSMIL, and Libyan Ministry of Interior on 21 September 2017.
+
+Technical level focal points identified jointly by MOI and UNDP, and engaged over October and November to devise project mplementation plan. Discussions on implementation plan held with stakeholders in other line ministries (Ministry of Justice, Ministry of Planning). Annual Work Plan 2018 devised. Terms of reference for project board negotiated with board members. First donor consortium meeting held. First project board meeting held. Risk assessment and mitigation strategy devised for implementation in Annu</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00101890</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -7639,7 +8656,7 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00104137" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00104137</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -7650,6 +8667,9 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     <description type="1">
       <narrative>The project aims to stimulate economic recovery and build resilience of local communities in Obari, Zintan, Zawiya, Riyana and Rajban.</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="70" ref="12821">
       <narrative>Repsol Exploracion Murzuq, S.A</narrative>
     </participating-org>
@@ -7665,6 +8685,26 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     <recipient-country code="LY">
       <narrative>Libya</narrative>
     </recipient-country>
+    <location ref="LY">
+      <location-reach code="2" />
+      <location-id vocabulary="G1" code="2210247" />
+      <name>
+        <narrative>Tripoli</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative>The project aims to stimulate economic recovery and build resilience of local communities in Obari, Zintan, Zawiya, Riyana and Rajban.</narrative>
+      </activity-description>
+      <administrative level="1" code="2210247" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>32.875190 13.187460</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <sector vocabulary="1" code="15112" />
     <sector vocabulary="99" code="3">
       <narrative>Responsive Institutions</narrative>
@@ -7685,17 +8725,17 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">9600000</value>
+      <value currency="USD" value-date="2017-12-31">9600000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-11-30">1846302</value>
+      <value currency="USD" value-date="2017-12-31">1846302</value>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">3159955</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">5805691</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -7703,8 +8743,8 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1846302</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1846302</value>
       <provider-org type="70" ref="12821">
         <narrative>Repsol Exploracion Murzuq, S.A</narrative>
       </provider-org>
@@ -7715,8 +8755,8 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">9600000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">9600000</value>
       <provider-org type="70" ref="12821">
         <narrative>Repsol Exploracion Murzuq, S.A</narrative>
       </provider-org>
@@ -7727,8 +8767,8 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">11446302</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">11446302</value>
       <provider-org ref="12821" type="70">
         <narrative>Repsol Exploracion Murzuq, S.A</narrative>
       </provider-org>
@@ -7739,8 +8779,8 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">11446302</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">11446302</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -7754,8 +8794,416 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00101890" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>1. access to  health services 
+2  access to energy 
+3. acces to water 
+4. acces to waste management</narrative>
+        </description>
+        <baseline year="2017" value="">
+          <comment>
+            <narrative>none</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1. access to  health services : purchase and delivery of UCI ambulances and medical equipment for hospitals 
+2. access to energy: purchase and delivery of  solar panel systems installed in hospitals 
+3. access to water: purchase and delivery of of water pipes 
+4. access to waste management: purchase and delivery of garbage collectiing trucks</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>On track</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+    <iati-identifier>XM-DAC-41114-PROJECT-00101893</iati-identifier>
+    <reporting-org ref="XM-DAC-41114" type="40">
+      <narrative>United Nations Development Programme</narrative>
+    </reporting-org>
+    <title>
+      <narrative>Promoting Election for the People of Libya (PEPOL)</narrative>
+    </title>
+    <description type="1">
+      <narrative>UNDP to provide electoral support project to address the needs of High National Elections Committee  and other electoral stakeholders</narrative>
+    </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
+    <participating-org role="2" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="00137">
+      <narrative>GOVERNMENT OF ITALY</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="DE-1">
+      <narrative>GOVERNMENT OF GERMANY</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="FR-3">
+      <narrative>GOVERNMENT OF FRANCE</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="XM-DAC-7">
+      <narrative>GOVERNMENT OF NETHERLANDS</narrative>
+    </participating-org>
+    <activity-status code="2" />
+    <activity-date type="1" iso-date="2017-11-01" />
+    <activity-date type="2" iso-date="2017-11-01" />
+    <activity-date type="3" iso-date="2020-10-31" />
+    <contact-info type="1">
+      <email>registry.ly@undp.org</email>
+      <website>http://www.ly.undp.org/</website>
+    </contact-info>
+    <recipient-country code="LY">
+      <narrative>Libya</narrative>
+    </recipient-country>
+    <sector vocabulary="1" code="15151" />
+    <collaboration-type code="4" />
+    <default-flow-type code="10" />
+    <default-finance-type code="110" />
+    <default-aid-type code="C01" />
+    <default-tied-status code="3" />
+    <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/LBY/PEPOL%20prodoc_Libya_final%20draft_23112017.docx">
+      <title>
+        <narrative>PEPOL prodoc_Libya_final draft_23112017</narrative>
+      </title>
+      <category code="A01" />
+      <category code="A02" />
+      <category code="A03" />
+      <category code="A04" />
+      <category code="A05" />
+      <category code="A08" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="1">
+      <title>
+        <narrative>Request for Procurement</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="http://open.undp.org/#project/00101893">
+      <title>
+        <narrative>Purchase Order Summary</narrative>
+      </title>
+      <category code="A11" />
+      <category code="A12" />
+      <language code="en" />
+    </document-link>
+    <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00104140" />
+    <conditions attached="0" />
+  </iati-activity>
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+    <iati-identifier>XM-DAC-41114-OUTPUT-00104140</iati-identifier>
+    <reporting-org ref="XM-DAC-41114" type="40">
+      <narrative>United Nations Development Programme</narrative>
+    </reporting-org>
+    <title>
+      <narrative>Promoting Elections for the Pe</narrative>
+    </title>
+    <description type="1">
+      <narrative>UNDP to provide electoral support project to address the needs of High National Elections Committee  and other electoral stakeholders</narrative>
+    </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="00137">
+      <narrative>GOVERNMENT OF ITALY</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="DE-1">
+      <narrative>GOVERNMENT OF GERMANY</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="FR-3">
+      <narrative>GOVERNMENT OF FRANCE</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="XM-DAC-7">
+      <narrative>GOVERNMENT OF NETHERLANDS</narrative>
+    </participating-org>
+    <activity-status code="2" />
+    <activity-date type="1" iso-date="2017-11-01" />
+    <activity-date type="2" iso-date="2017-11-01" />
+    <activity-date type="3" iso-date="2020-10-31" />
+    <contact-info type="1">
+      <email>registry.ly@undp.org</email>
+      <website>http://www.ly.undp.org/</website>
+    </contact-info>
+    <activity-scope code="4" />
+    <recipient-country code="LY">
+      <narrative>Libya</narrative>
+    </recipient-country>
+    <location ref="LY">
+      <location-reach code="2" />
+      <location-id vocabulary="G1" code="2215636" />
+      <name>
+        <narrative>Libya</narrative>
+      </name>
+      <description>
+        <narrative>independent political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative>National</narrative>
+      </activity-description>
+      <administrative level="0" code="2215636" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>28.000000 17.000000</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="1" />
+      <feature-designation code="PCLI" />
+    </location>
+    <sector vocabulary="1" code="15151" />
+    <sector vocabulary="99" code="2">
+      <narrative>Democratic Governance</narrative>
+    </sector>
+    <country-budget-items vocabulary="1">
+      <budget-item code="1.8.1" percentage="100">
+        <description>
+          <narrative>Elections - elections</narrative>
+        </description>
+      </budget-item>
+    </country-budget-items>
+    <policy-marker vocabulary="1" code="1" significance="0" />
+    <collaboration-type code="4" />
+    <default-flow-type code="10" />
+    <default-finance-type code="110" />
+    <default-aid-type code="C01" />
+    <default-tied-status code="3" />
+    <budget type="2" status="2">
+      <period-start iso-date="2017-01-01" />
+      <period-end iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">27000</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2020-01-01" />
+      <period-end iso-date="2020-12-31" />
+      <value currency="USD" value-date="2017-12-31">1000000</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2019-01-01" />
+      <period-end iso-date="2019-12-31" />
+      <value currency="USD" value-date="2017-12-31">1000000</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">3382878</value>
+    </budget>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">0</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">325005</value>
+      <provider-org type="10" ref="00137">
+        <narrative>GOVERNMENT OF ITALY</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00104140">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">325829</value>
+      <provider-org ref="00137" type="10">
+        <narrative>GOVERNMENT OF ITALY</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00104140">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1181840</value>
+      <provider-org type="10" ref="DE-1">
+        <narrative>GOVERNMENT OF GERMANY</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00104140">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1184834</value>
+      <provider-org ref="DE-1" type="10">
+        <narrative>GOVERNMENT OF GERMANY</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00104140">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">209367</value>
+      <provider-org type="10" ref="FR-3">
+        <narrative>GOVERNMENT OF FRANCE</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00104140">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">27000</value>
+      <provider-org type="10" ref="FR-3">
+        <narrative>GOVERNMENT OF FRANCE</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00104140">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">236967</value>
+      <provider-org ref="FR-3" type="10">
+        <narrative>GOVERNMENT OF FRANCE</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00104140">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1000000</value>
+      <provider-org type="10" ref="XM-DAC-7">
+        <narrative>GOVERNMENT OF NETHERLANDS</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00104140">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1000000</value>
+      <provider-org type="10" ref="XM-DAC-7">
+        <narrative>GOVERNMENT OF NETHERLANDS</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00104140">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1666666</value>
+      <provider-org type="10" ref="XM-DAC-7">
+        <narrative>GOVERNMENT OF NETHERLANDS</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00104140">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1111111</value>
+      <provider-org ref="XM-DAC-7" type="10">
+        <narrative>GOVERNMENT OF NETHERLANDS</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00104140">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">3409878</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <document-link format="text/html" url="http://open.undp.org/#project/00101893">
+      <title>
+        <narrative>Activity web page</narrative>
+      </title>
+      <category code="A12" />
+    </document-link>
+    <related-activity type="1" ref="XM-DAC-41114-PROJECT-00101893" />
+    <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>Quality and timeliness of procurement support for electoral events 
+# of field offices supported during electoral events
+Number of communication and outreach materials on role of HNEC disseminated to stakeholders
+# of coordination meetings held
+# of C/VE campaigns and materials promoting inclusion 
+# of  electoral laws HNEC contributes to</narrative>
+        </description>
+        <baseline year="2017" value="">
+          <comment>
+            <narrative>some support for HNEC without corresponding indicators to set a baseline</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>Support HNEC in the planning, preparation and conduct of national and local elections and out of country voting.
+Develop HNEC institutional and staff capacities and raise awareness on the requirements of electoral processes that are transparent, credible and promote inclusive participation.   
+promote public participation in electoral processes, targeting vulnerable groups with activities that enable them to exercise their right to vote. 
+ Raising the electoral awareness of local partners, enabling them to perform their role effectively in the electoral process and contribute to a peaceful electoral environment.</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>PEPOL PRODOC just signed on December. initiative will staff activities on January 2017</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
+  </iati-activity>
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00104158</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -7771,6 +9219,9 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="00717">
+      <narrative>CPR-THE GOVERMENT OF KOREA</narrative>
     </participating-org>
     <participating-org role="1" type="40" ref="10159">
       <narrative>EUROPEAN COMMISSION</narrative>
@@ -7836,17 +9287,23 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00105858" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00105858</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
     </reporting-org>
     <title>
-      <narrative>Strengthening Local Capacities</narrative>
+      <narrative>Strengthening local capacities</narrative>
     </title>
     <description type="1">
-      <narrative>Strengthening Local Capacities for Resilience and Recovery</narrative>
+      <narrative>Strengthen the responsiveness of local institutions to address needs related with crisis-affected populations and in leading recovery processes.Ensure better provision of basic services at local level and increase access for most vulnerable groups</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="00717">
+      <narrative>CPR-THE GOVERMENT OF KOREA</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="10159">
       <narrative>EUROPEAN COMMISSION</narrative>
     </participating-org>
@@ -7862,6 +9319,26 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     <recipient-country code="LY">
       <narrative>Libya</narrative>
     </recipient-country>
+    <location ref="LY">
+      <location-reach code="2" />
+      <location-id vocabulary="G1" code="2210247" />
+      <name>
+        <narrative>Tripoli</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative>Murzuq, Sabha, Al Kufrah, Benghazi, Tripoli and Sabratha, among others.</narrative>
+      </activity-description>
+      <administrative level="1" code="2210247" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>32.875190 13.187460</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <sector vocabulary="1" code="15112" />
     <sector vocabulary="99" code="3">
       <narrative>Responsive Institutions</narrative>
@@ -7882,37 +9359,61 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">300000</value>
+      <value currency="USD" value-date="2017-12-31">1062173</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2020-01-01" />
       <period-end iso-date="2020-12-31" />
-      <value currency="USD" value-date="2017-11-30">1550608</value>
+      <value currency="USD" value-date="2017-12-31">1550608</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2017-11-30">8924528</value>
+      <value currency="USD" value-date="2017-12-31">8924528</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-11-30">11910678</value>
+      <value currency="USD" value-date="2017-12-31">11148505</value>
     </budget>
     <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">94058</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">475485</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
+      <transaction-type code="3" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">599996</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <receiver-org type="10" ref="">
+        <narrative>Government of Libya</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">500000</value>
+      <provider-org ref="00717" type="10">
+        <narrative>CPR-THE GOVERMENT OF KOREA</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00105858">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1550608</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1550608</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -7923,8 +9424,8 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">8924528</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">8924528</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -7935,8 +9436,8 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">11910678</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">11148505</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -7947,8 +9448,8 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">300000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1062173</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -7959,8 +9460,8 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">6586185</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">6586185</value>
       <provider-org ref="10159" type="40">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -7971,8 +9472,8 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">22685814</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">22685814</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -7986,5 +9487,61 @@ Output 3: Civil society engagement in the constitution-making process strengthen
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00104158" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>1. # of municipalities with a fully capacitated coordination mechanism in place to facilitate needs analysis, coordination and implementation of recovery activities. 
+2. % of Tier 1 and Tier 2 priorities (as per needs assessment) infrastructure rehabilitation activities (civil works and/or equipment delivery) completed in each municipality. 
+3. % of surveyed people in targeted municipalities who are satisfied (or somewhat satisfied) with access to basic health and public services (disaggregated by sex, age, and legal status). 
+4. # of RoL staff who successfully completed trainings. 
+5. % of RoL institutions identified during the needs assessment supported with equipment and other technical assistance. 
+6. # of ‘model police stations’ established and fully operational. 
+7. # of persons who successfully complete an apprenticeship programme (disaggregated by sex, age, and legal status?). 
+8. # of local business incubators/economic literacy centers are established and fully functional. 
+9. # of vulnerable individuals earning income from temporary jobs (disaggregated by sex and age).</narrative>
+        </description>
+        <baseline year="2017" value="">
+          <comment>
+            <narrative>1. 0 – no coordination mechanisms in place in any of the municipalities. 
+2. 0. No rehabilitation activities have started (2017).  
+3. TBD – perception survey to be carried out in 2017. 
+4. 0 (2017)
+5. 0 (2017)
+6. 0 (2017)
+7. 0 (2017)
+8. 0 (2017)
+9. 0 (2017)</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1. At least 4 coordination mechanisms in place (including of Benghazi, Tripoli and Sabha). 
+2. 50% of Tier 1 priority rehabilitation activities started in each of six locations. 
+3. No target - baseline year. 
+4. N/A - Activities will start in 2018. 
+5. N/A - Activities will start in 2018. 
+6. N/A - First model police station expected to be established only in 2018. 
+7. N/A - First round of apprenticeship programmes expected to be completed only in 2018. 
+8. N/A - First round of business incubators expected in 2018. 
+9. TBD</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>activities on track</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
 </iati-activities>

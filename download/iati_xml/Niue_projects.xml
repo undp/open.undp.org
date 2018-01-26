@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2017-12-06T17:43:51" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2018-01-26T04:07:08" version="2.02">
   <!--Niue-->
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00074568</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -72,7 +72,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00086917" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00086917</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -83,6 +83,9 @@
     <description type="1">
       <narrative>Niue Ridge to Reef Preparatory Phase Grant (PPG) covers coordination, management and financial oversight of UNDP and management arrangement and prepare the project document.</narrative>
     </description>
+    <participating-org role="4" type="40" ref="02733">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
     </participating-org>
@@ -101,6 +104,26 @@
     <recipient-country code="NU">
       <narrative>Niue</narrative>
     </recipient-country>
+    <location ref="NU">
+      <location-reach code="2" />
+      <location-id vocabulary="G1" code="4036284" />
+      <name>
+        <narrative>Alofi</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative>Niue</narrative>
+      </activity-description>
+      <administrative level="1" code="4036284" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>-19.054510 -169.917680</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <sector vocabulary="1" code="41010" />
     <sector vocabulary="99" code="2">
       <narrative>Democratic Governance</narrative>
@@ -121,7 +144,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">1300</value>
+      <value currency="USD" value-date="2017-12-31">1300</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -141,8 +164,8 @@
     <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">101</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">101</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -186,8 +209,8 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1300</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1300</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00074568">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -222,8 +245,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">190055</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">190055</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -255,14 +278,74 @@
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00074568" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>Full size Project document approved</narrative>
+        </description>
+        <baseline year="2014" value="">
+          <comment>
+            <narrative>No project document</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2015-01-01" />
+          <period-end iso-date="2015-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1. Development and submission of project document for full-size project</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>2. Project document submitted to GEF Secretariat in July 2015</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2016-01-01" />
+          <period-end iso-date="2016-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1. Approval of full-size project document</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>2. Project document was approved by GEF on 4th April 2016</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>Not applicable</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>Not applicable</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00078842</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
     </reporting-org>
     <title>
-      <narrative>NIUE Ridge to Reef (FSP)</narrative>
+      <narrative>Niue Ridge to Reef</narrative>
     </title>
     <description type="1">
       <narrative>Application of Ridge to Reef Concept for Biodiversity Conservation and for the Enhancement of Ecosystem Services and Cultural Heritage in Niue_NIUE Ridge to Reef Full-Sized Project</narrative>
@@ -307,35 +390,35 @@
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=32036">
       <title>
-        <narrative>NIUE Ridge to Reef (FSP)</narrative>
+        <narrative>Niue Ridge to Reef</narrative>
       </title>
       <category code="A10" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=32037">
       <title>
-        <narrative>NIUE Ridge to Reef (FSP)</narrative>
+        <narrative>Niue Ridge to Reef</narrative>
       </title>
       <category code="A10" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=32039">
       <title>
-        <narrative>NIUE Ridge to Reef (FSP)</narrative>
+        <narrative>Niue Ridge to Reef</narrative>
       </title>
       <category code="A10" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=36073">
       <title>
-        <narrative>NIUE Ridge to Reef (FSP)</narrative>
+        <narrative>Niue Ridge to Reef</narrative>
       </title>
       <category code="A10" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=39957">
       <title>
-        <narrative>NIUE Ridge to Reef (FSP)</narrative>
+        <narrative>Niue Ridge to Reef</narrative>
       </title>
       <category code="A10" />
       <language code="en" />
@@ -351,17 +434,20 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00088927" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00088927</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
     </reporting-org>
     <title>
-      <narrative>NIUE Ridge to Reef (FSP)</narrative>
+      <narrative>NIUE Ridge to Reef</narrative>
     </title>
     <description type="1">
       <narrative>Application of Ridge to Reef Concept for Biodiversity Conservation and for the Enhancement of Ecosystem Services and Cultural Heritage in Niue_FSP</narrative>
     </description>
+    <participating-org role="4" type="40" ref="02739">
+      <narrative>Niue Ministry Natural Resource</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
     </participating-org>
@@ -377,6 +463,26 @@
     <recipient-country code="NU">
       <narrative>Niue</narrative>
     </recipient-country>
+    <location ref="NU">
+      <location-reach code="2" />
+      <location-id vocabulary="G1" code="4036284" />
+      <name>
+        <narrative>Alofi</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative>Alofi</narrative>
+      </activity-description>
+      <administrative level="1" code="4036284" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>-19.054510 -169.917680</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <sector vocabulary="1" code="74010" />
     <sector vocabulary="99" code="5">
       <narrative>Climate Change &amp; Disaster Resilience</narrative>
@@ -397,27 +503,27 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">816635</value>
+      <value currency="USD" value-date="2017-12-31">816635</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2021-01-01" />
       <period-end iso-date="2021-12-31" />
-      <value currency="USD" value-date="2017-11-30">104900</value>
+      <value currency="USD" value-date="2017-12-31">104900</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2020-01-01" />
       <period-end iso-date="2020-12-31" />
-      <value currency="USD" value-date="2017-11-30">636495</value>
+      <value currency="USD" value-date="2017-12-31">636495</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2017-11-30">1144635</value>
+      <value currency="USD" value-date="2017-12-31">1144635</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-11-30">1246197</value>
+      <value currency="USD" value-date="2017-12-31">1246197</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -426,8 +532,8 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">44409</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">50314</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -435,8 +541,8 @@
     </transaction>
     <transaction>
       <transaction-type code="3" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">251977</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">343352</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -447,8 +553,8 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">104900</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">104900</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -459,8 +565,8 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">636495</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">636495</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -471,8 +577,8 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1144635</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1144635</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -483,8 +589,8 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1246197</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1246197</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -495,8 +601,8 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">816635</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">816635</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -519,8 +625,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">4107908</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">4107908</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -540,8 +646,94 @@
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00078842" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>Project Objective:
+1. Incorporation of cultural and traditional values and approaches in  natural resources protection and management
+2. The freshwater lens safeguarded in the long term
+3. Terrestrial and reef species are being utilized on a sustainable basis to an increasing number of community members
+
+Outcome 1:
+1.1  Extent of the protected estate in various forms and through different protective mechanisms
+1.2  Efforts in place for the recovery of species at risk
+1.3  Status of completion and adoption of management plans for various conservation areas
+
+Outcome 2:
+2.1  Promotion of R2R approach by Village Councils and Government departments
+2.2  The extent to which biodiversity and natural resources are taken into account in central and local planning, management and daily life
+2.3  Level of awareness, sensitivity and understanding of the value and vulnerability of natural resources</narrative>
+        </description>
+        <baseline year="2016" value="">
+          <comment>
+            <narrative>Project Objective:
+1. Cultural values and constraints are reported as being eroded away
+2. Freshwater lens at risk from agricultural chemicals, and septic tank effluent
+3. Some reef species such as Tridacna sp., and Holothuria sp., have been reported as diminished.  Peka, Lupe and Uga populations have declined; utilization rates to be established during the first year
+
+Outcome 1:
+1.1 Tapu areas are many but not all are known or acknowledged; Huvalu Forest Conservation Area (5,400 ha) and Namoui Marine Reserve (27.67 ha) are the only Protected Areas
+1.2 Hega (blue-crowned lory) and the olive small-scaled skink are considered endangered; Uga and Peka are currently considered as threatened.  Both are being harvested unsustainably. 
+1.3 Huvalu Conservation Area and Beveridge Reef  – no Management Plan; Reefs covered somewhat by Coastal Management Plan
+
+Outcome 2:
+2.1 There is currently no comprehensive, holistic approach applied by Village Councils or Government Departments to natural resources management 
+2.2 Neither sector plans nor Village Development Plans can be said to have mainstreamed biodiversity considerations
+2.3 There is a certain level of awareness but it is not deep.  The baseline will be established through survey at the Inception Phase</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2016-01-01" />
+          <period-end iso-date="2016-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1. Project document approval and signing
+2. Project inception phase and workshop
+3. Recruitment of PMU</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>1. Project document was signed on 4th April 2016
+2. Interim project specialist recruited on 28th April 2016 and inception workshop was held 6 - 7 July 2016. Project equipment procured through UNDP
+3. Project Procurement and Finance Officer recruited, Project Manager recruited in July 2016 also but resigned to take up another position. Replacement for PM recruited in Dec 2016</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>End of Project Targets:
+Project Objective:
+1. Culturally significant species, habitats and methods of conservation are identified, recorded and being built upon
+2. Biodegradable or certified organic agri- chemicals used exclusively; and at least 80% of septic tank effluent treated, such that risk of contamination of the freshwater lens controlled or removed
+3. Access or utilization by communities for food and other uses increased by 25% but on a sustainable basis
+
+Outcome 1:
+1.1 Additional 2550 ha of terrestrial ecosystems; additional 4500 ha of marine ecosystem; and, additional 200 ha of reef, protected by various instruments by the end of the project
+1.2 Species Recovery Plans for Hega and the olive small-scaled skink formulated, adopted and being implemented; Species Management Plans for Uga and Peka formulated, adopted and being implemented.
+1.3 Huvalu Conservation Area, Beveridge Reef MPA, Western Reef Conservation Area, and new Confluence Conservation Area, all with management plans adopted and being implemented
+
+Outcome 2:
+2.1 New Village Development Plans, and reviewed existing ones, showing an explicitly comprehensive (R2R) and integrated approach towards land, water and natural resource management.  
+2.2 Corporate Plans, Annual Work Plans and similar key documents, showing an explicitly comprehensive (R2R) and integrated approach towards land, water and natural resource management; together will collaboration across departmental boundaries.
+2.3 Biodiversity considerations become an explicit element in policies, plans, strategies and similar instruments
+An improvement of 20-50% in awareness and understanding as measured by a repeat survey.</narrative>
+            </comment>
+          </target>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00098886</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -590,7 +782,7 @@
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
+    <document-link format="text/html" url="1">
       <title>
         <narrative>Request for Procurement</narrative>
       </title>
@@ -608,7 +800,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00102081" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00102081</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -619,6 +811,9 @@
     <description type="1">
       <narrative>United Nations agreed to establish a Joint Presence Offices and placing UN Coordination officer in Niue, this will contribute to the UN development system leadership and coordination.</narrative>
     </description>
+    <participating-org role="4" type="40" ref="02733">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
@@ -674,12 +869,12 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">50000</value>
+      <value currency="USD" value-date="2017-12-31">50000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-11-30">50000</value>
+      <value currency="USD" value-date="2017-12-31">50000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -689,8 +884,8 @@
     <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">63648</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">69476</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -698,8 +893,8 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">50000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">50000</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00098886">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -710,8 +905,8 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">50000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">50000</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00098886">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -734,8 +929,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">91866</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">141866</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>

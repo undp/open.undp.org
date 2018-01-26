@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2017-12-06T17:43:18" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2018-01-26T04:06:05" version="2.02">
   <!--Seychelles-->
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00057862</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -31,7 +31,7 @@
     <activity-status code="2" />
     <activity-date type="1" iso-date="2009-07-07" />
     <activity-date type="2" iso-date="2009-07-07" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.mu@undp.org</email>
       <website>http://www.mu.undp.org/</website>
@@ -57,7 +57,7 @@
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
+    <document-link format="text/html" url="1">
       <title>
         <narrative>Request for Procurement</narrative>
       </title>
@@ -75,7 +75,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00071620" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00071620</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -84,8 +84,11 @@
       <narrative>Development Support Services f</narrative>
     </title>
     <description type="1">
-      <narrative>Development support services</narrative>
+      <narrative>Development Support Services</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="10" ref="00212">
       <narrative>GOVERNMENT OF SEYCHELLES</narrative>
     </participating-org>
@@ -98,7 +101,7 @@
     <activity-status code="2" />
     <activity-date type="1" iso-date="2009-07-07" />
     <activity-date type="2" iso-date="2009-07-07" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.mu@undp.org</email>
       <website>http://www.mu.undp.org/</website>
@@ -137,7 +140,12 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">95405</value>
+      <value currency="USD" value-date="2017-12-31">95405</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">5403</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -157,17 +165,41 @@
     <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">51371</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">82566</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
+      <transaction-type code="3" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">253</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <receiver-org type="10" ref="">
+        <narrative>Government of Seychelles</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">928</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">928</value>
+      <provider-org type="10" ref="00212">
+        <narrative>GOVERNMENT OF SEYCHELLES</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00071620">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">928</value>
       <provider-org type="10" ref="00212">
         <narrative>GOVERNMENT OF SEYCHELLES</narrative>
       </provider-org>
@@ -190,8 +222,8 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">4477</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">4475</value>
       <provider-org type="22" ref="12192">
         <narrative>Common Market for Eastern and Southern Africa (COMESA)</narrative>
       </provider-org>
@@ -202,8 +234,20 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">90000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">4477</value>
+      <provider-org type="22" ref="12192">
+        <narrative>Common Market for Eastern and Southern Africa (COMESA)</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00071620">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">90000</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00057862">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -238,8 +282,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">144572</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">149975</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -272,7 +316,7 @@
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00057862" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00065515</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -292,11 +336,10 @@
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
     </participating-org>
-    <activity-status code="3" />
+    <activity-status code="2" />
     <activity-date type="1" iso-date="2012-03-08" />
     <activity-date type="2" iso-date="2012-03-08" />
     <activity-date type="3" iso-date="2017-03-31" />
-    <activity-date type="4" iso-date="2017-10-27" />
     <contact-info type="1">
       <email>registry.mu@undp.org</email>
       <website>http://www.mu.undp.org/</website>
@@ -331,7 +374,7 @@
     </document-link>
     <document-link format="text/html" url="https://erc.undp.org/evaluation/evaluations/detail/8554">
       <title>
-        <narrative>Terminal Evaluation for Grid Connected roof Top PV In Seychelles</narrative>
+        <narrative>Terminal Evaluation for Grid Connected Roof Top Photovoltaic Systems In Seychelles</narrative>
       </title>
       <category code="A07" />
       <language code="en" />
@@ -343,7 +386,7 @@
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
+    <document-link format="text/html" url="1">
       <title>
         <narrative>Request for Procurement</narrative>
       </title>
@@ -361,7 +404,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00081971" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00081971</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -372,14 +415,16 @@
     <description type="1">
       <narrative>Grid-Connected Rooftop Photovoltaic Systems:</narrative>
     </description>
+    <participating-org role="4" type="40" ref="01965">
+      <narrative>Ministry of Env,Energy &amp; CC</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
     </participating-org>
-    <activity-status code="3" />
+    <activity-status code="2" />
     <activity-date type="1" iso-date="2012-03-08" />
     <activity-date type="2" iso-date="2012-03-08" />
     <activity-date type="3" iso-date="2017-03-31" />
-    <activity-date type="4" iso-date="2017-10-27" />
     <contact-info type="1">
       <email>registry.mu@undp.org</email>
       <website>http://www.mu.undp.org/</website>
@@ -397,9 +442,6 @@
       <description>
         <narrative>independent political entity</narrative>
       </description>
-      <activity-description>
-        <narrative />
-      </activity-description>
       <administrative level="0" code="241170" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
         <pos>-4.583330 55.666670</pos>
@@ -421,7 +463,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">4046</value>
+      <value currency="USD" value-date="2017-12-31">4046</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -450,8 +492,8 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">0</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">0</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -459,8 +501,8 @@
     </transaction>
     <transaction>
       <transaction-type code="3" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">4046</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">3793</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -471,8 +513,8 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">4046</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">4046</value>
       <provider-org type="40" ref="10003" provider-activity-id="PIMS 4331">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -543,8 +585,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1160253</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1160253</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -1098,7 +1140,7 @@ In addition the Government is in the process of designing a large project for po
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00075876</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1342,7 +1384,7 @@ In addition the Government is in the process of designing a large project for po
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00087541</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1353,6 +1395,9 @@ In addition the Government is in the process of designing a large project for po
     <description type="1">
       <narrative>The project seeks to promote the conservation and sustainable use of terrestrial and marine biodiversity in the Seychelles’ Outer Islands.</narrative>
     </description>
+    <participating-org role="4" type="40" ref="01965">
+      <narrative>Ministry of Env,Energy &amp; CC</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
     </participating-org>
@@ -1408,17 +1453,17 @@ In addition the Government is in the process of designing a large project for po
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">422926</value>
+      <value currency="USD" value-date="2017-12-31">422926</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2017-11-30">206962</value>
+      <value currency="USD" value-date="2017-12-31">206962</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-11-30">261367</value>
+      <value currency="USD" value-date="2017-12-31">261367</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -1435,11 +1480,10 @@ In addition the Government is in the process of designing a large project for po
       <period-end iso-date="2014-12-31" />
       <value currency="USD" value-date="2014-12-31">229451</value>
     </budget>
-    <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">177285</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">177285</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -1447,8 +1491,8 @@ In addition the Government is in the process of designing a large project for po
     </transaction>
     <transaction>
       <transaction-type code="3" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">119287</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">145391</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -1459,8 +1503,8 @@ In addition the Government is in the process of designing a large project for po
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">206962</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">206962</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -1471,8 +1515,8 @@ In addition the Government is in the process of designing a large project for po
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">261367</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">261367</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -1483,8 +1527,8 @@ In addition the Government is in the process of designing a large project for po
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">422926</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">422926</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -1531,8 +1575,8 @@ In addition the Government is in the process of designing a large project for po
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1785169</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1785169</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -1637,10 +1681,71 @@ Desroches:
             </comment>
           </actual>
         </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1. Completion of MTR with Management responses
+:2. Preparation of terrestrial and marine habitat maps 
+3..Assessment, monitoring and conservation of coral reefs
+4. Assessment, monitoring and conservation of sea grass beds
+5. Assessment, monitoring and conservation of mangroves
+6. Assessment, monitoring and conservation of terrestrial fauna
+7. : Current and potential climate change impacts on biodiversity and ecosystem functioning assessed and monitored 
+8. 2 Capacity Building of PA Management Staff</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>1. MTR completed with Management response and uploaded on ERC
+2. Terrestrial Habitat Maps
+•	Poivre:  Completed
+•	Farquhar:  Completed
+•	Alphonse and Desroches:  Completed, pending readjustment according to new classification
+•	St. Francois and Bijoutier:  Ongoing 60% 
+
+Marine Habitat Maps
+•	Ongoing. Climate Science and Data Management Section staff are working on the broad scale maps. To be completed by May 2018
+
+3.•	Monitoring protocols and management plans completed. 
+•	Capacity Building: Video module of Coral Reef Monitoring training is being reviewed by PCU and ICS.  
+•	A marine expedition to collect baseline data on Poivre was organised in October 2017.  Data for Coral reef and fish was successfully collected.  See Link: http://www.islandconservationseychelles.com/ics-blog/poivre-proves-productive-in-coral-reef-biodiversity 
+•	Status of New Baseline data:
+Poivre: 90%
+Alphonse: 75%
+Desroches: 80%
+Farquhar:  25%
+•	Materials for coral education resource facility:  OIP requesting a letter of commitment from UNISEY/BERI with the specific indication of when the facility will be ready to receive the project investment.  Activity postponed to end of 2018/ 2019
+
+4. •	Ongoing: 1st draft of new protocol developed by Dr Jeanne Mortimer.  Protocol was tested during the terrestrial expedition to Poivre in December.  Dr. Mortimer to finalise protocol for use by the end of January 2018
+•	Status of New Baseline data:
+Poivre: 50 %
+Alphonse: 0%
+Desroches: 0%
+Farquhar:  0%
+
+
+5. •	Monitoring protocol and management plan completed.  
+•	Training of ICS staff on protocol was done during the Poivre terrestrial expedition in December 2017.   
+•	Status of New Baseline data:
+Poivre: 50%
+Alphonse Group: St Francois: 0% 
+Desroches: No mangroves
+Farquhar:  No mangroves
+
+6. GIANT TORTOISES
+•	Completed: Final report for giant tortoises finalised and approved by SC members.
+•	Training being carried out by conservation officers on the islands.
+
+7. •	Ongoing: Sea surface temperature data being c</narrative>
+            </comment>
+          </actual>
+        </period>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00079923</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1721,7 +1826,7 @@ Desroches:
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00089789" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00089789</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1732,6 +1837,9 @@ Desroches:
     <description type="1">
       <narrative>Promotion and up-scaling of climate-resilient, resource efficient technologies in a Tropical Island Context</narrative>
     </description>
+    <participating-org role="4" type="40" ref="01965">
+      <narrative>Ministry of Env,Energy &amp; CC</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
     </participating-org>
@@ -1780,12 +1888,12 @@ Desroches:
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">420000</value>
+      <value currency="USD" value-date="2017-12-31">420000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-11-30">586622</value>
+      <value currency="USD" value-date="2017-12-31">586622</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -1804,8 +1912,8 @@ Desroches:
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">173278</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">183934</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -1813,8 +1921,8 @@ Desroches:
     </transaction>
     <transaction>
       <transaction-type code="3" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">175647</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">201878</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -1825,8 +1933,8 @@ Desroches:
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">586622</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">586622</value>
       <provider-org type="40" ref="10003" provider-activity-id="PIMS 4913">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -1837,8 +1945,8 @@ Desroches:
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">420000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">420000</value>
       <provider-org type="40" ref="10003" provider-activity-id="PIMS 4913">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -1885,8 +1993,8 @@ Desroches:
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1775245</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1775245</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -2411,7 +2519,7 @@ The consultant also proposed a new reduction in the target of SEEREP  from 8500 
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00080054</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2478,7 +2586,7 @@ The consultant also proposed a new reduction in the target of SEEREP  from 8500 
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00089895" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00089895</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2489,6 +2597,9 @@ The consultant also proposed a new reduction in the target of SEEREP  from 8500 
     <description type="1">
       <narrative>The overall goal of the project is to ensure that development in the Seychelles is sustainable, and resilient to anticipated climate change effects.</narrative>
     </description>
+    <participating-org role="4" type="40" ref="01965">
+      <narrative>Ministry of Env,Energy &amp; CC</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="47111">
       <narrative>Adaptation Fund  (AF)</narrative>
     </participating-org>
@@ -2504,26 +2615,6 @@ The consultant also proposed a new reduction in the target of SEEREP  from 8500 
     <recipient-country code="SC">
       <narrative>Seychelles</narrative>
     </recipient-country>
-    <location ref="SC">
-      <location-reach code="1" />
-      <location-id vocabulary="G1" code="241170" />
-      <name>
-        <narrative>Seychelles</narrative>
-      </name>
-      <description>
-        <narrative>independent political entity</narrative>
-      </description>
-      <activity-description>
-        <narrative>Seychelles countrywide</narrative>
-      </activity-description>
-      <administrative level="0" code="241170" vocabulary="G1" />
-      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>-4.583330 55.666670</pos>
-      </point>
-      <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
-    </location>
     <location ref="SC">
       <location-reach code="1" />
       <location-id vocabulary="G1" code="241170" />
@@ -2557,12 +2648,12 @@ The consultant also proposed a new reduction in the target of SEEREP  from 8500 
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">1093035</value>
+      <value currency="USD" value-date="2017-12-31">1093035</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-11-30">731549</value>
+      <value currency="USD" value-date="2017-12-31">731549</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -2581,8 +2672,8 @@ The consultant also proposed a new reduction in the target of SEEREP  from 8500 
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">468985</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">583182</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -2590,8 +2681,8 @@ The consultant also proposed a new reduction in the target of SEEREP  from 8500 
     </transaction>
     <transaction>
       <transaction-type code="3" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">291630</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">373828</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -2602,8 +2693,8 @@ The consultant also proposed a new reduction in the target of SEEREP  from 8500 
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">731549</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">731549</value>
       <provider-org type="40" ref="47111">
         <narrative>Adaptation Fund  (AF)</narrative>
       </provider-org>
@@ -2614,8 +2705,8 @@ The consultant also proposed a new reduction in the target of SEEREP  from 8500 
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1093035</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1093035</value>
       <provider-org type="40" ref="47111">
         <narrative>Adaptation Fund  (AF)</narrative>
       </provider-org>
@@ -2662,8 +2753,8 @@ The consultant also proposed a new reduction in the target of SEEREP  from 8500 
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">3200337</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">3200337</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -2776,10 +2867,42 @@ One consultant from the EcoSol Company conducted further Beach profiling and the
             </comment>
           </actual>
         </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>Set up two additional watershed committees, to join the existing 2. 
+•         Conduct capacity building workshops for the watershed committees, NGOs and Government stakeholders
+•         Draft and sign a Memorandum of Understanding with the University of Seychelles
+•         Complete 2 project documentaries about the wetland and forest rehabilitation of the EBA project
+•         Work in collaboration with project partners such as the Land Use Plans Department of MLUH
+•         Development a Terrapin trapping protocol
+•         Development a Coastal processes study report and modelling of North East Point
+•         Conduct a series of rapid biodiversity assessments at several project sites prior to undertaking restoration activities
+           .         Clean the Anse Royale and North East Point Wetland area by the removal of invasive vegetation on the banks of the wetlandS. 
+           .        Undertake wetland reprofiling and start rehabilitation at Baie Lazare. Construct a gabion small scale water storage barrage in the largest upland wetland at Baie Lazare
+           .         Undertake pilot and controlled forest rehabilitation on several parcels in the various watersheds
+. .        Undertake a series of community based consultation to raise awareness about the EBA project methods and approaches.
+                       .        Develop water policy regulating the management of water catchments in the Seychelles</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>•         Two additional watershed committees have been set up, making a total of 4 existing committees 
+•         Several capacity building workshops and knowledge sharing activities were conducted
+•         The Memorandum of Understanding with the University of Seychelles was signed with the Ministry of Environment, Energy and climate change. 
+•         The 2 television documentaries were completed and will be aired in 2018
+•         The terrapin trapping protocol was finalised and is being used throughout the wetland profiling at project sites
+•         The small scale gabion barrage is almost completed
+•         Forest rehabilitation was piloted on Some parcels of land in two water catchments.</narrative>
+            </comment>
+          </actual>
+        </period>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00084466</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2829,7 +2952,7 @@ One consultant from the EcoSol Company conducted further Beach profiling and the
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
+    <document-link format="text/html" url="1">
       <title>
         <narrative>Request for Procurement</narrative>
       </title>
@@ -3017,7 +3140,7 @@ One consultant from the EcoSol Company conducted further Beach profiling and the
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00092454</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3028,6 +3151,9 @@ One consultant from the EcoSol Company conducted further Beach profiling and the
     <description type="1">
       <narrative>Strengthen national decision making towards ratification of the Minamata Convention and build capacity towards implementation of future provisions</narrative>
     </description>
+    <participating-org role="4" type="40" ref="01965">
+      <narrative>Ministry of Env,Energy &amp; CC</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
     </participating-org>
@@ -3084,7 +3210,7 @@ One consultant from the EcoSol Company conducted further Beach profiling and the
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">7909</value>
+      <value currency="USD" value-date="2017-12-31">7909</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -3098,8 +3224,8 @@ One consultant from the EcoSol Company conducted further Beach profiling and the
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">0</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">0</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -3107,8 +3233,8 @@ One consultant from the EcoSol Company conducted further Beach profiling and the
     </transaction>
     <transaction>
       <transaction-type code="3" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">7909</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">7909</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -3119,8 +3245,8 @@ One consultant from the EcoSol Company conducted further Beach profiling and the
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">7909</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">7909</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -3155,8 +3281,8 @@ One consultant from the EcoSol Company conducted further Beach profiling and the
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">199100</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">199100</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -3256,7 +3382,7 @@ Project completed and will be closed operationally in Jan 2017</narrative>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00088837</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3311,7 +3437,7 @@ Project completed and will be closed operationally in Jan 2017</narrative>
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
+    <document-link format="text/html" url="1">
       <title>
         <narrative>Request for Procurement</narrative>
       </title>
@@ -3329,7 +3455,7 @@ Project completed and will be closed operationally in Jan 2017</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00095320" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00095320</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3340,6 +3466,9 @@ Project completed and will be closed operationally in Jan 2017</narrative>
     <description type="1">
       <narrative>To improve the financial sustainability and strategic cohesion of Seychelles protected area system, while also dealing with emerging threats and risks to biodiversity in a shifting national economic environment.</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
     </participating-org>
@@ -3384,22 +3513,22 @@ Project completed and will be closed operationally in Jan 2017</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">755029</value>
+      <value currency="USD" value-date="2017-12-31">755029</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2020-01-01" />
       <period-end iso-date="2020-12-31" />
-      <value currency="USD" value-date="2017-11-30">142468</value>
+      <value currency="USD" value-date="2017-12-31">142468</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2017-11-30">772834</value>
+      <value currency="USD" value-date="2017-12-31">772834</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-11-30">713075</value>
+      <value currency="USD" value-date="2017-12-31">713075</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -3408,8 +3537,8 @@ Project completed and will be closed operationally in Jan 2017</narrative>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">145164</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">189236</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -3417,8 +3546,8 @@ Project completed and will be closed operationally in Jan 2017</narrative>
     </transaction>
     <transaction>
       <transaction-type code="3" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">377891</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">433079</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -3429,8 +3558,8 @@ Project completed and will be closed operationally in Jan 2017</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">142468</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">142468</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -3441,8 +3570,8 @@ Project completed and will be closed operationally in Jan 2017</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">772834</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">772834</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -3453,8 +3582,8 @@ Project completed and will be closed operationally in Jan 2017</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">713075</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">713075</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -3465,8 +3594,8 @@ Project completed and will be closed operationally in Jan 2017</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">755029</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">755029</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -3489,8 +3618,8 @@ Project completed and will be closed operationally in Jan 2017</narrative>
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">2776900</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">2776900</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -3510,8 +3639,85 @@ Project completed and will be closed operationally in Jan 2017</narrative>
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00088837" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>1) Total finances available to the PA system from various sources (based on financial analysis of the six main sub-systems, covering 88% of the PA estate, and functioning as a proxy for the overall PAS
+2)Existence and effective application of a PA System (PAS) Financing &amp; Investment Plan for Seychelles
+3) Number of subsidiary investment or financing plans at the site or at the sub-system’s level
+
+4) Percentage of PA generated revenues retained in the PA system for re-investment across the main sub-systems and for each individual sub-systems:
+ which covers 88% of the PA estate and likely 80-90% of all PA finance flows.
+5) Number of revenue sources for the PA system in the form of PES and their full exploitation in Seychelles</narrative>
+        </description>
+        <baseline year="2016" value="">
+          <comment>
+            <narrative>$5.4 million p.a., as measured in 2015 and referring to Baseline Year 2013
+a) Since 2008, SNPA has been downgraded to being a budget-dependent institution; 
+(b) 100% of SNPA’s site-generated revenues are reversed to Treasury and not retained by the entity
+As assessed in 2015 through the application of the Financial Sustainability Scorecard for Seychelles’ PAS and referring to Baseline Year 2013:
+Only 1 PA financing plan (though not an investment plan) is being implemented in Seychelles, namely for the SIF PA sub-system; it was prepared in 2013 on the basis of a study carried out under another GEF project and it is probably outdated now</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2016-01-01" />
+          <period-end iso-date="2016-12-31" />
+          <target value="">
+            <comment>
+              <narrative>- Completion of Inception Workshop in Q2 and hiring of project personnel
+- Launching of Financing Plan for Protected Area
+- Prepare Financial Needs Assessment
+- Conduct Willingness to Pay Survey</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>Protected Area Finance Plan completed and validated in December 2016.
+Project Technical Advisor and Project Manager recruited in June and October respectively.
+Financial Needs Assessment Report completed
+Willingness to Pay Survey completed with a sample of 300 .</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>•	A system-level Protected Area financing and investment plan developed and validated
+•	Protected Area Business Plan training conducted 
+•	Protected Area Management Plan training is conducted
+•	Establishment of a PA National Advisory Committee
+•	Review of financial status of SNPA and potential for financial autonomy
+•	SNPA MPA entrance fees are amended and implemented
+•	Upgrade signage and facilities on SNPA trails
+•	Operationalization of SeyCCAT</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>•	The plan was completed in December 2016, validated during a multi-stakeholder workshop and is awaiting formal endorsement from the MEECC.
+•	Business plan training for all PA management organisations was conducted in Q3 2017.
+•	Management plan training was completed in Q2 2017 
+A framework management plan for Fond Ferdinand (a new PA site) was completed in Q3, management plans were being developed for Curieuse and Port Launay/Baie Ternay Marine National Parks.
+•	The terms of reference for a PA National Advisory Committee was drafted in November and is awaiting feedback from MEECC.  
+•	A Strategic Plan for SNPA was developed, approved by Cabinet, which allows for SNPA to retain generated revenue.
+•	The amended entrance fees have been approved for introduction in Q1 2019.
+•	Design drawing for all SNPA trail signage has been completed, purchase orders for materials have been completed and are currently awaiting shipping to Seychelles.
+•	SeyCCAT official launched in Q4 2017 first request for proposals for the Blue Grants also sent Q4.</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00092970</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3595,7 +3801,7 @@ Project completed and will be closed operationally in Jan 2017</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00097444" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00097444</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3606,6 +3812,9 @@ Project completed and will be closed operationally in Jan 2017</narrative>
     <description type="1">
       <narrative>Supporting adaptation to climate change to increase coastal and flood protection in the vulnerable areas of La Digue Island</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="00280">
       <narrative>EUROPEAN ECONOMIC COMMUNITY</narrative>
     </participating-org>
@@ -3657,32 +3866,27 @@ Project completed and will be closed operationally in Jan 2017</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">258899</value>
+      <value currency="USD" value-date="2017-12-31">258899</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2017-11-30">324120</value>
+      <value currency="USD" value-date="2017-12-31">324120</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-11-30">442655</value>
+      <value currency="USD" value-date="2017-12-31">442655</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">50000</value>
     </budget>
-    <budget type="2" status="2">
-      <period-start iso-date="2015-01-01" />
-      <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">0</value>
-    </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">205346</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">210190</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -3690,8 +3894,8 @@ Project completed and will be closed operationally in Jan 2017</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">324120</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">324120</value>
       <provider-org type="40" ref="00280">
         <narrative>EUROPEAN ECONOMIC COMMUNITY</narrative>
       </provider-org>
@@ -3702,8 +3906,8 @@ Project completed and will be closed operationally in Jan 2017</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">442655</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">442655</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -3714,8 +3918,8 @@ Project completed and will be closed operationally in Jan 2017</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">258899</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">258899</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -3726,8 +3930,8 @@ Project completed and will be closed operationally in Jan 2017</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">473292</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">473292</value>
       <provider-org ref="10159" type="40">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -3774,8 +3978,8 @@ Project completed and will be closed operationally in Jan 2017</narrative>
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">753985</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">753985</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2017-12-06T17:44:00" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2018-01-26T04:07:21" version="2.02">
   <!--Timor-Leste-->
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00014955</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -33,9 +33,6 @@
     </participating-org>
     <participating-org role="1" type="40" ref="00559">
       <narrative>OFFICE OF THE HIGH COMMISSIONER FOR HUMA</narrative>
-    </participating-org>
-    <participating-org role="1" type="70" ref="01851">
-      <narrative>CONVERSION MULTI-SPONSOR</narrative>
     </participating-org>
     <participating-org role="1" type="40" ref="11872">
       <narrative>UNMIT</narrative>
@@ -125,6 +122,13 @@
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/TLS/2014%20JSP%20Annual%20Report%20-FINAL.pdf">
       <title>
         <narrative>Justice Project Annual Report 2014</narrative>
+      </title>
+      <category code="A08" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/TLS/JSP%20Quarterly%20Report_Q3%202017_FINAL.pdf">
+      <title>
+        <narrative>Justice Project Report Q3 2017</narrative>
       </title>
       <category code="A08" />
       <language code="en" />
@@ -326,7 +330,7 @@
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00014955</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -337,6 +341,9 @@
     <description type="1">
       <narrative>The Justice System Programme (JSP) aims at strengthening the institutional capacity of the justice system of Timor-Leste to uphold the rule of law and improve access to justice through legal empowerment of the poor and disadvantaged</narrative>
     </description>
+    <participating-org role="4" type="40" ref="02982">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="10" ref="00141">
       <narrative>GOVERNMENT OF JAPAN</narrative>
     </participating-org>
@@ -369,10 +376,30 @@
       <email>registry.tp@undp.org</email>
       <website>http://www.tl.undp.org/</website>
     </contact-info>
-    <activity-scope code="4" />
+    <activity-scope code="5" />
     <recipient-country code="TL">
       <narrative>Timor-Leste</narrative>
     </recipient-country>
+    <location ref="TL">
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="1644865" />
+      <name>
+        <narrative>Ermera</narrative>
+      </name>
+      <description>
+        <narrative>first-order administrative division</narrative>
+      </description>
+      <activity-description>
+        <narrative>Mobile court in District/Municipio</narrative>
+      </activity-description>
+      <administrative level="1" code="1644865" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>-8.830280 125.387780</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="1" />
+      <feature-designation code="ADM1" />
+    </location>
     <location ref="TL">
       <location-reach code="2" />
       <location-id vocabulary="G1" code="1645457" />
@@ -392,26 +419,6 @@
       <exactness code="1" />
       <location-class code="2" />
       <feature-designation code="PPLC" />
-    </location>
-    <location ref="TL">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="1966436" />
-      <name>
-        <narrative>East Timor</narrative>
-      </name>
-      <description>
-        <narrative>independent political entity</narrative>
-      </description>
-      <activity-description>
-        <narrative>Mobile court in District/Municipio</narrative>
-      </activity-description>
-      <administrative level="0" code="1966436" vocabulary="G1" />
-      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>-8.833330 125.750000</pos>
-      </point>
-      <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
     </location>
     <sector vocabulary="1" code="15130" />
     <sector vocabulary="99" code="3">
@@ -433,17 +440,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">32</value>
-    </budget>
-    <budget type="2" status="2">
-      <period-start iso-date="2016-01-01" />
-      <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">0</value>
-    </budget>
-    <budget type="2" status="2">
-      <period-start iso-date="2015-01-01" />
-      <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">0</value>
+      <value currency="USD" value-date="2017-12-31">32</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2014-01-01" />
@@ -462,8 +459,8 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">0</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">0</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -699,8 +696,8 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">32</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">32</value>
       <provider-org type="40" ref="11872">
         <narrative>UNMIT</narrative>
       </provider-org>
@@ -783,8 +780,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">8013815</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">8013815</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -830,7 +827,7 @@
     <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00088880" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00088880</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -841,14 +838,14 @@
     <description type="1">
       <narrative>Consolidating the Democratic Rule of Law and Peace through strong Justice System in Timor-Leste</narrative>
     </description>
+    <participating-org role="4" type="40" ref="02982">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="10" ref="00141">
       <narrative>GOVERNMENT OF JAPAN</narrative>
     </participating-org>
     <participating-org role="1" type="10" ref="00199">
       <narrative>GOVERNMENT OF PORTUGAL</narrative>
-    </participating-org>
-    <participating-org role="1" type="70" ref="01851">
-      <narrative>CONVERSION MULTI-SPONSOR</narrative>
     </participating-org>
     <participating-org role="1" type="10" ref="54392">
       <narrative>Ministry of Foreign Affairs and Trade of the Republic of korea</narrative>
@@ -870,9 +867,30 @@
       <email>registry.tp@undp.org</email>
       <website>http://www.tl.undp.org/</website>
     </contact-info>
+    <activity-scope code="6" />
     <recipient-country code="TL">
       <narrative>Timor-Leste</narrative>
     </recipient-country>
+    <location ref="TL">
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="1644865" />
+      <name>
+        <narrative>Ermera</narrative>
+      </name>
+      <description>
+        <narrative>first-order administrative division</narrative>
+      </description>
+      <activity-description>
+        <narrative>Mobile court in District/Municipio</narrative>
+      </activity-description>
+      <administrative level="1" code="1644865" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>-8.830280 125.387780</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="1" />
+      <feature-designation code="ADM1" />
+    </location>
     <sector vocabulary="1" code="51010" />
     <sector vocabulary="99" code="2">
       <narrative>Democratic Governance</narrative>
@@ -886,12 +904,12 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">1008751</value>
+      <value currency="USD" value-date="2017-12-31">1008751</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-11-30">1114629</value>
+      <value currency="USD" value-date="2017-12-31">374954</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -910,8 +928,8 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">629498</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">755838</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -919,8 +937,20 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">431757</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">272602</value>
+      <provider-org type="10" ref="00141">
+        <narrative>GOVERNMENT OF JAPAN</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00088880">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">431757</value>
       <provider-org type="10" ref="00141">
         <narrative>GOVERNMENT OF JAPAN</narrative>
       </provider-org>
@@ -979,10 +1009,10 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1114629</value>
-      <provider-org type="70" ref="01851">
-        <narrative>CONVERSION MULTI-SPONSOR</narrative>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">102352</value>
+      <provider-org type="10" ref="54392">
+        <narrative>Ministry of Foreign Affairs and Trade of the Republic of korea</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00088880">
         <narrative>United Nations Development Programme</narrative>
@@ -991,8 +1021,8 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">576994</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">576994</value>
       <provider-org type="10" ref="54392">
         <narrative>Ministry of Foreign Affairs and Trade of the Republic of korea</narrative>
       </provider-org>
@@ -1111,8 +1141,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">4718443</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">5093397</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -1240,10 +1270,38 @@
             </comment>
           </actual>
         </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1) 7
+2) 220
+3) 9
+4) 2100
+5) 600 and 70%
+6) 200
+7) 550
+8) 1750</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>1) 7
+2) 217
+3) 9
+4) 0 Pending
+5) 612 and 61% (371)
+6) 171 Disputants (85 case registered at AJC)
+7) Pending
+8) Pending</narrative>
+            </comment>
+          </actual>
+        </period>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00014966</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1280,6 +1338,13 @@
     <default-finance-type code="110" />
     <default-aid-type code="C01" />
     <default-tied-status code="3" />
+    <document-link format="text/html" url="1">
+      <title>
+        <narrative>Request for Procurement</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
     <document-link format="text/html" url="http://open.undp.org/#project/00014966">
       <title>
         <narrative>Purchase Order Summary</narrative>
@@ -1291,7 +1356,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00014966" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00014966</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1302,6 +1367,9 @@
     <description type="1">
       <narrative>UNDP/UNV Programme to strengthen CSO capacity in local and national development processes for poverty reduction in Timor-Leste</narrative>
     </description>
+    <participating-org role="4" type="40" ref="">
+      <narrative></narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
@@ -1325,12 +1393,12 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">0</value>
+      <value currency="USD" value-date="2017-12-31">0</value>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">-130</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">-130</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -1338,8 +1406,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">0</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">0</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -1354,7 +1422,7 @@
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00014966" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00031537</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1426,7 +1494,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00031666" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00031666</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1437,6 +1505,9 @@
     <description type="1">
       <narrative>Substantive advice on programme matters in support of the CPD</narrative>
     </description>
+    <participating-org role="4" type="40" ref="02982">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="11872">
       <narrative>UNMIT</narrative>
     </participating-org>
@@ -1464,9 +1535,6 @@
       <description>
         <narrative>capital of a political entity</narrative>
       </description>
-      <activity-description>
-        <narrative />
-      </activity-description>
       <administrative level="1" code="1645457" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
         <pos>-8.558610 125.573610</pos>
@@ -1488,12 +1556,12 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">188919</value>
+      <value currency="USD" value-date="2017-12-31">188919</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-11-30">101000</value>
+      <value currency="USD" value-date="2017-12-31">101000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -1523,8 +1591,8 @@
     <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">28209</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">78228</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -1556,8 +1624,8 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">101000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">101000</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00031537">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -1568,8 +1636,8 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">188919</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">188919</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00031537">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -1640,8 +1708,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">981490</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">981490</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -1686,7 +1754,7 @@
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00031537" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00056605</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1841,7 +1909,7 @@
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00073200</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1852,6 +1920,9 @@
     <description type="1">
       <narrative>This project builds on the achievements of the “Strengthening Disaster Risk Management in Timor-Leste” project (2011-2013).  It is geared towards helping the Government of Timor-Leste to strengthen its DRM capacity, enhance preparedness and reduce risks.</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
@@ -1907,7 +1978,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">0</value>
+      <value currency="USD" value-date="2017-12-31">0</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -1936,8 +2007,8 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1748</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">2098</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -2005,8 +2076,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1480813</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1480813</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -2050,65 +2121,8 @@
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00056605" />
     <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>1. The DRM policy framework developed based on analysis of men and women’s needs, and reflect strategies appropriate to men’s and women’s requirements.
-2. National consultation processes at all levels and with all partners draw on gender analysis and include women’s organizations and networks.
-3. Public finance mechanism for DRM/DRR developed. Greater awareness among key government staff on women’s needs and how to address them effectively, with adequate financial provision.
-4. Quality and quantity of information available in the portal, number of data cards entered into the database system, and number of key users of portal disaggregated by gender.
-5. Number of men and women participated in / benefited from identification and implementation of mitigation projects 
-6. Number of gender-sensitive community preparedness plans developed with equal participation of men and women
-7. Comprehensive EWS assessment report  include gender analysis
-8. NDOMG to receive,  interpret and disseminate EW
-9. SOPs/plans/protocols and procedures available for EWS and address gender specific needs
-10. Early recovery framework/policy developed  based on needs
-11.	Assessments and information management systems that recognize the different needs of women and men
-12.	Number of plans and guidelines on early recovery prepared and available through effective engagement of women’s networks and other civil society representatives</narrative>
-        </description>
-        <baseline year="2009" value="">
-          <comment>
-            <narrative>1. DRR Policy (2008-2013) in place. Demand for DRM Act high recognizing that there is a need to integrate a gender perspective as guiding principle for DRRM in Timor-Leste. However, resources and practical operational systems at the central, decentralized district and community levels are still lacking. 
-2. No gender analysis exists in Timor-Leste on DRM/DRR 
-3. Demand for public finance system for DRM/DRR exists
-4. DRM Portal and data base already in place but need enhancement
-5. No contingency plan and  regular simulations at district level
-6. Lack of awareness regarding hazard mitigation at the community level
-7. No local-level mitigation project with focus on women empowerment
-8. Weak preparedness planning at the community level
-9. Weak/inadequate meteorological observation system
-10.	Lack of adequate hardware and software for receipt, interpretation of early warning
-11.	Institutional arrangements or chain of command for early warning; roles and responsibilities and protocols not defined
-12. EW communication/ dissemination plans/protocols/SOP yet to be developed
-13. NDMD conducts post disaster damage observation and need assessment that is neither multi-sectoral, nor inclusive, and comprehensive.</narrative>
-          </comment>
-        </baseline>
-        <period>
-          <period-start iso-date="2015-01-01" />
-          <period-end iso-date="2015-12-31" />
-          <target value="">
-            <comment>
-              <narrative>1. Finalise the DRM policy through multi-stakeholder consultation including women networks.
-2. Finalise the DRM legislation through multi-stakeholder consultation including women networks
-3. Public finance system for DRM/DRR strengthened.
-4. Provide technical, financial and administrative support to MSS, e.g. in attending high-level events and organizing IDDRR
-5. Provide technical, equipment and supply support to up to 4 DDOCs
-6. Capacities for reducing vulnerability of housing stocks enhanced.
-7. Meteorological observation improved.
-8. Early recovery policy and plans developed</narrative>
-            </comment>
-          </target>
-        </period>
-      </indicator>
-    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00059335</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2195,7 +2209,7 @@
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
+    <document-link format="text/html" url="1">
       <title>
         <narrative>Request for Procurement</narrative>
       </title>
@@ -2383,7 +2397,7 @@
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00074165</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2394,6 +2408,9 @@
     <description type="1">
       <narrative>Protecting poor households in Ermera and Oecusse districts through community mobilization against threats of poverty, hunger, poor health, illiteracy and social exclusion.</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="00296">
       <narrative>UNITED NATIONS</narrative>
     </participating-org>
@@ -2421,9 +2438,6 @@
       <description>
         <narrative>first-order administrative division</narrative>
       </description>
-      <activity-description>
-        <narrative />
-      </activity-description>
       <administrative level="1" code="1644865" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
         <pos>-8.830280 125.387780</pos>
@@ -2452,12 +2466,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">1</value>
-    </budget>
-    <budget type="2" status="2">
-      <period-start iso-date="2016-01-01" />
-      <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">1</value>
+      <value currency="USD" value-date="2017-12-31">1</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2014-01-01" />
@@ -2476,8 +2485,8 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">-1360</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">-1360</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -2485,8 +2494,8 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1</value>
       <provider-org type="40" ref="00296">
         <narrative>UNITED NATIONS</narrative>
       </provider-org>
@@ -2593,8 +2602,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1031698</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1031698</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -2633,7 +2642,7 @@
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00059335" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00065586</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2966,7 +2975,7 @@
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00082001</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2977,6 +2986,9 @@
     <description type="1">
       <narrative>This budget revision is to cover the deficit of -$293 gov. cost sharing under Social Business Project ID.00082001.</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="10" ref="11139">
       <narrative>Government of Timor'Leste</narrative>
     </participating-org>
@@ -2995,7 +3007,7 @@
       <email>registry.tp@undp.org</email>
       <website>http://www.tl.undp.org/</website>
     </contact-info>
-    <activity-scope code="4" />
+    <activity-scope code="6" />
     <recipient-country code="TL">
       <narrative>Timor-Leste</narrative>
     </recipient-country>
@@ -3018,26 +3030,6 @@
       <exactness code="1" />
       <location-class code="2" />
       <feature-designation code="PPLC" />
-    </location>
-    <location ref="TL">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="1966436" />
-      <name>
-        <narrative>East Timor</narrative>
-      </name>
-      <description>
-        <narrative>independent political entity</narrative>
-      </description>
-      <activity-description>
-        <narrative>Micro finance Access</narrative>
-      </activity-description>
-      <administrative level="0" code="1966436" vocabulary="G1" />
-      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>-8.833330 125.750000</pos>
-      </point>
-      <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
     </location>
     <location ref="TL">
       <location-reach code="2" />
@@ -3079,7 +3071,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">1908</value>
+      <value currency="USD" value-date="2017-12-31">1908</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -3108,8 +3100,8 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">-3560</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">-3560</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -3117,8 +3109,8 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">800</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">800</value>
       <provider-org type="10" ref="11139">
         <narrative>Government of Timor'Leste</narrative>
       </provider-org>
@@ -3165,8 +3157,8 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1108</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1108</value>
       <provider-org type="10" ref="54392">
         <narrative>Ministry of Foreign Affairs and Trade of the Republic of korea</narrative>
       </provider-org>
@@ -3261,8 +3253,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">2778852</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">2778852</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -3307,7 +3299,7 @@
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00065586" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00072017</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3610,7 +3602,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00098933" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00085256</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3621,6 +3613,9 @@
     <description type="1">
       <narrative>by 2013, the capacity of targeted National actors, including women, developed to engage in informed debate which promote four dimensions of security sector reform (civilian oversight, operational management, financial accountability and policy debate)</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="10" ref="00141">
       <narrative>GOVERNMENT OF JAPAN</narrative>
     </participating-org>
@@ -3678,7 +3673,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">236186</value>
+      <value currency="USD" value-date="2017-12-31">236186</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -3703,8 +3698,8 @@
     <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">142368</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">175158</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -3712,8 +3707,8 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">28467</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">28467</value>
       <provider-org type="10" ref="00141">
         <narrative>GOVERNMENT OF JAPAN</narrative>
       </provider-org>
@@ -3772,8 +3767,8 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">207719</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">207719</value>
       <provider-org type="10" ref="AU-5">
         <narrative>Australian Federal Police</narrative>
       </provider-org>
@@ -3904,8 +3899,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">5218290</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">5218290</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -3945,7 +3940,7 @@
     <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00098933" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00098933</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3956,14 +3951,14 @@
     <description type="1">
       <narrative>PNTL Strengthening Governance and Service Delivery</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="10" ref="00141">
       <narrative>GOVERNMENT OF JAPAN</narrative>
     </participating-org>
     <participating-org role="1" type="10" ref="US-USAGOV">
       <narrative>US Int'l Narcotics &amp; Law Enfmn</narrative>
-    </participating-org>
-    <participating-org role="1" type="40" ref="XM-DAC-41114">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2016-01-01" />
@@ -4017,12 +4012,12 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">489152</value>
+      <value currency="USD" value-date="2017-12-31">489152</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-11-30">398721</value>
+      <value currency="USD" value-date="2017-12-31">447271</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -4031,8 +4026,8 @@
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">326433</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">419652</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -4040,8 +4035,8 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">398721</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">447271</value>
       <provider-org type="10" ref="00141">
         <narrative>GOVERNMENT OF JAPAN</narrative>
       </provider-org>
@@ -4052,8 +4047,8 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">266120</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">266120</value>
       <provider-org type="10" ref="00141">
         <narrative>GOVERNMENT OF JAPAN</narrative>
       </provider-org>
@@ -4064,8 +4059,8 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">223032</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">223032</value>
       <provider-org type="10" ref="US-USAGOV">
         <narrative>US Int'l Narcotics &amp; Law Enfmn</narrative>
       </provider-org>
@@ -4087,21 +4082,9 @@
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">48550</value>
-      <provider-org type="40" ref="XM-DAC-41114">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00098933">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1024841</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1073391</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -4123,13 +4106,13 @@
     <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00085256" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00075260</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
     </reporting-org>
     <title>
-      <narrative>Timor LDCF PIMS 4817 SRSRI</narrative>
+      <narrative>Timor LDCF PIMS 4817 SSRI</narrative>
     </title>
     <description type="1">
       <narrative>Strengthening The Resilience of Small Scale Rural Infrastructure and Local Government Systems to Climate Variability and Risk</narrative>
@@ -4149,7 +4132,7 @@
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-04-01" />
     <activity-date type="2" iso-date="2013-04-01" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-02-28" />
     <contact-info type="1">
       <email>registry.tp@undp.org</email>
       <website>http://www.tl.undp.org/</website>
@@ -4189,7 +4172,7 @@
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
+    <document-link format="text/html" url="1">
       <title>
         <narrative>Request for Procurement</narrative>
       </title>
@@ -4207,7 +4190,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00087262" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00087262</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4218,6 +4201,9 @@
     <description type="1">
       <narrative>To strenghthening awareness of community on the climate change related and the small scale infrastrucuture and local government system to climate variabilty and risk in three Districts Ermera, Liquica and Baucau.</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
     </participating-org>
@@ -4227,7 +4213,7 @@
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-04-01" />
     <activity-date type="2" iso-date="2013-04-01" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-02-28" />
     <contact-info type="1">
       <email>registry.tp@undp.org</email>
       <website>http://www.tl.undp.org/</website>
@@ -4329,7 +4315,12 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">1101907</value>
+      <value currency="USD" value-date="2017-12-31">1101907</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">108560</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -4354,8 +4345,8 @@
     <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1001830</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1030934</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -4363,8 +4354,20 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1101907</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">108560</value>
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 4817">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00087262">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1101907</value>
       <provider-org type="40" ref="10003" provider-activity-id="PIMS 4817">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -4459,8 +4462,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">4760512</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">4869072</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -4498,6 +4501,118 @@
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00075260" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>1.	Number and type of stakeholders served by the multi-sector knowledge sharing and policy influencing platform of MCIE (;  
+2.	Number of evidenced-based climate change risk/vulnerability assessment reports and policy recommendation documents, timely disseminated through the knowledge sharing and policy influencing platform 
+3.	#of sectors which have endorsed MCIE's national climate change framework and strategy, and which have subsequently translated and/or integrated climate risks in key sector policies (4 sectors) 
+4.	No of climate change vulnerability guidelines developed under the project are accepted by MSA as integral part of local planning and budgeting process (yes/no)
+5.	Number of sub-districts which use climate change vulnerability assessments and CC adaptation activity identification guidelines/tools as integral part of the local development and planning and budgeting process 
+6.	# of (districts) engineering and contractor staff in focus Districts with a solid understanding of climate-induced risks to small scale infrastructure works and of possible adaptation and mitigation measures (design, construction, maintenance) 
+7.	Number of Local Administrations (Districts and Sucos) which invest in climate resilient small rural infrastructure works, including complementary soil and land management measures as integral part of the local infrastructure development process
+8.	# of people benefiting from climate resilient small scale infrastructure works which are constructed in accordance with climate resilient design in the three project focus Districts 
+9.	Number of Hectares of complementary soil and land management measures in 3 districts (target 5,000)</narrative>
+        </description>
+        <baseline year="2013" value="">
+          <comment>
+            <narrative>1.	16 multi-lateral and international organizations comprise an existing Climate Change Adaptation Working Group chaired by and 0 participation of policy makers from line agencies. 
+2.	0 evidence-based climate change risk / vulnerability assessment and policy recommendation documents shared through the platform.
+3.	0 sectors endorsed MCIE’s National Climate Change Framework and Strategy as such Framework and Strategy does not exist yet  
+4.	0 climate change vulnerability guidelines developed as integral part of local planning and budgeting process under MSA. 
+5.	0 sub-districts use climate change vulnerability assessments and CC adaptation as integral part of the local development and planning and budgeting process 
+6.	0 Engineering staff and contractors at district level have very little understanding of requirements for climate resilient infrastructure development. 
+7.	0 local administrations which invest on climate resilient small rural infrastructure works, including complementary soil and land management measures as integral part of the local infrastructure development process 
+8.	0 people benefitting from climate resilient small scale infrastructure works which are constructed in accordance with climate resilient design in the three project focus municipalities
+9.	0 hectares of land have administered complementary soil and land management measures in the target Administrative Posts.</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2015-01-01" />
+          <period-end iso-date="2015-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1.	At least 5 stakeholders identified for coordination and collaboration of climate change adaptation technical working group of MCIA.
+2.	At least 2 evidence-based climate change risk/vulnerability assessment reports disseminated through the Climate Change Adaptation Technical Working Group.
+3.	At least 4 sectors endorsed MCIE’s national climate change framework and strategy
+4.	Climate change vulnerability guidelines developed under the project are accepted by MSA as integral part of local planning and budgeting process. 
+5.	At least eight Administrative Posts of focus municipalities use climate change vulnerability assessments and CC adaptation activity identification guidelines/tools as integral part of the local development and planning and budgeting process
+6.	At least 100 district level technical staff, engineers and EVAS members have solid understanding of climate-induced risks and  related climate resilient infrastructures and CCA measures.
+7.	At least 3 municipalities invest in climate resilient small rural infrastructure works and design and BoQ of 12 pilot projects completed to be implemented in 2016
+8.	At least 68,000 people benefitted from climate resilient small scale infrastructure in three focus municipalities
+9.	At least 5,000 hectares of complementary soil and land management measures in 3 municipalities.</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>1.	Knowledge sharing and coordination mechanisms among the 16 stakeholders of MCIE led multi-sector platform - Climate Change Adaptation Technical Working Group identified including for Centre for Climate Change and Biodiversity of Timor Leste and SEARCA Timor Leste Chapter leading to national level discussions on the climate change issues.
+2.	3 evidence based climate change risk/ vulnerability assessment reports and policy recommendation documents disseminated at national and sub-national levels has increased the awareness on the climate risks on small scale rural infrastructure among the policy makers and multi sectoral stakeholders:
+a.	Climate Vulnerability and Capacity Assessment conducted in 8 Administrative Posts of 3 municipalities finalized and disseminated to a wide range of stakeholders at national level, at local level and through Climate Change Adaptation Technical Working Group. 
+b.	Secondary data findings on the present status of the climate change impact and risk on small scale rural infrastructure disseminated at the national and sub-national level
+c.	Policy gap analysis and recommendations to the MCIE disseminated to the multi-stakeholder platform at the national level
+
+3.	0 because MCIE does not have National Climate Change Framework and Strategy yet
+
+4.	Climate change vulnerability guidelines developed under the project were accepted and mainstreamed into MSA’s local planning and budgeting process in 2014 resulting in successful completion of 11 pilot climate resilient small scale infrastructures in 10 sucos of 6 Administrative Posts in 3 focus municipalities. 
+
+5.	6 Administrative Posts in 3 municipalities used climate change vulnerability assessment and CC adaptation identification guidelines and tools disseminated during CVCA and CAMP activities as an integral part of the local development and planning and budgeting process
+
+6.	71 district level technical staff (2015) and 10 local contractors (among 106 contractors trained in 2014) trained and</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2016-01-01" />
+          <period-end iso-date="2016-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1. Climate change vulnerability assessment conducted and guidelines developed.
+2. At least 100 (municipality) engineering and 30 contractor staff have received capacity development and have solid understanding of climate-induced risks to small scale infrastructure works and of possible adaptation and mitigation measures (design, construction, maintenance)
+3. 3 municipalities, 8 Administrative Posts (sub-districts) use the new climate change vulnerability assessments and have identified and implemented climate resilient designs and climate risk protection measures for small scale infrastructure works
+4. At least 100,000 people benefited from climate resilient small scale infrastructure works in the 3 focus Districts
+5. A minimum of (total) 5,000 hectares of catchment and slope stabilization measures have been implemented</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>1. YES. Guidelines for mainstreaming climate change into MSA District Development Plans and project implementation were produced and included into the revised (MSA) PDIM Planning Manual:Procurement Manual, and Decree Law no. 4/2012.  
+
+2. 90 District technical staff and 106 pre-qualified private contractors were trained on aspects of climate-resilient infrastructure planning and implementation
+3. 3 municipalities have District Investment Plans (PID) for Baucau, Ermera and Liquica which included climate resilient projects for implementation.
+4. The 10 projects are estimated to benefit approximately 69,603 people in rural communities representing a 68% progress against the entire project life target.
+5. approx.14,000 ha</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1. By the end of the project the climate change vulnerability guidelines and tools to become an integral part of the national local planning and budgeting process as endorsed by MSA.
+2. By the end of the project at least 200 (district) engineering and contractor staff have a solid understanding of climate-induced risks to small scale infrastructure works and of possible adaptation and mitigation measures (design, construction, maintenance).
+3. In at least 3 districts,  ten sub-districts, various new small scale infrastructure works are constructed in accordance with the new climate resilient designs and additional measures are implemented to safeguard existing infrastructure works against climate risks, benefitting at least 100,000 people.*
+4. A minimum of (total) 50,000 hectares of catchment stabilization measures have been implemented.</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>1. YES. Guidelines for mainstreaming climate change into MSA District Development Plans and project implementation were produced and included into the revised (MSA) PDIM Planning Manual:Procurement Manual, and Decree Law no. 4/2012. 
+2. More than 200 engineering and contractor staff in focus Municipalities have a better understanding of climate-induced risks to small scale infrastructure works and of possible adaptation and mitigation measures (design, construction, maintenance).
+3. 3 focus districts, 8 sub districts included more than 10 water supply systems, 2 irrigation schemes, 1 river embankment protection, 6 rural road construction/rehabilitation projects and small bridges and culverts rehabilitation.  The infrastructure delivered provides direct benefits and improvement in the social and economic status of rural beneficiaries. Overall 20 contracts were awarded to local construction companies to implement infrastructure projects that also include soil bioengineering interventions in high risk areas/hot-spots vulnerable to climate induced risks such as erosion and landslides. 
+4. 20 infrastructures benefiting approx. 100,000 people
+5. The total area covered during the implementation of bioengineering activities is 3400 hectares benefitting a population of 11,674 (4,774 female) across 4 villages.</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
     <result type="2" aggregation-status="1">
       <title>
         <narrative>Objective</narrative>
@@ -4725,7 +4840,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00077146</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4754,7 +4869,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <activity-status code="2" />
     <activity-date type="1" iso-date="2014-02-01" />
     <activity-date type="2" iso-date="2014-02-01" />
-    <activity-date type="3" iso-date="2018-02-28" />
+    <activity-date type="3" iso-date="2019-12-31" />
     <contact-info type="1">
       <email>registry.tp@undp.org</email>
       <website>http://www.tl.undp.org/</website>
@@ -4824,7 +4939,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00088130" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00088130</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4835,6 +4950,9 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <description type="1">
       <narrative>Promoting Sustainable Bio-energy Production from Biomas (SBEPB) in Timor-Leste</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
     </participating-org>
@@ -4852,9 +4970,30 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
       <email>registry.tp@undp.org</email>
       <website>http://www.tl.undp.org/</website>
     </contact-info>
+    <activity-scope code="4" />
     <recipient-country code="TL">
       <narrative>Timor-Leste</narrative>
     </recipient-country>
+    <location ref="TL">
+      <location-reach code="2" />
+      <location-id vocabulary="G1" code="1966436" />
+      <name>
+        <narrative>East Timor</narrative>
+      </name>
+      <description>
+        <narrative>independent political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative>Timor-Leste</narrative>
+      </activity-description>
+      <administrative level="0" code="1966436" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>-8.833330 125.750000</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="1" />
+      <feature-designation code="PCLI" />
+    </location>
     <sector vocabulary="1" code="99810" />
     <sector vocabulary="99" code="8">
       <narrative>Organizational Results Area 1</narrative>
@@ -4868,12 +5007,12 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">517793</value>
+      <value currency="USD" value-date="2017-12-31">517793</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-11-30">892720</value>
+      <value currency="USD" value-date="2017-12-31">892720</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -4893,8 +5032,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">242475</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">358192</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -4902,8 +5041,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">892720</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">892720</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -4914,8 +5053,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">517793</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">517793</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -4962,8 +5101,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">34672</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">34670</value>
       <provider-org ref="54392" type="10">
         <narrative>Ministry of Foreign Affairs and Trade of the Republic of korea</narrative>
       </provider-org>
@@ -4998,8 +5137,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1956417</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1956417</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -5031,8 +5170,71 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00077146" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>1)	No. of policies and legal frameworks that is supportive of biomass energy solutions developed
+2)	No. of relevant GOT agencies and institutions involved in biomass energy production and use of BETs and are linked with each other via a working mechanism for coordination
+3)	No. of trained and qualified men and women technicians working on bioenergy technology
+4)	No. of local entrepreneurs and SMEs that are gainfully involved in businesses that make up the value chain of the BET application
+5)	Development of a roadmap for targeted bio-energy sector
+6)	Develop financial products and services for local financial institutions on biomass energy financing
+7)	A guidebook of technical factsheets for biomass energy businesses developed
+8)	Mass awareness communications materials and knowledge products prepared
+9)	Biomass Information Resource Inventory prepared</narrative>
+        </description>
+        <baseline year="2014" value="">
+          <comment>
+            <narrative>1). 0
+2). 0
+3). 0
+4). 0
+5). 0
+6). 0
+8). 0
+9). 0</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1). 1
+2). 5
+3). 10
+4). 5
+5). 1
+6). 1
+7). 1
+8). 3
+9). 1</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>1). 1
+2). 4
+3). 10
+4). 5
+5). 1
+6). 1
+7). 1
+8). 3
+9). 0</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00078602</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -5135,7 +5337,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00088772" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00088772</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -5146,6 +5348,9 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <description type="1">
       <narrative>The objective of the project is to strengthen resilience of coastal communities by the introduction of nature-based approaches to coastal protection.</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
     </participating-org>
@@ -5244,7 +5449,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">18146</value>
+      <value currency="USD" value-date="2017-12-31">18146</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -5264,8 +5469,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">18146</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">18146</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -5273,8 +5478,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">18146</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">18146</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -5333,8 +5538,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">186121</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">186121</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -5367,7 +5572,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00078602" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00080251</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -5451,7 +5656,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00090026" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00090026</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -5462,6 +5667,9 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <description type="1">
       <narrative>The purpose of the project is to consolidate and further strengthen capacities within the Government of Timor-Leste to maintain and deepen resilience and social cohesion across the nation.</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="10" ref="00141">
       <narrative>GOVERNMENT OF JAPAN</narrative>
     </participating-org>
@@ -5513,7 +5721,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">0</value>
+      <value currency="USD" value-date="2017-12-31">0</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -5533,8 +5741,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">30443</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">30443</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -5614,8 +5822,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1083163</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1083163</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -5648,7 +5856,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00080251" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00081757</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -5707,6 +5915,13 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
       <category code="A04" />
       <category code="A05" />
       <category code="A08" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="https://erc.undp.org/evaluation/evaluations/detail/7588">
+      <title>
+        <narrative>Mid-term evaluation of sustainable development outcome</narrative>
+      </title>
+      <category code="A07" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=21223">
@@ -6004,7 +6219,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00090905</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6015,6 +6230,9 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <description type="1">
       <narrative>The DARDC comprises a joint investment by the Gov of TL and the WB to upgrade and strengthen the climate resilience of the road infrastructure linking Dili to the capitals of Aileu and Ainaro Districts.</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
     </participating-org>
@@ -6110,17 +6328,17 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">2210764</value>
+      <value currency="USD" value-date="2017-12-31">2218809</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2017-11-30">615565</value>
+      <value currency="USD" value-date="2017-12-31">615565</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-11-30">947881</value>
+      <value currency="USD" value-date="2017-12-31">1105000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -6139,8 +6357,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1009294</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1149291</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -6148,8 +6366,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="3" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">349650</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">349650</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -6160,8 +6378,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">615565</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">615565</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -6172,8 +6390,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">947881</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1105000</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -6184,8 +6402,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">2210764</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">2218809</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -6232,8 +6450,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">4810152</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">5590881</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -6318,10 +6536,66 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
             </comment>
           </target>
         </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1. MSS, NDMD, DDMCs have capacity for climate and disaster risk management planning, budgeting and delivery at the national and sub-national (at least Level 4: Widespread, but not comprehensive, evidence of capacity)
+2. MSS, NDMD, DDMCs, MAF and other institutions have increased adaptive capacity to reduce risks and respond to climate variability
+3. 200 staff and community leaders have receive technical training on CCA and DRM themes with at least 50% women benefiting
+4. Recommendations for at least 3 sector policies, strategies and plans that explicitly include climate change adaptation and DRM.  Recommendations for at least 3 sector policies, strategies and plans specifically address the needs of women concerning climate change adaptation and DRM.
+5. Full expenditure of additional funds ($50,000 per district per annum) on measures for community-level climate risk reduction implemented through DDMCs/district disaster focal points
+6. 50% of beneficiaries of community-level measures for climate related disaster  risk reduction and preparedness are women
+7. At least 5,000 households will benefit from risk reduction activities and awareness activities comprising:  - EWS  - Improved resilience of agricultural systems  - Erosion control/sustainable land and water management
+8. Score improved to 4: By the end of the project, at least 50% of targeted households have engaged in climate resilient land use methods and livelihoods introduced/strengthened in the project.
+at least a quarter of targeted area of degraded lands reforested or other land stabilization methods  applied (e.g. agroforestry, fodder and timber production etc.) while decreasing vulnerability of the DARDC to disasters
+9. At least 50% of households surveyed confirm a clear link between resource management and resilience of livelihoods and physical infrastructure assets</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>-The DRM training manual has been finalized which will become a part of INAP's mandatory curricula for capacity building of government officials.  
+   
+- Timor Leste online disaster database (tldd.mss.gov.tl) has been developed and launched for DRM planning. 
+
+-15 person trained for drone application to build the capacity of DRM institutions on disaster monitoring  
+
+-6 experts from MAF and MSS trained for GIS application for DRR planning in Bogor 
+
+- Hazard maps developed and given to municipal office for planning. 
+
+-6 sets of automatic weather stations purchased for early warning and planning for DRR  
+-capacity of DRM institutions has been assessed and the draft report has been submitted.
+
+-DRM training manual has been finalized and integrated with INAP curricula.
+
+-15 MSS and MAF staff has been trained to use drone technology for disaster monitoring. Two sets of drones have been purchased to build monitoring capacity of the government.   
+
+-22 INAP &amp; MSS staff were trained as Trainers (ToT). This has built the capacity of INAP and DRM institutions to build capacity of communities and local staff.
+
+-260 Civil servants form 12 Municipalities include Especial Economic Region Oecussi ( Directors from other line Ministries  such as, MAF, PNTL, Post Administrative, Public Works, MCIE, Educations, health, civil protections) on the Disaster risk assessment, DRM and integrating DRM activities into the local level planning process  
+- Gender action plan prepared for DRM interventions
+
+- Gender policy brief has been prepared and shared
+
+- Top up grant mechanism policy brief prepared as a special bulletin
+- Top up mechanism has been finalized and launched.
+
+- Financial mechanism for top grant project implementation has been developed.
+
+-Municipality officials (8) were trained on the financial mechanism
+
+-7 community water supply projects under top grant mechanism have been completed.   
+
+A total of 9853 people benefitted from 7 water supply projects – at least 50% of them</narrative>
+            </comment>
+          </actual>
+        </period>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00081761</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6451,7 +6725,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00090907</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6462,6 +6736,9 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <description type="1">
       <narrative>The project will support the Country of Timor-Leste to Develop it’s second National Communication (SNC) to the Conference of the Parties (CoP) under the United Nations Framework Convetion on Climate Change (UNFCCC)</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
     </participating-org>
@@ -6520,12 +6797,12 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">330000</value>
+      <value currency="USD" value-date="2017-12-31">330000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-11-30">276068</value>
+      <value currency="USD" value-date="2017-12-31">276068</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -6540,8 +6817,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">177020</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">262496</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -6549,8 +6826,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">276068</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">276068</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -6561,8 +6838,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">330000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">330000</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -6609,8 +6886,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1037253</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1037253</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -6636,8 +6913,100 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00081761" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>1)	A country level vulnerability and adaptation assessment prepared
+2)	# of people trained in global climate change including UN Framework Convention on Climate Change, greenhouse gas inventories, mitigation, and adaptation analysis.
+3)	# of GoTL institutions capacitized on GHG inventory preparation
+4)	Development of baseline for GHG inventory prepared
+5)	# of GoTL officials trained on vulnerability and adaptation assessment
+6)	# of national public awareness campaign and events on climate change to enhance mass awareness
+7)	# of climate change related knowledge product developed
+8)	Constraints and gaps mapped, financial resources and technical support provided, country specific technology needs assessed.</narrative>
+        </description>
+        <baseline year="2014" value="">
+          <comment>
+            <narrative>1). 0
+2). 0
+3). 0
+4). 0
+5). 0
+6). 0
+7). 0
+8). 0</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2015-01-01" />
+          <period-end iso-date="2015-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1.	Organizational strategy to strengthen INAP’s capacity to deliver training on DRM and Climate Change adaption developed.
+2.	 200 staff trained at INAP through ToT and training of stakeholders for DARDC project with 50% women benefiting.
+3.	National DRM policy and institutional roles extended to address climate change and disaster risk reduction measures and gender sensitive recommendations.
+4.	A top-up grant system designed to enable local DRM institutions and local administrations for increased finance of disaster prevention and -preparedness activities as well as general resilience measures.
+5.	Women’s groups formed at suco and aldeia level which are able to apply for DRM funding.
+6.	Model Early Warning Systems for DARDC region designed and piloted in at least 4 sub-districts benefiting at least 5,000 households. 
+7.	At least 10% of target households engage in climate resilient land use methods and livelihood 
+8.	At least 5% of degraded land is restored through the first watershed level and community-based DRR/CCA project designed with Ministry of Agriculture and Fisheries (MAF) and implementation initiated.
+9.	At least 10% households surveyed confirm a clear link between resource management and resilience of livelihoods and physical infrastructure assets.</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>1.	0 trainings delivered 
+2.	0 staff trained at INAP because the procurement process to initiate the DRM Training manual review for INAP has not concluded yet.  
+3.	Draft DRM Policy which includes gender and climate change aspects was submitted to MSS and is awaiting Council of Ministers’ approval.
+4.	Procurement process for a consultant based on a ToR agreed with MSS to develop a top-up mechanism for the national regional funding scheme for grants that will include DRR/DRM/CCA activities into regional planning and funding schemes has reached final stages. 
+5.	Not achieved because the DRM financing options have not been agreed yet.
+6.	0 households have benefited but 4 model Early Warning Systems were designed for floods, landslides, fires and strong winds in DARDC districts (Aileu, Ermera, Manufai and Ainaro) and four communities were selected for testing of the EWSs.
+7.	0% of target households engage in climate resilient land use methods 
+8.	0% degraded land is restored but Joint Inspection conducted by MAF/MSS/UNDP teams identified:
+a.	 10 locations for reforestation and 6 locations for the introduction of agro-forestry as DRM/DRR measures and additional 188 locations were identified for building of check dams and 20 locations for construction of dew ponds in Aileu.  
+b.	Five sites for reforestation activities and 160 locations have been identified for the construction of check dams and four locations for dew ponds. 
+9.	10% of target households indicated knowledge on the linkage between resource management and resilience of livelihoods and physical infrastructure assets through an extensive socialization programme and community consultations on EWS within the municipalities of Ainaro, Emera, Manufahi and Aileu, awareness has been raised among the communities on EWSs, watershed management approaches and the DARDC project interventions.</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1). 1
+2). 40
+3). 5
+4). 1
+5). 12
+6). 3
+7). 2
+8). 1</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>1). 1
+2). 45
+3). 8
+4). 1
+5). 15
+6). 3
+7). 2
+8). 1</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00081807</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6816,7 +7185,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00090965" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00090965</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6827,6 +7196,9 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <description type="1">
       <narrative>Support  the Government of Timor-Leste particularly with respect to decentralization policies and strategies, and consolidating and strengthening sub-national investment planning, financing and implementation processes.</narrative>
     </description>
+    <participating-org role="4" type="40" ref="02982">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="10714">
       <narrative>UNDP AS ADMINISTRATIVE AGENT FOR A JOINT PROGRAMME PASS THROUGH ARRANGEMENT</narrative>
     </participating-org>
@@ -6891,7 +7263,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">191495</value>
+      <value currency="USD" value-date="2017-12-31">191495</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -6911,8 +7283,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <capital-spend percentage="10.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">97724</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">112282</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -6932,8 +7304,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">166495</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">166495</value>
       <provider-org type="10" ref="11139">
         <narrative>Government of Timor'Leste</narrative>
       </provider-org>
@@ -6944,8 +7316,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">123750</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">123750</value>
       <provider-org ref="11139" type="10">
         <narrative>Government of Timor'Leste</narrative>
       </provider-org>
@@ -7028,8 +7400,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">25000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">25000</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -7064,8 +7436,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1510912</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1510912</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -7098,7 +7470,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00081807" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00082979</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -7280,7 +7652,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00091634" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00091634</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -7291,6 +7663,9 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <description type="1">
       <narrative>Support to Institutional Development of Oe-Cusse Special Administrative Region and Special Economic Zone for Social Market Economy (ZEESM)</narrative>
     </description>
+    <participating-org role="4" type="40" ref="02982">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="10" ref="11139">
       <narrative>Government of Timor'Leste</narrative>
     </participating-org>
@@ -7300,7 +7675,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <activity-status code="2" />
     <activity-date type="1" iso-date="2015-05-01" />
     <activity-date type="2" iso-date="2015-05-01" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.tp@undp.org</email>
       <website>http://www.tl.undp.org/</website>
@@ -7349,12 +7724,12 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">1470493</value>
+      <value currency="USD" value-date="2017-12-31">1910028</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-11-30">787980</value>
+      <value currency="USD" value-date="2017-12-31">854401</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -7368,8 +7743,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">618982</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1574561</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -7377,8 +7752,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">787980</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">854401</value>
       <provider-org type="10" ref="11139">
         <narrative>Government of Timor'Leste</narrative>
       </provider-org>
@@ -7389,8 +7764,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1215493</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1650028</value>
       <provider-org type="10" ref="11139">
         <narrative>Government of Timor'Leste</narrative>
       </provider-org>
@@ -7401,8 +7776,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1420685</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1420685</value>
       <provider-org ref="11139" type="10">
         <narrative>Government of Timor'Leste</narrative>
       </provider-org>
@@ -7461,8 +7836,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">255000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">260000</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00082979">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -7485,8 +7860,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">2359973</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">3653909</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -7512,8 +7887,68 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00082979" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>1)	# of SOP for procurement processes approved and in progress to be implemented in ZEESM TL
+2)	# of functions assigned to ZEESM that are implemented. (this indicator will contribute to Output 3.3 of CPD)
+3)	% of health facilities that upload health data to the national data system
+4)	Number of programmes developed with ZEESM to promote economic development and employment. 
+5)	Number of unserved and underserved poor, women, youth, rural people and micro entrepreneurs with access to new, responsive, sustainable financial services. (this indicator will contribute to Output 2.1 CPD)
+6)	# of regional strategies to promote Rural Development adopted focusing on generation of employment. (this indicator will contribute to Output 2.1 CPD)
+7)	# of communities supported to develop community -based tourism services.
+8)	Website created and updated on (at least) a monthly basis in three languages</narrative>
+        </description>
+        <baseline year="2015" value="">
+          <comment>
+            <narrative>1)	0 SOPs
+2)	1 function
+3)	4%
+4)	0 programmes
+5)	0 entrepreneurs and farmers
+6)	1 strategy
+7)	0 communities
+8)	No</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1)	1 of SOP for procurement processes approved and in progress to be implemented in ZEESM TL
+2)	1 procurement office is functional
+3)	90%
+4)	2 programmes developed with ZEESM to promote economic development and employment. (1 Business Incubator designed and in implementation and 1 Agribusiness Development programme developed and being implemented.)
+5)	15 entrepreneurs and 300 farmers (50% women and 40% young people 
+6)	1 strategy
+7)	2 communities
+8)	Yes - Created and updated monthly in three languages</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>1)	1 SOP for procurement processes approved by ZEESM president)
+2)	1 function
+3)	90% 
+4)	2 programmes have been developed and started to be implemented)
+5)	10 entrepreneurs and farmers and 200 farmers (50% women and 50% young people
+6)	1 strategy
+7)	2 communities
+8)	ZEESM TL Website created and updated.  and translated into Tetum and Portuguese</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00086475</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -7532,6 +7967,9 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </participating-org>
     <participating-org role="1" type="10" ref="00141">
       <narrative>GOVERNMENT OF JAPAN</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="10712">
+      <narrative>KOREA INTERN. COOPERATION AGENCY (KOICA)</narrative>
     </participating-org>
     <participating-org role="1" type="10" ref="11139">
       <narrative>Government of Timor'Leste</narrative>
@@ -7624,7 +8062,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00093727" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00093727</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -7635,8 +8073,14 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <description type="1">
       <narrative>Support the consolidation of democracy with focus on civic education and electoral support across Timor-Leste between 2015 to 2018.Taking into account support to Suco elections, possible Municipal elections and President and Parliamentary elections.</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="10" ref="00141">
       <narrative>GOVERNMENT OF JAPAN</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="10712">
+      <narrative>KOREA INTERN. COOPERATION AGENCY (KOICA)</narrative>
     </participating-org>
     <participating-org role="1" type="10" ref="11139">
       <narrative>Government of Timor'Leste</narrative>
@@ -7699,12 +8143,12 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">2443132</value>
+      <value currency="USD" value-date="2017-12-31">2443132</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-11-30">1551966</value>
+      <value currency="USD" value-date="2017-12-31">1551966</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -7718,8 +8162,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1749527</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1870512</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -7727,8 +8171,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">634781</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">634781</value>
       <provider-org type="10" ref="00141">
         <narrative>GOVERNMENT OF JAPAN</narrative>
       </provider-org>
@@ -7739,8 +8183,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1753821</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1753821</value>
       <provider-org type="10" ref="00141">
         <narrative>GOVERNMENT OF JAPAN</narrative>
       </provider-org>
@@ -7774,9 +8218,21 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1400000</value>
+      <provider-org ref="10712" type="10">
+        <narrative>KOREA INTERN. COOPERATION AGENCY (KOICA)</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00093727">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">125000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">125000</value>
       <provider-org type="10" ref="11139">
         <narrative>Government of Timor'Leste</narrative>
       </provider-org>
@@ -7787,8 +8243,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">125000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">125000</value>
       <provider-org ref="11139" type="10">
         <narrative>Government of Timor'Leste</narrative>
       </provider-org>
@@ -7799,8 +8255,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">917185</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">917185</value>
       <provider-org type="10" ref="54392">
         <narrative>Ministry of Foreign Affairs and Trade of the Republic of korea</narrative>
       </provider-org>
@@ -7811,8 +8267,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">564311</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">564311</value>
       <provider-org type="10" ref="54392">
         <narrative>Ministry of Foreign Affairs and Trade of the Republic of korea</narrative>
       </provider-org>
@@ -7835,18 +8291,6 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">50000</value>
-      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00086475">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00093727">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">38767</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00086475">
@@ -7859,8 +8303,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">4349443</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">4349443</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -7886,8 +8330,71 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00086475" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>CPD and IRRF Outcome indicator
+
+1. Number of voters registered for democratic participation
+2. Percentage of Voter Turnout (as an indication greater democratic participation)
+3. Percentage of invalid ballots decrease indicating the effectiveness of voter education
+4. Percentage of women as polling staff for elections</narrative>
+        </description>
+        <baseline year="2015" value="">
+          <comment>
+            <narrative>1. Number of Registered Electorates in the Presidential Elections 2012- 626,503
+(Gender Disaggregated data- Not Available)
+
+2. Voter Turnout in the Presidential Elections 2012-
+72.55%
+(Gender Disaggregated Turnout- Not available) 
+
+3. Invalid Ballots in the Presidential election 2012- 3.83%
+
+4. Number of women polling staff deployed- Not Available</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1. 18% Increase in number of registered electorates for the Parliamentary Elections. 
+2. 75% Voters’ turnout in the  National Parliament Elections
+3. 50% women vote in the  National Parliament Elections
+4. Invalid ballots to be below 2% in  National Parliament Elections
+5. At the 2017  National Parliament Elections
+6. 50% of the Polling Staff to be women.</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>1. Total of Registered Voters for 2017 National Parliament Elections: 760,907
+Male: 51.65%
+Female: 48.35%
+17% Increase in number of registered electorates in comparison with the baseline data (year 2012). 
+
+2. Voter turnout in the 2017 Presidential Elections: 71.16%
+47% women voted in the 2017 Presidential Elections. 
+Voter turnout in the 2017 Parliamentary Elections:76.74%
+
+3. Presidential Election 2017 witnessed 1.7% invalid ballots. 
+Parliamentary Election 2017 witnessed 1.9% invalid ballots. 
+
+4.There was a total of 10,102 polling staff deployed for the 2017 presidential election, i.e. 50% of the total polling staff were women.</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00089589</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -7904,6 +8411,9 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <participating-org role="2" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
+    <participating-org role="1" type="10" ref="11139">
+      <narrative>Government of Timor'Leste</narrative>
+    </participating-org>
     <participating-org role="1" type="70" ref="12707">
       <narrative>Flinders University, Australia</narrative>
     </participating-org>
@@ -7913,7 +8423,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <activity-status code="2" />
     <activity-date type="1" iso-date="2016-01-01" />
     <activity-date type="2" iso-date="2016-01-01" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.tp@undp.org</email>
       <website>http://www.tl.undp.org/</website>
@@ -7976,7 +8486,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00095716" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00095716</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -7987,6 +8497,12 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <description type="1">
       <narrative>National Human Development Report (Well being index)</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="11139">
+      <narrative>Government of Timor'Leste</narrative>
+    </participating-org>
     <participating-org role="1" type="70" ref="12707">
       <narrative>Flinders University, Australia</narrative>
     </participating-org>
@@ -8045,7 +8561,12 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">48162</value>
+      <value currency="USD" value-date="2017-12-31">48162</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">115393</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -8054,8 +8575,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">38124</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">38272</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -8063,8 +8584,44 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">13162</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">115000</value>
+      <provider-org type="10" ref="11139">
+        <narrative>Government of Timor'Leste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00095716">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">115000</value>
+      <provider-org ref="11139" type="10">
+        <narrative>Government of Timor'Leste</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00095716">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">393</value>
+      <provider-org type="70" ref="12707">
+        <narrative>Flinders University, Australia</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00095716">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">13162</value>
       <provider-org type="70" ref="12707">
         <narrative>Flinders University, Australia</narrative>
       </provider-org>
@@ -8075,8 +8632,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">9976</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">9976</value>
       <provider-org ref="12707" type="70">
         <narrative>Flinders University, Australia</narrative>
       </provider-org>
@@ -8111,8 +8668,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">35000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">35000</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00089589">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -8135,8 +8692,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">115556</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">230949</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -8156,8 +8713,46 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00089589" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>Number of men/women in most disadvantaged groups benefiting from social cohesion schemes</narrative>
+        </description>
+        <baseline year="2016" value="">
+          <comment>
+            <narrative>43,389</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1.	Completion of 17 Focus Group Discussions with youth groups in all municipalities of Timor-Leste
+2.	Peer Review and Finalization of Technical Background Papers
+3.	Validation Workshop of the messages of the full draft NHDR
+4.	External and Internal Peer Review of NHDR
+5.	Official launch of the report and its advocacy</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>1. Focus group discussion is completed
+2. Peer Reviewed and Finalization of Technical Background Papers
+3. External and Internal Peer Reviewed of NHDR</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00092621</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -8180,7 +8775,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <activity-status code="2" />
     <activity-date type="1" iso-date="2016-01-01" />
     <activity-date type="2" iso-date="2016-01-01" />
-    <activity-date type="3" iso-date="2019-12-31" />
+    <activity-date type="3" iso-date="2020-12-31" />
     <contact-info type="1">
       <email>registry.tp@undp.org</email>
       <website>http://www.tl.undp.org/</website>
@@ -8208,49 +8803,49 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=33528">
       <title>
-        <narrative>Building shoreline resilience of Timor-Leste  to protect</narrative>
+        <narrative>Building shoreline resilience of Timor-Leste to protect</narrative>
       </title>
       <category code="A10" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=33658">
       <title>
-        <narrative>Building shoreline resilience of Timor-Leste  to protect</narrative>
+        <narrative>Building shoreline resilience of Timor-Leste to protect</narrative>
       </title>
       <category code="A10" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=34822">
       <title>
-        <narrative>Building shoreline resilience of Timor-Leste  to protect</narrative>
+        <narrative>Building shoreline resilience of Timor-Leste to protect</narrative>
       </title>
       <category code="A10" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=35171">
       <title>
-        <narrative>Building shoreline resilience of Timor-Leste  to protect</narrative>
+        <narrative>Building shoreline resilience of Timor-Leste to protect</narrative>
       </title>
       <category code="A10" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=36126">
       <title>
-        <narrative>Building shoreline resilience of Timor-Leste  to protect</narrative>
+        <narrative>Building shoreline resilience of Timor-Leste to protect</narrative>
       </title>
       <category code="A10" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=36698">
       <title>
-        <narrative>Building shoreline resilience of Timor-Leste  to protect</narrative>
+        <narrative>Building shoreline resilience of Timor-Leste to protect</narrative>
       </title>
       <category code="A10" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=40137">
       <title>
-        <narrative>Building shoreline resilience of Timor-Leste  to protect</narrative>
+        <narrative>Building shoreline resilience of Timor-Leste to protect</narrative>
       </title>
       <category code="A10" />
       <language code="en" />
@@ -8266,7 +8861,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00097253" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00097253</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -8277,13 +8872,16 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <description type="1">
       <narrative>Solution developed at national and sub national level for sustainable management of natural resources, ecosystem services and waste. Scaled up action on climate change adaptation and mitigation across sectors which is funded and implemented.</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2016-01-01" />
     <activity-date type="2" iso-date="2016-01-01" />
-    <activity-date type="3" iso-date="2019-12-31" />
+    <activity-date type="3" iso-date="2020-12-31" />
     <contact-info type="1">
       <email>registry.tp@undp.org</email>
       <website>http://www.tl.undp.org/</website>
@@ -8325,27 +8923,32 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">1300505</value>
+      <value currency="USD" value-date="2017-12-31">1300505</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2020-01-01" />
+      <period-end iso-date="2020-12-31" />
+      <value currency="USD" value-date="2017-12-31">920413</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2017-11-30">2477257</value>
+      <value currency="USD" value-date="2017-12-31">2065634</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-11-30">2912707</value>
+      <value currency="USD" value-date="2017-12-31">2390600</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">345155</value>
+      <value currency="USD" value-date="2016-12-31">322848</value>
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1006140</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1126410</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -8353,8 +8956,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">2477257</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">920413</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -8365,8 +8968,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">2912707</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">2065634</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -8377,8 +8980,20 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">1300505</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">2390600</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00097253">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1300505</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -8390,7 +9005,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">345155</value>
+      <value currency="USD" value-date="2016-12-31">322848</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -8401,8 +9016,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">6983730</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">6970413</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -8422,8 +9037,69 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00092621" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>1)	Regional, national and sector-wide policies, plans and processes developed and strengthened to identify, prioritize and integrate adaptation strategies and measures. (LDCF Indicator 12
+2)	250ha protected or re-afforested using CBEMR
+3)	Type and extent of assets strengthened and/or better managed to withstand the effects of climate change (UNDAF Indicator 3.2.3, LDCF Indicator 2)
+4)	Number of population / households benefiting from the adoption of diversified, climate-resilient livelihood options (LDCF Indicator 3)
+5)	% target population aware of role of mangroves in coastal protection and coastal watershed protection</narrative>
+        </description>
+        <baseline year="2016" value="">
+          <comment>
+            <narrative>1)	This is currently no coastal protection and resilience strategy for infrastructure planning in place
+
+
+2)	~1,300ha of mangroves in Timor-Leste (2005)
+3)	0 – project will introduce livelihood options, which contribute to protection and re-afforestation efforts and/or relieve community pressure on mangroves 
+4)	Baseline study to be conducted at start of project to assess current household income levels (see Annex H – Randomized Control Trials)
+5)	There is little-to-no educational or public awareness material, especially targeted at youth, about the role of mangroves in coastal ecosystems</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1)	Integrated coastal adaptation plan drafted
+2)	250ha protected or re-afforested using CBEMR
+3)	250 households benefiting from mangrove-supportive livelihoods
+4)	30% of livelihoods support will target women 
+5)	Print material, videos (TV), community events to raise public awareness about the role of mangroves in coastal ecosystems, reaching especially youth and school-aged population in coastal areas, approximately 50,000 people</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>1)	Regional, national and sector-wide policies, plans and processes developed and strengthened to identify, prioritize and integrate adaptation strategies and measures. (LDCF Indicator 12
+2)	250ha protected or re-afforested using CBEMR
+3)	Type and extent of assets strengthened and/or better managed to withstand the effects of climate change (UNDAF Indicator 3.2.3, LDCF Indicator 2)
+4)	Number of population / households benefiting from the adoption of diversified, climate-resilient livelihood options (LDCF Indicator 3)
+5)	% target population aware of role of mangroves in coastal protection and coastal watershed protection
+	1)	This is currently no coastal protection and resilience strategy for infrastructure planning in place
+2)	~1,300ha of mangroves in Timor-Leste (2005)
+3)	0 – project will introduce livelihood options, which contribute to protection and re-afforestation efforts and/or relieve community pressure on mangroves 
+4)	Baseline study to be conducted at start of project to assess current household income levels (see Annex H – Randomized Control Trials)
+5)	There is little-to-no educational or public awareness material, especially targeted at youth, about the role of mangroves in coastal ecosystems	1)	Integrated coastal adaptation plan drafted
+2)	250ha protected or re-afforested using CBEMR
+3)	250 households benefiting from mangrove-supportive livelihoods
+4)	30% of livelihoods support will target women 
+5)	Print material, videos (TV), community events to raise public awareness about the role of mangroves in coastal ecosystems, reaching especially youth and school-aged population in coastal areas, approximately 50,000 people
+	1)	Based on the comprehensive Coastal vulnerability assessment findings an integrated coastal adaptation plan drafted which is intended to be used as a guideline to prepare and implement national and district specific coastal adaptation management actions 
+2)	The sensitized and mobilized community 11 sites able to fence 890 ha of mangroves</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00096561</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -8449,7 +9125,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <activity-status code="2" />
     <activity-date type="1" iso-date="2016-05-16" />
     <activity-date type="2" iso-date="2016-05-16" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.tp@undp.org</email>
       <website>http://www.tl.undp.org/</website>
@@ -8484,42 +9160,42 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=32828">
       <title>
-        <narrative>Mobilize\xA0Social\xA0Business\xA0to\xA0Accelerate\xA0 Achievement\xA0of\xA0T</narrative>
+        <narrative>Mobilize Social Business to Accelerate Achievement of T</narrative>
       </title>
       <category code="A10" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=33342">
       <title>
-        <narrative>Mobilize\xA0Social\xA0Business\xA0to\xA0Accelerate\xA0 Achievement\xA0of\xA0T</narrative>
+        <narrative>Mobilize Social Business to Accelerate Achievement of T</narrative>
       </title>
       <category code="A10" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=35478">
       <title>
-        <narrative>Mobilize\xA0Social\xA0Business\xA0to\xA0Accelerate\xA0 Achievement\xA0of\xA0T</narrative>
+        <narrative>Mobilize Social Business to Accelerate Achievement of T</narrative>
       </title>
       <category code="A10" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=35537">
       <title>
-        <narrative>Mobilize\xA0Social\xA0Business\xA0to\xA0Accelerate\xA0 Achievement\xA0of\xA0T</narrative>
+        <narrative>Mobilize Social Business to Accelerate Achievement of T</narrative>
       </title>
       <category code="A10" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=35538">
       <title>
-        <narrative>Mobilize\xA0Social\xA0Business\xA0to\xA0Accelerate\xA0 Achievement\xA0of\xA0T</narrative>
+        <narrative>Mobilize Social Business to Accelerate Achievement of T</narrative>
       </title>
       <category code="A10" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=38624">
       <title>
-        <narrative>Mobilize\xA0Social\xA0Business\xA0to\xA0Accelerate\xA0 Achievement\xA0of\xA0T</narrative>
+        <narrative>Mobilize Social Business to Accelerate Achievement of T</narrative>
       </title>
       <category code="A10" />
       <language code="en" />
@@ -8569,7 +9245,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00100474</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -8580,6 +9256,9 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <description type="1">
       <narrative>Mobilize Social Business to Accelerate  Achievement of Timor-Leste MDGs</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="10" ref="11139">
       <narrative>Government of Timor'Leste</narrative>
     </participating-org>
@@ -8638,7 +9317,12 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">184000</value>
+      <value currency="USD" value-date="2017-12-31">184000</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">62438</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -8647,8 +9331,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">84486</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">105026</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -8656,8 +9340,20 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">124000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">62438</value>
+      <provider-org type="10" ref="11139">
+        <narrative>Government of Timor'Leste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00100474">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">124000</value>
       <provider-org type="10" ref="11139">
         <narrative>Government of Timor'Leste</narrative>
       </provider-org>
@@ -8668,8 +9364,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">64000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">64000</value>
       <provider-org ref="11139" type="10">
         <narrative>Government of Timor'Leste</narrative>
       </provider-org>
@@ -8704,8 +9400,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">60000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">60000</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00096561">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -8728,8 +9424,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">302605</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">365043</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -8750,7 +9446,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00096561" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00096965</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -8868,7 +9564,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00100851</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -8879,6 +9575,9 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <description type="1">
       <narrative>Cross Cutting Capacity Development</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
     </participating-org>
@@ -8934,7 +9633,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">50000</value>
+      <value currency="USD" value-date="2017-12-31">50000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -8944,8 +9643,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">36333</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">36333</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -8953,8 +9652,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">50000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">50000</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -8977,8 +9676,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">50000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">50000</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -8999,7 +9698,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00096965" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00097675</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -9061,7 +9760,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00101306" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00101306</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -9072,6 +9771,9 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <description type="1">
       <narrative>Support for Preparation of Green Climate Fund (GCF) Project Funding Proposal (PIMS:5988)</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
@@ -9120,7 +9822,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">0</value>
+      <value currency="USD" value-date="2017-12-31">0</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -9129,8 +9831,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </budget>
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">97020</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">97020</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -9150,8 +9852,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">95521</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">95521</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -9172,7 +9874,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00097675" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00097894</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -9212,7 +9914,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <default-finance-type code="110" />
     <default-aid-type code="C01" />
     <default-tied-status code="3" />
-    <document-link format="text/html" url="http://procurement-notices.undp.org/index.cfm">
+    <document-link format="text/html" url="1">
       <title>
         <narrative>Request for Procurement</narrative>
       </title>
@@ -9230,7 +9932,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00101442" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00101442</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -9241,6 +9943,9 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <description type="1">
       <narrative>Responding to El Nino Impact in Timor Leste</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="70" ref="12707">
       <narrative>Flinders University, Australia</narrative>
     </participating-org>
@@ -9292,7 +9997,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">4544</value>
+      <value currency="USD" value-date="2017-12-31">4544</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -9302,8 +10007,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">4113</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">4113</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -9311,8 +10016,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">4544</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">4544</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00097894">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -9335,8 +10040,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">75000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">75000</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -9357,7 +10062,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00097894" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00098978</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -9426,7 +10131,7 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00102204" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2017-12-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-01-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00102204</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -9435,8 +10140,11 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
       <narrative>GCF Readiness Support for Timo</narrative>
     </title>
     <description type="1">
-      <narrative>GCF Readiness Support for Timo</narrative>
+      <narrative>The GCF Readiness project focuses on two areas: 1. Establishing and strengthening the proposed National Designated Authority (NDA) and Focal Point), and 2 (Development of a Strategic Framework)</narrative>
     </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="12526">
       <narrative>GREEN CLIMATE FUND</narrative>
     </participating-org>
@@ -9485,18 +10193,18 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-11-30">150000</value>
+      <value currency="USD" value-date="2017-12-31">140322</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-11-30">132405</value>
+      <value currency="USD" value-date="2017-12-31">132405</value>
     </budget>
     <capital-spend percentage="0.00" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">51477</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">92691</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -9504,8 +10212,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">132405</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">132405</value>
       <provider-org type="40" ref="12526">
         <narrative>GREEN CLIMATE FUND</narrative>
       </provider-org>
@@ -9516,8 +10224,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">150000</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">140322</value>
       <provider-org type="40" ref="12526">
         <narrative>GREEN CLIMATE FUND</narrative>
       </provider-org>
@@ -9528,8 +10236,8 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-11-30" />
-      <value currency="USD" value-date="2017-11-30">282405</value>
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">272727</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -9543,5 +10251,80 @@ The draft Climate Vulnerability and Capacity Assessment CVCA has identified appr
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00098978" />
     <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Annual Output Results</narrative>
+      </title>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator</narrative>
+        </title>
+        <description>
+          <narrative>1.1	Capacity to coordinate across stakeholders and facilitate effective consultation and communication
+1.2	Knowledge on climate and finance priorities strengthened
+1.3	System for reviewing proposals and issuing recommendations (or no-objections) established
+1.4	Capacity and systems to monitor, evaluate and report on the activities of the Fund and other relevant finance mechanisms and institutions established
+1.5	Information, including in local languages, on procedures of the Fund to disseminated to country stakeholders</narrative>
+        </description>
+        <baseline year="2016" value="">
+          <comment>
+            <narrative>1.1.	MICE has institutional capacity, but requires additional support to set up the functions and mechanisms to more effective engagement with the GCF, especially its functions to coordinate across stakeholders and facilitate effective consultation and communication needs to be strengthened;
+1.2.	MICE hosts both the UNFCCC and GCF focal points and the climate change directorate leads on INDCs and national communications that generate wealth of information and knowledge. However the novelty of GCF requires additional knowledge, especially as regards to climate  finance issues;
+1.3.	Procedural mechanisms for project endorsements exist in the country in relation to the GEF and other vertical funds. At the same time the Ministry of Finance has recently issued a decree about the approvals of donor funding for the country. Since GCF is a new fund, the government has to undertake necessary consultations to clarify and establish a nationally accepted “no-objection” issuance;
+1.4.	Capacities to monitor and evaluate the Fund related activities at the MICE are nascent and require support to set up a project database to ease the process of tracking progress and results evaluation capabilities. 
+1.5.	One of the current limitations to more effective engagement of the MICE with the various vertical funds is a lack of resources to make the critical information available in local language for broad dissemination across the government and non-government organizations;</narrative>
+          </comment>
+        </baseline>
+        <period>
+          <period-start iso-date="2016-01-01" />
+          <period-end iso-date="2016-12-31" />
+          <target value="">
+            <comment>
+              <narrative>•	NDA/focal point lead effective coordination mechanism
+•	No objection procedure established and implemented
+•	Stakeholders engages in consultative processes
+•	Stakeholder consultations conducted with equal representation of women  
+•	Bilateral agreements between the country and the GCF executed
+•	Monitoring, oversight and streamlining of climate finance
+•	Country programmes, including adaptation priorities, developed and continuously updated 
+•	Annual participatory review of GCF portfolio in the country organized</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>NA. no activities undertaken in this year.</narrative>
+            </comment>
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="">
+            <comment>
+              <narrative>•	NDA/focal point lead effective coordination mechanism
+•	No objection procedure established and implemented
+•	Stakeholders engages in consultative processes
+•	Stakeholder consultations conducted with equal representation of women  
+•	Bilateral agreements between the country and the GCF executed
+•	Monitoring, oversight and streamlining of climate finance
+•	Country programmes, including adaptation priorities, developed and continuously updated 
+•	Annual participatory review of GCF portfolio in the country organized</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>The de facto NDA is currently functioning and effectively leading and coordinating with a wide range of key stakeholders for NDA related activities as well as general climate activities that are ongoing in the country; 53 (female: 22, Male: 31) stakeholders participated in this consultation.
+
+The no objection procedure has been established, but may be subject to due to the current political situation in the country. The no-objection procedure has not been implemented as there has been no proposal etc. submitted since the no-objection procedure was established. 
+
+The draft stakeholder engagement is ongoing  
+Stocktaking exercise was undertaken with each line ministries plans and priorities as part of the country programme was initiated and will be finalized in May 2018 
+
+ Stakeholder consultations was conducted.</narrative>
+            </comment>
+          </actual>
+        </period>
+      </indicator>
+    </result>
   </iati-activity>
 </iati-activities>
