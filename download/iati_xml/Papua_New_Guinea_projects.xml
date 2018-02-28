@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2018-02-15T17:03:36" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2018-02-28T21:30:36" version="2.02">
   <!--Papua New Guinea-->
   <iati-activity last-updated-datetime="2018-02-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00014505</iati-identifier>
@@ -55,14 +55,6 @@
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00014505">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00014505" />
     <conditions attached="0" />
   </iati-activity>
@@ -100,21 +92,21 @@
       <narrative>Papua New Guinea</narrative>
     </recipient-country>
     <location ref="PG">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="2088628" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="2088122" />
       <name>
-        <narrative>Independent State of Papua New Guinea</narrative>
+        <narrative>Port Moresby</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="2088628" vocabulary="G1" />
+      <administrative level="1" code="2088122" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>-6.000000 147.000000</pos>
+        <pos>-9.443140 147.179720</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="15130" />
     <sector vocabulary="99" code="3">
@@ -195,7 +187,7 @@
     <description type="1">
       <narrative>Support to Resident Coordinator Activities in Papua New Guinea</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -296,7 +288,7 @@
       <narrative>Direct Cost Budget</narrative>
     </title>
     <description type="1">
-      <narrative>Administration support to Resident Coordinator's Office</narrative>
+      <narrative>The project is for administrative cost of the Resident Coordinator’s Office in Papua New Guinea</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -708,7 +700,7 @@
     <activity-status code="2" />
     <activity-date type="1" iso-date="2008-01-01" />
     <activity-date type="2" iso-date="2008-01-01" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.pg@undp.org</email>
       <website>http://www.pg.undp.org/</website>
@@ -782,7 +774,7 @@
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-01-01" />
     <activity-date type="2" iso-date="2013-01-01" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.pg@undp.org</email>
       <website>http://www.pg.undp.org/</website>
@@ -831,6 +823,11 @@
       <value currency="USD" value-date="2017-12-31">1560105</value>
     </budget>
     <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">1367261</value>
+    </budget>
+    <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">1390015</value>
@@ -869,6 +866,18 @@
       </provider-org>
       <receiver-org type="10" ref="">
         <narrative>Government of Papua New Guinea</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1367261</value>
+      <provider-org type="40" ref="11344">
+        <narrative>MDTFO/JP_UN_Country_Fund_PNG</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00085638">
+        <narrative>United Nations Development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
@@ -1055,7 +1064,7 @@
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">6806609</value>
+      <value currency="USD" value-date="2017-12-31">8173870</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -1209,7 +1218,7 @@
       <narrative>Papua New Guinea</narrative>
     </recipient-country>
     <sector vocabulary="1" code="15113" />
-    <sector vocabulary="1" code="15151" />
+    <sector vocabulary="1" code="15150" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -1624,7 +1633,7 @@
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-01-01" />
     <activity-date type="2" iso-date="2013-01-01" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.pg@undp.org</email>
       <website>http://www.pg.undp.org/</website>
@@ -1650,14 +1659,14 @@
       <location-class code="1" />
       <feature-designation code="ADM1" />
     </location>
-    <sector vocabulary="1" code="15151" />
+    <sector vocabulary="1" code="15150" />
     <sector vocabulary="99" code="2">
       <narrative>Democratic Governance</narrative>
     </sector>
     <country-budget-items vocabulary="1">
-      <budget-item code="1.8.1" percentage="100">
+      <budget-item code="1.7.1" percentage="100">
         <description>
-          <narrative>Elections - elections</narrative>
+          <narrative>Other General Services - support to civil society </narrative>
         </description>
       </budget-item>
     </country-budget-items>
@@ -2037,6 +2046,12 @@
     </transaction>
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">23</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">129078</value>
       <disbursement-channel code="2" />
@@ -2335,7 +2350,7 @@
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1190070</value>
+      <value currency="USD" value-date="2017-12-31">1190069</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -2425,7 +2440,7 @@
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">4508</value>
+      <value currency="USD" value-date="2018-01-31">22619</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -2536,7 +2551,7 @@
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1084613</value>
+      <value currency="USD" value-date="2017-12-31">1084612</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -2626,7 +2641,7 @@
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">14884</value>
+      <value currency="USD" value-date="2018-01-31">16214</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -2737,7 +2752,7 @@
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">644112</value>
+      <value currency="USD" value-date="2017-12-31">644111</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -2827,7 +2842,7 @@
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">58088</value>
+      <value currency="USD" value-date="2018-01-31">123716</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -2970,7 +2985,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">514624</value>
+      <value currency="USD" value-date="2017-12-31">587954</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
@@ -3007,7 +3022,7 @@
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">484096</value>
+      <value currency="USD" value-date="2017-12-31">540002</value>
       <provider-org type="40" ref="11363">
         <narrative>Peacebuilding Fund</narrative>
       </provider-org>
@@ -3043,7 +3058,7 @@
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">30528</value>
+      <value currency="USD" value-date="2017-12-31">47952</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00049466">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -3067,7 +3082,7 @@
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1449743</value>
+      <value currency="USD" value-date="2017-12-31">1523073</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -3076,7 +3091,7 @@
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">2200</value>
+      <value currency="USD" value-date="2018-01-31">9234</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -3247,12 +3262,12 @@
     </recipient-country>
     <location ref="PG">
       <location-reach code="1" />
-      <location-id vocabulary="G1" code="2088628" />
+      <location-id vocabulary="G1" code="2088122" />
       <name>
-        <narrative>Independent State of Papua New Guinea</narrative>
+        <narrative>Port Moresby</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>•	Lessons learned evaluation workshops at national level for grant receiving communities
@@ -3260,13 +3275,13 @@
 •	Regional launches for the 2015 National Human Development Report
 •	Policy advice to implement National A</narrative>
       </activity-description>
-      <administrative level="0" code="2088628" vocabulary="G1" />
+      <administrative level="1" code="2088122" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>-6.000000 147.000000</pos>
+        <pos>-9.443140 147.179720</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="99810" />
     <sector vocabulary="99" code="7">
@@ -3466,6 +3481,12 @@
     </transaction>
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">44180</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">480998</value>
       <disbursement-channel code="2" />
@@ -3636,26 +3657,11 @@ Documentary produced: "driving the change" won a world television award for best
       <category code="A05" />
       <language code="en" />
     </document-link>
-    <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/PNG/evaluation%20report%20draft%20final.doc">
-      <title>
-        <narrative>evaluation report draft final</narrative>
-      </title>
-      <category code="A07" />
-      <language code="en" />
-    </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=37847">
       <title>
         <narrative>Project Consultant - Disaster Loss and Damage Information System</narrative>
       </title>
       <category code="A10" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00049516">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00085640" />
@@ -3885,6 +3891,12 @@ Documentary produced: "driving the change" won a world television award for best
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">22</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -4181,7 +4193,7 @@ Documentary produced: "driving the change" won a world television award for best
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">414198</value>
+      <value currency="USD" value-date="2017-12-31">413916</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -4410,21 +4422,21 @@ Documentary produced: "driving the change" won a world television award for best
       <narrative>Papua New Guinea</narrative>
     </recipient-country>
     <location ref="PG">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="2088628" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="2088122" />
       <name>
-        <narrative>Independent State of Papua New Guinea</narrative>
+        <narrative>Port Moresby</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="2088628" vocabulary="G1" />
+      <administrative level="1" code="2088122" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>-6.000000 147.000000</pos>
+        <pos>-9.443140 147.179720</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="15170" />
     <sector vocabulary="99" code="4">
@@ -4472,7 +4484,7 @@ Documentary produced: "driving the change" won a world television award for best
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">-33697</value>
+      <value currency="USD" value-date="2017-12-31">-33268</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -4598,7 +4610,7 @@ Documentary produced: "driving the change" won a world television award for best
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">233</value>
+      <value currency="USD" value-date="2018-01-31">4190</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -5049,6 +5061,26 @@ Comprehensive definition of SGBV completed
     </location>
     <location ref="PG">
       <location-reach code="1" />
+      <location-id vocabulary="G1" code="2088122" />
+      <name>
+        <narrative>Port Moresby</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative>REDD+ Readiness of the Government of Papua New Guinea</narrative>
+      </activity-description>
+      <administrative level="1" code="2088122" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>-9.443140 147.179720</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
+    <location ref="PG">
+      <location-reach code="1" />
       <location-id vocabulary="G1" code="2133990" />
       <name>
         <narrative>Alotau</narrative>
@@ -5377,7 +5409,7 @@ Three national consultation workshops and a validation workshop.</narrative>
           </target>
           <actual value="">
             <comment>
-              <narrative>After the trial period, the web-portal was internationally launched by the Managing Director of PNGFA during the Asia Pacific Forestry Week held in Philippines in February 2016. The web-portal (together with NFI) was also launched in the country by the Prime Minister in March 2016 (NFI  web-portal launching event report) and the web-portal became fully available to the public.
+              <narrative>After the trial period, the web-portal was internationally launched by the Managing Director of PNGFA during the Asia Pacific Forestry Week held in Philippines in February 2016. The web-portal (together with NFI) was also launched in the country by the Prime Minister in March 2016 (NFI &amp; web-portal launching event report) and the web-portal became fully available to the public.
 
 National historical forest and land use change assessment for 2000-15 using Collect Earth was conducted
 in 2016 (implementation report).
@@ -6390,7 +6422,7 @@ Number of provinces with improved climate-related planning and policy frameworks
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">-103372</value>
+      <value currency="USD" value-date="2018-01-31">191552</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -7087,7 +7119,7 @@ Under CEPA leadership the project undertook a compressive legislative review on 
     <description type="1">
       <narrative>The project aims at accelerating MDG achievement in Papua New Guinea through (1) community-led development (2) policy and capacity support for development effectiveness.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="02507">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -7945,6 +7977,11 @@ daily household income increased to K3 per day</narrative>
       <value currency="USD" value-date="2017-12-31">137000</value>
     </budget>
     <budget type="2" status="2">
+      <period-start iso-date="2019-01-01" />
+      <period-end iso-date="2019-12-31" />
+      <value currency="USD" value-date="2017-12-31">23025</value>
+    </budget>
+    <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
       <value currency="USD" value-date="2017-12-31">261279</value>
@@ -7972,6 +8009,18 @@ daily household income increased to K3 per day</narrative>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">23025</value>
+      <provider-org type="40" ref="10003">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00090395">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -8061,10 +8110,16 @@ daily household income increased to K3 per day</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">606373</value>
+      <value currency="USD" value-date="2017-12-31">629398</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">9560</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -8848,7 +8903,7 @@ daily household income increased to K3 per day</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">-2254</value>
+      <value currency="USD" value-date="2018-01-31">20560</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -8889,7 +8944,7 @@ daily household income increased to K3 per day</narrative>
 •	REDD+ Training implemented
 •	Effective stakeholder engagement mechanism in place
 •	National REDD+ Strategy formulated
-•	# of Increased understanding of drivers of DD amongst key stakeholders
+•	# of Increased understanding of drivers of D&amp;D amongst key stakeholders
 •	# of LULUCF policy options for REDD+ produced and adopted 
 •	Policy options developed and adopted
 •	Alternative livelihood options identified
@@ -9083,7 +9138,7 @@ daily household income increased to K3 per day</narrative>
       <narrative>Protected Areas</narrative>
     </title>
     <description type="1">
-      <narrative>Strengthening Management Effectiveness of a National System of Protected Areas</narrative>
+      <narrative>Building on GEF4, this Project supports CEPA’s capacity for the effective management of a Protected Area system as showcased in 3 sites, namely the Varirata National Park and Sogeri Plateau, YUS Conservation Area and the Torricelli Mountain Range</narrative>
     </description>
     <participating-org role="4" type="10" ref="02509">
       <narrative>National Execution</narrative>
@@ -9151,17 +9206,17 @@ daily household income increased to K3 per day</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2020-01-01" />
       <period-end iso-date="2020-12-31" />
-      <value currency="USD" value-date="2017-12-31">1393592</value>
+      <value currency="USD" value-date="2017-12-31">1358273</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2017-12-31">1143081</value>
+      <value currency="USD" value-date="2017-12-31">1068851</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">1032020</value>
+      <value currency="USD" value-date="2017-12-31">1401292</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -9181,7 +9236,7 @@ daily household income increased to K3 per day</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1393592</value>
+      <value currency="USD" value-date="2017-12-31">1358273</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -9193,7 +9248,7 @@ daily household income increased to K3 per day</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1143081</value>
+      <value currency="USD" value-date="2017-12-31">1068851</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -9205,7 +9260,7 @@ daily household income increased to K3 per day</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">982020</value>
+      <value currency="USD" value-date="2017-12-31">1401292</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -9241,18 +9296,6 @@ daily household income increased to K3 per day</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">50000</value>
-      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00087986">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00094837">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">51500</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00087986">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
@@ -9277,7 +9320,7 @@ daily household income increased to K3 per day</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">5610370</value>
+      <value currency="USD" value-date="2017-12-31">5870093</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -9286,7 +9329,7 @@ daily household income increased to K3 per day</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">-1565</value>
+      <value currency="USD" value-date="2018-01-31">124060</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -9373,7 +9416,7 @@ MOU to be signed in July 2017 to engage 12 new graduates in the areas of policy<
           </target>
           <actual value="">
             <comment>
-              <narrative>50 villages ~13,000 people, participating in TCA Project Area - all benefiting from livelihood activities - Rice Farming  Fish  Housing Projects.  
+              <narrative>50 villages ~13,000 people, participating in TCA Project Area - all benefiting from livelihood activities - Rice Farming &amp; Fish &amp; Housing Projects.  
  
 27 villages in YUS (24 coffee, 3 cocoa) directly benefiting from livelihood activities
 
@@ -9399,8 +9442,8 @@ TCA staff are employed directly from the participating villages and are availabl
     <description type="1">
       <narrative>This project is geared towards providing strategic support to the Government of Papua New Guinea in reducing vulnerability and increasing resilience to disasters.</narrative>
     </description>
-    <participating-org role="4" type="10" ref="02509">
-      <narrative>National Execution</narrative>
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
+      <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
@@ -9491,8 +9534,8 @@ TCA staff are employed directly from the participating villages and are availabl
     <description type="1">
       <narrative>This project is geared towards providing strategic support to the Government of Papua New Guinea in reducing vulnerability and increasing resilience to disasters.</narrative>
     </description>
-    <participating-org role="4" type="10" ref="02509">
-      <narrative>National Execution</narrative>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="1" type="70" ref="10737">
       <narrative>THE MANUFACTURER,MARKETER, AND DISTRIBUTOR OF NONALCOHOLIC BEVERAGE CONCENTRATES AND SYRUPS</narrative>
@@ -9560,7 +9603,7 @@ TCA staff are employed directly from the participating villages and are availabl
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">1004539</value>
+      <value currency="USD" value-date="2017-12-31">2012033</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -9580,7 +9623,7 @@ TCA staff are employed directly from the participating villages and are availabl
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">75000</value>
+      <value currency="USD" value-date="2017-12-31">77167</value>
       <provider-org type="70" ref="10737">
         <narrative>THE MANUFACTURER,MARKETER, AND DISTRIBUTOR OF NONALCOHOLIC BEVERAGE CONCENTRATES AND SYRUPS</narrative>
       </provider-org>
@@ -9616,7 +9659,7 @@ TCA staff are employed directly from the participating villages and are availabl
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">929539</value>
+      <value currency="USD" value-date="2017-12-31">1934866</value>
       <provider-org type="40" ref="11344">
         <narrative>MDTFO/JP_UN_Country_Fund_PNG</narrative>
       </provider-org>
@@ -9688,7 +9731,7 @@ TCA staff are employed directly from the participating villages and are availabl
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">3339895</value>
+      <value currency="USD" value-date="2017-12-31">4347389</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -9697,7 +9740,7 @@ TCA staff are employed directly from the participating villages and are availabl
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">-7541</value>
+      <value currency="USD" value-date="2018-01-31">3225</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -9758,7 +9801,7 @@ TCA staff are employed directly from the participating villages and are availabl
             <comment>
               <narrative>1. Mainstreaming of DRM into the Planning Processes
 2. Early Recovery (ER) Planning and Capacity Building
-3. Humanitarian Coordination, El-Nino Response  Visit of UN Special Envoy</narrative>
+3. Humanitarian Coordination, El-Nino Response &amp; Visit of UN Special Envoy</narrative>
             </comment>
           </actual>
         </period>
@@ -9840,14 +9883,6 @@ TCA staff are employed directly from the participating villages and are availabl
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00090689">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00096336" />
     <conditions attached="0" />
   </iati-activity>
@@ -9860,7 +9895,7 @@ TCA staff are employed directly from the participating villages and are availabl
       <narrative>Support to Torrecilli Mountain</narrative>
     </title>
     <description type="1">
-      <narrative>Support to Torrecilli Mountain Range Conservation Area</narrative>
+      <narrative>The proposed Torricelli Mountain Range Conservation Area, East and West Sepik Provinces is led by the Tenkile Conservation Alliance, and also involved in the conservation of Matschie’s tree kangaroo.</narrative>
     </description>
     <participating-org role="4" type="21" ref="02512">
       <narrative>NGO (Int'l)</narrative>
@@ -9945,7 +9980,7 @@ TCA staff are employed directly from the participating villages and are availabl
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">146751</value>
+      <value currency="USD" value-date="2015-12-31">94751</value>
     </budget>
     <capital-spend percentage="0" />
     <transaction>
@@ -10032,7 +10067,7 @@ TCA staff are employed directly from the participating villages and are availabl
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">146751</value>
+      <value currency="USD" value-date="2015-12-31">94751</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -10120,14 +10155,6 @@ TCA staff are employed directly from the participating villages and are availabl
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00090694">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00096337" />
     <conditions attached="0" />
   </iati-activity>
@@ -10140,7 +10167,7 @@ TCA staff are employed directly from the participating villages and are availabl
       <narrative>Support to YUS Conservation Ar</narrative>
     </title>
     <description type="1">
-      <narrative>Support to YUS Conservation Area</narrative>
+      <narrative>Led by Woodland Park Zoo’s Tree Kangaroo Conservation Program in partnership provincial governments, this is the first site in PNG dedicated to conserving the endangered Matschie’s tree kangaroo (Dendrolagus matschiei) and its habitats.</narrative>
     </description>
     <participating-org role="4" type="21" ref="02512">
       <narrative>NGO (Int'l)</narrative>
@@ -10362,7 +10389,7 @@ TCA staff are employed directly from the participating villages and are availabl
     <description type="1">
       <narrative>Facilitating Renewable Energy &amp;amp; Energy Efficiency Applications for Greenhouse Gas Emission Reduction (FREAGER)</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -10405,14 +10432,6 @@ TCA staff are employed directly from the participating villages and are availabl
         <narrative>National Consultant ? Renewable Energy and Energy Efficiency Expert</narrative>
       </title>
       <category code="A10" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00091586">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00096717" />
@@ -10595,7 +10614,7 @@ TCA staff are employed directly from the participating villages and are availabl
     <description type="1">
       <narrative>Communications and Monitoring &amp;amp; Evaluation</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -10682,6 +10701,11 @@ TCA staff are employed directly from the participating villages and are availabl
       <period-end iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">200000</value>
     </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">5000</value>
+    </budget>
     <capital-spend percentage="0" />
     <transaction>
       <transaction-type code="4" />
@@ -10690,6 +10714,18 @@ TCA staff are employed directly from the participating villages and are availabl
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">5000</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00095522">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00099531">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -10707,7 +10743,7 @@ TCA staff are employed directly from the participating villages and are availabl
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">200000</value>
+      <value currency="USD" value-date="2017-12-31">205000</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -10785,14 +10821,6 @@ TCA staff are employed directly from the participating villages and are availabl
       <category code="A10" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00098189">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00101603" />
     <conditions attached="0" />
   </iati-activity>
@@ -10805,7 +10833,7 @@ TCA staff are employed directly from the participating villages and are availabl
       <narrative>Prov Capacity Building Phase 3</narrative>
     </title>
     <description type="1">
-      <narrative>Provincial Capacity Building (PCaB) Programme Phase 3</narrative>
+      <narrative>Taking into account the outcomes of the evaluation of PCaB 2 as well as the major directions of the ongoing policy and institutional reforms of the Government of PNG, PCaB Phase 3 aims to improve the equitable delivery of public services through enhancing public finance management capacities at the national and sub-national levels. The major focus of PCaB Phase 3 will be at the district level, targeting District Development Authorities (DDAs) for more effective delivery of core functions. The project is in line with the ongoing PFM reforms of the Government of PNG. Specifically, the project co</narrative>
     </description>
     <participating-org role="4" type="10" ref="02509">
       <narrative>National Execution</narrative>
@@ -10945,7 +10973,7 @@ Provinces:
     <description type="1">
       <narrative>The project aims to demonstrate increase in sustainable financing of biodiversity conservation across the protected area system as well as increase in species conservation in and outside PAs.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="02507">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">

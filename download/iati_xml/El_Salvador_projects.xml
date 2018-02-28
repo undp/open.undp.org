@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2018-02-15T17:04:05" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2018-02-28T21:31:13" version="2.02">
   <!--El Salvador-->
   <iati-activity last-updated-datetime="2018-02-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00042509</iati-identifier>
@@ -13,7 +13,7 @@
     <description type="1">
       <narrative>Management Plan</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -542,21 +542,21 @@ Fortalecimiento de capacidades de la DGME para la Modernización del Sistema de 
       <narrative>El Salvador</narrative>
     </recipient-country>
     <location ref="SV">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="3585968" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="3583361" />
       <name>
-        <narrative>El Salvador</narrative>
+        <narrative>San Salvador</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="3585968" vocabulary="G1" />
+      <administrative level="1" code="3583361" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>13.833330 -88.916670</pos>
+        <pos>13.689350 -89.187180</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="13040" />
     <sector vocabulary="99" code="3">
@@ -973,14 +973,6 @@ Se dió inicio a la producción adicional de 2,000 libretas de pasaporte diplom�
         <narrative>CDR 2013</narrative>
       </title>
       <category code="A05" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00057145">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00070494" />
@@ -1975,14 +1967,6 @@ Estudio Indicadores RIMS elaborado
       <category code="A05" />
       <language code="es" />
     </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00059195">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00073968" />
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00091895" />
     <conditions attached="0" />
@@ -2589,7 +2573,7 @@ Estudio Indicadores RIMS elaborado
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">2245410</value>
+      <value currency="USD" value-date="2017-12-31">2475948</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -2638,11 +2622,23 @@ Estudio Indicadores RIMS elaborado
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">2245410</value>
+      <value currency="USD" value-date="2017-12-31">2475948</value>
       <provider-org type="10" ref="01046">
         <narrative>ELS-GOBIERNO DE EL SALVADOR</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00091895">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">772055</value>
+      <provider-org ref="01046" type="10">
+        <narrative>ELS-GOBIERNO DE EL SALVADOR</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00091895">
         <narrative>United Nations Development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -2734,7 +2730,7 @@ Estudio Indicadores RIMS elaborado
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">15076258</value>
+      <value currency="USD" value-date="2017-12-31">15306796</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -2743,7 +2739,7 @@ Estudio Indicadores RIMS elaborado
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">99073</value>
+      <value currency="USD" value-date="2018-01-31">220464</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -2838,7 +2834,7 @@ Implementación de 26 planes de negocio de inversión en organizaciones atendida
 *26 organizaciones fortalecidas con asistencia técnica para el acceso a mercados.
 *60 organizaciones con asistencia para el acceso a crédito o financiamiento de sus iniciativas productivas.
 *Conformación de 30 grupos de ahorro
-*Diseño de un mecanismo integrado que permita al interior de la DGDR, estandarizar y armonizar los sistemas de SE de los proyectos FIDA, integrado al desarrollo de una Estrategia de Gestión del Conocimiento del MAG</narrative>
+*Diseño de un mecanismo integrado que permita al interior de la DGDR, estandarizar y armonizar los sistemas de S&amp;E de los proyectos FIDA, integrado al desarrollo de una Estrategia de Gestión del Conocimiento del MAG</narrative>
             </comment>
           </target>
           <actual value="">
@@ -2855,7 +2851,7 @@ Implementación de 26 planes de negocio de inversión en organizaciones atendida
 *Servicios de Asistencia Técnica a 17 organizaciones en los rubros de café, ganadería, turismo, hortalizas, artesanías, miel, frutas y acuícola.
 *6  Organizaciones fortalecidas en administración financiera y capacitadas sobre temas de: Fomento al Ahorro, Administración y Buen Uso del Crédito, Interpretación y Análisis de Estados Financieros, entre otros.
 *Se crearon  7  grupos de ahorro en los departamentos de Chalatenango y La Libertad, beneficiando a una población total de 96 personas.
-*en coordinación de la DGDR, los proyectos FIDA vigentes ha comenzado el desarrollo de actividades que permitan estandarizar y armonizar los sistemas de SE.</narrative>
+*en coordinación de la DGDR, los proyectos FIDA vigentes ha comenzado el desarrollo de actividades que permitan estandarizar y armonizar los sistemas de S&amp;E.</narrative>
             </comment>
           </actual>
         </period>
@@ -3032,14 +3028,6 @@ Implementación de 26 planes de negocio de inversión en organizaciones atendida
       </title>
       <category code="A08" />
       <language code="es" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00059394">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00074250" />
     <conditions attached="0" />
@@ -3781,7 +3769,7 @@ Implementación de 26 planes de negocio de inversión en organizaciones atendida
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">11937</value>
+      <value currency="USD" value-date="2018-01-31">21346</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -3885,671 +3873,15 @@ R4:: No hubo acciones específicas en cuanto capacitaciones en materia de géner
             </comment>
           </actual>
         </period>
-      </indicator>
-    </result>
-  </iati-activity>
-  <iati-activity last-updated-datetime="2018-02-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
-    <iati-identifier>XM-DAC-41114-PROJECT-00060460</iati-identifier>
-    <reporting-org ref="XM-DAC-41114" type="40">
-      <narrative>United Nations Development Programme</narrative>
-    </reporting-org>
-    <title>
-      <narrative>Redes Territoriales y desarrollo humano</narrative>
-    </title>
-    <description type="1">
-      <narrative>Programa Marco “Articulación de redes territoriales y temáticas para el desarrollo humano”</narrative>
-    </description>
-    <participating-org role="4" type="40" ref="99999">
-      <narrative>United Nations Development Programme</narrative>
-    </participating-org>
-    <participating-org role="2" type="40" ref="XM-DAC-41114">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
-    <participating-org role="1" type="10" ref="00137">
-      <narrative>GOVERNMENT OF ITALY</narrative>
-    </participating-org>
-    <participating-org role="1" type="10" ref="01046">
-      <narrative>ELS-GOBIERNO DE EL SALVADOR</narrative>
-    </participating-org>
-    <participating-org role="1" type="10" ref="10216">
-      <narrative>AGENCIA ESPANOLA DE COOPERACION INTERNACIONAL</narrative>
-    </participating-org>
-    <participating-org role="1" type="40" ref="11767">
-      <narrative>Basque Water Agency URAgentzia</narrative>
-    </participating-org>
-    <participating-org role="1" type="10" ref="ES-DIR3-E04585801">
-      <narrative>GOVERNMENT OF SPAIN</narrative>
-    </participating-org>
-    <participating-org role="1" type="40" ref="XM-DAC-41114">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
-    <activity-status code="2" />
-    <activity-date type="1" iso-date="2010-08-01" />
-    <activity-date type="2" iso-date="2010-08-01" />
-    <activity-date type="3" iso-date="2017-09-30" />
-    <contact-info type="1">
-      <email>registry.sv@undp.org</email>
-      <website>http://www.sv.undp.org/</website>
-    </contact-info>
-    <recipient-country code="SV">
-      <narrative>El Salvador</narrative>
-    </recipient-country>
-    <sector vocabulary="1" code="15112" />
-    <collaboration-type code="4" />
-    <default-flow-type code="10" />
-    <default-finance-type code="110" />
-    <default-aid-type code="C01" />
-    <default-tied-status code="3" />
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SLV/00060460_PRODOC%20ART_PNUD_FIRMADO.pdf">
-      <title>
-        <narrative>Project Document - SLV</narrative>
-      </title>
-      <category code="A01" />
-      <category code="A02" />
-      <category code="A03" />
-      <category code="A04" />
-      <category code="A05" />
-      <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SLV/00060460_PRODOC%20ART_PNUD_FIRMADO1.pdf">
-      <title>
-        <narrative>Project Document - SLV</narrative>
-      </title>
-      <category code="A01" />
-      <category code="A02" />
-      <category code="A03" />
-      <category code="A04" />
-      <category code="A05" />
-      <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SLV/00076139%20AWP%202014.pdf">
-      <title>
-        <narrative>Annual Work Plan 2014</narrative>
-      </title>
-      <category code="A05" />
-      <language code="en" />
-    </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SLV/00060460%20AWP%202015.pdf">
-      <title>
-        <narrative>Annual Work Plan 2015</narrative>
-      </title>
-      <category code="A05" />
-      <language code="en" />
-    </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SLV/00076139_Informe%20final.pdf">
-      <title>
-        <narrative>Final report</narrative>
-      </title>
-      <category code="A08" />
-      <language code="es" />
-    </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SLV/00076139_Lecciones%20aprendidas.pdf">
-      <title>
-        <narrative>Informe de Lecciones aprendidas</narrative>
-      </title>
-      <category code="A08" />
-      <language code="es" />
-    </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SLV/00076139_Progress%20report%202014.pdf">
-      <title>
-        <narrative>Progress report</narrative>
-      </title>
-      <category code="A08" />
-      <language code="es" />
-    </document-link>
-    <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/SLV/Progress%20report%202011.doc">
-      <title>
-        <narrative>Progress report 2011</narrative>
-      </title>
-      <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SLV/Progress%20report%202012.pdf">
-      <title>
-        <narrative>Progress report 2012</narrative>
-      </title>
-      <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/SLV/Progress%20report%202013.docx">
-      <title>
-        <narrative>Progress report 2013</narrative>
-      </title>
-      <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SLV/00060460%20Progress%20report%202014.pdf">
-      <title>
-        <narrative>Progress Report 2014</narrative>
-      </title>
-      <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00060460">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
-    <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00076139" />
-    <conditions attached="0" />
-  </iati-activity>
-  <iati-activity last-updated-datetime="2018-02-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
-    <iati-identifier>XM-DAC-41114-OUTPUT-00076139</iati-identifier>
-    <reporting-org ref="XM-DAC-41114" type="40">
-      <narrative>United Nations Development Programme</narrative>
-    </reporting-org>
-    <title>
-      <narrative>Programa de Articulación redes</narrative>
-    </title>
-    <description type="1">
-      <narrative>ART El Salvador - Fortalecimiento de la articulación para el desarrollo territorial</narrative>
-    </description>
-    <participating-org role="4" type="40" ref="99999">
-      <narrative>United Nations Development Programme</narrative>
-    </participating-org>
-    <participating-org role="1" type="10" ref="00137">
-      <narrative>GOVERNMENT OF ITALY</narrative>
-    </participating-org>
-    <participating-org role="1" type="10" ref="01046">
-      <narrative>ELS-GOBIERNO DE EL SALVADOR</narrative>
-    </participating-org>
-    <participating-org role="1" type="10" ref="10216">
-      <narrative>AGENCIA ESPANOLA DE COOPERACION INTERNACIONAL</narrative>
-    </participating-org>
-    <participating-org role="1" type="40" ref="11767">
-      <narrative>Basque Water Agency URAgentzia</narrative>
-    </participating-org>
-    <participating-org role="1" type="10" ref="ES-DIR3-E04585801">
-      <narrative>GOVERNMENT OF SPAIN</narrative>
-    </participating-org>
-    <participating-org role="1" type="40" ref="XM-DAC-41114">
-      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-    </participating-org>
-    <activity-status code="2" />
-    <activity-date type="1" iso-date="2010-08-01" />
-    <activity-date type="2" iso-date="2010-08-01" />
-    <activity-date type="3" iso-date="2017-09-30" />
-    <contact-info type="1">
-      <email>registry.sv@undp.org</email>
-      <website>http://www.sv.undp.org/</website>
-    </contact-info>
-    <activity-scope code="4" />
-    <recipient-country code="SV">
-      <narrative>El Salvador</narrative>
-    </recipient-country>
-    <location ref="SV">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="3585968" />
-      <name>
-        <narrative>El Salvador</narrative>
-      </name>
-      <description>
-        <narrative>independent political entity</narrative>
-      </description>
-      <administrative level="0" code="3585968" vocabulary="G1" />
-      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>13.833330 -88.916670</pos>
-      </point>
-      <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
-    </location>
-    <sector vocabulary="1" code="15112" />
-    <sector vocabulary="99" code="3">
-      <narrative>Responsive Institutions</narrative>
-    </sector>
-    <country-budget-items vocabulary="1">
-      <budget-item code="1.3.8" percentage="100">
-        <description>
-          <narrative>Accountability - local government finance</narrative>
-        </description>
-      </budget-item>
-    </country-budget-items>
-    <policy-marker vocabulary="1" code="1" significance="0" />
-    <collaboration-type code="4" />
-    <default-flow-type code="10" />
-    <default-finance-type code="110" />
-    <default-aid-type code="C01" />
-    <default-tied-status code="3" />
-    <budget type="2" status="2">
-      <period-start iso-date="2017-01-01" />
-      <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">80</value>
-    </budget>
-    <budget type="2" status="2">
-      <period-start iso-date="2016-01-01" />
-      <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">97</value>
-    </budget>
-    <budget type="2" status="2">
-      <period-start iso-date="2015-01-01" />
-      <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">36377</value>
-    </budget>
-    <budget type="2" status="2">
-      <period-start iso-date="2014-01-01" />
-      <period-end iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">202759</value>
-    </budget>
-    <budget type="2" status="2">
-      <period-start iso-date="2013-01-01" />
-      <period-end iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">538774</value>
-    </budget>
-    <budget type="2" status="2">
-      <period-start iso-date="2012-01-01" />
-      <period-end iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">679469</value>
-    </budget>
-    <capital-spend percentage="0" />
-    <transaction>
-      <transaction-type code="4" />
-      <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">0</value>
-      <provider-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations Development Programme</narrative>
-      </provider-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">5461</value>
-      <provider-org type="10" ref="00137">
-        <narrative>GOVERNMENT OF ITALY</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00076139">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">24769</value>
-      <provider-org type="10" ref="00137">
-        <narrative>GOVERNMENT OF ITALY</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00076139">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">167759</value>
-      <provider-org type="10" ref="00137">
-        <narrative>GOVERNMENT OF ITALY</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00076139">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">90460</value>
-      <provider-org type="10" ref="00137">
-        <narrative>GOVERNMENT OF ITALY</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00076139">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">3656</value>
-      <provider-org type="10" ref="01046">
-        <narrative>ELS-GOBIERNO DE EL SALVADOR</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00076139">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">3656</value>
-      <provider-org type="10" ref="01046">
-        <narrative>ELS-GOBIERNO DE EL SALVADOR</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00076139">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">5000</value>
-      <provider-org type="10" ref="01046">
-        <narrative>ELS-GOBIERNO DE EL SALVADOR</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00076139">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">5000</value>
-      <provider-org ref="01046" type="10">
-        <narrative>ELS-GOBIERNO DE EL SALVADOR</narrative>
-      </provider-org>
-      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00076139">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">80</value>
-      <provider-org type="10" ref="10216">
-        <narrative>AGENCIA ESPANOLA DE COOPERACION INTERNACIONAL</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00076139">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">97</value>
-      <provider-org type="10" ref="10216">
-        <narrative>AGENCIA ESPANOLA DE COOPERACION INTERNACIONAL</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00076139">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">2844</value>
-      <provider-org type="10" ref="10216">
-        <narrative>AGENCIA ESPANOLA DE COOPERACION INTERNACIONAL</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00076139">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">61052</value>
-      <provider-org type="10" ref="10216">
-        <narrative>AGENCIA ESPANOLA DE COOPERACION INTERNACIONAL</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00076139">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">351651</value>
-      <provider-org type="10" ref="10216">
-        <narrative>AGENCIA ESPANOLA DE COOPERACION INTERNACIONAL</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00076139">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">446837</value>
-      <provider-org type="10" ref="10216">
-        <narrative>AGENCIA ESPANOLA DE COOPERACION INTERNACIONAL</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00076139">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">977</value>
-      <provider-org type="40" ref="11767">
-        <narrative>Basque Water Agency URAgentzia</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00076139">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">32764</value>
-      <provider-org type="40" ref="11767">
-        <narrative>Basque Water Agency URAgentzia</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00076139">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">-15749</value>
-      <provider-org type="40" ref="11767">
-        <narrative>Basque Water Agency URAgentzia</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00076139">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">139012</value>
-      <provider-org type="40" ref="11767">
-        <narrative>Basque Water Agency URAgentzia</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00076139">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">38</value>
-      <provider-org type="10" ref="ES-DIR3-E04585801">
-        <narrative>GOVERNMENT OF SPAIN</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00076139">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">10963</value>
-      <provider-org type="10" ref="ES-DIR3-E04585801">
-        <narrative>GOVERNMENT OF SPAIN</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00076139">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">30113</value>
-      <provider-org type="10" ref="ES-DIR3-E04585801">
-        <narrative>GOVERNMENT OF SPAIN</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00076139">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">3160</value>
-      <provider-org type="10" ref="ES-DIR3-E04585801">
-        <narrative>GOVERNMENT OF SPAIN</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00076139">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">23401</value>
-      <provider-org type="40" ref="XM-DAC-41114">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00076139">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">69555</value>
-      <provider-org type="40" ref="XM-DAC-41114">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00076139">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="2" />
-      <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1413594</value>
-      <provider-org type="40" ref="XM-DAC-41114">
-        <narrative>United Nations Development Programme</narrative>
-      </provider-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="4" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">261</value>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="4" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">45209</value>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="4" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">183002</value>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="4" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">539916</value>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="4" />
-      <transaction-date iso-date="2012-12-31" />
-      <value currency="USD" value-date="2012-12-31">645126</value>
-      <disbursement-channel code="2" />
-    </transaction>
-    <document-link format="text/html" url="http://open.undp.org/#project/00060460">
-      <title>
-        <narrative>Activity web page</narrative>
-      </title>
-      <category code="A12" />
-    </document-link>
-    <related-activity type="1" ref="XM-DAC-41114-PROJECT-00060460" />
-    <conditions attached="0" />
-    <result type="1" aggregation-status="1">
-      <title>
-        <narrative>Annual Output Results</narrative>
-      </title>
-      <indicator ascending="0" measure="1">
-        <title>
-          <narrative>Output Indicator</narrative>
-        </title>
-        <description>
-          <narrative>Número de herramientas con que cuenta el Gobierno de El Salvador para la implementación de políticas de desarrollo territorial</narrative>
-        </description>
-        <baseline year="2010" value="">
-          <comment>
-            <narrative>No existe herramientas para el desarrollo territorial adaptadas al país.</narrative>
-          </comment>
-        </baseline>
         <period>
-          <period-start iso-date="2016-01-01" />
-          <period-end iso-date="2016-12-31" />
+          <period-start iso-date="2018-01-01" />
+          <period-end iso-date="2018-12-31" />
           <target value="">
             <comment>
-              <narrative>El Gobierno de El Salvador cuenta con herramientas adaptados a su contexto para la aplicación de políticas de desarrollo territorial (proyecto en fase de cierre)</narrative>
+              <narrative>M1:2 obras finalizadas
+M2: Auditoría DIM finalizada</narrative>
             </comment>
           </target>
-          <actual value="">
-            <comment>
-              <narrative>1: Se han generado las siguientes herramientas para el Desarrollo Territorial:
-Sistematizada la experiencia de respuesta del Viceministerio de Cooperación al Desarrollo a la eficacia de la ayuda.   
-Modelo de gobernanza económica territorial :“Buenas Prácticas para un modelo de Gobernanza Económica territorial”. 
-Nota conceptual:  “Fortalecimiento de las Capacidades Nacionales para Formular e Implementar Políticas Públicas de Desarrollo Territorial” 
-Promoción del Turismo interno: Pueblos Vivos con enfoque de desarrollo territorial. 
- 
-2. Marco estratégico para la cooperación descentralizada en el ámbito de la eficacia del desarrollo territorial:
-Plan de trabajo para la implementación de la Estrategia Nacional de la Cooperación Descentralizada. 
-Localización de la Agenda para el desarrollo post 2015.</narrative>
-            </comment>
-          </actual>
-        </period>
-        <period>
-          <period-start iso-date="2017-01-01" />
-          <period-end iso-date="2017-12-31" />
-          <target value="">
-            <comment>
-              <narrative>El Gobierno de El Salvador cuenta con herramientas adaptados a su contexto para la aplicación de políticas de desarrollo territorial (proyecto en fase de cierre).</narrative>
-            </comment>
-          </target>
-          <actual value="">
-            <comment>
-              <narrative>1: Se han generado las siguientes herramientas para el Desarrollo Territorial:
-Sistematizada la experiencia de respuesta del Viceministerio de Cooperación al Desarrollo a la eficacia de la ayuda.   
-Modelo de gobernanza económica territorial :“Buenas Prácticas para un modelo de Gobernanza Económica territorial”. 
-Nota conceptual:  “Fortalecimiento de las Capacidades Nacionales para Formular e Implementar Políticas Públicas de Desarrollo Territorial” 
-Promoción del Turismo interno: Pueblos Vivos con enfoque de desarrollo territorial. 
- 
-2. Marco estratégico para la cooperación descentralizada en el ámbito de la eficacia del desarrollo territorial:
-Plan de trabajo para la implementación de la Estrategia Nacional de la Cooperación Descentralizada. 
-Localización de la Agenda para el desarrollo post 2015.</narrative>
-            </comment>
-          </actual>
         </period>
       </indicator>
     </result>
@@ -4632,13 +3964,6 @@ Localización de la Agenda para el desarrollo post 2015.</narrative>
       <category code="A05" />
       <category code="A08" />
       <language code="en" />
-    </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SLV/61024_77096_CDR%202016.pdf">
-      <title>
-        <narrative>00077096_CDR 2016 Firmado</narrative>
-      </title>
-      <category code="A08" />
-      <language code="es" />
     </document-link>
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SLV/00077096-Auditoria%202015.pdf">
       <title>
@@ -5050,7 +4375,7 @@ Completa la entrega de medicamentos e insumos del cuadro de requerimientos de lo
     <description type="1">
       <narrative>El programa busca contribuir a la consolidación del Sistema de Protección Universal y las políticas estratégicas de reducción de la pobreza, la inequidad de género y la exclusión social.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -5364,21 +4689,21 @@ Completa la entrega de medicamentos e insumos del cuadro de requerimientos de lo
       <narrative>El Salvador</narrative>
     </recipient-country>
     <location ref="SV">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="3585968" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="3583361" />
       <name>
-        <narrative>El Salvador</narrative>
+        <narrative>San Salvador</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="3585968" vocabulary="G1" />
+      <administrative level="1" code="3583361" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>13.833330 -88.916670</pos>
+        <pos>13.689350 -89.187180</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="16010" />
     <sector vocabulary="99" code="1">
@@ -5576,6 +4901,12 @@ Completa la entrega de medicamentos e insumos del cuadro de requerimientos de lo
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">81</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -6149,6 +5480,12 @@ Módulo de talleres de capacitación</narrative>
     </transaction>
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">113</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">210376</value>
       <disbursement-channel code="2" />
@@ -6270,21 +5607,21 @@ R3: 144 jóvenes beneficiarios del Programa de Empleo y Empleabilidad Juvenil ha
       <narrative>El Salvador</narrative>
     </recipient-country>
     <location ref="SV">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="3585968" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="3583361" />
       <name>
-        <narrative>El Salvador</narrative>
+        <narrative>San Salvador</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="3585968" vocabulary="G1" />
+      <administrative level="1" code="3583361" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>13.833330 -88.916670</pos>
+        <pos>13.689350 -89.187180</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="16010" />
     <sector vocabulary="99" code="1">
@@ -6512,7 +5849,7 @@ R3: 144 jóvenes beneficiarios del Programa de Empleo y Empleabilidad Juvenil ha
     <description type="1">
       <narrative>The project contribute to the country office development effectiveness. Is part of the management projects.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -6733,13 +6070,6 @@ R3: 144 jóvenes beneficiarios del Programa de Empleo y Empleabilidad Juvenil ha
       <category code="A08" />
       <language code="es" />
     </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SLV/00083506_CDR%202016%20Firmado.pdf">
-      <title>
-        <narrative>CDR 2016 Firmado</narrative>
-      </title>
-      <category code="A08" />
-      <language code="es" />
-    </document-link>
     <document-link format="text/html" url="http://open.undp.org/#project/00068118">
       <title>
         <narrative>Purchase Order Summary</narrative>
@@ -6893,21 +6223,21 @@ R3: 144 jóvenes beneficiarios del Programa de Empleo y Empleabilidad Juvenil ha
       <narrative>El Salvador</narrative>
     </recipient-country>
     <location ref="SV">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="3585968" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="3583361" />
       <name>
-        <narrative>El Salvador</narrative>
+        <narrative>San Salvador</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="3585968" vocabulary="G1" />
+      <administrative level="1" code="3583361" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>13.833330 -88.916670</pos>
+        <pos>13.689350 -89.187180</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="13040" />
     <sector vocabulary="99" code="3">
@@ -7163,7 +6493,7 @@ R3: 144 jóvenes beneficiarios del Programa de Empleo y Empleabilidad Juvenil ha
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">160344</value>
+      <value currency="USD" value-date="2018-01-31">368288</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -7400,14 +6730,6 @@ R3: 144 jóvenes beneficiarios del Programa de Empleo y Empleabilidad Juvenil ha
       </title>
       <category code="A08" />
       <language code="es" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00069442">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00084021" />
     <conditions attached="0" />
@@ -8136,14 +7458,6 @@ En 2017 se realizó la auditoría final del proyecto (sin ninguna observación) 
       <category code="A08" />
       <language code="es" />
     </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00069515">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00084054" />
     <conditions attached="0" />
     <result type="1" aggregation-status="1">
@@ -8214,21 +7528,21 @@ En 2017 se realizó la auditoría final del proyecto (sin ninguna observación) 
       <narrative>El Salvador</narrative>
     </recipient-country>
     <location ref="SV">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="3585968" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="3583361" />
       <name>
-        <narrative>El Salvador</narrative>
+        <narrative>San Salvador</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="3585968" vocabulary="G1" />
+      <administrative level="1" code="3583361" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>13.833330 -88.916670</pos>
+        <pos>13.689350 -89.187180</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="23010" />
     <sector vocabulary="99" code="1">
@@ -8579,14 +7893,6 @@ Se han capacitado en uso de refrigerantes alternos a los hidroclorofluorocarbono
       <category code="A09" />
       <language code="es" />
     </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00070673">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00084527" />
     <conditions attached="0" />
   </iati-activity>
@@ -8624,21 +7930,21 @@ Se han capacitado en uso de refrigerantes alternos a los hidroclorofluorocarbono
       <narrative>El Salvador</narrative>
     </recipient-country>
     <location ref="SV">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="3585968" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="3583361" />
       <name>
-        <narrative>El Salvador</narrative>
+        <narrative>San Salvador</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="3585968" vocabulary="G1" />
+      <administrative level="1" code="3583361" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>13.833330 -88.916670</pos>
+        <pos>13.689350 -89.187180</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="15112" />
     <sector vocabulary="99" code="3">
@@ -9015,14 +8321,6 @@ Metas 2015
       <category code="A05" />
       <language code="es" />
     </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00072235">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00085379" />
     <conditions attached="0" />
   </iati-activity>
@@ -9057,23 +8355,23 @@ Metas 2015
     </recipient-country>
     <location ref="SV">
       <location-reach code="1" />
-      <location-id vocabulary="G1" code="3585968" />
+      <location-id vocabulary="G1" code="3583361" />
       <name>
-        <narrative>El Salvador</narrative>
+        <narrative>San Salvador</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>El proyecto busca generar conocimiento sobre el cambio climatico para la generacion de politicas siendo el area de intervencion San Salvador.</narrative>
       </activity-description>
-      <administrative level="0" code="3585968" vocabulary="G1" />
+      <administrative level="1" code="3583361" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>13.833330 -88.916670</pos>
+        <pos>13.689350 -89.187180</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="51010" />
     <sector vocabulary="99" code="1">
@@ -9175,7 +8473,7 @@ Metas 2015
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">1200</value>
+      <value currency="USD" value-date="2018-01-31">9200</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -9291,8 +8589,8 @@ Finalizado repositorio de información sobre cambio climático.</narrative>
     <description type="1">
       <narrative>Promoción y restablecimiento del derecho a la salud, protección social y laboral de trabajadoras y trabajadores del sector privado</narrative>
     </description>
-    <participating-org role="4" type="10" ref="01087">
-      <narrative>GOBIERNO DE EL SALVADOR</narrative>
+    <participating-org role="4" type="40" ref="01131">
+      <narrative>Instituto del Seguro Social</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
@@ -9484,8 +8782,8 @@ Finalizado repositorio de información sobre cambio climático.</narrative>
     <description type="1">
       <narrative>Promoción y restablecimiento del derecho a la salud, protección social y laboral de trabajadoras y trabajadores del sector privado</narrative>
     </description>
-    <participating-org role="4" type="10" ref="01087">
-      <narrative>GOBIERNO DE EL SALVADOR</narrative>
+    <participating-org role="4" type="40" ref="01131">
+      <narrative>Instituto del Seguro Social</narrative>
     </participating-org>
     <participating-org role="1" type="10" ref="01046">
       <narrative>ELS-GOBIERNO DE EL SALVADOR</narrative>
@@ -9507,23 +8805,23 @@ Finalizado repositorio de información sobre cambio climático.</narrative>
     </recipient-country>
     <location ref="SV">
       <location-reach code="1" />
-      <location-id vocabulary="G1" code="3585968" />
+      <location-id vocabulary="G1" code="3583361" />
       <name>
-        <narrative>El Salvador</narrative>
+        <narrative>San Salvador</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>Intervención institucional con alcance nacional.</narrative>
       </activity-description>
-      <administrative level="0" code="3585968" vocabulary="G1" />
+      <administrative level="1" code="3583361" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>13.833330 -88.916670</pos>
+        <pos>13.689350 -89.187180</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="13040" />
     <sector vocabulary="99" code="3">
@@ -9863,7 +9161,7 @@ Taller “Propuestas de actualización del marco normativo del ISSS, relacionado
     <description type="1">
       <narrative>Consolidar e institucionalizar el modelo de prevención e inserción socioeconómica de jóvenes en riesgo.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -9912,37 +9210,9 @@ Taller “Propuestas de actualización del marco normativo del ISSS, relacionado
       <category code="A05" />
       <language code="en" />
     </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SLV/CDR%202015%20FIRMADO-BANCO%20MUNDIAL.pdf">
-      <title>
-        <narrative>CDR 2015 BANCO MUNDIAL</narrative>
-      </title>
-      <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SLV/00091037_CDR%202017.pdf">
-      <title>
-        <narrative>CDR 2017</narrative>
-      </title>
-      <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SLV/CDR%20Q1%202016-BANCO%20MUNDIAL.pdf">
-      <title>
-        <narrative>CDR Q1 2016 Proyecto Banco Mundial</narrative>
-      </title>
-      <category code="A08" />
-      <language code="en" />
-    </document-link>
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SLV/INFORME%20ANUAL%202015%20%20BANCO%20MUNDIAL.pdf">
       <title>
         <narrative>Informe Anual 2015 Banco Mundial</narrative>
-      </title>
-      <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SLV/IFR%20TF015978%201%20semestre2015.pdf">
-      <title>
-        <narrative>Informe Financiero Interino No Auditado 1er Semestre 2015</narrative>
       </title>
       <category code="A08" />
       <language code="en" />
@@ -9980,14 +9250,6 @@ Taller “Propuestas de actualización del marco normativo del ISSS, relacionado
         <narrative>LPNS N.00081915-00091037/4492 ADQUISICION DE MATERIALES PARA CENTROS ESCOLARES DE LOS SECTORES PRIORITARIOS (IMPLEMENTOS DEPORTIVOS,UNIFORMES DEPORTIVOS, TRAJES TIPICOS,SANDALIAS TIPICAS, JUEGOS EDUCATIVOS,SOMBREROS, HERRAMIENTAS Y OTROS BIENES)</narrative>
       </title>
       <category code="A10" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00081915">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00091037" />
@@ -10457,6 +9719,12 @@ A nivel programaticó se contribuyó a  dotar a las instituciones del Miisterio 
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">3300</value>
+      <disbursement-channel code="2" />
+    </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00082572">
       <title>
         <narrative>Activity web page</narrative>
@@ -10509,7 +9777,7 @@ A nivel programaticó se contribuyó a  dotar a las instituciones del Miisterio 
     <description type="1">
       <narrative>Fortalecimiento de país para el acceso a financiamiento climático, particularmente el Fondo Verde del Clima (Green Climate Fund) y el cumplimiento de los compromisos en materia de cambio climático.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -10674,23 +9942,23 @@ A nivel programaticó se contribuyó a  dotar a las instituciones del Miisterio 
     </recipient-country>
     <location ref="SV">
       <location-reach code="1" />
-      <location-id vocabulary="G1" code="3585968" />
+      <location-id vocabulary="G1" code="3583361" />
       <name>
-        <narrative>El Salvador</narrative>
+        <narrative>San Salvador</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>Intervencion institucional a nivel nacional</narrative>
       </activity-description>
-      <administrative level="0" code="3585968" vocabulary="G1" />
+      <administrative level="1" code="3583361" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>13.833330 -88.916670</pos>
+        <pos>13.689350 -89.187180</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="51010" />
     <sector vocabulary="99" code="1">
@@ -10710,7 +9978,7 @@ A nivel programaticó se contribuyó a  dotar a las instituciones del Miisterio 
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">6490</value>
+      <value currency="USD" value-date="2017-12-31">205263</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -10735,7 +10003,7 @@ A nivel programaticó se contribuyó a  dotar a las instituciones del Miisterio 
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">6490</value>
+      <value currency="USD" value-date="2017-12-31">205263</value>
       <provider-org type="40" ref="00041">
         <narrative>UNITED NATIONS ENVIRONMENT PROGRAMME</narrative>
       </provider-org>
@@ -10783,10 +10051,16 @@ A nivel programaticó se contribuyó a  dotar a las instituciones del Miisterio 
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">787148</value>
+      <value currency="USD" value-date="2017-12-31">985921</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">6174</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -10926,23 +10200,23 @@ El Salvador ha accedido a fondos medio ambientales y de cambio climático a trav
     </recipient-country>
     <location ref="SV">
       <location-reach code="1" />
-      <location-id vocabulary="G1" code="3585968" />
+      <location-id vocabulary="G1" code="3583361" />
       <name>
-        <narrative>El Salvador</narrative>
+        <narrative>San Salvador</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>Intervención Institucional a nivel nacional</narrative>
       </activity-description>
-      <administrative level="0" code="3585968" vocabulary="G1" />
+      <administrative level="1" code="3583361" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>13.833330 -88.916670</pos>
+        <pos>13.689350 -89.187180</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="51010" />
     <sector vocabulary="99" code="1">
@@ -10958,6 +10232,11 @@ El Salvador ha accedido a fondos medio ambientales y de cambio climático a trav
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">147827</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">24012</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -10982,6 +10261,18 @@ El Salvador ha accedido a fondos medio ambientales y de cambio climático a trav
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">12924</value>
+      <provider-org type="40" ref="10159">
+        <narrative>EUROPEAN COMMISSION</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00096793">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">85500</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
@@ -10997,6 +10288,18 @@ El Salvador ha accedido a fondos medio ambientales y de cambio climático a trav
       <value currency="USD" value-date="2016-12-31">3347</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00096793">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">11088</value>
+      <provider-org type="10" ref="DE-1">
+        <narrative>GOVERNMENT OF GERMANY</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00096793">
         <narrative>United Nations Development Programme</narrative>
@@ -11054,7 +10357,7 @@ El Salvador ha accedido a fondos medio ambientales y de cambio climático a trav
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">171764</value>
+      <value currency="USD" value-date="2017-12-31">195776</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -11063,7 +10366,7 @@ El Salvador ha accedido a fondos medio ambientales y de cambio climático a trav
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">4300</value>
+      <value currency="USD" value-date="2018-01-31">6659</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -11174,7 +10477,7 @@ Actualizada la hoja de ruta para el sector transporte.
     <description type="1">
       <narrative>Políticas públicas para el desarrollo humano sostenible en El Salvador Informe de Desarrollo Humano El Salvador</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -11261,9 +10564,23 @@ Actualizada la hoja de ruta para el sector transporte.
       <category code="A05" />
       <language code="en" />
     </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SLV/INFORME%20ANUAL2017%20IDHES92475_.pdf">
+      <title>
+        <narrative>INFORME ANUAL2017 IDHES92475_</narrative>
+      </title>
+      <category code="A08" />
+      <language code="en" />
+    </document-link>
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SLV/enmienda%201%20Acuerdo%20%20IDHES_RSC%20Infosegura%20fully%20signed.pdf">
       <title>
         <narrative>enmienda 1 Acuerdo  IDHES_RSC Infosegura signed</narrative>
+      </title>
+      <category code="A09" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SLV/Enmienda%204%20Acuerdo%20IDHES%20RSC.pdf">
+      <title>
+        <narrative>Enmienda 4 Acuerdo IDHES RSC</narrative>
       </title>
       <category code="A09" />
       <language code="en" />
@@ -11289,12 +10606,28 @@ Actualizada la hoja de ruta para el sector transporte.
       <category code="A10" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00084497">
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SLV/92475%20IDHES%20AWP%202018%20Signed.pdf">
       <title>
-        <narrative>Purchase Order Summary</narrative>
+        <narrative>92475 IDHES AWP 2018 Signed</narrative>
       </title>
-      <category code="A11" />
-      <category code="A12" />
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SLV/AWP%2092475-%202017%20signed.pdf">
+      <title>
+        <narrative>AWP 92475- 2017 signed</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/SLV/Revisión%20ATLAS%20AWP%202018%2092475.pdf">
+      <title>
+        <narrative>Revisión ATLAS AWP 2018 92475</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00092475" />
@@ -11349,23 +10682,23 @@ Actualizada la hoja de ruta para el sector transporte.
     </recipient-country>
     <location ref="SV">
       <location-reach code="1" />
-      <location-id vocabulary="G1" code="3585968" />
+      <location-id vocabulary="G1" code="3583361" />
       <name>
-        <narrative>El Salvador</narrative>
+        <narrative>San Salvador</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>Intervención Institucional a nivel Nacional</narrative>
       </activity-description>
-      <administrative level="0" code="3585968" vocabulary="G1" />
+      <administrative level="1" code="3583361" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>13.833330 -88.916670</pos>
+        <pos>13.689350 -89.187180</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="99810" />
     <sector vocabulary="99" code="7">
@@ -11380,17 +10713,17 @@ Actualizada la hoja de ruta para el sector transporte.
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">144355</value>
+      <value currency="USD" value-date="2017-12-31">183372</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">9000</value>
+      <value currency="USD" value-date="2017-12-31">157915</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">264341</value>
+      <value currency="USD" value-date="2016-12-31">233594</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
@@ -11410,7 +10743,7 @@ Actualizada la hoja de ruta para el sector transporte.
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">32604</value>
+      <value currency="USD" value-date="2016-12-31">24157</value>
       <provider-org type="40" ref="00004">
         <narrative>FOOD AND AGRICULTURE ORGANIZATION OF THE</narrative>
       </provider-org>
@@ -11482,7 +10815,7 @@ Actualizada la hoja de ruta para el sector transporte.
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">26705</value>
+      <value currency="USD" value-date="2017-12-31">45609</value>
       <provider-org type="40" ref="41108">
         <narrative>INTERNATIONAL FUND FOR AGRICULTURAL DEVE</narrative>
       </provider-org>
@@ -11590,7 +10923,7 @@ Actualizada la hoja de ruta para el sector transporte.
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">9000</value>
+      <value currency="USD" value-date="2017-12-31">157915</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -11602,7 +10935,7 @@ Actualizada la hoja de ruta para el sector transporte.
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">117650</value>
+      <value currency="USD" value-date="2017-12-31">137763</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -11614,7 +10947,7 @@ Actualizada la hoja de ruta para el sector transporte.
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">155442</value>
+      <value currency="USD" value-date="2016-12-31">133142</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -11638,10 +10971,16 @@ Actualizada la hoja de ruta para el sector transporte.
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">496376</value>
+      <value currency="USD" value-date="2017-12-31">684308</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">8767</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -11724,6 +11063,17 @@ El IDHES formula al menos dos recomendaciones de política dirigidas a mejorar l
             </comment>
           </actual>
         </period>
+        <period>
+          <period-start iso-date="2018-01-01" />
+          <period-end iso-date="2018-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1:100% Finalizado IDHES
+   - Realizado evento de lanzamiento
+   - Al menos 2 eventos de difusión con nivel político</narrative>
+            </comment>
+          </target>
+        </period>
       </indicator>
     </result>
   </iati-activity>
@@ -11738,7 +11088,7 @@ El IDHES formula al menos dos recomendaciones de política dirigidas a mejorar l
     <description type="1">
       <narrative>Contribuir para que los salvadoreños y salvadoreñas cuenten con  políticas públicas consensuadas que aborden los principales problemas de la población y que fomenten la cohesión social.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -11819,14 +11169,6 @@ El IDHES formula al menos dos recomendaciones de política dirigidas a mejorar l
         <narrative>Informe_trimestral Proyecto No92526 mayo a sept</narrative>
       </title>
       <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00084577">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00092526" />
@@ -12057,7 +11399,7 @@ El IDHES formula al menos dos recomendaciones de política dirigidas a mejorar l
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">1532</value>
+      <value currency="USD" value-date="2018-01-31">46566</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -12403,7 +11745,7 @@ Sin embargo, en ocasión de la commemoración del 25º aniversario de los Acuerd
     <description type="1">
       <narrative>Capacidades institucionalizadas del Mecanismo de Coordinación de País (MCP-ES) El Salvador de lucha contra el VIH Sida, Tuberculosis</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -12440,14 +11782,6 @@ Sin embargo, en ocasión de la commemoración del 25º aniversario de los Acuerd
       <category code="A05" />
       <category code="A08" />
       <language code="es" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00084846">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00092665" />
     <conditions attached="0" />
@@ -12900,14 +12234,6 @@ promoción de la igualdad y equidad de género”</narrative>
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00085135">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00095588" />
     <conditions attached="0" />
     <result type="1" aggregation-status="1">
@@ -13037,23 +12363,23 @@ promoción de la igualdad y equidad de género”</narrative>
     </recipient-country>
     <location ref="SV">
       <location-reach code="1" />
-      <location-id vocabulary="G1" code="3585968" />
+      <location-id vocabulary="G1" code="3583361" />
       <name>
-        <narrative>El Salvador</narrative>
+        <narrative>San Salvador</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>A nivel nacional</narrative>
       </activity-description>
-      <administrative level="0" code="3585968" vocabulary="G1" />
+      <administrative level="1" code="3583361" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>13.833330 -88.916670</pos>
+        <pos>13.689350 -89.187180</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="15170" />
     <sector vocabulary="99" code="4">
@@ -13259,14 +12585,6 @@ Se cuenta con la ruta de atención interinstitucional a victimas de violencia</n
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00088358">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00095068" />
     <conditions attached="0" />
   </iati-activity>
@@ -13300,24 +12618,24 @@ Se cuenta con la ruta de atención interinstitucional a victimas de violencia</n
       <narrative>El Salvador</narrative>
     </recipient-country>
     <location ref="SV">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="3585968" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="3583361" />
       <name>
-        <narrative>El Salvador</narrative>
+        <narrative>San Salvador</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>Nacional</narrative>
       </activity-description>
-      <administrative level="0" code="3585968" vocabulary="G1" />
+      <administrative level="1" code="3583361" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>13.833330 -88.916670</pos>
+        <pos>13.689350 -89.187180</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="51010" />
     <sector vocabulary="99" code="1">
@@ -13418,6 +12736,12 @@ Se cuenta con la ruta de atención interinstitucional a victimas de violencia</n
     </transaction>
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">15257</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">4006</value>
       <disbursement-channel code="2" />
@@ -13439,18 +12763,47 @@ Se cuenta con la ruta de atención interinstitucional a victimas de violencia</n
           <narrative>Output Indicator</narrative>
         </title>
         <description>
-          <narrative>-Cobertura (ha) del Sistema Nacional de Áreas Protegidas, resultado de la creación de tres (3) nuevas Áreas Protegidas  de Uso Múltiple  (APUM).
--Presencia de especies indicadoras clave en cuatro (4) áreas protegidas en el Complejo HPII de la bahía de Jiquilisco y laguna El Jocotal en la cuenca inferior del Río Grande de San Miguel.
--Cambio en la eficacia de la gestión en tres (3) HPII evaluada mediante la tarjeta de puntuación  METT.
--Cambio en la sostenibilidad financiera de tres (3) HPII de acuerdo a lo establecido a través de la puntuación total promedio en la tarjeta de puntuación de Sostenibilidad Financiera PNUD/GEF.</narrative>
+          <narrative>Resultado 1
+1.1 = Representatividad (%) de los ecosistemas de humedales en el Sistema Nacional de Áreas Naturales Protegidas por tipo d humedal
+1.2 = Número de nuevas AP de humedales que forman parte del Sistema Nacional de Áreas Naturales Protegidas 
+1.3 = Cambios en los indicadores de desarrollo de capacidades para la gestión sostenible de los HPII de acuerdo con la puntuación total de la Tarjeta de Puntuación de Desarrollo de Capacidades del PNUD-GEF
+1.4 = Número de personas entre personal del MARN, municipalidades, MAG y organizaciones locales incluidas las mujeres, capacitadas en el manejo sostenible de los HPII
+1.5 = Cambio en la brecha financiera (USD) para cubrir los costos básicos de gestión de los tres (3) HPII
+1.6 = Número de acuerdos de compensación ambiental establecidos
+1.7 = Generación total anual de ingresos para tres (3) HPII desagregados por fuente
+1.8 = Número de participantes en actividades educativas relacionadas a la conservación, uso sostenible y mantenimiento de los servicios ecosistémicos de los humedales
+
+Resultado 2
+2.1= Número de acuerdos de cooperación interinstitucional establecidos y bajo operación para la gestión de los HPII.
+2.2 = Número de fincas implementando mejores prácticas para la gestión de desechos de la ganadería en tres (3) HPII, incluyendo fincas dirigidas por mujeres
+2.3 = Número de fincas implementando mejores prácticas para la gestión de los residuos agrícolas en tres (3) HPII, incluyendo fincas dirigidas por mujeres
+2.4 = Residuos sólido acumulado (kg/ha) en el HPII de la bahía de Jiquilisco
+2.5 = Volumen (toneladas/año) de jacinto de agua  (Eichornia crassipes) removido del HPII de las lagunas Olomega y El Jocotal
+2.6 = Abundancia (número/cantidad) de pato cormorán  (Phalacrocorax brasilianus) en los HPII de la laguna Olomega, Humedal Embalse 15 de Septiembre y HPII Embalse Cerrón Grande
+2.7 = Cobertura de manglares en el HPII de la bahía de Jiquilisco y laguas de agua dulce relacionadas
+2.8 = Instrumentos de gestión</narrative>
         </description>
         <baseline year="2016" value="">
           <comment>
-            <narrative>-Cobertura (ha) del Sistema Nacional de Áreas Protegidas 95,785.61 ha
--Presencia de especies indicadoras clave:AP Normandía y Chaguantique: Amazona auropalliata, Ateles geoffroyi, AP El Tercio: Crocodylus acutus. Área bahía de Jiquilisco (incluye isla San Sebastián): Andara grandis, Amazona auropalliata, Eretmochelys imbricata y Crocodylus acutus. Área laguna El Jocotal: Amazona auropalliata, Crocodylus acutus.
--Eficacia de la gestión en tres (3) HPII de la bahía de Jiquilisco: 49% 
--sostenibilidad financiera de tres (3) HPII:?	Marco legal, regulatorio e institucional: 30% ,Planificación empresarial y herramientas para la gestión de la rentabilidad: 8%, Herramientas para la generación de ingresos y la asignación: 17%	 ,Total: 20%.
--</narrative>
+            <narrative>RESULTADO 1
+1.1=  164 ANP (45,042 ha)
+1.2 = 43 islas de manglar (1 nuevo complejo de ANP en Bahía de Jiquilisco)
+1.3 = Gobierno nacional (MARN: 45.24%, MAG: 54.76%); Gobierno Local (Jiquilisco UAM: 30.95%, San Dionisio UAM: 35.71%, Concepción Batres UAM: 28.57%, Jucuarán UAM: 28.57%, El Tránsito UAM: 33.33%,  ASIBAHIA: 33.33%), Plataformas de múltiples interesados (GAT-CBJ): 40.48%.
+1.4 = MINED: 166, MARN: 0; MAG: 0; Gobierno Local (Jiquilisco UAM: 0, Puerto El Triunfo UAM: 0, San Dionisio UAM: 0, Concepción Batres UAM: 0, Jucuarán UAM: 0, El Tránsito UAM: 0, San Miguel UAM: 0, Chirilagua UAM: 0, El Carmen UAM: 0,  Policía Local Ambiental: 10, Marina (Naval): 0, ASIBAHIA: 0)
+1.5=  HPII Bahía Jiquilisco: $222,160; HPII Laguna El Jocotal: $173,199; HPII Laguna Olomega: $244,677.
+1.6 = Cero (0)
+1.7 = Compensación económica ambiental: $0; Tarifas de entrada para visitantes: $0; APP: $0
+1.8 = 0
+
+Resultado 2
+2.1 = Tres (3) acuerdos municipales para el manejo de especies invasoras.
+2.2 = 0
+2.3 = 0
+2.4 = 64.15 toneladas
+2.5 = 0
+2.6 = HPII Embalse Cerrón Grande: 25,834 individuos; Humedal Embalse 15 de Septiembre: 2,000 individuos; HPII Laguna de Olomega: 2,429 individuos
+2.7 = 18,720 ha
+2.8 = 0</narrative>
           </comment>
         </baseline>
         <period>
@@ -13516,14 +12869,50 @@ Protocolo elaborado y 500 ha. rehabilitadas</narrative>
           </target>
           <actual value="">
             <comment>
-              <narrative>En 2017 se realizó la declaratoria de áreas naturales protegidas correspondiente a 43 islas de la Bahía de Jiquilisco
-También se dejará finalizado un diagnóstico catastral para determinar la viabilidad legal de declarar las islas restantes correspondientes al Golfo de Fonseca y Complejo de Olomega
-Por otro lado se cuenta ahora con un Inventario de Humedales de El Salvador ya actualizado. Según la versión anterior del inventario (2004), se habían identificado y descrito 58 humedales en el país, con la actualización realizada por medio de Imágenes Satelitales y verificación de campo, se han registrado 110 humedales (corresponde a 233,955 ha, es decir el 11% del territorio nacional).
-Se ha realizado la juramentación de la Junta Directiva del Comité Nacional de Reservas de Biósfera, en donde se incluye la Reserva de Biosfera Jiquilisco-Xirihualtique, además de actividades de fortalecimiento de capacidades para las 3 Reservas de Biósfera.  Y se conformaron los Comités Locales RAMSAR de Laguna de Olomega, Laguna El Jocotal, Bahía de Jiquilisco y Complejo Jaltepeque. 
-Se está trabajando en la recolección de la información por parte del personal guardarecurso de las Áreas Naturales Protegidas en el área de influencia del proyecto en donde se monitorearán las especies indicadoras establecidas en el PRODOC, a través de una ha creado una aplicación para teléfonos móviles y tablets.  También se ha brindado capacitación al personal de guardarecursos en técnicas de monitoreo de especies en ANP.  Se han ejecutado acciones de control de población del pato cormorán (destrucción de nidos, liberación de depredadores en los sitios de anidación, poda de árboles) en sitios prioritarios.
-Cabe mencionar que pese a la baja ejecución presentada en el sistema ATLAS, el proyecto ha avanzado técnicamente en su implementación.  También se ha realizado el 5 de diciembre, un taller de planificación con la finalidad de tener un plan de trabajo del 2018 y proyectar las actividades hacia el 2019, y</narrative>
+              <narrative>RESULTADO1:
+43 islas de la Bahía de Jiquilisco  declaradas como AP
+1 diagnóstico catastral para determinar la viabilidad legal de declarar las islas restantes correspondientes al Golfo de Fonseca y Complejo de Olomega
+1 Inventario de Humedales de El Salvador ya actualizado y publicado
+Establecida la Red de voluntarios en 3 HPII
+Establecida Comité Nacional de Reservas de Biósfera (Jiquilisco-Xirihualtique) y Comités Locales RAMSAR de Laguna de Olomega, Laguna El Jocotal, Bahía de Jiquilisco y Complejo Jaltepeque. 
+
+RESULTADO 3:
+3 acuerdos municipales para manejo de HPII
+Acciones ejecutadas en 2 HPII (el Jocotal y Laguna de Olomega)  Manual elaborado y publicado y campañas de saneamiento
+- Sistema de monitoreo e información diseñado implementación será en 2018
+- 2000 Toneladas de jacinto de agua removidos
+-
+Protocolo elaborado y 500 ha. rehabilitadas</narrative>
             </comment>
           </actual>
+        </period>
+        <period>
+          <period-start iso-date="2018-01-01" />
+          <period-end iso-date="2018-12-31" />
+          <target value="">
+            <comment>
+              <narrative>Resultado 1
+
+1.1 = Línea de base + 50%
+1.2 =  Dos (2)
+1.3 =  Gobierno Nacional (MARN: 66.67%, MAG: 66.67%); Gobierno Local (Jiquilisco UAM: 57.14%, San Dionisio UAM: 57.14%, Concepción Batres UAM: 54.76%, Jucuarán UAM: 57.14%, El Tránsito UAM: 59.52%, ASIBAHIA: 54.76%); Plataformas de múltiples interesados (GAT-CBJ: 57.14%)
+1.4 = MARN: 20; MAG: 6; Gobierno Local (Jiquilisco UAM: 2, Puerto El Triunfo UAM: 2, San Dionisio UAM: 2, Concepción Batres UAM: 2, Jucuarán UAM: 2, El Tránsito UAM: 2,  San Miguel UAM: 2, Chirilagua UAM: 2, El Carmen UAM: 2, Policía Local Ambiental: 10, Navy: 4, ASIBAHIA: 2
+1.5 = HPII Bahía de Jiquilisco: $166,620; HPII Laguna El Jocotal: $129,899; HPII Laguna Olomega: $183,508; (Reducción de 25% en cada uno de los tres casos)
+1.6 = 2 (DOS)
+1.7 = Compensación económica ambiental: $50,000; Tarifas de entrada para visitantes: $15,000; APP: $15,000
+1.8 = 60
+
+Resultado 2
+2.1 = Tres (3) acuerdos municipales más Tres (3) nuevos acuerdos con MAG, MOP y MITUR
+2.2 =20
+2.3 = 60
+2.4 = 64.15 toneladas - 32 toneladas (se estima una reducción de 50%)
+2.5 = 2,000 toneladas/año por humedal
+2.6 = HPII Embalse Cerrón Grande: 25,834 – 25%; Humedal Embalse 15 de Septiembre: 2,000 – 25%; HPII Laguna Olomega: 2,429 - 25%
+2.7 = 18,720 ha
+2.8 = 5</narrative>
+            </comment>
+          </target>
         </period>
       </indicator>
     </result>
@@ -13539,8 +12928,8 @@ Cabe mencionar que pese a la baja ejecución presentada en el sistema ATLAS, el 
     <description type="1">
       <narrative>Esta iniciativa busca el fortalecimiento de los servicios brindados por Bienestar Magisterial a sus derecho habientes, a través de la oportuna provisión de medicamentos, insumos y tecnología.</narrative>
     </description>
-    <participating-org role="4" type="10" ref="01087">
-      <narrative>GOBIERNO DE EL SALVADOR</narrative>
+    <participating-org role="4" type="40" ref="01132">
+      <narrative>Inst de  Bienestar Magisterial</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
@@ -13576,14 +12965,6 @@ Cabe mencionar que pese a la baja ejecución presentada en el sistema ATLAS, el 
       <category code="A05" />
       <category code="A08" />
       <language code="es" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00088365">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00095074" />
     <conditions attached="0" />
@@ -13708,8 +13089,8 @@ Cabe mencionar que pese a la baja ejecución presentada en el sistema ATLAS, el 
     <description type="1">
       <narrative>Fortalecimiento de los servicios brindados por el ISBM al magisterio a través de provisión de medicamentos y reactivos, así como habilitación de espacios clínicos para la atención de los pacientes</narrative>
     </description>
-    <participating-org role="4" type="10" ref="01087">
-      <narrative>GOBIERNO DE EL SALVADOR</narrative>
+    <participating-org role="4" type="40" ref="01132">
+      <narrative>Inst de  Bienestar Magisterial</narrative>
     </participating-org>
     <participating-org role="1" type="10" ref="01046">
       <narrative>ELS-GOBIERNO DE EL SALVADOR</narrative>
@@ -13728,23 +13109,23 @@ Cabe mencionar que pese a la baja ejecución presentada en el sistema ATLAS, el 
     </recipient-country>
     <location ref="SV">
       <location-reach code="1" />
-      <location-id vocabulary="G1" code="3585968" />
+      <location-id vocabulary="G1" code="3583361" />
       <name>
-        <narrative>El Salvador</narrative>
+        <narrative>San Salvador</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>Intervención Institucional a nivel Nacional</narrative>
       </activity-description>
-      <administrative level="0" code="3585968" vocabulary="G1" />
+      <administrative level="1" code="3583361" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>13.833330 -88.916670</pos>
+        <pos>13.689350 -89.187180</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="13040" />
     <sector vocabulary="99" code="3">
@@ -14197,17 +13578,17 @@ Este programa es para la realización de obras de infraestructura para los difer
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">6499219</value>
+      <value currency="USD" value-date="2017-12-31">5221047</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">7245</value>
+      <value currency="USD" value-date="2017-12-31">1277455</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">63447</value>
+      <value currency="USD" value-date="2016-12-31">1498</value>
     </budget>
     <capital-spend percentage="0" />
     <transaction>
@@ -14222,7 +13603,7 @@ Este programa es para la realización de obras de infraestructura para los difer
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">7245</value>
+      <value currency="USD" value-date="2017-12-31">1277455</value>
       <provider-org type="10" ref="01046">
         <narrative>ELS-GOBIERNO DE EL SALVADOR</narrative>
       </provider-org>
@@ -14234,7 +13615,7 @@ Este programa es para la realización de obras de infraestructura para los difer
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">6499219</value>
+      <value currency="USD" value-date="2017-12-31">5221047</value>
       <provider-org type="10" ref="01046">
         <narrative>ELS-GOBIERNO DE EL SALVADOR</narrative>
       </provider-org>
@@ -14246,7 +13627,7 @@ Este programa es para la realización de obras de infraestructura para los difer
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">63447</value>
+      <value currency="USD" value-date="2016-12-31">1498</value>
       <provider-org type="10" ref="01046">
         <narrative>ELS-GOBIERNO DE EL SALVADOR</narrative>
       </provider-org>
@@ -14270,7 +13651,7 @@ Este programa es para la realización de obras de infraestructura para los difer
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">6507962</value>
+      <value currency="USD" value-date="2017-12-31">6500000</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -14279,7 +13660,7 @@ Este programa es para la realización de obras de infraestructura para los difer
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">5820</value>
+      <value currency="USD" value-date="2018-01-31">10766</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -14730,7 +14111,7 @@ se publicó la invitación a licitar el día 31 de octubre de 2016 en los perió
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">9833</value>
+      <value currency="USD" value-date="2018-01-31">29281</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -14812,11 +14193,14 @@ Al menos el 70% de la población meta recibe los beneficios indicados en el plan
     <description type="1">
       <narrative>Apoyar al MJSP para que defina, consolide e institucionalice  mecanismos de articulación interinstitucional , tanto del nivel  nac como local  para  lograr la implementación del PESS en los territorios focalizados (50).</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="AU-5">
+      <narrative>GOVERNMENT OF AUSTRALIA</narrative>
     </participating-org>
     <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
@@ -15337,6 +14721,9 @@ Adicionalmente, se consolidó la propuesta que se presentó al Fondo de paz para
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
+    <participating-org role="1" type="10" ref="AU-5">
+      <narrative>GOVERNMENT OF AUSTRALIA</narrative>
+    </participating-org>
     <participating-org role="1" type="10" ref="XM-DAC-7">
       <narrative>GOVERNMENT OF NETHERLANDS</narrative>
     </participating-org>
@@ -15397,7 +14784,7 @@ Adicionalmente, se consolidó la propuesta que se presentó al Fondo de paz para
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">34190</value>
+      <value currency="USD" value-date="2017-12-31">37575</value>
     </budget>
     <capital-spend percentage="0" />
     <transaction>
@@ -15412,7 +14799,19 @@ Adicionalmente, se consolidó la propuesta que se presentó al Fondo de paz para
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">34190</value>
+      <value currency="USD" value-date="2017-12-31">22488</value>
+      <provider-org type="10" ref="AU-5">
+        <narrative>GOVERNMENT OF AUSTRALIA</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00099896">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">15087</value>
       <provider-org type="10" ref="XM-DAC-7">
         <narrative>GOVERNMENT OF NETHERLANDS</narrative>
       </provider-org>
@@ -15436,7 +14835,7 @@ Adicionalmente, se consolidó la propuesta que se presentó al Fondo de paz para
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">38880</value>
+      <value currency="USD" value-date="2017-12-31">42265</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -15464,7 +14863,7 @@ Adicionalmente, se consolidó la propuesta que se presentó al Fondo de paz para
     <description type="1">
       <narrative>Fortalecer y consolidar mecanismos de protección y atención  de derechos a personas afectadas por distintas manifestaciones de violencia, por medio de la participación, el diálogo y el fortalecimiento institucional. (OIM; ACNUR, ALTO Comisionado, PNUD)</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -15513,14 +14912,6 @@ Adicionalmente, se consolidó la propuesta que se presentó al Fondo de paz para
       <category code="A05" />
       <category code="A08" />
       <language code="es" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00097063">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00100920" />
     <conditions attached="0" />
@@ -15676,7 +15067,7 @@ Adicionalmente, se consolidó la propuesta que se presentó al Fondo de paz para
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">2836</value>
+      <value currency="USD" value-date="2018-01-31">63334</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00097063">
@@ -15742,7 +15133,7 @@ En 2017 se han completado las actividades de puesta en marcha.</narrative>
     <description type="1">
       <narrative>Se busca facilitar el cumplimiento de los Objetivos de Desarrollo Sostenible (ODS) en El Salvador revitalizando las alianza nacionales alrededor de la nueva Agenda 2030 para el Desarrollo Sostenible</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -15787,14 +15178,6 @@ En 2017 se han completado las actividades de puesta en marcha.</narrative>
       <category code="A05" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00098424">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00101751" />
     <conditions attached="0" />
   </iati-activity>
@@ -15829,23 +15212,23 @@ En 2017 se han completado las actividades de puesta en marcha.</narrative>
     </recipient-country>
     <location ref="SV">
       <location-reach code="1" />
-      <location-id vocabulary="G1" code="3585968" />
+      <location-id vocabulary="G1" code="3583361" />
       <name>
-        <narrative>El Salvador</narrative>
+        <narrative>San Salvador</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>El Salvador, nivel Nacional</narrative>
       </activity-description>
-      <administrative level="0" code="3585968" vocabulary="G1" />
+      <administrative level="1" code="3583361" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>13.833330 -88.916670</pos>
+        <pos>13.689350 -89.187180</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="15150" />
     <sector vocabulary="99" code="2">
@@ -15947,7 +15330,7 @@ En 2017 se han completado las actividades de puesta en marcha.</narrative>
     <description type="1">
       <narrative>Fortalecimiento de las capacidades para la implementación de metodologías de desarrollo de proveedores para la mejora de la competitividad y el empleo en MIPYMES</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -16021,14 +15404,6 @@ En 2017 se han completado las actividades de puesta en marcha.</narrative>
         <narrative>PAKISTAN-SLV AMENDMENT 1- AGREEMENT 2016</narrative>
       </title>
       <category code="A09" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00099058">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00102294" />
@@ -16199,6 +15574,12 @@ En 2017 se han completado las actividades de puesta en marcha.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">5493</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">155949</value>
       <disbursement-channel code="2" />
@@ -16284,6 +15665,9 @@ En 2017 se han completado las actividades de puesta en marcha.</narrative>
     <participating-org role="1" type="10" ref="DE-1">
       <narrative>GOVERNMENT OF GERMANY</narrative>
     </participating-org>
+    <participating-org role="1" type="10" ref="US-USAGOV">
+      <narrative>UNITED STATES AGENCY FOR INTERNATIONAL DEVELOPMENT (USAID)</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
@@ -16347,6 +15731,9 @@ En 2017 se han completado las actividades de puesta en marcha.</narrative>
     <participating-org role="1" type="10" ref="DE-1">
       <narrative>GOVERNMENT OF GERMANY</narrative>
     </participating-org>
+    <participating-org role="1" type="10" ref="US-USAGOV">
+      <narrative>UNITED STATES AGENCY FOR INTERNATIONAL DEVELOPMENT (USAID)</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
@@ -16405,9 +15792,14 @@ En 2017 se han completado las actividades de puesta en marcha.</narrative>
       <value currency="USD" value-date="2017-12-31">364336</value>
     </budget>
     <budget type="2" status="2">
+      <period-start iso-date="2019-01-01" />
+      <period-end iso-date="2019-12-31" />
+      <value currency="USD" value-date="2017-12-31">95437</value>
+    </budget>
+    <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">19504</value>
+      <value currency="USD" value-date="2017-12-31">1424067</value>
     </budget>
     <capital-spend percentage="0" />
     <transaction>
@@ -16458,6 +15850,42 @@ En 2017 se han completado las actividades de puesta en marcha.</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">95437</value>
+      <provider-org type="10" ref="US-USAGOV">
+        <narrative>UNITED STATES AGENCY FOR INTERNATIONAL DEVELOPMENT (USAID)</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00102468">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1404563</value>
+      <provider-org type="10" ref="US-USAGOV">
+        <narrative>UNITED STATES AGENCY FOR INTERNATIONAL DEVELOPMENT (USAID)</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00102468">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">1500000</value>
+      <provider-org ref="US-USAGOV" type="10">
+        <narrative>UNITED STATES AGENCY FOR INTERNATIONAL DEVELOPMENT (USAID)</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00102468">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">19504</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
@@ -16482,10 +15910,16 @@ En 2017 se han completado las actividades de puesta en marcha.</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">383840</value>
+      <value currency="USD" value-date="2017-12-31">1883840</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">7867</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00099154">
@@ -16508,7 +15942,7 @@ En 2017 se han completado las actividades de puesta en marcha.</narrative>
     <description type="1">
       <narrative>El proyecto busca consolidar un espacio oficial para la construcción de la memoria histórica que reúna y reconozca las distintas perspectivas sobre la historia reciente del país y promueva la memoria para crear nuevas formas de convivencia.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -16544,14 +15978,6 @@ En 2017 se han completado las actividades de puesta en marcha.</narrative>
       <category code="A04" />
       <category code="A05" />
       <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00104647">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00106136" />
@@ -16751,14 +16177,6 @@ En 2017 se han completado las actividades de puesta en marcha.</narrative>
       <category code="A04" />
       <category code="A05" />
       <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00104650">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00106139" />
@@ -17088,7 +16506,7 @@ En 2017 se han completado las actividades de puesta en marcha.</narrative>
     <description type="1">
       <narrative>Busca profundizar en el fortalecimiento del quehacer del Grupo Parlamentario de Mujeres y su agenda de consenso 2015-2018 a favor de la igualdad de género y el empoderamiento de las mujeres.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="00511">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -17126,14 +16544,6 @@ En 2017 se han completado las actividades de puesta en marcha.</narrative>
       <category code="A08" />
       <language code="es" />
     </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00106838">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00107380" />
     <conditions attached="0" />
   </iati-activity>
@@ -17168,23 +16578,23 @@ En 2017 se han completado las actividades de puesta en marcha.</narrative>
     </recipient-country>
     <location ref="SV">
       <location-reach code="1" />
-      <location-id vocabulary="G1" code="3585968" />
+      <location-id vocabulary="G1" code="3583361" />
       <name>
-        <narrative>El Salvador</narrative>
+        <narrative>San Salvador</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>Intervencion Institucional a nivel nacional</narrative>
       </activity-description>
-      <administrative level="0" code="3585968" vocabulary="G1" />
+      <administrative level="1" code="3583361" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>13.833330 -88.916670</pos>
+        <pos>13.689350 -89.187180</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="15151" />
     <sector vocabulary="99" code="2">
@@ -17291,7 +16701,7 @@ En 2017 se han completado las actividades de puesta en marcha.</narrative>
     <description type="1">
       <narrative>El proyecto forma parte de la iniciativa conjunta trinacional para la resiliencia y la cohesión social en el Norte de Centroamérica que busca fortalecer la respuesta gubernamental al contexto de violencia no convencional.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -17329,14 +16739,6 @@ En 2017 se han completado las actividades de puesta en marcha.</narrative>
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00109287">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00108679" />
     <conditions attached="0" />
   </iati-activity>
@@ -17365,9 +16767,30 @@ En 2017 se han completado las actividades de puesta en marcha.</narrative>
       <email>registry.sv@undp.org</email>
       <website>http://www.sv.undp.org/</website>
     </contact-info>
+    <activity-scope code="8" />
     <recipient-country code="SV">
       <narrative>El Salvador</narrative>
     </recipient-country>
+    <location ref="SV">
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="3583361" />
+      <name>
+        <narrative>San Salvador</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative>Con esta actividad se trata de construir politicas públicas en materia de seguridad ciudadana, que tengan impacto en todo el territorio nacional.</narrative>
+      </activity-description>
+      <administrative level="1" code="3583361" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>13.689350 -89.187180</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <sector vocabulary="1" code="15210" />
     <sector vocabulary="99" code="3">
       <narrative>Responsive Institutions</narrative>
@@ -17379,6 +16802,7 @@ En 2017 se han completado las actividades de puesta en marcha.</narrative>
         </description>
       </budget-item>
     </country-budget-items>
+    <policy-marker vocabulary="1" code="1" significance="1" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -17389,6 +16813,16 @@ En 2017 se han completado las actividades de puesta en marcha.</narrative>
       <period-end iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">0</value>
     </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2019-01-01" />
+      <period-end iso-date="2019-12-31" />
+      <value currency="USD" value-date="2017-12-31">53500</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">300000</value>
+    </budget>
     <capital-spend percentage="0" />
     <transaction>
       <transaction-type code="4" />
@@ -17397,6 +16831,30 @@ En 2017 se han completado las actividades de puesta en marcha.</narrative>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">53500</value>
+      <provider-org type="40" ref="11363">
+        <narrative>Peacebuilding Fund</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00108679">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">300000</value>
+      <provider-org type="40" ref="11363">
+        <narrative>Peacebuilding Fund</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00108679">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -17414,7 +16872,7 @@ En 2017 se han completado las actividades de puesta en marcha.</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">0</value>
+      <value currency="USD" value-date="2017-12-31">353500</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>

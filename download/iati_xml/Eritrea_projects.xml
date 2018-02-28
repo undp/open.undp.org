@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2018-02-15T17:03:13" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2018-02-28T21:30:04" version="2.02">
   <!--Eritrea-->
   <iati-activity last-updated-datetime="2018-02-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00037750</iati-identifier>
@@ -58,14 +58,6 @@
       <category code="A04" />
       <category code="A05" />
       <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00037750">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00041360" />
@@ -678,6 +670,26 @@
       <feature-designation code="PPLC" />
     </location>
     <location ref="ER">
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="343300" />
+      <name>
+        <narrative>Asmara</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative>WOMEN IN ALL THE REGIONS</narrative>
+      </activity-description>
+      <administrative level="1" code="343300" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>15.338050 38.931840</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
+    <location ref="ER">
       <location-reach code="2" />
       <location-id vocabulary="G1" code="448497" />
       <name>
@@ -952,7 +964,7 @@
     <description type="1">
       <narrative>UNDP/GLOBAL FUND FOR AIDS TB AND MALARIA</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -1089,6 +1101,12 @@
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">1093</value>
+      <disbursement-channel code="2" />
+    </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00047944">
       <title>
         <narrative>Activity web page</narrative>
@@ -1124,7 +1142,7 @@
     <activity-status code="2" />
     <activity-date type="1" iso-date="2009-09-01" />
     <activity-date type="2" iso-date="2009-09-01" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.er@undp.org</email>
       <website>http://www.er.undp.org/</website>
@@ -2234,7 +2252,7 @@ Area ha managed through application of SLM plans Total area covered is 1974ha  C
       <narrative>Anseba Water and Agriculture A</narrative>
     </title>
     <description type="1">
-      <narrative>Climate change adaptation fund for the Anseba water and agriculture</narrative>
+      <narrative>1) Food production and productivity increased through technology transfer, 2) Land productivity increased through waret harvesting and management , diversification and intensification of production under irrigation and rain-fed systems</narrative>
     </description>
     <participating-org role="4" type="10" ref="01144">
       <narrative>National Execution</narrative>
@@ -2304,7 +2322,7 @@ Area ha managed through application of SLM plans Total area covered is 1974ha  C
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">692103</value>
+      <value currency="USD" value-date="2017-12-31">518667</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -2356,7 +2374,7 @@ Area ha managed through application of SLM plans Total area covered is 1974ha  C
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">692103</value>
+      <value currency="USD" value-date="2017-12-31">263667</value>
       <provider-org type="40" ref="47111">
         <narrative>Adaptation Fund  (AF)</narrative>
       </provider-org>
@@ -2439,6 +2457,18 @@ Area ha managed through application of SLM plans Total area covered is 1974ha  C
     </transaction>
     <transaction>
       <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">255000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00078054">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
       <transaction-date iso-date="2014-12-31" />
       <value currency="USD" value-date="2014-12-31">28447</value>
       <provider-org type="40" ref="XM-DAC-41114">
@@ -2464,7 +2494,7 @@ Area ha managed through application of SLM plans Total area covered is 1974ha  C
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">6023091</value>
+      <value currency="USD" value-date="2017-12-31">5849655</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -2595,7 +2625,7 @@ Area ha managed through application of SLM plans Total area covered is 1974ha  C
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-02-13" />
     <activity-date type="2" iso-date="2013-02-13" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.er@undp.org</email>
       <website>http://www.er.undp.org/</website>
@@ -2619,14 +2649,6 @@ Area ha managed through application of SLM plans Total area covered is 1974ha  C
       <category code="A04" />
       <category code="A05" />
       <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00072514">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00085581" />
@@ -2666,24 +2688,24 @@ Area ha managed through application of SLM plans Total area covered is 1974ha  C
       <narrative>Eritrea</narrative>
     </recipient-country>
     <location ref="ER">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="338010" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="343300" />
       <name>
-        <narrative>Eritrea</narrative>
+        <narrative>Asmara</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
-        <narrative>Public at large will benefit fro the project</narrative>
+        <narrative>ZOBA MAEKEL</narrative>
       </activity-description>
-      <administrative level="0" code="338010" vocabulary="G1" />
+      <administrative level="1" code="343300" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>15.000000 39.000000</pos>
+        <pos>15.338050 38.931840</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <location ref="ER">
       <location-reach code="1" />
@@ -2695,7 +2717,7 @@ Area ha managed through application of SLM plans Total area covered is 1974ha  C
         <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
-        <narrative>ZOBA MAEKEL</narrative>
+        <narrative>Public at large will benefit fro the project</narrative>
       </activity-description>
       <administrative level="1" code="343300" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
@@ -2728,6 +2750,11 @@ Area ha managed through application of SLM plans Total area covered is 1974ha  C
       <value currency="USD" value-date="2017-12-31">139552</value>
     </budget>
     <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">100000</value>
+    </budget>
+    <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">383794</value>
@@ -2755,6 +2782,18 @@ Area ha managed through application of SLM plans Total area covered is 1974ha  C
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">100000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00085581">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -2820,7 +2859,7 @@ Area ha managed through application of SLM plans Total area covered is 1974ha  C
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">3122777</value>
+      <value currency="USD" value-date="2017-12-31">3222777</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -2872,7 +2911,7 @@ Area ha managed through application of SLM plans Total area covered is 1974ha  C
         </title>
         <description>
           <narrative>- Updated curriculum for Geology and  Mining engineering
-- # of experts recruited for the EIT, Orotta School of Medicine and College of Marine Science  Technology</narrative>
+- # of experts recruited for the EIT, Orotta School of Medicine and College of Marine Science &amp; Technology</narrative>
         </description>
         <baseline year="2013" value="">
           <comment>
@@ -2933,7 +2972,7 @@ With the assistance of UNDP the NCEW was able to build the skills and capacities
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-02-13" />
     <activity-date type="2" iso-date="2013-02-13" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.er@undp.org</email>
       <website>http://www.er.undp.org/</website>
@@ -2985,6 +3024,11 @@ With the assistance of UNDP the NCEW was able to build the skills and capacities
       <value currency="USD" value-date="2017-12-31">50000</value>
     </budget>
     <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">100000</value>
+    </budget>
+    <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">57904</value>
@@ -2997,6 +3041,18 @@ With the assistance of UNDP the NCEW was able to build the skills and capacities
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">100000</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00072514">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00100601">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -3026,7 +3082,7 @@ With the assistance of UNDP the NCEW was able to build the skills and capacities
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">107904</value>
+      <value currency="USD" value-date="2017-12-31">207904</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -3060,7 +3116,7 @@ With the assistance of UNDP the NCEW was able to build the skills and capacities
       <narrative>OAG</narrative>
     </title>
     <description type="1">
-      <narrative>Strengthen organizational and operational capacity of OAG</narrative>
+      <narrative>The support will enable OAG to improve its financial management skills of its managers, accountants, external and internal auditors, enabling them to adopt to international standards.</narrative>
     </description>
     <participating-org role="4" type="10" ref="01144">
       <narrative>National Execution</narrative>
@@ -3314,6 +3370,11 @@ With the assistance of UNDP the NCEW was able to build the skills and capacities
       <value currency="USD" value-date="2017-12-31">390000</value>
     </budget>
     <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">530000</value>
+    </budget>
+    <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">300000</value>
@@ -3337,6 +3398,18 @@ With the assistance of UNDP the NCEW was able to build the skills and capacities
       </provider-org>
       <receiver-org type="10" ref="">
         <narrative>Government of Eritrea</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">530000</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00072514">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00100603">
+        <narrative>United Nations Development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
@@ -3367,7 +3440,7 @@ With the assistance of UNDP the NCEW was able to build the skills and capacities
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">654988</value>
+      <value currency="USD" value-date="2017-12-31">1184988</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -3401,7 +3474,7 @@ With the assistance of UNDP the NCEW was able to build the skills and capacities
       <narrative>HIGHER EDUCATION</narrative>
     </title>
     <description type="1">
-      <narrative>Support for International conference on Eritrea studies</narrative>
+      <narrative>support for capacity development places strong emphasis to support colleges for higher education in the country to produce skilled manpower required for the country development.</narrative>
     </description>
     <participating-org role="4" type="10" ref="01144">
       <narrative>National Execution</narrative>
@@ -3606,7 +3679,7 @@ With the assistance of UNDP the NCEW was able to build the skills and capacities
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-02-13" />
     <activity-date type="2" iso-date="2013-02-13" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.er@undp.org</email>
       <website>http://www.er.undp.org/</website>
@@ -3630,14 +3703,6 @@ With the assistance of UNDP the NCEW was able to build the skills and capacities
       <category code="A04" />
       <category code="A05" />
       <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00072516">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00085583" />
@@ -3664,7 +3729,7 @@ With the assistance of UNDP the NCEW was able to build the skills and capacities
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-02-13" />
     <activity-date type="2" iso-date="2013-02-13" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.er@undp.org</email>
       <website>http://www.er.undp.org/</website>
@@ -3736,6 +3801,11 @@ With the assistance of UNDP the NCEW was able to build the skills and capacities
       <value currency="USD" value-date="2017-12-31">172217</value>
     </budget>
     <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">250000</value>
+    </budget>
+    <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">273</value>
@@ -3769,6 +3839,18 @@ With the assistance of UNDP the NCEW was able to build the skills and capacities
       </provider-org>
       <receiver-org type="10" ref="">
         <narrative>Government of Eritrea</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">250000</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00072516">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00085583">
+        <narrative>United Nations Development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
@@ -3823,7 +3905,7 @@ With the assistance of UNDP the NCEW was able to build the skills and capacities
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1013745</value>
+      <value currency="USD" value-date="2017-12-31">1263745</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -3866,7 +3948,7 @@ With the assistance of UNDP the NCEW was able to build the skills and capacities
       <narrative>Support to national and local</narrative>
     </title>
     <description type="1">
-      <narrative>Disaster risk management</narrative>
+      <narrative>Support to national and local level disaster risk management and resilience building initiatives</narrative>
     </description>
     <participating-org role="4" type="10" ref="01144">
       <narrative>National Execution</narrative>
@@ -3917,6 +3999,11 @@ With the assistance of UNDP the NCEW was able to build the skills and capacities
       <period-end iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">244846</value>
     </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">390000</value>
+    </budget>
     <capital-spend percentage="0" />
     <transaction>
       <transaction-type code="4" />
@@ -3942,6 +4029,18 @@ With the assistance of UNDP the NCEW was able to build the skills and capacities
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">390000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00105385">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">244846</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
@@ -3954,7 +4053,7 @@ With the assistance of UNDP the NCEW was able to build the skills and capacities
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">244846</value>
+      <value currency="USD" value-date="2017-12-31">634846</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -4332,6 +4431,11 @@ With the assistance of UNDP the NCEW was able to build the skills and capacities
       <value currency="USD" value-date="2017-12-31">413774</value>
     </budget>
     <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">600000</value>
+    </budget>
+    <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">230242</value>
@@ -4379,6 +4483,18 @@ With the assistance of UNDP the NCEW was able to build the skills and capacities
       <value currency="USD" value-date="2016-12-31">7</value>
       <provider-org type="10" ref="00187">
         <narrative>GOVERNMENT OF NORWAY</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00086801">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">600000</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00074354">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00086801">
         <narrative>United Nations Development Programme</narrative>
@@ -4508,10 +4624,16 @@ With the assistance of UNDP the NCEW was able to build the skills and capacities
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">5994468</value>
+      <value currency="USD" value-date="2017-12-31">6594468</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">20</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -4560,7 +4682,7 @@ With the assistance of UNDP the NCEW was able to build the skills and capacities
         </description>
         <baseline year="2013" value="">
           <comment>
-            <narrative>• Mean number of months that households are able to feed themselves from their harvest is between 2  4 months   (Baseline Survey-Emergency Response Addressing Livelihoods, 2010)
+            <narrative>• Mean number of months that households are able to feed themselves from their harvest is between 2 &amp; 4 months   (Baseline Survey-Emergency Response Addressing Livelihoods, 2010)
 
 • All the targeted households depend on crops and/or livestock for their source of income</narrative>
           </comment>
@@ -4783,7 +4905,7 @@ With the assistance of UNDP the NCEW was able to build the skills and capacities
     <description type="1">
       <narrative>The project is designed to contribute to the achievement of the SPCF and CPAP outcomes and is targeted at building the capacities of the Ministry of Finance and the UN system in Eritrea to be more effective.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="01148">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -4993,6 +5115,12 @@ With the assistance of UNDP the NCEW was able to build the skills and capacities
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">250</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -5310,7 +5438,7 @@ With the assistance of UNDP the NCEW was able to build the skills and capacities
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">1000000</value>
+      <value currency="USD" value-date="2017-12-31">431775</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -5376,7 +5504,7 @@ With the assistance of UNDP the NCEW was able to build the skills and capacities
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1000000</value>
+      <value currency="USD" value-date="2017-12-31">281775</value>
       <provider-org type="40" ref="10003" provider-activity-id="PIMS 4816">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -5436,6 +5564,18 @@ With the assistance of UNDP the NCEW was able to build the skills and capacities
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">150000</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00078854">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00088940">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">92116</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00078854">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
@@ -5484,10 +5624,16 @@ With the assistance of UNDP the NCEW was able to build the skills and capacities
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">2711236</value>
+      <value currency="USD" value-date="2017-12-31">2143011</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">11841</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -6552,12 +6698,12 @@ Soemmoring Gazelle TBD</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2017-12-31">2000000</value>
+      <value currency="USD" value-date="2017-12-31">550001</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">877327</value>
+      <value currency="USD" value-date="2017-12-31">995327</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -6616,6 +6762,18 @@ Soemmoring Gazelle TBD</narrative>
         <narrative>GOVERNMENT OF NORWAY</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00092244">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">619609</value>
+      <provider-org ref="00187" type="10">
+        <narrative>GOVERNMENT OF NORWAY</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00092244">
         <narrative>United Nations Development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -6681,13 +6839,13 @@ Soemmoring Gazelle TBD</narrative>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
-      <transaction-type code="1" />
-      <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">-6</value>
-      <provider-org ref="CH-4" type="10">
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">118000</value>
+      <provider-org type="10" ref="CH-4">
         <narrative>GOVERNMENT OF SWITZERLAND</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00092244">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00092244">
         <narrative>United Nations Development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -6707,7 +6865,7 @@ Soemmoring Gazelle TBD</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">2000000</value>
+      <value currency="USD" value-date="2017-12-31">550001</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00084051">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -6779,10 +6937,16 @@ Soemmoring Gazelle TBD</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">3878178</value>
+      <value currency="USD" value-date="2017-12-31">3996178</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">7245</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -7118,7 +7282,7 @@ About 59% of the trained are females. It can be attributed to girls and women em
     <activity-status code="2" />
     <activity-date type="1" iso-date="2015-01-01" />
     <activity-date type="2" iso-date="2015-01-01" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.er@undp.org</email>
       <website>http://www.er.undp.org/</website>
@@ -7220,6 +7384,11 @@ About 59% of the trained are females. It can be attributed to girls and women em
       <value currency="USD" value-date="2017-12-31">2137186</value>
     </budget>
     <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">15000</value>
+    </budget>
+    <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">57713</value>
@@ -7232,6 +7401,18 @@ About 59% of the trained are females. It can be attributed to girls and women em
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">15000</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00086487">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00093743">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -7261,7 +7442,7 @@ About 59% of the trained are females. It can be attributed to girls and women em
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">2194899</value>
+      <value currency="USD" value-date="2017-12-31">2209899</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -7293,7 +7474,7 @@ About 59% of the trained are females. It can be attributed to girls and women em
     <description type="1">
       <narrative>The activities will be multi-dimensional ensuring full coverage and support of the necessary areas to ensure effective human rights mainstreaming and UPR implementation.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -7617,6 +7798,12 @@ About 59% of the trained are females. It can be attributed to girls and women em
     </transaction>
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">1823</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">75805</value>
       <disbursement-channel code="2" />
@@ -7641,7 +7828,7 @@ About 59% of the trained are females. It can be attributed to girls and women em
     <description type="1">
       <narrative>To promote landscape restoration and mainstream sustainable land management, forestry and biodiversity conservation</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -7649,6 +7836,9 @@ About 59% of the trained are females. It can be attributed to girls and women em
     </participating-org>
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2017-01-01" />
@@ -7677,14 +7867,6 @@ About 59% of the trained are females. It can be attributed to girls and women em
       <category code="A04" />
       <category code="A05" />
       <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00101049">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00103755" />
@@ -7796,6 +7978,9 @@ About 59% of the trained are females. It can be attributed to girls and women em
     <participating-org role="1" type="40" ref="10003">
       <narrative>Global Environment Fund Truste</narrative>
     </participating-org>
+    <participating-org role="1" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2017-01-01" />
     <activity-date type="2" iso-date="2017-01-01" />
@@ -7832,7 +8017,7 @@ About 59% of the trained are females. It can be attributed to girls and women em
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">153604</value>
+      <value currency="USD" value-date="2017-12-31">203604</value>
     </budget>
     <capital-spend percentage="0" />
     <transaction>
@@ -7869,9 +8054,21 @@ About 59% of the trained are females. It can be attributed to girls and women em
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">50000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00103755">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">159940</value>
+      <value currency="USD" value-date="2017-12-31">209940</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>

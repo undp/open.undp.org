@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2018-02-15T17:03:53" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2018-02-28T21:30:57" version="2.02">
   <!--Kyrgyzstan-->
   <iati-activity last-updated-datetime="2018-02-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00036768</iati-identifier>
@@ -13,7 +13,7 @@
     <description type="1">
       <narrative>Communications budget of the United Nations Development Programme (UNDP) Kyrgyzstan Country Office to advocate results and progress, improve communication network with the national partners, beneficiaries and donors.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -25,7 +25,7 @@
     <activity-status code="2" />
     <activity-date type="1" iso-date="2004-01-01" />
     <activity-date type="2" iso-date="2004-01-01" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.kg@undp.org</email>
       <website>http://www.undp.kg/</website>
@@ -39,12 +39,16 @@
     <default-finance-type code="110" />
     <default-aid-type code="C01" />
     <default-tied-status code="3" />
-    <document-link format="text/html" url="http://open.undp.org/#project/00036768">
+    <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/KGZ/180124_UNDP%20CO%20Communication%20Plan.docx">
       <title>
-        <narrative>Purchase Order Summary</narrative>
+        <narrative>Project document and AWP</narrative>
       </title>
-      <category code="A11" />
-      <category code="A12" />
+      <category code="A01" />
+      <category code="A02" />
+      <category code="A03" />
+      <category code="A04" />
+      <category code="A05" />
+      <category code="A08" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/KGZ/AWP%20for%202017.pdf">
@@ -78,7 +82,7 @@
     <activity-status code="2" />
     <activity-date type="1" iso-date="2004-01-01" />
     <activity-date type="2" iso-date="2004-01-01" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.kg@undp.org</email>
       <website>http://www.undp.kg/</website>
@@ -122,6 +126,11 @@
       <period-end iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">19550</value>
     </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">17000</value>
+    </budget>
     <capital-spend percentage="0" />
     <transaction>
       <transaction-type code="4" />
@@ -130,6 +139,18 @@
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">17000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00040112">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -147,10 +168,16 @@
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">19550</value>
+      <value currency="USD" value-date="2017-12-31">36550</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">1802</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00036768">
@@ -268,14 +295,6 @@
         <narrative>Evaluation Report_PRP</narrative>
       </title>
       <category code="A07" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00040880">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00080934" />
@@ -796,7 +815,7 @@
     <recipient-country code="KG">
       <narrative>Kyrgyzstan</narrative>
     </recipient-country>
-    <sector vocabulary="1" code="15170" />
+    <sector vocabulary="1" code="15151" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -924,14 +943,14 @@
       <location-class code="1" />
       <feature-designation code="PCLI" />
     </location>
-    <sector vocabulary="1" code="15170" />
-    <sector vocabulary="99" code="4">
-      <narrative>Gender Equality</narrative>
+    <sector vocabulary="1" code="15151" />
+    <sector vocabulary="99" code="2">
+      <narrative>Democratic Governance</narrative>
     </sector>
     <country-budget-items vocabulary="1">
-      <budget-item code="5.4.5" percentage="100">
+      <budget-item code="1.8.1" percentage="100">
         <description>
-          <narrative>Social Protection, Land Housing and Community Amenities - social services (incl youth development and women+ children)</narrative>
+          <narrative>Elections - elections</narrative>
         </description>
       </budget-item>
     </country-budget-items>
@@ -945,6 +964,11 @@
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">92070</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">100000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -1011,6 +1035,18 @@
       <value currency="USD" value-date="2012-12-31">2001</value>
       <provider-org type="40" ref="46004">
         <narrative>ASIAN DEVELOPMENT BANK</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00076904">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">100000</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00047317">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00076904">
         <narrative>United Nations Development Programme</narrative>
@@ -1092,7 +1128,7 @@
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">382139</value>
+      <value currency="USD" value-date="2017-12-31">482139</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -1101,7 +1137,7 @@
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">33870</value>
+      <value currency="USD" value-date="2018-01-31">38518</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -1229,7 +1265,7 @@
     <description type="1">
       <narrative>Capacity Development Facility</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -1365,20 +1401,6 @@
         <narrative>Revised CDF AWP Aug12</narrative>
       </title>
       <category code="A05" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="https://erc.undp.org/evaluation/evaluations/detail/8536">
-      <title>
-        <narrative>Capacity Development Facility (CDF)</narrative>
-      </title>
-      <category code="A07" />
-      <language code="en" />
-    </document-link>
-    <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/KGZ/CDF%20Mission%20Report_Feb%2713.docx">
-      <title>
-        <narrative>CDF Mission Report_Feb13</narrative>
-      </title>
-      <category code="A07" />
       <language code="en" />
     </document-link>
     <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/KGZ/CDF_ProgressReport_January_December_2012.doc">
@@ -1779,7 +1801,7 @@ Output 2:
     <description type="1">
       <narrative>Consolidation and Expansion of the ‘Directly Observed Treatment, Short Term’ (DOTS) Program in Kyrgyzstan by Providing Access to Diagnostics and Treatment of Drug-Resistant Tuberculosis.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -1830,14 +1852,6 @@ Output 2:
         <narrative>TB grant agreement between GFATM and UNDP</narrative>
       </title>
       <category code="A09" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00061161">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00077368" />
@@ -2310,7 +2324,7 @@ According SR's reports NEPs distributed 2 063 705 syringes and 269 721 condoms. 
     <description type="1">
       <narrative>Environment Protection for Sustainable Development</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -2503,13 +2517,6 @@ According SR's reports NEPs distributed 2 063 705 syringes and 269 721 condoms. 
         <narrative>Environment Portfolio Review done by Martin Krause in January 2015</narrative>
       </title>
       <category code="A01" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="https://erc.undp.org/evaluation/evaluations/detail/7993">
-      <title>
-        <narrative>Protect human health and the environment from unintentional releases of POPs and mercury from the unsound disposal of healthcare waste in Kyrgyzstan</narrative>
-      </title>
-      <category code="A07" />
       <language code="en" />
     </document-link>
     <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/KGZ/Agenda_LOP_April14_ver130417.docx">
@@ -3439,7 +3446,7 @@ Output 3:
 1. c. Insufficient capacity to implement global conventions (UN Conven-tion on Biodiversity, UN Conventions on Combat Desertification, Arhus).
 2. Uneven levels of natural resource management policies.
 3. Lack of understanding of SNRM concept as development tool and weak integration of environmental sustainability into local development policies and cross-sectoral initiatives.
-4. Low awareness on SNRM  development nexus in public and insufficient involvement of civil society in SNRM policy development process and implementation practices.
+4. Low awareness on SNRM &amp; development nexus in public and insufficient involvement of civil society in SNRM policy development process and implementation practices.
 5. Limited practices of SNRM on the local level.
 6. Gender aspects of SNRM are not promoted.
 
@@ -3582,7 +3589,7 @@ Output 3
     <description type="1">
       <narrative>Reduction of human immunodeficiency virus (HIV) infection spread among the most vulnerable population.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -4172,7 +4179,7 @@ Output 3
     <description type="1">
       <narrative>The programme is aimed at tackling poverty reduction through capacity building, jobs creation and providing services for support of the businesses at local level and replication and addressing the needs at central level.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="01767">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -4996,7 +5003,7 @@ Output 3
     <description type="1">
       <narrative>By 2016, Disaster Risk Management framework in compliance with international standards, especially the Hyogo Framework of Action.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -5842,7 +5849,7 @@ Output 4:
     <description type="1">
       <narrative>Project aims to increase cooperation and trust between communities in pilot  Tajik-Kyrgyz village clusters to mitigate immediate risks of renewed cross-border violence.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="01767">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -7201,6 +7208,11 @@ Output 3:
       <value currency="USD" value-date="2017-12-31">108158</value>
     </budget>
     <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">133249</value>
+    </budget>
+    <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">705451</value>
@@ -7209,10 +7221,22 @@ Output 3:
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">304734</value>
+      <value currency="USD" value-date="2017-12-31">310814</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">83249</value>
+      <provider-org type="40" ref="11363">
+        <narrative>Peacebuilding Fund</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00092121">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -7254,6 +7278,18 @@ Output 3:
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">50000</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00064334">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00092121">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">9116</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00064334">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
@@ -7266,10 +7302,16 @@ Output 3:
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">405945</value>
+      <value currency="USD" value-date="2017-12-31">539194</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">8680</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -7380,7 +7422,7 @@ Output 3:
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">732331</value>
+      <value currency="USD" value-date="2017-12-31">726194</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -7503,7 +7545,7 @@ Output 3:
     <description type="1">
       <narrative>Local government and communities in selected geographical areas better address complex development problems using this approach</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -7651,13 +7693,6 @@ Output 3:
         <narrative>Signed AWP_28012014</narrative>
       </title>
       <category code="A05" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="https://erc.undp.org/evaluation/evaluations/detail/9134">
-      <title>
-        <narrative>Naryn Area-based Development Progarmme</narrative>
-      </title>
-      <category code="A07" />
       <language code="en" />
     </document-link>
     <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/KGZ/KGZ-A-1-%20Strengthening%20capacities%20of%20LSGs%20for%20peacebuilding%20-%20Annual%20Report%20UNDP%20UNICEF.doc">
@@ -8136,7 +8171,7 @@ Output 3:
     <activity-status code="2" />
     <activity-date type="1" iso-date="2012-06-01" />
     <activity-date type="2" iso-date="2012-06-01" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-06-30" />
     <contact-info type="1">
       <email>registry.kg@undp.org</email>
       <website>http://www.undp.kg/</website>
@@ -8183,6 +8218,11 @@ Output 3:
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">90817</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">100000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -8546,6 +8586,18 @@ Output 3:
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">100000</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00068084">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00083485">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">80692</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00068084">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
@@ -8630,7 +8682,7 @@ Output 3:
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">4557036</value>
+      <value currency="USD" value-date="2017-12-31">4657036</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -8639,7 +8691,7 @@ Output 3:
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">2007</value>
+      <value currency="USD" value-date="2018-01-31">6206</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -8745,7 +8797,7 @@ Output 3:
               <narrative>1.	Capacity of 307 beneficiaries and partners of the project is improved in the area of agriculture development, entrepreneurship, processing of agricultural products, management, and strategic planning. 
 2.	8 demonstration projects on renewable energy and alternative energy sources, such as solar collectors, biogas units, energy effective LED lightings, and solar greenhouses, are introduced. Beneficiaries developed their skills on applying new energy effective technologies. 
 3.	250 unemployed people received trainings on market-driven trainings. 130 graduates (52%) of the trainings found jobs 
-1.	3 target enterprises are provided with equipment on products processing and packaging, such as cheese production for Atbashi-Sut company (125K USD), meat processing for LLC JanarBek (58171 USD), and beekeeping equipment for PU Naryn Uiuk (79150 USD). 
+1.	3 target enterprises are provided with equipment on products processing and packaging, such as cheese production for Atbashi-Sut company (125K USD), meat processing for LLC Janar&amp;Bek (58171 USD), and beekeeping equipment for PU Naryn Uiuk (79150 USD). 
 2.	160 household income increased by 30-40% through crafting and beekeeping 
 3.	343 women improved their business knowledge and skills 
 4.	Livestock in 14 target villages received adequate vet services and adequate winter nutrition, which enhanced production.</narrative>
@@ -8767,6 +8819,16 @@ Output 3:
 2. Based on improved skills and knowledge through support of the project, 14 new veterinary service points provide high quality services, take systematic preventive measures and provide treatment to livestock in 14 pilot villages</narrative>
             </comment>
           </actual>
+        </period>
+        <period>
+          <period-start iso-date="2018-01-01" />
+          <period-end iso-date="2018-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1.  Not less than 20000 people (50% are women) received improved access to socio-economic infrastructure
+2.  Not less than 20 local government officials (40% are women) improved their skills on delivering public services</narrative>
+            </comment>
+          </target>
         </period>
       </indicator>
     </result>
@@ -9426,7 +9488,7 @@ T2. At least 10 ha of demonstration sites are provided with relevant facilities
 T3. At least 40% of beneficiaries (gender-disaggregated) have access to and are satisfied with a quality of services
 T4. At least 20% of citizens participate in discussions on municipal development issues   
 T5.  At least 30 workplaces created in the target LSGs
-T6. Disaster response capacities of LSGs  communities strengthened 
+T6. Disaster response capacities of LSGs &amp; communities strengthened 
 T7. Disaster risks mitigated in pilot LSGs through implementation of income-generating, conflict sensitive and climate resilient projects
 T8. One toolkit developed and agreed with national partners to sustain and replicate climate risk management approaches in local level DRR
 T9. Five local development plans addressing DWSS issues reflecting interests of vulnerable groups developed in a participatory way
@@ -9894,6 +9956,12 @@ R8 Objectives were selected for introduction of "Green</narrative>
     </transaction>
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">216</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">113477</value>
       <disbursement-channel code="2" />
@@ -10233,7 +10301,7 @@ Baseline: To be identified in the inception phase</narrative>
     <description type="1">
       <narrative>The main objective of the project is to support the coordination activities of the Disaster Response Coordination Unit Secretariat</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -10251,7 +10319,7 @@ Baseline: To be identified in the inception phase</narrative>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2012-07-23" />
     <activity-date type="2" iso-date="2012-07-23" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.kg@undp.org</email>
       <website>http://www.undp.kg/</website>
@@ -10467,6 +10535,11 @@ Baseline: To be identified in the inception phase</narrative>
       <value currency="USD" value-date="2017-12-31">26430</value>
     </budget>
     <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">37592</value>
+    </budget>
+    <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">32242</value>
@@ -10533,6 +10606,18 @@ Baseline: To be identified in the inception phase</narrative>
         <narrative>EUROPEAN ECONOMIC COMMUNITY</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114" receiver-activity-id="00083559">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">37592</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00068284">
+        <narrative>UNDP AS MA_POOLED FUNDS</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00083559">
         <narrative>United Nations Development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -10744,7 +10829,7 @@ Baseline: To be identified in the inception phase</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">112142</value>
+      <value currency="USD" value-date="2017-12-31">149734</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -10753,7 +10838,7 @@ Baseline: To be identified in the inception phase</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">2000</value>
+      <value currency="USD" value-date="2018-01-31">2173</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -10806,7 +10891,7 @@ Baseline: To be identified in the inception phase</narrative>
     <description type="1">
       <narrative>National Coordination Mechanism for streamlined delivery of UNDP Country Programme results</narrative>
     </description>
-    <participating-org role="4" type="40" ref="01767">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -11160,6 +11245,12 @@ Baseline: To be identified in the inception phase</narrative>
     </transaction>
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">1969</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">234942</value>
       <disbursement-channel code="2" />
@@ -11208,7 +11299,7 @@ Baseline: To be identified in the inception phase</narrative>
     <description type="1">
       <narrative>Consolidation and Expansion of the Directly Observed Treatment, Short Term (DOTS) Program in Kyrgyzstan by Providing Access to Diagnostics and Treatment of Drug-Resistant Tuberculosis.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -11743,7 +11834,7 @@ Baseline: To be identified in the inception phase</narrative>
     <description type="1">
       <narrative>Democratic Rule of Law to promote peace and stability</narrative>
     </description>
-    <participating-org role="4" type="40" ref="01767">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -12486,7 +12577,7 @@ Baseline: To be identified in the inception phase</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">15819</value>
+      <value currency="USD" value-date="2018-01-31">42430</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00072634">
@@ -12586,13 +12677,6 @@ Baseline: To be identified in the inception phase</narrative>
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="https://erc.undp.org/evaluation/evaluations/detail/7865">
-      <title>
-        <narrative>GEF: Improving the Coverage and Management Effectiveness of Protected Areas in the Central Tian Shan Mountains</narrative>
-      </title>
-      <category code="A07" />
-      <language code="en" />
-    </document-link>
     <document-link format="text/html" url="https://erc.undp.org/evaluation/evaluations/detail/9094">
       <title>
         <narrative>Improving the coverage and management effectiveness of Protected Areas in the Central Tian Shan Mountains</narrative>
@@ -12645,7 +12729,7 @@ Baseline: To be identified in the inception phase</narrative>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2012-01-01" />
     <activity-date type="2" iso-date="2012-01-01" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-06-15" />
     <contact-info type="1">
       <email>registry.kg@undp.org</email>
       <website>http://www.undp.kg/</website>
@@ -12726,6 +12810,18 @@ Baseline: To be identified in the inception phase</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1</value>
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 4934">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00085844">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">236848</value>
       <provider-org type="40" ref="10003" provider-activity-id="PIMS 4934">
         <narrative>Global Environment Fund Truste</narrative>
@@ -12786,10 +12882,16 @@ Baseline: To be identified in the inception phase</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">948000</value>
+      <value currency="USD" value-date="2017-12-31">948001</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">101</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -13355,7 +13457,7 @@ In the Project site area 9 illegal poaching cases were detected by volunteer ins
     <description type="1">
       <narrative>Protect human health and the environment from unintentional releases of Persistent Organic Pollutants and mercury from the unsound disposal of healthcare waste in Kyrgyzstan</narrative>
     </description>
-    <participating-org role="4" type="40" ref="01767">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -13820,7 +13922,7 @@ In the Project site area 9 illegal poaching cases were detected by volunteer ins
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">29162</value>
+      <value currency="USD" value-date="2018-01-31">41541</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -13966,7 +14068,7 @@ A Zoning Plan was developed in 2012 (see Annex VI) but is currently out-dated. T
     <description type="1">
       <narrative>Widening Access to Justice for Legal Empowerment in the Kyrgyz Republic (funded by Finland)</narrative>
     </description>
-    <participating-org role="4" type="40" ref="01767">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -14410,7 +14512,7 @@ A Zoning Plan was developed in 2012 (see Annex VI) but is currently out-dated. T
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">1594</value>
+      <value currency="USD" value-date="2018-01-31">19166</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -14555,7 +14657,7 @@ Support to a dialogue between all parties on ratification of the UN CRPD is prov
     <description type="1">
       <narrative>Enabling Transboundary Cooperation and Integrated Water Resources Management in the Chu and Talas River Basins</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -14705,7 +14807,7 @@ Support to a dialogue between all parties on ratification of the UN CRPD is prov
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">491490</value>
+      <value currency="USD" value-date="2017-12-31">353343</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
@@ -14759,7 +14861,7 @@ Support to a dialogue between all parties on ratification of the UN CRPD is prov
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">491490</value>
+      <value currency="USD" value-date="2017-12-31">353343</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -14795,7 +14897,7 @@ Support to a dialogue between all parties on ratification of the UN CRPD is prov
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1138147</value>
+      <value currency="USD" value-date="2017-12-31">1000000</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -14804,7 +14906,7 @@ Support to a dialogue between all parties on ratification of the UN CRPD is prov
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">3127</value>
+      <value currency="USD" value-date="2018-01-31">25173</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -14943,7 +15045,7 @@ Support to a dialogue between all parties on ratification of the UN CRPD is prov
     <description type="1">
       <narrative>Socio-economic development of communities around radioactive sites in Kyrgyzstan</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -15448,7 +15550,7 @@ Indicators:</narrative>
 2.	15 small enterprises directed to the economic diversification are created and equipped with new facilities
 3.	Not less than 10 000 people (40% are women) received improved access to rural infrastructure
 4.	Not less than 20 local government officials improved their skills on delivering public services  
-5.	National and local governments supported by appropriate toolkits  consultancy to strengthen their capacity in integrated DRR for further scaling up of best practices</narrative>
+5.	National and local governments supported by appropriate toolkits &amp; consultancy to strengthen their capacity in integrated DRR for further scaling up of best practices</narrative>
             </comment>
           </target>
           <actual value="">
@@ -15493,7 +15595,7 @@ Indicators:</narrative>
     <description type="1">
       <narrative>Women in selected areas exercise their electoral rights and participate in voting  and are empowered to run as candidates during local elections</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -15903,7 +16005,7 @@ Data on the second case (urban, southern community):
     <description type="1">
       <narrative>It is aimed at supporting and accompanying the CEC in conducting of the upcoming electoral cycle where a massive introduction of ICT will be introduced and ensure that the electoral cycle is free, fair and peaceful.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -16071,6 +16173,11 @@ Data on the second case (urban, southern community):
       <value currency="USD" value-date="2017-12-31">269790</value>
     </budget>
     <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">120000</value>
+    </budget>
+    <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">766209</value>
@@ -16201,6 +16308,18 @@ Data on the second case (urban, southern community):
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">120000</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00085433">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00093072">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">161172</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00085433">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
@@ -16225,10 +16344,16 @@ Data on the second case (urban, southern community):
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1753469</value>
+      <value currency="USD" value-date="2017-12-31">1873469</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">10380</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -16325,12 +16450,12 @@ Created a peaceful and secure environment through organization of professional t
       <narrative>United Nations Development Programme</narrative>
     </reporting-org>
     <title>
-      <narrative>Snow Leopard PPG</narrative>
+      <narrative>Snow Leopard - Project Preparation Grant</narrative>
     </title>
     <description type="1">
       <narrative>Conservation of globally important biodiversity and association land and forest resources of Western Tian Shan Forest Mountain ecosystems and support to sustainable livelihoods (Project Preparation Grant)</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -17088,12 +17213,12 @@ Evaluation of the project is in process and to be conducted by end of the year.<
       <narrative>United Nations Development Programme</narrative>
     </reporting-org>
     <title>
-      <narrative>Extension of DOTS TB phase II till 30/06/16</narrative>
+      <narrative>Global Fund Tuberculosis - phase II</narrative>
     </title>
     <description type="1">
       <narrative>Global Fund Tuberculosis</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -17532,7 +17657,7 @@ Evaluation of the project is in process and to be conducted by end of the year.<
     <description type="1">
       <narrative>Reduction of HIV infection spread among the most vulnerable population.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -18050,7 +18175,7 @@ Evaluation of the project is in process and to be conducted by end of the year.<
     <description type="1">
       <narrative>The overall strategy is to support the establishment of an integrated planning and implementation framework for a comprehensive, coordinated, pro-poor and pro-growth approach to sustainable development at rayon and ayil-okmotyus’ levels.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -18245,7 +18370,7 @@ Evaluation of the project is in process and to be conducted by end of the year.<
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">1070000</value>
+      <value currency="USD" value-date="2017-12-31">1848423</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -18277,7 +18402,7 @@ Evaluation of the project is in process and to be conducted by end of the year.<
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1070000</value>
+      <value currency="USD" value-date="2017-12-31">1788423</value>
       <provider-org type="10" ref="00206">
         <narrative>GOVERNMENT OF RUSSIAN FEDERATION</narrative>
       </provider-org>
@@ -18325,6 +18450,18 @@ Evaluation of the project is in process and to be conducted by end of the year.<
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">60000</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00089664">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00095779">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">255611</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00089664">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
@@ -18337,10 +18474,16 @@ Evaluation of the project is in process and to be conducted by end of the year.<
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">3055293</value>
+      <value currency="USD" value-date="2017-12-31">3833716</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">64029</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -18452,7 +18595,7 @@ R3 Entrepreneurship Support Center (hereinafter referred as the Center) was crea
     <description type="1">
       <narrative>Strengthening of institutional and legal capacities to enable improvement of the national monitoring system and management of environmental information</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -18711,7 +18854,7 @@ R3 Entrepreneurship Support Center (hereinafter referred as the Center) was crea
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">474968</value>
+      <value currency="USD" value-date="2017-12-31">295176</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
@@ -18748,7 +18891,7 @@ R3 Entrepreneurship Support Center (hereinafter referred as the Center) was crea
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">474968</value>
+      <value currency="USD" value-date="2017-12-31">295176</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -18772,7 +18915,7 @@ R3 Entrepreneurship Support Center (hereinafter referred as the Center) was crea
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1129792</value>
+      <value currency="USD" value-date="2017-12-31">950000</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -18781,7 +18924,7 @@ R3 Entrepreneurship Support Center (hereinafter referred as the Center) was crea
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">13476</value>
+      <value currency="USD" value-date="2018-01-31">42414</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -18931,7 +19074,7 @@ R3 Entrepreneurship Support Center (hereinafter referred as the Center) was crea
     <recipient-country code="KG">
       <narrative>Kyrgyzstan</narrative>
     </recipient-country>
-    <sector vocabulary="1" code="15110" />
+    <sector vocabulary="1" code="74010" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -19038,14 +19181,14 @@ R3 Entrepreneurship Support Center (hereinafter referred as the Center) was crea
       <location-class code="1" />
       <feature-designation code="PCLI" />
     </location>
-    <sector vocabulary="1" code="15110" />
-    <sector vocabulary="99" code="1">
-      <narrative>Inclusive &amp; Sustainable Growth</narrative>
+    <sector vocabulary="1" code="74010" />
+    <sector vocabulary="99" code="5">
+      <narrative>Climate Change &amp; Disaster Resilience</narrative>
     </sector>
     <country-budget-items vocabulary="1">
-      <budget-item code="3.1.1" percentage="100">
+      <budget-item code="5.4.11" percentage="100">
         <description>
-          <narrative>policy, planning and administration</narrative>
+          <narrative>Social Protection, Land Housing and Community Amenities - disaster prevention and preparedness</narrative>
         </description>
       </budget-item>
     </country-budget-items>
@@ -19059,6 +19202,11 @@ R3 Entrepreneurship Support Center (hereinafter referred as the Center) was crea
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">85700</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">38221</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -19089,6 +19237,18 @@ R3 Entrepreneurship Support Center (hereinafter referred as the Center) was crea
       </provider-org>
       <receiver-org type="10" ref="">
         <narrative>Government of Kyrgyzstan</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">38221</value>
+      <provider-org type="40" ref="10009">
+        <narrative>MONTREAL PROTOCOL</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00097155">
+        <narrative>United Nations Development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
@@ -19131,7 +19291,7 @@ R3 Entrepreneurship Support Center (hereinafter referred as the Center) was crea
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">120909</value>
+      <value currency="USD" value-date="2017-12-31">159130</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -19263,14 +19423,14 @@ Protocol in September 2007, through its Decision XIX/6, adopted an accelerated p
       <location-class code="1" />
       <feature-designation code="PCLI" />
     </location>
-    <sector vocabulary="1" code="15110" />
-    <sector vocabulary="99" code="1">
-      <narrative>Inclusive &amp; Sustainable Growth</narrative>
+    <sector vocabulary="1" code="74010" />
+    <sector vocabulary="99" code="5">
+      <narrative>Climate Change &amp; Disaster Resilience</narrative>
     </sector>
     <country-budget-items vocabulary="1">
-      <budget-item code="3.1.1" percentage="100">
+      <budget-item code="5.4.11" percentage="100">
         <description>
-          <narrative>policy, planning and administration</narrative>
+          <narrative>Social Protection, Land Housing and Community Amenities - disaster prevention and preparedness</narrative>
         </description>
       </budget-item>
     </country-budget-items>
@@ -19349,7 +19509,7 @@ Protocol in September 2007, through its Decision XIX/6, adopted an accelerated p
     <description type="1">
       <narrative>Training and skills development of specialists in the Kyrgyz Republic in the field of identification and traceability of cattle in the framework of participation in the Eurasian Economic Union</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -19819,7 +19979,7 @@ Until 29 December 2016 will be trained 1948 people, and other 452 in January 201
     <description type="1">
       <narrative>Addressing Sexual Gender-Based Violence</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -20026,7 +20186,7 @@ Until 29 December 2016 will be trained 1948 people, and other 452 in January 201
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">23279</value>
+      <value currency="USD" value-date="2018-01-31">25234</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -20129,7 +20289,7 @@ It’s on going, this year November 25- December 10, seven CSO got support to co
     <description type="1">
       <narrative>Reduce TB and HIV burden in Kyrgyzstan</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -20388,7 +20548,7 @@ It’s on going, this year November 25- December 10, seven CSO got support to co
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">862765</value>
+      <value currency="USD" value-date="2018-01-31">1577831</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -20522,7 +20682,7 @@ According SR's reports NEPs distributed 2 063 705 syringes and 269 721 condoms. 
     <description type="1">
       <narrative>Conservation of globally important biodiversity and associated land and forest resources of Western Tian Shan mountain forest ecosystems to support sustainable livelihoods.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -20709,7 +20869,7 @@ According SR's reports NEPs distributed 2 063 705 syringes and 269 721 condoms. 
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">477011</value>
+      <value currency="USD" value-date="2017-12-31">309124</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2021-01-01" />
@@ -20724,7 +20884,7 @@ According SR's reports NEPs distributed 2 063 705 syringes and 269 721 condoms. 
     <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2017-12-31">1127165</value>
+      <value currency="USD" value-date="2017-12-31">1612432</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
@@ -20768,7 +20928,7 @@ According SR's reports NEPs distributed 2 063 705 syringes and 269 721 condoms. 
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1127165</value>
+      <value currency="USD" value-date="2017-12-31">1612432</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -20792,7 +20952,7 @@ According SR's reports NEPs distributed 2 063 705 syringes and 269 721 condoms. 
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">457211</value>
+      <value currency="USD" value-date="2017-12-31">289324</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -20816,7 +20976,7 @@ According SR's reports NEPs distributed 2 063 705 syringes and 269 721 condoms. 
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">3690995</value>
+      <value currency="USD" value-date="2017-12-31">4008375</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -20825,7 +20985,7 @@ According SR's reports NEPs distributed 2 063 705 syringes and 269 721 condoms. 
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">2171</value>
+      <value currency="USD" value-date="2018-01-31">10789</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00097902">
@@ -20905,7 +21065,7 @@ According SR's reports NEPs distributed 2 063 705 syringes and 269 721 condoms. 
     <description type="1">
       <narrative>Strong and Inclusive Parliamentary Democracy</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -21043,7 +21203,7 @@ According SR's reports NEPs distributed 2 063 705 syringes and 269 721 condoms. 
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">908518</value>
+      <value currency="USD" value-date="2017-12-31">1362815</value>
     </budget>
     <capital-spend percentage="0" />
     <transaction>
@@ -21094,7 +21254,7 @@ According SR's reports NEPs distributed 2 063 705 syringes and 269 721 condoms. 
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">908518</value>
+      <value currency="USD" value-date="2017-12-31">1362815</value>
       <provider-org type="10" ref="CH-4">
         <narrative>SWISS AGENCY FOR DEVELOPMENT AND COOPERATION - SDC</narrative>
       </provider-org>
@@ -21130,7 +21290,7 @@ According SR's reports NEPs distributed 2 063 705 syringes and 269 721 condoms. 
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">3455000</value>
+      <value currency="USD" value-date="2017-12-31">3909297</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -21139,7 +21299,7 @@ According SR's reports NEPs distributed 2 063 705 syringes and 269 721 condoms. 
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">6029</value>
+      <value currency="USD" value-date="2018-01-31">32396</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00098320">
@@ -21209,7 +21369,7 @@ According SR's reports NEPs distributed 2 063 705 syringes and 269 721 condoms. 
     <description type="1">
       <narrative>Disaster Risk Reduction and Climate Change</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -21353,12 +21513,12 @@ According SR's reports NEPs distributed 2 063 705 syringes and 269 721 condoms. 
     <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2017-12-31">1258134</value>
+      <value currency="USD" value-date="2017-12-31">1273102</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">1356188</value>
+      <value currency="USD" value-date="2017-12-31">4100710</value>
     </budget>
     <capital-spend percentage="0" />
     <transaction>
@@ -21385,7 +21545,7 @@ According SR's reports NEPs distributed 2 063 705 syringes and 269 721 condoms. 
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1258134</value>
+      <value currency="USD" value-date="2017-12-31">1273102</value>
       <provider-org type="10" ref="00141">
         <narrative>GOVERNMENT OF JAPAN</narrative>
       </provider-org>
@@ -21397,7 +21557,7 @@ According SR's reports NEPs distributed 2 063 705 syringes and 269 721 condoms. 
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1356188</value>
+      <value currency="USD" value-date="2017-12-31">4100710</value>
       <provider-org type="10" ref="00141">
         <narrative>GOVERNMENT OF JAPAN</narrative>
       </provider-org>
@@ -21433,7 +21593,7 @@ According SR's reports NEPs distributed 2 063 705 syringes and 269 721 condoms. 
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">5373812</value>
+      <value currency="USD" value-date="2017-12-31">8133302</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -21442,7 +21602,7 @@ According SR's reports NEPs distributed 2 063 705 syringes and 269 721 condoms. 
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">2216</value>
+      <value currency="USD" value-date="2018-01-31">17429</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00098321">
@@ -21490,7 +21650,7 @@ Indicators for years:
             <narrative>Output 1: An enabling environment for National Risk Assessment Framework created to apply innovative tools
 Baseline: 
 
-- National development concept on “Establishing National Information Management System on DRR” is in progress towards refining risk assessment  monitoring mechanisms
+- National development concept on “Establishing National Information Management System on DRR” is in progress towards refining risk assessment &amp; monitoring mechanisms
 - National Programme on Establishment Comprehensive System on Monitoring and Forecasting of Hazardous Natural Processes applying Geographical Information System (GIS) and Remote Sensing Techniques adopted and started to be implemented
 
 Output 2: National Disaster Risk Monitoring and Early Warning systems as well as avalanche-risk reduction capacities strengthened alongside transport corridors 
@@ -21518,14 +21678,14 @@ Baseline:
 Target/s by the end of 2019: Monitoring capacities strengthened through upgrading logistical infrastructure 
 Targets for years
 2017: Technical assessments conducted by the experts from Japanese National Institutions 
-2018: Procurement planning, Sourcing of Suppliers, Solicitation  Evaluation Offers completed
+2018: Procurement planning, Sourcing of Suppliers, Solicitation &amp; Evaluation Offers completed
 2019: Equipment delivered, installed and tested
 
 Output 2: National Disaster Risk Monitoring and Early Warning systems as well as avalanche-risk reduction capacities strengthened alongside transport corridors 
 
 Target/s by the end of 2019: Two avalanche-monitoring stations constructed and logistical infrastructure for avalanche-risk monitoring upgraded  
 Targets for years:
-2017: Procurement planning, Sourcing of Suppliers, Solicitation  Evaluation Offers completed for purchase of avalanche-risk monitoring equipment and construction of two avalanche-monitoring stations 
+2017: Procurement planning, Sourcing of Suppliers, Solicitation &amp; Evaluation Offers completed for purchase of avalanche-risk monitoring equipment and construction of two avalanche-monitoring stations 
 2018: Equipment delivered, installed and tested
 Necessary goods and services for construction two avalanche-monitoring stations purchased 
 Two avalanche-monitoring stations started to be constructed
@@ -21536,7 +21696,7 @@ Target/s by the end of 2019: Two avalanche-monitoring stations constructed and l
 
 Targets for years:
 
-2017-2018: Procurement planning, Sourcing of Suppliers, Solicitation  Evaluation Offers completed for purchase of equipment and software for establishing UIMS in Chui, Jalal-Abad, Issyk-Kul and Naryn provinces as well as establishing Fire-Rescuing Services   
+2017-2018: Procurement planning, Sourcing of Suppliers, Solicitation &amp; Evaluation Offers completed for purchase of equipment and software for establishing UIMS in Chui, Jalal-Abad, Issyk-Kul and Naryn provinces as well as establishing Fire-Rescuing Services   
 2019: Equipment delivered, installed and tested for UIMS and Fire-Rescuing Services 
 
 Output 4: Increased regional cooperation of Central Asian (Kazakhstan, Kyrgyzstan, Tajikistan and Turkmenis</narrative>
@@ -21549,7 +21709,7 @@ Targets for 2017: Technical assessments conducted by the experts from Japanese N
 In 2017, relevant desk review has been undertaken in order to identify possible experts from Japan specialized in GIS, Satellite and Risk Modelling Techniques. As of December 2017, there were identified 3 experts only, however, UNDP rules require 3 applicants per position, i.e. 9 experts in total. Additional consultations are still required to identify either additional 6 experts or apply a waiver.     
 
 Output 2: National Disaster Risk Monitoring and Early Warning systems as well as avalanche-risk reduction capacities strengthened alongside transport corridors 
-Targets for 2017: Procurement planning, Sourcing of Suppliers, Solicitation  Evaluation Offers completed for purchase of avalanche-risk monitoring equipment and construction of two avalanche-monitoring stations 
+Targets for 2017: Procurement planning, Sourcing of Suppliers, Solicitation &amp; Evaluation Offers completed for purchase of avalanche-risk monitoring equipment and construction of two avalanche-monitoring stations 
 As per the Programme goals, two avalanche-monitoring stations are planned in Jalal-Abad oblast (Chapchyma station) and Naryn oblast (Dolon station.). However, before launching respective actions, Kyrgyzhydromet officially noticed UNDP that it would like to change the place of construction of ‘Chapchyma’ meteo station to another station titled ‘Chatkal’ because of change of investment environment in Chatkal district. Namely, an alternative North-South Road is being planned by the Government and the gold mining companies such as ‘Chaarat Gold’ and ‘Chanach Gold’ operating in Chatkal district of Jalal-Abad oblast have already constructing a part of above-mentioned North-South Road to connect Chatkal and Alabuka districts. It therefore required agreements with Tokyo MFA through Embassy of Japan that took almost 2-3 months in order to change the place of construction. As of December 2017, respective TOR has been drafted for engineer who is expected to support the CO tin designing Engineering docume</narrative>
             </comment>
           </actual>
@@ -21568,7 +21728,7 @@ As per the Programme goals, two avalanche-monitoring stations are planned in Jal
     <description type="1">
       <narrative>Preventing Violent Extremism (PVE)</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -21801,6 +21961,12 @@ As per the Programme goals, two avalanche-monitoring stations are planned in Jal
     </transaction>
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">13096</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">-91800</value>
       <disbursement-channel code="2" />
@@ -21964,7 +22130,7 @@ As per the Programme goals, two avalanche-monitoring stations are planned in Jal
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">59</value>
+      <value currency="USD" value-date="2018-01-31">32345</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -22020,26 +22186,6 @@ As per the Programme goals, two avalanche-monitoring stations are planned in Jal
     </recipient-country>
     <location ref="KG">
       <location-reach code="1" />
-      <location-id vocabulary="G1" code="1527747" />
-      <name>
-        <narrative>Kyrgyzstan</narrative>
-      </name>
-      <description>
-        <narrative>independent political entity</narrative>
-      </description>
-      <activity-description>
-        <narrative>Kyrgyzstan</narrative>
-      </activity-description>
-      <administrative level="0" code="1527747" vocabulary="G1" />
-      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>41.500000 75.000000</pos>
-      </point>
-      <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
-    </location>
-    <location ref="KG">
-      <location-reach code="1" />
       <location-id vocabulary="G1" code="1528735" />
       <name>
         <narrative>Batken</narrative>
@@ -22080,6 +22226,11 @@ As per the Programme goals, two avalanche-monitoring stations are planned in Jal
       <period-end iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">26730</value>
     </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">114500</value>
+    </budget>
     <capital-spend percentage="0" />
     <transaction>
       <transaction-type code="4" />
@@ -22088,6 +22239,18 @@ As per the Programme goals, two avalanche-monitoring stations are planned in Jal
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">114500</value>
+      <provider-org type="40" ref="11363">
+        <narrative>Peacebuilding Fund</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00103780">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -22117,7 +22280,7 @@ As per the Programme goals, two avalanche-monitoring stations are planned in Jal
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">26730</value>
+      <value currency="USD" value-date="2017-12-31">141230</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -22363,7 +22526,7 @@ PBF Secretariat Support to Joint Steering Committee and PRF projects</narrative>
     <description type="1">
       <narrative>Transboundary Cooperation for Snow Leopard and Ecosystem Conservation</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -22822,7 +22985,7 @@ PBF Secretariat Support to Joint Steering Committee and PRF projects</narrative>
     <description type="1">
       <narrative>Support the Unified State Population Registry to Establish the E-Governance System</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -23037,7 +23200,7 @@ PBF Secretariat Support to Joint Steering Committee and PRF projects</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">-146163</value>
+      <value currency="USD" value-date="2018-01-31">-89023</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00102089">

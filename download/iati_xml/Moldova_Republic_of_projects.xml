@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2018-02-15T17:03:54" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2018-02-28T21:30:59" version="2.02">
   <!--Moldova, Republic of-->
   <iati-activity last-updated-datetime="2018-02-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00039240</iati-identifier>
@@ -13,7 +13,7 @@
     <description type="1">
       <narrative>Formulation of the National Human Development Reports (NHDR). The NHDR is an overview of the situation in different sectors with regard to the matter of income and non-income inequalities,</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -49,7 +49,7 @@
     <activity-status code="2" />
     <activity-date type="1" iso-date="2005-03-10" />
     <activity-date type="2" iso-date="2005-03-10" />
-    <activity-date type="3" iso-date="2018-02-28" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.md@undp.org</email>
       <website>http://www.md.undp.org/</website>
@@ -95,6 +95,14 @@
       </title>
       <category code="A11" />
       <category code="A12" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/00043952%20AWP_NHDR_Sept2017.pdf">
+      <title>
+        <narrative>AWP 2017</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00043952" />
@@ -145,7 +153,7 @@ The NHDR is an overview of the situation in different sectors with regard to the
     <activity-status code="2" />
     <activity-date type="1" iso-date="2005-03-10" />
     <activity-date type="2" iso-date="2005-03-10" />
-    <activity-date type="3" iso-date="2018-02-28" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.md@undp.org</email>
       <website>http://www.md.undp.org/</website>
@@ -156,26 +164,6 @@ The NHDR is an overview of the situation in different sectors with regard to the
     </recipient-country>
     <location ref="MD">
       <location-reach code="2" />
-      <location-id vocabulary="G1" code="617790" />
-      <name>
-        <narrative>Moldova</narrative>
-      </name>
-      <description>
-        <narrative>independent political entity</narrative>
-      </description>
-      <activity-description>
-        <narrative>Policy makers are better informed on key development trends and progress in human development of the country.</narrative>
-      </activity-description>
-      <administrative level="0" code="617790" vocabulary="G1" />
-      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>47.250000 28.583330</pos>
-      </point>
-      <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
-    </location>
-    <location ref="MD">
-      <location-reach code="2" />
       <location-id vocabulary="G1" code="618426" />
       <name>
         <narrative>Chisinau</narrative>
@@ -183,6 +171,26 @@ The NHDR is an overview of the situation in different sectors with regard to the
       <description>
         <narrative>capital of a political entity</narrative>
       </description>
+      <administrative level="1" code="618426" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>47.005560 28.857500</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
+    <location ref="MD">
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="618426" />
+      <name>
+        <narrative>Chisinau</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative>Policy makers are better informed on key development trends and progress in human development of the country.</narrative>
+      </activity-description>
       <administrative level="1" code="618426" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
         <pos>47.005560 28.857500</pos>
@@ -205,6 +213,11 @@ The NHDR is an overview of the situation in different sectors with regard to the
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">211545</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">25000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -472,6 +485,18 @@ The NHDR is an overview of the situation in different sectors with regard to the
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">25000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00043952">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">30000</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
@@ -556,7 +581,7 @@ The NHDR is an overview of the situation in different sectors with regard to the
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">720065</value>
+      <value currency="USD" value-date="2017-12-31">745065</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -664,7 +689,7 @@ c) One national development strategy (Moldova 2020) assessed and adapted conside
     <description type="1">
       <narrative>A Joint UNCT for Human Rights Protection and Promotion in the Republic of Moldova</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -774,13 +799,6 @@ c) One national development strategy (Moldova 2020) assessed and adapted conside
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/00091228_ADA_MAWP-2014-2016_final.pdf">
-      <title>
-        <narrative>00091228_ADA_MAWP20142016_final</narrative>
-      </title>
-      <category code="A05" />
-      <language code="en" />
-    </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=24714">
       <title>
         <narrative>Development of the eCaseLaw Information System for the Constitutional Court of the Republic of Moldova</narrative>
@@ -794,6 +812,22 @@ c) One national development strategy (Moldova 2020) assessed and adapted conside
       </title>
       <category code="A11" />
       <category code="A12" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/ADA_Final_AWP_2016_Signed.pdf">
+      <title>
+        <narrative>Annual Work Plan</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/00091228_ADA_MAWP-2014-2016_final.pdf">
+      <title>
+        <narrative>AWP 2014-2016</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00055003" />
@@ -862,21 +896,21 @@ c) One national development strategy (Moldova 2020) assessed and adapted conside
       <narrative>Moldova, Republic of</narrative>
     </recipient-country>
     <location ref="MD">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="617790" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="618426" />
       <name>
-        <narrative>Moldova</narrative>
+        <narrative>Chisinau</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="617790" vocabulary="G1" />
+      <administrative level="1" code="618426" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>47.250000 28.583330</pos>
+        <pos>47.005560 28.857500</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="15160" />
     <sector vocabulary="99" code="2">
@@ -1905,6 +1939,54 @@ Curriculum on the rights of persons with disabilities for judiciary and prosecut
       <category code="A12" />
       <language code="en" />
     </document-link>
+    <document-link format="application/vnd.ms-excel" url="https://info.undp.org/docs/pdc/Documents/MDA/JP_Statistics%20AWP%202010.xls">
+      <title>
+        <narrative>JP_Statistics AWP 2010</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/vnd.ms-excel" url="https://info.undp.org/docs/pdc/Documents/MDA/JP_Statistics%20AWP_2014.xls">
+      <title>
+        <narrative>JP_Statistics AWP_2014</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/vnd.ms-excel" url="https://info.undp.org/docs/pdc/Documents/MDA/JP_Statistics_AWP%202009.xls">
+      <title>
+        <narrative>JP_Statistics_AWP 2009</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/vnd.ms-excel" url="https://info.undp.org/docs/pdc/Documents/MDA/JP_Statistics_AWP%202011_updated%20in%20Dec.xls">
+      <title>
+        <narrative>JP_Statistics_AWP 2011_updated in Dec</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/vnd.ms-excel" url="https://info.undp.org/docs/pdc/Documents/MDA/JP_Statistics_AWP%202012.xls">
+      <title>
+        <narrative>JP_Statistics_AWP 2012</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/vnd.ms-excel" url="https://info.undp.org/docs/pdc/Documents/MDA/JP_Statistics_AWP%20QAP%202008.xls">
+      <title>
+        <narrative>JP_Statistics_AWP QAP 2008</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00057446" />
     <conditions attached="0" />
   </iati-activity>
@@ -1950,24 +2032,24 @@ Curriculum on the rights of persons with disabilities for judiciary and prosecut
       <narrative>Moldova, Republic of</narrative>
     </recipient-country>
     <location ref="MD">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="617790" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="618426" />
       <name>
-        <narrative>Moldova</narrative>
+        <narrative>Chisinau</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>Harmonize national statistics</narrative>
       </activity-description>
-      <administrative level="0" code="617790" vocabulary="G1" />
+      <administrative level="1" code="618426" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>47.250000 28.583330</pos>
+        <pos>47.005560 28.857500</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="99810" />
     <sector vocabulary="99" code="7">
@@ -2372,7 +2454,7 @@ Curriculum on the rights of persons with disabilities for judiciary and prosecut
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">1617</value>
+      <value currency="USD" value-date="2018-01-31">2754</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -2422,16 +2504,16 @@ Curriculum on the rights of persons with disabilities for judiciary and prosecut
           <narrative>Output Indicator</narrative>
         </title>
         <description>
-          <narrative>1. Number of statistical areas assessed towards compliance with international/EU standards in statistics  policy-makers’ needs.
+          <narrative>1. Number of statistical areas assessed towards compliance with international/EU standards in statistics &amp; policy-makers’ needs.
 2. Number of methodologies and toolkits (incl. administrative data sources) developed/ revised from the perspective on international/EU requirements in statistics
 3. Number of tools focused and actions on “quality of statistical output” developed to comply with European norms and best practices and to build necessary national capacities
 4. Number of statistical surveys designed (complying with international/EU requirements) and carried out to respond to policy-making information needs
-5. Number of stat.staff whose capacities to collect  produce quality disaggregated data within statistical sample surveys are built, by topics explored, to make more data available for the research and policy development
+5. Number of stat.staff whose capacities to collect &amp; produce quality disaggregated data within statistical sample surveys are built, by topics explored, to make more data available for the research and policy development
 6. Number of professional development events carried out and/or training materials (curriculum, manuals, guides) for stat.staff implemented
-7. Number of user-friendly statistical outputs developed  disseminated, no of areas covered
+7. Number of user-friendly statistical outputs developed &amp; disseminated, no of areas covered
 8. Level of data users’ satisfaction with statistical outputs periodically measured and feedback provided
 9. Number of data user capacity building initiatives carried out/institutionalized, topics covered, trainees from Gov., CSOs, media whose statistical literacy strengthened 
-10. Number of policy documents being assisted with ME tools (stat.indicators, guidance) to contribute to their efficiency and effectiveness 
+10. Number of policy documents being assisted with M&amp;E tools (stat.indicators, guidance) to contribute to their efficiency and effectiveness 
 11. Number of research/analytical papers to analyze less explored topics developed on the basis of available statistics in participatory manner</narrative>
         </description>
         <baseline year="2007" value="">
@@ -2445,7 +2527,7 @@ Curriculum on the rights of persons with disabilities for judiciary and prosecut
 7. Data dissemination covers only core statistical areas and is done through traditional means of communication; 
 8. Most of indicators are not disaggregated by sex, age, and geographical territory; and even existing disaggregated indicators are often not disseminated and are not easily accessible which do not meet users' needs and satisfaction. 
 9. Data users have insufficient skills and capacities to efficiently use statistics for participatory policy-making
-10. Government’s monitoring  evaluation capacities are weak 
+10. Government’s monitoring &amp; evaluation capacities are weak 
 11. Data/evidence-based analysis is poorly applied to analyze the current situation, develop policies, monitor their implementation and evaluate impact, as well as to assess to what extent Moldova is fulfilling its obligations under economic, social and cultural rights.</narrative>
           </comment>
         </baseline>
@@ -2463,7 +2545,7 @@ Curriculum on the rights of persons with disabilities for judiciary and prosecut
 7. One e-solution on gender statistics’ visual dissemination developed and operationalized to improve data use/application for policy making
 8. One up-to-date report to assess the users’ satisfaction and information needs developed 
 9. At least 2 capacity building activities carried out for data users (policy-makers, CSOs, etc.) on at least 2 topics of statistics 
-10. ME tools (statistical indicators and methodological guidance) developed to support at least 2 policy documents; Technical guidance and conceptual support provided to at least 3 UN/DP Projects to enable and facilitate the ME under UNPF
+10. M&amp;E tools (statistical indicators and methodological guidance) developed to support at least 2 policy documents; Technical guidance and conceptual support provided to at least 3 UN/DP Projects to enable and facilitate the M&amp;E under UNPF
 11. 10 profiles on vulnerable groups of women disseminated (in at least 3 formats)</narrative>
             </comment>
           </target>
@@ -2488,11 +2570,11 @@ Curriculum on the rights of persons with disabilities for judiciary and prosecut
           <period-end iso-date="2017-12-31" />
           <target value="">
             <comment>
-              <narrative>1. At least 5 statistical areas covering Women in ICT assessed towards compliance with international/EU standards in statistics  policy-makers’ needs
+              <narrative>1. At least 5 statistical areas covering Women in ICT assessed towards compliance with international/EU standards in statistics &amp; policy-makers’ needs
 2. At least 3 stat. methodology and/or toolkits  revised and/or improved to enable the measurement of certain targets under SDGs  agenda, including through gender perspective
 3. Not applicable in 2017.
 4. Stat.methodology, questionnare piloted by NBS to collect data  in enterprises regarding the Women Entrepreneurship.
-5. At least 20 stat.staff of NBS whose capacities to collect  produce quality disaggregated data within statistical sample surveys are built, on the topic of Women Entrepreneurship. 
+5. At least 20 stat.staff of NBS whose capacities to collect &amp; produce quality disaggregated data within statistical sample surveys are built, on the topic of Women Entrepreneurship. 
 6. Not applicable in 2017.
 7. E-solution on gender statistics dissemination operationalised to improve data use/application for policy making
 9. Not applicable in 2017.
@@ -2502,11 +2584,11 @@ Curriculum on the rights of persons with disabilities for judiciary and prosecut
           </target>
           <actual value="">
             <comment>
-              <narrative>1. 8 statistical areas covering Women in ICT assessed towards compliance with international/EU standards in statistics  policy-makers’ needs
+              <narrative>1. 8 statistical areas covering Women in ICT assessed towards compliance with international/EU standards in statistics &amp; policy-makers’ needs
 2. Recommendations were made to revise and improve the stat. methodology for the ICT indicators which would enable the measurement of certain targets under SDGs, through gender perspective
 3. Not applicable in 2017.
 4. Stat.methodology, questionnaire piloted by NBS to collect data  in enterprises regarding the Women Entrepreneurship (in the process of implementation - tbc)
-5. At least 20 stat.staff of NBS whose capacities to collect  produce quality disaggregated data within statistical sample surveys are built, on the topic of Women Entrepreneurship. (in the process of implementation - tbc)
+5. At least 20 stat.staff of NBS whose capacities to collect &amp; produce quality disaggregated data within statistical sample surveys are built, on the topic of Women Entrepreneurship. (in the process of implementation - tbc)
 6. Not applicable in 2017.
 7. One e-solution (GenderPulse) on gender statistics dissemination operationalised to improve data use/application for policy making (in Romanian and English)
 9. Not applicable in 2017.
@@ -2742,6 +2824,14 @@ Curriculum on the rights of persons with disabilities for judiciary and prosecut
       <category code="A12" />
       <language code="en" />
     </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/00091532_AWP_2016_2017%20ElectionsII.pdf">
+      <title>
+        <narrative>AWP 2016-2017</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00071949" />
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00091532" />
     <conditions attached="0" />
@@ -2786,21 +2876,21 @@ Curriculum on the rights of persons with disabilities for judiciary and prosecut
       <narrative>Moldova, Republic of</narrative>
     </recipient-country>
     <location ref="MD">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="617790" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="618426" />
       <name>
-        <narrative>Moldova</narrative>
+        <narrative>Chisinau</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="617790" vocabulary="G1" />
+      <administrative level="1" code="618426" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>47.250000 28.583330</pos>
+        <pos>47.005560 28.857500</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="15151" />
     <sector vocabulary="99" code="2">
@@ -3257,24 +3347,24 @@ Curriculum on the rights of persons with disabilities for judiciary and prosecut
       <narrative>Moldova, Republic of</narrative>
     </recipient-country>
     <location ref="MD">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="617790" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="618426" />
       <name>
-        <narrative>Moldova</narrative>
+        <narrative>Chisinau</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>mol</narrative>
       </activity-description>
-      <administrative level="0" code="617790" vocabulary="G1" />
+      <administrative level="1" code="618426" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>47.250000 28.583330</pos>
+        <pos>47.005560 28.857500</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="15151" />
     <sector vocabulary="99" code="2">
@@ -3721,13 +3811,6 @@ Curriculum on the rights of persons with disabilities for judiciary and prosecut
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/MEBP%20Monitoring%20report%202012.pdf">
-      <title>
-        <narrative>MEBP Monitoring report 2012</narrative>
-      </title>
-      <category code="A07" />
-      <language code="en" />
-    </document-link>
     <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/MDA/MEBP%20Annual%20Report%202012.docx">
       <title>
         <narrative>MEBP Annual Report 2012</narrative>
@@ -3918,6 +4001,14 @@ Curriculum on the rights of persons with disabilities for judiciary and prosecut
       <category code="A12" />
       <language code="en" />
     </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/AwP%202017%20signed_MEBP.pdf">
+      <title>
+        <narrative>AWP 2017</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00093336" />
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00093797" />
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00093812" />
@@ -4087,7 +4178,7 @@ Curriculum on the rights of persons with disabilities for judiciary and prosecut
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">1547639</value>
+      <value currency="USD" value-date="2017-12-31">2242311</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -4107,6 +4198,18 @@ Curriculum on the rights of persons with disabilities for judiciary and prosecut
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">125557</value>
+      <provider-org type="10" ref="00170">
+        <narrative>GOVERNMENT OF MOLDOVA, REPUBLIC OF</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00093336">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -4184,7 +4287,7 @@ Curriculum on the rights of persons with disabilities for judiciary and prosecut
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1547639</value>
+      <value currency="USD" value-date="2017-12-31">2116754</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -4292,7 +4395,7 @@ Curriculum on the rights of persons with disabilities for judiciary and prosecut
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">8067720</value>
+      <value currency="USD" value-date="2017-12-31">8762392</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -4301,7 +4404,7 @@ Curriculum on the rights of persons with disabilities for judiciary and prosecut
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">-208</value>
+      <value currency="USD" value-date="2018-01-31">26819</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -4476,7 +4579,7 @@ More than 100 briquettes and pellets producers on the market;
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">100000</value>
+      <value currency="USD" value-date="2017-12-31">209144</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -4513,7 +4616,7 @@ More than 100 briquettes and pellets producers on the market;
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">100000</value>
+      <value currency="USD" value-date="2017-12-31">209144</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -4561,7 +4664,7 @@ More than 100 briquettes and pellets producers on the market;
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1593803</value>
+      <value currency="USD" value-date="2017-12-31">1702947</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -4728,7 +4831,7 @@ More than 100 briquettes and pellets producers on the market;
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">100000</value>
+      <value currency="USD" value-date="2017-12-31">36878</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -4753,7 +4856,7 @@ More than 100 briquettes and pellets producers on the market;
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">100000</value>
+      <value currency="USD" value-date="2017-12-31">36878</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -4801,10 +4904,16 @@ More than 100 briquettes and pellets producers on the market;
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">546894</value>
+      <value currency="USD" value-date="2017-12-31">483772</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">1038</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -4865,7 +4974,7 @@ More than 100 briquettes and pellets producers on the market;
           </target>
           <actual value="">
             <comment>
-              <narrative>1. 1324 community leaders (including 1002 women and 322 men) managers of public institutions from beneficiary communities enhanced their knowledge in mobilization of local resources, management of biomass heating systems and sustainability and participative ME of biomass heating projects. Another 80 mayors, school and kindergarten directors acquired necessary skills pertaining to sustainable procurement of solid biomass. 
+              <narrative>1. 1324 community leaders (including 1002 women and 322 men) managers of public institutions from beneficiary communities enhanced their knowledge in mobilization of local resources, management of biomass heating systems and sustainability and participative M&amp;E of biomass heating projects. Another 80 mayors, school and kindergarten directors acquired necessary skills pertaining to sustainable procurement of solid biomass. 
 2. Up to 79 fuel suppliers participated in 6 regional training courses on the subject "Pellet and briquette production"and "Business management in the field of pellets and briquettes production" 
 3.More than 3100 pupils participated in the MEBP "Educational Innitiative" that includes: Spring School on RES in Transnistria, Summer School "Energel", optional course on RES for students from 7th - 9th grades taught in more than 100 schools, partnership with Moldova Ecological Movement, on-line webinars.  
 4. Educational Initiative on Renewable Energy and Energy Efficiency for the school year 2015-2016 successfully completed. new activities have been set up with the Ministry of Education, for continuing educational initiatives in the next year. 
@@ -4965,7 +5074,7 @@ More than 100 briquettes and pellets producers on the market;
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">100000</value>
+      <value currency="USD" value-date="2017-12-31">50388</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -4990,7 +5099,7 @@ More than 100 briquettes and pellets producers on the market;
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">100000</value>
+      <value currency="USD" value-date="2017-12-31">50388</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -5038,10 +5147,16 @@ More than 100 briquettes and pellets producers on the market;
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">424566</value>
+      <value currency="USD" value-date="2017-12-31">374954</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">69</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -5084,7 +5199,7 @@ More than 100 briquettes and pellets producers on the market;
           <comment>
             <narrative>- 300 media materials about the benefits and advantages of biomass energy for Moldova and project results/activities; 
 - 300 requests of information about project activities during 2014; 
-- Moldova Eco-Energetica is 90% high  very high appreciated, according to the survey results.</narrative>
+- Moldova Eco-Energetica is 90% high &amp; very high appreciated, according to the survey results.</narrative>
           </comment>
         </baseline>
         <period>
@@ -5097,15 +5212,15 @@ More than 100 briquettes and pellets producers on the market;
 3. At least 15 press releases developed and disseminated; 
 4. 6 editions of project newsletter developed (RO, ENG, and RU) and disseminated.
 5. Over 360 persons request information about project activities.
-6. The evaluation surveys carried out during the Moldova Eco-Energetica show that the event is valued 90% high  v. high, and will indicate positive intention to take actions.</narrative>
+6. The evaluation surveys carried out during the Moldova Eco-Energetica show that the event is valued 90% high &amp; v. high, and will indicate positive intention to take actions.</narrative>
             </comment>
           </target>
           <actual value="">
             <comment>
               <narrative>1. Over 400 media materials (TV, Radio, newspapers, web portals) were published about the benefits of green energy, and impact of project results for green economy start-up in Moldova;                                                 
 2. 12 public events organised to present the project activities and results                                                         
-3. 18 press releases about project initiatives  results were disseminated to media  project partners/beneficiaris, and were placed on the www.biomasa.md and  Project Facebook account Energie din Biomasă.                                                  
-4. 6 editions of project newsletter were developed in RO, RU  EN languages and disseminated to media, project partners, beneficiaries, and promoted on social media networks, project web page                                                             
+3. 18 press releases about project initiatives &amp; results were disseminated to media &amp; project partners/beneficiaris, and were placed on the www.biomasa.md and  Project Facebook account Energie din Biomasă.                                                  
+4. 6 editions of project newsletter were developed in RO, RU &amp; EN languages and disseminated to media, project partners, beneficiaries, and promoted on social media networks, project web page                                                             
 5.  Over 350 persons requested from the project team via email, telephone, letters, visits to the project office information about project activities and next interventions                                                        
 6. Participants to the Moldova Eco Energetica Award ceremony valued  with high and very high appreciations (90%)</narrative>
             </comment>
@@ -5121,7 +5236,7 @@ More than 100 briquettes and pellets producers on the market;
 3. At least 15 press releases developed and disseminated; 
 4. 5 editions of project newsletter developed (RO, ENG, and RU) and disseminated.
 5. Over 435 persons request information about project activities.
-6. The evaluation surveys carried out during the Moldova Eco-Energetica show that the event is valued 90% high  v. high, and will indicate positive intention to take actions.</narrative>
+6. The evaluation surveys carried out during the Moldova Eco-Energetica show that the event is valued 90% high &amp; v. high, and will indicate positive intention to take actions.</narrative>
             </comment>
           </target>
         </period>
@@ -5160,13 +5275,16 @@ More than 100 briquettes and pellets producers on the market;
     <participating-org role="1" type="10" ref="US-USAGOV">
       <narrative>US Department of State, Office to monitor &amp; combat Tracking in persons.</narrative>
     </participating-org>
+    <participating-org role="1" type="10" ref="US-USAGOV">
+      <narrative>US Int'l Narcotics &amp; Law Enfmn</narrative>
+    </participating-org>
     <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2011-07-29" />
     <activity-date type="2" iso-date="2011-07-29" />
-    <activity-date type="3" iso-date="2018-12-31" />
+    <activity-date type="3" iso-date="2019-12-31" />
     <contact-info type="1">
       <email>registry.md@undp.org</email>
       <website>http://www.md.undp.org/</website>
@@ -5376,6 +5494,30 @@ More than 100 briquettes and pellets producers on the market;
       </title>
       <category code="A11" />
       <category code="A12" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/00088321_awp_2016-2017_09December%202016%20updated.pdf">
+      <title>
+        <narrative>AWP 2016-2017 SJSR</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/00088321%20SJSR%20AWP%202018%20-2019%20Signed.PDF">
+      <title>
+        <narrative>AWP 2018-2019 SJSR</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/00089415%20AWP%202018-2019%20Signed.PDF">
+      <title>
+        <narrative>AWP 2018-2019 SPR</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00088321" />
@@ -5634,7 +5776,7 @@ More than 100 briquettes and pellets producers on the market;
       <narrative>Prosecutor General Office Mold</narrative>
     </participating-org>
     <participating-org role="1" type="10" ref="US-USAGOV">
-      <narrative>US Department of State, Office to monitor &amp; combat Tracking in persons.</narrative>
+      <narrative>US Int'l Narcotics &amp; Law Enfmn</narrative>
     </participating-org>
     <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
@@ -5642,7 +5784,7 @@ More than 100 briquettes and pellets producers on the market;
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-12-01" />
     <activity-date type="2" iso-date="2013-12-01" />
-    <activity-date type="3" iso-date="2018-12-31" />
+    <activity-date type="3" iso-date="2019-09-30" />
     <contact-info type="1">
       <email>registry.md@undp.org</email>
       <website>http://www.md.undp.org/</website>
@@ -5714,9 +5856,14 @@ More than 100 briquettes and pellets producers on the market;
       <value currency="USD" value-date="2017-12-31">135073</value>
     </budget>
     <budget type="2" status="2">
+      <period-start iso-date="2019-01-01" />
+      <period-end iso-date="2019-12-31" />
+      <value currency="USD" value-date="2017-12-31">190407</value>
+    </budget>
+    <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">204425</value>
+      <value currency="USD" value-date="2017-12-31">979172</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -5746,7 +5893,7 @@ More than 100 briquettes and pellets producers on the market;
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">10911</value>
+      <value currency="USD" value-date="2017-12-31">13296</value>
       <provider-org type="10" ref="00137">
         <narrative>GOVERNMENT OF ITALY</narrative>
       </provider-org>
@@ -5842,7 +5989,19 @@ More than 100 briquettes and pellets producers on the market;
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">193514</value>
+      <value currency="USD" value-date="2017-12-31">97650</value>
+      <provider-org type="10" ref="00170">
+        <narrative>GOVERNMENT OF MOLDOVA, REPUBLIC OF</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00088321">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">691433</value>
       <provider-org type="10" ref="00170">
         <narrative>GOVERNMENT OF MOLDOVA, REPUBLIC OF</narrative>
       </provider-org>
@@ -5950,6 +6109,30 @@ More than 100 briquettes and pellets producers on the market;
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">92757</value>
+      <provider-org type="10" ref="US-USAGOV">
+        <narrative>US Int'l Narcotics &amp; Law Enfmn</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00088321">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">274443</value>
+      <provider-org type="10" ref="US-USAGOV">
+        <narrative>US Int'l Narcotics &amp; Law Enfmn</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00088321">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">85789</value>
       <provider-org type="10" ref="US-USAGOV">
         <narrative>US Department of State, Office to monitor &amp; combat Tracking in persons.</narrative>
@@ -5998,7 +6181,7 @@ More than 100 briquettes and pellets producers on the market;
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">716253</value>
+      <value currency="USD" value-date="2017-12-31">1681407</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -6007,7 +6190,7 @@ More than 100 briquettes and pellets producers on the market;
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">933</value>
+      <value currency="USD" value-date="2018-01-31">69326</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -6138,7 +6321,7 @@ More than 100 briquettes and pellets producers on the market;
       <narrative>GOVERNMENT OF MOLDOVA, REPUBLIC OF</narrative>
     </participating-org>
     <participating-org role="1" type="10" ref="US-USAGOV">
-      <narrative>US Department of State, Office to monitor &amp; combat Tracking in persons.</narrative>
+      <narrative>US Int'l Narcotics &amp; Law Enfmn</narrative>
     </participating-org>
     <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
@@ -6146,7 +6329,7 @@ More than 100 briquettes and pellets producers on the market;
     <activity-status code="2" />
     <activity-date type="1" iso-date="2014-02-01" />
     <activity-date type="2" iso-date="2014-02-01" />
-    <activity-date type="3" iso-date="2018-12-31" />
+    <activity-date type="3" iso-date="2019-03-31" />
     <contact-info type="1">
       <email>registry.md@undp.org</email>
       <website>http://www.md.undp.org/</website>
@@ -6198,9 +6381,14 @@ More than 100 briquettes and pellets producers on the market;
       <value currency="USD" value-date="2017-12-31">580007</value>
     </budget>
     <budget type="2" status="2">
+      <period-start iso-date="2019-01-01" />
+      <period-end iso-date="2019-12-31" />
+      <value currency="USD" value-date="2017-12-31">52920</value>
+    </budget>
+    <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">682288</value>
+      <value currency="USD" value-date="2017-12-31">1183421</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -6266,11 +6454,47 @@ More than 100 briquettes and pellets producers on the market;
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">166896</value>
+      <value currency="USD" value-date="2017-12-31">52920</value>
+      <provider-org type="10" ref="US-USAGOV">
+        <narrative>US Int'l Narcotics &amp; Law Enfmn</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00089415">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">170949</value>
       <provider-org type="10" ref="US-USAGOV">
         <narrative>US Department of State, Office to monitor &amp; combat Tracking in persons.</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00089415">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">487080</value>
+      <provider-org type="10" ref="US-USAGOV">
+        <narrative>US Int'l Narcotics &amp; Law Enfmn</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00089415">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">540000</value>
+      <provider-org ref="US-USAGOV" type="10">
+        <narrative>US Int'l Narcotics &amp; Law Enfmn</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00089415">
         <narrative>United Nations Development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -6361,6 +6585,18 @@ More than 100 briquettes and pellets producers on the market;
     </transaction>
     <transaction>
       <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">10000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00089415">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">21100</value>
       <provider-org type="40" ref="XM-DAC-41114">
@@ -6386,10 +6622,16 @@ More than 100 briquettes and pellets producers on the market;
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">3211267</value>
+      <value currency="USD" value-date="2017-12-31">3765320</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">1311</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -6543,20 +6785,6 @@ More than 100 briquettes and pellets producers on the market;
     <document-link format="text/html" url="https://erc.undp.org/evaluation/evaluations/detail/8098">
       <title>
         <narrative>Clima-East: Sustainable management of pastures and community forests in National Park Orhei</narrative>
-      </title>
-      <category code="A07" />
-      <language code="en" />
-    </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/Clima%20East%20Pilots_Moldova.pdf">
-      <title>
-        <narrative>ROM mission report</narrative>
-      </title>
-      <category code="A07" />
-      <language code="en" />
-    </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/Clima%20East%20Pilots_Moldova_background.pdf">
-      <title>
-        <narrative>ROM mission report</narrative>
       </title>
       <category code="A07" />
       <language code="en" />
@@ -6847,21 +7075,21 @@ More than 100 briquettes and pellets producers on the market;
       <narrative>Moldova, Republic of</narrative>
     </recipient-country>
     <location ref="MD">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="617790" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="618426" />
       <name>
-        <narrative>Moldova</narrative>
+        <narrative>Chisinau</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="617790" vocabulary="G1" />
+      <administrative level="1" code="618426" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>47.250000 28.583330</pos>
+        <pos>47.005560 28.857500</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="23010" />
     <sector vocabulary="99" code="1">
@@ -7149,6 +7377,14 @@ c) carbon dividends
       <category code="A12" />
       <language code="en" />
     </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/Signed%20AWP%202017%20-%20NAP.pdf">
+      <title>
+        <narrative>AWP 2017</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00087103" />
     <conditions attached="0" />
   </iati-activity>
@@ -7182,21 +7418,21 @@ c) carbon dividends
       <narrative>Moldova, Republic of</narrative>
     </recipient-country>
     <location ref="MD">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="617790" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="618426" />
       <name>
-        <narrative>Moldova</narrative>
+        <narrative>Chisinau</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="617790" vocabulary="G1" />
+      <administrative level="1" code="618426" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>47.250000 28.583330</pos>
+        <pos>47.005560 28.857500</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="51010" />
     <sector vocabulary="99" code="1">
@@ -7480,7 +7716,7 @@ c) carbon dividends
     <description type="1">
       <narrative>Enhancing Protection of victims and potential victims of human trafficking and domestic violence through a strengthened system and Empowerment of individuals to prevent and address the problems at their roots in the Transnistrian region</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -7740,7 +7976,7 @@ c) carbon dividends
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">20</value>
+      <value currency="USD" value-date="2018-01-31">3040</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -7914,6 +8150,14 @@ c) carbon dividends
       <category code="A12" />
       <language code="en" />
     </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/ESCO%20Moldova_AWP%202017_EN.PDF">
+      <title>
+        <narrative>AWP 2017</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00089623" />
     <conditions attached="0" />
     <result type="1" aggregation-status="1">
@@ -8057,7 +8301,7 @@ c) carbon dividends
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">166746</value>
+      <value currency="USD" value-date="2017-12-31">168021</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -8087,7 +8331,7 @@ c) carbon dividends
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">132606</value>
+      <value currency="USD" value-date="2017-12-31">132897</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -8147,7 +8391,7 @@ c) carbon dividends
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">34140</value>
+      <value currency="USD" value-date="2017-12-31">35124</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00079687">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -8207,7 +8451,7 @@ c) carbon dividends
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1448037</value>
+      <value currency="USD" value-date="2017-12-31">1449312</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -8216,7 +8460,7 @@ c) carbon dividends
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">117</value>
+      <value currency="USD" value-date="2018-01-31">4000</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -8310,6 +8554,18 @@ c) carbon dividends
 6.  10 guarantees approved for the public sector;</narrative>
             </comment>
           </target>
+          <actual value="">
+            <comment>
+              <narrative>The project is off-track due to external factors impeding implementation of the EPC modality in the envisaged 20 buildings in Chisinau municipality. The project is currently implementing the adaptive management approach implying revision of the project's financing scheme for EPC.
+
+1. Not achieved.
+2. Not achieved.
+3. Not achieved.
+4. Not achieved.
+5. Not achieved.
+6. Not achieved.</narrative>
+            </comment>
+          </actual>
         </period>
       </indicator>
     </result>
@@ -8390,6 +8646,13 @@ c) carbon dividends
       <category code="A08" />
       <language code="en" />
     </document-link>
+    <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/MDA/Palanca%20Project%20Progress%20Report_2016-2017.docx">
+      <title>
+        <narrative>Progress Report 2016-2017</narrative>
+      </title>
+      <category code="A08" />
+      <language code="en" />
+    </document-link>
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/Progress%20Report%20No1_Palanca.pdf">
       <title>
         <narrative>Progress Report No1_Palanca</narrative>
@@ -8431,6 +8694,22 @@ c) carbon dividends
       </title>
       <category code="A11" />
       <category code="A12" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/00090325%20AWP%202017%20Palanca.pdf">
+      <title>
+        <narrative>AWP 2017</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/00090325%20awp%202018%20signed.pdf">
+      <title>
+        <narrative>AWP 2018</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00090325" />
@@ -8683,7 +8962,7 @@ c) carbon dividends
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">4671798</value>
+      <value currency="USD" value-date="2017-12-31">4903587</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -8708,7 +8987,7 @@ c) carbon dividends
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">857337</value>
+      <value currency="USD" value-date="2017-12-31">815523</value>
       <provider-org type="10" ref="00170">
         <narrative>GOVERNMENT OF MOLDOVA, REPUBLIC OF</narrative>
       </provider-org>
@@ -8768,11 +9047,23 @@ c) carbon dividends
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">3814461</value>
+      <value currency="USD" value-date="2017-12-31">4088064</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00090325">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">2626569</value>
+      <provider-org ref="10159" type="40">
+        <narrative>EUROPEAN COMMISSION</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00090325">
         <narrative>United Nations Development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -8852,7 +9143,7 @@ c) carbon dividends
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">5969032</value>
+      <value currency="USD" value-date="2017-12-31">6200821</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -8861,7 +9152,7 @@ c) carbon dividends
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">1043</value>
+      <value currency="USD" value-date="2018-01-31">13818</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -8974,7 +9265,7 @@ c) carbon dividends
     <description type="1">
       <narrative>Promotion of women in decision making processes at all levels of political and administrative processes</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -9031,13 +9322,6 @@ c) carbon dividends
       <category code="A01" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="https://erc.undp.org/evaluation/evaluations/detail/8097">
-      <title>
-        <narrative>Enhancing Women's Political Representation through improved capacity and enhanced support in Moldova</narrative>
-      </title>
-      <category code="A07" />
-      <language code="en" />
-    </document-link>
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/00090378%20Final%20report%20WiP_08.12.2017.pdf">
       <title>
         <narrative>00090378 Final report WiP</narrative>
@@ -9058,6 +9342,14 @@ c) carbon dividends
       </title>
       <category code="A11" />
       <category code="A12" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/00090378_AWP_2017updated%20as%20of%207%20feb%202017.pdf">
+      <title>
+        <narrative>AWP 2017</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00090378" />
@@ -9188,24 +9480,24 @@ c) carbon dividends
       <narrative>Moldova, Republic of</narrative>
     </recipient-country>
     <location ref="MD">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="617790" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="618426" />
       <name>
-        <narrative>Moldova</narrative>
+        <narrative>Chisinau</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>Moldova</narrative>
       </activity-description>
-      <administrative level="0" code="617790" vocabulary="G1" />
+      <administrative level="1" code="618426" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>47.250000 28.583330</pos>
+        <pos>47.005560 28.857500</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="15170" />
     <sector vocabulary="99" code="4">
@@ -9492,18 +9784,6 @@ c) carbon dividends
     <default-finance-type code="110" />
     <default-aid-type code="C01" />
     <default-tied-status code="3" />
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/AWP%20NHRIs%20Project%202015-2016.pdf">
-      <title>
-        <narrative>AWP NHRIs Project 20152016</narrative>
-      </title>
-      <category code="A01" />
-      <category code="A02" />
-      <category code="A03" />
-      <category code="A04" />
-      <category code="A05" />
-      <category code="A08" />
-      <language code="en" />
-    </document-link>
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/ProDoc%20NHRIs%20Project%202014-2016%20final.pdf">
       <title>
         <narrative>ProDoc NHRIs Project 20142016 final</narrative>
@@ -9573,6 +9853,14 @@ c) carbon dividends
       <category code="A12" />
       <language code="en" />
     </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/AWP%20NHRIs%20Project%202015-2016.pdf">
+      <title>
+        <narrative>AWP 2015-2016</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00090440" />
     <conditions attached="0" />
   </iati-activity>
@@ -9611,23 +9899,23 @@ Country: Moldova</narrative>
     </recipient-country>
     <location ref="MD">
       <location-reach code="1" />
-      <location-id vocabulary="G1" code="617790" />
+      <location-id vocabulary="G1" code="618426" />
       <name>
-        <narrative>Moldova</narrative>
+        <narrative>Chisinau</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
-        <narrative>Training on Human Rights Based Approach for governmental actors, NGOs, mass media, judges and lawyers, local public administration</narrative>
+        <narrative>Training on implementing the new law on National Preventive Mechanism for Ombudsperson Office</narrative>
       </activity-description>
-      <administrative level="0" code="617790" vocabulary="G1" />
+      <administrative level="1" code="618426" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>47.250000 28.583330</pos>
+        <pos>47.005560 28.857500</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <location ref="MD">
       <location-reach code="1" />
@@ -9639,7 +9927,7 @@ Country: Moldova</narrative>
         <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
-        <narrative>Training on implementing the new law on National Preventive Mechanism for Ombudsperson Office</narrative>
+        <narrative>Training on Human Rights Based Approach for governmental actors, NGOs, mass media, judges and lawyers, local public administration</narrative>
       </activity-description>
       <administrative level="1" code="618426" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
@@ -9963,6 +10251,30 @@ Country: Moldova</narrative>
       <category code="A12" />
       <language code="en" />
     </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/AWP_LED%20Project_signed.pdf">
+      <title>
+        <narrative>AWP 2014-2017</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/AWP_LED_2017.pdf">
+      <title>
+        <narrative>AWP 2017</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/AWP%20LED%202016.pdf">
+      <title>
+        <narrative>AWP LED 2016</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00090471" />
     <conditions attached="0" />
     <result type="1" aggregation-status="1">
@@ -10181,24 +10493,24 @@ Country: Moldova</narrative>
       <narrative>Moldova, Republic of</narrative>
     </recipient-country>
     <location ref="MD">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="617790" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="618426" />
       <name>
-        <narrative>Moldova</narrative>
+        <narrative>Chisinau</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>Innovative SMEs receive support in terms of trainings and grants to pilot innovative projects.</narrative>
       </activity-description>
-      <administrative level="0" code="617790" vocabulary="G1" />
+      <administrative level="1" code="618426" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>47.250000 28.583330</pos>
+        <pos>47.005560 28.857500</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="15110" />
     <sector vocabulary="99" code="1">
@@ -10498,6 +10810,12 @@ Country: Moldova</narrative>
     </transaction>
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">1516</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">481575</value>
       <disbursement-channel code="2" />
@@ -10560,7 +10878,7 @@ Country: Moldova</narrative>
           </target>
           <actual value="">
             <comment>
-              <narrative>1. More than 300 SMEs got trainings on ABC of innovation, innovative funding and financing, marketing and sales and ME
+              <narrative>1. More than 300 SMEs got trainings on ABC of innovation, innovative funding and financing, marketing and sales and M&amp;E
 2. 30 graduates of the business incubators got trainings on innovation
 3. 20 SMEs tested their ideas with the Lab, including at least 6 SMEs through collaborative projects in the Coolege Vitamine campaign
 4. 20 small matching grants provided to SMEs for the implementation of the innovative projects (including 2 collaborative innovative projects, 5 awards for technological transfer in fresh fruits sector and 13 individual awards for innovative SMEs)
@@ -10663,6 +10981,14 @@ Country: Moldova</narrative>
       </title>
       <category code="A11" />
       <category code="A12" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/BDM%20AWP%202017.pdf">
+      <title>
+        <narrative>AWP 2017</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00090554" />
@@ -10791,7 +11117,7 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">137557</value>
+      <value currency="USD" value-date="2017-12-31">172965</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -10816,7 +11142,7 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">129666</value>
+      <value currency="USD" value-date="2017-12-31">165074</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -10900,7 +11226,7 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">999102</value>
+      <value currency="USD" value-date="2017-12-31">1034510</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -10909,7 +11235,7 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">56</value>
+      <value currency="USD" value-date="2018-01-31">4335</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -11032,7 +11358,7 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
     <description type="1">
       <narrative>The Programme aims to contribute to an environment of trust and cooperation across the Nistru River, generating new perspectives on a shared future by people on both banks while responding to their pressing development needs.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -11320,6 +11646,22 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
       <category code="A12" />
       <language code="en" />
     </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/00090592_00094646_AWP_2016.PDF">
+      <title>
+        <narrative>00090592_00094646_AWP_2016</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/00099682_Multi-Year%20Workplan_2016-2018.pdf">
+      <title>
+        <narrative>00099682_Multi-Year Workplan_2016-2018 - CBM Health Ph 2</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00090592" />
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00094646" />
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00099682" />
@@ -11569,7 +11911,7 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">64724</value>
+      <value currency="USD" value-date="2017-12-31">51298</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -11594,7 +11936,7 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">64724</value>
+      <value currency="USD" value-date="2017-12-31">51298</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -11678,7 +12020,7 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">2752981</value>
+      <value currency="USD" value-date="2017-12-31">2739555</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -11687,7 +12029,7 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">122</value>
+      <value currency="USD" value-date="2018-01-31">10074</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -11807,7 +12149,7 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2015-03-15" />
     <activity-date type="2" iso-date="2015-03-15" />
-    <activity-date type="3" iso-date="2018-03-15" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.md@undp.org</email>
       <website>http://www.md.undp.org/</website>
@@ -11861,7 +12203,7 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">1394663</value>
+      <value currency="USD" value-date="2017-12-31">1679945</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -11934,7 +12276,7 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1359395</value>
+      <value currency="USD" value-date="2017-12-31">1644677</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -12066,7 +12408,7 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">8076351</value>
+      <value currency="USD" value-date="2017-12-31">8361633</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -12075,7 +12417,7 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">148190</value>
+      <value currency="USD" value-date="2018-01-31">252531</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -12111,7 +12453,7 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
         <description>
           <narrative>1. Level of openness and trust towards development interventions
 2. Number of local actors with increased capacities for sustainable development 
-2.1 Number of statisticians whose capacities to collect  produce quality data (in specific statistical areas) were built, to make more data available for the research and policy development
+2.1 Number of statisticians whose capacities to collect &amp; produce quality data (in specific statistical areas) were built, to make more data available for the research and policy development
 3. Number of social infrastructure projects supported in the security zone on both banks 
 3.1 % of infrastructure projects receiving a quality rating of satisfactory overall or higher
 4. Number of people benefited from improved services and various forms of cooperation (disaggregated by sex and geographical coverage)</narrative>
@@ -12241,7 +12583,7 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">143089</value>
+      <value currency="USD" value-date="2017-12-31">216454</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -12261,7 +12603,7 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">143089</value>
+      <value currency="USD" value-date="2017-12-31">216454</value>
       <provider-org type="40" ref="12248">
         <narrative>Towards Unity in Action Multi Donor Trust fund for Participating UN Organisations in Republic of Moldova.</narrative>
       </provider-org>
@@ -12321,10 +12663,16 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">449385</value>
+      <value currency="USD" value-date="2017-12-31">522750</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">402</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -12442,9 +12790,9 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
     <default-finance-type code="110" />
     <default-aid-type code="C01" />
     <default-tied-status code="3" />
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/ProDoc_InnHubS-signed)_AWP.pdf">
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/00091673%20InnoHub_ProDoc-signed.pdf">
       <title>
-        <narrative>ProDoc_InnHubSsigned_AWP</narrative>
+        <narrative>00091673 InnoHub_ProDocsigned</narrative>
       </title>
       <category code="A01" />
       <category code="A02" />
@@ -12488,6 +12836,14 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
       </title>
       <category code="A11" />
       <category code="A12" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/ProDoc_InnHubS-signed)_AWP.pdf">
+      <title>
+        <narrative>AWP 2014-2015</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00091673" />
@@ -12624,24 +12980,24 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
       <narrative>Moldova, Republic of</narrative>
     </recipient-country>
     <location ref="MD">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="617790" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="618426" />
       <name>
-        <narrative>Moldova</narrative>
+        <narrative>Chisinau</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>Citizens are better engaged in decision making processes and design of public policies</narrative>
       </activity-description>
-      <administrative level="0" code="617790" vocabulary="G1" />
+      <administrative level="1" code="618426" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>47.250000 28.583330</pos>
+        <pos>47.005560 28.857500</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="99810" />
     <sector vocabulary="99" code="7">
@@ -12661,7 +13017,7 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">67344</value>
+      <value currency="USD" value-date="2017-12-31">114144</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -12763,7 +13119,7 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">7344</value>
+      <value currency="USD" value-date="2017-12-31">14144</value>
       <provider-org type="70" ref="11218">
         <narrative>MOLDCELL SA</narrative>
       </provider-org>
@@ -12895,7 +13251,7 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">60000</value>
+      <value currency="USD" value-date="2017-12-31">100000</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00083008">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -12955,7 +13311,7 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">381157</value>
+      <value currency="USD" value-date="2017-12-31">427957</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -12964,7 +13320,7 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">1682</value>
+      <value currency="USD" value-date="2018-01-31">6441</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -13043,6 +13399,16 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
             </comment>
           </actual>
         </period>
+        <period>
+          <period-start iso-date="2018-01-01" />
+          <period-end iso-date="2018-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1. 3 innovative solutions designed and tested in a participatory manner
+2. 20 events / capacity building sessions conducted on mainstreaming innovative tools</narrative>
+            </comment>
+          </target>
+        </period>
       </indicator>
     </result>
   </iati-activity>
@@ -13098,13 +13464,6 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/00092867_AWP_2016_NIJ_DK.pdf">
-      <title>
-        <narrative>00092867_AWP_2016_NIJ_DK</narrative>
-      </title>
-      <category code="A05" />
-      <language code="en" />
-    </document-link>
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/Cover_AWP_NIJ_Revision%202016_Feb_signed.PDF">
       <title>
         <narrative>Cover_AWP_NIJ_Revision 2016_Feb_signed</narrative>
@@ -13125,6 +13484,30 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
       </title>
       <category code="A11" />
       <category code="A12" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/00092867_AWP_2016_NIJ_DK.pdf">
+      <title>
+        <narrative>AWP 2016</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/00092867_AWP%202017.pdf">
+      <title>
+        <narrative>AWP 2017</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/00092867%20NIJ%20updated%20AWP%202017%20signed.pdf">
+      <title>
+        <narrative>AWP 2017 update</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00092867" />
@@ -13207,7 +13590,7 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">528731</value>
+      <value currency="USD" value-date="2017-12-31">1087228</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -13232,7 +13615,7 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">528731</value>
+      <value currency="USD" value-date="2017-12-31">1087228</value>
       <provider-org type="10" ref="DK-1">
         <narrative>GOVERNMENT OF DENMARK</narrative>
       </provider-org>
@@ -13340,10 +13723,16 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">2172890</value>
+      <value currency="USD" value-date="2017-12-31">2731387</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">140994</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -13750,7 +14139,7 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">29656</value>
+      <value currency="USD" value-date="2018-01-31">35602</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -13853,6 +14242,20 @@ Developing Forest Management Plans (FMPs) for Zastinca a</narrative>
             </comment>
           </actual>
         </period>
+        <period>
+          <period-start iso-date="2018-01-01" />
+          <period-end iso-date="2018-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1.1.The analytical study on the examination of active corruption cases in judicial practice and application of sentences in these cases for the period 2013-2017 conducted and published</narrative>
+            </comment>
+          </target>
+          <actual value="">
+            <comment>
+              <narrative>1.1. Achieved. The analytical study on the examination of active corruption cases in judicial practice and application of sentences in these cases for the period 2013-2017 conducted and published</narrative>
+            </comment>
+          </actual>
+        </period>
       </indicator>
     </result>
   </iati-activity>
@@ -13907,6 +14310,13 @@ Project  Main Goal: to assist communities affected by migration to benefit from 
       <category code="A08" />
       <language code="en" />
     </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/MiDL_Progress%20report%202017_En.pdf">
+      <title>
+        <narrative>MiDL_Progress report 2017_En</narrative>
+      </title>
+      <category code="A08" />
+      <language code="en" />
+    </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=25790">
       <title>
         <narrative>IMLDP/Public Relations and Communication Services</narrative>
@@ -13934,6 +14344,22 @@ Project  Main Goal: to assist communities affected by migration to benefit from 
       </title>
       <category code="A11" />
       <category code="A12" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/AWP_MiDL_2017_EN_approved.pdf">
+      <title>
+        <narrative>2017-AWP-MiDL</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/MiDL_AWP_%202018_En.pdf">
+      <title>
+        <narrative>MiDL_AWP_ 2018_En</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00094265" />
@@ -14408,6 +14834,26 @@ Project  Main Goal: to assist communities affected by migration to benefit from 
       <location-class code="2" />
       <feature-designation code="PPL" />
     </location>
+    <location ref="MD">
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="618426" />
+      <name>
+        <narrative>Chisinau</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative>Communities affected by migration benefit from improved essential local services  and have access to income-generating opportunities, including improved employment reintegration support for returnees</narrative>
+      </activity-description>
+      <administrative level="1" code="618426" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>47.005560 28.857500</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
     <sector vocabulary="1" code="15112" />
     <sector vocabulary="99" code="3">
       <narrative>Responsive Institutions</narrative>
@@ -14433,7 +14879,7 @@ Project  Main Goal: to assist communities affected by migration to benefit from 
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">1245541</value>
+      <value currency="USD" value-date="2017-12-31">1340844</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -14470,7 +14916,7 @@ Project  Main Goal: to assist communities affected by migration to benefit from 
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1245541</value>
+      <value currency="USD" value-date="2017-12-31">1340844</value>
       <provider-org type="10" ref="CH-4">
         <narrative>SWISS AGENCY FOR DEVELOPMENT AND COOPERATION - SDC</narrative>
       </provider-org>
@@ -14554,7 +15000,7 @@ Project  Main Goal: to assist communities affected by migration to benefit from 
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">3280581</value>
+      <value currency="USD" value-date="2017-12-31">3375884</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -14563,7 +15009,7 @@ Project  Main Goal: to assist communities affected by migration to benefit from 
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">2384</value>
+      <value currency="USD" value-date="2018-01-31">33682</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -14686,8 +15132,7 @@ Project  Main Goal: to assist communities affected by migration to benefit from 
               <narrative>1. MLSPF supported in implementing the provisions related to migration from the NES 2017-2021
 2. MLSPF supported in leading the inter-institutional coordination on implementing NES 2017-2021
 3. N/A – achieved in 2016
-4. Regulations and procedures for the institutionalization of reintegration focal points enforced by NEA
-4. Support to NEA in the official institutionalization of the reintegration focal points
+4. Regulations and procedures for the institutionalization of reintegration focal points enforced by NEA; support to NEA in the official institutionalization of the reintegration focal points
 5. Capacity assessment of the reintegration focal points
 6. Advance capacity building of the reintegration focal points from the entire network of NEA, model of employment 
 reintegration service provision piloted in 10 in Territorial Employment Agencies
@@ -14707,9 +15152,29 @@ reintegration service provision piloted in 10 in Territorial Employment Agencies
 18.25 target communities have capacities to plan and implement communication campaigns  
 19.Coaching conducted for 15 LPAs 
 20.At least one public event in 20 target communities for/with diaspora
-21.SMS communication tool piloted by 10 communities; webpages of 25 local authorities func</narrative>
+21.SMS communication tool piloted by 10 communities; webpages of 25 local authorities functi</narrative>
             </comment>
           </target>
+          <actual value="">
+            <comment>
+              <narrative>1. MHLSP and NEA supported in learning alternative options for reorganizing functional and operational aspects of NEA; as well as strengthened the capacity of NEA to provide support to returned migrants and refer them to other public institutions, when necessary.
+2. MLSPF supported in initiating a comprehensive employment data gap analysis, an inter-institutional exercise, as part of implementing the NES 2017-2021
+3. N/A – achieved in 2016
+4. Regulations drafted, reintegration focal points activate in the TEA network; official institutionalization of the regulations postponed until the comprehensive reform of NEA to take place in 2018
+5. Assessment of knowledge and satisfaction performed for trainings and study visits organized.
+6. Advanced capacity building for NEA’s reintegration focal points: two  trainings for reintegration focal points and 10 coaching session delivered to 10 pilot agencies, 10 on-the-job coaching session; one training, one internal study and visits and two international study visits on labour migration, reintegration and migration issues for reintegration focal points from all network of local employment agencies. 
+7. Circa 2000 returnees benefit from NEA’s services.
+8. Assessment tool drafted, guide for reintegration focal points drafted and submitted to NEA.
+9. Referral mechanism piloted in 10 TEAs, document for institutionalization drafted, and submitted to NEA and MHLSP for implementation.
+10.Two trainings provided reintegration focal points and two coaching sessions in 10 pilot TEAs in applying the mechanism.
+11. 25 successfully tested and applied the innovative community mobilization mechanism. 
+12. N/A
+13. 120,000$ raised from migrants, as co-funding for local services projects 
+14. 25 local strategies and action plans approved by local councils
+15. 23 local public services projects successfully implemented; 6 economic development; projects fully implemented
+improved the livelihood of 100,000 people (40% women); 70 new jobs (58 women) c</narrative>
+            </comment>
+          </actual>
         </period>
       </indicator>
     </result>
@@ -14720,7 +15185,7 @@ reintegration service provision piloted in 10 in Territorial Employment Agencies
       <narrative>United Nations Development Programme</narrative>
     </reporting-org>
     <title>
-      <narrative>SYSLAB phase II</narrative>
+      <narrative>Network of Career Advisory Centers in Moldova</narrative>
     </title>
     <description type="1">
       <narrative>Network of Career Advisory Centers in Moldova promoting innovative employment and self-employment at national level, including by running a tailored seed-money fund for innovative start-ups.</narrative>
@@ -14787,6 +15252,22 @@ reintegration service provision piloted in 10 in Territorial Employment Agencies
       </title>
       <category code="A11" />
       <category code="A12" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/00094883_AWP_2016.pdf">
+      <title>
+        <narrative>00094883_AWP_2016</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/AWP_SYSLAB_Jan-March%202017.pdf">
+      <title>
+        <narrative>AWP 2017</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00094883" />
@@ -15427,13 +15908,6 @@ The Parliament of the Republic of Moldova has improved legislative and accountab
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/AWP_July_December_2016_00088088.pdf">
-      <title>
-        <narrative>AWP_July_December_2016_00088088</narrative>
-      </title>
-      <category code="A05" />
-      <language code="en" />
-    </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=33135">
       <title>
         <narrative>Baseline assessment and capacity development plan for the Committees of the Parliament of the Republic of Moldova</narrative>
@@ -15476,12 +15950,43 @@ The Parliament of the Republic of Moldova has improved legislative and accountab
       <category code="A10" />
       <language code="en" />
     </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=44340">
+      <title>
+        <narrative>Supply and Installation of the e-Parliament Information System Republic of Moldova - SPGM Project</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
     <document-link format="text/html" url="http://open.undp.org/#project/00088088">
       <title>
         <narrative>Purchase Order Summary</narrative>
       </title>
       <category code="A11" />
       <category code="A12" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/AWP_July_December_2016_00088088.pdf">
+      <title>
+        <narrative>AWP 2016</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/00094901_SPGM%20AWP%202017%20signed.pdf">
+      <title>
+        <narrative>AWP 2017</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/00094901_SPGM%20AWP%202018%20signed.pdf">
+      <title>
+        <narrative>AWP 2018</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00094901" />
@@ -15564,12 +16069,12 @@ The Parliament of the Republic of Moldova has improved legislative and accountab
     <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2017-12-31">1186162</value>
+      <value currency="USD" value-date="2017-12-31">1317306</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">1400000</value>
+      <value currency="USD" value-date="2017-12-31">1271965</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -15599,6 +16104,18 @@ The Parliament of the Republic of Moldova has improved legislative and accountab
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">105140</value>
+      <provider-org type="10" ref="00170">
+        <narrative>GOVERNMENT OF MOLDOVA, REPUBLIC OF</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00094901">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="1" />
       <transaction-date iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">105140</value>
@@ -15613,7 +16130,7 @@ The Parliament of the Republic of Moldova has improved legislative and accountab
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1186162</value>
+      <value currency="USD" value-date="2017-12-31">1317306</value>
       <provider-org type="10" ref="00555">
         <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
       </provider-org>
@@ -15625,7 +16142,7 @@ The Parliament of the Republic of Moldova has improved legislative and accountab
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1400000</value>
+      <value currency="USD" value-date="2017-12-31">1166825</value>
       <provider-org type="10" ref="00555">
         <narrative>SWEDISH INTERNATIONAL DEVELOPMENT COOPER</narrative>
       </provider-org>
@@ -15685,7 +16202,7 @@ The Parliament of the Republic of Moldova has improved legislative and accountab
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">4007342</value>
+      <value currency="USD" value-date="2017-12-31">4010451</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -15694,7 +16211,7 @@ The Parliament of the Republic of Moldova has improved legislative and accountab
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">2684</value>
+      <value currency="USD" value-date="2018-01-31">33979</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -15780,6 +16297,19 @@ The information system for e-evidence of assets was implemented in partnership w
             </comment>
           </actual>
         </period>
+        <period>
+          <period-start iso-date="2018-01-01" />
+          <period-end iso-date="2018-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1. Program and curriculum fo induction training of newly elected MPs developed
+2. Two monitoring reports on EU approximation activities of the Parliament of Moldova developed
+3. Strategic Development Plan of Gaugauzia’s Parliamentary Assembly developed
+4. Draft Parliamentary Action Plan on openness and transparency developed
+5. E-Parliament system implemented</narrative>
+            </comment>
+          </target>
+        </period>
       </indicator>
     </result>
   </iati-activity>
@@ -15794,7 +16324,7 @@ The information system for e-evidence of assets was implemented in partnership w
     <description type="1">
       <narrative>Support Local development in regions with special status: ATU Gagauzia and Taraclia district trhrough comnfidence building measures.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -15852,13 +16382,6 @@ The information system for e-evidence of assets was implemented in partnership w
       <category code="A04" />
       <category code="A05" />
       <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/00097268_AWP_2016.pdf">
-      <title>
-        <narrative>00097268_AWP_2016</narrative>
-      </title>
-      <category code="A05" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/LPAC%20Minutes_100316.pdf">
@@ -15980,6 +16503,13 @@ The information system for e-evidence of assets was implemented in partnership w
       <category code="A10" />
       <language code="en" />
     </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=44189">
+      <title>
+        <narrative>SARD/Construction Works for Cleaning the River Cahul in Vulc?ne?ti tow</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=44140">
       <title>
         <narrative>SARD/Supply of Waste Disposal Trucks with back loading ? 3 Lots</narrative>
@@ -16007,6 +16537,22 @@ The information system for e-evidence of assets was implemented in partnership w
       </title>
       <category code="A11" />
       <category code="A12" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/00097268_AWP_2016.pdf">
+      <title>
+        <narrative>00097268_AWP_2016</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/00097628_AWP_2017.pdf">
+      <title>
+        <narrative>AWP 2017</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00095575" />
@@ -16540,6 +17086,18 @@ The Corten and Salcia water projects were approved and wil be financed through S
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">20873</value>
+      <provider-org ref="00170" type="10">
+        <narrative>GOVERNMENT OF MOLDOVA, REPUBLIC OF</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00097628">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">812043</value>
@@ -16647,7 +17205,7 @@ The Corten and Salcia water projects were approved and wil be financed through S
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">401858</value>
+      <value currency="USD" value-date="2018-01-31">577392</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -16855,6 +17413,22 @@ Baseline: for ATU Gagauzia - 804 newly registered unemployed in 2014, 704 in 201
       <category code="A12" />
       <language code="en" />
     </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/00098623%20Elections%20III_awp2017.pdf">
+      <title>
+        <narrative>AWP 2017</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/00098623%20AWP%202018_EDMITE%20signed.pdf">
+      <title>
+        <narrative>AWP 2018</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00098623" />
     <conditions attached="0" />
   </iati-activity>
@@ -17016,6 +17590,18 @@ Baseline: for ATU Gagauzia - 804 newly registered unemployed in 2014, 704 in 201
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">1437438</value>
+      <provider-org ref="US-USAGOV" type="10">
+        <narrative>UNITED STATES AGENCY FOR INTERNATIONAL DEVELOPMENT (USAID)</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00098623">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">321192</value>
@@ -17030,7 +17616,7 @@ Baseline: for ATU Gagauzia - 804 newly registered unemployed in 2014, 704 in 201
     <transaction>
       <transaction-type code="1" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1698732</value>
+      <value currency="USD" value-date="2017-12-31">261294</value>
       <provider-org ref="US-USAGOV" type="10">
         <narrative>UNITED STATES AGENCY FOR INTERNATIONAL DEVELOPMENT (USAID)</narrative>
       </provider-org>
@@ -17099,7 +17685,7 @@ Baseline: for ATU Gagauzia - 804 newly registered unemployed in 2014, 704 in 201
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">17457</value>
+      <value currency="USD" value-date="2018-01-31">41142</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00094503">
@@ -17175,6 +17761,24 @@ Baseline: for ATU Gagauzia - 804 newly registered unemployed in 2014, 704 in 201
             </comment>
           </actual>
         </period>
+        <period>
+          <period-start iso-date="2018-01-01" />
+          <period-end iso-date="2018-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1.1. Technical redesign of the CSA IT system – initiated;
+1.2.1. First 500 localities of the total locations data migrated into the new format of the Address System;
+1.2.2. Not applicable for 2018 Parliamentary Elections due to change of the Electoral System;
+1.3. Infrastructure for interoperable connections with Civil Status Service - developed;
+2.1. Not applicable for 2018 due to lack of funds;
+2.2. Development of overall SAISE adjustments – finalized; 
+3.1. Review of the electoral legal framework - initiated; and set of amendments - drafted; 
+3.2. Development of the Political Parties Finance reporting and disclosure Module - finalized;
+4.1. Citizens’ awareness about the work of the CEC/ CCET, electoral system and process – increased by 10 percentage points (against 2016).
+4.2. Civic and electoral education events in 20 schools – provided.</narrative>
+            </comment>
+          </target>
+        </period>
       </indicator>
     </result>
   </iati-activity>
@@ -17189,7 +17793,7 @@ Baseline: for ATU Gagauzia - 804 newly registered unemployed in 2014, 704 in 201
     <description type="1">
       <narrative>Support the Government of Moldova to access new facilities funding green climate initiatives.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -17223,18 +17827,6 @@ Baseline: for ATU Gagauzia - 804 newly registered unemployed in 2014, 704 in 201
     <default-finance-type code="110" />
     <default-aid-type code="C01" />
     <default-tied-status code="3" />
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/GCF%20Engagement%20facility%20extension%202017%20_%20awp2017.pdf">
-      <title>
-        <narrative>00103067 - Engagement Facility Extension and AWP 2017</narrative>
-      </title>
-      <category code="A01" />
-      <category code="A02" />
-      <category code="A03" />
-      <category code="A04" />
-      <category code="A05" />
-      <category code="A08" />
-      <language code="en" />
-    </document-link>
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/GCF%20engadgemet%20facility%20-%20Initiation%20plan001.pdf">
       <title>
         <narrative>00103067-GCF Engagement Facility (Initiation Plan)</narrative>
@@ -17259,12 +17851,12 @@ Baseline: for ATU Gagauzia - 804 newly registered unemployed in 2014, 704 in 201
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00099822">
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/GCF%20Engagement%20facility%20extension%202017%20_%20awp2017.pdf">
       <title>
-        <narrative>Purchase Order Summary</narrative>
+        <narrative>00103067 - Engagement Facility Extension and AWP 2017</narrative>
       </title>
-      <category code="A11" />
-      <category code="A12" />
+      <category code="A02" />
+      <category code="A05" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00103067" />
@@ -17828,6 +18420,12 @@ Baseline: for ATU Gagauzia - 804 newly registered unemployed in 2014, 704 in 201
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">526</value>
+      <disbursement-channel code="2" />
+    </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00099822">
       <title>
         <narrative>Activity web page</narrative>
@@ -17944,13 +18542,6 @@ Baseline: for ATU Gagauzia - 804 newly registered unemployed in 2014, 704 in 201
       <category code="A01" />
       <language code="en" />
     </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/00103967_MIA%20awp%202017-2018%20SIGNED%20July%2012%202017.pdf">
-      <title>
-        <narrative>Updated AWP 2017 2018 MIA signed</narrative>
-      </title>
-      <category code="A05" />
-      <language code="en" />
-    </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=42944">
       <title>
         <narrative>Detailed design for construction works for Ministry of internal Affairs- SEESAC</narrative>
@@ -18015,6 +18606,14 @@ Baseline: for ATU Gagauzia - 804 newly registered unemployed in 2014, 704 in 201
       <category code="A12" />
       <language code="en" />
     </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/00103967_MIA%20awp%202017-2018%20SIGNED%20July%2012%202017.pdf">
+      <title>
+        <narrative>Updated AWP 2017 2018 MIA signed</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00103967" />
     <conditions attached="0" />
   </iati-activity>
@@ -18051,24 +18650,24 @@ Baseline: for ATU Gagauzia - 804 newly registered unemployed in 2014, 704 in 201
       <narrative>Moldova, Republic of</narrative>
     </recipient-country>
     <location ref="MD">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="617790" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="618426" />
       <name>
-        <narrative>Moldova</narrative>
+        <narrative>Chisinau</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>National level project</narrative>
       </activity-description>
-      <administrative level="0" code="617790" vocabulary="G1" />
+      <administrative level="1" code="618426" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>47.250000 28.583330</pos>
+        <pos>47.005560 28.857500</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="15113" />
     <sector vocabulary="99" code="2">
@@ -18095,7 +18694,7 @@ Baseline: for ATU Gagauzia - 804 newly registered unemployed in 2014, 704 in 201
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">489048</value>
+      <value currency="USD" value-date="2017-12-31">1307483</value>
     </budget>
     <capital-spend percentage="0" />
     <transaction>
@@ -18110,7 +18709,7 @@ Baseline: for ATU Gagauzia - 804 newly registered unemployed in 2014, 704 in 201
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">489048</value>
+      <value currency="USD" value-date="2017-12-31">1307483</value>
       <provider-org type="10" ref="00170">
         <narrative>GOVERNMENT OF MOLDOVA, REPUBLIC OF</narrative>
       </provider-org>
@@ -18158,7 +18757,7 @@ Baseline: for ATU Gagauzia - 804 newly registered unemployed in 2014, 704 in 201
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1367900</value>
+      <value currency="USD" value-date="2017-12-31">2186335</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -18167,7 +18766,7 @@ Baseline: for ATU Gagauzia - 804 newly registered unemployed in 2014, 704 in 201
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">9449</value>
+      <value currency="USD" value-date="2018-01-31">14292</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00101611">
@@ -18220,6 +18819,18 @@ Baseline: for ATU Gagauzia - 804 newly registered unemployed in 2014, 704 in 201
             </comment>
           </actual>
         </period>
+        <period>
+          <period-start iso-date="2018-01-01" />
+          <period-end iso-date="2018-12-31" />
+          <target value="">
+            <comment>
+              <narrative>1.1 Reconstruction of the Crises Center completed;
+1.2 Reconstruction of the MIA Training Center for rescuers on the completed;
+1.3 Additional medical equipment for MIA Medical Service procured and installed;
+2.1 Operational and functional capacities of the MIA subdivisions (ITS) enhanced through upgrading and modernization of network infrastructure.</narrative>
+            </comment>
+          </target>
+        </period>
       </indicator>
     </result>
   </iati-activity>
@@ -18229,7 +18840,7 @@ Baseline: for ATU Gagauzia - 804 newly registered unemployed in 2014, 704 in 201
       <narrative>United Nations Development Programme</narrative>
     </reporting-org>
     <title>
-      <narrative>Support Services MoH</narrative>
+      <narrative>Strengthening the national health care procurement system</narrative>
     </title>
     <description type="1">
       <narrative>The overall objective of the project is to strengthen the national health care procurement system and improve the effectiveness of diagnosis and treatment of patients in Moldova.</narrative>
@@ -18365,6 +18976,14 @@ Baseline: for ATU Gagauzia - 804 newly registered unemployed in 2014, 704 in 201
       <category code="A12" />
       <language code="en" />
     </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/MDA/00104204%20AWP%202017_MoH_Nov2017signed.pdf">
+      <title>
+        <narrative>AWP 2017</narrative>
+      </title>
+      <category code="A02" />
+      <category code="A05" />
+      <language code="en" />
+    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00104204" />
     <conditions attached="0" />
   </iati-activity>
@@ -18402,26 +19021,6 @@ Baseline: for ATU Gagauzia - 804 newly registered unemployed in 2014, 704 in 201
     </recipient-country>
     <location ref="MD">
       <location-reach code="2" />
-      <location-id vocabulary="G1" code="617790" />
-      <name>
-        <narrative>Moldova</narrative>
-      </name>
-      <description>
-        <narrative>independent political entity</narrative>
-      </description>
-      <activity-description>
-        <narrative>Countrywide location</narrative>
-      </activity-description>
-      <administrative level="0" code="617790" vocabulary="G1" />
-      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>47.250000 28.583330</pos>
-      </point>
-      <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
-    </location>
-    <location ref="MD">
-      <location-reach code="2" />
       <location-id vocabulary="G1" code="618426" />
       <name>
         <narrative>Chisinau</narrative>
@@ -18431,6 +19030,26 @@ Baseline: for ATU Gagauzia - 804 newly registered unemployed in 2014, 704 in 201
       </description>
       <activity-description>
         <narrative>National level</narrative>
+      </activity-description>
+      <administrative level="1" code="618426" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>47.005560 28.857500</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
+    <location ref="MD">
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="618426" />
+      <name>
+        <narrative>Chisinau</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative>Countrywide location</narrative>
       </activity-description>
       <administrative level="1" code="618426" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
@@ -18480,6 +19099,18 @@ Baseline: for ATU Gagauzia - 804 newly registered unemployed in 2014, 704 in 201
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">13500</value>
+      <provider-org type="10" ref="00170">
+        <narrative>GOVERNMENT OF MOLDOVA, REPUBLIC OF</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00104204">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -18566,7 +19197,7 @@ Baseline: for ATU Gagauzia - 804 newly registered unemployed in 2014, 704 in 201
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">11973</value>
+      <value currency="USD" value-date="2018-01-31">99088</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00101965">
@@ -18627,7 +19258,7 @@ To increase transparency and accountability of the medicines procurement.</narra
     <description type="1">
       <narrative>Engagement Facility Project for UNDP Moldova Country Office“Improving Democratic Elections through efficient IT framework and public participation"</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -18663,14 +19294,6 @@ To increase transparency and accountability of the medicines procurement.</narra
       <category code="A04" />
       <category code="A05" />
       <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00102858">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00104759" />

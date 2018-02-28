@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2018-02-15T17:03:26" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2018-02-28T21:30:23" version="2.02">
   <!--Zambia-->
   <iati-activity last-updated-datetime="2018-02-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00015682</iati-identifier>
@@ -49,14 +49,6 @@
       <category code="A04" />
       <category code="A05" />
       <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00015682">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00049510" />
@@ -141,7 +133,7 @@
     <description type="1">
       <narrative>Support to policy formulation and economic advice to the Government of Zambia</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -167,14 +159,6 @@
     <default-finance-type code="110" />
     <default-aid-type code="C01" />
     <default-tied-status code="3" />
-    <document-link format="text/html" url="http://open.undp.org/#project/00032761">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00033758" />
     <conditions attached="0" />
   </iati-activity>
@@ -208,21 +192,21 @@
       <narrative>Zambia</narrative>
     </recipient-country>
     <location ref="ZM">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="895949" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="909137" />
       <name>
-        <narrative>Zambia</narrative>
+        <narrative>Lusaka</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="895949" vocabulary="G1" />
+      <administrative level="1" code="909137" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>-14.333330 28.500000</pos>
+        <pos>-15.406690 28.287130</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="91010" />
     <sector vocabulary="99" code="9">
@@ -382,7 +366,7 @@
     <description type="1">
       <narrative>Support to UN Coordination Results and Advocacy</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -502,21 +486,21 @@
       <narrative>Zambia</narrative>
     </recipient-country>
     <location ref="ZM">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="895949" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="909137" />
       <name>
-        <narrative>Zambia</narrative>
+        <narrative>Lusaka</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="895949" vocabulary="G1" />
+      <administrative level="1" code="909137" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>-14.333330 28.500000</pos>
+        <pos>-15.406690 28.287130</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <policy-marker vocabulary="1" code="1" significance="0" />
     <collaboration-type code="4" />
@@ -532,7 +516,7 @@
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">24500</value>
+      <value currency="USD" value-date="2017-12-31">69647</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -731,6 +715,18 @@
       <value currency="USD" value-date="2014-12-31">70000</value>
       <provider-org type="40" ref="10714">
         <narrative>UNDP AS ADMINISTRATIVE AGENT FOR A JOINT PROGRAMME PASS THROUGH ARRANGEMENT</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00080198">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">45147</value>
+      <provider-org type="40" ref="11668">
+        <narrative>MDTFO/JP_Human_Rights_Mainstre</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00080198">
         <narrative>United Nations Development Programme</narrative>
@@ -968,7 +964,7 @@
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">2902172</value>
+      <value currency="USD" value-date="2017-12-31">2947319</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -977,7 +973,7 @@
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">1928</value>
+      <value currency="USD" value-date="2018-01-31">2078</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -1030,7 +1026,7 @@
     <description type="1">
       <narrative>Support to organizational effectiveness of Zambia Office</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -1076,7 +1072,7 @@
       <narrative>Organizational Effectiveness</narrative>
     </title>
     <description type="1">
-      <narrative>Support to organizational effectiveness of the Zambia Office</narrative>
+      <narrative>This is a component of the management project that supports monitoring and implementation of the Zambia programme.</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -1097,21 +1093,21 @@
       <narrative>Zambia</narrative>
     </recipient-country>
     <location ref="ZM">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="895949" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="909137" />
       <name>
-        <narrative>Zambia</narrative>
+        <narrative>Lusaka</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="895949" vocabulary="G1" />
+      <administrative level="1" code="909137" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>-14.333330 28.500000</pos>
+        <pos>-15.406690 28.287130</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="91010" />
     <sector vocabulary="99" code="9">
@@ -1129,6 +1125,11 @@
       <value currency="USD" value-date="2017-12-31">476349</value>
     </budget>
     <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">89839</value>
+    </budget>
+    <budget type="2" status="2">
       <period-start iso-date="2012-01-01" />
       <period-end iso-date="2012-12-31" />
       <value currency="USD" value-date="2012-12-31">15000</value>
@@ -1141,6 +1142,18 @@
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">89839</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00038878">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00043350">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -1170,7 +1183,7 @@
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">480446</value>
+      <value currency="USD" value-date="2017-12-31">570285</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -1248,21 +1261,6 @@
       <category code="A04" />
       <category code="A05" />
       <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="https://erc.undp.org/evaluation/evaluations/detail/5613">
-      <title>
-        <narrative>Final Evaluation of the Reclassification and Effective Management of National Protected Areas System (REMNPAS) Project</narrative>
-      </title>
-      <category code="A07" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00038954">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00043458" />
@@ -1568,21 +1566,6 @@ NP: Kasanka - 70; Mosi-ao-Tunya - 61; Lower Zambezi - 52; Lavushi Manda - 19; Li
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="https://erc.undp.org/evaluation/evaluations/detail/5609">
-      <title>
-        <narrative>Strategic Review of the UNREDD Programme - Zambia Quick Start Initiative</narrative>
-      </title>
-      <category code="A07" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00046996">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00070266" />
     <conditions attached="0" />
     <result type="1" aggregation-status="1">
@@ -1660,21 +1643,21 @@ NP: Kasanka - 70; Mosi-ao-Tunya - 61; Lower Zambezi - 52; Lavushi Manda - 19; Li
       <narrative>Zambia</narrative>
     </recipient-country>
     <location ref="ZM">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="895949" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="909137" />
       <name>
-        <narrative>Zambia</narrative>
+        <narrative>Lusaka</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="895949" vocabulary="G1" />
+      <administrative level="1" code="909137" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>-14.333330 28.500000</pos>
+        <pos>-15.406690 28.287130</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="99810" />
     <sector vocabulary="99" code="7">
@@ -1815,14 +1798,6 @@ NP: Kasanka - 70; Mosi-ao-Tunya - 61; Lower Zambezi - 52; Lavushi Manda - 19; Li
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00049093">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00059627" />
     <conditions attached="0" />
   </iati-activity>
@@ -1835,7 +1810,7 @@ NP: Kasanka - 70; Mosi-ao-Tunya - 61; Lower Zambezi - 52; Lavushi Manda - 19; Li
       <narrative>Support to RC on Floods II</narrative>
     </title>
     <description type="1">
-      <narrative>Support to RC on Floods II</narrative>
+      <narrative>The institutional, legal and governance framework for disaster resilience in Lusaka has improved which leads to better inter-sectorial coordination and implementation of disaster response.</narrative>
     </description>
     <participating-org role="4" type="10" ref="03502">
       <narrative>National Execution</narrative>
@@ -2118,14 +2093,6 @@ NP: Kasanka - 70; Mosi-ao-Tunya - 61; Lower Zambezi - 52; Lavushi Manda - 19; Li
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00050877">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00063077" />
     <conditions attached="0" />
   </iati-activity>
@@ -2171,21 +2138,21 @@ NP: Kasanka - 70; Mosi-ao-Tunya - 61; Lower Zambezi - 52; Lavushi Manda - 19; Li
       <narrative>Zambia</narrative>
     </recipient-country>
     <location ref="ZM">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="895949" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="909137" />
       <name>
-        <narrative>Zambia</narrative>
+        <narrative>Lusaka</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="895949" vocabulary="G1" />
+      <administrative level="1" code="909137" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>-14.333330 28.500000</pos>
+        <pos>-15.406690 28.287130</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="15170" />
     <sector vocabulary="99" code="4">
@@ -2420,13 +2387,6 @@ NP: Kasanka - 70; Mosi-ao-Tunya - 61; Lower Zambezi - 52; Lavushi Manda - 19; Li
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="https://erc.undp.org/evaluation/evaluations/detail/5610">
-      <title>
-        <narrative>Final Evaluation of the Support to the Electoral Cycle Project - Zambia (2009 - 2012)</narrative>
-      </title>
-      <category code="A07" />
-      <language code="en" />
-    </document-link>
     <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/ZMB/Independent%20External%20Evaluation%20of%20the%20%20Electoral%20Cycle%20Management%20Project%20Final%20March%202015comments%20(1).doc">
       <title>
         <narrative>Independent External Evaluation of the  Electoral Cycle Management Project Final March 2015comments 1</narrative>
@@ -2503,21 +2463,21 @@ NP: Kasanka - 70; Mosi-ao-Tunya - 61; Lower Zambezi - 52; Lavushi Manda - 19; Li
       <narrative>Zambia</narrative>
     </recipient-country>
     <location ref="ZM">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="895949" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="909137" />
       <name>
-        <narrative>Zambia</narrative>
+        <narrative>Lusaka</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="895949" vocabulary="G1" />
+      <administrative level="1" code="909137" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>-14.333330 28.500000</pos>
+        <pos>-15.406690 28.287130</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="15151" />
     <sector vocabulary="99" code="2">
@@ -3056,21 +3016,21 @@ NP: Kasanka - 70; Mosi-ao-Tunya - 61; Lower Zambezi - 52; Lavushi Manda - 19; Li
       <narrative>Zambia</narrative>
     </recipient-country>
     <location ref="ZM">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="895949" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="909137" />
       <name>
-        <narrative>Zambia</narrative>
+        <narrative>Lusaka</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="895949" vocabulary="G1" />
+      <administrative level="1" code="909137" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>-14.333330 28.500000</pos>
+        <pos>-15.406690 28.287130</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="99810" />
     <sector vocabulary="99" code="7">
@@ -3360,13 +3320,6 @@ Weak weather forecasting capacity as a technical barrier to adaptation</narrativ
         <narrative>workplan</narrative>
       </title>
       <category code="A05" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="https://erc.undp.org/evaluation/evaluations/detail/8389">
-      <title>
-        <narrative>Final Evaluation of the UNREDD Programme</narrative>
-      </title>
-      <category code="A07" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/ZMB/Zambia%20UN-REDD%20National%20Programme%20Terminal%20Evaluation-%20Final%20%20Report%2005Sept2016.pdf">
@@ -3981,6 +3934,12 @@ Weak weather forecasting capacity as a technical barrier to adaptation</narrativ
     </transaction>
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">356</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">99636</value>
       <disbursement-channel code="2" />
@@ -4026,7 +3985,7 @@ Weak weather forecasting capacity as a technical barrier to adaptation</narrativ
           <narrative>Output Indicator</narrative>
         </title>
         <description>
-          <narrative>(a)  % of local authorities coordinating multi-sectoral HIV  AIDS programmes ;
+          <narrative>(a)  % of local authorities coordinating multi-sectoral HIV &amp; AIDS programmes ;
 
 (b) % Local/Municipal Authorities with HIV Workplace Policies, service directories and Response Committees;
 
@@ -4034,27 +3993,27 @@ Weak weather forecasting capacity as a technical barrier to adaptation</narrativ
 
 (d) NAC develops and implements a partnership strategy for coordination of the 2011-2015 NASF;
 
-(e) % of line ministries and national institutions with workplans consisting of costed HIVAIDS activities;
+(e) % of line ministries and national institutions with workplans consisting of costed HIV&amp;AIDS activities;
 
 (f) % of NASF budget funded;
 
-(g) Number of registered CSOs and Traditional (chiefdoms)/Faith Based leaders equipped with skills and tool kits for mainstreaming human rights and targeting marginalized groups in their HIVAIDS programmes;</narrative>
+(g) Number of registered CSOs and Traditional (chiefdoms)/Faith Based leaders equipped with skills and tool kits for mainstreaming human rights and targeting marginalized groups in their HIV&amp;AIDS programmes;</narrative>
         </description>
         <baseline year="2011" value="">
           <comment>
-            <narrative>(a) 31% (23/72)  of Local Authorities coordinating multi-sectoral HIVAIDS programmes; 
+            <narrative>(a) 31% (23/72)  of Local Authorities coordinating multi-sectoral HIV&amp;AIDS programmes; 
 
 (b) NAC structure has not been revised to take into account evidence (NASF 2011-2015) and the three (3) ones principles;
 
 (c) 60 % Local/Municipal Authorities with HIV Workplace Policies, Service Directories and Response Committees;
 
- (d) 86 % of line ministries and national institutions with workplans consisting of costed HIVAIDS activities;
+ (d) 86 % of line ministries and national institutions with workplans consisting of costed HIV&amp;AIDS activities;
 
 (e) Partnership strategy for the 2011-2015 NASF has not been developed;
 
 (f) 80 % of NASF budget funded;
 
-(g) Very few lead agencies - ZARAN and NZP+ - (CSOs, Traditional  Faith Based Leaders) have been equipped with skills for mainstreaming human rights for PLHIV.</narrative>
+(g) Very few lead agencies - ZARAN and NZP+ - (CSOs, Traditional &amp; Faith Based Leaders) have been equipped with skills for mainstreaming human rights for PLHIV.</narrative>
           </comment>
         </baseline>
       </indicator>
@@ -4221,21 +4180,21 @@ Weak weather forecasting capacity as a technical barrier to adaptation</narrativ
       <narrative>Zambia</narrative>
     </recipient-country>
     <location ref="ZM">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="895949" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="909137" />
       <name>
-        <narrative>Zambia</narrative>
+        <narrative>Lusaka</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="895949" vocabulary="G1" />
+      <administrative level="1" code="909137" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>-14.333330 28.500000</pos>
+        <pos>-15.406690 28.287130</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="51010" />
     <sector vocabulary="99" code="1">
@@ -4255,7 +4214,7 @@ Weak weather forecasting capacity as a technical barrier to adaptation</narrativ
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">46500</value>
+      <value currency="USD" value-date="2017-12-31">57759</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -4290,6 +4249,18 @@ Weak weather forecasting capacity as a technical barrier to adaptation</narrativ
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">55</value>
+      <provider-org type="40" ref="00280">
+        <narrative>EUROPEAN ECONOMIC COMMUNITY</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00078575">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -4355,6 +4326,18 @@ Weak weather forecasting capacity as a technical barrier to adaptation</narrativ
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">294</value>
+      <provider-org type="10" ref="AU-5">
+        <narrative>Australian Agency for International Development (AusAID)</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00078575">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">36096</value>
       <provider-org type="10" ref="AU-5">
         <narrative>Australian Agency for International Development (AusAID)</narrative>
@@ -4406,6 +4389,18 @@ Weak weather forecasting capacity as a technical barrier to adaptation</narrativ
       <value currency="USD" value-date="2012-12-31">43772</value>
       <provider-org type="10" ref="AU-5">
         <narrative>Australian Agency for International Development (AusAID)</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00078575">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">10910</value>
+      <provider-org type="10" ref="DE-1">
+        <narrative>GOVERNMENT OF GERMANY</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00078575">
         <narrative>United Nations Development Programme</narrative>
@@ -4523,7 +4518,7 @@ Weak weather forecasting capacity as a technical barrier to adaptation</narrativ
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1956957</value>
+      <value currency="USD" value-date="2017-12-31">1968216</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -4532,7 +4527,7 @@ Weak weather forecasting capacity as a technical barrier to adaptation</narrativ
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">50911</value>
+      <value currency="USD" value-date="2018-01-31">62045</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -4624,7 +4619,7 @@ Weak weather forecasting capacity as a technical barrier to adaptation</narrativ
     <description type="1">
       <narrative>Strengthening Management Effectiveness and Generating Multiple Environmental Benefits within and around Protected Areas in Zambia</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -4754,21 +4749,21 @@ Weak weather forecasting capacity as a technical barrier to adaptation</narrativ
       <narrative>Zambia</narrative>
     </recipient-country>
     <location ref="ZM">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="895949" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="909137" />
       <name>
-        <narrative>Zambia</narrative>
+        <narrative>Lusaka</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="895949" vocabulary="G1" />
+      <administrative level="1" code="909137" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>-14.333330 28.500000</pos>
+        <pos>-15.406690 28.287130</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="41010" />
     <sector vocabulary="99" code="2">
@@ -5049,21 +5044,21 @@ Weak weather forecasting capacity as a technical barrier to adaptation</narrativ
       <narrative>Zambia</narrative>
     </recipient-country>
     <location ref="ZM">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="895949" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="909137" />
       <name>
-        <narrative>Zambia</narrative>
+        <narrative>Lusaka</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="895949" vocabulary="G1" />
+      <administrative level="1" code="909137" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>-14.333330 28.500000</pos>
+        <pos>-15.406690 28.287130</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="41010" />
     <sector vocabulary="99" code="2">
@@ -5384,21 +5379,21 @@ national plans, policies and reforms</narrative>
       <narrative>Zambia</narrative>
     </recipient-country>
     <location ref="ZM">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="895949" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="909137" />
       <name>
-        <narrative>Zambia</narrative>
+        <narrative>Lusaka</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="895949" vocabulary="G1" />
+      <administrative level="1" code="909137" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>-14.333330 28.500000</pos>
+        <pos>-15.406690 28.287130</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="15151" />
     <sector vocabulary="99" code="2">
@@ -5708,7 +5703,8 @@ iii) Conduct capacity building programme for senior government officials</narrat
       <narrative>Support to the Human Rights Co</narrative>
     </title>
     <description type="1">
-      <narrative>Domestication of International Instruments</narrative>
+      <narrative>Output 9: Selected international instruments translated into national legal frameworks (e.g. International Bill of Human Rights, CEDAW, Convention on the Rights of Persons with Disabilities, Convention on the Rights of the Child, UNCAC), 
+Output 10: Implementation of concluding remarks and recommendations of State reports and international instruments monitored</narrative>
     </description>
     <participating-org role="4" type="10" ref="03502">
       <narrative>National Execution</narrative>
@@ -5735,21 +5731,21 @@ iii) Conduct capacity building programme for senior government officials</narrat
       <narrative>Zambia</narrative>
     </recipient-country>
     <location ref="ZM">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="895949" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="909137" />
       <name>
-        <narrative>Zambia</narrative>
+        <narrative>Lusaka</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="895949" vocabulary="G1" />
+      <administrative level="1" code="909137" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>-14.333330 28.500000</pos>
+        <pos>-15.406690 28.287130</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="15160" />
     <sector vocabulary="99" code="2">
@@ -5987,6 +5983,12 @@ iii) Conduct capacity building programme for senior government officials</narrat
     </transaction>
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">359</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">631130</value>
       <disbursement-channel code="2" />
@@ -6097,21 +6099,21 @@ iii) Produce the 2015 Annual State of Human Rights Report</narrative>
       <narrative>Zambia</narrative>
     </recipient-country>
     <location ref="ZM">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="895949" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="909137" />
       <name>
-        <narrative>Zambia</narrative>
+        <narrative>Lusaka</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="895949" vocabulary="G1" />
+      <administrative level="1" code="909137" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>-14.333330 28.500000</pos>
+        <pos>-15.406690 28.287130</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="15150" />
     <sector vocabulary="99" code="2">
@@ -6460,7 +6462,10 @@ iii) Six outreach groups in Livingstone, Monze, Mongu, Kabwe, Ndola and Kasama h
       <narrative>Support to the National Assemb</narrative>
     </title>
     <description type="1">
-      <narrative>Enhancing Oversight Capacity of the National Assembly of Zambia</narrative>
+      <narrative>Output 18: MPs oriented on provisions of international instruments and monitoring of the impact of national policies on human rights, 
+Output 19: Ongoing parliamentary reforms revised, 
+Output 20: Selected NAZ portfolio committee hearings at constituency level implemented, 
+Output 21: Women Parliamentary Caucus multi-year action plan developed</narrative>
     </description>
     <participating-org role="4" type="10" ref="03502">
       <narrative>National Execution</narrative>
@@ -6484,21 +6489,21 @@ iii) Six outreach groups in Livingstone, Monze, Mongu, Kabwe, Ndola and Kasama h
       <narrative>Zambia</narrative>
     </recipient-country>
     <location ref="ZM">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="895949" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="909137" />
       <name>
-        <narrative>Zambia</narrative>
+        <narrative>Lusaka</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="895949" vocabulary="G1" />
+      <administrative level="1" code="909137" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>-14.333330 28.500000</pos>
+        <pos>-15.406690 28.287130</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="15151" />
     <sector vocabulary="99" code="2">
@@ -6868,7 +6873,7 @@ iv) Increase in female MPs from 23 to 30, with 11 female MPs in Cabinet – high
     <activity-status code="2" />
     <activity-date type="1" iso-date="2012-08-01" />
     <activity-date type="2" iso-date="2012-08-01" />
-    <activity-date type="3" iso-date="2018-06-30" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.zm@undp.org </email>
       <website>http://www.zm.undp.org/</website>
@@ -7119,7 +7124,7 @@ iv) Increase in female MPs from 23 to 30, with 11 female MPs in Cabinet – high
     <activity-status code="2" />
     <activity-date type="1" iso-date="2012-08-01" />
     <activity-date type="2" iso-date="2012-08-01" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.zm@undp.org </email>
       <website>http://www.zm.undp.org/</website>
@@ -7128,23 +7133,6 @@ iv) Increase in female MPs from 23 to 30, with 11 female MPs in Cabinet – high
     <recipient-country code="ZM">
       <narrative>Zambia</narrative>
     </recipient-country>
-    <location ref="ZM">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="895949" />
-      <name>
-        <narrative>Zambia</narrative>
-      </name>
-      <description>
-        <narrative>independent political entity</narrative>
-      </description>
-      <administrative level="0" code="895949" vocabulary="G1" />
-      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>-14.333330 28.500000</pos>
-      </point>
-      <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
-    </location>
     <location ref="ZM">
       <location-reach code="1" />
       <location-id vocabulary="G1" code="909137" />
@@ -7157,6 +7145,23 @@ iv) Increase in female MPs from 23 to 30, with 11 female MPs in Cabinet – high
       <activity-description>
         <narrative>Lusaka Zambia</narrative>
       </activity-description>
+      <administrative level="1" code="909137" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>-15.406690 28.287130</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
+    <location ref="ZM">
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="909137" />
+      <name>
+        <narrative>Lusaka</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
       <administrative level="1" code="909137" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
         <pos>-15.406690 28.287130</pos>
@@ -7183,7 +7188,7 @@ iv) Increase in female MPs from 23 to 30, with 11 female MPs in Cabinet – high
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">15000</value>
+      <value currency="USD" value-date="2017-12-31">106400</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -7193,7 +7198,7 @@ iv) Increase in female MPs from 23 to 30, with 11 female MPs in Cabinet – high
     <budget type="2" status="2">
       <period-start iso-date="2015-01-01" />
       <period-end iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">1712405</value>
+      <value currency="USD" value-date="2015-12-31">1707405</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2014-01-01" />
@@ -7295,7 +7300,7 @@ iv) Increase in female MPs from 23 to 30, with 11 female MPs in Cabinet – high
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">1225405</value>
+      <value currency="USD" value-date="2015-12-31">1220405</value>
       <provider-org type="40" ref="10714">
         <narrative>UNDP AS ADMINISTRATIVE AGENT FOR A JOINT PROGRAMME PASS THROUGH ARRANGEMENT</narrative>
       </provider-org>
@@ -7367,7 +7372,7 @@ iv) Increase in female MPs from 23 to 30, with 11 female MPs in Cabinet – high
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">15000</value>
+      <value currency="USD" value-date="2017-12-31">56400</value>
       <provider-org type="40" ref="12796">
         <narrative>MPTFO-JP ZMB Gen.BasedViolence</narrative>
       </provider-org>
@@ -7408,6 +7413,18 @@ iv) Increase in female MPs from 23 to 30, with 11 female MPs in Cabinet – high
         <narrative>MPTFO-JP ZMB Gen.BasedViolence</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114" receiver-activity-id="00083908">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">50000</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00069179">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00083908">
         <narrative>United Nations Development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -7487,7 +7504,7 @@ iv) Increase in female MPs from 23 to 30, with 11 female MPs in Cabinet – high
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">6343165</value>
+      <value currency="USD" value-date="2017-12-31">6434565</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -7496,7 +7513,7 @@ iv) Increase in female MPs from 23 to 30, with 11 female MPs in Cabinet – high
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">170623</value>
+      <value currency="USD" value-date="2018-01-31">213407</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -7931,7 +7948,7 @@ Zero ZMK leveraged from State and Non-ste partners participating in the implemen
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">23854</value>
+      <value currency="USD" value-date="2018-01-31">29349</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -8033,7 +8050,7 @@ Zero ZMK leveraged from State and Non-ste partners participating in the implemen
     <description type="1">
       <narrative>This programme has a goal to promote and protect the rights of women and children and to reduce the gender imbalances in the social, political and economic spheres of Zambia</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -8048,7 +8065,7 @@ Zero ZMK leveraged from State and Non-ste partners participating in the implemen
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-01-31" />
     <activity-date type="2" iso-date="2013-01-31" />
-    <activity-date type="3" iso-date="2018-03-31" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.zm@undp.org </email>
       <website>http://www.zm.undp.org/</website>
@@ -8100,13 +8117,6 @@ Zero ZMK leveraged from State and Non-ste partners participating in the implemen
       <category code="A05" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="https://erc.undp.org/evaluation/evaluations/detail/7582">
-      <title>
-        <narrative>Mid-Term Evaluation of the Programme for Promotion of Womens and Children's Rights (PPWCR)</narrative>
-      </title>
-      <category code="A07" />
-      <language code="en" />
-    </document-link>
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/ZMB/Signed%20CDRs-PPWCRZ%202014.pdf">
       <title>
         <narrative>Signed CDRs- 2014</narrative>
@@ -8155,7 +8165,7 @@ Zero ZMK leveraged from State and Non-ste partners participating in the implemen
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-01-31" />
     <activity-date type="2" iso-date="2013-01-31" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.zm@undp.org </email>
       <website>http://www.zm.undp.org/</website>
@@ -8164,23 +8174,6 @@ Zero ZMK leveraged from State and Non-ste partners participating in the implemen
     <recipient-country code="ZM">
       <narrative>Zambia</narrative>
     </recipient-country>
-    <location ref="ZM">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="895949" />
-      <name>
-        <narrative>Zambia</narrative>
-      </name>
-      <description>
-        <narrative>independent political entity</narrative>
-      </description>
-      <administrative level="0" code="895949" vocabulary="G1" />
-      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>-14.333330 28.500000</pos>
-      </point>
-      <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
-    </location>
     <location ref="ZM">
       <location-reach code="1" />
       <location-id vocabulary="G1" code="909137" />
@@ -8193,6 +8186,23 @@ Zero ZMK leveraged from State and Non-ste partners participating in the implemen
       <activity-description>
         <narrative>Lusaka Zambia</narrative>
       </activity-description>
+      <administrative level="1" code="909137" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>-15.406690 28.287130</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
+    <location ref="ZM">
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="909137" />
+      <name>
+        <narrative>Lusaka</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
       <administrative level="1" code="909137" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
         <pos>-15.406690 28.287130</pos>
@@ -8426,7 +8436,7 @@ Zero ZMK leveraged from State and Non-ste partners participating in the implemen
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">16020</value>
+      <value currency="USD" value-date="2018-01-31">24041</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -8522,7 +8532,7 @@ Deputy Director - 43%</narrative>
     <description type="1">
       <narrative>Strengthening climate information and early warning systems in Zambia for climate resilient development and adaptation to climate change</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -8537,7 +8547,7 @@ Deputy Director - 43%</narrative>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-06-01" />
     <activity-date type="2" iso-date="2013-06-01" />
-    <activity-date type="3" iso-date="2018-03-31" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.zm@undp.org </email>
       <website>http://www.zm.undp.org/</website>
@@ -8582,13 +8592,6 @@ Deputy Director - 43%</narrative>
         <narrative>Revised 2014 Annual Work Plan</narrative>
       </title>
       <category code="A05" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="https://erc.undp.org/evaluation/evaluations/detail/8376">
-      <title>
-        <narrative>Mid-Term Evaluation of the Strengthening climate information and early warning systems in Eastern and Southern Africa for climate resilient development and adaptation to climate change Zambia project</narrative>
-      </title>
-      <category code="A07" />
       <language code="en" />
     </document-link>
     <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/ZMB/20141022%20EWS%20Q3%20Report.doc">
@@ -8667,7 +8670,7 @@ Deputy Director - 43%</narrative>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-06-01" />
     <activity-date type="2" iso-date="2013-06-01" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-08-31" />
     <contact-info type="1">
       <email>registry.zm@undp.org </email>
       <website>http://www.zm.undp.org/</website>
@@ -8906,7 +8909,7 @@ Deputy Director - 43%</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">5477</value>
+      <value currency="USD" value-date="2018-01-31">16227</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -9181,7 +9184,7 @@ Manual 37 of districts
     <description type="1">
       <narrative>Securing and sustaining equitable access to ART commodities and services</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -9397,7 +9400,7 @@ Manual 37 of districts
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-11-01" />
     <activity-date type="2" iso-date="2013-11-01" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-03-31" />
     <contact-info type="1">
       <email>registry.zm@undp.org </email>
       <website>http://www.zm.undp.org/</website>
@@ -9627,7 +9630,7 @@ Manual 37 of districts
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">532062</value>
+      <value currency="USD" value-date="2018-01-31">975874</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -9902,23 +9905,23 @@ Percentage of health facilities reporting no stock-out lasting more than one wee
     </recipient-country>
     <location ref="ZM">
       <location-reach code="1" />
-      <location-id vocabulary="G1" code="895949" />
+      <location-id vocabulary="G1" code="909137" />
       <name>
-        <narrative>Zambia</narrative>
+        <narrative>Lusaka</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>Lusaka, Zambia</narrative>
       </activity-description>
-      <administrative level="0" code="895949" vocabulary="G1" />
+      <administrative level="1" code="909137" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>-14.333330 28.500000</pos>
+        <pos>-15.406690 28.287130</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="51010" />
     <sector vocabulary="99" code="1">
@@ -9938,7 +9941,7 @@ Percentage of health facilities reporting no stock-out lasting more than one wee
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">16000</value>
+      <value currency="USD" value-date="2017-12-31">116000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -9973,7 +9976,7 @@ Percentage of health facilities reporting no stock-out lasting more than one wee
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">16000</value>
+      <value currency="USD" value-date="2017-12-31">116000</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00076602">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -10045,7 +10048,7 @@ Percentage of health facilities reporting no stock-out lasting more than one wee
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1106471</value>
+      <value currency="USD" value-date="2017-12-31">1206471</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -10309,7 +10312,7 @@ Percentage of health facilities reporting no stock-out lasting more than one wee
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">5171643</value>
+      <value currency="USD" value-date="2017-12-31">729164</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -10351,7 +10354,7 @@ Percentage of health facilities reporting no stock-out lasting more than one wee
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">5160643</value>
+      <value currency="USD" value-date="2017-12-31">718164</value>
       <provider-org type="40" ref="10003" provider-activity-id="PIMS 4625">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -10471,7 +10474,7 @@ Percentage of health facilities reporting no stock-out lasting more than one wee
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">13823936</value>
+      <value currency="USD" value-date="2017-12-31">9381457</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -10480,7 +10483,7 @@ Percentage of health facilities reporting no stock-out lasting more than one wee
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">17337</value>
+      <value currency="USD" value-date="2018-01-31">50290</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -11028,7 +11031,7 @@ The resulting direct lifetime avoided t CO2 emissions over 20 years from these a
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-11-01" />
     <activity-date type="2" iso-date="2013-11-01" />
-    <activity-date type="3" iso-date="2018-03-31" />
+    <activity-date type="3" iso-date="2017-12-31" />
     <contact-info type="1">
       <email>registry.zm@undp.org </email>
       <website>http://www.zm.undp.org/</website>
@@ -11089,14 +11092,6 @@ The resulting direct lifetime avoided t CO2 emissions over 20 years from these a
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00077404">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00088198" />
     <conditions attached="0" />
   </iati-activity>
@@ -11123,7 +11118,7 @@ The resulting direct lifetime avoided t CO2 emissions over 20 years from these a
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-11-01" />
     <activity-date type="2" iso-date="2013-11-01" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-03-31" />
     <contact-info type="1">
       <email>registry.zm@undp.org </email>
       <website>http://www.zm.undp.org/</website>
@@ -11487,14 +11482,6 @@ The resulting direct lifetime avoided t CO2 emissions over 20 years from these a
       <category code="A05" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00077405">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00088199" />
     <conditions attached="0" />
   </iati-activity>
@@ -11749,7 +11736,7 @@ The resulting direct lifetime avoided t CO2 emissions over 20 years from these a
     <activity-status code="2" />
     <activity-date type="1" iso-date="2014-01-01" />
     <activity-date type="2" iso-date="2014-01-01" />
-    <activity-date type="3" iso-date="2018-12-31" />
+    <activity-date type="3" iso-date="2018-03-31" />
     <contact-info type="1">
       <email>registry.zm@undp.org </email>
       <website>http://www.zm.undp.org/</website>
@@ -11835,7 +11822,7 @@ The resulting direct lifetime avoided t CO2 emissions over 20 years from these a
     <activity-status code="2" />
     <activity-date type="1" iso-date="2014-01-01" />
     <activity-date type="2" iso-date="2014-01-01" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-03-31" />
     <contact-info type="1">
       <email>registry.zm@undp.org </email>
       <website>http://www.zm.undp.org/</website>
@@ -11983,6 +11970,12 @@ The resulting direct lifetime avoided t CO2 emissions over 20 years from these a
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">4424</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -12680,7 +12673,7 @@ Partners institutions sign up to the programme.</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">15000</value>
+      <value currency="USD" value-date="2017-12-31">45000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -12705,7 +12698,7 @@ Partners institutions sign up to the programme.</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">10000</value>
+      <value currency="USD" value-date="2017-12-31">40000</value>
       <provider-org type="10" ref="DK-1">
         <narrative>DANISH GOV/MIN of FOREIGN AFF</narrative>
       </provider-org>
@@ -12825,7 +12818,7 @@ Partners institutions sign up to the programme.</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">922562</value>
+      <value currency="USD" value-date="2017-12-31">952562</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -12834,7 +12827,7 @@ Partners institutions sign up to the programme.</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">1157</value>
+      <value currency="USD" value-date="2018-01-31">24014</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -12894,7 +12887,7 @@ Partners institutions sign up to the programme.</narrative>
 
 3. 1 Policy Legislation document drafted
 
-4. Convene 2 workshops and training sessions or min 40 participants to create awareness about key policies  reforms process for rural electrification/training sessions on implementation of key renewable energy policies
+4. Convene 2 workshops and training sessions or min 40 participants to create awareness about key policies &amp; reforms process for rural electrification/training sessions on implementation of key renewable energy policies
 
 5. 4. Financial institutions engaged by DoE for resourcing of the RE Fund
 
@@ -13010,14 +13003,6 @@ Partners institutions sign up to the programme.</narrative>
       <category code="A04" />
       <category code="A05" />
       <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00085360">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00093028" />
@@ -13809,7 +13794,7 @@ Partners institutions sign up to the programme.</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">8967</value>
+      <value currency="USD" value-date="2018-01-31">87530</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -13907,7 +13892,7 @@ Partners institutions sign up to the programme.</narrative>
     <description type="1">
       <narrative>Implement best environmental practices and non-incineration and mercury-free technologies and ensure availability and affordability of non-incineration waste treatment technologies.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -13953,27 +13938,6 @@ Partners institutions sign up to the programme.</narrative>
         <narrative>medical waste project appraisal notes</narrative>
       </title>
       <category code="A01" />
-      <language code="en" />
-    </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/ZMB/med%20waste%20CDR%20Q1%20signed.pdf">
-      <title>
-        <narrative>med waste CDR Q1 signed</narrative>
-      </title>
-      <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/ZMB/med%20waste%20CDR%20Q2%20signed.pdf">
-      <title>
-        <narrative>med waste CDR Q2 signed</narrative>
-      </title>
-      <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/ZMB/med%20waste%20CDR%20Q3%20signed.pdf">
-      <title>
-        <narrative>med waste CDR Q3 signed</narrative>
-      </title>
-      <category code="A08" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/ZMB/Med%20Waste%20Q1%20report%20signed.pdf">
@@ -14300,6 +14264,12 @@ Chilenje Level 1 Hospital
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">29735</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -14888,7 +14858,7 @@ Chilenje Level 1 Hospital
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">149099</value>
+      <value currency="USD" value-date="2017-12-31">179099</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -14913,7 +14883,7 @@ Chilenje Level 1 Hospital
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">139099</value>
+      <value currency="USD" value-date="2017-12-31">169099</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -15201,7 +15171,7 @@ Chilenje Level 1 Hospital
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">6292534</value>
+      <value currency="USD" value-date="2017-12-31">6322534</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -15210,7 +15180,7 @@ Chilenje Level 1 Hospital
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">1562</value>
+      <value currency="USD" value-date="2018-01-31">154305</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -15293,7 +15263,7 @@ b) 53.98% (2011)</narrative>
     <description type="1">
       <narrative>This project is to increase the storage capacity and improve on the storage and handling systems at MSL warehouse and 5 regional warehouses</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -15584,6 +15554,18 @@ b) 53.98% (2011)</narrative>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">4915710</value>
+      <provider-org ref="12771" type="10">
+        <narrative>Medical Stores Limited Zambia</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00104048">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">31500</value>
@@ -15679,7 +15661,7 @@ b) 53.98% (2011)</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">318642</value>
+      <value currency="USD" value-date="2018-01-31">242627</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00101751">
@@ -15888,7 +15870,7 @@ b) 53.98% (2011)</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">624094</value>
+      <value currency="USD" value-date="2017-12-31">724094</value>
     </budget>
     <capital-spend percentage="0" />
     <transaction>
@@ -15999,7 +15981,7 @@ b) 53.98% (2011)</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">10000</value>
+      <value currency="USD" value-date="2017-12-31">110000</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-000102127">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -16023,7 +16005,7 @@ b) 53.98% (2011)</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">744211</value>
+      <value currency="USD" value-date="2017-12-31">844211</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -16032,7 +16014,7 @@ b) 53.98% (2011)</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">1707</value>
+      <value currency="USD" value-date="2018-01-31">458296</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00102127">
@@ -16112,7 +16094,7 @@ Indicative timeframe of 6 Months</narrative>
     <description type="1">
       <narrative>Direct Project Cost Management in Zambia</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -16158,7 +16140,7 @@ Indicative timeframe of 6 Months</narrative>
       <narrative>Direct Project Costing</narrative>
     </title>
     <description type="1">
-      <narrative>Direct Project Costs Management in Zambia</narrative>
+      <narrative>Programme activities conducted directly by UNDP staff utilize Multiple-funding lines for posts, and Direct Project Costing including the DIM and CO support to NIM implementation support activities (procurement, HR administration, finance, etc.)</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -16264,7 +16246,7 @@ Indicative timeframe of 6 Months</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">66142</value>
+      <value currency="USD" value-date="2018-01-31">93481</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00105438">

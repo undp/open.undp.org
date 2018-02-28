@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2018-02-15T17:03:33" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2018-02-28T21:30:32" version="2.02">
   <!--Maldives-->
   <iati-activity last-updated-datetime="2018-02-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00047179</iati-identifier>
@@ -13,7 +13,7 @@
     <description type="1">
       <narrative>Strengthening of UN Coordination</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -96,7 +96,7 @@
       <narrative>Coordination Cap of the UNCT</narrative>
     </title>
     <description type="1">
-      <narrative>Coordination Capacity of the UNCT in the Maldives</narrative>
+      <narrative>The project aims to strengthen the technical and advisory support to the UN Resident Coordinator and the UN Country Team towards more coherent, relevant, effective and efficient development assistance of the UN system in the Maldives</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -165,6 +165,11 @@
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">156519</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">1500</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -562,9 +567,21 @@
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1500</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00056500">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">693173</value>
+      <value currency="USD" value-date="2017-12-31">694673</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -660,20 +677,6 @@
       <category code="A04" />
       <category code="A05" />
       <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="https://erc.undp.org/evaluation/evaluations/detail/5572">
-      <title>
-        <narrative>Evaluation of the Integrating Climate Change Risks into Resilient Maldives Project</narrative>
-      </title>
-      <category code="A07" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="https://erc.undp.org/evaluation/evaluations/detail/5573">
-      <title>
-        <narrative>Terminal Evaluation of the Integrating Climate Change Risks into Resilient Maldives Project</narrative>
-      </title>
-      <category code="A07" />
       <language code="en" />
     </document-link>
     <document-link format="text/html" url="http://open.undp.org/#project/00058332">
@@ -1322,14 +1325,6 @@ For the pilot demonstration on stormwater management the Projects designs have b
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00059381">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00074229" />
     <conditions attached="0" />
   </iati-activity>
@@ -1622,14 +1617,6 @@ them.</narrative>
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00060884">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00076855" />
     <conditions attached="0" />
   </iati-activity>
@@ -1666,21 +1653,21 @@ them.</narrative>
       <narrative>Maldives</narrative>
     </recipient-country>
     <location ref="MV">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="1282028" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="1282027" />
       <name>
-        <narrative>Maldives</narrative>
+        <narrative>Malé</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="1282028" vocabulary="G1" />
+      <administrative level="1" code="1282027" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>3.200000 73.000000</pos>
+        <pos>4.174800 73.508880</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="74010" />
     <sector vocabulary="99" code="5">
@@ -2200,13 +2187,6 @@ Training sessions have been completed in the 4th quarter of 2014 as reported in 
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="https://erc.undp.org/evaluation/evaluations/detail/5576">
-      <title>
-        <narrative>Evaluation of the Integrated Water Resources Management Project</narrative>
-      </title>
-      <category code="A07" />
-      <language code="en" />
-    </document-link>
     <document-link format="text/html" url="http://open.undp.org/#project/00061753">
       <title>
         <narrative>Purchase Order Summary</narrative>
@@ -2554,7 +2534,7 @@ Training sessions have been completed in the 4th quarter of 2014 as reported in 
     <description type="1">
       <narrative>Management Project for UN Development Systems Coordination</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -2592,14 +2572,6 @@ Training sessions have been completed in the 4th quarter of 2014 as reported in 
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00062536">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00080071" />
     <conditions attached="0" />
   </iati-activity>
@@ -2633,21 +2605,21 @@ Training sessions have been completed in the 4th quarter of 2014 as reported in 
       <narrative>Maldives</narrative>
     </recipient-country>
     <location ref="MV">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="1282028" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="1282027" />
       <name>
-        <narrative>Maldives</narrative>
+        <narrative>Malé</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="1282028" vocabulary="G1" />
+      <administrative level="1" code="1282027" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>3.200000 73.000000</pos>
+        <pos>4.174800 73.508880</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="99810" />
     <sector vocabulary="99" code="16">
@@ -2794,6 +2766,12 @@ Training sessions have been completed in the 4th quarter of 2014 as reported in 
     </transaction>
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">4230</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">35</value>
       <disbursement-channel code="2" />
@@ -2842,7 +2820,7 @@ Training sessions have been completed in the 4th quarter of 2014 as reported in 
     <description type="1">
       <narrative>Mangroves for the future old project. needs closure. Funds to support mangroves for the future small grants programmme establishment in the maldives.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -2851,10 +2829,11 @@ Training sessions have been completed in the 4th quarter of 2014 as reported in 
     <participating-org role="1" type="40" ref="10699">
       <narrative>WORLD CONSERVATION UNION</narrative>
     </participating-org>
-    <activity-status code="2" />
+    <activity-status code="3" />
     <activity-date type="1" iso-date="2011-01-01" />
     <activity-date type="2" iso-date="2011-01-01" />
     <activity-date type="3" iso-date="2016-12-31" />
+    <activity-date type="4" iso-date="2018-02-05" />
     <contact-info type="1">
       <email>registry.mv@undp.org</email>
       <website>http://www.mv.undp.org/</website>
@@ -2878,14 +2857,6 @@ Training sessions have been completed in the 4th quarter of 2014 as reported in 
       <category code="A04" />
       <category code="A05" />
       <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00063042">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00080340" />
@@ -2971,10 +2942,11 @@ Training sessions have been completed in the 4th quarter of 2014 as reported in 
     <participating-org role="1" type="40" ref="10699">
       <narrative>WORLD CONSERVATION UNION</narrative>
     </participating-org>
-    <activity-status code="2" />
+    <activity-status code="3" />
     <activity-date type="1" iso-date="2011-01-01" />
     <activity-date type="2" iso-date="2011-01-01" />
     <activity-date type="3" iso-date="2016-12-31" />
+    <activity-date type="4" iso-date="2018-02-05" />
     <contact-info type="1">
       <email>registry.mv@undp.org</email>
       <website>http://www.mv.undp.org/</website>
@@ -3254,7 +3226,7 @@ Sustainability strategy for MFF Maldives</narrative>
     <description type="1">
       <narrative>This is an Initiation Plan. The purpose of the project is to assist to undertake preparatory activities for the LECReD Programme, including the design of the programme framework, developmentof a full-fledged programme.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -3462,7 +3434,7 @@ Sustainability strategy for MFF Maldives</narrative>
       <narrative>Low-Emission Climate Resilienc</narrative>
     </title>
     <description type="1">
-      <narrative>Communication and Awareness on Low Emission Climate Resilient Development</narrative>
+      <narrative>Effective communication and advocacy is essential to the success of LECReD and every partner of LECReD must be a communication agent. CSES provided guidance on how to deliver key LECReD messages and how to elevate visibility for the messages. CSES also provided the tools to help educate, advocate, prompt dialogue and build partnerships around the LECReD messages. The CSES took stock of the successful lessons and limiting factors that have shaped community based projects in the Maldives in the past. The development of the CSES was preceded by a stakeholder survey in Laamu Atoll, assuming that L</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -3483,21 +3455,21 @@ Sustainability strategy for MFF Maldives</narrative>
       <narrative>Maldives</narrative>
     </recipient-country>
     <location ref="MV">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="1282028" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="1282027" />
       <name>
-        <narrative>Maldives</narrative>
+        <narrative>Malé</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="1282028" vocabulary="G1" />
+      <administrative level="1" code="1282027" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>3.200000 73.000000</pos>
+        <pos>4.174800 73.508880</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <location ref="MV">
       <location-reach code="1" />
@@ -3778,14 +3750,6 @@ Sustainability strategy for MFF Maldives</narrative>
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00069437">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00084015" />
     <conditions attached="0" />
   </iati-activity>
@@ -4046,7 +4010,7 @@ Sustainability strategy for MFF Maldives</narrative>
     <description type="1">
       <narrative>Office Management Project</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -4198,7 +4162,7 @@ Sustainability strategy for MFF Maldives</narrative>
     <description type="1">
       <narrative>The programme will assist the Laamu Atoll and its islands to realize low emission and climate resilient development (LECReD). The programme seeks to mainstream LECReD issues into local level development planning</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -4505,7 +4469,7 @@ Sustainability strategy for MFF Maldives</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">96131</value>
+      <value currency="USD" value-date="2018-01-31">136598</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -4598,7 +4562,7 @@ Sustainability strategy for MFF Maldives</narrative>
     <description type="1">
       <narrative>Strengthening national and sub-national systems and institutions  through evidence-based policy services and structural transformation of productive capacities to create greater opportunities for youth employment.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -4889,7 +4853,7 @@ Sustainability strategy for MFF Maldives</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">1556</value>
+      <value currency="USD" value-date="2018-01-31">12366</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -4976,7 +4940,7 @@ Sustainability strategy for MFF Maldives</narrative>
     <description type="1">
       <narrative>Project for the implementation of Mangroves for the Future programme in the Maldives</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -5108,24 +5072,24 @@ Sustainability strategy for MFF Maldives</narrative>
       <narrative>Maldives</narrative>
     </recipient-country>
     <location ref="MV">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="1282028" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="1282027" />
       <name>
-        <narrative>Maldives</narrative>
+        <narrative>Malé</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>Nationwide</narrative>
       </activity-description>
-      <administrative level="0" code="1282028" vocabulary="G1" />
+      <administrative level="1" code="1282027" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>3.200000 73.000000</pos>
+        <pos>4.174800 73.508880</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="23030" />
     <sector vocabulary="99" code="1">
@@ -5335,7 +5299,7 @@ Sustainability strategy for MFF Maldives</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">733</value>
+      <value currency="USD" value-date="2018-01-31">3942</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -5422,7 +5386,7 @@ Sustainability strategy for MFF Maldives</narrative>
     <description type="1">
       <narrative>This is a management project used for communication and initial pilot of Direct Project Costing</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -5461,14 +5425,6 @@ Sustainability strategy for MFF Maldives</narrative>
       <category code="A04" />
       <category code="A05" />
       <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00086569">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00093789" />
@@ -5637,6 +5593,12 @@ Sustainability strategy for MFF Maldives</narrative>
     </transaction>
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">6139</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">63710</value>
       <disbursement-channel code="2" />
@@ -5667,7 +5629,7 @@ Sustainability strategy for MFF Maldives</narrative>
     <description type="1">
       <narrative>To build a resilient and peaceful democratic society through effective and accountable governance institutions, improved social cohesion and strengthened capacity of civil society to meaningfully participate in the public life</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -5688,8 +5650,11 @@ Sustainability strategy for MFF Maldives</narrative>
     <participating-org role="1" type="70" ref="12993">
       <narrative>State Bank of India</narrative>
     </participating-org>
-    <participating-org role="1" type="0" ref="13041">
+    <participating-org role="1" type="70" ref="13041">
       <narrative>MDV - Damas Company Pvt. Ltd.</narrative>
+    </participating-org>
+    <participating-org role="1" type="70" ref="13054">
+      <narrative>MDV-Male' Aerated Water Co.</narrative>
     </participating-org>
     <participating-org role="1" type="40" ref="41119">
       <narrative>UNITED NATIONS POPULATION FUND</narrative>
@@ -5951,8 +5916,11 @@ Sustainability strategy for MFF Maldives</narrative>
     <participating-org role="1" type="70" ref="12993">
       <narrative>State Bank of India</narrative>
     </participating-org>
-    <participating-org role="1" type="0" ref="13041">
+    <participating-org role="1" type="70" ref="13041">
       <narrative>MDV - Damas Company Pvt. Ltd.</narrative>
+    </participating-org>
+    <participating-org role="1" type="70" ref="13054">
+      <narrative>MDV-Male' Aerated Water Co.</narrative>
     </participating-org>
     <participating-org role="1" type="10" ref="AU-5">
       <narrative>GOVERNMENT OF AUSTRALIA</narrative>
@@ -6108,8 +6076,20 @@ Sustainability strategy for MFF Maldives</narrative>
       <transaction-type code="1" />
       <transaction-date iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">5000</value>
-      <provider-org ref="13041" type="0">
+      <provider-org ref="13041" type="70">
         <narrative>MDV - Damas Company Pvt. Ltd.</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00097893">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">5000</value>
+      <provider-org ref="13054" type="70">
+        <narrative>MDV-Male' Aerated Water Co.</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114" receiver-activity-id="00097893">
         <narrative>United Nations Development Programme</narrative>
@@ -6207,6 +6187,12 @@ Sustainability strategy for MFF Maldives</narrative>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">15420</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -6805,6 +6791,12 @@ Sustainability strategy for MFF Maldives</narrative>
     </transaction>
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">2793</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">26000</value>
       <disbursement-channel code="2" />
@@ -7393,6 +7385,12 @@ Sustainability strategy for MFF Maldives</narrative>
     </transaction>
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">5260</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">59863</value>
       <disbursement-channel code="2" />
@@ -7792,6 +7790,12 @@ Sustainability strategy for MFF Maldives</narrative>
     </transaction>
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">58610</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">118141</value>
       <disbursement-channel code="2" />
@@ -8097,7 +8101,7 @@ Sustainability strategy for MFF Maldives</narrative>
     <description type="1">
       <narrative>Maldives - Direct Project Costs</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -8137,14 +8141,6 @@ Sustainability strategy for MFF Maldives</narrative>
         <narrative>ITB to Conduct Assessment of Climate Sensitive Natural Resources in Laamu Atoll and Preparation of Resources Maps</narrative>
       </title>
       <category code="A10" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00093840">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00098082" />
@@ -8333,7 +8329,7 @@ Sustainability strategy for MFF Maldives</narrative>
     <description type="1">
       <narrative>To increase the capacity for disaster risk reduction and management through support to enactment and operationalization of Disaster Risk Management Act, strengthening early warning system, increasing awareness and community capacity.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -8348,7 +8344,7 @@ Sustainability strategy for MFF Maldives</narrative>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2016-02-01" />
     <activity-date type="2" iso-date="2016-02-01" />
-    <activity-date type="3" iso-date="2018-02-01" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.mv@undp.org</email>
       <website>http://www.mv.undp.org/</website>
@@ -8485,7 +8481,7 @@ Sustainability strategy for MFF Maldives</narrative>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2016-02-01" />
     <activity-date type="2" iso-date="2016-02-01" />
-    <activity-date type="3" iso-date="2018-02-01" />
+    <activity-date type="3" iso-date="2018-03-31" />
     <contact-info type="1">
       <email>registry.mv@undp.org</email>
       <website>http://www.mv.undp.org/</website>
@@ -8635,6 +8631,12 @@ Sustainability strategy for MFF Maldives</narrative>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">117036</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -9045,6 +9047,12 @@ Sustainability strategy for MFF Maldives</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">1467</value>
+      <disbursement-channel code="2" />
+    </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00094293">
       <title>
         <narrative>Activity web page</narrative>
@@ -9141,14 +9149,6 @@ Note: Project document signed, funds transferred and implementation commenced by
       <category code="A04" />
       <category code="A05" />
       <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00104064">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00105796" />
@@ -9311,7 +9311,7 @@ Note: Project document signed, funds transferred and implementation commenced by
     <description type="1">
       <narrative>At the 52nd Meeting of the Council to the GEF in May 2017, the project concept or Project Identification Form (PIF) (GEF ID 9562) was approved by the GEF Council, along with the project Preparation Grant (PPG) of US$100,000 to develop the proposal.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -9503,7 +9503,7 @@ Note: Project document signed, funds transferred and implementation commenced by
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">71111</value>
+      <value currency="USD" value-date="2017-12-31">97907</value>
     </budget>
     <capital-spend percentage="0" />
     <transaction>
@@ -9542,6 +9542,18 @@ Note: Project document signed, funds transferred and implementation commenced by
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">26796</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00106273">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">9769</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
@@ -9554,10 +9566,16 @@ Note: Project document signed, funds transferred and implementation commenced by
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">130880</value>
+      <value currency="USD" value-date="2017-12-31">157676</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">17670</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00104898">

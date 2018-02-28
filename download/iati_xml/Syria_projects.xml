@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2018-02-15T17:03:48" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2018-02-28T21:30:50" version="2.02">
   <!--Syria-->
   <iati-activity last-updated-datetime="2018-02-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00032322</iati-identifier>
@@ -13,7 +13,7 @@
     <description type="1">
       <narrative>This project is to support United Nations Resident Coordinator work in Syria - UNRCO</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -94,7 +94,9 @@
       <narrative>Strengthened coordination capa</narrative>
     </title>
     <description type="1">
-      <narrative>UN Coordination Capacity and leadership of the UNCT work in Syria:</narrative>
+      <narrative>The main purpose is to support the development of the UN Strategic Framework (UNSF) and other strategic documents as so requested, as well as follow up implementation of the Syrian Humanitarian Response Plan (HRP).
+The RCO in Syria plays a critical advisory role to the UN Country Team (UNCT) while interfacing with the Government of Syria and NGOs. It contributes to UNCT policy and strategy development processes, and facilitates operational coordination and UN agency presence at UN hubs. 
+The RCO assists the RC/HC to retain overall leadership in the delivery of programmes so that the UN system </narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -150,6 +152,11 @@
       <value currency="USD" value-date="2017-12-31">18000</value>
     </budget>
     <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">77115</value>
+    </budget>
+    <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">357512</value>
@@ -162,6 +169,18 @@
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">77115</value>
+      <provider-org type="10" ref="CH-4">
+        <narrative>SWISS AGENCY FOR DEVELOPMENT AND COOPERATION - SDC</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00033182">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -203,10 +222,16 @@
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">18000</value>
+      <value currency="USD" value-date="2017-12-31">95115</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">3440</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -287,7 +312,7 @@ Management project to support UNRCO work in Syria</narrative>
     <description type="1">
       <narrative>Support of the National Programme “Tuberculosis” in the Syrian Arab Republic - SYR 607-G01-T</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -466,7 +491,8 @@ Management project to support UNRCO work in Syria</narrative>
       <narrative>Support the National TB Progra</narrative>
     </title>
     <description type="1">
-      <narrative>Support the National TB Programme in the Syrian Arab Republic</narrative>
+      <narrative>Detection of tuberculosis has been a long standing issue in Syria with detection rate below 50% which leads to delay in the start of treatment and further spread of the disease. 
+The Project will address the issue of DOTS for pulmonary TB patients, MDR patients, the engagement of all health providers (Public and Private), support people in vulnerable and poor areas to receive proper treatment and to strengthen the National Tuberculosis Programme Management capacity.</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -487,24 +513,24 @@ Management project to support UNRCO work in Syria</narrative>
       <narrative>Syria</narrative>
     </recipient-country>
     <location ref="SY">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="163843" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="170654" />
       <name>
-        <narrative>Syria</narrative>
+        <narrative>Damascus</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>Provide TB medication to target groups</narrative>
       </activity-description>
-      <administrative level="0" code="163843" vocabulary="G1" />
+      <administrative level="1" code="170654" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>35.000000 38.000000</pos>
+        <pos>33.510200 36.291280</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="13040" />
     <sector vocabulary="99" code="3">
@@ -868,14 +894,6 @@ Project is in the closure phase</narrative>
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00049500">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00073556" />
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00085403" />
     <conditions attached="0" />
@@ -889,7 +907,7 @@ Project is in the closure phase</narrative>
       <narrative>UNIVERSITY CANCER RESEARCH CTR</narrative>
     </title>
     <description type="1">
-      <narrative>UNIVERSITY CANCER RESEARCH CENTER</narrative>
+      <narrative>This project aims at establishing an innovative Cancer Research Center in Syria in order to diagnose cancer causes with proper technology as well as increasing cancer awareness among men, women and children on early intervention. The Cancer Research Center will help diagnose the cancer causes, diversity frequency and geographical distribution using an innovative laboratory. In addition, the research will serve as a national source of control efforts, including epidemiological study, clinical research, and prevention and cessation intervention development.</narrative>
     </description>
     <participating-org role="4" type="10" ref="02925">
       <narrative>The State Planning Commission</narrative>
@@ -1000,6 +1018,12 @@ Project is in the closure phase</narrative>
     </transaction>
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">50</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">643</value>
       <disbursement-channel code="2" />
@@ -1093,7 +1117,7 @@ Project is in the closure phase</narrative>
       <narrative>Human.Assist.to Cancer Patient</narrative>
     </title>
     <description type="1">
-      <narrative>Humanitarian Assistance to Cancer Patients</narrative>
+      <narrative>This project aims at establishing an innovative Cancer Research Center in Syria in order to diagnose cancer causes with proper technology as well as increasing cancer awareness among men, women and children on early intervention. The Cancer Research Center will help diagnose the cancer causes, diversity frequency and geographical distribution using an innovative laboratory. In addition, the research will serve as a national source of control efforts, including epidemiological study, clinical research, and prevention and cessation intervention development.</narrative>
     </description>
     <participating-org role="4" type="10" ref="02925">
       <narrative>The State Planning Commission</narrative>
@@ -1208,6 +1232,12 @@ Project is in the closure phase</narrative>
     </transaction>
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">103</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">1362</value>
       <disbursement-channel code="2" />
@@ -1299,7 +1329,7 @@ Cancer patients are obliged to travel across the country in order to retrieve tr
     <description type="1">
       <narrative>Strengthening HIV prevention among most-at-risk populations (MARPs) in the Syrian Arab Republic</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -1494,24 +1524,24 @@ Cancer patients are obliged to travel across the country in order to retrieve tr
       <narrative>Syria</narrative>
     </recipient-country>
     <location ref="SY">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="163843" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="170654" />
       <name>
-        <narrative>Syria</narrative>
+        <narrative>Damascus</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>Provide medication to PLWH</narrative>
       </activity-description>
-      <administrative level="0" code="163843" vocabulary="G1" />
+      <administrative level="1" code="170654" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>35.000000 38.000000</pos>
+        <pos>33.510200 36.291280</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="13040" />
     <sector vocabulary="99" code="3">
@@ -1837,7 +1867,7 @@ Project is under closure</narrative>
     <description type="1">
       <narrative>Emergency Assistance for the Restoration/ Stabilization of Livelihoods for People Affected by the Crisis in Syria</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -2650,6 +2680,12 @@ Project is under closure</narrative>
     </transaction>
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">382</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">6754</value>
       <disbursement-channel code="2" />
@@ -3138,6 +3174,12 @@ Liters of pesticides used
     </transaction>
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">18</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">35362</value>
       <disbursement-channel code="2" />
@@ -3233,7 +3275,7 @@ Increased demand for specific skills training</narrative>
     <description type="1">
       <narrative>Reliable and safe electricity to respond to the immediate humanitarian needs in crisis-affected Syrian Communities</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -3969,6 +4011,12 @@ High shutdown risk of the Jandar Power Plant due to the lack of essential spare 
     </transaction>
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">4800</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">18701222</value>
       <disbursement-channel code="2" />
@@ -4115,7 +4163,7 @@ High shutdown risk of the Power Plants due to the lack of essential spare parts 
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">3743917</value>
+      <value currency="USD" value-date="2017-12-31">4313178</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -4135,7 +4183,7 @@ High shutdown risk of the Power Plants due to the lack of essential spare parts 
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">3743917</value>
+      <value currency="USD" value-date="2017-12-31">4313178</value>
       <provider-org type="10" ref="00141">
         <narrative>GOVERNMENT OF JAPAN</narrative>
       </provider-org>
@@ -4183,7 +4231,7 @@ High shutdown risk of the Power Plants due to the lack of essential spare parts 
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">11908927</value>
+      <value currency="USD" value-date="2017-12-31">12478188</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -4192,7 +4240,7 @@ High shutdown risk of the Power Plants due to the lack of essential spare parts 
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">11398</value>
+      <value currency="USD" value-date="2018-01-31">26137</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -4466,7 +4514,7 @@ Preparatory phase</narrative>
     <description type="1">
       <narrative>Scaling-up of emergency restoration and stabilization of livelihoods of affected Syrian populations</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -4986,7 +5034,7 @@ Preparatory phase</narrative>
       <narrative>Support Disrupted Livelihoods</narrative>
     </title>
     <description type="1">
-      <narrative>Emergency support for restoration of disrupted livelihoods provided</narrative>
+      <narrative>UNDP  will  provide  direct  support  to  revive  micro-to-small businesses  in Aleppo, Hama, Hassakeh, Homs, Rural Damascus and Tartous through the provision of productive assets, and start-up kits (such as tools, equipment, farming inputs, etc.) in addition to vocational training.</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -5007,24 +5055,24 @@ Preparatory phase</narrative>
       <narrative>Syria</narrative>
     </recipient-country>
     <location ref="SY">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="163843" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="170654" />
       <name>
-        <narrative>Syria</narrative>
+        <narrative>Damascus</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>Different targeted locations including Damascus, Rural Damascus, Homs, Hama, Tartous, Aleppo, Hassakeh</narrative>
       </activity-description>
-      <administrative level="0" code="163843" vocabulary="G1" />
+      <administrative level="1" code="170654" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>35.000000 38.000000</pos>
+        <pos>33.510200 36.291280</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="73010" />
     <sector vocabulary="99" code="6">
@@ -5187,7 +5235,7 @@ Preparatory phase</narrative>
       <narrative>Emergency Support to WHH</narrative>
     </title>
     <description type="1">
-      <narrative>Emergency support to women headed households</narrative>
+      <narrative>The  support  will  include  the  generation  of  job  opportunities  for  2,800  women  in affected communities and/or shelters: 1,500 women will be employed in sewing and food processing projects and 1,300 women will receive productive kits in order to enable them to (re)start their own business and generate income. The kits will be carefully selected and will take into consideration cultural aspects according to target areas, i.e. allowing women to work from home, as applicable</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -5384,7 +5432,8 @@ Lack of economic opportunities and skills among women.</narrative>
       <narrative>Emergency Support-Disabilities</narrative>
     </title>
     <description type="1">
-      <narrative>Emergency support and rehabilitation for Persons with Disabilities</narrative>
+      <narrative>UNDP will give due attention to people with disabilities and other special needs, who often become more marginalised and vulnerable during crises, and will avail necessary resources for them to become independent and productive members 
+of the community. 3,000 persons with disability will benefit from the provision of disability aids such as prosthetic, wheelchairs, crutches, walkers, commode chairs and air mattresses, among other needed items.</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -5576,7 +5625,10 @@ Increased vulnerability of PWDs during the crisis time</narrative>
       <narrative>Social Cohesion &amp; Resilience</narrative>
     </title>
     <description type="1">
-      <narrative>Support to social cohesion and community resilience</narrative>
+      <narrative>UNDP  will  develop the  capacity  of  local organizations to cope and address the consequences 
+of the on-going crisis. Focus will be placed on developing the capacities of 70 NGOs/CBOs in Aleppo, Hama, Hassakeh, 
+Homs, Rural Damascus, and Tartous to engage in local response with particular focus on livelihoods and early recovery. This will empower the NGOs and give them the opportunity to expand their partnerships with other operating UN agencies in these 
+areas. The intended capacity development component is in line with the UNDP Syria strategy for NGOs capacity development; it aims to crea</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -5912,6 +5964,12 @@ Fragmentation and polarization in local communities, compounded by displacement.
     </transaction>
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">68</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">243404</value>
       <disbursement-channel code="2" />
@@ -5991,7 +6049,8 @@ This output is for project management</narrative>
       <narrative>Solid Waste Management</narrative>
     </title>
     <description type="1">
-      <narrative>Solid Waste Removal, Recycling and Equipment Repair</narrative>
+      <narrative>UNDP will target Aleppo City, Sheir in Hama City, and Mukharram in Homs for solid waste  collection,  sorting,  recycling  and  disposal. Given  the  dire  situation  in  these governorates, stakeholders and local partners have been reporting serious health and environmental hazards due to the piled garbage in the streets. The project will give the IDPs residing in communal shelters the chance to earn income while improving their surroundings and reducing their exposure to diseases. Garbage accumulation has been a major problem around the majority of shelters and in host communities. 1,000 
+sh</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -6182,7 +6241,8 @@ This output is for project management</narrative>
       <narrative>Debris Management</narrative>
     </title>
     <description type="1">
-      <narrative>Debris Removal and recycling</narrative>
+      <narrative>Rubble  accumulation  is  another  problem  highlighted in  the  old  city  of  Homs.  600 short-term emergency employment opportunities will be provided during the course of the project in this domain, varying from four to nine months, to support rubble removal  in  order  to  facilitate  access  and  eventual returns.  Necessary  tools  and equipment will also be provided to workers, and awareness raising campaigns on key 
+public safety and access issues will be conducted.</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -6375,7 +6435,7 @@ This output is for project management</narrative>
     <description type="1">
       <narrative>Strengthen the Resilience of the Syrian people and foster the recovery of disrupted livelihoods.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -7191,6 +7251,12 @@ This output is for project management</narrative>
     </transaction>
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">153944</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">1125440</value>
       <disbursement-channel code="2" />
@@ -7426,7 +7492,7 @@ Number of people benefiting from these projects</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">9233</value>
+      <value currency="USD" value-date="2018-01-31">11917</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -7502,7 +7568,7 @@ Number of people benefiting from these projects</narrative>
       <narrative>Socio-Economic Recovery</narrative>
     </title>
     <description type="1">
-      <narrative>Foster socio-economic recovery in affected communities.</narrative>
+      <narrative>Support to socio-economic recovery through business revival, including the provision and replacement of productive assets, startup kits, micro-grants, vocational training and job placements.</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -7720,7 +7786,7 @@ Number of people benefiting from these projects</narrative>
       <narrative>Recovery of  Vulnerable Groups</narrative>
     </title>
     <description type="1">
-      <narrative>Socio-Economic Recovery of  vulnerable groups</narrative>
+      <narrative>Support the Socio-Economic Recovery of  vulnerable groups through revival and establishment of productive workshops, creation of employment opportunities, provision of productive assets and startup tool kits, support to PWD's, and provision of vocational training</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -8035,7 +8101,7 @@ Number of people benefiting from these projects</narrative>
     <description type="1">
       <narrative>Households and communities benefit from sustainable livelihood opportunities, including economic recovery and social inclusion</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -8916,7 +8982,7 @@ High needs for vocational training to match market demand and enhance employ-abi
       <narrative>Youth-led initiatives</narrative>
     </title>
     <description type="1">
-      <narrative>Youth-led initiatives promoting tolerance and acceptance undertaken</narrative>
+      <narrative>Youth engagement and integration is a main pillar for UNDP livelihood interventions where young people will have the opportunities to gain work experience, acquire new skills, and to learn responsibility and accountability</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -9035,7 +9101,7 @@ High needs for vocational training to match market demand and enhance employ-abi
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">35891</value>
+      <value currency="USD" value-date="2018-01-31">51881</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -9067,7 +9133,7 @@ High needs for vocational training to match market demand and enhance employ-abi
         <description>
           <narrative># of Potential trainers benefited from ToT programme
 # of NGOs and local partners benefiting from the capacity development programme
-# of Exchange programmes including twinning programmes, cross-visits  mentoring activities conducted
+# of Exchange programmes including twinning programmes, cross-visits &amp; mentoring activities conducted
 # of community based initiatives promoting youth engagement for social cohesion</narrative>
         </description>
         <baseline year="2016" value="">
@@ -9085,7 +9151,7 @@ Limited Capacity of Local Partners</narrative>
 ----------------------------------------------------------------
 20 Potential trainers benefited from ToT programme
 70 NGOs and local partners benefiting from the capacity development programme
-5 Exchange programmes including twinning programmes, cross-visits  mentoring activities conducted
+5 Exchange programmes including twinning programmes, cross-visits &amp; mentoring activities conducted
 10 community based initiatives promoting youth engagement for social cohesion</narrative>
             </comment>
           </target>
@@ -9093,7 +9159,7 @@ Limited Capacity of Local Partners</narrative>
             <comment>
               <narrative>0 Potential trainers benefited from ToT programme
 99 NGOs and local partners benefiting from the capacity development programme
-6 Exchange programmes including twinning programmes, cross-visits  mentoring activities conducted
+6 Exchange programmes including twinning programmes, cross-visits &amp; mentoring activities conducted
 9 community based initiatives promoting youth engagement for social cohesion</narrative>
             </comment>
           </actual>
@@ -9107,7 +9173,7 @@ Limited Capacity of Local Partners</narrative>
 ----------------------------------------------------------------
 20 Potential trainers benefited from ToT programme
 70 NGOs and local partners benefiting from the capacity development programme
-5 Exchange programmes including twinning programmes, cross-visits  mentoring activities conducted
+5 Exchange programmes including twinning programmes, cross-visits &amp; mentoring activities conducted
 10 community based initiatives promoting youth engagement for social cohesion</narrative>
             </comment>
           </target>
@@ -9115,7 +9181,7 @@ Limited Capacity of Local Partners</narrative>
             <comment>
               <narrative>19 Potential trainers benefited from ToT programme
 0 NGOs and local partners benefiting from the capacity development programme
-0 Exchange programmes including twinning programmes, cross-visits  mentoring activities conducted
+0 Exchange programmes including twinning programmes, cross-visits &amp; mentoring activities conducted
 1 community based initiatives promoting youth engagement for social cohesion</narrative>
             </comment>
           </actual>
@@ -9132,7 +9198,7 @@ Limited Capacity of Local Partners</narrative>
       <narrative>Livelihood for Female-HH</narrative>
     </title>
     <description type="1">
-      <narrative>Livelihood opportunities generated for female-headed households</narrative>
+      <narrative>Socioeconomic recovery of vulnerable groups facilitated including women headed household</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -9304,7 +9370,7 @@ Limited Capacity of Local Partners</narrative>
       <narrative>Strategic Advocacy&amp;Coordinatin</narrative>
     </title>
     <description type="1">
-      <narrative>Advocacy and coordination for resilience-building enhanced</narrative>
+      <narrative>Enhancement of Advocacy and coordination for Resilience-Building response and Early Recovery Sector</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -9440,7 +9506,7 @@ Limited Capacity of Local Partners</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">6774</value>
+      <value currency="USD" value-date="2018-01-31">26356</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -9523,7 +9589,7 @@ This output is to support advocacy and coordination of Early Recovery and Liveli
       <narrative>Technical Support</narrative>
     </title>
     <description type="1">
-      <narrative>Technical Support</narrative>
+      <narrative>Provision of technical, operational and logistical assistance to support implementation</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -9696,7 +9762,7 @@ This output is to support advocacy and coordination of Early Recovery and Liveli
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">137</value>
+      <value currency="USD" value-date="2018-01-31">205</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -9779,7 +9845,7 @@ This output is for provision of technical, operational and logistical assistance
     <description type="1">
       <narrative>Basic and social services and infrastructure restored, improved and sustained to enhance community resilience</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -10532,7 +10598,7 @@ This output is for provision of technical, operational and logistical assistance
       <narrative>Reparation &amp; Restoring</narrative>
     </title>
     <description type="1">
-      <narrative>Reparation &amp;amp; Restoring</narrative>
+      <narrative>Basic, social services and other infrastructure repaired and/or restored in affected areas (schools, hospitals, health facilities, roads, electricity)</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -10699,7 +10765,7 @@ This output is for provision of technical, operational and logistical assistance
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">59139</value>
+      <value currency="USD" value-date="2018-01-31">456670</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -10789,7 +10855,7 @@ km of streets lighted</narrative>
       <narrative>Solid Waste Management</narrative>
     </title>
     <description type="1">
-      <narrative>Solid Waste Management</narrative>
+      <narrative>Solid waste management system in identified communities built/restored and functioning</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -10907,6 +10973,12 @@ km of streets lighted</narrative>
     </transaction>
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">25103</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">365812</value>
       <disbursement-channel code="2" />
@@ -10932,7 +11004,7 @@ km of streets lighted</narrative>
         </title>
         <description>
           <narrative># of job opportunities created 
-Tons of solid waste collected  removed
+Tons of solid waste collected &amp; removed
 # of Neighborhoods cleaned</narrative>
         </description>
         <baseline year="2016" value="">
@@ -10948,14 +11020,14 @@ Tons of solid waste collected  removed
               <narrative>2016 - 2017 (KFW2): 
 -------------------------------------------------
 760 Jobs created (Monthly)
-Tons of solid waste collected  removed
+Tons of solid waste collected &amp; removed
 Neighborhoods cleaned</narrative>
             </comment>
           </target>
           <actual value="">
             <comment>
               <narrative>4,203 Jobs created (Monthly)
-46,172 Tons of solid waste collected  removed
+46,172 Tons of solid waste collected &amp; removed
 56 Neighborhoods cleaned</narrative>
             </comment>
           </actual>
@@ -10968,14 +11040,14 @@ Neighborhoods cleaned</narrative>
               <narrative>2016 - 2017  (KFW2): 
 -------------------------------------------------
 760 Jobs created (Monthly)
-Tons of solid waste collected  removed
+Tons of solid waste collected &amp; removed
 Neighborhoods cleaned</narrative>
             </comment>
           </target>
           <actual value="">
             <comment>
               <narrative>2,008 Jobs created (Monthly)
-69,800 Tons of solid waste collected  removed
+69,800 Tons of solid waste collected &amp; removed
 10 Neighborhoods cleaned</narrative>
             </comment>
           </actual>
@@ -11169,7 +11241,7 @@ No baseline data was available</narrative>
       <narrative>Technical Support</narrative>
     </title>
     <description type="1">
-      <narrative>Technical Support</narrative>
+      <narrative>Provision of technical , operational and logistical assistance to support implementation</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -11287,6 +11359,12 @@ No baseline data was available</narrative>
     </transaction>
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">439</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">269886</value>
       <disbursement-channel code="2" />
@@ -11364,7 +11442,7 @@ This output is for technical and operational support</narrative>
     <description type="1">
       <narrative>Rehabilitation of Basic Infrastructure and income generation/Foster the Recovery of Disrupted Livelihoods Programme.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -11938,7 +12016,7 @@ This output is for technical and operational support</narrative>
       <narrative>Basic infra Restoration</narrative>
     </title>
     <description type="1">
-      <narrative>Rehabilitation of Basic &amp;amp; community Infrastructure</narrative>
+      <narrative>Basic and social services and infrastructure restored through labor intensive schemes</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -11959,24 +12037,24 @@ This output is for technical and operational support</narrative>
       <narrative>Syria</narrative>
     </recipient-country>
     <location ref="SY">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="163843" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="170654" />
       <name>
-        <narrative>Syria</narrative>
+        <narrative>Damascus</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>Different targeted locations under this output : Rural Damascus, Homs, Hama, Tartous, Lattakia , Hassakeh....</narrative>
       </activity-description>
-      <administrative level="0" code="163843" vocabulary="G1" />
+      <administrative level="1" code="170654" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>35.000000 38.000000</pos>
+        <pos>33.510200 36.291280</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="73010" />
     <sector vocabulary="99" code="6">
@@ -12136,7 +12214,7 @@ Tons of solid waste/ debris removed</narrative>
       <narrative>Job and income Generation</narrative>
     </title>
     <description type="1">
-      <narrative>Livelihoods restoration and income generation</narrative>
+      <narrative>Livelihoods of affected communities restored through job creation and income generating activities</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -12256,7 +12334,7 @@ Tons of solid waste/ debris removed</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">21857</value>
+      <value currency="USD" value-date="2018-01-31">104486</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -12470,7 +12548,7 @@ Tons of solid waste/ debris removed</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">18</value>
+      <value currency="USD" value-date="2018-01-31">1754</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -12681,7 +12759,7 @@ Tons of solid waste/ debris removed</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">13794</value>
+      <value currency="USD" value-date="2018-01-31">18117</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -12765,7 +12843,7 @@ Technical Assistance, Project Management and logistical support</narrative>
     <description type="1">
       <narrative>Socio-economic Stabilization and Resilience Building of affected Syrian People</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -12859,7 +12937,7 @@ Technical Assistance, Project Management and logistical support</narrative>
       <narrative>Basic infra Rehabilitation</narrative>
     </title>
     <description type="1">
-      <narrative>Rehabilitation of basic, community and social infrastructure</narrative>
+      <narrative>Building on the results and experience of its crisis response in Syria, UNDP through this strategic partnership will work on various elements of rehabilitation focusing on basic infrastructure (such as secondary/ tertiary roads, water networks, street lighting...etc.), community and social infrastructure (such as public facilities, schools in coordination with UNICEF and healthcare centers in cooperation with UNFPA to ensure a harmonized and integrated multi-sectoral response) and commercial/productive infrastructure (business units, markets). Additionally, UNDP will work on restoration of loc</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -12881,23 +12959,23 @@ Technical Assistance, Project Management and logistical support</narrative>
     </recipient-country>
     <location ref="SY">
       <location-reach code="1" />
-      <location-id vocabulary="G1" code="163843" />
+      <location-id vocabulary="G1" code="170654" />
       <name>
-        <narrative>Syria</narrative>
+        <narrative>Damascus</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>different locations : Damascus, Rural Damascus, Homs, Hama, Tartous ...etc</narrative>
       </activity-description>
-      <administrative level="0" code="163843" vocabulary="G1" />
+      <administrative level="1" code="170654" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>35.000000 38.000000</pos>
+        <pos>33.510200 36.291280</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="73010" />
     <sector vocabulary="99" code="6">
@@ -12919,7 +12997,7 @@ Technical Assistance, Project Management and logistical support</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">4088346</value>
+      <value currency="USD" value-date="2017-12-31">3688346</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
@@ -12956,7 +13034,7 @@ Technical Assistance, Project Management and logistical support</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">4088346</value>
+      <value currency="USD" value-date="2017-12-31">3688346</value>
       <provider-org type="10" ref="00141">
         <narrative>GOVERNMENT OF JAPAN</narrative>
       </provider-org>
@@ -12980,7 +13058,7 @@ Technical Assistance, Project Management and logistical support</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">5762782</value>
+      <value currency="USD" value-date="2017-12-31">5362782</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -12989,7 +13067,7 @@ Technical Assistance, Project Management and logistical support</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">63957</value>
+      <value currency="USD" value-date="2018-01-31">133036</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -13088,7 +13166,7 @@ No baseline data was available</narrative>
       <narrative>Solid Waste Managemet</narrative>
     </title>
     <description type="1">
-      <narrative>Solid Waste Management /cash-for-work scheme</narrative>
+      <narrative>Adopting labor-intensive approach for infrastructure rehabilitation and setting-up cash-for-work scheme for local youth and IDPs will help creating income generation opportunities and ensuring local communities’ engagement, particularly youth, in debris and solid waste management and the improvement of their communities. Field engineers will provide technical assistance, follow up and daily monitoring of work. Undertaking local procurement (where possible) of safety and security outfits, tools and equipment and relying on local service providers and businesses will contribute to stimulating th</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -13110,23 +13188,23 @@ No baseline data was available</narrative>
     </recipient-country>
     <location ref="SY">
       <location-reach code="1" />
-      <location-id vocabulary="G1" code="163843" />
+      <location-id vocabulary="G1" code="170654" />
       <name>
-        <narrative>Syria</narrative>
+        <narrative>Damascus</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>Different governorates : Rural Damascus, Homs, Hama, Tartous ....etc</narrative>
       </activity-description>
-      <administrative level="0" code="163843" vocabulary="G1" />
+      <administrative level="1" code="170654" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>35.000000 38.000000</pos>
+        <pos>33.510200 36.291280</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="73010" />
     <sector vocabulary="99" code="6">
@@ -13201,7 +13279,7 @@ No baseline data was available</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">223518</value>
+      <value currency="USD" value-date="2018-01-31">239874</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -13235,7 +13313,7 @@ No baseline data was available</narrative>
         <description>
           <narrative># of Jobs created (Monthly) 
 # of Municipal items/ equipment repaired
-Tons of SW collected removed
+Tons of SW collected &amp;removed
 # of Cleaned neighborhoods</narrative>
         </description>
         <baseline year="2016" value="">
@@ -13253,7 +13331,7 @@ No baseline data was available</narrative>
 -------------------------------
 1,058 Jobs created (Monthly) 
 858  Municipal items/ equipment repaired
-70,000 Tons of SW collected removed
+70,000 Tons of SW collected &amp;removed
 46  Cleaned neighborhoods</narrative>
             </comment>
           </target>
@@ -13261,7 +13339,7 @@ No baseline data was available</narrative>
             <comment>
               <narrative>758 Jobs created (Monthly) 
 92 Municipal items/ equipment repaired
-37,549 Tons of SW collected removed
+37,549 Tons of SW collected &amp;removed
 23 Cleaned neighborhoods</narrative>
             </comment>
           </actual>
@@ -13275,7 +13353,7 @@ No baseline data was available</narrative>
 -------------------------------
 1,058 Jobs created (Monthly) 
 858  Municipal items/ equipment repaired
-70,000 Tons of SW collected removed
+70,000 Tons of SW collected &amp;removed
 46  Cleaned neighborhoods</narrative>
             </comment>
           </target>
@@ -13283,7 +13361,7 @@ No baseline data was available</narrative>
             <comment>
               <narrative>446 Jobs created (Monthly) 
 598 Municipal items/ equipment repaired
-95,318 Tons of SW collected removed
+95,318 Tons of SW collected &amp;removed
 26 Cleaned neighborhoods</narrative>
             </comment>
           </actual>
@@ -13300,7 +13378,7 @@ No baseline data was available</narrative>
       <narrative>Debris Management</narrative>
     </title>
     <description type="1">
-      <narrative>Debris Management/ cash-for-work scheme</narrative>
+      <narrative>Adopting labor-intensive approach for infrastructure rehabilitation and setting-up cash-for-work scheme for local youth and IDPs will help creating income generation opportunities and ensuring local communities’ engagement, particularly youth, in debris and solid waste management and the improvement of their communities. Field engineers will provide technical assistance, follow up and daily monitoring of work. Undertaking local procurement (where possible) of safety and security outfits, tools and equipment and relying on local service providers and businesses will contribute to stimulating th</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -13322,23 +13400,23 @@ No baseline data was available</narrative>
     </recipient-country>
     <location ref="SY">
       <location-reach code="1" />
-      <location-id vocabulary="G1" code="163843" />
+      <location-id vocabulary="G1" code="170654" />
       <name>
-        <narrative>Syria</narrative>
+        <narrative>Damascus</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>different locations : Damascus, Rural Damascus, Homs, Hama, Tartous ...etc</narrative>
       </activity-description>
-      <administrative level="0" code="163843" vocabulary="G1" />
+      <administrative level="1" code="170654" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>35.000000 38.000000</pos>
+        <pos>33.510200 36.291280</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="73010" />
     <sector vocabulary="99" code="6">
@@ -13413,7 +13491,7 @@ No baseline data was available</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">37405</value>
+      <value currency="USD" value-date="2018-01-31">69908</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -13446,7 +13524,7 @@ No baseline data was available</narrative>
         </title>
         <description>
           <narrative># of Jobs created (Monthly) 
-Tons of debris collected  removed
+Tons of debris collected &amp; removed
 # of Cleaned roads and neighborhoods</narrative>
         </description>
         <baseline year="2016" value="">
@@ -13463,14 +13541,14 @@ No baseline data is available</narrative>
               <narrative>2016 - 2017 
 --------------------------------------------
 938 Jobs created
-156,250 Tons of debris collected  removed
+156,250 Tons of debris collected &amp; removed
 11 Cleaned roads and neighborhoods</narrative>
             </comment>
           </target>
           <actual value="">
             <comment>
               <narrative>0 Jobs created
-0 Tons of debris collected  removed
+0 Tons of debris collected &amp; removed
 0 Cleaned roads and neighborhoods</narrative>
             </comment>
           </actual>
@@ -13483,14 +13561,14 @@ No baseline data is available</narrative>
               <narrative>2016 - 2017 
 --------------------------------------------
 938 Jobs created
-156,250 Tons of debris collected  removed
+156,250 Tons of debris collected &amp; removed
 11 Cleaned roads and neighborhoods</narrative>
             </comment>
           </target>
           <actual value="">
             <comment>
               <narrative>837 Jobs created
-288,011 Tons of debris collected  removed
+288,011 Tons of debris collected &amp; removed
 2 Cleaned roads and neighborhoods</narrative>
             </comment>
           </actual>
@@ -13507,7 +13585,7 @@ No baseline data is available</narrative>
       <narrative>Technical Capacities</narrative>
     </title>
     <description type="1">
-      <narrative>Provision of technical capacities for partners at the national and local level</narrative>
+      <narrative>As UNDP promotes local ownership of local communities in the early recovery and resilience building programming and responses, capacity development plays a vital role in empowering the community representatives and civil society organizations to actually engage in such processes. Moreover, local partners are of paramount importance in connecting international humanitarian actors with affected local communities, establishing the needed delivery channels, mobilizing volunteers, and developing solutions that address the persisting needs of affected people. Therefore, UNDP will maintain its NGOs/C</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -13529,23 +13607,23 @@ No baseline data is available</narrative>
     </recipient-country>
     <location ref="SY">
       <location-reach code="1" />
-      <location-id vocabulary="G1" code="163843" />
+      <location-id vocabulary="G1" code="170654" />
       <name>
-        <narrative>Syria</narrative>
+        <narrative>Damascus</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>Different locations : Damascus, Homs, Hama, Tartous ....etc</narrative>
       </activity-description>
-      <administrative level="0" code="163843" vocabulary="G1" />
+      <administrative level="1" code="170654" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>35.000000 38.000000</pos>
+        <pos>33.510200 36.291280</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="73010" />
     <sector vocabulary="99" code="6">
@@ -13620,7 +13698,7 @@ No baseline data is available</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">124121</value>
+      <value currency="USD" value-date="2018-01-31">127721</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -13729,24 +13807,24 @@ No baseline data is available</narrative>
       <narrative>Syria</narrative>
     </recipient-country>
     <location ref="SY">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="163843" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="170654" />
       <name>
-        <narrative>Syria</narrative>
+        <narrative>Damascus</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>Different targeted locations under this output</narrative>
       </activity-description>
-      <administrative level="0" code="163843" vocabulary="G1" />
+      <administrative level="1" code="170654" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>35.000000 38.000000</pos>
+        <pos>33.510200 36.291280</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="73010" />
     <sector vocabulary="99" code="6">
@@ -13768,7 +13846,7 @@ No baseline data is available</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1779849</value>
+      <value currency="USD" value-date="2017-12-31">1379849</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -13788,7 +13866,7 @@ No baseline data is available</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1779849</value>
+      <value currency="USD" value-date="2017-12-31">1379849</value>
       <provider-org type="10" ref="00141">
         <narrative>GOVERNMENT OF JAPAN</narrative>
       </provider-org>
@@ -13812,7 +13890,7 @@ No baseline data is available</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">2102189</value>
+      <value currency="USD" value-date="2017-12-31">1702189</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -13821,7 +13899,7 @@ No baseline data is available</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">5622</value>
+      <value currency="USD" value-date="2018-01-31">37647</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -14031,7 +14109,7 @@ Limited inclusion of youth in socio economic recovery activities</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">4882</value>
+      <value currency="USD" value-date="2018-01-31">13062</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -14125,7 +14203,8 @@ Limited inclusion of PWDs in socioeconomic recovery activities</narrative>
       <narrative>Disrupted Livelihoods</narrative>
     </title>
     <description type="1">
-      <narrative>Restoration of Disrupted Livelihoods</narrative>
+      <narrative>UNDP’s socio-economic and livelihoods recovery programme works to stabilize livelihoods and improve the social and economic conditions required for early recovery and long-term development. It is also designed to help crisis-affected people to develop or regain sustainable livelihood assets and contribute to the revival of the local economy. UNDP’s programme focuses on vulnerable groups ensuring the priorities and needs of female-heading households, people with disability and youth are adequately addressed and the gender dimension is properly integrated.  
+Under this component, UNDP will contr</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -14185,7 +14264,7 @@ Limited inclusion of PWDs in socioeconomic recovery activities</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">2993951</value>
+      <value currency="USD" value-date="2017-12-31">3143951</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -14217,7 +14296,7 @@ Limited inclusion of PWDs in socioeconomic recovery activities</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">2993951</value>
+      <value currency="USD" value-date="2017-12-31">3143951</value>
       <provider-org type="10" ref="00141">
         <narrative>GOVERNMENT OF JAPAN</narrative>
       </provider-org>
@@ -14241,7 +14320,7 @@ Limited inclusion of PWDs in socioeconomic recovery activities</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">3854718</value>
+      <value currency="USD" value-date="2017-12-31">4004718</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -14250,7 +14329,7 @@ Limited inclusion of PWDs in socioeconomic recovery activities</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">82049</value>
+      <value currency="USD" value-date="2018-01-31">234844</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -14338,6 +14417,124 @@ High needs for vocational training to match market demand and enhance employabil
     </result>
   </iati-activity>
   <iati-activity last-updated-datetime="2018-02-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
+    <iati-identifier>XM-DAC-41114-PROJECT-00100316</iati-identifier>
+    <reporting-org ref="XM-DAC-41114" type="40">
+      <narrative>United Nations Development Programme</narrative>
+    </reporting-org>
+    <title>
+      <narrative>Finland Building Resilience</narrative>
+    </title>
+    <description type="1">
+      <narrative>Building Resilience in Response to the Syria Crisis</narrative>
+    </description>
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
+    <participating-org role="2" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="FI-3">
+      <narrative>GOVERNMENT OF FINLAND</narrative>
+    </participating-org>
+    <activity-status code="2" />
+    <activity-date type="1" iso-date="2017-01-01" />
+    <activity-date type="2" iso-date="2017-01-01" />
+    <activity-date type="3" iso-date="2018-12-31" />
+    <contact-info type="1">
+      <email>registry.sy@undp.org</email>
+      <website>http://www.undp.org.sy/</website>
+    </contact-info>
+    <recipient-country code="SY">
+      <narrative>Syria</narrative>
+    </recipient-country>
+    <collaboration-type code="4" />
+    <default-flow-type code="10" />
+    <default-finance-type code="110" />
+    <default-aid-type code="C01" />
+    <default-tied-status code="3" />
+    <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00103324" />
+    <conditions attached="0" />
+  </iati-activity>
+  <iati-activity last-updated-datetime="2018-02-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="2">
+    <iati-identifier>XM-DAC-41114-OUTPUT-00103324</iati-identifier>
+    <reporting-org ref="XM-DAC-41114" type="40">
+      <narrative>United Nations Development Programme</narrative>
+    </reporting-org>
+    <title>
+      <narrative>Finland Building Resilience</narrative>
+    </title>
+    <description type="1">
+      <narrative>-</narrative>
+    </description>
+    <participating-org role="4" type="40" ref="99999">
+      <narrative>United Nations Development Programme</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="FI-3">
+      <narrative>GOVERNMENT OF FINLAND</narrative>
+    </participating-org>
+    <activity-status code="2" />
+    <activity-date type="1" iso-date="2017-01-01" />
+    <activity-date type="2" iso-date="2017-01-01" />
+    <activity-date type="3" iso-date="2018-12-31" />
+    <contact-info type="1">
+      <email>registry.sy@undp.org</email>
+      <website>http://www.undp.org.sy/</website>
+    </contact-info>
+    <recipient-country code="SY">
+      <narrative>Syria</narrative>
+    </recipient-country>
+    <policy-marker vocabulary="1" code="1" significance="0" />
+    <collaboration-type code="4" />
+    <default-flow-type code="10" />
+    <default-finance-type code="110" />
+    <default-aid-type code="C01" />
+    <default-tied-status code="3" />
+    <budget type="2" status="2">
+      <period-start iso-date="2017-01-01" />
+      <period-end iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">0</value>
+    </budget>
+    <capital-spend percentage="0" />
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">0</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">2986858</value>
+      <provider-org ref="FI-3" type="10">
+        <narrative>GOVERNMENT OF FINLAND</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00103324">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">0</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <document-link format="text/html" url="http://open.undp.org/#project/00100316">
+      <title>
+        <narrative>Activity web page</narrative>
+      </title>
+      <category code="A12" />
+    </document-link>
+    <related-activity type="1" ref="XM-DAC-41114-PROJECT-00100316" />
+    <conditions attached="0" />
+  </iati-activity>
+  <iati-activity last-updated-datetime="2018-02-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00100923</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -14348,7 +14545,7 @@ High needs for vocational training to match market demand and enhance employabil
     <description type="1">
       <narrative>Emergency Support to Strengthen the Resilience of the Syrian People.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -14418,6 +14615,13 @@ High needs for vocational training to match market demand and enhance employabil
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=43754">
       <title>
         <narrative>Provision of individual services to examine the existing value chain on textile and garment sector, identify bottlenecks and entry points to support value chain recovery of the sector with a focus in Aleppo and Rural Damascus.</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=44193">
+      <title>
+        <narrative>Provision of Professional Services for Value Chain Analysis on textile and garment sector, in Aleppo and Rural Damascus, Syria</narrative>
       </title>
       <category code="A10" />
       <language code="en" />
@@ -14746,7 +14950,7 @@ High needs for vocational training to match market demand and enhance employabil
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">74879</value>
+      <value currency="USD" value-date="2018-01-31">94663</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -14812,7 +15016,7 @@ No baseline data is available yet</narrative>
       <narrative>Socio-economic Recovery</narrative>
     </title>
     <description type="1">
-      <narrative>Socio-economic recovery of affected population</narrative>
+      <narrative>To enhance the resilience of the Syrians, restore their disrupted livelihoods and enable them gain access to a dignified source of living, UNDP provides rapid and responsive assistance through mobilizing the participation of people in the social and economic rebuilding of their communities. Activities vary from repair of fishing boats and support to greenhouse farming, to sewing workshops and artisanal works while ensuring an element of vocational training and tool kits provision. UNDP tailor its interventions based on the characteristics of the impact of the crisis on target areas and the aff</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -14887,7 +15091,7 @@ No baseline data is available yet</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">797</value>
+      <value currency="USD" value-date="2018-01-31">49754</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00100923">
@@ -15021,7 +15225,7 @@ No baseline data is available yet</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">9845</value>
+      <value currency="USD" value-date="2018-01-31">26786</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00100923">
@@ -15162,7 +15366,7 @@ No baseline data is available yet</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">11130</value>
+      <value currency="USD" value-date="2018-01-31">11730</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00100923">
@@ -15467,7 +15671,7 @@ No baseline data is available yet</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">29</value>
+      <value currency="USD" value-date="2018-01-31">7548</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00100923">
@@ -15495,7 +15699,7 @@ No baseline data is available yet</narrative>
     <description type="1">
       <narrative>Technical Cooperation for Long-Term Capacity Building of Syrian Experts "Training for All"</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -15798,7 +16002,7 @@ No baseline data is available yet</narrative>
       <narrative>Capacity Building-Infra</narrative>
     </title>
     <description type="1">
-      <narrative>Capacity building-Engineers &amp;amp; archaeological experts</narrative>
+      <narrative>Capacity Development of 400 engineers from generation and distribution institutions of the Ministry of Electricity for the maintenance and rehabilitation work</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -15842,7 +16046,7 @@ No baseline data is available yet</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">1549733</value>
+      <value currency="USD" value-date="2017-12-31">1403551</value>
     </budget>
     <capital-spend percentage="0" />
     <transaction>
@@ -15869,7 +16073,7 @@ No baseline data is available yet</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1549733</value>
+      <value currency="USD" value-date="2017-12-31">1403551</value>
       <provider-org type="10" ref="00141">
         <narrative>GOVERNMENT OF JAPAN</narrative>
       </provider-org>
@@ -15893,7 +16097,7 @@ No baseline data is available yet</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">3407433</value>
+      <value currency="USD" value-date="2017-12-31">3261251</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -16002,7 +16206,7 @@ Preparatory Phase</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">1720934</value>
+      <value currency="USD" value-date="2017-12-31">1845335</value>
     </budget>
     <capital-spend percentage="0" />
     <transaction>
@@ -16029,7 +16233,7 @@ Preparatory Phase</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1720934</value>
+      <value currency="USD" value-date="2017-12-31">1845335</value>
       <provider-org type="10" ref="00141">
         <narrative>GOVERNMENT OF JAPAN</narrative>
       </provider-org>
@@ -16053,7 +16257,7 @@ Preparatory Phase</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">2365611</value>
+      <value currency="USD" value-date="2017-12-31">2490012</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -16062,7 +16266,7 @@ Preparatory Phase</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">8249</value>
+      <value currency="USD" value-date="2018-01-31">20002</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00102600">
@@ -16128,7 +16332,7 @@ Preparatory Phase</narrative>
       <narrative>Programme Management</narrative>
     </title>
     <description type="1">
-      <narrative>Programme Management</narrative>
+      <narrative>Provision of Technical,Operational and Logistical Assistance to support implementation</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -16172,7 +16376,7 @@ Preparatory Phase</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">477007</value>
+      <value currency="USD" value-date="2017-12-31">474610</value>
     </budget>
     <capital-spend percentage="0" />
     <transaction>
@@ -16187,7 +16391,7 @@ Preparatory Phase</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">477007</value>
+      <value currency="USD" value-date="2017-12-31">474610</value>
       <provider-org type="10" ref="00141">
         <narrative>GOVERNMENT OF JAPAN</narrative>
       </provider-org>
@@ -16211,7 +16415,7 @@ Preparatory Phase</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">687758</value>
+      <value currency="USD" value-date="2017-12-31">685361</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -16220,7 +16424,7 @@ Preparatory Phase</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">1050</value>
+      <value currency="USD" value-date="2018-01-31">1188</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00102600">
@@ -16279,7 +16483,7 @@ This output is to provide technical,operational and logistical assistance to sup
     <description type="1">
       <narrative>Community Security and Access to Justice for Peace building in Syria</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -16442,24 +16646,24 @@ This output is to provide technical,operational and logistical assistance to sup
       <narrative>Syria</narrative>
     </recipient-country>
     <location ref="SY">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="163843" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="170654" />
       <name>
-        <narrative>Syria</narrative>
+        <narrative>Damascus</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>many targeted locations : Damscus, Homs, Hama, Tartous</narrative>
       </activity-description>
-      <administrative level="0" code="163843" vocabulary="G1" />
+      <administrative level="1" code="170654" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>35.000000 38.000000</pos>
+        <pos>33.510200 36.291280</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="73010" />
     <sector vocabulary="99" code="6">
@@ -16589,12 +16793,12 @@ This output is to provide technical,operational and logistical assistance to sup
       <narrative>United Nations Development Programme</narrative>
     </reporting-org>
     <title>
-      <narrative>SHF Operations</narrative>
+      <narrative>Syrian Humanitarian Fund Operations</narrative>
     </title>
     <description type="1">
       <narrative>Syrian Humanitarian Fund Operations</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -16830,7 +17034,11 @@ This output is to provide technical,operational and logistical assistance to sup
       <narrative>Gaziantep Resilience Building</narrative>
     </title>
     <description type="1">
-      <narrative>Resilience Building Through Livelihoods Stabilization</narrative>
+      <narrative>Design pilot livelihoods interventions based on an assessment to support cash for work for rehabilitation of key infrastructure; provision of productive assets, vocational and entrepreneurial training for income generation,, development of micro
+business plans..... etc, focusing on  :
+- Improving safe access to basic and social essential services and infrastructure for affected people and institutions.
+- Restoring disrupted livelihoods for strengthened social protection and positive coping mechanisms of affected people and vulnerable groups.
+- Promoting social cohesion and local participation </narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -16955,7 +17163,7 @@ This output is to provide technical,operational and logistical assistance to sup
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">4207</value>
+      <value currency="USD" value-date="2018-01-31">9435</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00104533">
@@ -17116,6 +17324,12 @@ xxx Jobs opportunities  created in restoration of basic social and infrastructur
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">2035</value>
+      <disbursement-channel code="2" />
+    </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00104533">
       <title>
         <narrative>Activity web page</narrative>
@@ -17179,7 +17393,7 @@ xxx employment opportunities created</narrative>
 people including returnees in East Aleppo through rehabilitation of basic
 services and revival of local businesses and affected vocational workshops.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -17215,6 +17429,13 @@ services and revival of local businesses and affected vocational workshops.</nar
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=43809">
       <title>
         <narrative>Supply of Machinery in three lots (Medium Crushers, Tractors and Loaders)</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=44297">
+      <title>
+        <narrative>UNDP-SYR-RFQ-011-18 Rehabilitation of 66 damaged housing units in Al Kallaseh Neighborhood- Aleppo City</narrative>
       </title>
       <category code="A10" />
       <language code="en" />
@@ -17520,7 +17741,7 @@ services and revival of local businesses and affected vocational workshops.</nar
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">22219</value>
+      <value currency="USD" value-date="2018-01-31">55873</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00104693">
@@ -17586,7 +17807,10 @@ xxx monthly job opportunities created in debris and solid waste management</narr
       <narrative>Socio-economic recovery</narrative>
     </title>
     <description type="1">
-      <narrative>Provision of socioeconomic support</narrative>
+      <narrative>This output aims at : 
+Provision of socioeconomic support including vocational training and distribution of productive assets to affected market and vocational workshops in the industrial zone in the project target areas (Kallaseh, Bostan Al Qaser, and Al Sha’ar)
+Provision of on-the-job vocational training for youth and affected workers and skills people and provision of startups vocational tool kits
+Reviving micro business and vocational workshops through distribution of productive equipment and assets to affected or newly established workshops in target areas.</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -17829,6 +18053,12 @@ xxx affected people benefiting from livelihoods support</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">21614</value>
+      <disbursement-channel code="2" />
+    </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00104693">
       <title>
         <narrative>Activity web page</narrative>
@@ -17849,7 +18079,7 @@ xxx affected people benefiting from livelihoods support</narrative>
           <narrative>Output Indicator</narrative>
         </title>
         <description>
-          <narrative># of youth trained on ERL and resilience-based approaches promoting social cohesion
+          <narrative># of youth trained on ER&amp;L and resilience-based approaches promoting social cohesion
 # of  youth involved in or leading social cohesion and/or civic engagement interventions</narrative>
         </description>
         <baseline year="2017" value="">
@@ -17863,13 +18093,13 @@ Limited local level social cohesion and community resilience activities</narrati
           <period-end iso-date="2017-12-31" />
           <target value="">
             <comment>
-              <narrative>80  youth trained on ERL and resilience-based approaches promoting social cohesion
+              <narrative>80  youth trained on ER&amp;L and resilience-based approaches promoting social cohesion
 20 youth involved in or leading social cohesion and/or civic engagement interventions</narrative>
             </comment>
           </target>
           <actual value="">
             <comment>
-              <narrative>xxx  youth trained on ERL and resilience-based approaches promoting social cohesion
+              <narrative>xxx  youth trained on ER&amp;L and resilience-based approaches promoting social cohesion
 xxx youth involved in or leading social cohesion and/or civic engagement interventions</narrative>
             </comment>
           </actual>
@@ -17886,7 +18116,11 @@ xxx youth involved in or leading social cohesion and/or civic engagement interve
       <narrative>Technical Assistance</narrative>
     </title>
     <description type="1">
-      <narrative>Technical Assistance</narrative>
+      <narrative>Technical Assistance and operational and logistical support: 
+- Staff and Other Personnel Costs (Area Manager, Area Coordinator, Area Assistant, Socioeconomic Technical Officer, Driver, Guards, Engineering Program Manager, Finance associate
+- Supplies, Commodities, Materials
+Travel / : DSA Cost for each field mission from Damascus to Aleppo in order to follow up on the implementation process and ensure the quality of work (3 missions) each mission will include 6 staff for 3 days each with total quantity 18 daily DSA
+- General Operating and Other Direct Costs</narrative>
     </description>
     <participating-org role="4" type="40" ref="99999">
       <narrative>United Nations Development Programme</narrative>
@@ -18039,7 +18273,7 @@ This output is to provide technical assistance and operational and logistical su
       <narrative>Rehabilitation of Basic infrastructure and income generation / Foster the
 Recovery of Disrupted Livelihoods Programme</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -18143,7 +18377,7 @@ Recovery of Disrupted Livelihoods Programme</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">2423347</value>
+      <value currency="USD" value-date="2017-12-31">2617215</value>
     </budget>
     <capital-spend percentage="0" />
     <transaction>
@@ -18158,7 +18392,7 @@ Recovery of Disrupted Livelihoods Programme</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">2423347</value>
+      <value currency="USD" value-date="2017-12-31">2617215</value>
       <provider-org type="10" ref="DE-1">
         <narrative>KREDITANSTALT FUR WIEDERAUFBAU</narrative>
       </provider-org>
@@ -18194,10 +18428,16 @@ Recovery of Disrupted Livelihoods Programme</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">2423348</value>
+      <value currency="USD" value-date="2017-12-31">2617216</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">15254</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00104846">
@@ -18215,12 +18455,12 @@ Recovery of Disrupted Livelihoods Programme</narrative>
       <narrative>United Nations Development Programme</narrative>
     </reporting-org>
     <title>
-      <narrative>SDC Resilience in Old Aleppo</narrative>
+      <narrative>Strengthening Eearly Recovery and Resilience in Old Aleppo</narrative>
     </title>
     <description type="1">
       <narrative>Strengthening Eearly Recovery and Resilience in Old Aleppo</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">

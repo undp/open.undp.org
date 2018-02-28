@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2018-02-15T17:03:16" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2018-02-28T21:30:07" version="2.02">
   <!--Kenya-->
   <iati-activity last-updated-datetime="2018-02-01T00:02:02" default-currency="USD" xml:lang="en" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00032095</iati-identifier>
@@ -13,7 +13,7 @@
     <description type="1">
       <narrative>The award contains projects in support to the Resident Coordination Secretariat (UNDOCO funding) and other funds for UNCT activities as approved by the UNCT Annually at the beginning of each year (January).</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -292,6 +292,12 @@
     </transaction>
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">7023</value>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">533955</value>
       <disbursement-channel code="2" />
@@ -322,7 +328,7 @@
     <description type="1">
       <narrative>This project is a Management Plan that aims to support Kenya Country Office Programme activities and UN Department of Safety and Security.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -610,14 +616,6 @@
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00059169">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00073921" />
     <conditions attached="0" />
     <result type="1" aggregation-status="1">
@@ -858,6 +856,23 @@
       <activity-description>
         <narrative>nairobi</narrative>
       </activity-description>
+      <administrative level="1" code="184745" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>-1.283330 36.816670</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
+    <location ref="KE">
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="184745" />
+      <name>
+        <narrative>Nairobi</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
       <administrative level="1" code="184745" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
         <pos>-1.283330 36.816670</pos>
@@ -2408,21 +2423,6 @@ Food security enhancement has been realized as reported through statistics of co
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/KEN/FINAL%20-%20CPP%20PROGRAMME%20EVALUATION%20REPORT%20-%20March%202015.pdf">
-      <title>
-        <narrative>FINAL  CPP PROGRAMME EVALUATION REPORT  March 2015</narrative>
-      </title>
-      <category code="A07" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00061043">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00077137" />
     <conditions attached="0" />
   </iati-activity>
@@ -2972,21 +2972,21 @@ Food security enhancement has been realized as reported through statistics of co
       <feature-designation code="PPLC" />
     </location>
     <location ref="KE">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="192950" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="184745" />
       <name>
-        <narrative>Kenya</narrative>
+        <narrative>Nairobi</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="192950" vocabulary="G1" />
+      <administrative level="1" code="184745" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>1.000000 38.000000</pos>
+        <pos>-1.283330 36.816670</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="74010" />
     <sector vocabulary="99" code="5">
@@ -3281,7 +3281,7 @@ Climate Finance Policy approved by Cabinet</narrative>
     <description type="1">
       <narrative>This is a Management Project designed with the aim of ensuring Development Effectiveness.</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -3317,14 +3317,6 @@ Climate Finance Policy approved by Cabinet</narrative>
       <category code="A04" />
       <category code="A05" />
       <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00064106">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00080980" />
@@ -3572,20 +3564,6 @@ Climate Finance Policy approved by Cabinet</narrative>
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/KEN/Mid-term%20review%20(MTR)%20Final%20Report.pd.pdf">
-      <title>
-        <narrative>Midterm review MTR Final Reportpd</narrative>
-      </title>
-      <category code="A07" />
-      <language code="en" />
-    </document-link>
-    <document-link format="application/msword" url="https://info.undp.org/docs/pdc/Documents/KEN/Terminal%20Evaluation%20Kenya%20SGP%20OP5%20-%20final.docx">
-      <title>
-        <narrative>Terminal Evaluation Kenya SGP OP5  final</narrative>
-      </title>
-      <category code="A07" />
-      <language code="en" />
-    </document-link>
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/KEN/DOA.pdf">
       <title>
         <narrative>DOA</narrative>
@@ -3598,14 +3576,6 @@ Climate Finance Policy approved by Cabinet</narrative>
         <narrative>UN AGENCT TO AGENCY CONTRIBUTION AGREEMENT TRACK FUNDS</narrative>
       </title>
       <category code="A09" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00064957">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00081601" />
@@ -3840,21 +3810,21 @@ Climate Finance Policy approved by Cabinet</narrative>
       <narrative>Kenya</narrative>
     </recipient-country>
     <location ref="KE">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="192950" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="184745" />
       <name>
-        <narrative>Kenya</narrative>
+        <narrative>Nairobi</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
-      <administrative level="0" code="192950" vocabulary="G1" />
+      <administrative level="1" code="184745" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>1.000000 38.000000</pos>
+        <pos>-1.283330 36.816670</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="23010" />
     <sector vocabulary="99" code="1">
@@ -4196,13 +4166,6 @@ Climate Finance Policy approved by Cabinet</narrative>
       <category code="A08" />
       <language code="en" />
     </document-link>
-    <document-link format="text/html" url="https://erc.undp.org/evaluation/evaluations/detail/7211">
-      <title>
-        <narrative>UNDP's Support to Devolution</narrative>
-      </title>
-      <category code="A07" />
-      <language code="en" />
-    </document-link>
     <document-link format="text/html" url="http://open.undp.org/#project/00068057">
       <title>
         <narrative>Purchase Order Summary</narrative>
@@ -4314,6 +4277,23 @@ Climate Finance Policy approved by Cabinet</narrative>
       <activity-description>
         <narrative>capacity building</narrative>
       </activity-description>
+      <administrative level="1" code="184745" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>-1.283330 36.816670</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
+    <location ref="KE">
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="184745" />
+      <name>
+        <narrative>Nairobi</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
       <administrative level="1" code="184745" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
         <pos>-1.283330 36.816670</pos>
@@ -5100,7 +5080,7 @@ Climate Finance Policy approved by Cabinet</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">31463</value>
+      <value currency="USD" value-date="2018-01-31">123148</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -5158,7 +5138,7 @@ Phase 2: Integrated Project (2014-2018)
 1. Proportion of supported counties that have capacity to formulate laws that promote devolution
 2. Number of supported counties with functional performance management systems 
 3. Number of supported counties that undertake evidence based decision making
-4. Number of supported counties with strategies for peace building community security and cohesion integrated development plans and budgets, sectors strategies  programmes mainstreaming
+4. Number of supported counties with strategies for peace building community security and cohesion integrated development plans and budgets, sectors strategies &amp; programmes mainstreaming
 5. Level of capacity of sub-national governments/administrations for planning, budgeting and monitoring basic services delivery.(1- No capacity; 2- very partial capacity; 3-partial capacity; 4-capacity largely in place)</narrative>
         </description>
         <baseline year="2012" value="">
@@ -5171,7 +5151,7 @@ Phase 2: Integrated Project (2014-2018)
 2. 0 (2013)
 3. 0 (2013)
 4. 0 (2013)
-5. 1 -Planning; 1-Budgeting; 1 -ME (2014)</narrative>
+5. 1 -Planning; 1-Budgeting; 1 -M&amp;E (2014)</narrative>
           </comment>
         </baseline>
         <period>
@@ -5184,7 +5164,7 @@ Phase 2: Integrated Project (2014-2018)
 2. 13
 3. 15
 4. 6
-5. 3 -Planning; 3-Budgeting; 3 -ME</narrative>
+5. 3 -Planning; 3-Budgeting; 3 -M&amp;E</narrative>
             </comment>
           </target>
           <actual value="">
@@ -5194,7 +5174,7 @@ Phase 2: Integrated Project (2014-2018)
 2. 13
 3. 15
 4. 6
-5. 3 -Planning; 3-Budgeting; 3 -ME</narrative>
+5. 3 -Planning; 3-Budgeting; 3 -M&amp;E</narrative>
             </comment>
           </actual>
         </period>
@@ -5208,7 +5188,7 @@ Phase 2: Integrated Project (2014-2018)
 2. 15
 3. 18
 4. 8
-5. 3 -Planning; 3-Budgeting; 3 -ME</narrative>
+5. 3 -Planning; 3-Budgeting; 3 -M&amp;E</narrative>
             </comment>
           </target>
           <actual value="">
@@ -5218,7 +5198,7 @@ Phase 2: Integrated Project (2014-2018)
 2. 15
 3. 18
 4. 8
-5. 3 -Planning; 3-Budgeting; 3 -ME</narrative>
+5. 3 -Planning; 3-Budgeting; 3 -M&amp;E</narrative>
             </comment>
           </actual>
         </period>
@@ -5447,7 +5427,7 @@ Phase 2: Integrated Project (2014-2018)
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">-29</value>
+      <value currency="USD" value-date="2018-01-31">2096</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00068057">
@@ -5907,6 +5887,26 @@ Strengthen capacity on public private sector institutions.</narrative>
       <feature-designation code="PPL" />
     </location>
     <location ref="KE">
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="184745" />
+      <name>
+        <narrative>Nairobi</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
+      <activity-description>
+        <narrative>Improve standard of women and people with disabilities</narrative>
+      </activity-description>
+      <administrative level="1" code="184745" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>-1.283330 36.816670</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
+    </location>
+    <location ref="KE">
       <location-reach code="2" />
       <location-id vocabulary="G1" code="190108" />
       <name>
@@ -5951,7 +5951,7 @@ Strengthen capacity on public private sector institutions.</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">116687</value>
+      <value currency="USD" value-date="2017-12-31">121687</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -6020,6 +6020,18 @@ Strengthen capacity on public private sector institutions.</narrative>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">106950</value>
+      <provider-org ref="US-USAGOV" type="10">
+        <narrative>UNITED STATES AGENCY FOR INTERNATIONAL DEVELOPMENT (USAID)</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00085902">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">148313</value>
@@ -6034,11 +6046,23 @@ Strengthen capacity on public private sector institutions.</narrative>
     <transaction>
       <transaction-type code="1" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">259000</value>
+      <value currency="USD" value-date="2017-12-31">152050</value>
       <provider-org ref="US-USAGOV" type="10">
         <narrative>UNITED STATES AGENCY FOR INTERNATIONAL DEVELOPMENT (USAID)</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114" receiver-activity-id="00085902">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">5000</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00072906">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00085902">
         <narrative>United Nations Development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -6118,7 +6142,7 @@ Strengthen capacity on public private sector institutions.</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">2643444</value>
+      <value currency="USD" value-date="2017-12-31">2648444</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -6127,7 +6151,7 @@ Strengthen capacity on public private sector institutions.</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">692</value>
+      <value currency="USD" value-date="2018-01-31">5037</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -6272,14 +6296,6 @@ b). National Investment Policy launched and adopted</narrative>
         <narrative>Annual Report- 2013</narrative>
       </title>
       <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00072927">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00085909" />
@@ -6451,6 +6467,23 @@ b). National Investment Policy launched and adopted</narrative>
       <exactness code="1" />
       <location-class code="1" />
       <feature-designation code="ADM1" />
+    </location>
+    <location ref="KE">
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="184745" />
+      <name>
+        <narrative>Nairobi</narrative>
+      </name>
+      <description>
+        <narrative>capital of a political entity</narrative>
+      </description>
+      <administrative level="1" code="184745" vocabulary="G1" />
+      <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <pos>-1.283330 36.816670</pos>
+      </point>
+      <exactness code="1" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <location ref="KE">
       <location-reach code="1" />
@@ -6813,24 +6846,24 @@ b). National Investment Policy launched and adopted</narrative>
       <narrative>Kenya</narrative>
     </recipient-country>
     <location ref="KE">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="192950" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="184745" />
       <name>
-        <narrative>Kenya</narrative>
+        <narrative>Nairobi</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>Access to Justice for All</narrative>
       </activity-description>
-      <administrative level="0" code="192950" vocabulary="G1" />
+      <administrative level="1" code="184745" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>1.000000 38.000000</pos>
+        <pos>-1.283330 36.816670</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="15130" />
     <sector vocabulary="99" code="3">
@@ -7462,6 +7495,11 @@ b). National Investment Policy launched and adopted</narrative>
       <value currency="USD" value-date="2017-12-31">28000</value>
     </budget>
     <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">15000</value>
+    </budget>
+    <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">479958</value>
@@ -7484,6 +7522,18 @@ b). National Investment Policy launched and adopted</narrative>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">95501</value>
+      <provider-org ref="GB-GOV-1" type="10">
+        <narrative>DEPARTMENT FOR INTERNATIONAL DEVELOPMENT</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00088616">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -7585,6 +7635,18 @@ b). National Investment Policy launched and adopted</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">15000</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00078258">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00088616">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">110000</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00078258">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
@@ -7633,10 +7695,16 @@ b). National Investment Policy launched and adopted</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1742741</value>
+      <value currency="USD" value-date="2017-12-31">1757741</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">33</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -7779,14 +7847,6 @@ b). National Investment Policy launched and adopted</narrative>
         <narrative>Final Annual Narrative Report</narrative>
       </title>
       <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00078953">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00089083" />
@@ -8495,6 +8555,11 @@ b). National Investment Policy launched and adopted</narrative>
       <value currency="USD" value-date="2017-12-31">124000</value>
     </budget>
     <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">5000</value>
+    </budget>
+    <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">439424</value>
@@ -8570,6 +8635,18 @@ b). National Investment Policy launched and adopted</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">5000</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00079449">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00089430">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">124000</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00079449">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
@@ -8618,10 +8695,16 @@ b). National Investment Policy launched and adopted</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">2536176</value>
+      <value currency="USD" value-date="2017-12-31">2541176</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">394</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -8840,6 +8923,11 @@ b). National Investment Policy launched and adopted</narrative>
       <period-end iso-date="2019-12-31" />
       <value currency="USD" value-date="2017-12-31">100000</value>
     </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">5000</value>
+    </budget>
     <capital-spend percentage="0" />
     <transaction>
       <transaction-type code="4" />
@@ -8889,6 +8977,18 @@ b). National Investment Policy launched and adopted</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">5000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00105530">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">350000</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
@@ -8901,10 +9001,16 @@ b). National Investment Policy launched and adopted</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">350000</value>
+      <value currency="USD" value-date="2017-12-31">355000</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">-93</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00079449">
@@ -8972,7 +9078,7 @@ b). National Investment Policy launched and adopted</narrative>
     <description type="1">
       <narrative>KEN10 Joint Programme on Support to Low Carbon Climate Resilient Development for Poverty Reduction in Kenya</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -9018,13 +9124,6 @@ b). National Investment Policy launched and adopted</narrative>
         <narrative>Signed CDR Dec 2014</narrative>
       </title>
       <category code="A05" />
-      <language code="en" />
-    </document-link>
-    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/KEN/PSC%20Minutes%201(2015).pdf">
-      <title>
-        <narrative>PSC Minutes 12015</narrative>
-      </title>
-      <category code="A07" />
       <language code="en" />
     </document-link>
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/KEN/JP%20Climate%20Change%20Kenya%202014%20Annual%20Narrative%20Report.pdf">
@@ -9447,13 +9546,13 @@ b). National Investment Policy launched and adopted</narrative>
           <target value="">
             <comment>
               <narrative>1. 6  - Trainings for Charcoal Producer Associations (targeting close to 80 locals in Kwale, Taita Taveta)
-2. 2 -  Charcoal NAMA Framework for Kenya  Narok Environment Bill 2017</narrative>
+2. 2 -  Charcoal NAMA Framework for Kenya &amp; Narok Environment Bill 2017</narrative>
             </comment>
           </target>
           <actual value="">
             <comment>
               <narrative>1. 6  - Trainings for Charcoal Producer Associations (targeting close to 80 locals in Kwale, Taita Taveta)
-2. 2 -  Charcoal NAMA Framework for Kenya  Narok Environment Bill 2017</narrative>
+2. 2 -  Charcoal NAMA Framework for Kenya &amp; Narok Environment Bill 2017</narrative>
             </comment>
           </actual>
         </period>
@@ -9644,24 +9743,24 @@ b). National Investment Policy launched and adopted</narrative>
       <narrative>Kenya</narrative>
     </recipient-country>
     <location ref="KE">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="192950" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="184745" />
       <name>
-        <narrative>Kenya</narrative>
+        <narrative>Nairobi</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>Kenya - Countrywide, with priority on 17 Counties namely: Bungoma, West Pokot, Nakuru, Samburu, Turkana, Uasin Gishu, Kwale, Mombasa, Tana River, Nairobi, Isiolo, Marsabit, Garissa, Mandera, Wajir, Lamu  and Kisumu</narrative>
       </activity-description>
-      <administrative level="0" code="192950" vocabulary="G1" />
+      <administrative level="1" code="184745" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>1.000000 38.000000</pos>
+        <pos>-1.283330 36.816670</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="74010" />
     <sector vocabulary="99" code="5">
@@ -9688,7 +9787,7 @@ b). National Investment Policy launched and adopted</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">3496487</value>
+      <value currency="USD" value-date="2017-12-31">3497496</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -9946,6 +10045,18 @@ b). National Investment Policy launched and adopted</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1009</value>
+      <provider-org type="10" ref="GB-GOV-1">
+        <narrative>DEPARTMENT FOR INTERNATIONAL DEVELOPMENT</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00090771">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">411626</value>
       <provider-org type="10" ref="GB-GOV-1">
         <narrative>DEPARTMENT FOR INTERNATIONAL DEVELOPMENT</narrative>
@@ -10078,7 +10189,7 @@ b). National Investment Policy launched and adopted</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">11412947</value>
+      <value currency="USD" value-date="2017-12-31">11413956</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -10087,7 +10198,7 @@ b). National Investment Policy launched and adopted</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">25443</value>
+      <value currency="USD" value-date="2018-01-31">136966</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -10226,24 +10337,24 @@ b). National Investment Policy launched and adopted</narrative>
       <feature-designation code="PPLC" />
     </location>
     <location ref="KE">
-      <location-reach code="2" />
-      <location-id vocabulary="G1" code="192950" />
+      <location-reach code="1" />
+      <location-id vocabulary="G1" code="184745" />
       <name>
-        <narrative>Kenya</narrative>
+        <narrative>Nairobi</narrative>
       </name>
       <description>
-        <narrative>independent political entity</narrative>
+        <narrative>capital of a political entity</narrative>
       </description>
       <activity-description>
         <narrative>Republic of Kenya</narrative>
       </activity-description>
-      <administrative level="0" code="192950" vocabulary="G1" />
+      <administrative level="1" code="184745" vocabulary="G1" />
       <point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <pos>1.000000 38.000000</pos>
+        <pos>-1.283330 36.816670</pos>
       </point>
       <exactness code="1" />
-      <location-class code="1" />
-      <feature-designation code="PCLI" />
+      <location-class code="2" />
+      <feature-designation code="PPLC" />
     </location>
     <sector vocabulary="1" code="74010" />
     <sector vocabulary="99" code="5">
@@ -10391,21 +10502,6 @@ b). National Investment Policy launched and adopted</narrative>
         <narrative>Annual Work Plan July to December 2016</narrative>
       </title>
       <category code="A05" />
-      <language code="en" />
-    </document-link>
-    <document-link format="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" url="https://info.undp.org/docs/pdc/Documents/KEN/Communications%20Monitoring%20%20Missions%20Matrix.xlsx">
-      <title>
-        <narrative>Communications Monitoring  Missions Matrix</narrative>
-      </title>
-      <category code="A07" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00082885">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00091586" />
@@ -10939,7 +11035,7 @@ b). National Investment Policy launched and adopted</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">841</value>
+      <value currency="USD" value-date="2018-01-31">1922</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -11453,7 +11549,7 @@ Component 3 Tools for revenue generation</narrative>
     <description type="1">
       <narrative>The project will support Kenya's effort to pursue long-term transformative development and accelerate sustainable climate resilient economic growth, while slowing the growth of green house gas emissions</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -11648,6 +11744,18 @@ Component 3 Tools for revenue generation</narrative>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">2023999</value>
+      <provider-org ref="US-USAGOV" type="10">
+        <narrative>UNITED STATES AGENCY FOR INTERNATIONAL DEVELOPMENT (USAID)</narrative>
+      </provider-org>
+      <receiver-org ref="XM-DAC-41114" receiver-activity-id="00092042">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">1806466</value>
@@ -11662,7 +11770,7 @@ Component 3 Tools for revenue generation</narrative>
     <transaction>
       <transaction-type code="1" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">3868954</value>
+      <value currency="USD" value-date="2017-12-31">1844955</value>
       <provider-org ref="US-USAGOV" type="10">
         <narrative>UNITED STATES AGENCY FOR INTERNATIONAL DEVELOPMENT (USAID)</narrative>
       </provider-org>
@@ -11731,7 +11839,7 @@ Component 3 Tools for revenue generation</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">53912</value>
+      <value currency="USD" value-date="2018-01-31">123207</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -11856,6 +11964,9 @@ Component 3 Tools for revenue generation</narrative>
     </participating-org>
     <participating-org role="1" type="10" ref="00137">
       <narrative>GOVERNMENT OF ITALY</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="00280">
+      <narrative>EUROPEAN ECONOMIC COMMUNITY</narrative>
     </participating-org>
     <participating-org role="1" type="40" ref="10159">
       <narrative>EUROPEAN COMMISSION</narrative>
@@ -11992,6 +12103,9 @@ Component 3 Tools for revenue generation</narrative>
     </participating-org>
     <participating-org role="1" type="10" ref="00137">
       <narrative>GOVERNMENT OF ITALY</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="00280">
+      <narrative>EUROPEAN ECONOMIC COMMUNITY</narrative>
     </participating-org>
     <participating-org role="1" type="40" ref="10159">
       <narrative>EUROPEAN COMMISSION</narrative>
@@ -12695,12 +12809,12 @@ Component 3 Tools for revenue generation</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">8045789</value>
+      <value currency="USD" value-date="2017-12-31">8358789</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">976158</value>
+      <value currency="USD" value-date="2017-12-31">269966</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -12716,7 +12830,7 @@ Component 3 Tools for revenue generation</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">7123288</value>
+      <value currency="USD" value-date="2017-12-31">7122907</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -12749,7 +12863,7 @@ Component 3 Tools for revenue generation</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">385777</value>
+      <value currency="USD" value-date="2017-12-31">11560</value>
       <provider-org type="10" ref="00137">
         <narrative>GOVERNMENT OF ITALY</narrative>
       </provider-org>
@@ -12761,7 +12875,7 @@ Component 3 Tools for revenue generation</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">998371</value>
+      <value currency="USD" value-date="2017-12-31">1089371</value>
       <provider-org type="10" ref="00137">
         <narrative>GOVERNMENT OF ITALY</narrative>
       </provider-org>
@@ -12785,7 +12899,19 @@ Component 3 Tools for revenue generation</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">119251</value>
+      <value currency="USD" value-date="2017-12-31">142</value>
+      <provider-org type="40" ref="00280">
+        <narrative>EUROPEAN ECONOMIC COMMUNITY</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00093173">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">76669</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -12797,7 +12923,7 @@ Component 3 Tools for revenue generation</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">3593260</value>
+      <value currency="USD" value-date="2017-12-31">3631260</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -12845,6 +12971,18 @@ Component 3 Tools for revenue generation</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">6</value>
+      <provider-org type="10" ref="11855">
+        <narrative>Slovak Aid</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00093173">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">18</value>
       <provider-org type="10" ref="11855">
         <narrative>Slovak Aid</narrative>
@@ -12857,9 +12995,33 @@ Component 3 Tools for revenue generation</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">28</value>
+      <provider-org type="10" ref="CA-3">
+        <narrative>CANADIAN INTERNATIONAL DEVELOPMENT AGENC</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00093173">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">1410</value>
       <provider-org type="10" ref="CA-3">
         <narrative>CANADIAN INTERNATIONAL DEVELOPMENT AGENC</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00093173">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">1410</value>
+      <provider-org type="10" ref="DE-1">
+        <narrative>GOVERNMENT OF GERMANY</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00093173">
         <narrative>United Nations Development Programme</narrative>
@@ -12893,9 +13055,33 @@ Component 3 Tools for revenue generation</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">12</value>
+      <provider-org type="10" ref="DK-1">
+        <narrative>GOVERNMENT OF DENMARK</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00093173">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">3152</value>
       <provider-org type="10" ref="DK-1">
         <narrative>GOVERNMENT OF DENMARK</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00093173">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">136</value>
+      <provider-org type="10" ref="FI-3">
+        <narrative>GOVERNMENT OF FINLAND</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00093173">
         <narrative>United Nations Development Programme</narrative>
@@ -12917,7 +13103,7 @@ Component 3 Tools for revenue generation</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">-200000</value>
+      <value currency="USD" value-date="2017-12-31">35020</value>
       <provider-org type="10" ref="GB-GOV-1">
         <narrative>DEPARTMENT FOR INTERNATIONAL DEVELOPMENT</narrative>
       </provider-org>
@@ -13001,7 +13187,7 @@ Component 3 Tools for revenue generation</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">621130</value>
+      <value currency="USD" value-date="2017-12-31">127208</value>
       <provider-org type="10" ref="US-USAGOV">
         <narrative>UNITED STATES AGENCY FOR INTERNATIONAL DEVELOPMENT (USAID)</narrative>
       </provider-org>
@@ -13013,7 +13199,7 @@ Component 3 Tools for revenue generation</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1493600</value>
+      <value currency="USD" value-date="2017-12-31">1644600</value>
       <provider-org type="10" ref="US-USAGOV">
         <narrative>UNITED STATES AGENCY FOR INTERNATIONAL DEVELOPMENT (USAID)</narrative>
       </provider-org>
@@ -13061,7 +13247,7 @@ Component 3 Tools for revenue generation</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">50000</value>
+      <value currency="USD" value-date="2017-12-31">17775</value>
       <provider-org type="10" ref="XM-DAC-21-1">
         <narrative>GOVERNMENT OF IRELAND</narrative>
       </provider-org>
@@ -13073,7 +13259,7 @@ Component 3 Tools for revenue generation</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">56157</value>
+      <value currency="USD" value-date="2017-12-31">89157</value>
       <provider-org type="10" ref="XM-DAC-21-1">
         <narrative>GOVERNMENT OF IRELAND</narrative>
       </provider-org>
@@ -13133,7 +13319,7 @@ Component 3 Tools for revenue generation</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">14699534</value>
+      <value currency="USD" value-date="2017-12-31">14306342</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -13142,7 +13328,7 @@ Component 3 Tools for revenue generation</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">73098</value>
+      <value currency="USD" value-date="2018-01-31">166017</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -13259,7 +13445,7 @@ Component 3 Tools for revenue generation</narrative>
     <description type="1">
       <narrative>Towards Human Rights-Centered &amp;amp; Transformational Governance in Kenya: Empowering Civil Society for Change</narrative>
     </description>
-    <participating-org role="4" type="40" ref="01714">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -13428,7 +13614,7 @@ Component 3 Tools for revenue generation</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">3618341</value>
+      <value currency="USD" value-date="2017-12-31">3624341</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -13518,6 +13704,18 @@ Component 3 Tools for revenue generation</narrative>
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
       <receiver-org ref="XM-DAC-41114" receiver-activity-id="00093740">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">6000</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00086485">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00093740">
         <narrative>United Nations Development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
@@ -13621,7 +13819,7 @@ Component 3 Tools for revenue generation</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">6127845</value>
+      <value currency="USD" value-date="2017-12-31">6133845</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -13630,7 +13828,7 @@ Component 3 Tools for revenue generation</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">5456</value>
+      <value currency="USD" value-date="2018-01-31">34462</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -13862,6 +14060,11 @@ Component 3 Tools for revenue generation</narrative>
       <value currency="USD" value-date="2017-12-31">75000</value>
     </budget>
     <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">8000</value>
+    </budget>
+    <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">139316</value>
@@ -13879,6 +14082,18 @@ Component 3 Tools for revenue generation</narrative>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">8000</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00087071">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00094216">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -13920,7 +14135,7 @@ Component 3 Tools for revenue generation</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">264447</value>
+      <value currency="USD" value-date="2017-12-31">272447</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -14040,14 +14255,6 @@ Component 3 Tools for revenue generation</narrative>
     <default-finance-type code="110" />
     <default-aid-type code="C01" />
     <default-tied-status code="3" />
-    <document-link format="text/html" url="http://open.undp.org/#project/00087761">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00094683" />
     <conditions attached="0" />
   </iati-activity>
@@ -14435,14 +14642,6 @@ Component 3 Tools for revenue generation</narrative>
         <narrative>Final Terminal Evaluation Empowering women groups living with Amboseli elephants</narrative>
       </title>
       <category code="A07" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00087936">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00094809" />
@@ -14871,6 +15070,11 @@ Component 3 Tools for revenue generation</narrative>
       <value currency="USD" value-date="2017-12-31">125000</value>
     </budget>
     <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2017-12-31">10000</value>
+    </budget>
+    <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
       <period-end iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">290000</value>
@@ -14888,6 +15092,18 @@ Component 3 Tools for revenue generation</narrative>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">10000</value>
+      <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00087992">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00094839">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -14929,10 +15145,16 @@ Component 3 Tools for revenue generation</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">589406</value>
+      <value currency="USD" value-date="2017-12-31">599406</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">-7804</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -15175,7 +15397,7 @@ Component 3 Tools for revenue generation</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">1950000</value>
+      <value currency="USD" value-date="2017-12-31">1800000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -15260,7 +15482,7 @@ Component 3 Tools for revenue generation</narrative>
     <transaction>
       <transaction-type code="11" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1950000</value>
+      <value currency="USD" value-date="2017-12-31">1800000</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00089715">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -15308,7 +15530,7 @@ Component 3 Tools for revenue generation</narrative>
     <transaction>
       <transaction-type code="2" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">2964197</value>
+      <value currency="USD" value-date="2017-12-31">2814197</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -15317,7 +15539,7 @@ Component 3 Tools for revenue generation</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">-21210</value>
+      <value currency="USD" value-date="2018-01-31">-19556</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -15364,9 +15586,9 @@ Component 3 Tools for revenue generation</narrative>
               <narrative>1. Provide Technical and Advisory Services for CPD Coordination activities.
 2, Provide technical and financial support for the high level AID effectiveness
 3. Provide enchanced capaicty to negotiatie, manage and coordinate externallty funded programmes
-4. Develop and implement ME strategy for the CPD and implement CPD eveluation plan
+4. Develop and implement M&amp;E strategy for the CPD and implement CPD eveluation plan
 5. Support the CO NIM Audits
-6.  Support UNDAF ME TWG
+6.  Support UNDAF M&amp;E TWG
 7. Gender Mainstreaming.</narrative>
             </comment>
           </target>
@@ -15768,6 +15990,12 @@ Component 3 Tools for revenue generation</narrative>
       </provider-org>
       <disbursement-channel code="2" />
     </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">2906</value>
+      <disbursement-channel code="2" />
+    </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00092183">
       <title>
         <narrative>Activity web page</narrative>
@@ -15999,7 +16227,7 @@ Component 3 Tools for revenue generation</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">-357</value>
+      <value currency="USD" value-date="2018-01-31">17326</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -16493,14 +16721,6 @@ ii) 5</narrative>
         <narrative>Fina Report  00098880  With Forwarding Letter</narrative>
       </title>
       <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00094789">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00098880" />
@@ -17246,7 +17466,7 @@ ii) 5</narrative>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-01-31" />
-      <value currency="USD" value-date="2018-01-31">10223</value>
+      <value currency="USD" value-date="2018-01-31">87012</value>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -17311,14 +17531,6 @@ ii) 5</narrative>
       <category code="A04" />
       <category code="A05" />
       <category code="A08" />
-      <language code="en" />
-    </document-link>
-    <document-link format="text/html" url="http://open.undp.org/#project/00097408">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00101151" />
@@ -17804,7 +18016,7 @@ ii) 5</narrative>
     <description type="1">
       <narrative>Establishing and Operationalizing the sustainable Development Goals</narrative>
     </description>
-    <participating-org role="4" type="40" ref="99999">
+    <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
     <participating-org role="2" type="40" ref="XM-DAC-41114">
@@ -17830,14 +18042,6 @@ ii) 5</narrative>
     <default-finance-type code="110" />
     <default-aid-type code="C01" />
     <default-tied-status code="3" />
-    <document-link format="text/html" url="http://open.undp.org/#project/00108452">
-      <title>
-        <narrative>Purchase Order Summary</narrative>
-      </title>
-      <category code="A11" />
-      <category code="A12" />
-      <language code="en" />
-    </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00108277" />
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00108396" />
     <conditions attached="0" />
