@@ -9,7 +9,7 @@ Open.undp.org is the central point of access to detailed information about UNDPâ
 
 The presentation of  information in open.undp.org do not imply the expression of any opinion on the part of UNDP, concerning the legal status of any country, territory, city or area or of its authorities, or concerning the delimitation of its frontiers or boundaries.
 
-All data in open.undp.org can be used free of charge in compliance with the [Creative Commons' Attribution License (CC-BY)](http://iatistandard.org/getting-started/licencing/licence-types). For a list of the terminology and definitions used in open.undp.org, consult the [Glossary](#about/glossary).
+All data in open.undp.org can be used free of charge in compliance with the [Creative Commonsâ€™ Attribution 3.0 IGO License (CC-BY 3.0 IGO)](http://iatistandard.org/203/guidance/how-to-publish/licensing/). For a list of the terminology and definitions used in open.undp.org, consult the [Glossary](#about/glossary).
 
 ### Using the data
 
