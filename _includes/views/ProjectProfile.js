@@ -229,8 +229,8 @@ views.ProjectProfile = Backbone.View.extend({
     	// requires Google jsapi script already loaded 
     	google.load("visualization", "1", {packages:["table"], 'callback': function(){
         	var apiUrl = 'https://www.googleapis.com/fusiontables/v2/query'; // Google Fusion Table API endpoint
-          var datasource = '1vaj0V1u06x_0hxE6yPJ_rA1WaWNqz1szU7wMvQ0E'; // ID of the Fusion Table we are pulling data from 
-        	var sql = 'SELECT AMOUNT_USD,PO_ID,VENDOR_NAME,VENDOR_CLASSIFICATION,PO_DT,PO_DESCRIPTION,PO_REF FROM ' + datasource + ' WHERE PROJECT = ' + id + ' ORDER BY PO_DT DESC';
+          var datasource = '1v_cSNvlwt8rCvVWl-J5rlNLw0uAHLyVrjpTmmv-k'; // ID of the Fusion Table we are pulling data from 
+        	var sql = 'SELECT AMOUNT_USD,PO_ID,VENDOR_NAME,VENDOR_CLASSIFICATION,PO_DT,PO_DESCRIPTION,PO_REF FROM ' + datasource + ' WHERE col0 = ' + id + ' ORDER BY PO_DT DESC';
         	var key = 'AIzaSyCu3LqZDIDAj5f7uWzIJaI0BESvOxuAuUg'; // Google API key used for requests attribution
         	var mask = {
         		"Beneficiary Family": "Individual",
