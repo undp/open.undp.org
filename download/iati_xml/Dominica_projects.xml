@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2018-03-07T20:23:49" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2018-04-21T02:24:54" version="2.02">
   <!--Dominica-->
-  <iati-activity last-updated-datetime="2018-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00074241</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -30,13 +30,13 @@
     <activity-date type="2" iso-date="2013-01-01" />
     <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
-      <email></email>
-      <website></website>
+      <email />
     </contact-info>
     <recipient-country code="DM">
       <narrative>Dominica</narrative>
     </recipient-country>
     <sector vocabulary="1" code="15110" />
+    <sector vocabulary="7" code="1" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -146,7 +146,7 @@
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00086740</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -160,19 +160,18 @@
     <participating-org role="4" type="10" ref="00193">
       <narrative>Government of Dominica</narrative>
     </participating-org>
-    <participating-org role="1" type="10" ref="00097">
-      <narrative>GOVERNMENT OF DOMINICA</narrative>
-    </participating-org>
     <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="00097">
+      <narrative>GOVERNMENT OF DOMINICA</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2013-01-01" />
     <activity-date type="2" iso-date="2013-01-01" />
     <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
-      <email></email>
-      <website></website>
+      <email />
     </contact-info>
     <activity-scope code="4" />
     <recipient-country code="DM">
@@ -196,8 +195,9 @@
       <feature-designation code="PCLI" />
     </location>
     <sector vocabulary="1" code="15110" />
+    <sector vocabulary="7" code="1" />
     <sector vocabulary="99" code="1">
-      <narrative>Inclusive &amp; Sustainable Growth</narrative>
+      <narrative>Inclusive Growth</narrative>
     </sector>
     <country-budget-items vocabulary="1">
       <budget-item code="3.1.1" percentage="100">
@@ -212,6 +212,11 @@
     <default-finance-type code="110" />
     <default-aid-type code="C01" />
     <default-tied-status code="3" />
+    <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2018-03-31">415</value>
+    </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
@@ -240,8 +245,44 @@
     <capital-spend percentage="0" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">10</value>
+      <transaction-date iso-date="2017-05-31" />
+      <value currency="USD" value-date="2017-05-31">10</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">16853</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">5539</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2014-12-31" />
+      <value currency="USD" value-date="2014-12-31">49864</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2013-12-31" />
+      <value currency="USD" value-date="2013-12-31">18336</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -249,8 +290,8 @@
     </transaction>
     <transaction>
       <transaction-type code="3" />
-      <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">130</value>
+      <transaction-date iso-date="2017-05-31" />
+      <value currency="USD" value-date="2017-05-31">129</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -261,32 +302,8 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">425</value>
-      <provider-org type="10" ref="00097">
-        <narrative>GOVERNMENT OF DOMINICA</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00086740">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">17427</value>
-      <provider-org type="10" ref="00097">
-        <narrative>GOVERNMENT OF DOMINICA</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00086740">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">19389</value>
+      <transaction-date iso-date="2018-03-31" />
+      <value currency="USD" value-date="2018-03-31">415</value>
       <provider-org type="10" ref="00097">
         <narrative>GOVERNMENT OF DOMINICA</narrative>
       </provider-org>
@@ -309,6 +326,18 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">425</value>
+      <provider-org type="10" ref="00097">
+        <narrative>GOVERNMENT OF DOMINICA</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00086740">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">1460</value>
       <provider-org type="40" ref="XM-DAC-41114">
@@ -321,10 +350,34 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">17427</value>
+      <provider-org type="10" ref="00097">
+        <narrative>GOVERNMENT OF DOMINICA</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00086740">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
       <transaction-date iso-date="2015-12-31" />
       <value currency="USD" value-date="2015-12-31">3550</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00086740">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2015-12-31" />
+      <value currency="USD" value-date="2015-12-31">19389</value>
+      <provider-org type="10" ref="00097">
+        <narrative>GOVERNMENT OF DOMINICA</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00086740">
         <narrative>United Nations Development Programme</narrative>
@@ -357,35 +410,11 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">91024</value>
+      <transaction-date iso-date="2018-03-31" />
+      <value currency="USD" value-date="2018-03-31">91147</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="4" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">16853</value>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="4" />
-      <transaction-date iso-date="2015-12-31" />
-      <value currency="USD" value-date="2015-12-31">5539</value>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="4" />
-      <transaction-date iso-date="2014-12-31" />
-      <value currency="USD" value-date="2014-12-31">49864</value>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="4" />
-      <transaction-date iso-date="2013-12-31" />
-      <value currency="USD" value-date="2013-12-31">18336</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00074241">
@@ -416,7 +445,7 @@ No. of community property assets refurbished of by programme participants</narra
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00082944</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -441,13 +470,13 @@ No. of community property assets refurbished of by programme participants</narra
     <activity-date type="2" iso-date="2016-02-01" />
     <activity-date type="3" iso-date="2020-02-29" />
     <contact-info type="1">
-      <email></email>
-      <website></website>
+      <email />
     </contact-info>
     <recipient-country code="DM">
       <narrative>Dominica</narrative>
     </recipient-country>
     <sector vocabulary="1" code="23030" />
+    <sector vocabulary="7" code="7" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -488,14 +517,14 @@ No. of community property assets refurbished of by programme participants</narra
       <title>
         <narrative>Purchase Order Summary</narrative>
       </title>
-      <category code="A06" />
+      <category code="A11" />
       <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00091618" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00091618</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -517,8 +546,7 @@ No. of community property assets refurbished of by programme participants</narra
     <activity-date type="2" iso-date="2016-02-01" />
     <activity-date type="3" iso-date="2020-02-29" />
     <contact-info type="1">
-      <email></email>
-      <website></website>
+      <email />
     </contact-info>
     <activity-scope code="4" />
     <recipient-country code="DM">
@@ -545,8 +573,9 @@ No. of community property assets refurbished of by programme participants</narra
       <feature-designation code="PCLI" />
     </location>
     <sector vocabulary="1" code="23030" />
+    <sector vocabulary="7" code="7" />
     <sector vocabulary="99" code="1">
-      <narrative>Inclusive &amp; Sustainable Growth</narrative>
+      <narrative>Inclusive Growth</narrative>
     </sector>
     <country-budget-items vocabulary="1">
       <budget-item code="3.6.6" percentage="100">
@@ -562,19 +591,19 @@ No. of community property assets refurbished of by programme participants</narra
     <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <budget type="2" status="2">
-      <period-start iso-date="2017-01-01" />
-      <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">412548</value>
-    </budget>
-    <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2017-12-31">489501</value>
+      <value currency="USD" value-date="2018-03-31">489501</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">769105</value>
+      <value currency="USD" value-date="2018-03-31">769105</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2017-01-01" />
+      <period-end iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">412548</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -584,8 +613,143 @@ No. of community property assets refurbished of by programme participants</narra
     <capital-spend percentage="0" />
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-03-31" />
+      <value currency="USD" value-date="2018-03-31">3147</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-02-28" />
+      <value currency="USD" value-date="2018-02-28">3147</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">3147</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">138831</value>
+      <value currency="USD" value-date="2017-12-31">-185</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">12049</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-10-31" />
+      <value currency="USD" value-date="2017-10-31">4602</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-09-30" />
+      <value currency="USD" value-date="2017-09-30">6860</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">32439</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-07-31" />
+      <value currency="USD" value-date="2017-07-31">6198</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-06-30" />
+      <value currency="USD" value-date="2017-06-30">44872</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-05-31" />
+      <value currency="USD" value-date="2017-05-31">10446</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">4466</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">6834</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-02-28" />
+      <value currency="USD" value-date="2017-02-28">5574</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-01-31" />
+      <value currency="USD" value-date="2017-01-31">4676</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">36241</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -605,8 +769,8 @@ No. of community property assets refurbished of by programme participants</narra
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">489501</value>
+      <transaction-date iso-date="2018-03-31" />
+      <value currency="USD" value-date="2018-03-31">489501</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -617,8 +781,8 @@ No. of community property assets refurbished of by programme participants</narra
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">769105</value>
+      <transaction-date iso-date="2018-03-31" />
+      <value currency="USD" value-date="2018-03-31">769105</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -653,23 +817,11 @@ No. of community property assets refurbished of by programme participants</narra
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1707395</value>
+      <transaction-date iso-date="2018-03-31" />
+      <value currency="USD" value-date="2018-03-31">1470483</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="4" />
-      <transaction-date iso-date="2018-02-28" />
-      <value currency="USD" value-date="2018-02-28">6294</value>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="4" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">36241</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00082944">
@@ -681,7 +833,7 @@ No. of community property assets refurbished of by programme participants</narra
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00082944" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00082947</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -706,13 +858,13 @@ No. of community property assets refurbished of by programme participants</narra
     <activity-date type="2" iso-date="2016-11-01" />
     <activity-date type="3" iso-date="2020-10-31" />
     <contact-info type="1">
-      <email></email>
-      <website></website>
+      <email />
     </contact-info>
     <recipient-country code="DM">
       <narrative>Dominica</narrative>
     </recipient-country>
     <sector vocabulary="1" code="23030" />
+    <sector vocabulary="7" code="7" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -734,14 +886,14 @@ No. of community property assets refurbished of by programme participants</narra
       <title>
         <narrative>Purchase Order Summary</narrative>
       </title>
-      <category code="A06" />
+      <category code="A11" />
       <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00091623" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00091623</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -763,8 +915,7 @@ No. of community property assets refurbished of by programme participants</narra
     <activity-date type="2" iso-date="2016-11-01" />
     <activity-date type="3" iso-date="2020-10-31" />
     <contact-info type="1">
-      <email></email>
-      <website></website>
+      <email />
     </contact-info>
     <activity-scope code="4" />
     <recipient-country code="DM">
@@ -791,8 +942,9 @@ No. of community property assets refurbished of by programme participants</narra
       <feature-designation code="PCLI" />
     </location>
     <sector vocabulary="1" code="23030" />
+    <sector vocabulary="7" code="7" />
     <sector vocabulary="99" code="1">
-      <narrative>Inclusive &amp; Sustainable Growth</narrative>
+      <narrative>Inclusive Growth</narrative>
     </sector>
     <country-budget-items vocabulary="1">
       <budget-item code="3.6.6" percentage="100">
@@ -808,19 +960,19 @@ No. of community property assets refurbished of by programme participants</narra
     <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <budget type="2" status="2">
-      <period-start iso-date="2017-01-01" />
-      <period-end iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">203500</value>
-    </budget>
-    <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2017-12-31">253728</value>
+      <value currency="USD" value-date="2018-03-31">253728</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">1275288</value>
+      <value currency="USD" value-date="2018-03-31">1275288</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2017-01-01" />
+      <period-end iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">203500</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2016-01-01" />
@@ -830,8 +982,143 @@ No. of community property assets refurbished of by programme participants</narra
     <capital-spend percentage="0" />
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-03-31" />
+      <value currency="USD" value-date="2018-03-31">3152</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-02-28" />
+      <value currency="USD" value-date="2018-02-28">3170</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">3170</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">50094</value>
+      <value currency="USD" value-date="2017-12-31">24</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">4358</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-10-31" />
+      <value currency="USD" value-date="2017-10-31">3167</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-09-30" />
+      <value currency="USD" value-date="2017-09-30">6041</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-08-31" />
+      <value currency="USD" value-date="2017-08-31">4230</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-07-31" />
+      <value currency="USD" value-date="2017-07-31">5454</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-06-30" />
+      <value currency="USD" value-date="2017-06-30">6036</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-05-31" />
+      <value currency="USD" value-date="2017-05-31">2954</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-04-30" />
+      <value currency="USD" value-date="2017-04-30">3421</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-03-31" />
+      <value currency="USD" value-date="2017-03-31">7317</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-02-28" />
+      <value currency="USD" value-date="2017-02-28">4063</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-01-31" />
+      <value currency="USD" value-date="2017-01-31">3030</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2016-12-31" />
+      <value currency="USD" value-date="2016-12-31">3968</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -839,8 +1126,8 @@ No. of community property assets refurbished of by programme participants</narra
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">253728</value>
+      <transaction-date iso-date="2018-03-31" />
+      <value currency="USD" value-date="2018-03-31">253728</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -851,8 +1138,8 @@ No. of community property assets refurbished of by programme participants</narra
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1275288</value>
+      <transaction-date iso-date="2018-03-31" />
+      <value currency="USD" value-date="2018-03-31">1275288</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -887,23 +1174,11 @@ No. of community property assets refurbished of by programme participants</narra
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">1736484</value>
+      <transaction-date iso-date="2018-03-31" />
+      <value currency="USD" value-date="2018-03-31">1583078</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="4" />
-      <transaction-date iso-date="2018-02-28" />
-      <value currency="USD" value-date="2018-02-28">6322</value>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="4" />
-      <transaction-date iso-date="2016-12-31" />
-      <value currency="USD" value-date="2016-12-31">3968</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00082947">
@@ -915,7 +1190,7 @@ No. of community property assets refurbished of by programme participants</narra
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00082947" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00102192</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -940,13 +1215,13 @@ No. of community property assets refurbished of by programme participants</narra
     <activity-date type="2" iso-date="2017-08-01" />
     <activity-date type="3" iso-date="2019-07-31" />
     <contact-info type="1">
-      <email></email>
-      <website></website>
+      <email />
     </contact-info>
     <recipient-country code="DM">
       <narrative>Dominica</narrative>
     </recipient-country>
     <sector vocabulary="1" code="51010" />
+    <sector vocabulary="7" code="13" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -967,7 +1242,7 @@ No. of community property assets refurbished of by programme participants</narra
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00104341" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00104341</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -989,8 +1264,7 @@ No. of community property assets refurbished of by programme participants</narra
     <activity-date type="2" iso-date="2017-08-01" />
     <activity-date type="3" iso-date="2019-07-31" />
     <contact-info type="1">
-      <email></email>
-      <website></website>
+      <email />
     </contact-info>
     <activity-scope code="4" />
     <recipient-country code="DM">
@@ -1017,8 +1291,9 @@ No. of community property assets refurbished of by programme participants</narra
       <feature-designation code="PCLI" />
     </location>
     <sector vocabulary="1" code="51010" />
+    <sector vocabulary="7" code="13" />
     <sector vocabulary="99" code="1">
-      <narrative>Inclusive &amp; Sustainable Growth</narrative>
+      <narrative>Inclusive Growth</narrative>
     </sector>
     <policy-marker vocabulary="1" code="1" significance="1" />
     <collaboration-type code="4" />
@@ -1027,20 +1302,38 @@ No. of community property assets refurbished of by programme participants</narra
     <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2018-03-31">136325</value>
+    </budget>
+    <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">286200</value>
     </budget>
-    <budget type="2" status="2">
-      <period-start iso-date="2018-01-01" />
-      <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">136325</value>
-    </budget>
     <capital-spend percentage="0" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">537</value>
+      <transaction-date iso-date="2018-03-31" />
+      <value currency="USD" value-date="2018-03-31">928</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">3367</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">537</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -1048,8 +1341,8 @@ No. of community property assets refurbished of by programme participants</narra
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">136325</value>
+      <transaction-date iso-date="2018-03-31" />
+      <value currency="USD" value-date="2018-03-31">136325</value>
       <provider-org type="40" ref="12526">
         <narrative>GREEN CLIMATE FUND</narrative>
       </provider-org>
@@ -1072,17 +1365,11 @@ No. of community property assets refurbished of by programme participants</narra
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">422525</value>
+      <transaction-date iso-date="2018-03-31" />
+      <value currency="USD" value-date="2018-03-31">136862</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="4" />
-      <transaction-date iso-date="2018-02-28" />
-      <value currency="USD" value-date="2018-02-28">4294</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00102192">
@@ -1094,7 +1381,7 @@ No. of community property assets refurbished of by programme participants</narra
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00102192" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00106466</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1114,6 +1401,9 @@ No. of community property assets refurbished of by programme participants</narra
     <participating-org role="1" type="40" ref="12711">
       <narrative>UNDP Funding Windows</narrative>
     </participating-org>
+    <participating-org role="1" type="40" ref="44000">
+      <narrative>WORLD BANK (INT'L. BANK FOR RECONSTRUCTI</narrative>
+    </participating-org>
     <participating-org role="1" type="10" ref="GB-GOV-1">
       <narrative>DEPARTMENT FOR INTERNATIONAL DEVELOPMENT</narrative>
     </participating-org>
@@ -1128,13 +1418,13 @@ No. of community property assets refurbished of by programme participants</narra
     <activity-date type="2" iso-date="2017-09-01" />
     <activity-date type="3" iso-date="2018-09-30" />
     <contact-info type="1">
-      <email></email>
-      <website></website>
+      <email />
     </contact-info>
     <recipient-country code="DM">
       <narrative>Dominica</narrative>
     </recipient-country>
     <sector vocabulary="1" code="73010" />
+    <sector vocabulary="7" code="1" />
     <collaboration-type code="4" />
     <default-flow-type code="10" />
     <default-finance-type code="110" />
@@ -1156,14 +1446,14 @@ No. of community property assets refurbished of by programme participants</narra
       <title>
         <narrative>Purchase Order Summary</narrative>
       </title>
-      <category code="A06" />
+      <category code="A11" />
       <category code="A12" />
       <language code="en" />
     </document-link>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00107210" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-03-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00107210</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1177,25 +1467,27 @@ No. of community property assets refurbished of by programme participants</narra
     <participating-org role="4" type="40" ref="XM-DAC-41114">
       <narrative>United Nations Development Programme</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="12711">
-      <narrative>UNDP Funding Windows</narrative>
-    </participating-org>
-    <participating-org role="1" type="10" ref="GB-GOV-1">
-      <narrative>DEPARTMENT FOR INTERNATIONAL DEVELOPMENT</narrative>
+    <participating-org role="1" type="40" ref="XM-OCHA-CERF">
+      <narrative>UNOCHA/Central Emergency Response Fund, CERF</narrative>
     </participating-org>
     <participating-org role="1" type="40" ref="XM-DAC-41114">
       <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
     </participating-org>
-    <participating-org role="1" type="40" ref="XM-OCHA-CERF">
-      <narrative>UNOCHA/Central Emergency Response Fund, CERF</narrative>
+    <participating-org role="1" type="10" ref="GB-GOV-1">
+      <narrative>DEPARTMENT FOR INTERNATIONAL DEVELOPMENT</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="44000">
+      <narrative>WORLD BANK (INT'L. BANK FOR RECONSTRUCTI</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="12711">
+      <narrative>UNDP Funding Windows</narrative>
     </participating-org>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2017-09-01" />
     <activity-date type="2" iso-date="2017-09-01" />
     <activity-date type="3" iso-date="2018-09-30" />
     <contact-info type="1">
-      <email></email>
-      <website></website>
+      <email />
     </contact-info>
     <activity-scope code="4" />
     <recipient-country code="DM">
@@ -1222,8 +1514,9 @@ No. of community property assets refurbished of by programme participants</narra
       <feature-designation code="PCLI" />
     </location>
     <sector vocabulary="1" code="73010" />
+    <sector vocabulary="7" code="1" />
     <sector vocabulary="99" code="6">
-      <narrative>Crisis Prevention &amp; Recovery</narrative>
+      <narrative>Early Recovery</narrative>
     </sector>
     <country-budget-items vocabulary="1">
       <budget-item code="5.4.11" percentage="100">
@@ -1239,23 +1532,80 @@ No. of community property assets refurbished of by programme participants</narra
     <default-aid-type code="C01" />
     <default-tied-status code="3" />
     <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2018-03-31">714214</value>
+    </budget>
+    <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
       <period-end iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">672288</value>
     </budget>
-    <budget type="2" status="2">
-      <period-start iso-date="2018-01-01" />
-      <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2017-12-31">242744</value>
-    </budget>
     <capital-spend percentage="0" />
     <transaction>
       <transaction-type code="4" />
-      <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">335555</value>
+      <transaction-date iso-date="2018-03-31" />
+      <value currency="USD" value-date="2018-03-31">66135</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-02-28" />
+      <value currency="USD" value-date="2018-02-28">38290</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-01-31" />
+      <value currency="USD" value-date="2018-01-31">7787</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">284603</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-11-30" />
+      <value currency="USD" value-date="2017-11-30">41787</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2017-10-31" />
+      <value currency="USD" value-date="2017-10-31">9164</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="3" />
+      <transaction-date iso-date="2018-03-31" />
+      <value currency="USD" value-date="2018-03-31">358172</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <receiver-org type="10" ref="">
+        <narrative>Government of Dominica</narrative>
+      </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
@@ -1272,10 +1622,82 @@ No. of community property assets refurbished of by programme participants</narra
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">72214</value>
+      <transaction-date iso-date="2018-03-31" />
+      <value currency="USD" value-date="2018-03-31">78250</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00107210">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2018-03-31" />
+      <value currency="USD" value-date="2018-03-31">49786</value>
+      <provider-org type="40" ref="44000">
+        <narrative>WORLD BANK (INT'L. BANK FOR RECONSTRUCTI</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00107210">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2018-03-31" />
+      <value currency="USD" value-date="2018-03-31">402684</value>
+      <provider-org type="10" ref="GB-GOV-1">
+        <narrative>DEPARTMENT FOR INTERNATIONAL DEVELOPMENT</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00107210">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2018-03-31" />
+      <value currency="USD" value-date="2018-03-31">111280</value>
+      <provider-org type="40" ref="XM-OCHA-CERF">
+        <narrative>UNOCHA/Central Emergency Response Fund, CERF</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00107210">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2018-03-31" />
+      <value currency="USD" value-date="2018-03-31">72214</value>
       <provider-org type="40" ref="12711">
         <narrative>UNDP Funding Windows</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00107210">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">201775</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00107210">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">292727</value>
+      <provider-org type="40" ref="XM-OCHA-CERF">
+        <narrative>UNOCHA/Central Emergency Response Fund, CERF</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00107210">
         <narrative>United Nations Development Programme</narrative>
@@ -1298,56 +1720,8 @@ No. of community property assets refurbished of by programme participants</narra
       <transaction-type code="1" />
       <transaction-date iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">402685</value>
-      <provider-org ref="GB-GOV-1" type="10">
+      <provider-org type="10" ref="GB-GOV-1">
         <narrative>DEPARTMENT FOR INTERNATIONAL DEVELOPMENT</narrative>
-      </provider-org>
-      <receiver-org ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00107210">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">59250</value>
-      <provider-org type="40" ref="XM-DAC-41114">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00107210">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">201775</value>
-      <provider-org type="40" ref="XM-DAC-41114">
-        <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00107210">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">111280</value>
-      <provider-org type="40" ref="XM-OCHA-CERF">
-        <narrative>UNOCHA/Central Emergency Response Fund, CERF</narrative>
-      </provider-org>
-      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00107210">
-        <narrative>United Nations Development Programme</narrative>
-      </receiver-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="11" />
-      <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">292727</value>
-      <provider-org type="40" ref="XM-OCHA-CERF">
-        <narrative>UNOCHA/Central Emergency Response Fund, CERF</narrative>
       </provider-org>
       <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00107210">
         <narrative>United Nations Development Programme</narrative>
@@ -1358,27 +1732,21 @@ No. of community property assets refurbished of by programme participants</narra
       <transaction-type code="1" />
       <transaction-date iso-date="2017-12-31" />
       <value currency="USD" value-date="2017-12-31">300007</value>
-      <provider-org ref="XM-OCHA-CERF" type="40">
+      <provider-org type="40" ref="XM-OCHA-CERF">
         <narrative>UNOCHA/Central Emergency Response Fund, CERF</narrative>
       </provider-org>
-      <receiver-org ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00107210">
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00107210">
         <narrative>United Nations Development Programme</narrative>
       </receiver-org>
       <disbursement-channel code="2" />
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2017-12-31" />
-      <value currency="USD" value-date="2017-12-31">915032</value>
+      <transaction-date iso-date="2018-03-31" />
+      <value currency="USD" value-date="2018-03-31">1176048</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
-      <disbursement-channel code="2" />
-    </transaction>
-    <transaction>
-      <transaction-type code="4" />
-      <transaction-date iso-date="2018-02-28" />
-      <value currency="USD" value-date="2018-02-28">39097</value>
       <disbursement-channel code="2" />
     </transaction>
     <document-link format="text/html" url="http://open.undp.org/#project/00106466">
