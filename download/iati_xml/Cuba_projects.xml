@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--IATI Publications - UNDP Development Projects by Countries-->
-<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2018-04-21T02:24:53" version="2.02">
+<iati-activities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" generated-datetime="2018-05-10T11:03:08" version="2.02">
   <!--Cuba-->
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00049286</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -25,7 +25,7 @@
     <activity-status code="2" />
     <activity-date type="1" iso-date="2008-01-31" />
     <activity-date type="2" iso-date="2008-01-31" />
-    <activity-date type="3" iso-date="2020-12-31" />
+    <activity-date type="3" iso-date="2022-12-31" />
     <contact-info type="1">
       <email>registry.cu@undp.org</email>
       <website>http://www.cu.undp.org/</website>
@@ -62,7 +62,7 @@
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00059994" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00059994</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -126,20 +126,30 @@
     <default-finance-type code="110" />
     <default-aid-type code="C01" />
     <default-tied-status code="3" />
+    <budget type="2" status="1">
+      <period-start iso-date="2022-01-01" />
+      <period-end iso-date="2022-12-31" />
+      <value currency="USD" value-date="2018-04-30">6879</value>
+    </budget>
+    <budget type="2" status="1">
+      <period-start iso-date="2021-01-01" />
+      <period-end iso-date="2021-12-31" />
+      <value currency="USD" value-date="2018-04-30">18500</value>
+    </budget>
     <budget type="2" status="2">
       <period-start iso-date="2020-01-01" />
       <period-end iso-date="2020-12-31" />
-      <value currency="USD" value-date="2018-03-31">24625</value>
+      <value currency="USD" value-date="2018-04-30">24625</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2018-03-31">25625</value>
+      <value currency="USD" value-date="2018-04-30">25625</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">28842</value>
+      <value currency="USD" value-date="2018-04-30">28842</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -172,6 +182,15 @@
       <value currency="USD" value-date="2012-12-31">98700</value>
     </budget>
     <capital-spend percentage="0" />
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">3552</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-02-28" />
@@ -300,8 +319,8 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">24625</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">6879</value>
       <provider-org type="40" ref="10003" provider-activity-id="PIMS 3809">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -312,8 +331,8 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">25625</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">18500</value>
       <provider-org type="40" ref="10003" provider-activity-id="PIMS 3809">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -324,8 +343,32 @@
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">28842</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">24625</value>
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 3809">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00059994">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">25625</value>
+      <provider-org type="40" ref="10003" provider-activity-id="PIMS 3809">
+        <narrative>Global Environment Fund Truste</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00059994">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">28842</value>
       <provider-org type="40" ref="10003" provider-activity-id="PIMS 3809">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -408,8 +451,8 @@
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">611812</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">611812</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -908,7 +951,7 @@ In the latter period as a result of the strengthening of the project management 
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00066383</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -988,7 +1031,7 @@ In the latter period as a result of the strengthening of the project management 
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00082579" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00082579</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1059,17 +1102,17 @@ Mediante la implementación de este proyecto se espera conseguir la reducción d
     <budget type="2" status="2">
       <period-start iso-date="2020-01-01" />
       <period-end iso-date="2020-12-31" />
-      <value currency="USD" value-date="2018-03-31">83200</value>
+      <value currency="USD" value-date="2018-04-30">83200</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2018-03-31">83519</value>
+      <value currency="USD" value-date="2018-04-30">83519</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">84000</value>
+      <value currency="USD" value-date="2018-04-30">84000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -1097,6 +1140,15 @@ Mediante la implementación de este proyecto se espera conseguir la reducción d
       <value currency="USD" value-date="2013-12-31">37951</value>
     </budget>
     <capital-spend percentage="0" />
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">6484</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-03-31" />
@@ -1261,8 +1313,8 @@ Mediante la implementación de este proyecto se espera conseguir la reducción d
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">83200</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">83200</value>
       <provider-org type="40" ref="10009">
         <narrative>MONTREAL PROTOCOL</narrative>
       </provider-org>
@@ -1273,8 +1325,8 @@ Mediante la implementación de este proyecto se espera conseguir la reducción d
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">83519</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">83519</value>
       <provider-org type="40" ref="10009">
         <narrative>MONTREAL PROTOCOL</narrative>
       </provider-org>
@@ -1285,8 +1337,8 @@ Mediante la implementación de este proyecto se espera conseguir la reducción d
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">84000</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">84000</value>
       <provider-org type="40" ref="10009">
         <narrative>MONTREAL PROTOCOL</narrative>
       </provider-org>
@@ -1357,8 +1409,8 @@ Mediante la implementación de este proyecto se espera conseguir la reducción d
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">558354</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">558354</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -1419,7 +1471,7 @@ Mediante la implementación de este proyecto se espera conseguir la reducción d
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00066401</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1522,7 +1574,7 @@ Mediante la implementación de este proyecto se espera conseguir la reducción d
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00103303" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00082596</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -1807,17 +1859,17 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2020-01-01" />
       <period-end iso-date="2020-12-31" />
-      <value currency="USD" value-date="2018-03-31">135360</value>
+      <value currency="USD" value-date="2018-04-30">135360</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2018-03-31">465098</value>
+      <value currency="USD" value-date="2018-04-30">465098</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">2555586</value>
+      <value currency="USD" value-date="2018-04-30">2555586</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -1852,8 +1904,17 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     <capital-spend percentage="0" />
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">149082</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">73763</value>
+      <value currency="USD" value-date="2018-03-31">73808</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -2032,8 +2093,8 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">135360</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">135360</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -2044,8 +2105,8 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">465098</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">465098</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -2056,8 +2117,8 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">2555586</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">2555586</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -2200,8 +2261,8 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">9075354</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">9075354</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -2283,7 +2344,7 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00103303</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2566,23 +2627,32 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2020-01-01" />
       <period-end iso-date="2020-12-31" />
-      <value currency="USD" value-date="2018-03-31">130233</value>
+      <value currency="USD" value-date="2018-04-30">130233</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2018-03-31">614321</value>
+      <value currency="USD" value-date="2018-04-30">614321</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">1286928</value>
+      <value currency="USD" value-date="2018-04-30">1286928</value>
     </budget>
     <capital-spend percentage="0" />
     <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">176</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">130233</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">130233</value>
       <provider-org type="10" ref="10956">
         <narrative>AGENCIA SUIZA PARA EL DESARROLLO Y LA COOPERACION (COSUDE)</narrative>
       </provider-org>
@@ -2593,8 +2663,8 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">614321</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">614321</value>
       <provider-org type="10" ref="10956">
         <narrative>AGENCIA SUIZA PARA EL DESARROLLO Y LA COOPERACION (COSUDE)</narrative>
       </provider-org>
@@ -2605,8 +2675,8 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">1286928</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">1286928</value>
       <provider-org type="10" ref="10956">
         <narrative>AGENCIA SUIZA PARA EL DESARROLLO Y LA COOPERACION (COSUDE)</narrative>
       </provider-org>
@@ -2641,8 +2711,8 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">2031482</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">2031482</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -2700,7 +2770,7 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00069416</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2775,7 +2845,7 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00084007" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00084007</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -2938,12 +3008,12 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2018-03-31">861946</value>
+      <value currency="USD" value-date="2018-04-30">861946</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">1976603</value>
+      <value currency="USD" value-date="2018-04-30">1976603</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -2966,6 +3036,15 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
       <value currency="USD" value-date="2014-12-31">103500</value>
     </budget>
     <capital-spend percentage="0" />
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">147684</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-03-31" />
@@ -3130,8 +3209,8 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">861946</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">861946</value>
       <provider-org type="40" ref="47111">
         <narrative>Adaptation Fund  (AF)</narrative>
       </provider-org>
@@ -3142,8 +3221,8 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">1976603</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">1976603</value>
       <provider-org type="40" ref="47111">
         <narrative>Adaptation Fund  (AF)</narrative>
       </provider-org>
@@ -3202,8 +3281,8 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">5550436</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">5550436</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -3276,7 +3355,7 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00077748</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3351,7 +3430,7 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00088374" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00088374</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -3921,27 +4000,27 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2022-01-01" />
       <period-end iso-date="2022-12-31" />
-      <value currency="USD" value-date="2018-03-31">676318</value>
+      <value currency="USD" value-date="2018-04-30">676318</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2021-01-01" />
       <period-end iso-date="2021-12-31" />
-      <value currency="USD" value-date="2018-03-31">743700</value>
+      <value currency="USD" value-date="2018-04-30">743700</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2020-01-01" />
       <period-end iso-date="2020-12-31" />
-      <value currency="USD" value-date="2018-03-31">820690</value>
+      <value currency="USD" value-date="2018-04-30">820690</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2018-03-31">922890</value>
+      <value currency="USD" value-date="2018-04-30">922890</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">1580944</value>
+      <value currency="USD" value-date="2018-04-30">1580944</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -3959,6 +4038,15 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
       <value currency="USD" value-date="2015-12-31">461576</value>
     </budget>
     <capital-spend percentage="0" />
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">71320</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-03-31" />
@@ -4114,8 +4202,8 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">676318</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">676318</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -4126,8 +4214,8 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">743700</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">743700</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -4138,8 +4226,8 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">820690</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">820690</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -4150,8 +4238,8 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">922890</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">922890</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -4162,8 +4250,8 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">1580944</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">1580944</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -4210,8 +4298,8 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">7327996</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">7327996</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -4278,7 +4366,7 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00077925</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4357,6 +4445,13 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
       <category code="A07" />
       <language code="en" />
     </document-link>
+    <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=45983">
+      <title>
+        <narrative>Invitación a Licitar 1275-ITB-CUB-18-06 para insumos para ganadería, Proyecto AGROCADENAS.</narrative>
+      </title>
+      <category code="A10" />
+      <language code="en" />
+    </document-link>
     <document-link format="text/html" url="http://procurement-notices.undp.org/view_notice.cfm?notice_id=29229">
       <title>
         <narrative>Planta completa que cierran el ciclo productivo desde la recepción hasta el envase del producto final, que incluye el Secado y, Beneficio (limpieza, clasificación, pulido y envase), del Maíz y Frijol. Proyecto llave en mano que garantiza la puesta en marc</narrative>
@@ -4403,7 +4498,7 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00088474" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00088474</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -4536,17 +4631,17 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2020-01-01" />
       <period-end iso-date="2020-12-31" />
-      <value currency="USD" value-date="2018-03-31">208581</value>
+      <value currency="USD" value-date="2018-04-30">208581</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2018-03-31">770829</value>
+      <value currency="USD" value-date="2018-04-30">770829</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">4229054</value>
+      <value currency="USD" value-date="2018-04-30">4072491</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -4571,8 +4666,17 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     <capital-spend percentage="0" />
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">559414</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">458234</value>
+      <value currency="USD" value-date="2018-03-31">458590</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -4733,8 +4837,8 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">147758</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">147758</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -4745,8 +4849,8 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">60823</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">60823</value>
       <provider-org type="10" ref="CH-4">
         <narrative>SWISS AGENCY FOR DEVELOPMENT AND COOPERATION - SDC</narrative>
       </provider-org>
@@ -4757,8 +4861,8 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">419276</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">419276</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -4769,8 +4873,8 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">351553</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">351553</value>
       <provider-org type="10" ref="CH-4">
         <narrative>SWISS AGENCY FOR DEVELOPMENT AND COOPERATION - SDC</narrative>
       </provider-org>
@@ -4781,8 +4885,8 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">1617505</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">1460942</value>
       <provider-org type="40" ref="10159">
         <narrative>EUROPEAN COMMISSION</narrative>
       </provider-org>
@@ -4793,8 +4897,8 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">2611549</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">2611549</value>
       <provider-org type="10" ref="CH-4">
         <narrative>SWISS AGENCY FOR DEVELOPMENT AND COOPERATION - SDC</narrative>
       </provider-org>
@@ -4985,8 +5089,8 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">15587685</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">15431122</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -5084,7 +5188,7 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00080640</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -5161,7 +5265,7 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00090262" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00090262</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -5227,7 +5331,7 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">70000</value>
+      <value currency="USD" value-date="2018-04-30">70000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -5250,6 +5354,15 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
       <value currency="USD" value-date="2014-12-31">100026</value>
     </budget>
     <capital-spend percentage="0" />
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">17573</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2017-12-31" />
@@ -5378,8 +5491,8 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">70000</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">70000</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00080640">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -5438,8 +5551,8 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">440440</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">440440</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -5454,7 +5567,7 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00080640" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00083239</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -5551,7 +5664,7 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00091821</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -5574,7 +5687,7 @@ socio-económico continuado y sostenible de la República de Cuba.</narrative>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2014-09-03" />
     <activity-date type="2" iso-date="2014-09-03" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-08-31" />
     <contact-info type="1">
       <email>registry.cu@undp.org</email>
       <website>http://www.cu.undp.org/</website>
@@ -5619,7 +5732,7 @@ Municipios de Candelaria, San Cristóbal, Artemisa, Guira y Alquízar</narrative
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">6655</value>
+      <value currency="USD" value-date="2018-04-30">6655</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -5642,6 +5755,15 @@ Municipios de Candelaria, San Cristóbal, Artemisa, Guira y Alquízar</narrative
       <value currency="USD" value-date="2014-12-31">40000</value>
     </budget>
     <capital-spend percentage="0" />
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">-490</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-03-31" />
@@ -5770,8 +5892,8 @@ Municipios de Candelaria, San Cristóbal, Artemisa, Guira y Alquízar</narrative
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">6655</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">6655</value>
       <provider-org type="10" ref="10956">
         <narrative>AGENCIA SUIZA PARA EL DESARROLLO Y LA COOPERACION (COSUDE)</narrative>
       </provider-org>
@@ -5842,8 +5964,8 @@ Municipios de Candelaria, San Cristóbal, Artemisa, Guira y Alquízar</narrative
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">300000</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">300000</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -5922,7 +6044,7 @@ Municipios de Candelaria, San Cristóbal, Artemisa, Guira y Alquízar</narrative
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00083240</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6073,7 +6195,7 @@ Municipios de Candelaria, San Cristóbal, Artemisa, Guira y Alquízar</narrative
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00091822</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6137,7 +6259,7 @@ Hace énfasis en la formación y desarrollo de especialistas del sector bancario
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">60000</value>
+      <value currency="USD" value-date="2018-04-30">60000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -6297,8 +6419,8 @@ Hace énfasis en la formación y desarrollo de especialistas del sector bancario
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">60000</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">60000</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00083240">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -6357,8 +6479,8 @@ Hace énfasis en la formación y desarrollo de especialistas del sector bancario
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">350000</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">350000</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -6449,7 +6571,7 @@ Hace énfasis en la formación y desarrollo de especialistas del sector bancario
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00084425</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6516,7 +6638,7 @@ Hace énfasis en la formación y desarrollo de especialistas del sector bancario
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00092440" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00092440</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6586,7 +6708,7 @@ Hace énfasis en la formación y desarrollo de especialistas del sector bancario
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">69093</value>
+      <value currency="USD" value-date="2018-04-30">69093</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -6674,8 +6796,8 @@ Hace énfasis en la formación y desarrollo de especialistas del sector bancario
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">69093</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">69093</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00084425">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -6734,8 +6856,8 @@ Hace énfasis en la formación y desarrollo de especialistas del sector bancario
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">210188</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">210188</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -6750,7 +6872,7 @@ Hace énfasis en la formación y desarrollo de especialistas del sector bancario
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00084425" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00085068</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6810,7 +6932,7 @@ Hace énfasis en la formación y desarrollo de especialistas del sector bancario
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00092839" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00092839</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -6893,22 +7015,22 @@ Hace énfasis en la formación y desarrollo de especialistas del sector bancario
     <budget type="2" status="1">
       <period-start iso-date="2021-01-01" />
       <period-end iso-date="2021-12-31" />
-      <value currency="USD" value-date="2018-03-31">178424</value>
+      <value currency="USD" value-date="2018-04-30">178424</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2020-01-01" />
       <period-end iso-date="2020-12-31" />
-      <value currency="USD" value-date="2018-03-31">155661</value>
+      <value currency="USD" value-date="2018-04-30">155661</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2018-03-31">310221</value>
+      <value currency="USD" value-date="2018-04-30">310221</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">1784096</value>
+      <value currency="USD" value-date="2018-04-30">1784096</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -6921,6 +7043,15 @@ Hace énfasis en la formación y desarrollo de especialistas del sector bancario
       <value currency="USD" value-date="2016-12-31">69460</value>
     </budget>
     <capital-spend percentage="0" />
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">17043</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-03-31" />
@@ -7058,8 +7189,8 @@ Hace énfasis en la formación y desarrollo de especialistas del sector bancario
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">178424</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">178424</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -7070,8 +7201,8 @@ Hace énfasis en la formación y desarrollo de especialistas del sector bancario
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">155661</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">155661</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -7082,8 +7213,8 @@ Hace énfasis en la formación y desarrollo de especialistas del sector bancario
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">310221</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">310221</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -7094,8 +7225,8 @@ Hace énfasis en la formación y desarrollo de especialistas del sector bancario
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">1784096</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">1784096</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -7130,8 +7261,8 @@ Hace énfasis en la formación y desarrollo de especialistas del sector bancario
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">2716838</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">2716838</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -7302,7 +7433,7 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00085069</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -7348,7 +7479,7 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00092840" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00092840</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -7406,24 +7537,33 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
     <budget type="2" status="2">
       <period-start iso-date="2021-01-01" />
       <period-end iso-date="2021-12-31" />
-      <value currency="USD" value-date="2018-03-31">67400</value>
+      <value currency="USD" value-date="2018-04-30">67400</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2020-01-01" />
       <period-end iso-date="2020-12-31" />
-      <value currency="USD" value-date="2018-03-31">189000</value>
+      <value currency="USD" value-date="2018-04-30">189000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2018-03-31">474300</value>
+      <value currency="USD" value-date="2018-04-30">474300</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">121300</value>
+      <value currency="USD" value-date="2018-04-30">121300</value>
     </budget>
     <capital-spend percentage="0" />
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">14021</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-03-31" />
@@ -7435,8 +7575,8 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">67400</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">67400</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -7447,8 +7587,8 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">189000</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">189000</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -7459,8 +7599,8 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">474300</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">474300</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -7471,8 +7611,8 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">121300</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">121300</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -7483,8 +7623,8 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">852000</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">852000</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -7499,7 +7639,7 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00085069" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00085073</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -7555,7 +7695,7 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00092844" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00092844</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -8006,7 +8146,7 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">2148</value>
+      <value currency="USD" value-date="2018-04-30">2148</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -8138,8 +8278,8 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">2148</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">2148</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -8174,8 +8314,8 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">97800</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">97800</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -8236,7 +8376,7 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00085116</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -8339,7 +8479,7 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00092866</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -8409,7 +8549,7 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">1946061</value>
+      <value currency="USD" value-date="2018-04-30">1946061</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -8429,8 +8569,17 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
     <capital-spend percentage="0" />
     <transaction>
       <transaction-type code="4" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">134625</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="4" />
       <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">190100</value>
+      <value currency="USD" value-date="2018-03-31">190583</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -8582,8 +8731,8 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">1946061</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">1946061</value>
       <provider-org type="40" ref="47045" provider-activity-id="47045-CUB-H-UNDP">
         <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
       </provider-org>
@@ -8666,8 +8815,8 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">17487483</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">17487483</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -8734,7 +8883,7 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00085124</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -8800,7 +8949,7 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00092873" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00092873</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -8896,22 +9045,22 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
     <budget type="2" status="2">
       <period-start iso-date="2021-01-01" />
       <period-end iso-date="2021-12-31" />
-      <value currency="USD" value-date="2018-03-31">446097</value>
+      <value currency="USD" value-date="2018-04-30">446097</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2020-01-01" />
       <period-end iso-date="2020-12-31" />
-      <value currency="USD" value-date="2018-03-31">743494</value>
+      <value currency="USD" value-date="2018-04-30">743494</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2018-03-31">1858736</value>
+      <value currency="USD" value-date="2018-04-30">1858736</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">1684344</value>
+      <value currency="USD" value-date="2018-04-30">1684344</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -8919,6 +9068,15 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
       <value currency="USD" value-date="2017-12-31">100042</value>
     </budget>
     <capital-spend percentage="0" />
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">6484</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-03-31" />
@@ -8957,8 +9115,8 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">446097</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">446097</value>
       <provider-org type="10" ref="CA-3">
         <narrative>DEPARTMENT OF FOREIGN AFFAIRS AND INTERNATIONAL TRADE (DFAIT) GOVERMENT OF CANADA</narrative>
       </provider-org>
@@ -8969,8 +9127,8 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">743494</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">743494</value>
       <provider-org type="10" ref="CA-3">
         <narrative>DEPARTMENT OF FOREIGN AFFAIRS AND INTERNATIONAL TRADE (DFAIT) GOVERMENT OF CANADA</narrative>
       </provider-org>
@@ -8981,8 +9139,8 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">1858736</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">1858736</value>
       <provider-org type="70" ref="10218">
         <narrative>UNIVERSIDAD COLUMBIA</narrative>
       </provider-org>
@@ -8993,8 +9151,8 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">1684344</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">1684344</value>
       <provider-org type="10" ref="CA-3">
         <narrative>DEPARTMENT OF FOREIGN AFFAIRS AND INTERNATIONAL TRADE (DFAIT) GOVERMENT OF CANADA</narrative>
       </provider-org>
@@ -9017,8 +9175,8 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">785546</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">785546</value>
       <provider-org type="10" ref="CA-3">
         <narrative>The Department of Foreign Affairs, Trade and development - Canada</narrative>
       </provider-org>
@@ -9041,8 +9199,8 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">4761616</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">4761616</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -9057,7 +9215,7 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00085124" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00085126</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -9162,7 +9320,7 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00092874</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -9182,7 +9340,7 @@ E. El potencial de emisiones evitadas será evaluado al final de 2018: secuestro
     <activity-status code="2" />
     <activity-date type="1" iso-date="2015-06-18" />
     <activity-date type="2" iso-date="2015-06-18" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.cu@undp.org</email>
       <website>http://www.cu.undp.org/</website>
@@ -9227,7 +9385,7 @@ Municipalities: Cienfuegos and Abreus</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">62463</value>
+      <value currency="USD" value-date="2018-04-30">62463</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -9245,6 +9403,15 @@ Municipalities: Cienfuegos and Abreus</narrative>
       <value currency="USD" value-date="2015-12-31">724223</value>
     </budget>
     <capital-spend percentage="0" />
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">19487</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-03-31" />
@@ -9391,8 +9558,8 @@ Municipalities: Cienfuegos and Abreus</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">62463</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">62463</value>
       <provider-org type="10" ref="10956">
         <narrative>AGENCIA SUIZA PARA EL DESARROLLO Y LA COOPERACION (COSUDE)</narrative>
       </provider-org>
@@ -9439,8 +9606,8 @@ Municipalities: Cienfuegos and Abreus</narrative>
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">1059154</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">1059154</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -9540,7 +9707,7 @@ En Cienfuegos: Remodelación del complejo Gastronómico y recreativo TROPISUR, P
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00103430</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -9605,7 +9772,7 @@ Municipalities: Cienfuegos and Abreus</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">26396</value>
+      <value currency="USD" value-date="2018-04-30">26396</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -9633,8 +9800,8 @@ Municipalities: Cienfuegos and Abreus</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">26396</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">26396</value>
       <provider-org type="10" ref="XM-DAC-7">
         <narrative>GOVERNMENT OF NETHERLANDS</narrative>
       </provider-org>
@@ -9657,8 +9824,8 @@ Municipalities: Cienfuegos and Abreus</narrative>
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">30000</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">30000</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -9674,7 +9841,7 @@ Municipalities: Cienfuegos and Abreus</narrative>
     <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00092874" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00086492</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -9734,7 +9901,7 @@ Municipalities: Cienfuegos and Abreus</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00093748" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00093748</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -9798,7 +9965,7 @@ Municipalities: Cienfuegos and Abreus</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">37800</value>
+      <value currency="USD" value-date="2018-04-30">37800</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -9806,6 +9973,15 @@ Municipalities: Cienfuegos and Abreus</narrative>
       <value currency="USD" value-date="2017-12-31">12200</value>
     </budget>
     <capital-spend percentage="0" />
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">1289</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-03-31" />
@@ -9862,8 +10038,8 @@ Municipalities: Cienfuegos and Abreus</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">37800</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">37800</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -9886,8 +10062,8 @@ Municipalities: Cienfuegos and Abreus</narrative>
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">48435</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">48435</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -9934,7 +10110,7 @@ Municipalities: Cienfuegos and Abreus</narrative>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00086663</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -10019,7 +10195,7 @@ Municipalities: Cienfuegos and Abreus</narrative>
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00093880" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00093880</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -10492,7 +10668,7 @@ Municipalities: Cienfuegos and Abreus</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">10208</value>
+      <value currency="USD" value-date="2018-04-30">10208</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -10656,8 +10832,8 @@ Municipalities: Cienfuegos and Abreus</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">10208</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">10208</value>
       <provider-org type="40" ref="XI-IATI-EC_ECHO">
         <narrative>European Comm. Humanit. Aid Of</narrative>
       </provider-org>
@@ -10716,6 +10892,18 @@ Municipalities: Cienfuegos and Abreus</narrative>
     </transaction>
     <transaction>
       <transaction-type code="1" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">193237</value>
+      <provider-org type="40" ref="XI-IATI-EC_ECHO">
+        <narrative>European Comm. Humanit. Aid Of</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00093880">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
       <transaction-date iso-date="2016-12-31" />
       <value currency="USD" value-date="2016-12-31">347072</value>
       <provider-org type="40" ref="XI-IATI-EC_ECHO">
@@ -10740,8 +10928,8 @@ Municipalities: Cienfuegos and Abreus</narrative>
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">1035005</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">1035005</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -10847,7 +11035,7 @@ Los Estudios de Peligro, Vuln</narrative>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00093029</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -10948,7 +11136,7 @@ Los Estudios de Peligro, Vuln</narrative>
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00097492</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -10968,7 +11156,7 @@ Los Estudios de Peligro, Vuln</narrative>
     <activity-status code="2" />
     <activity-date type="1" iso-date="2016-01-01" />
     <activity-date type="2" iso-date="2016-01-01" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-12-04" />
     <contact-info type="1">
       <email>registry.cu@undp.org</email>
       <website>http://www.cu.undp.org/</website>
@@ -11013,7 +11201,7 @@ Municipalities: Consolacion del Sur y Los Palacios</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">319266</value>
+      <value currency="USD" value-date="2018-04-30">319266</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -11026,6 +11214,15 @@ Municipalities: Consolacion del Sur y Los Palacios</narrative>
       <value currency="USD" value-date="2016-12-31">367410</value>
     </budget>
     <capital-spend percentage="0" />
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">24549</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-03-31" />
@@ -11163,8 +11360,8 @@ Municipalities: Consolacion del Sur y Los Palacios</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">319266</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">319266</value>
       <provider-org type="10" ref="10956">
         <narrative>AGENCIA SUIZA PARA EL DESARROLLO Y LA COOPERACION (COSUDE)</narrative>
       </provider-org>
@@ -11199,8 +11396,8 @@ Municipalities: Consolacion del Sur y Los Palacios</narrative>
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">1189447</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">1189447</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -11286,7 +11483,7 @@ En Los Palacios:
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00093545</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -11409,7 +11606,7 @@ En Los Palacios:
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00097797</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -11432,7 +11629,7 @@ En Los Palacios:
     <activity-status code="2" />
     <activity-date type="1" iso-date="2016-01-01" />
     <activity-date type="2" iso-date="2016-01-01" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.cu@undp.org</email>
       <website>http://www.cu.undp.org/</website>
@@ -11475,7 +11672,7 @@ En Los Palacios:
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">180116</value>
+      <value currency="USD" value-date="2018-04-30">180116</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -11488,6 +11685,15 @@ En Los Palacios:
       <value currency="USD" value-date="2016-12-31">593670</value>
     </budget>
     <capital-spend percentage="0" />
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">10195</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-03-31" />
@@ -11634,8 +11840,8 @@ En Los Palacios:
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">20000</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">20000</value>
       <provider-org type="40" ref="XM-DAC-41114" provider-activity-id="XM-DAC-41114-PROJECT-00093545">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -11646,8 +11852,8 @@ En Los Palacios:
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">160116</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">160116</value>
       <provider-org type="10" ref="10956">
         <narrative>AGENCIA SUIZA PARA EL DESARROLLO Y LA COOPERACION (COSUDE)</narrative>
       </provider-org>
@@ -11694,8 +11900,8 @@ En Los Palacios:
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">1278739</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">1278739</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -11807,7 +12013,7 @@ Avanzada la formulación de la Estrategia Provincial de Pinar del Río e iniciad
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00103321</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -11827,7 +12033,7 @@ Avanzada la formulación de la Estrategia Provincial de Pinar del Río e iniciad
     <activity-status code="2" />
     <activity-date type="1" iso-date="2017-03-28" />
     <activity-date type="2" iso-date="2017-03-28" />
-    <activity-date type="3" iso-date="2018-03-28" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.cu@undp.org</email>
       <website>http://www.cu.undp.org/</website>
@@ -11872,9 +12078,18 @@ Efecto 3: Complementadas las políticas nacionales de descentralización y desar
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">265149</value>
+      <value currency="USD" value-date="2018-04-30">265149</value>
     </budget>
     <capital-spend percentage="0" />
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">23950</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-03-31" />
@@ -11904,8 +12119,8 @@ Efecto 3: Complementadas las políticas nacionales de descentralización y desar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">265149</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">265149</value>
       <provider-org type="10" ref="00137">
         <narrative>GOVERNMENT OF ITALY</narrative>
       </provider-org>
@@ -11928,8 +12143,8 @@ Efecto 3: Complementadas las políticas nacionales de descentralización y desar
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">265149</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">265149</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -11945,7 +12160,7 @@ Efecto 3: Complementadas las políticas nacionales de descentralización y desar
     <related-activity type="3" ref="XM-DAC-41114-OUTPUT-00097797" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00093890</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -11995,7 +12210,7 @@ Efecto 3: Complementadas las políticas nacionales de descentralización y desar
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00098144" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00098144</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -12018,7 +12233,7 @@ Efecto 3: Complementadas las políticas nacionales de descentralización y desar
     <activity-status code="2" />
     <activity-date type="1" iso-date="2016-01-01" />
     <activity-date type="2" iso-date="2016-01-01" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.cu@undp.org</email>
       <website>http://www.cu.undp.org/</website>
@@ -12039,7 +12254,7 @@ Efecto 3: Complementadas las políticas nacionales de descentralización y desar
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">10449</value>
+      <value currency="USD" value-date="2018-04-30">10449</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -12052,6 +12267,15 @@ Efecto 3: Complementadas las políticas nacionales de descentralización y desar
       <value currency="USD" value-date="2016-12-31">4320</value>
     </budget>
     <capital-spend percentage="0" />
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">3557</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-03-31" />
@@ -12171,8 +12395,8 @@ Efecto 3: Complementadas las políticas nacionales de descentralización y desar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">10449</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">10449</value>
       <provider-org type="10" ref="10956">
         <narrative>AGENCIA SUIZA PARA EL DESARROLLO Y LA COOPERACION (COSUDE)</narrative>
       </provider-org>
@@ -12219,8 +12443,8 @@ Efecto 3: Complementadas las políticas nacionales de descentralización y desar
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">16213</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">16213</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -12235,7 +12459,7 @@ Efecto 3: Complementadas las políticas nacionales de descentralización y desar
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00093890" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00094885</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -12288,7 +12512,7 @@ Efecto 3: Complementadas las políticas nacionales de descentralización y desar
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00098959" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00098959</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -12398,28 +12622,28 @@ Efecto 3: Complementadas las políticas nacionales de descentralización y desar
     <budget type="2" status="2">
       <period-start iso-date="2021-01-01" />
       <period-end iso-date="2021-12-31" />
-      <value currency="USD" value-date="2018-03-31">223500</value>
+      <value currency="USD" value-date="2018-04-30">223500</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2020-01-01" />
       <period-end iso-date="2020-12-31" />
-      <value currency="USD" value-date="2018-03-31">306293</value>
+      <value currency="USD" value-date="2018-04-30">306293</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2018-03-31">619450</value>
+      <value currency="USD" value-date="2018-04-30">619450</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">339330</value>
+      <value currency="USD" value-date="2018-04-30">339330</value>
     </budget>
     <capital-spend percentage="0" />
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">223500</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">223500</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -12430,8 +12654,8 @@ Efecto 3: Complementadas las políticas nacionales de descentralización y desar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">306293</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">306293</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -12442,8 +12666,8 @@ Efecto 3: Complementadas las políticas nacionales de descentralización y desar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">619450</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">619450</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -12454,8 +12678,8 @@ Efecto 3: Complementadas las políticas nacionales de descentralización y desar
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">339330</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">339330</value>
       <provider-org type="40" ref="10003">
         <narrative>Global Environment Fund Truste</narrative>
       </provider-org>
@@ -12466,8 +12690,8 @@ Efecto 3: Complementadas las políticas nacionales de descentralización y desar
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">1488573</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">1488573</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -12482,7 +12706,7 @@ Efecto 3: Complementadas las políticas nacionales de descentralización y desar
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00094885" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00095007</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -12583,7 +12807,7 @@ Efecto 3: Complementadas las políticas nacionales de descentralización y desar
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00099080</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -12603,7 +12827,7 @@ Efecto 3: Complementadas las políticas nacionales de descentralización y desar
     <activity-status code="2" />
     <activity-date type="1" iso-date="2016-01-01" />
     <activity-date type="2" iso-date="2016-01-01" />
-    <activity-date type="3" iso-date="2017-12-31" />
+    <activity-date type="3" iso-date="2018-12-31" />
     <contact-info type="1">
       <email>registry.cu@undp.org</email>
       <website>http://www.cu.undp.org/</website>
@@ -12648,7 +12872,7 @@ Municipalities: Holguin and Urbano Noris</narrative>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">166157</value>
+      <value currency="USD" value-date="2018-04-30">166157</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -12661,6 +12885,15 @@ Municipalities: Holguin and Urbano Noris</narrative>
       <value currency="USD" value-date="2016-12-31">649660</value>
     </budget>
     <capital-spend percentage="0" />
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">69511</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-03-31" />
@@ -12789,8 +13022,8 @@ Municipalities: Holguin and Urbano Noris</narrative>
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">166157</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">166157</value>
       <provider-org type="10" ref="10956">
         <narrative>AGENCIA SUIZA PARA EL DESARROLLO Y LA COOPERACION (COSUDE)</narrative>
       </provider-org>
@@ -12825,8 +13058,8 @@ Municipalities: Holguin and Urbano Noris</narrative>
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">1059005</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">1059005</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -12917,7 +13150,7 @@ En el municipio de Holguín:
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00095190</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -13004,7 +13237,7 @@ En el municipio de Holguín:
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00099199</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -13134,7 +13367,7 @@ En el municipio de Holguín:
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">876513</value>
+      <value currency="USD" value-date="2018-04-30">876513</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -13142,6 +13375,15 @@ En el municipio de Holguín:
       <value currency="USD" value-date="2017-12-31">123487</value>
     </budget>
     <capital-spend percentage="0" />
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">1864</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-03-31" />
@@ -13171,8 +13413,8 @@ En el municipio de Holguín:
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">876513</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">876513</value>
       <provider-org type="10" ref="00206">
         <narrative>GOVERNMENT OF RUSSIAN FEDERATION</narrative>
       </provider-org>
@@ -13207,8 +13449,8 @@ En el municipio de Holguín:
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">876622</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">876622</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -13273,7 +13515,7 @@ En el municipio de Holguín:
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00098032</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -13296,7 +13538,7 @@ En el municipio de Holguín:
     <activity-status code="2" />
     <activity-date type="1" iso-date="2016-09-01" />
     <activity-date type="2" iso-date="2016-09-01" />
-    <activity-date type="3" iso-date="2018-03-31" />
+    <activity-date type="3" iso-date="2018-08-31" />
     <contact-info type="1">
       <email>registry.cu@undp.org</email>
       <website>http://www.cu.undp.org/</website>
@@ -13328,6 +13570,20 @@ En el municipio de Holguín:
         <narrative>Desglose del presupuesto</narrative>
       </title>
       <category code="A05" />
+      <language code="es" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/CUB/22-NARRATIVE%20PROGRESS%20REPORT-%20CUBA.pdf">
+      <title>
+        <narrative>Reporte Narrativo de Progreso al MPTF</narrative>
+      </title>
+      <category code="A08" />
+      <language code="es" />
+    </document-link>
+    <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/CUB/Cuba%20SDG%20Fund%20-%20Monitoring%20Report%202.pdf">
+      <title>
+        <narrative>Segundo Informe Intermedio de Progreso al SDG-F</narrative>
+      </title>
+      <category code="A08" />
       <language code="es" />
     </document-link>
     <document-link format="application/pdf" url="https://info.undp.org/docs/pdc/Documents/CUB/1-I%20Informe%20Intermedio%20al%20donante%20(sept2016-marz2017).pdf">
@@ -13362,7 +13618,7 @@ En el municipio de Holguín:
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00101516" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00101516</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -13432,7 +13688,7 @@ En el municipio de Holguín:
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">523631</value>
+      <value currency="USD" value-date="2018-04-30">523631</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -13445,6 +13701,15 @@ En el municipio de Holguín:
       <value currency="USD" value-date="2016-12-31">18725</value>
     </budget>
     <capital-spend percentage="0" />
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">93051</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-03-31" />
@@ -13573,8 +13838,8 @@ En el municipio de Holguín:
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">523631</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">523631</value>
       <provider-org type="40" ref="12270">
         <narrative>MPTF-SDG Fund</narrative>
       </provider-org>
@@ -13633,8 +13898,8 @@ En el municipio de Holguín:
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">717606</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">717606</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -13732,7 +13997,7 @@ En el municipio de Holguín:
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00098033</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -13758,7 +14023,7 @@ En el municipio de Holguín:
     <activity-status code="2" />
     <activity-date type="1" iso-date="2016-08-31" />
     <activity-date type="2" iso-date="2016-08-31" />
-    <activity-date type="3" iso-date="2018-01-31" />
+    <activity-date type="3" iso-date="2018-04-30" />
     <contact-info type="1">
       <email>registry.cu@undp.org</email>
       <website>http://www.cu.undp.org/</website>
@@ -13839,7 +14104,7 @@ En el municipio de Holguín:
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00101517" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00101517</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -13912,7 +14177,7 @@ En el municipio de Holguín:
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">56833</value>
+      <value currency="USD" value-date="2018-04-30">56833</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -13920,6 +14185,15 @@ En el municipio de Holguín:
       <value currency="USD" value-date="2017-12-31">67215</value>
     </budget>
     <capital-spend percentage="0" />
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">22774</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-03-31" />
@@ -14012,8 +14286,8 @@ En el municipio de Holguín:
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">56833</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">56833</value>
       <provider-org type="40" ref="41140">
         <narrative>WORLD FOOD PROGRAMME</narrative>
       </provider-org>
@@ -14048,8 +14322,8 @@ En el municipio de Holguín:
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">24294</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">24294</value>
       <provider-org type="40" ref="41140">
         <narrative>WORLD FOOD PROGRAMME</narrative>
       </provider-org>
@@ -14084,8 +14358,8 @@ En el municipio de Holguín:
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">124114</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">124114</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -14176,7 +14450,7 @@ En el municipio de Holguín:
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00101031</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -14260,7 +14534,7 @@ En el municipio de Holguín:
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00103736" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00103736</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -14323,7 +14597,7 @@ En el municipio de Holguín:
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">48900</value>
+      <value currency="USD" value-date="2018-04-30">48900</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -14331,6 +14605,15 @@ En el municipio de Holguín:
       <value currency="USD" value-date="2017-12-31">47500</value>
     </budget>
     <capital-spend percentage="0" />
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">14710</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-03-31" />
@@ -14369,8 +14652,8 @@ En el municipio de Holguín:
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">48900</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">48900</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -14393,8 +14676,8 @@ En el municipio de Holguín:
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">65000</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">65000</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -14476,7 +14759,7 @@ En el municipio de Holguín:
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00106000</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -14592,7 +14875,7 @@ En el municipio de Holguín:
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00106956</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -14665,7 +14948,7 @@ En el municipio de Holguín:
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">73000</value>
+      <value currency="USD" value-date="2018-04-30">73000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -14673,6 +14956,15 @@ En el municipio de Holguín:
       <value currency="USD" value-date="2017-12-31">27000</value>
     </budget>
     <capital-spend percentage="0" />
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">4820</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-03-31" />
@@ -14720,8 +15012,8 @@ En el municipio de Holguín:
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">73000</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">73000</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -14744,8 +15036,8 @@ En el municipio de Holguín:
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">76803</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">76803</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -14813,7 +15105,7 @@ En el municipio de Holguín:
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00106970</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -14923,7 +15215,7 @@ En el municipio de Holguín:
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">305987</value>
+      <value currency="USD" value-date="2018-04-30">305987</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -14931,6 +15223,15 @@ En el municipio de Holguín:
       <value currency="USD" value-date="2017-12-31">194013</value>
     </budget>
     <capital-spend percentage="0" />
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">12799</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-03-31" />
@@ -14960,8 +15261,8 @@ En el municipio de Holguín:
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">305987</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">305987</value>
       <provider-org type="40" ref="12711">
         <narrative>UNDP Funding Windows</narrative>
       </provider-org>
@@ -14984,8 +15285,8 @@ En el municipio de Holguín:
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">305987</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">305987</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -15047,7 +15348,7 @@ En el municipio de Holguín:
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00106503</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -15142,7 +15443,7 @@ En el municipio de Holguín:
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00107220</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -15372,7 +15673,7 @@ En el municipio de Holguín:
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">962155</value>
+      <value currency="USD" value-date="2018-04-30">962155</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -15436,8 +15737,8 @@ En el municipio de Holguín:
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">962155</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">962155</value>
       <provider-org type="40" ref="XM-OCHA-CERF">
         <narrative>UNOCHA/Central Emergency Response Fund, CERF</narrative>
       </provider-org>
@@ -15472,8 +15773,8 @@ En el municipio de Holguín:
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">2549916</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">2549916</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -15530,7 +15831,7 @@ Han sido importadas:
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00106704</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -15578,7 +15879,7 @@ Han sido importadas:
     <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00107304" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00107304</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -15641,7 +15942,7 @@ Han sido importadas:
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">20000</value>
+      <value currency="USD" value-date="2018-04-30">20000</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -15660,8 +15961,8 @@ Han sido importadas:
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">20000</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">20000</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
       </provider-org>
@@ -15684,8 +15985,8 @@ Han sido importadas:
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">58891</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">58891</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -15700,7 +16001,7 @@ Han sido importadas:
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00106704" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00106735</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -15798,7 +16099,7 @@ Han sido importadas:
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00107313</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -15871,7 +16172,7 @@ Han sido importadas:
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">811835</value>
+      <value currency="USD" value-date="2018-04-30">811835</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -15879,6 +16180,15 @@ Han sido importadas:
       <value currency="USD" value-date="2017-12-31">96077</value>
     </budget>
     <capital-spend percentage="0" />
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">2607</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-03-31" />
@@ -15926,8 +16236,8 @@ Han sido importadas:
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">811835</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">811835</value>
       <provider-org type="40" ref="XI-IATI-EC_ECHO">
         <narrative>European Comm. Humanit. Aid Of</narrative>
       </provider-org>
@@ -15974,8 +16284,8 @@ Han sido importadas:
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">902321</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">902321</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -16024,7 +16334,7 @@ Han sido importadas:
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00107582</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -16111,7 +16421,7 @@ Han sido importadas:
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00107858</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -16461,7 +16771,7 @@ Han sido importadas:
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">1499342</value>
+      <value currency="USD" value-date="2018-04-30">1499342</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2017-01-01" />
@@ -16489,8 +16799,8 @@ Han sido importadas:
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">1499342</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">1499342</value>
       <provider-org type="10" ref="CH-4">
         <narrative>SWISS AGENCY FOR DEVELOPMENT AND COOPERATION - SDC</narrative>
       </provider-org>
@@ -16525,8 +16835,8 @@ Han sido importadas:
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">1499342</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">1499342</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -16541,7 +16851,7 @@ Han sido importadas:
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00107582" />
     <conditions attached="0" />
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
     <iati-identifier>XM-DAC-41114-PROJECT-00109527</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -16610,7 +16920,7 @@ Han sido importadas:
       </indicator>
     </result>
   </iati-activity>
-  <iati-activity last-updated-datetime="2018-04-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
     <iati-identifier>XM-DAC-41114-OUTPUT-00108866</iati-identifier>
     <reporting-org ref="XM-DAC-41114" type="40">
       <narrative>United Nations Development Programme</narrative>
@@ -16619,7 +16929,7 @@ Han sido importadas:
       <narrative>Sost. de la Respuesta al VIH</narrative>
     </title>
     <description type="1">
-      <narrative>Sostenibilidad de la Respuesta al VIH en la Republica de Cuba</narrative>
+      <narrative>To reduce the incidence of HIV and STIs among key populations, with an emphasis on MSM</narrative>
     </description>
     <participating-org role="4" type="40" ref="00896">
       <narrative>CUB-MINSAP</narrative>
@@ -16659,19 +16969,28 @@ Han sido importadas:
     <budget type="2" status="2">
       <period-start iso-date="2020-01-01" />
       <period-end iso-date="2020-12-31" />
-      <value currency="USD" value-date="2018-03-31">2035240</value>
+      <value currency="USD" value-date="2018-04-30">2035240</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2019-01-01" />
       <period-end iso-date="2019-12-31" />
-      <value currency="USD" value-date="2018-03-31">5201450</value>
+      <value currency="USD" value-date="2018-04-30">5201450</value>
     </budget>
     <budget type="2" status="2">
       <period-start iso-date="2018-01-01" />
       <period-end iso-date="2018-12-31" />
-      <value currency="USD" value-date="2018-03-31">6016535</value>
+      <value currency="USD" value-date="2018-04-30">6016535</value>
     </budget>
     <capital-spend percentage="0" />
+    <transaction>
+      <transaction-type code="4" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">22392</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
     <transaction>
       <transaction-type code="4" />
       <transaction-date iso-date="2018-03-31" />
@@ -16683,8 +17002,8 @@ Han sido importadas:
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">2035240</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">2035240</value>
       <provider-org type="40" ref="47045">
         <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
       </provider-org>
@@ -16695,8 +17014,8 @@ Han sido importadas:
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">5201450</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">5201450</value>
       <provider-org type="40" ref="47045">
         <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
       </provider-org>
@@ -16707,8 +17026,8 @@ Han sido importadas:
     </transaction>
     <transaction>
       <transaction-type code="11" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">6016535</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">6016535</value>
       <provider-org type="40" ref="47045">
         <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
       </provider-org>
@@ -16719,8 +17038,8 @@ Han sido importadas:
     </transaction>
     <transaction>
       <transaction-type code="1" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">4618580</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">5220536</value>
       <provider-org type="40" ref="47045">
         <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
       </provider-org>
@@ -16731,8 +17050,8 @@ Han sido importadas:
     </transaction>
     <transaction>
       <transaction-type code="2" />
-      <transaction-date iso-date="2018-03-31" />
-      <value currency="USD" value-date="2018-03-31">13253225</value>
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">13253225</value>
       <provider-org type="40" ref="XM-DAC-41114">
         <narrative>United Nations Development Programme</narrative>
       </provider-org>
@@ -16745,6 +17064,434 @@ Han sido importadas:
       <category code="A12" />
     </document-link>
     <related-activity type="1" ref="XM-DAC-41114-PROJECT-00109527" />
+    <conditions attached="0" />
+  </iati-activity>
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+    <iati-identifier>XM-DAC-41114-PROJECT-00110366</iati-identifier>
+    <reporting-org ref="XM-DAC-41114" type="40">
+      <narrative>United Nations Development Programme</narrative>
+    </reporting-org>
+    <title>
+      <narrative>PLATAFORMA ARTICULADA-GUANTANAMO</narrative>
+    </title>
+    <description type="1">
+      <narrative>PLATAFORMA ARTICULADA PARA EL DESARROLLO INTEGRAL TERRITORIAL EN GUANTANAMO. (PADIT-GUANTANAMO).</narrative>
+    </description>
+    <participating-org role="4" type="40" ref="00914">
+      <narrative>CUB-CAP-GUANTANAMO</narrative>
+    </participating-org>
+    <participating-org role="2" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="00137">
+      <narrative>GOVERNMENT OF ITALY</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="10956">
+      <narrative>AGENCIA SUIZA PARA EL DESARROLLO Y LA COOPERACION (COSUDE)</narrative>
+    </participating-org>
+    <activity-status code="2" />
+    <activity-date type="1" iso-date="2018-03-08" />
+    <activity-date type="2" iso-date="2018-03-08" />
+    <activity-date type="3" iso-date="2021-12-31" />
+    <contact-info type="1">
+      <email>registry.cu@undp.org</email>
+      <website>http://www.cu.undp.org/</website>
+    </contact-info>
+    <recipient-country code="CU">
+      <narrative>Cuba</narrative>
+    </recipient-country>
+    <sector vocabulary="1" code="99810" />
+    <sector vocabulary="7" code="17" />
+    <collaboration-type code="4" />
+    <default-flow-type code="10" />
+    <default-finance-type code="110" />
+    <default-aid-type code="C01" />
+    <default-tied-status code="3" />
+    <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00109320" />
+    <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Integrated Results and Resources Framework (IRRF)</narrative>
+      </title>
+      <description>
+        <narrative>The IRRF is UNDP’s results framework to monitor and report on its achievements against the Strategic Plan 2014-2017. UNDP publishes country level IRRF results that UNDP’s projects contributed to</narrative>
+      </description>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator 7.6.2.A.1.1</narrative>
+        </title>
+        <description>
+          <narrative>number of pilots and demonstration projects initiated by national partners</narrative>
+        </description>
+        <baseline year="2013" value="3" />
+        <period>
+          <period-start iso-date="2016-01-01" />
+          <period-end iso-date="2016-12-31" />
+          <target value="6">
+            <location ref="CU" />
+          </target>
+          <actual value="6">
+            <location ref="CU" />
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+          <target value="6">
+            <location ref="CU" />
+          </target>
+        </period>
+      </indicator>
+    </result>
+  </iati-activity>
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+    <iati-identifier>XM-DAC-41114-OUTPUT-00109320</iati-identifier>
+    <reporting-org ref="XM-DAC-41114" type="40">
+      <narrative>United Nations Development Programme</narrative>
+    </reporting-org>
+    <title>
+      <narrative>PLATAFORMA ARTICULADA-GUANTANA</narrative>
+    </title>
+    <description type="1">
+      <narrative>PLATAFORMA ARTICULADA PARA EL DESARROLLO INTEGRAL TERRITORIAL EN GUANTANAMO. (PADIT-GUANTANAMO).</narrative>
+    </description>
+    <participating-org role="4" type="40" ref="00914">
+      <narrative>CUB-CAP-GUANTANAMO</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="10956">
+      <narrative>AGENCIA SUIZA PARA EL DESARROLLO Y LA COOPERACION (COSUDE)</narrative>
+    </participating-org>
+    <participating-org role="1" type="10" ref="00137">
+      <narrative>GOVERNMENT OF ITALY</narrative>
+    </participating-org>
+    <activity-status code="2" />
+    <activity-date type="1" iso-date="2018-03-08" />
+    <activity-date type="2" iso-date="2018-03-08" />
+    <activity-date type="3" iso-date="2018-12-31" />
+    <contact-info type="1">
+      <email>registry.cu@undp.org</email>
+      <website>http://www.cu.undp.org/</website>
+    </contact-info>
+    <recipient-country code="CU">
+      <narrative>Cuba</narrative>
+    </recipient-country>
+    <sector vocabulary="1" code="99810" />
+    <sector vocabulary="7" code="17" />
+    <sector vocabulary="99" code="7">
+      <narrative>Thought Leadership</narrative>
+    </sector>
+    <policy-marker vocabulary="1" code="1" significance="1" />
+    <collaboration-type code="4" />
+    <default-flow-type code="10" />
+    <default-finance-type code="110" />
+    <default-aid-type code="C01" />
+    <default-tied-status code="3" />
+    <budget type="2" status="2">
+      <period-start iso-date="2021-01-01" />
+      <period-end iso-date="2021-12-31" />
+      <value currency="USD" value-date="2018-04-30">80906</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2020-01-01" />
+      <period-end iso-date="2020-12-31" />
+      <value currency="USD" value-date="2018-04-30">80906</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2019-01-01" />
+      <period-end iso-date="2019-12-31" />
+      <value currency="USD" value-date="2018-04-30">134906</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2018-04-30">328475</value>
+    </budget>
+    <capital-spend percentage="0" />
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">80906</value>
+      <provider-org type="10" ref="10956">
+        <narrative>AGENCIA SUIZA PARA EL DESARROLLO Y LA COOPERACION (COSUDE)</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00109320">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">80906</value>
+      <provider-org type="10" ref="10956">
+        <narrative>AGENCIA SUIZA PARA EL DESARROLLO Y LA COOPERACION (COSUDE)</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00109320">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">54000</value>
+      <provider-org type="10" ref="00137">
+        <narrative>GOVERNMENT OF ITALY</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00109320">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">80906</value>
+      <provider-org type="10" ref="10956">
+        <narrative>AGENCIA SUIZA PARA EL DESARROLLO Y LA COOPERACION (COSUDE)</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00109320">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">321193</value>
+      <provider-org type="10" ref="00137">
+        <narrative>GOVERNMENT OF ITALY</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00109320">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">7282</value>
+      <provider-org type="10" ref="10956">
+        <narrative>AGENCIA SUIZA PARA EL DESARROLLO Y LA COOPERACION (COSUDE)</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00109320">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">625193</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <document-link format="text/html" url="http://open.undp.org/#project/00110366">
+      <title>
+        <narrative>Activity web page</narrative>
+      </title>
+      <category code="A12" />
+    </document-link>
+    <related-activity type="1" ref="XM-DAC-41114-PROJECT-00110366" />
+    <conditions attached="0" />
+  </iati-activity>
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="1">
+    <iati-identifier>XM-DAC-41114-PROJECT-00110372</iati-identifier>
+    <reporting-org ref="XM-DAC-41114" type="40">
+      <narrative>United Nations Development Programme</narrative>
+    </reporting-org>
+    <title>
+      <narrative>Fortalecimiento del Mecanismo de Coordinación de País</narrative>
+    </title>
+    <description type="1">
+      <narrative>Fortalecimiento del Mecanismo de Coordinación de país para el seguimiento a proyecto de transicion en la Atención a Poblaciones Clave financiado por el Fondo Mundial de lucha contra el sida, la Malaria y la Tuberculosis.</narrative>
+    </description>
+    <participating-org role="4" type="10" ref="00884">
+      <narrative>Ministerio Inversión Extranjer</narrative>
+    </participating-org>
+    <participating-org role="2" type="40" ref="XM-DAC-41114">
+      <narrative>UNITED NATIONS DEVELOPMENT PROGRAMME</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="47045">
+      <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
+    </participating-org>
+    <activity-status code="2" />
+    <activity-date type="1" iso-date="2017-06-01" />
+    <activity-date type="2" iso-date="2017-06-01" />
+    <activity-date type="3" iso-date="2020-05-31" />
+    <contact-info type="1">
+      <email>registry.cu@undp.org</email>
+      <website>http://www.cu.undp.org/</website>
+    </contact-info>
+    <recipient-country code="CU">
+      <narrative>Cuba</narrative>
+    </recipient-country>
+    <sector vocabulary="1" code="13040" />
+    <sector vocabulary="7" code="3" />
+    <collaboration-type code="4" />
+    <default-flow-type code="10" />
+    <default-finance-type code="110" />
+    <default-aid-type code="C01" />
+    <default-tied-status code="3" />
+    <related-activity type="2" ref="XM-DAC-41114-OUTPUT-00109328" />
+    <conditions attached="0" />
+    <result type="1" aggregation-status="1">
+      <title>
+        <narrative>Integrated Results and Resources Framework (IRRF)</narrative>
+      </title>
+      <description>
+        <narrative>The IRRF is UNDP’s results framework to monitor and report on its achievements against the Strategic Plan 2014-2017. UNDP publishes country level IRRF results that UNDP’s projects contributed to</narrative>
+      </description>
+      <indicator ascending="0" measure="1">
+        <title>
+          <narrative>Output Indicator 3.3.1.B.3.1</narrative>
+        </title>
+        <description>
+          <narrative>Total number of people receiving antiretroviral treatment [HQ DATA]</narrative>
+        </description>
+        <baseline year="2013" value="" />
+        <period>
+          <period-start iso-date="2016-01-01" />
+          <period-end iso-date="2016-12-31" />
+          <actual value="17164">
+            <location ref="CU" />
+          </actual>
+        </period>
+        <period>
+          <period-start iso-date="2017-01-01" />
+          <period-end iso-date="2017-12-31" />
+        </period>
+      </indicator>
+    </result>
+  </iati-activity>
+  <iati-activity last-updated-datetime="2018-05-01T00:02:02" default-currency="USD" xml:lang="es" hierarchy="2">
+    <iati-identifier>XM-DAC-41114-OUTPUT-00109328</iati-identifier>
+    <reporting-org ref="XM-DAC-41114" type="40">
+      <narrative>United Nations Development Programme</narrative>
+    </reporting-org>
+    <title>
+      <narrative>Fortalecimiento del MCP</narrative>
+    </title>
+    <description type="1">
+      <narrative>Fortalecimiento del Mecanismo de Coordinación de país.</narrative>
+    </description>
+    <participating-org role="4" type="10" ref="00884">
+      <narrative>Ministerio Inversión Extranjer</narrative>
+    </participating-org>
+    <participating-org role="1" type="40" ref="47045">
+      <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
+    </participating-org>
+    <activity-status code="2" />
+    <activity-date type="1" iso-date="2017-06-01" />
+    <activity-date type="2" iso-date="2017-06-01" />
+    <activity-date type="3" iso-date="2020-05-31" />
+    <contact-info type="1">
+      <email>registry.cu@undp.org</email>
+      <website>http://www.cu.undp.org/</website>
+    </contact-info>
+    <recipient-country code="CU">
+      <narrative>Cuba</narrative>
+    </recipient-country>
+    <sector vocabulary="1" code="13040" />
+    <sector vocabulary="7" code="3" />
+    <sector vocabulary="99" code="3">
+      <narrative>Basic Services</narrative>
+    </sector>
+    <country-budget-items vocabulary="1">
+      <budget-item code="5.1.1" percentage="100">
+        <description>
+          <narrative>Health - policy, planning and administration</narrative>
+        </description>
+      </budget-item>
+    </country-budget-items>
+    <policy-marker vocabulary="1" code="1" significance="0" />
+    <collaboration-type code="4" />
+    <default-flow-type code="10" />
+    <default-finance-type code="110" />
+    <default-aid-type code="C01" />
+    <default-tied-status code="3" />
+    <budget type="2" status="2">
+      <period-start iso-date="2019-01-01" />
+      <period-end iso-date="2019-12-31" />
+      <value currency="USD" value-date="2018-04-30">40000</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2018-01-01" />
+      <period-end iso-date="2018-12-31" />
+      <value currency="USD" value-date="2018-04-30">40000</value>
+    </budget>
+    <budget type="2" status="2">
+      <period-start iso-date="2017-01-01" />
+      <period-end iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">40000</value>
+    </budget>
+    <capital-spend percentage="0" />
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">40000</value>
+      <provider-org type="40" ref="47045">
+        <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00109328">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">40000</value>
+      <provider-org type="40" ref="47045">
+        <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00109328">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="11" />
+      <transaction-date iso-date="2017-12-31" />
+      <value currency="USD" value-date="2017-12-31">40000</value>
+      <provider-org type="40" ref="47045">
+        <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00109328">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="1" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">40000</value>
+      <provider-org type="40" ref="47045">
+        <narrative>GLOBAL FUND TO FIGHT AIDS, TUBERCULOSIS</narrative>
+      </provider-org>
+      <receiver-org type="40" ref="XM-DAC-41114" receiver-activity-id="XM-DAC-41114-OUTPUT-00109328">
+        <narrative>United Nations Development Programme</narrative>
+      </receiver-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <transaction>
+      <transaction-type code="2" />
+      <transaction-date iso-date="2018-04-30" />
+      <value currency="USD" value-date="2018-04-30">80000</value>
+      <provider-org type="40" ref="XM-DAC-41114">
+        <narrative>United Nations Development Programme</narrative>
+      </provider-org>
+      <disbursement-channel code="2" />
+    </transaction>
+    <document-link format="text/html" url="http://open.undp.org/#project/00110372">
+      <title>
+        <narrative>Activity web page</narrative>
+      </title>
+      <category code="A12" />
+    </document-link>
+    <related-activity type="1" ref="XM-DAC-41114-PROJECT-00110372" />
     <conditions attached="0" />
   </iati-activity>
 </iati-activities>
