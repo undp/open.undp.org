@@ -1,3 +1,5 @@
+# UPDATE: as of June 20th, 2018 new version of the site has been deployed and this codebase is not updated anymore
+
 # Open.undp.org Documentation
  
 Open.undp.org is a CMS-free [Jekyll site](https://github.com/mojombo/jekyll) designed by [Development Seed](http://developmentseed.org). Its purpose is to visualize [UNDP](http://www.undp.org)'s global project data through an updatable, static data API.
